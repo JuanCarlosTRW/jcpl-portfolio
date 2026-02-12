@@ -38,7 +38,7 @@ export default function Navbar() {
           <span className="text-xl font-bold tracking-tight text-white">
             JC
           </span>
-          <span className="hidden sm:inline text-sm text-[#9a9ab0] font-medium">
+          <span className="hidden sm:inline text-sm text-[var(--text-3)] font-medium">
             Growth Systems
           </span>
         </Link>
@@ -52,8 +52,8 @@ export default function Navbar() {
               className={cn(
                 "text-sm font-medium transition-colors duration-200",
                 pathname === item.href
-                  ? "text-white"
-                  : "text-[#9a9ab0] hover:text-white"
+                  ? "text-[var(--text)]"
+                  : "text-[var(--text-3)] hover:text-[var(--emerald)]"
               )}
             >
               {item.label}
@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             href="/apply"
-            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]"
+            className="inline-flex items-center gap-2 rounded-xl bg-[var(--emerald)] px-5 py-2.5 text-sm font-semibold text-[var(--bg)] transition-all duration-300 hover:bg-[var(--emerald-deep)] shadow-[0_0_20px_rgba(80,200,120,0.3)] hover:shadow-[0_0_30px_rgba(80,200,120,0.5)]"
           >
             {ctaCopy.primary}
             <span className="transition-transform duration-300">→</span>

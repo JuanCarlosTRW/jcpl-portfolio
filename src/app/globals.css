@@ -1,51 +1,136 @@
 @import "tailwindcss";
 
-/* ─── Design Tokens ─── */
+/* ═══════════════════════════════════════════════════
+   EMERALD DARK LUXE — Design Token System
+   ═══════════════════════════════════════════════════ */
+
 :root {
-  --color-bg: #050507;
-  --color-surface: #0c0c10;
-  --color-surface-elevated: #141418;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-hover: rgba(255, 255, 255, 0.12);
-  --color-text: #f0f0f5;
-  --color-text-secondary: #9a9ab0;
-  --color-text-muted: #5c5c72;
-  --color-accent: #6366f1;
-  --color-accent-hover: #818cf8;
-  --color-accent-glow: rgba(99, 102, 241, 0.25);
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --radius-lg: 16px;
-  --radius-md: 12px;
-  --radius-sm: 8px;
+  /* ─── Backgrounds ─── */
+  --bg-base: #0E1512;
+  --bg-surface: #111D18;
+  --bg-elevated: #16251F;
+  --bg-soft: #0B1F19;
+
+  /* ─── Text ─── */
+  --text-primary: #F3F7F2;
+  --text-secondary: #DDE7DA;
+  --text-muted: #A7B8A4;
+
+  /* ─── Brand ─── */
+  --emerald: #50C878;
+  --emerald-deep: #0B3D2E;
+  --forest: #004B3B;
+  --moss: #355E3B;
+  --heritage: #5A7757;
+
+  /* ─── Semantic ─── */
+  --color-success: #50C878;
+  --color-danger: #D95C5C;
+  --color-warning: #E2A336;
+
+  /* ─── Borders & Effects ─── */
+  --border: rgba(221, 231, 218, 0.14);
+  --border-2: rgba(221, 231, 218, 0.22);
+  --glow-primary: 0 0 0 1px rgba(80,200,120,.30), 0 14px 50px rgba(80,200,120,.12);
+  --shadow-premium: 0 14px 60px rgba(0,0,0,0.45);
+  --shadow-soft: 0 4px 24px rgba(0,0,0,.25);
+
+  /* ─── Radius ─── */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* ─── Spacing (8pt) ─── */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
 }
 
 @theme inline {
-  --color-background: var(--color-bg);
-  --color-foreground: var(--color-text);
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-primary);
 }
 
-/* ─── Base ─── */
+/* ═══════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════ */
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--brand-primary);
+  color: #0E1512;
 }
 
-/* ─── Utility Classes ─── */
+/* ═══════════════════════════════════════════════════
+   TYPOGRAPHY SCALE (Desktop / Mobile)
+   H1: 56/64 → 36/44
+   H2: 40/48 → 30/38
+   H3: 28/36 → 22/30
+   Body: 18/28 → 16/26
+   Caption: 14/22
+   ═══════════════════════════════════════════════════ */
+
+.heading-1 {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.heading-2 {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.heading-3 {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.body-text {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-secondary);
+}
+.caption-text {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  .heading-1 { font-size: 56px; line-height: 64px; }
+  .heading-2 { font-size: 40px; line-height: 48px; }
+  .heading-3 { font-size: 28px; line-height: 36px; }
+  .body-text { font-size: 18px; line-height: 28px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════ */
+
 .gradient-text {
-  background: linear-gradient(135deg, #f0f0f5 0%, #6366f1 50%, #818cf8 100%);
+  background: linear-gradient(135deg, #F3F7F2 0%, #50C878 60%, #65C6B7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -60,7 +145,7 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(129, 140, 248, 0.1));
+  background: linear-gradient(135deg, rgba(80,200,120,0.3), rgba(101,198,183,0.1));
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -69,24 +154,53 @@ body {
 }
 
 .glass {
-  background: rgba(12, 12, 16, 0.7);
+  background: rgba(14, 21, 18, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* ─── Scrollbar ─── */
-::-webkit-scrollbar {
-  width: 6px;
+.surface-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-text-muted);
-  border-radius: 3px;
+.surface-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-soft);
 }
 
-/* ─── Reduced Motion ─── */
+.elevated-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+}
+
+/* ─── Brand accent text (not gradient) ─── */
+.text-brand { color: var(--brand-primary); }
+.text-brand-deep { color: var(--brand-deep); }
+
+/* ═══════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════ */
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--brand-heritage); border-radius: 3px; }
+
+/* ═══════════════════════════════════════════════════
+   FOCUS STATES (WCAG AA)
+   ═══════════════════════════════════════════════════ */
+
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════ */
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

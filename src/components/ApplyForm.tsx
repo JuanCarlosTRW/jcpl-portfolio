@@ -96,7 +96,7 @@ export default function ApplyForm() {
           Let&apos;s Build Your{" "}
           <span className="gradient-text">Growth System</span>
         </h1>
-        <p className="text-lg text-[#9a9ab0] mb-12">
+        <p className="text-lg text-[var(--text-3)] mb-12">
           Answer a few quick questions so I can understand your business and
           goals. If we&apos;re a fit, you&apos;ll be able to book a strategy
           call right away.
@@ -105,7 +105,7 @@ export default function ApplyForm() {
         {/* Progress bar */}
         {status === "idle" && (
           <div className="mb-10">
-            <div className="flex justify-between text-xs text-[#5c5c72] mb-2">
+            <div className="flex justify-between text-xs text-[var(--text-3)] mb-2">
               <span>
                 Step {currentStep + 1} of {totalSteps}
               </span>
@@ -113,7 +113,7 @@ export default function ApplyForm() {
             </div>
             <div className="h-1 w-full rounded-full bg-white/5">
               <motion.div
-                className="h-1 rounded-full bg-indigo-600"
+                className="h-1 rounded-full bg-[var(--emerald)]"
                 initial={false}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
@@ -133,7 +133,7 @@ export default function ApplyForm() {
               onSubmit={handleNext}
               className="space-y-6"
             >
-              <h2 className="text-xl font-bold text-white mb-6">
+              <h2 className="text-xl font-bold text-[var(--text)] mb-6">
                 {step.title}
               </h2>
 
@@ -141,11 +141,11 @@ export default function ApplyForm() {
                 <div key={field.name}>
                   <label
                     htmlFor={field.name}
-                    className="block text-sm font-medium text-[#9a9ab0] mb-2"
+                    className="block text-sm font-medium text-[var(--text-3)] mb-2"
                   >
                     {field.label}
                     {field.required && (
-                      <span className="text-indigo-400 ml-1">*</span>
+                      <span className="text-[var(--emerald)] ml-1">*</span>
                     )}
                   </label>
 
