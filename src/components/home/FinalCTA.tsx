@@ -9,16 +9,16 @@ export default function FinalCTA() {
   return (
     <SectionWrapper>
       <AnimatedSection className="text-center">
-        <div className="gradient-border rounded-3xl bg-[#0c0c10] py-16 px-8 md:py-24 md:px-16 relative overflow-hidden">
+        <div className="gradient-border rounded-3xl bg-[var(--bg-surface)] py-16 px-8 md:py-24 md:px-16 relative overflow-hidden">
           {/* Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[var(--brand-accent)]/10 rounded-full blur-[120px]" />
 
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
               Ready to Build Your{" "}
               <span className="gradient-text">Growth System</span>?
             </h2>
-            <p className="text-lg text-[#9a9ab0] max-w-xl mx-auto mb-8">
+            <p className="text-lg text-[var(--text-secondary)] max-w-xl mx-auto mb-8">
               Let&apos;s talk about your business, your goals, and how a
               Presence-to-Pipeline System™ can fill your calendar with
               qualified leads.

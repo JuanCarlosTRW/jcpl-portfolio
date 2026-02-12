@@ -20,20 +20,15 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Aurora background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] animate-[spin_60s_linear_infinite] opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/30 rounded-full blur-[120px]" />
-          <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-purple-600/20 rounded-full blur-[100px]" />
-          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-blue-600/20 rounded-full blur-[100px]" />
-        </div>
-        {/* Grid overlay */}
+      {/* Luxury atmospheric background */}
+      <div className="absolute inset-0 overflow-hidden" style={{ background: 'var(--hero-atmo)' }}>
+        {/* Subtle grid overlay */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+              "linear-gradient(rgba(217,230,218,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(217,230,218,0.08) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
           }}
         />
       </div>
@@ -46,9 +41,9 @@ export default function Hero() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-4 py-2">
-            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm text-[#9a9ab0]">Building growth systems for</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-accent)]/20 bg-[var(--brand-accent)]/5 px-4 py-2">
+            <span className="h-2 w-2 rounded-full bg-[var(--brand-accent)] animate-pulse" />
+            <span className="text-sm text-[var(--text-muted)]">Building growth systems for</span>
             <AnimatePresence mode="wait">
               <motion.span
                 key={nicheIndex}
@@ -56,7 +51,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
                 transition={{ duration: 0.4 }}
-                className="text-sm font-semibold text-indigo-400"
+                className="text-sm font-semibold text-[var(--brand-accent)]"
               >
                 {hero.rotatingNiches[nicheIndex]}
               </motion.span>
@@ -92,7 +87,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ delay: 1.2, duration: 0.7 }}
-          className="mt-6 text-lg md:text-xl text-[#9a9ab0] max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed"
         >
           {hero.subheadline}
         </motion.p>
@@ -107,7 +102,8 @@ export default function Hero() {
           <Link
             href={ctaCopy.href}
             onClick={() => trackEvent("hero_cta_click")}
-            className="group inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-indigo-500 shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]"
+            className="group inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-[var(--bg-base)] transition-all duration-300 hover:bg-[var(--brand-strong)] hover:scale-[1.02] shadow-[var(--glow-accent)]"
+            style={{ boxShadow: 'var(--glow-accent)' }}
           >
             {ctaCopy.primary}
             <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -116,7 +112,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:border-indigo-500/50 hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-xl border border-[var(--border-soft)] bg-white/5 px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-all duration-300 hover:border-[var(--brand-accent)]/40 hover:bg-white/10"
           >
             See Results
           </Link>
@@ -127,27 +123,27 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.0, duration: 0.8 }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-[#5c5c72]"
+          className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-[var(--text-muted)]"
         >
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-white">$20K+</span>
+            <span className="text-2xl font-bold text-[var(--brand-accent)]">$20K+</span>
             <span>generated for clients</span>
           </div>
-          <div className="h-4 w-px bg-white/10" />
+          <div className="h-4 w-px bg-[var(--border-soft)]" />
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-white">3+</span>
+            <span className="text-2xl font-bold text-[var(--brand-accent)]">3+</span>
             <span>active growth systems</span>
           </div>
-          <div className="h-4 w-px bg-white/10 hidden sm:block" />
+          <div className="h-4 w-px bg-[var(--border-soft)] hidden sm:block" />
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-white">&lt;30</span>
+            <span className="text-2xl font-bold text-[var(--brand-accent)]">&lt;30</span>
             <span>days to first leads</span>
           </div>
         </motion.div>
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050507] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--bg-base)] to-transparent" />
     </section>
   );
 }

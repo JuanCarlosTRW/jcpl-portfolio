@@ -156,7 +156,7 @@ export default function ApplyForm() {
                       onChange={(e) =>
                         updateField(field.name, e.target.value)
                       }
-                      className="w-full rounded-xl bg-[#0c0c10] border border-white/10 px-4 py-3 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none transition-colors appearance-none"
+                      className="w-full rounded-xl bg-[var(--bg-surface)] border border-[var(--border-soft)] px-4 py-3 text-[var(--text-primary)] focus:border-[var(--brand-accent)] focus:ring-1 focus:ring-[var(--brand-accent)]/30 focus:outline-none transition-all appearance-none"
                     >
                       <option value="">Select an option</option>
                       {field.options?.map((opt) => (
@@ -173,13 +173,13 @@ export default function ApplyForm() {
                       onChange={(e) =>
                         updateField(field.name, e.target.value)
                       }
-                      className="w-full rounded-xl bg-[#0c0c10] border border-white/10 px-4 py-3 text-white placeholder-[#5c5c72] focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none transition-colors"
+                      className="w-full rounded-xl bg-[var(--bg-surface)] border border-[var(--border-soft)] px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--brand-accent)] focus:ring-1 focus:ring-[var(--brand-accent)]/30 focus:outline-none transition-all"
                       placeholder={`Enter your ${field.label.toLowerCase()}`}
                     />
                   )}
 
                   {errors[field.name] && (
-                    <p className="mt-1 text-sm text-red-400">
+                    <p className="mt-1 text-sm text-[var(--color-danger)]">
                       {errors[field.name]}
                     </p>
                   )}
@@ -191,14 +191,15 @@ export default function ApplyForm() {
                   <button
                     type="button"
                     onClick={handleBack}
-                    className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10"
+                    className="rounded-xl border border-[var(--border-soft)] bg-white/5 px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-all hover:bg-white/10 hover:border-[var(--border-strong)]"
                   >
                     ← Back
                   </button>
                 )}
                 <button
                   type="submit"
-                  className="flex-1 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]"
+                  className="flex-1 rounded-xl bg-[var(--brand-accent)] px-6 py-3 text-sm font-semibold text-[var(--bg-base)] transition-all hover:bg-[var(--brand-strong)] hover:scale-[1.02]"
+                  style={{ boxShadow: 'var(--glow-accent)' }}
                 >
                   {currentStep < totalSteps - 1
                     ? "Continue →"
@@ -206,7 +207,7 @@ export default function ApplyForm() {
                 </button>
               </div>
 
-              <p className="text-xs text-[#5c5c72] text-center pt-2">
+              <p className="text-xs text-[var(--text-muted)] text-center pt-2">
                 Your information is kept confidential and never shared.
               </p>
             </motion.form>
@@ -219,8 +220,8 @@ export default function ApplyForm() {
               animate={{ opacity: 1 }}
               className="text-center py-16"
             >
-              <div className="inline-flex h-12 w-12 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent mb-4" />
-              <p className="text-[#9a9ab0]">Reviewing your application...</p>
+              <div className="inline-flex h-12 w-12 animate-spin rounded-full border-4 border-[var(--brand-accent)] border-t-transparent mb-4" />
+              <p className="text-[var(--text-secondary)]">Reviewing your application...</p>
             </motion.div>
           )}
 
@@ -231,34 +232,35 @@ export default function ApplyForm() {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center"
             >
-              <div className="gradient-border rounded-2xl bg-[#0c0c10] p-10 md:p-14">
+              <div className="gradient-border rounded-2xl bg-[var(--bg-surface)] p-10 md:p-14">
                 <div className="text-5xl mb-4">🎉</div>
-                <h2 className="text-2xl font-bold text-white mb-3">
+                <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-3">
                   Great News — You&apos;re a Fit!
                 </h2>
-                <p className="text-[#9a9ab0] mb-8 max-w-md mx-auto">
+                <p className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto">
                   Based on your answers, I believe we can build something
                   powerful together. Book a free strategy call below to get
                   started.
                 </p>
 
                 {/* Calendly embed placeholder */}
-                <div className="rounded-xl bg-white/[0.02] border border-indigo-500/20 p-8 mb-6">
-                  <p className="text-[#5c5c72] text-sm mb-4">
+                <div className="rounded-xl bg-white/[0.02] border border-[var(--brand-accent)]/20 p-8 mb-6">
+                  <p className="text-[var(--text-muted)] text-sm mb-4">
                     Calendly Embed Placeholder
                   </p>
                   <a
                     href="https://calendly.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-8 py-4 text-base font-semibold text-white transition-all hover:bg-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.3)]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-[var(--bg-base)] transition-all hover:bg-[var(--brand-strong)] hover:scale-[1.02]"
+                    style={{ boxShadow: 'var(--glow-accent)' }}
                     onClick={() => trackEvent("calendly_view")}
                   >
                     Book Your Strategy Call →
                   </a>
                 </div>
 
-                <p className="text-xs text-[#5c5c72]">
+                <p className="text-xs text-[var(--text-muted)]">
                   30-minute call • No obligation • 100% free
                 </p>
               </div>
@@ -272,21 +274,21 @@ export default function ApplyForm() {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center"
             >
-              <div className="gradient-border rounded-2xl bg-[#0c0c10] p-10 md:p-14">
+              <div className="gradient-border rounded-2xl bg-[var(--bg-surface)] p-10 md:p-14">
                 <div className="text-5xl mb-4">📬</div>
-                <h2 className="text-2xl font-bold text-white mb-3">
+                <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-3">
                   Thanks for Your Interest!
                 </h2>
-                <p className="text-[#9a9ab0] mb-6 max-w-md mx-auto">
+                <p className="text-[var(--text-secondary)] mb-6 max-w-md mx-auto">
                   Based on your current situation, my services may not be the
                   best fit right now — but I&apos;d love to stay in touch and
                   help when the timing is right.
                 </p>
-                <p className="text-[#9a9ab0] mb-8 max-w-md mx-auto">
+                <p className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto">
                   I&apos;ll send you actionable growth tips you can
                   implement today — no spam, just value.
                 </p>
-                <div className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-6 py-3 text-sm text-white">
+                <div className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-[var(--border-soft)] px-6 py-3 text-sm text-[var(--brand-accent)]">
                   ✓ You&apos;re on the list — check your inbox!
                 </div>
               </div>

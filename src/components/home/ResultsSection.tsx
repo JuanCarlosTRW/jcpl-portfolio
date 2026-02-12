@@ -12,21 +12,21 @@ export default function ResultsSection() {
     <SectionWrapper>
       <AnimatedSection className="text-center mb-16">
         <SectionLabel label={resultsPreview.label} className="mb-6" />
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)]">
           {resultsPreview.headline}
         </h2>
       </AnimatedSection>
 
       {/* Featured result */}
       <AnimatedSection delay={0.1}>
-        <div className="gradient-border rounded-3xl bg-[#0c0c10] p-10 md:p-14 text-center mb-12">
+        <div className="gradient-border rounded-3xl bg-[var(--bg-surface)] p-10 md:p-14 text-center mb-12">
           <div className="text-5xl md:text-7xl font-bold gradient-text mb-2">
             $<CountUp end={20000} />
           </div>
-          <p className="text-lg text-[#9a9ab0] mb-1">
+          <p className="text-lg text-[var(--text-secondary)] mb-1">
             {resultsPreview.featured.context}
           </p>
-          <p className="text-sm text-[#5c5c72]">
+          <p className="text-sm text-[var(--text-muted)]">
             {resultsPreview.featured.client} •{" "}
             {resultsPreview.featured.method}
           </p>
@@ -37,11 +37,11 @@ export default function ResultsSection() {
       <div className="grid gap-6 md:grid-cols-3 mb-12">
         {resultsPreview.highlights.map((item, i) => (
           <AnimatedSection key={i} delay={0.15 * i}>
-            <div className="rounded-2xl border border-white/5 bg-[#0c0c10] p-8 text-center transition-all duration-300 hover:border-indigo-500/20">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <div className="rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-surface)] p-8 text-center transition-all duration-300 hover:border-[var(--brand-accent)]/30">
+              <div className="text-3xl md:text-4xl font-bold text-[var(--brand-accent)] mb-2">
                 {item.metric}
               </div>
-              <p className="text-sm text-[#9a9ab0]">{item.label}</p>
+              <p className="text-sm text-[var(--text-secondary)]">{item.label}</p>
             </div>
           </AnimatedSection>
         ))}
