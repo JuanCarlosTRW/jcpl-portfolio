@@ -7,10 +7,11 @@ const INTRO_EASE = "power3.out";
 
 export const HERO_TIMING = {
   eyebrow: { delay: 0, duration: 0.6, y: 14 },
-  headline: { delay: 0.15, duration: 0.8, y: 24 },
-  sub: { delay: 0.35, duration: 0.65, y: 18 },
-  ctas: { delay: 0.55, duration: 0.55, y: 16, stagger: 0.12 },
-  metrics: { delay: 0.7, duration: 0.45, y: 12, stagger: 0.1 },
+  headline: { delay: 0.12, duration: 0.85, y: 28 },
+  sub: { delay: 0.32, duration: 0.65, y: 18 },
+  ctas: { delay: 0.52, duration: 0.55, y: 16, stagger: 0.1 },
+  proof: { delay: 0.68, duration: 0.5, y: 10, stagger: 0.08 },
+  authority: { delay: 0.88, duration: 0.6, y: 8 },
 } as const;
 
 /* ═══════════════════════════════════════════════════
@@ -23,7 +24,7 @@ export const prefersReducedMotion = (): boolean => {
 
 /* ═══════════════════════════════════════════════════
    HERO INTRO SEQUENCE
-   Orchestrated stagger: eyebrow → headline → sub → CTAs → metrics
+   eyebrow → headline → sub → CTAs → proof → authority
    ═══════════════════════════════════════════════════ */
 export const heroIntroSequence = (
   elements: {
@@ -31,7 +32,8 @@ export const heroIntroSequence = (
     headline?: HTMLElement | null;
     subheadline?: HTMLElement | null;
     ctas?: HTMLElement | null;
-    metrics?: HTMLElement | null;
+    proof?: HTMLElement | null;
+    authority?: HTMLElement | null;
   },
   onComplete?: () => void
 ): gsap.core.Timeline | null => {
@@ -96,22 +98,32 @@ export const heroIntroSequence = (
     }
   }
 
-  // Metrics
-  if (elements.metrics) {
-    const items = elements.metrics.querySelectorAll("[data-metric]");
+  // Proof line — staggered items
+  if (elements.proof) {
+    const items = elements.proof.querySelectorAll("[data-proof]");
     if (items.length) {
       tl.fromTo(
         items,
-        { opacity: 0, y: HERO_TIMING.metrics.y },
+        { opacity: 0, y: HERO_TIMING.proof.y },
         {
           opacity: 1,
           y: 0,
-          duration: HERO_TIMING.metrics.duration,
-          stagger: HERO_TIMING.metrics.stagger,
+          duration: HERO_TIMING.proof.duration,
+          stagger: HERO_TIMING.proof.stagger,
         },
-        HERO_TIMING.metrics.delay
+        HERO_TIMING.proof.delay
       );
     }
+  }
+
+  // Authority micro-line — last, subtle
+  if (elements.authority) {
+    tl.fromTo(
+      elements.authority,
+      { opacity: 0, y: HERO_TIMING.authority.y },
+      { opacity: 1, y: 0, duration: HERO_TIMING.authority.duration },
+      HERO_TIMING.authority.delay
+    );
   }
 
   return tl;

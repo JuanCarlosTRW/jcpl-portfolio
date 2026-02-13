@@ -14,21 +14,31 @@ const Aurora = dynamic(() => import("@/components/motion/Aurora"), {
 });
 
 /* ═══════════════════════════════════════════════════
-   COPY & DATA — easy to edit
+   COPY — conversion-optimized, outcome-driven
    ═══════════════════════════════════════════════════ */
-const EYEBROW = "Growth Systems Architect";
-const HEADLINE =
-  "I engineer growth systems that turn demand into predictable revenue.";
+const EYEBROW = "Engineered Growth Systems for Service Businesses";
+
+/* Headline structured with a line break for max visual punch.
+   First line = tension ("unpredictable lead flow").
+   Second line = outcome ("controlled revenue growth"). */
+const HEADLINE_L1 = "Turn unpredictable lead flow";
+const HEADLINE_L2 = "into controlled revenue growth.";
+
 const SUBHEADLINE =
-  "Acquisition funnels, conversion systems, and AI automation — built to scale your business without scaling your headcount.";
+  "I design acquisition, conversion and automation systems that increase revenue without increasing operational chaos.";
+
 const CTA_PRIMARY = { label: "Book Strategy Call", href: "/apply" };
 const CTA_SECONDARY = { label: "View Case Studies", href: "/case-studies" };
 
-const METRICS = [
-  { value: "+31%", label: "Avg CVR Lift" },
-  { value: "-22% to -41%", label: "CPL Reduction" },
-  { value: "< 60 sec", label: "Speed-to-Lead" },
+/* Proof metrics — inline separator format for density */
+const PROOF_ITEMS = [
+  "+31% Avg Conversion Lift",
+  "–22–41% Cost Per Lead",
+  "<60s Speed-to-Lead Systems",
 ] as const;
+
+const AUTHORITY_LINE =
+  "Selectively working with a limited number of service brands per quarter.";
 
 /* Aurora color scheme — moody emerald / teal to match brand */
 const AURORA_COLORS = ["#0B3D2E", "#8FAE9D", "#0B3D2E"];
@@ -45,7 +55,8 @@ export default function PremiumHero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const ctasRef = useRef<HTMLDivElement>(null);
-  const metricsRef = useRef<HTMLDivElement>(null);
+  const proofRef = useRef<HTMLDivElement>(null);
+  const authorityRef = useRef<HTMLParagraphElement>(null);
 
   /* intro sequence */
   useEffect(() => {
@@ -54,7 +65,8 @@ export default function PremiumHero() {
       headline: headlineRef.current,
       subheadline: subRef.current,
       ctas: ctasRef.current,
-      metrics: metricsRef.current,
+      proof: proofRef.current,
+      authority: authorityRef.current,
     });
 
     return () => {
@@ -68,9 +80,9 @@ export default function PremiumHero() {
       <div className="ph-bg" aria-hidden="true">
         <Aurora
           colorStops={AURORA_COLORS}
-          amplitude={1.2}
-          blend={0.6}
-          speed={0.4}
+          amplitude={1.0}
+          blend={0.5}
+          speed={0.3}
         />
         <div className="ph-bg-vignette" />
         <div className="ph-bg-grain" />
@@ -79,24 +91,25 @@ export default function PremiumHero() {
       {/* ── Content ── */}
       <div className="ph-content">
         <div className="ph-copy">
-          {/* Eyebrow */}
+          {/* Eyebrow — positions the niche */}
           <div ref={eyebrowRef} className="ph-eyebrow" style={{ opacity: init }}>
             <span className="ph-eyebrow-dot" aria-hidden="true" />
-            <span className="ph-eyebrow-line" aria-hidden="true" />
             <span>{EYEBROW}</span>
           </div>
 
-          {/* Headline */}
+          {/* Headline — tension → outcome, two-line break */}
           <h1 ref={headlineRef} className="ph-headline" style={{ opacity: init }}>
-            {HEADLINE}
+            {HEADLINE_L1}
+            <br />
+            <span className="ph-headline-emphasis">{HEADLINE_L2}</span>
           </h1>
 
-          {/* Subheadline */}
+          {/* Subheadline — mechanism */}
           <p ref={subRef} className="ph-sub" style={{ opacity: init }}>
             {SUBHEADLINE}
           </p>
 
-          {/* CTAs */}
+          {/* CTAs — clear hierarchy */}
           <div ref={ctasRef} className="ph-ctas" style={{ opacity: init }}>
             <PrimaryButton href={CTA_PRIMARY.href} variant="solid">
               {CTA_PRIMARY.label}
@@ -107,21 +120,21 @@ export default function PremiumHero() {
             </PrimaryButton>
           </div>
 
-          {/* Metrics */}
-          <div ref={metricsRef} className="ph-metrics" style={{ opacity: init }}>
-            {METRICS.map((m) => (
-              <div key={m.label} className="ph-metric" data-metric>
-                <span className="ph-metric-val">{m.value}</span>
-                <span className="ph-metric-lbl">{m.label}</span>
-              </div>
+          {/* Proof line — social proof above fold */}
+          <div ref={proofRef} className="ph-proof" style={{ opacity: init }}>
+            {PROOF_ITEMS.map((item, i) => (
+              <span key={item} className="ph-proof-item" data-proof>
+                {i > 0 && <span className="ph-proof-sep" aria-hidden="true">·</span>}
+                {item}
+              </span>
             ))}
           </div>
-        </div>
-      </div>
 
-      {/* ── Bottom: scroll prompt ── */}
-      <div className="ph-scroll-prompt" aria-hidden="true">
-        <span>Scroll down to discover.</span>
+          {/* Authority micro-line — exclusivity trigger */}
+          <p ref={authorityRef} className="ph-authority" style={{ opacity: init }}>
+            {AUTHORITY_LINE}
+          </p>
+        </div>
       </div>
     </section>
   );
