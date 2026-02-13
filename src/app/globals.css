@@ -72,11 +72,6 @@
   --space-8: 96px;
 }
 
-@theme inline {
-  --color-background: var(--bg-base);
-  --color-foreground: var(--text-primary);
-}
-
 /* ═══════════════════════════════════════════════════
    BASE
    ═══════════════════════════════════════════════════ */
