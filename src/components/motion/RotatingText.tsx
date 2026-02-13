@@ -8,9 +8,10 @@ type Props = {
   items: string[];
   intervalMs?: number;
   className?: string;
+  style?: React.CSSProperties;
 };
 
-export default function RotatingText({ items, intervalMs = 2200, className = "" }: Props) {
+export default function RotatingText({ items, intervalMs = 2200, className = "", style }: Props) {
   const reduced = usePrefersReducedMotionSafe();
   const [index, setIndex] = useState(0);
 
@@ -21,10 +22,10 @@ export default function RotatingText({ items, intervalMs = 2200, className = "" 
   }, [intervalMs, items.length, reduced]);
 
   if (!items.length) return null;
-  if (reduced) return <span className={className}>{items[0]}</span>;
+  if (reduced) return <span className={className} style={style}>{items[0]}</span>;
 
   return (
-    <span className={`inline-block min-w-[10ch] ${className}`} aria-live="polite">
+    <span className={`inline-block min-w-[10ch] ${className}`} style={style} aria-live="polite">
       <AnimatePresence mode="wait">
         <motion.span
           key={items[index]}

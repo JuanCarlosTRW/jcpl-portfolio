@@ -12,23 +12,21 @@ import {
 } from "@/components/motion";
 import Prism from "@/components/ui/Prism";
 import BlurText from "@/components/ui/BlurText";
-import AuroraBackground from "@/components/motion/AuroraBackground";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[linear-gradient(180deg,rgba(8,14,12,0.30)_0%,rgba(8,14,12,0.48)_55%,rgba(8,14,12,0.60)_100%)]">
       <Prism />
-
-      <AuroraBackground />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         <Reveal>
           <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-accent)]/20 bg-[var(--brand-accent)]/5 px-4 py-2 mb-8">
-            <span className="h-2 w-2 rounded-full bg-[var(--brand-accent)] animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-[var(--brand-accent)] animate-pulse" style={{ animationDuration: '3s' }} />
             <span className="text-sm text-[var(--text-muted)]">Building growth systems for</span>
             <RotatingText 
               items={hero.rotatingNiches} 
               className="text-sm font-semibold"
+              style={{ animationDuration: '3s' }}
             />
           </div>
         </Reveal>
@@ -36,10 +34,11 @@ export default function Hero() {
         <BlurText
           text={hero.headline}
           delay={200}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-[var(--text-primary)]"
+          style={{ textShadow: '0 2px 18px rgba(0,0,0,0.25)' }}
         />
 
-        <Reveal delay={0.6} className="mt-6 text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
+        <Reveal delay={0.6} className="mt-6 text-lg md:text-xl text-[var(--text-secondary)] max-w-[720px] mx-auto leading-[1.5]">
           <DecryptText 
             text={hero.subheadline}
             delayMs={600}
@@ -52,7 +51,7 @@ export default function Hero() {
             href={ctaCopy.href}
             onClick={() => trackEvent("hero_cta_click")}
             className="group inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-[var(--bg-base)] transition-all duration-300 hover:bg-[var(--brand-strong)] hover:scale-[1.02]"
-            style={{ boxShadow: 'var(--glow-accent)' }}
+            style={{ boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}
           >
             {ctaCopy.primary}
             <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -61,7 +60,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 rounded-xl border border-[var(--border-soft)] bg-white/5 px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-all duration-300 hover:border-[var(--brand-accent)]/40 hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-xl border border-[var(--border-soft)] bg-[rgba(255,255,255,0.03)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-all duration-300 hover:border-[var(--brand-accent)]/40 hover:bg-[rgba(255,255,255,0.1)]"
           >
             See Results
           </Link>
