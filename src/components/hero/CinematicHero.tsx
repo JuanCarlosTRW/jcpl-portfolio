@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "lenis"; // Correct package name for Lenis
 import { hero, ctaCopy } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
 import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReducedMotionSafe";
@@ -217,6 +218,15 @@ const LIGHT_SWEEP = {
 };
 
 /* ══════════════════════════════════════════════════════════
+   CONSTANTS FOR CONFIGURATION
+   ══════════════════════════════════════════════════════════ */
+const SCROLL_LENGTH = 300; // Total scroll length in vh
+const PIN_DURATION = 200; // Pinned duration in vh
+const LOGO_CORNER_SCALE = 0.32; // Scale of logo in top-left corner
+const SCENE_FADE_RANGE = [0.3, 0.7]; // Range for scene crossfade
+const SWEEP_INTENSITY = 0.12; // Intensity of light sweep
+
+/* ══════════════════════════════════════════════════════════
    MAIN SCROLL-DRIVEN COMPONENT
    ══════════════════════════════════════════════════════════ */
 
@@ -241,23 +251,48 @@ export default function CinematicHero() {
 
     if (!section || !viewport || !containerEl) return;
 
-    // Intro animation
-    gsap.fromTo(
+    // Lenis smooth scrolling (optional)
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+
+    // GSAP ScrollTrigger timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: `+=${PIN_DURATION}vh`,
+        pin: viewport,
+        scrub: true,
+      },
+    });
+
+    // Scene 1: Logo center with starlight shimmer
+    tl.fromTo(
       containerEl,
-      INTRO_ANIMATION,
+      { opacity: 0, scale: 0.985 },
       {
-        ...INTRO_ANIMATION_FINAL,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
         onComplete: () => {
-          // Add starlight effect
+          // Add starlight shimmer
           gsap.to(containerEl, {
-            ...STARLIGHT_EFFECT,
+            background: `radial-gradient(circle, rgba(255,255,255,${SWEEP_INTENSITY}) 0%, transparent 100%)`,
             duration: 1.5,
           });
 
           // Add light sweep
           gsap.to(containerEl, {
-            backgroundImage: LIGHT_SWEEP.gradient,
-            duration: LIGHT_SWEEP.duration,
+            backgroundImage: "linear-gradient(135deg, rgba(255,255,255,0.1), transparent)",
+            duration: 1.2,
             onComplete: () => {
               gsap.set(containerEl, { backgroundImage: "none" });
             },
@@ -266,83 +301,37 @@ export default function CinematicHero() {
       }
     );
 
-    // Scroll narrative
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "bottom bottom",
-        pin: viewport,
-        scrub: SCRUB_SMOOTHING,
-      },
-    });
-
-    // Layer 1: Logo moves to top-left
-    tl.fromTo(
-      containerEl,
-      { scale: 1, x: 0, y: 0 },
-      {
-        scale: LOGO_FINAL_SCALE,
-        x: LOGO_FINAL_X,
-        y: LOGO_FINAL_Y,
-        ease: "power4.out",
-      },
-      LOGO_MOVE_START
-    );
-
-    // Layer 2: Hook statement
+    // Scene 2: Hook statement
     if (hookRef.current) {
       tl.fromTo(
         hookRef.current,
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, ease: "power2.out" },
-        HOOK_FADE_IN_START
+        SCENE_FADE_RANGE[0]
       );
       tl.to(
         hookRef.current,
         { opacity: 0, y: -20, ease: "power2.in" },
-        HOOK_FADE_OUT_START
+        SCENE_FADE_RANGE[1]
       );
     }
 
-    // Layer 3: Services universe
+    // Scene 3: Modules
     if (contentRef.current) {
-      const title = contentRef.current.querySelector(".services-title");
-      const cards = contentRef.current.querySelectorAll(".service-card");
-      const cta = contentRef.current.querySelector(".services-cta");
-
-      if (title) {
+      const modules = contentRef.current.querySelectorAll(".module");
+      modules.forEach((module, i) => {
+        const stagger = i * 0.1;
         tl.fromTo(
-          title,
-          { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, ease: "power2.out" },
-          SERVICES_TITLE_IN_START
-        );
-      }
-
-      if (cards.length) {
-        cards.forEach((card, i) => {
-          const stagger = i * 0.02;
-          tl.fromTo(
-            card,
-            { opacity: 0, y: 24 },
-            { opacity: 1, y: 0, ease: "power2.out" },
-            SERVICES_CARDS_IN_START + stagger
-          );
-        });
-      }
-
-      if (cta) {
-        tl.fromTo(
-          cta,
+          module,
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, ease: "power2.out" },
-          SERVICES_CTA_IN_START
+          SCENE_FADE_RANGE[1] + stagger
         );
-      }
+      });
     }
 
     return () => {
+      lenis.destroy();
       tl.kill();
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
