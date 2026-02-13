@@ -1,24 +1,53 @@
-/* ── Cinematic Hero Intro ── */
+/* ── Scroll-Driven Hero Narrative ── */
 
-.cinematic-hero {
+.scroll-hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  height: 300vh; /* Scroll space for 3 layers */
   background: linear-gradient(180deg, #0b1411 0%, #0d1713 50%, #0a120f 100%);
 }
 
-/* ── SVG write-on container ── */
+.scroll-hero-viewport {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Background layers ── */
+
+.intro-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0; /* GSAP reveals after Layer 1 */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ── Logo: starts centered, GSAP transforms to top-left ── */
+
 .logo-write-container {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 15;
   pointer-events: none;
+  will-change: transform;
 }
 
 .logo-write-inner {
@@ -31,78 +60,40 @@
   width: 100%;
   height: auto;
   display: block;
-  /* Initial state: fully clipped (hidden). GSAP animates clip-path. */
-  clip-path: inset(0 100% 0 0);
+  clip-path: inset(0 100% 0 0); /* GSAP animates on scroll */
   filter: brightness(1.8) invert(1);
 }
 
-/* Glow edge that follows the clip reveal */
-.logo-write-glow {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 40px;
-  left: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(80, 200, 120, 0.25),
-    rgba(242, 247, 242, 0.35),
-    rgba(80, 200, 120, 0.25),
-    transparent
-  );
-  filter: blur(12px);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 2;
-}
+/* ── Scroll content layers ── */
 
-/* ── Intro immersive background ── */
-.intro-backdrop {
+.scroll-layer {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* ── 3D Canvas container ── */
-.logo-3d-container {
-  position: absolute;
-  inset: 0;
-  z-index: 12;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* ── Hero content wrapper ── */
-.hero-content-wrapper {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   z-index: 20;
-  opacity: 0;
-}
-
-.hero-content-wrapper.visible {
-  opacity: 1;
-}
-
-/* ── Post-intro background layer ── */
-.hero-bg-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
   pointer-events: none;
+  padding: 0 1.5rem;
 }
 
-/* ── Overlay gradient ── */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
+/* Layer 2: Hook statement — large centered headline */
+.hook-layer {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+/* Layer 3: Full content — structured layout */
+.content-layer {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto;
 }
 
 /* ── Bottom vignette ── */
+
 .hero-bottom-fade {
   position: absolute;
   bottom: 0;
@@ -113,15 +104,52 @@
   pointer-events: none;
 }
 
-/* ── Reduced motion: skip everything ── */
+/* ── Reduced motion: no scroll animation ── */
+
 @media (prefers-reduced-motion: reduce) {
-  .logo-write-container,
-  .intro-backdrop,
-  .logo-3d-container {
+  .scroll-hero {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .scroll-hero-viewport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-write-container {
     display: none !important;
   }
 
-  .hero-content-wrapper {
+  .intro-backdrop {
+    display: none !important;
+  }
+
+  .hero-bg-layer {
     opacity: 1 !important;
+  }
+
+  .scroll-layer {
+    position: relative;
+    opacity: 1 !important;
+    pointer-events: auto;
+    transform: none !important;
+  }
+
+  .hook-layer {
+    display: none !important;
+  }
+}
+
+/* ── Mobile adjustments ── */
+
+@media (max-width: 767px) {
+  .scroll-hero {
+    height: 250vh;
+  }
+
+  .logo-write-inner {
+    width: clamp(180px, 55vw, 340px);
   }
 }
