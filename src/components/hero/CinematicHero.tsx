@@ -177,6 +177,7 @@ export default function CinematicHero() {
   const auroraBgRef = useRef<HTMLDivElement>(null);
   const hookRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (reduced) return;
@@ -192,6 +193,19 @@ export default function CinematicHero() {
 
     if (!section || !viewport || !imgEl || !containerEl) return;
 
+    /* ── Scroll indicator: fade in after logo write-on completes ── */
+    const indicator = scrollIndicatorRef.current;
+    let indicatorTween: gsap.core.Tween | null = null;
+    if (indicator) {
+      // Show indicator after a short delay (logo is done writing at WRITE_END of scroll)
+      // But we want it visible BEFORE any scroll, so use a time-based entrance
+      indicatorTween = gsap.fromTo(
+        indicator,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.8, delay: 1.8, ease: "power2.out" }
+      );
+    }
+
     // Build a scrubbed timeline
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -205,6 +219,15 @@ export default function CinematicHero() {
     });
 
     /* ── Layer 1: Logo write-on ── */
+
+    // Scroll indicator fades out as user starts scrolling
+    if (indicator) {
+      tl.to(
+        indicator,
+        { opacity: 0, y: -10, ease: "power1.in" },
+        0.02 // almost immediately on scroll
+      );
+    }
 
     // SVG clip-path reveal (left → right)
     tl.fromTo(
@@ -304,6 +327,7 @@ export default function CinematicHero() {
     }
 
     return () => {
+      indicatorTween?.kill();
       tl.kill();
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
@@ -326,6 +350,13 @@ export default function CinematicHero() {
 
         {/* Persistent logo — starts centered, scrolls to top-left */}
         <LogoWriteIntro ref={logoRef} />
+
+        {/* Scroll-down indicator — appears after logo write-on, fades on scroll */}
+        <div ref={scrollIndicatorRef} className="scroll-indicator">
+          <span className="scroll-indicator-text">Scroll to explore</span>
+          <div className="scroll-indicator-line" />
+          <div className="scroll-indicator-chevron" />
+        </div>
 
         {/* Layer 2: Hook statement */}
         <div ref={hookRef} className="scroll-layer hook-layer" style={{ opacity: 0 }}>
