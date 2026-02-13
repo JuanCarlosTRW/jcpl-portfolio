@@ -1,0 +1,30 @@
+/* ═══════════════════════════════════════════════════
+   PREMIUM HERO — Design Token System
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Background ─── */
+  --bg-ink: #0B0D10;
+  --bg-charcoal: #12161B;
+
+  /* ─── Text ─── */
+  --text-main: #E9ECEF;
+  --text-muted: rgba(233, 236, 239, 0.72);
+
+  /* ─── Accents ─── */
+  --accent-emerald: #8FAE9D;
+  --accent-warm: #C7A96B;
+
+  /* ─── Borders ─── */
+  --border-subtle: rgba(255, 255, 255, 0.12);
+
+  /* ─── Radius ─── */
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+
+  /* ─── Shadows ─── */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.22);
+
+  /* ─── Transitions ─── */
+  --transition-smooth: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
