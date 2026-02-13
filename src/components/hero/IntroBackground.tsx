@@ -3,11 +3,10 @@
 import { forwardRef } from "react";
 
 /**
- * Immersive gradient backdrop for the intro phase.
- * Pure CSS — zero JS animation cost. GSAP controls opacity externally.
+ * IntroBackground — Deep ink luxury backdrop for the intro phase.
  *
- * Tuning: adjust the radial-gradient stops and opacities below
- * to change the volumetric feel during the intro.
+ * Old-money Monaco: charcoal depth, subtle radial warmth, zero distraction.
+ * Pure CSS — no JS animation cost. GSAP controls opacity externally.
  */
 const IntroBackground = forwardRef<HTMLDivElement>((_, ref) => {
   return (
@@ -17,10 +16,10 @@ const IntroBackground = forwardRef<HTMLDivElement>((_, ref) => {
       aria-hidden="true"
       style={{
         background: `
-          radial-gradient(ellipse 80% 60% at 50% 40%, rgba(80,200,120,0.10), transparent 70%),
-          radial-gradient(ellipse 60% 50% at 25% 60%, rgba(11,61,46,0.16), transparent 60%),
-          radial-gradient(ellipse 50% 40% at 75% 30%, rgba(0,75,59,0.12), transparent 60%),
-          linear-gradient(180deg, rgba(13,23,19,0.9) 0%, rgba(10,18,15,0.7) 100%)
+          radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255,255,255,0.015), transparent 65%),
+          radial-gradient(ellipse 90% 70% at 30% 60%, rgba(20,24,22,0.4), transparent 60%),
+          radial-gradient(ellipse 80% 60% at 70% 35%, rgba(18,22,20,0.3), transparent 55%),
+          linear-gradient(180deg, #0a0e0c 0%, #0d1210 40%, #0b0f0d 70%, #080c0a 100%)
         `,
       }}
     />

@@ -1,9 +1,20 @@
-/* ── Scroll-Driven Hero Narrative ── */
+/* ═══════════════════════════════════════════════════════════
+   CINEMATIC HERO — Old-Money Monaco
+   Scroll-driven narrative with pinned viewport
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Main scroll container ── */
 
 .scroll-hero {
   position: relative;
-  height: 300vh; /* Scroll space for 3 layers */
-  background: linear-gradient(180deg, #0b1411 0%, #0d1713 50%, #0a120f 100%);
+  height: 400vh;
+  background: linear-gradient(
+    180deg,
+    #0a0e0c 0%,
+    #0d1210 30%,
+    #0b0f0d 60%,
+    #080c0a 100%
+  );
 }
 
 .scroll-hero-viewport {
@@ -13,7 +24,7 @@
   overflow: hidden;
 }
 
-/* ── Background layers ── */
+/* ── Intro backdrop: deep ink luxury ── */
 
 .intro-backdrop {
   position: absolute;
@@ -22,13 +33,17 @@
   pointer-events: none;
 }
 
+/* ── Aurora / main background layer ── */
+
 .hero-bg-layer {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: 0; /* GSAP reveals after Layer 1 */
+  opacity: 0; /* GSAP reveals */
 }
+
+/* ── Gradient overlay ── */
 
 .hero-overlay {
   position: absolute;
@@ -37,9 +52,11 @@
   pointer-events: none;
 }
 
-/* ── Logo: starts centered, GSAP transforms to top-left ── */
+/* ══════════════════════════════════════════════
+   LOGO INTRO — centered, shimmer, no write-on
+   ══════════════════════════════════════════════ */
 
-.logo-write-container {
+.logo-intro-container {
   position: absolute;
   inset: 0;
   display: flex;
@@ -50,21 +67,63 @@
   will-change: transform;
 }
 
-.logo-write-inner {
+.logo-intro-inner {
   position: relative;
-  width: clamp(220px, 42vw, 520px);
+  width: clamp(200px, 38vw, 480px);
   height: auto;
 }
 
-.logo-write-img {
+.logo-intro-img {
   width: 100%;
   height: auto;
   display: block;
-  clip-path: inset(0 100% 0 0); /* GSAP animates on scroll */
   filter: brightness(1.8) invert(1);
+  opacity: 0; /* GSAP fade-in */
+  will-change: opacity, transform;
 }
 
-/* ── Scroll content layers ── */
+/* ── Starlight glow halo ── */
+
+.logo-glow {
+  position: absolute;
+  inset: -40%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0; /* GSAP fade-in */
+  background: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    transparent 70%
+  );
+  filter: blur(30px);
+}
+
+/* ── Light sweep (one-shot) ── */
+
+.logo-sweep {
+  position: absolute;
+  inset: -20%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.12) 55%,
+    transparent 65%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  will-change: transform, opacity;
+}
+
+/* ══════════════════════════════════════════════
+   SCROLL LAYERS — hook, content, services
+   ══════════════════════════════════════════════ */
 
 .scroll-layer {
   position: absolute;
@@ -78,18 +137,65 @@
   padding: 0 1.5rem;
 }
 
-/* Layer 2: Hook statement — large centered headline */
+/* Layer 2: Hook statement */
 .hook-layer {
   text-align: center;
   max-width: 64rem;
   margin: 0 auto;
 }
 
-/* Layer 3: Full content — structured layout */
+/* Layer 3: Services / universe */
 .content-layer {
   text-align: center;
   max-width: 64rem;
   margin: 0 auto;
+}
+
+/* ── Service cards grid ── */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.service-card {
+  position: relative;
+  padding: 2rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  text-align: left;
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.service-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.service-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.service-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.service-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-muted);
 }
 
 /* ── Bottom vignette ── */
@@ -104,7 +210,81 @@
   pointer-events: none;
 }
 
-/* ── Reduced motion: no scroll animation ── */
+/* ── Scroll indicator ── */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  pointer-events: none;
+  opacity: 0; /* GSAP */
+}
+
+.scroll-indicator-text {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-indicator-line {
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-indicator-line::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  animation: scroll-line-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes scroll-line-pulse {
+  0% { top: -100%; }
+  100% { top: 200%; }
+}
+
+.scroll-indicator-chevron {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transform: rotate(45deg);
+  animation: scroll-chevron-bob 2.2s ease-in-out infinite;
+}
+
+@keyframes scroll-chevron-bob {
+  0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.4; }
+  50% { transform: rotate(45deg) translateY(3px); opacity: 0.8; }
+}
+
+/* ══════════════════════════════════════════════
+   REDUCED MOTION
+   ══════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
   .scroll-hero {
@@ -114,11 +294,23 @@
 
   .scroll-hero-viewport {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  .logo-write-container {
+  .logo-intro-container {
+    position: relative;
+    inset: auto;
+    margin-bottom: 2rem;
+  }
+
+  .logo-intro-img {
+    opacity: 1 !important;
+  }
+
+  .logo-glow,
+  .logo-sweep {
     display: none !important;
   }
 
@@ -140,89 +332,32 @@
   .hook-layer {
     display: none !important;
   }
+
+  .scroll-indicator {
+    display: none !important;
+  }
 }
 
-/* ── Scroll-down indicator ── */
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 25;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  pointer-events: none;
-  opacity: 0; /* GSAP controls */
-}
-
-.scroll-indicator-text {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(217, 230, 218, 0.5);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-}
-
-.scroll-indicator-line {
-  width: 1px;
-  height: 2.5rem;
-  background: linear-gradient(
-    180deg,
-    rgba(80, 200, 120, 0.5) 0%,
-    rgba(80, 200, 120, 0.08) 100%
-  );
-  position: relative;
-  overflow: hidden;
-}
-
-.scroll-indicator-line::after {
-  content: "";
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(80, 200, 120, 0.9) 50%,
-    transparent 100%
-  );
-  animation: scroll-line-pulse 2s ease-in-out infinite;
-}
-
-@keyframes scroll-line-pulse {
-  0% { top: -100%; }
-  100% { top: 200%; }
-}
-
-.scroll-indicator-chevron {
-  width: 12px;
-  height: 12px;
-  border-right: 1.5px solid rgba(80, 200, 120, 0.5);
-  border-bottom: 1.5px solid rgba(80, 200, 120, 0.5);
-  transform: rotate(45deg);
-  animation: scroll-chevron-bob 2s ease-in-out infinite;
-}
-
-@keyframes scroll-chevron-bob {
-  0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.5; }
-  50% { transform: rotate(45deg) translateY(4px); opacity: 1; }
-}
-
-/* ── Mobile adjustments ── */
+/* ══════════════════════════════════════════════
+   MOBILE
+   ══════════════════════════════════════════════ */
 
 @media (max-width: 767px) {
   .scroll-hero {
-    height: 250vh;
+    height: 350vh;
   }
 
-  .logo-write-inner {
-    width: clamp(180px, 55vw, 340px);
+  .logo-intro-inner {
+    width: clamp(160px, 52vw, 300px);
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-card {
+    padding: 1.5rem 1.25rem;
   }
 
   .scroll-indicator {
