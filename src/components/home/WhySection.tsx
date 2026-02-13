@@ -4,15 +4,18 @@ import { whySection } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
+import BlurText from "@/components/ui/BlurText";
 
 export default function WhySection() {
   return (
     <SectionWrapper className="bg-[var(--bg-soft)]/40">
       <Reveal className="text-center mb-16">
         <SectionLabel label={whySection.label} className="mb-6" />
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] max-w-3xl mx-auto leading-tight">
-          {whySection.headline}
-        </h2>
+        <BlurText
+          text={whySection.headline}
+          delay={200}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] max-w-3xl mx-auto leading-tight"
+        />
       </Reveal>
 
       <div className="grid gap-8 md:grid-cols-2">
@@ -23,9 +26,11 @@ export default function WhySection() {
             y={i % 2 === 0 ? 14 : -14}
           >
             <div className="gradient-border rounded-2xl bg-[var(--bg-surface)] p-8 h-full transition-all duration-300 hover:bg-[var(--bg-elevated)]">
-              <h3 className="text-xl font-bold text-[var(--text-primary)] mb-3">
-                {point.title}
-              </h3>
+              <BlurText
+                text={point.title}
+                delay={100}
+                className="text-xl font-bold text-[var(--text-primary)] mb-3"
+              />
               <p className="text-[var(--text-secondary)] leading-relaxed">
                 {point.description}
               </p>

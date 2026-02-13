@@ -4,15 +4,18 @@ import { problemSection } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal, CountUpValue } from "@/components/motion";
+import BlurText from "@/components/ui/BlurText";
 
 export default function ProblemSection() {
   return (
     <SectionWrapper>
       <Reveal className="text-center mb-16">
         <SectionLabel label={problemSection.label} className="mb-6" />
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] max-w-3xl mx-auto leading-tight">
-          {problemSection.headline}
-        </h2>
+        <BlurText
+          text={problemSection.headline}
+          delay={200}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] max-w-3xl mx-auto leading-tight"
+        />
       </Reveal>
 
       {/* Stat cards */}

@@ -4,6 +4,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import CTAButton from "@/components/ui/CTAButton";
 import { ctaCopy } from "@/lib/content";
 import { Reveal } from "@/components/motion";
+import BlurText from "@/components/ui/BlurText";
 
 export default function FinalCTA() {
   return (
@@ -14,10 +15,11 @@ export default function FinalCTA() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[var(--brand-accent)]/10 rounded-full blur-[120px]" />
 
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
-              Ready to Build Your{" "}
-              <span className="gradient-text">Growth System</span>?
-            </h2>
+            <BlurText
+              text="Ready to Build Your Growth System?"
+              delay={200}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4"
+            />
             <p className="text-lg text-[var(--text-secondary)] max-w-xl mx-auto mb-8">
               Let&apos;s talk about your business, your goals, and how a
               Presence-to-Pipeline System™ can fill your calendar with

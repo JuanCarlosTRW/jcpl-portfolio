@@ -5,15 +5,18 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CTAButton from "@/components/ui/CTAButton";
 import { Reveal, CountUpValue } from "@/components/motion";
+import BlurText from "@/components/ui/BlurText";
 
 export default function ResultsSection() {
   return (
     <SectionWrapper>
       <Reveal className="text-center mb-16">
         <SectionLabel label={resultsPreview.label} className="mb-6" />
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)]">
-          {resultsPreview.headline}
-        </h2>
+        <BlurText
+          text={resultsPreview.headline}
+          delay={200}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)]"
+        />
       </Reveal>
 
       {/* Featured result */}

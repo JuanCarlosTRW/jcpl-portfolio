@@ -4,16 +4,18 @@ import { systemSteps } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
+import BlurText from "@/components/ui/BlurText";
 
 export default function SystemSection() {
   return (
     <SectionWrapper className="bg-[var(--bg-surface)]/60">
       <Reveal className="text-center mb-16">
         <SectionLabel label="The System" className="mb-6" />
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] max-w-4xl mx-auto leading-tight">
-          The{" "}
-          <span className="gradient-text">Presence-to-Pipeline System™</span>
-        </h2>
+        <BlurText
+          text="The Presence-to-Pipeline System™"
+          delay={200}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] max-w-4xl mx-auto leading-tight"
+        />
         <p className="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
           A proven 6-step framework that transforms your online presence into a
           predictable pipeline of qualified booked calls.
@@ -30,7 +32,11 @@ export default function SystemSection() {
               </div>
 
               <div className="text-3xl mb-4">{step.icon}</div>
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">{step.title}</h3>
+              <BlurText
+                text={step.title}
+                delay={100}
+                className="text-lg font-bold text-[var(--text-primary)] mb-2"
+              />
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                 {step.description}
               </p>
