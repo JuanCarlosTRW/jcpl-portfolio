@@ -1,0 +1,127 @@
+/* ── Cinematic Hero Intro ── */
+
+.cinematic-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b1411 0%, #0d1713 50%, #0a120f 100%);
+}
+
+/* ── SVG write-on container ── */
+.logo-write-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.logo-write-inner {
+  position: relative;
+  width: clamp(220px, 42vw, 520px);
+  height: auto;
+}
+
+.logo-write-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Initial state: fully clipped (hidden). GSAP animates clip-path. */
+  clip-path: inset(0 100% 0 0);
+  filter: brightness(1.8) invert(1);
+}
+
+/* Glow edge that follows the clip reveal */
+.logo-write-glow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(80, 200, 120, 0.25),
+    rgba(242, 247, 242, 0.35),
+    rgba(80, 200, 120, 0.25),
+    transparent
+  );
+  filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Intro immersive background ── */
+.intro-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── 3D Canvas container ── */
+.logo-3d-container {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Hero content wrapper ── */
+.hero-content-wrapper {
+  position: relative;
+  z-index: 20;
+  opacity: 0;
+}
+
+.hero-content-wrapper.visible {
+  opacity: 1;
+}
+
+/* ── Post-intro background layer ── */
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Overlay gradient ── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ── Bottom vignette ── */
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8rem;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* ── Reduced motion: skip everything ── */
+@media (prefers-reduced-motion: reduce) {
+  .logo-write-container,
+  .intro-backdrop,
+  .logo-3d-container {
+    display: none !important;
+  }
+
+  .hero-content-wrapper {
+    opacity: 1 !important;
+  }
+}
