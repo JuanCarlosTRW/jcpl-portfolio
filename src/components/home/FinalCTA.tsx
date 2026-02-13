@@ -1,14 +1,14 @@
 "use client";
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import AnimatedSection from "@/components/ui/AnimatedSection";
 import CTAButton from "@/components/ui/CTAButton";
 import { ctaCopy } from "@/lib/content";
+import { Reveal } from "@/components/motion";
 
 export default function FinalCTA() {
   return (
     <SectionWrapper>
-      <AnimatedSection className="text-center">
+      <Reveal className="text-center">
         <div className="gradient-border rounded-3xl bg-[var(--bg-surface)] py-16 px-8 md:py-24 md:px-16 relative overflow-hidden">
           {/* Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[var(--brand-accent)]/10 rounded-full blur-[120px]" />
@@ -37,7 +37,7 @@ export default function FinalCTA() {
             </div>
           </div>
         </div>
-      </AnimatedSection>
+      </Reveal>
     </SectionWrapper>
   );
 }

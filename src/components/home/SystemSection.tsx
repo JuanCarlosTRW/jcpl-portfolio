@@ -3,12 +3,12 @@
 import { systemSteps } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
-import AnimatedSection from "@/components/ui/AnimatedSection";
+import { Reveal } from "@/components/motion";
 
 export default function SystemSection() {
   return (
     <SectionWrapper className="bg-[var(--bg-surface)]/60">
-      <AnimatedSection className="text-center mb-16">
+      <Reveal className="text-center mb-16">
         <SectionLabel label="The System" className="mb-6" />
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] max-w-4xl mx-auto leading-tight">
           The{" "}
@@ -18,11 +18,11 @@ export default function SystemSection() {
           A proven 6-step framework that transforms your online presence into a
           predictable pipeline of qualified booked calls.
         </p>
-      </AnimatedSection>
+      </Reveal>
 
       <div className="relative grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {systemSteps.map((step, i) => (
-          <AnimatedSection key={step.step} delay={0.08 * i}>
+          <Reveal key={step.step} delay={0.08 * i}>
             <div className="group relative gradient-border rounded-2xl bg-[var(--bg-surface)] p-8 transition-all duration-300 hover:bg-[var(--bg-elevated)]">
               {/* Step number */}
               <div className="absolute -top-3 -left-3 flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-accent)] text-xs font-bold text-[var(--bg-base)]" style={{ boxShadow: '0 0 15px rgba(80,200,120,0.4)' }}>
@@ -35,7 +35,7 @@ export default function SystemSection() {
                 {step.description}
               </p>
             </div>
-          </AnimatedSection>
+          </Reveal>
         ))}
       </div>
     </SectionWrapper>
