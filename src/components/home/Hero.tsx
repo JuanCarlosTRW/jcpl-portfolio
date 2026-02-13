@@ -10,13 +10,12 @@ import {
   CountUpValue, 
   Reveal 
 } from "@/components/motion";
-import Prism from "@/components/ui/Prism";
 import BlurText from "@/components/ui/BlurText";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[linear-gradient(180deg,rgba(8,14,12,0.26)_0%,rgba(8,14,12,0.42)_52%,rgba(8,14,12,0.56)_100%)]">
-      <Prism />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[linear-gradient(180deg,#0B1411_0%,#0D1713_50%,#0A120F_100%),radial-gradient(circle_at_top_left,rgba(80,200,120,0.10),transparent),radial-gradient(circle_at_top_right,rgba(11,61,46,0.14),transparent),radial-gradient(circle_at_center,rgba(0,75,59,0.10),transparent),radial-gradient(circle,rgba(0,0,0,0.22),transparent)]">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,10,8,0.28)_0%,rgba(6,10,8,0.42)_52%,rgba(6,10,8,0.58)_100%)]" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         <Reveal>
@@ -90,7 +89,7 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-[linear-gradient(180deg,rgba(8,14,12,0)_0%,rgba(8,14,12,0.28)_58%,rgba(8,14,12,0.42)_100%)]" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-[linear-gradient(180deg,rgba(8,14,12,0)_0%,rgba(8,14,12,0.26)_60%,rgba(8,14,12,0.40)_100%)]" />
     </section>
   );
 }
