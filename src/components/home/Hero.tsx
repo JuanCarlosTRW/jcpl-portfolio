@@ -42,6 +42,11 @@ function AuroraEffect({ colorStops = ['#5227FF', '#7cff67', '#5227FF'], amplitud
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = "transparent";
+    gl.canvas.style.position = "absolute";
+    gl.canvas.style.top = "0";
+    gl.canvas.style.left = "0";
+    gl.canvas.style.width = "100%";
+    gl.canvas.style.height = "100%";
 
     let program: Program | undefined;
 
@@ -210,7 +215,7 @@ function AuroraEffect({ colorStops = ['#5227FF', '#7cff67', '#5227FF'], amplitud
     };
   }, []);
 
-  return <div ref={ctnDom} className="aurora-container" />;
+  return <div ref={ctnDom} className="absolute inset-0" />;
 }
 
 export default function Hero() {
