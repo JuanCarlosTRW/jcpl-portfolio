@@ -1,188 +1,202 @@
 "use client";
 
-import { useRef, useEffect, Suspense } from "react";
+import { useRef, useEffect, Suspense, useState } from "react";
 import dynamic from "next/dynamic";
 import { Canvas } from "@react-three/fiber";
-import { heroIntroSequence, objectFloatAnimation, prefersReducedMotion } from "@/lib/motion";
+import {
+  heroIntroSequence,
+  objectFloatAnimation,
+  mouseGlowDrift,
+  prefersReducedMotion,
+} from "@/lib/motion";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import "./premium-hero.css";
 
-const ProceduralIceObject = dynamic(
-  () => import("./ProceduralIceObject"),
-  { ssr: false }
-);
+const ProceduralIceObject = dynamic(() => import("./ProceduralIceObject"), {
+  ssr: false,
+});
 
 /* ═══════════════════════════════════════════════════
-   CONSTANTS
+   COPY & DATA — easy to edit
    ═══════════════════════════════════════════════════ */
+const EYEBROW = "Growth Systems Architect";
+const HEADLINE =
+  "I engineer growth systems that turn demand into predictable revenue.";
+const SUBHEADLINE =
+  "Acquisition funnels, conversion systems, and AI automation — built to scale your business without scaling your headcount.";
+const CTA_PRIMARY = { label: "Book Strategy Call", href: "/apply" };
+const CTA_SECONDARY = { label: "View Case Studies", href: "/case-studies" };
+
 const METRICS = [
-  { value: "$2.4M+", label: "Revenue Generated" },
-  { value: "340%", label: "Avg. ROAS" },
-  { value: "47", label: "Clients Scaled" },
-];
+  { value: "+31%", label: "Avg CVR Lift" },
+  { value: "-22% to -41%", label: "CPL Reduction" },
+  { value: "< 60 sec", label: "Speed-to-Lead" },
+] as const;
 
 const HUD_LABELS = [
-  { text: "Acquisition", position: "top-right" },
-  { text: "Conversion", position: "right" },
-  { text: "Automation", position: "bottom-right" },
-];
+  { text: "Acquisition", anchor: "top" },
+  { text: "Conversion", anchor: "mid" },
+  { text: "Automation", anchor: "bottom" },
+  { text: "Intelligence", anchor: "left" },
+] as const;
 
 /* ═══════════════════════════════════════════════════
-   PREMIUM HERO COMPONENT
+   COMPONENT
    ═══════════════════════════════════════════════════ */
 export default function PremiumHero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
+  const reduced = prefersReducedMotion();
+  const init = reduced ? 1 : 0;
+
+  /* refs */
+  const eyebrowRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const subheadlineRef = useRef<HTMLParagraphElement>(null);
+  const subRef = useRef<HTMLParagraphElement>(null);
   const ctasRef = useRef<HTMLDivElement>(null);
   const metricsRef = useRef<HTMLDivElement>(null);
   const hudRef = useRef<HTMLDivElement>(null);
   const objectRef = useRef<HTMLDivElement>(null);
+  const ringsRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
 
+  /* track mount for Canvas (avoids SSR mismatch) */
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  /* intro + float + glow drift */
   useEffect(() => {
     const tl = heroIntroSequence({
-      logo: logoRef.current,
+      eyebrow: eyebrowRef.current,
       headline: headlineRef.current,
-      subheadline: subheadlineRef.current,
+      subheadline: subRef.current,
       ctas: ctasRef.current,
       metrics: metricsRef.current,
       hud: hudRef.current,
       object: objectRef.current,
+      rings: ringsRef.current,
+      glow: glowRef.current,
     });
 
     const float = objectFloatAnimation(objectRef.current, 6);
+    const cleanupGlow = mouseGlowDrift(glowRef.current, 40);
 
     return () => {
       tl?.kill();
       float?.kill();
+      cleanupGlow?.();
     };
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="premium-hero"
-      aria-label="Hero section"
-    >
-      {/* Background layers */}
-      <div className="premium-hero-bg" aria-hidden="true">
-        <div className="premium-hero-gradient" />
-        <div className="premium-hero-radial" />
-        <div className="premium-hero-vignette" />
-        <div className="premium-hero-grain" />
+    <section className="ph" aria-label="Hero — Growth Systems">
+      {/* ── Background layers ── */}
+      <div className="ph-bg" aria-hidden="true">
+        <div className="ph-bg-gradient" />
+        <div className="ph-bg-radial" />
+        <div className="ph-bg-vignette" />
+        <div className="ph-bg-grain" />
       </div>
 
-      {/* Content grid */}
-      <div className="premium-hero-content">
-        {/* Left column: Copy */}
-        <div className="premium-hero-copy">
+      {/* ── Content grid ── */}
+      <div className="ph-grid">
+        {/* LEFT — Copy column */}
+        <div className="ph-copy">
           {/* Eyebrow */}
-          <div
-            ref={logoRef}
-            className="premium-hero-eyebrow"
-            style={{ opacity: prefersReducedMotion() ? 1 : 0 }}
-          >
-            <span className="eyebrow-dot" aria-hidden="true" />
-            <span>Growth Systems Architect</span>
+          <div ref={eyebrowRef} className="ph-eyebrow" style={{ opacity: init }}>
+            <span className="ph-eyebrow-dot" aria-hidden="true" />
+            <span className="ph-eyebrow-line" aria-hidden="true" />
+            <span>{EYEBROW}</span>
           </div>
 
           {/* Headline */}
-          <h1
-            ref={headlineRef}
-            className="premium-hero-headline"
-            style={{ opacity: prefersReducedMotion() ? 1 : 0 }}
-          >
-            I engineer growth systems that turn demand into predictable revenue.
+          <h1 ref={headlineRef} className="ph-headline" style={{ opacity: init }}>
+            {HEADLINE}
           </h1>
 
           {/* Subheadline */}
-          <p
-            ref={subheadlineRef}
-            className="premium-hero-subheadline"
-            style={{ opacity: prefersReducedMotion() ? 1 : 0 }}
-          >
-            Acquisition funnels, conversion systems, and AI automation—built to
-            scale your business without scaling your headcount.
+          <p ref={subRef} className="ph-sub" style={{ opacity: init }}>
+            {SUBHEADLINE}
           </p>
 
           {/* CTAs */}
-          <div
-            ref={ctasRef}
-            className="premium-hero-ctas"
-            style={{ opacity: prefersReducedMotion() ? 1 : 0 }}
-          >
-            <PrimaryButton href="/apply" variant="solid">
-              Book Strategy Call
-              <span className="cta-arrow" aria-hidden="true">→</span>
+          <div ref={ctasRef} className="ph-ctas" style={{ opacity: init }}>
+            <PrimaryButton href={CTA_PRIMARY.href} variant="solid">
+              {CTA_PRIMARY.label}
+              <span className="ph-cta-arrow" aria-hidden="true">→</span>
             </PrimaryButton>
-            <PrimaryButton href="/case-studies" variant="outline">
-              View Case Studies
+            <PrimaryButton href={CTA_SECONDARY.href} variant="outline">
+              {CTA_SECONDARY.label}
             </PrimaryButton>
           </div>
 
           {/* Metrics */}
-          <div
-            ref={metricsRef}
-            className="premium-hero-metrics"
-            style={{ opacity: prefersReducedMotion() ? 1 : 0 }}
-          >
-            {METRICS.map((metric) => (
-              <div key={metric.label} className="metric-item" data-metric>
-                <span className="metric-value">{metric.value}</span>
-                <span className="metric-label">{metric.label}</span>
+          <div ref={metricsRef} className="ph-metrics" style={{ opacity: init }}>
+            {METRICS.map((m) => (
+              <div key={m.label} className="ph-metric" data-metric>
+                <span className="ph-metric-val">{m.value}</span>
+                <span className="ph-metric-lbl">{m.label}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right column: 3D Object + HUD */}
-        <div className="premium-hero-visual">
-          {/* Circular rings */}
-          <div className="visual-rings" aria-hidden="true">
-            <div className="ring ring-1" />
-            <div className="ring ring-2" />
-            <div className="ring ring-3" />
+        {/* RIGHT — Visual column */}
+        <div className="ph-visual">
+          {/* Rings */}
+          <div ref={ringsRef} className="ph-rings" aria-hidden="true" style={{ opacity: init }}>
+            <div className="ph-ring ph-ring-1" />
+            <div className="ph-ring ph-ring-2" />
+            <div className="ph-ring ph-ring-3" />
           </div>
 
-          {/* Glow */}
-          <div className="visual-glow" aria-hidden="true" />
+          {/* Glow (mouse-reactive) */}
+          <div ref={glowRef} className="ph-glow" aria-hidden="true" style={{ opacity: init }} />
 
           {/* 3D Object */}
-          <div
-            ref={objectRef}
-            className="visual-object"
-            style={{ opacity: prefersReducedMotion() ? 1 : 0 }}
-          >
-            <Canvas
-              camera={{ position: [0, 0, 5], fov: 45 }}
-              dpr={[1, 1.5]}
-              gl={{ antialias: true, alpha: true }}
-            >
-              <Suspense fallback={null}>
-                <ProceduralIceObject scale={1.2} />
-              </Suspense>
-            </Canvas>
+          <div ref={objectRef} className="ph-object" style={{ opacity: init }}>
+            {mounted && (
+              <Canvas
+                camera={{ position: [0, 0, 5.5], fov: 42 }}
+                dpr={[1, 1.5]}
+                gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+                style={{ pointerEvents: "none" }}
+              >
+                <Suspense fallback={null}>
+                  <ProceduralIceObject scale={1.1} reducedMotion={reduced} />
+                </Suspense>
+              </Canvas>
+            )}
           </div>
 
           {/* HUD labels */}
-          <div
-            ref={hudRef}
-            className="visual-hud"
-            style={{ opacity: prefersReducedMotion() ? 1 : 0 }}
-          >
-            {HUD_LABELS.map((label) => (
-              <div
-                key={label.text}
-                className={`hud-label hud-${label.position}`}
-                data-hud
-              >
-                <span className="hud-dot" aria-hidden="true" />
-                <span className="hud-text">{label.text}</span>
+          <div ref={hudRef} className="ph-hud" aria-hidden="true" style={{ opacity: init }}>
+            {HUD_LABELS.map((l) => (
+              <div key={l.text} className={`ph-hud-label ph-hud-${l.anchor}`} data-hud>
+                <span className="ph-hud-dot" />
+                <span className="ph-hud-line" />
+                <span className="ph-hud-text">{l.text}</span>
               </div>
             ))}
           </div>
+
+          {/* Dimension markers (like igloo.inc measurement lines) */}
+          <div className="ph-dims" aria-hidden="true" style={{ opacity: init }}>
+            <div className="ph-dim ph-dim-h">
+              <span className="ph-dim-tick" />
+              <span className="ph-dim-val">55</span>
+              <span className="ph-dim-tick" />
+            </div>
+            <div className="ph-dim ph-dim-v">
+              <span className="ph-dim-tick" />
+              <span className="ph-dim-val">34</span>
+              <span className="ph-dim-tick" />
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* ── Bottom: scroll prompt ── */}
+      <div className="ph-scroll-prompt" aria-hidden="true">
+        <span>Scroll down to discover.</span>
       </div>
     </section>
   );

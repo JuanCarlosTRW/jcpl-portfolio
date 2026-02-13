@@ -1,30 +1,46 @@
 /* ═══════════════════════════════════════════════════
    PREMIUM HERO — Design Token System
+   Cinematic dark palette inspired by high-end agency sites.
    ═══════════════════════════════════════════════════ */
 
 :root {
   /* ─── Background ─── */
   --bg-ink: #0B0D10;
   --bg-charcoal: #12161B;
+  --bg-deep: #090B0E;
 
   /* ─── Text ─── */
   --text-main: #E9ECEF;
-  --text-muted: rgba(233, 236, 239, 0.72);
+  --text-muted: rgba(233, 236, 239, 0.56);
+  --text-dim: rgba(233, 236, 239, 0.32);
 
   /* ─── Accents ─── */
   --accent-emerald: #8FAE9D;
   --accent-warm: #C7A96B;
+  --accent-ice: #A8C4D4;
+  --accent-frost: rgba(168, 196, 212, 0.12);
 
   /* ─── Borders ─── */
-  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
 
   /* ─── Radius ─── */
-  --radius-xl: 20px;
-  --radius-2xl: 24px;
+  --radius-card: 20px;
+  --radius-artifact: 36px;
+  --radius-pill: 100px;
 
   /* ─── Shadows ─── */
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.22);
+  --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 80px rgba(143, 174, 157, 0.08);
 
   /* ─── Transitions ─── */
   --transition-smooth: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ─── Hero-specific ─── */
+  --hero-intro-duration: 0.7s;
+  --hero-stagger: 0.12s;
+  --hero-float-amplitude: 8px;
+  --hero-float-duration: 4s;
 }
