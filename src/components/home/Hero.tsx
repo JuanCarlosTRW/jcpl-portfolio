@@ -10,13 +10,15 @@ import {
   CountUpValue, 
   Reveal 
 } from "@/components/motion";
-import Prism from "@/components/ui/Prism";
+import Hyperspeed from "@/components/ui/Hyperspeed";
 import BlurText from "@/components/ui/BlurText";
+import HeroBackground from '../hero/HeroBackground';
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[linear-gradient(180deg,#0B1411_0%,#0D1713_50%,#0A120F_100%),radial-gradient(circle_at_top_left,rgba(80,200,120,0.10),transparent),radial-gradient(circle_at_top_right,rgba(11,61,46,0.14),transparent),radial-gradient(circle_at_center,rgba(0,75,59,0.10),transparent),radial-gradient(circle,rgba(0,0,0,0.22),transparent)]">
-      <Prism />
+      <HeroBackground />
+      <Hyperspeed />
 
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,10,8,0.28)_0%,rgba(6,10,8,0.42)_52%,rgba(6,10,8,0.58)_100%)]" />
 
