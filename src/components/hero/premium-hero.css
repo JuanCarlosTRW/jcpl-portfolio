@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   PREMIUM HERO — Cinematic Igloo-Inspired Aesthetic
+   PREMIUM HERO — Aurora Background + Centered Copy
    ═══════════════════════════════════════════════════ */
 
 /* ── Section ── */
@@ -8,6 +8,7 @@
   min-height: 100svh;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
   background: var(--bg-ink);
 }
@@ -20,25 +21,6 @@
   z-index: 0;
 }
 
-.ph-bg-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    155deg,
-    var(--bg-deep) 0%,
-    var(--bg-charcoal) 45%,
-    var(--bg-ink) 100%
-  );
-}
-
-.ph-bg-radial {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 55% at 65% 35%, rgba(143, 174, 157, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 30% 70%, rgba(168, 196, 212, 0.04) 0%, transparent 50%);
-}
-
 .ph-bg-vignette {
   position: absolute;
   inset: 0;
@@ -47,6 +29,7 @@
     transparent 30%,
     rgba(9, 11, 14, 0.7) 100%
   );
+  z-index: 1;
 }
 
 .ph-bg-grain {
@@ -56,37 +39,33 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   mix-blend-mode: overlay;
+  z-index: 2;
 }
 
-/* ── Content grid ── */
-.ph-grid {
+/* ── Content ── */
+.ph-content {
   position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  z-index: 3;
   width: 100%;
-  max-width: 1440px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 7rem 1.5rem 4rem;
+  text-align: center;
 }
 
 @media (min-width: 1024px) {
-  .ph-grid {
-    grid-template-columns: 1fr 1.1fr;
-    gap: 3rem;
-    padding: 0 3.5rem;
-    align-items: center;
-    min-height: 100svh;
+  .ph-content {
+    padding: 0 2rem;
   }
 }
 
 /* ═══════════════════════════════════════════════════
-   LEFT COLUMN — Copy
+   COPY
    ═══════════════════════════════════════════════════ */
 .ph-copy {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.25rem;
   position: relative;
   z-index: 2;
@@ -133,7 +112,7 @@
   line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--text-main);
-  max-width: 560px;
+  max-width: 700px;
   will-change: transform, opacity;
 }
 
@@ -142,7 +121,7 @@
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   line-height: 1.65;
   color: var(--text-muted);
-  max-width: 460px;
+  max-width: 540px;
   will-change: transform, opacity;
 }
 
@@ -150,6 +129,7 @@
 .ph-ctas {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.875rem;
   margin-top: 0.75rem;
   will-change: transform, opacity;
@@ -168,6 +148,7 @@
 .ph-metrics {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   margin-top: 1.75rem;
   padding-top: 1.5rem;
@@ -179,6 +160,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  text-align: center;
 }
 
 .ph-metric-val {
@@ -198,208 +180,14 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   RIGHT COLUMN — Visual
-   ═══════════════════════════════════════════════════ */
-.ph-visual {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 420px;
-  /* push slightly right on desktop */
-}
-
-@media (min-width: 1024px) {
-  .ph-visual {
-    min-height: 560px;
-  }
-}
-
-/* Rings */
-.ph-rings {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  will-change: transform, opacity;
-}
-
-.ph-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid var(--border-subtle);
-  transition: border-color 0.6s ease;
-}
-
-.ph-ring-1 { width: 180px; height: 180px; }
-.ph-ring-2 { width: 310px; height: 310px; opacity: 0.5; }
-.ph-ring-3 { width: 440px; height: 440px; opacity: 0.2; border-style: dashed; }
-
-/* Glow (mouse-reactive) */
-.ph-glow {
-  position: absolute;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(143, 174, 157, 0.12) 0%,
-    rgba(168, 196, 212, 0.06) 40%,
-    transparent 70%
-  );
-  filter: blur(50px);
-  will-change: transform, opacity;
-  pointer-events: none;
-}
-
-/* 3D Object canvas */
-.ph-object {
-  position: relative;
-  width: 100%;
-  height: 420px;
-  z-index: 2;
-  will-change: transform, opacity;
-}
-
-@media (min-width: 1024px) {
-  .ph-object { height: 560px; }
-}
-
-/* ═══════════════════════════════════════════════════
-   HUD LABELS — technical / dimensional feel
-   ═══════════════════════════════════════════════════ */
-.ph-hud {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.ph-hud-label {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
-}
-
-.ph-hud-dot {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--accent-emerald);
-  box-shadow: 0 0 4px rgba(143, 174, 157, 0.6);
-}
-
-.ph-hud-line {
-  width: 20px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent-emerald), transparent);
-  opacity: 0.5;
-}
-
-.ph-hud-text {
-  white-space: nowrap;
-}
-
-/* Positions */
-.ph-hud-top { top: 14%; right: 8%; }
-.ph-hud-mid { top: 50%; right: 2%; transform: translateY(-50%); }
-.ph-hud-bottom { bottom: 16%; right: 10%; }
-.ph-hud-left { top: 40%; left: 4%; flex-direction: row-reverse; }
-.ph-hud-left .ph-hud-line {
-  background: linear-gradient(270deg, var(--accent-emerald), transparent);
-}
-
-/* ═══════════════════════════════════════════════════
-   DIMENSION MARKERS (igloo-style measurement lines)
-   ═══════════════════════════════════════════════════ */
-.ph-dims {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.ph-dim {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--text-dim);
-  font-size: 0.55rem;
-  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
-  letter-spacing: 0.06em;
-}
-
-.ph-dim-tick {
-  display: block;
-  background: var(--border-medium);
-}
-
-.ph-dim-val {
-  padding: 0 4px;
-  white-space: nowrap;
-}
-
-/* Horizontal dimension (width marker) */
-.ph-dim-h {
-  top: 28%;
-  left: 50%;
-  transform: translateX(-50%);
-  flex-direction: row;
-}
-.ph-dim-h .ph-dim-tick {
-  width: 1px;
-  height: 10px;
-}
-.ph-dim-h::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--border-subtle);
-  z-index: -1;
-}
-
-/* Vertical dimension (height marker) */
-.ph-dim-v {
-  right: 22%;
-  top: 50%;
-  transform: translateY(-50%);
-  flex-direction: column;
-}
-.ph-dim-v .ph-dim-tick {
-  width: 10px;
-  height: 1px;
-}
-.ph-dim-v::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--border-subtle);
-  z-index: -1;
-}
-
-/* ═══════════════════════════════════════════════════
    SCROLL PROMPT
    ═══════════════════════════════════════════════════ */
 .ph-scroll-prompt {
   position: absolute;
   bottom: 2rem;
-  left: 2.5rem;
-  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
   font-size: 0.65rem;
   font-weight: 400;
   letter-spacing: 0.04em;
@@ -412,20 +200,12 @@
    ═══════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   .ph-eyebrow-dot { animation: none; }
-  .ph-ring { transition: none; }
-  .ph-glow { display: none; }
-  .ph-dims { display: none; }
 }
 
 /* ═══════════════════════════════════════════════════
    MOBILE
    ═══════════════════════════════════════════════════ */
 @media (max-width: 767px) {
-  .ph-visual { min-height: 340px; }
-  .ph-object { height: 340px; }
-  .ph-ring-3 { display: none; }
-  .ph-dims { display: none; }
-  .ph-hud-left { display: none; }
-  .ph-scroll-prompt { left: 1.5rem; bottom: 1.25rem; }
+  .ph-scroll-prompt { bottom: 1.25rem; }
   .ph-metrics { gap: 1.25rem; }
 }

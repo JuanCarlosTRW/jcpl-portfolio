@@ -1,18 +1,15 @@
 "use client";
 
-import { useRef, useEffect, Suspense, useState } from "react";
+import { useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { Canvas } from "@react-three/fiber";
 import {
   heroIntroSequence,
-  objectFloatAnimation,
-  mouseGlowDrift,
   prefersReducedMotion,
 } from "@/lib/motion";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import "./premium-hero.css";
 
-const ProceduralIceObject = dynamic(() => import("./ProceduralIceObject"), {
+const Aurora = dynamic(() => import("@/components/motion/Aurora"), {
   ssr: false,
 });
 
@@ -33,12 +30,8 @@ const METRICS = [
   { value: "< 60 sec", label: "Speed-to-Lead" },
 ] as const;
 
-const HUD_LABELS = [
-  { text: "Acquisition", anchor: "top" },
-  { text: "Conversion", anchor: "mid" },
-  { text: "Automation", anchor: "bottom" },
-  { text: "Intelligence", anchor: "left" },
-] as const;
+/* Aurora color scheme — moody emerald / teal to match brand */
+const AURORA_COLORS = ["#0B3D2E", "#8FAE9D", "#0B3D2E"];
 
 /* ═══════════════════════════════════════════════════
    COMPONENT
@@ -53,16 +46,8 @@ export default function PremiumHero() {
   const subRef = useRef<HTMLParagraphElement>(null);
   const ctasRef = useRef<HTMLDivElement>(null);
   const metricsRef = useRef<HTMLDivElement>(null);
-  const hudRef = useRef<HTMLDivElement>(null);
-  const objectRef = useRef<HTMLDivElement>(null);
-  const ringsRef = useRef<HTMLDivElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
 
-  /* track mount for Canvas (avoids SSR mismatch) */
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  /* intro + float + glow drift */
+  /* intro sequence */
   useEffect(() => {
     const tl = heroIntroSequence({
       eyebrow: eyebrowRef.current,
@@ -70,35 +55,29 @@ export default function PremiumHero() {
       subheadline: subRef.current,
       ctas: ctasRef.current,
       metrics: metricsRef.current,
-      hud: hudRef.current,
-      object: objectRef.current,
-      rings: ringsRef.current,
-      glow: glowRef.current,
     });
-
-    const float = objectFloatAnimation(objectRef.current, 6);
-    const cleanupGlow = mouseGlowDrift(glowRef.current, 40);
 
     return () => {
       tl?.kill();
-      float?.kill();
-      cleanupGlow?.();
     };
   }, []);
 
   return (
     <section className="ph" aria-label="Hero — Growth Systems">
-      {/* ── Background layers ── */}
+      {/* ── Aurora WebGL background ── */}
       <div className="ph-bg" aria-hidden="true">
-        <div className="ph-bg-gradient" />
-        <div className="ph-bg-radial" />
+        <Aurora
+          colorStops={AURORA_COLORS}
+          amplitude={1.2}
+          blend={0.6}
+          speed={0.4}
+        />
         <div className="ph-bg-vignette" />
         <div className="ph-bg-grain" />
       </div>
 
-      {/* ── Content grid ── */}
-      <div className="ph-grid">
-        {/* LEFT — Copy column */}
+      {/* ── Content ── */}
+      <div className="ph-content">
         <div className="ph-copy">
           {/* Eyebrow */}
           <div ref={eyebrowRef} className="ph-eyebrow" style={{ opacity: init }}>
@@ -136,60 +115,6 @@ export default function PremiumHero() {
                 <span className="ph-metric-lbl">{m.label}</span>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* RIGHT — Visual column */}
-        <div className="ph-visual">
-          {/* Rings */}
-          <div ref={ringsRef} className="ph-rings" aria-hidden="true" style={{ opacity: init }}>
-            <div className="ph-ring ph-ring-1" />
-            <div className="ph-ring ph-ring-2" />
-            <div className="ph-ring ph-ring-3" />
-          </div>
-
-          {/* Glow (mouse-reactive) */}
-          <div ref={glowRef} className="ph-glow" aria-hidden="true" style={{ opacity: init }} />
-
-          {/* 3D Object */}
-          <div ref={objectRef} className="ph-object" style={{ opacity: init }}>
-            {mounted && (
-              <Canvas
-                camera={{ position: [0, 0, 5.5], fov: 42 }}
-                dpr={[1, 1.5]}
-                gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-                style={{ pointerEvents: "none" }}
-              >
-                <Suspense fallback={null}>
-                  <ProceduralIceObject scale={1.1} reducedMotion={reduced} />
-                </Suspense>
-              </Canvas>
-            )}
-          </div>
-
-          {/* HUD labels */}
-          <div ref={hudRef} className="ph-hud" aria-hidden="true" style={{ opacity: init }}>
-            {HUD_LABELS.map((l) => (
-              <div key={l.text} className={`ph-hud-label ph-hud-${l.anchor}`} data-hud>
-                <span className="ph-hud-dot" />
-                <span className="ph-hud-line" />
-                <span className="ph-hud-text">{l.text}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Dimension markers (like igloo.inc measurement lines) */}
-          <div className="ph-dims" aria-hidden="true" style={{ opacity: init }}>
-            <div className="ph-dim ph-dim-h">
-              <span className="ph-dim-tick" />
-              <span className="ph-dim-val">55</span>
-              <span className="ph-dim-tick" />
-            </div>
-            <div className="ph-dim ph-dim-v">
-              <span className="ph-dim-tick" />
-              <span className="ph-dim-val">34</span>
-              <span className="ph-dim-tick" />
-            </div>
           </div>
         </div>
       </div>
