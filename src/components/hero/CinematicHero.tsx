@@ -191,6 +191,32 @@ function ServicesLayer() {
 }
 
 /* ══════════════════════════════════════════════════════════
+   INTRO ANIMATION — FIXED
+   ══════════════════════════════════════════════════════════ */
+const INTRO_ANIMATION = {
+  opacity: 0,
+  scale: 0.985,
+  filter: "blur(2px)",
+};
+const INTRO_ANIMATION_FINAL = {
+  opacity: 1,
+  scale: 1,
+  filter: "blur(0px)",
+  duration: 0.8,
+  ease: "power3.out",
+};
+
+const STARLIGHT_EFFECT = {
+  particleDensity: 0.02,
+  radialGlow: true,
+};
+
+const LIGHT_SWEEP = {
+  duration: 1.2,
+  gradient: "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0))",
+};
+
+/* ══════════════════════════════════════════════════════════
    MAIN SCROLL-DRIVEN COMPONENT
    ══════════════════════════════════════════════════════════ */
 
@@ -212,25 +238,35 @@ export default function CinematicHero() {
     const section = sectionRef.current;
     const viewport = viewportRef.current;
     const containerEl = logoRef.current?.containerEl;
-    const intro = introRef.current;
-    const aurora = auroraBgRef.current;
-    const hook = hookRef.current;
-    const content = contentRef.current;
-    const indicator = scrollIndicatorRef.current;
 
     if (!section || !viewport || !containerEl) return;
 
-    /* ── Scroll indicator: fade in after logo intro ── */
-    let indicatorTween: gsap.core.Tween | null = null;
-    if (indicator) {
-      indicatorTween = gsap.fromTo(
-        indicator,
-        { opacity: 0, y: 8 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 2.8, ease: "power2.out" }
-      );
-    }
+    // Intro animation
+    gsap.fromTo(
+      containerEl,
+      INTRO_ANIMATION,
+      {
+        ...INTRO_ANIMATION_FINAL,
+        onComplete: () => {
+          // Add starlight effect
+          gsap.to(containerEl, {
+            ...STARLIGHT_EFFECT,
+            duration: 1.5,
+          });
 
-    /* ── Main scroll timeline ── */
+          // Add light sweep
+          gsap.to(containerEl, {
+            backgroundImage: LIGHT_SWEEP.gradient,
+            duration: LIGHT_SWEEP.duration,
+            onComplete: () => {
+              gsap.set(containerEl, { backgroundImage: "none" });
+            },
+          });
+        },
+      }
+    );
+
+    // Scroll narrative
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -238,16 +274,10 @@ export default function CinematicHero() {
         end: "bottom bottom",
         pin: viewport,
         scrub: SCRUB_SMOOTHING,
-        pinSpacing: false,
       },
     });
 
-    /* ── Scroll indicator hides on scroll ── */
-    if (indicator) {
-      tl.to(indicator, { opacity: 0, y: -8, ease: "power1.in" }, INDICATOR_HIDE);
-    }
-
-    /* ── Layer 1: Logo moves to top-left ── */
+    // Layer 1: Logo moves to top-left
     tl.fromTo(
       containerEl,
       { scale: 1, x: 0, y: 0 },
@@ -255,50 +285,31 @@ export default function CinematicHero() {
         scale: LOGO_FINAL_SCALE,
         x: LOGO_FINAL_X,
         y: LOGO_FINAL_Y,
-        ease: "power3.inOut",
+        ease: "power4.out",
       },
       LOGO_MOVE_START
     );
 
-    /* ── Background transitions ── */
-    if (intro) {
+    // Layer 2: Hook statement
+    if (hookRef.current) {
       tl.fromTo(
-        intro,
-        { opacity: 1 },
-        { opacity: 0, ease: "power1.inOut" },
-        INTRO_BG_FADE_START
-      );
-    }
-
-    if (aurora) {
-      tl.fromTo(
-        aurora,
-        { opacity: 0 },
-        { opacity: 1, ease: "power1.inOut" },
-        AURORA_FADE_START
-      );
-    }
-
-    /* ── Layer 2: Hook statement ── */
-    if (hook) {
-      tl.fromTo(
-        hook,
+        hookRef.current,
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, ease: "power2.out" },
         HOOK_FADE_IN_START
       );
       tl.to(
-        hook,
+        hookRef.current,
         { opacity: 0, y: -20, ease: "power2.in" },
         HOOK_FADE_OUT_START
       );
     }
 
-    /* ── Layer 3: Services (staggered) ── */
-    if (content) {
-      const title = content.querySelector(".services-title");
-      const cards = content.querySelectorAll(".service-card");
-      const cta = content.querySelector(".services-cta");
+    // Layer 3: Services universe
+    if (contentRef.current) {
+      const title = contentRef.current.querySelector(".services-title");
+      const cards = contentRef.current.querySelectorAll(".service-card");
+      const cta = contentRef.current.querySelector(".services-cta");
 
       if (title) {
         tl.fromTo(
@@ -332,7 +343,6 @@ export default function CinematicHero() {
     }
 
     return () => {
-      indicatorTween?.kill();
       tl.kill();
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };

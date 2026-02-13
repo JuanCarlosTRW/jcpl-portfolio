@@ -121,6 +121,76 @@
   will-change: transform, opacity;
 }
 
+/* ── Starlight particles ── */
+.starlight-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 100%
+  );
+  opacity: 0; /* GSAP fade-in */
+  animation: starlight-flicker 3s infinite alternate;
+}
+
+@keyframes starlight-flicker {
+  0% {
+    opacity: 0.02;
+  }
+  100% {
+    opacity: 0.06;
+  }
+}
+
+/* ── Radial glow behind logo ── */
+.radial-glow {
+  position: absolute;
+  inset: -50%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 100%
+  );
+  filter: blur(40px);
+  opacity: 0; /* GSAP fade-in */
+}
+
+/* ── Light sweep animation ── */
+.light-sweep {
+  position: absolute;
+  inset: -20%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  opacity: 0; /* GSAP fade-in */
+  animation: light-sweep-move 1.2s ease-out forwards;
+}
+
+@keyframes light-sweep-move {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
 /* ══════════════════════════════════════════════
    SCROLL LAYERS — hook, content, services
    ══════════════════════════════════════════════ */
