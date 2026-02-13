@@ -12,27 +12,14 @@ import {
 } from "@/components/motion";
 import Prism from "@/components/ui/Prism";
 import BlurText from "@/components/ui/BlurText";
+import AuroraBackground from "@/components/motion/AuroraBackground";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <Prism
-        height={3.5}
-        baseWidth={5.5}
-        animationType="rotate"
-        glow={1}
-        offset={{ x: 0, y: 0 }}
-        noise={0.5}
-        transparent={true}
-        scale={3.6}
-        hueShift={0}
-        colorFrequency={1}
-        hoverStrength={2}
-        inertia={0.05}
-        bloom={1}
-        suspendWhenOffscreen={false}
-        timeScale={0.5}
-      />
+      <Prism />
+
+      <AuroraBackground />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         <Reveal>
