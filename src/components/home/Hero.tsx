@@ -15,7 +15,7 @@ import BlurText from "@/components/ui/BlurText";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[linear-gradient(180deg,rgba(11,61,46,0.30)_0%,rgba(11,61,46,0.48)_55%,rgba(11,61,46,0.60)_100%)]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[linear-gradient(180deg,rgba(8,14,12,0.26)_0%,rgba(8,14,12,0.42)_52%,rgba(8,14,12,0.56)_100%)]">
       <Prism />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
@@ -60,7 +60,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 rounded-xl border border-[rgba(217,230,218,0.26)] bg-[rgba(255,255,255,0.03)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-all duration-300 hover:border-[var(--brand-accent)]/40 hover:bg-[rgba(255,255,255,0.1)]"
+            className="inline-flex items-center gap-2 rounded-xl border border-[rgba(217,230,218,0.28)] bg-[rgba(255,255,255,0.03)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-all duration-300 hover:border-[rgba(80,200,120,0.45)] hover:bg-[rgba(80,200,120,0.08)]"
           >
             See Results
           </Link>
@@ -68,29 +68,29 @@ export default function Hero() {
 
         <Reveal delay={1.2} className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-[var(--text-muted)]">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-[var(--brand-accent)]">
+            <span className="text-2xl font-bold text-[var(--brand-accent)] text-shadow-[0_1px_8px_rgba(0,0,0,0.28)]">
               <CountUpValue to={20000} prefix="$" suffix="K+" />
             </span>
-            <span className="opacity-80">generated for clients</span>
+            <span className="text-[rgba(217,230,218,0.78)] ml-2">generated for clients</span>
           </div>
           <div className="h-4 w-px bg-[var(--border-soft)]" />
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-[var(--brand-accent)]">
+            <span className="text-2xl font-bold text-[var(--brand-accent)] text-shadow-[0_1px_8px_rgba(0,0,0,0.28)]">
               <CountUpValue to={3} suffix="+" />
             </span>
-            <span className="opacity-80">active growth systems</span>
+            <span className="text-[rgba(217,230,218,0.78)] ml-2">active growth systems</span>
           </div>
           <div className="h-4 w-px bg-[var(--border-soft)] hidden sm:block" />
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-[var(--brand-accent)]">
+            <span className="text-2xl font-bold text-[var(--brand-accent)] text-shadow-[0_1px_8px_rgba(0,0,0,0.28)]">
               <CountUpValue to={30} prefix="<" />
             </span>
-            <span className="opacity-80">days to first leads</span>
+            <span className="text-[rgba(217,230,218,0.78)] ml-2">days to first leads</span>
           </div>
         </Reveal>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[rgba(8,14,12,0.6)] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-[linear-gradient(180deg,rgba(8,14,12,0)_0%,rgba(8,14,12,0.28)_58%,rgba(8,14,12,0.42)_100%)]" />
     </section>
   );
 }
