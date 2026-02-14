@@ -35,8 +35,12 @@ export const navigation = [
 ];
 
 export const siteConfig = {
-  title: "JC Growth Systems",
+  name: "JC Growth Systems",
+  title: "Market Domination Systems",
   description: "Market Domination Systems for service businesses.",
+  url: "https://example.com",
+  ogImage: "https://example.com/og-image.png",
+  twitterHandle: "@jcpl",
 };
 
 export const aboutContent = {
