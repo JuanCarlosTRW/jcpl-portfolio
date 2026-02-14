@@ -50,7 +50,12 @@ export const serviceTiers = [
   { id: "dominate", name: "Dominate" },
 ];
 
-export const systemSteps = systemCopy.steps || [];
+export const systemSteps = (systemCopy.steps || []).map((s: any, idx: number) => ({
+  step: idx + 1,
+  icon: "◆",
+  title: s.what || s.title || `Step ${idx + 1}`,
+  description: s.why || s.kpi || "",
+}));
 
 export const problemSection = {
   label: "The Problem",
