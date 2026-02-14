@@ -27,7 +27,9 @@ export const caseStudies = [
     industry: "Local Service",
     tags: ["pipeline", "ai", "seo"],
     title: "From Referrals to Predictable Pipeline",
-    client: "Regional Plumbing Co."
+    client: "Regional Plumbing Co.",
+    heroStat: "$150K",
+    heroLabel: "Pipeline attributed in 90 days"
   }
   // Add more cases as needed
 ];
