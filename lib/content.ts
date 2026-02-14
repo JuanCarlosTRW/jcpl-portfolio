@@ -45,5 +45,13 @@ export const siteConfig = {
 
 export const ctaCopy = {
   primary: "Apply for Market Fit",
-  tertiary: "Start Your Application"
+  tertiary: "Start Your Application",
+  href: "/apply"
+};
+
+export const hero = {
+  eyebrow: "MARKET DOMINATION SYSTEMS FOR SERVICE BUSINESSES",
+  headline: "Turn Your Online Presence Into a Qualified Pipeline Engine.",
+  subheadline:
+    "JC Growth Systems builds growth infrastructure for service businesses: premium authority websites, AI qualification + booking, and traffic systems that produce real opportunities—not vanity metrics."
 };
