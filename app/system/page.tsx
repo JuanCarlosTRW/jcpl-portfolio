@@ -1,5 +1,5 @@
 import React from "react";
-import { SystemTimeline } from "../../src/components/SystemTimeline";
+import { SystemTimeline } from "@/components/SystemTimeline";
 
 export default function SystemPage() {
   return (
