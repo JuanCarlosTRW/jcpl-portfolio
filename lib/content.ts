@@ -42,6 +42,10 @@ export const siteConfig = {
 export const aboutContent = {
   headline: "Who we are",
   body: "JC Growth Systems helps service businesses dominate local markets.",
+  story: [
+    "I build complete growth systems — not isolated deliverables.",
+    "Integrated execution beats fragmented freelancers every time.",
+  ],
 };
 
 export const serviceTiers = [
