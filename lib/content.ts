@@ -70,8 +70,21 @@ export const resultsPreview = {
 };
 
 export const formSteps = [
-  // Minimal stub — real form steps live in /lib/content or managed in /content
-  { id: "business", title: "Business", fields: [{ name: "businessName", label: "Business name", type: "text", required: true }] },
+  {
+    id: "business",
+    title: "Your Business",
+    fields: [
+      { name: "businessName", label: "Business name", type: "text", required: true },
+      { name: "industry", label: "Industry", type: "select", options: ["Contractor", "Agency", "Local Service"], required: true },
+    ],
+  },
+  {
+    id: "volume",
+    title: "Lead Volume",
+    fields: [
+      { name: "monthlyLeads", label: "Approx monthly leads", type: "text", required: true },
+    ],
+  },
 ];
 
 export function isQualifiedLead(data: Record<string, string>) {
