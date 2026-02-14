@@ -73,6 +73,16 @@ export const resultsPreview = {
   label: "Results",
   headline: "Real business outcomes",
   items: heroCopy.proofChips || [],
+  featured: {
+    context: "Quarterly pipeline attributed to targeted campaigns",
+    client: "Regional Plumbing Co.",
+    method: "Authority site + Ads"
+  },
+  highlights: [
+    { metric: "+31%", label: "Avg conversion lift" },
+    { metric: "-28%", label: "Avg CPL reduction" },
+    { metric: "60s", label: "Speed-to-lead" }
+  ],
 };
 
 export const formSteps = [
