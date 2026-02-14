@@ -50,6 +50,14 @@ export const aboutContent = {
     headline: "Strategy first. Execution always.",
     body: "We combine premium authority, AI qualification, and traffic systems to generate predictable pipeline growth.",
   },
+  advantage: {
+    headline: "Our advantage",
+    points: [
+      "We build revenue-first websites.",
+      "We automate qualification and booking.",
+      "We focus on attribution and ROI.",
+    ],
+  },
 };
 
 export const serviceTiers = [
