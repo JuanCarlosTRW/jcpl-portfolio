@@ -71,7 +71,11 @@ export const problemSection = {
 export const whySection = {
   label: "Why JC Growth Systems",
   headline: partnerCopy.headline || "Why Juan Carlos",
-  points: [partnerCopy.narrative || "Strategic partner"],
+  points: [
+    { title: "Selective onboarding", body: "We only work with owners serious about growth." },
+    { title: "Outcome focus", body: "We prioritize measurable pipeline and revenue." },
+    { title: "Strategic partnership", body: "We act as an in-house growth partner, not a freelancer." },
+  ],
 };
 
 export const resultsPreview = {
