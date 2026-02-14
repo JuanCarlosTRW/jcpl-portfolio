@@ -72,9 +72,9 @@ export const whySection = {
   label: "Why JC Growth Systems",
   headline: partnerCopy.headline || "Why Juan Carlos",
   points: [
-    { title: "Selective onboarding", body: "We only work with owners serious about growth." },
-    { title: "Outcome focus", body: "We prioritize measurable pipeline and revenue." },
-    { title: "Strategic partnership", body: "We act as an in-house growth partner, not a freelancer." },
+  { title: "Selective onboarding", description: "We only work with owners serious about growth." },
+  { title: "Outcome focus", description: "We prioritize measurable pipeline and revenue." },
+  { title: "Strategic partnership", description: "We act as an in-house growth partner, not a freelancer." },
   ],
 };
 
