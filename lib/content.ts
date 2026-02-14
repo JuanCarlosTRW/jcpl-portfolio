@@ -71,6 +71,7 @@ export const whySection = {
 
 export const resultsPreview = {
   label: "Results",
+  headline: "Real business outcomes",
   items: heroCopy.proofChips || [],
 };
 
