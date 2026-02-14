@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import { siteConfig } from "./content";
 
-export function buildMetadata(overrides?: Partial<Metadata>): Metadata {
-  return {
+// Accept arbitrary overrides (some pages pass non-standard keys like `path`)
+export function buildMetadata(overrides?: Record<string, any>): Metadata {
+  const base: Record<string, any> = {
     title: siteConfig.title,
     description: siteConfig.description,
-    ...overrides,
-  } as Metadata;
+  };
+  return { ...(base as any), ...(overrides || {}) } as Metadata;
 }
