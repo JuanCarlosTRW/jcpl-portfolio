@@ -29,7 +29,17 @@ export const caseStudies = [
     title: "From Referrals to Predictable Pipeline",
     client: "Regional Plumbing Co.",
     heroStat: "$150K",
-    heroLabel: "Pipeline attributed in 90 days"
+    heroLabel: "Pipeline attributed in 90 days",
+    context: "Local plumbing business relying on word-of-mouth and inconsistent outbound efforts.",
+    problem: "Low online visibility, no booking automation, and poor lead attribution.",
+    strategy: "Built premium authority site, added AI qualification and booking, and launched targeted GEO + search campaigns.",
+    execution: [
+      "Authority website redesign",
+      "AI qualification chatbot integration",
+      "Google Ads GEO campaigns"
+    ],
+    outcome: "Significant increase in booked strategy calls and a measurable pipeline within 90 days.",
+    takeaway: "Outcome-driven systems scale reliably when paired with fast response and targeted traffic."
   }
   // Add more cases as needed
 ];
