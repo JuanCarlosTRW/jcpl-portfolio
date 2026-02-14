@@ -12,7 +12,10 @@ export const prefersReducedMotion = () => {
 
 export function heroIntroSequence(refs: Record<string, any>) {
   // placeholder - real sequence is defined in PremiumHero/CinematicHero
-  return () => {
-    // no-op
+  // Return an object with a `kill` method to match expected API
+  return {
+    kill: () => {
+      // no-op
+    },
   };
 }
