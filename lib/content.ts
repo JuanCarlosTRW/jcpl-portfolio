@@ -65,9 +65,9 @@ export const aboutContent = {
 };
 
 export const serviceTiers = [
-  { id: "core", name: "Core" },
-  { id: "grow", name: "Grow" },
-  { id: "dominate", name: "Dominate" },
+  { id: "core", name: "Core", tagline: "Authority site + baseline automation", featured: false },
+  { id: "grow", name: "Grow", tagline: "AI qualification + paid acquisition", featured: true },
+  { id: "dominate", name: "Dominate", tagline: "Full stack pipeline dominance", featured: false },
 ];
 
 export const systemSteps = (systemCopy.steps || []).map((s: any, idx: number) => ({
