@@ -46,6 +46,10 @@ export const aboutContent = {
     "I build complete growth systems — not isolated deliverables.",
     "Integrated execution beats fragmented freelancers every time.",
   ],
+  philosophy: {
+    headline: "Strategy first. Execution always.",
+    body: "We combine premium authority, AI qualification, and traffic systems to generate predictable pipeline growth.",
+  },
 };
 
 export const serviceTiers = [
