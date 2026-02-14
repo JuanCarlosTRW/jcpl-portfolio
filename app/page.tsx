@@ -1,11 +1,11 @@
 import React from "react";
-import { HeroCommandCenter } from "../components/HeroCommandCenter";
-import { AgitationCards } from "../components/AgitationCards";
-import { SystemTimeline } from "../components/SystemTimeline";
-import { TransformationCompare } from "../components/TransformationCompare";
-import { EvidenceRoom } from "../components/EvidenceRoom";
-import { PartnerAuthority } from "../components/PartnerAuthority";
-import { QualificationFormStepper } from "../components/QualificationFormStepper";
+import { HeroCommandCenter } from "../src/components/HeroCommandCenter";
+import { AgitationCards } from "../src/components/AgitationCards";
+import { SystemTimeline } from "../src/components/SystemTimeline";
+import { TransformationCompare } from "../src/components/TransformationCompare";
+import { EvidenceRoom } from "../src/components/EvidenceRoom";
+import { PartnerAuthority } from "../src/components/PartnerAuthority";
+import { QualificationFormStepper } from "../src/components/QualificationFormStepper";
 
 export default function HomePage() {
   return (

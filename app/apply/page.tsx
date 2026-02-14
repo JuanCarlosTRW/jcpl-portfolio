@@ -1,5 +1,5 @@
 import React from "react";
-import { QualificationFormStepper } from "../../components/QualificationFormStepper";
+import { QualificationFormStepper } from "../src/components/QualificationFormStepper";
 
 export default function ApplyPage() {
   return (
