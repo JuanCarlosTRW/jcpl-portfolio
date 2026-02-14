@@ -45,6 +45,7 @@ export const siteConfig = {
 
 export const ctaCopy = {
   primary: "Apply for Market Fit",
+  secondary: "View Case Studies",
   tertiary: "Start Your Application",
   href: "/apply"
 };
