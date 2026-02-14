@@ -65,9 +65,9 @@ export const aboutContent = {
 };
 
 export const serviceTiers = [
-  { id: "core", name: "Core", tagline: "Authority site + baseline automation", featured: false },
-  { id: "grow", name: "Grow", tagline: "AI qualification + paid acquisition", featured: true },
-  { id: "dominate", name: "Dominate", tagline: "Full stack pipeline dominance", featured: false },
+  { id: "core", name: "Core", tagline: "Authority site + baseline automation", featured: false, bestFor: "Newer businesses building authority" },
+  { id: "grow", name: "Grow", tagline: "AI qualification + paid acquisition", featured: true, bestFor: "Owners ready to scale" },
+  { id: "dominate", name: "Dominate", tagline: "Full stack pipeline dominance", featured: false, bestFor: "Established brands seeking market leadership" },
 ];
 
 export const systemSteps = (systemCopy.steps || []).map((s: any, idx: number) => ({
