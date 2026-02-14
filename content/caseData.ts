@@ -24,6 +24,9 @@ export const caseStudies = [
       "Conversion rate change graph", // TODO:REAL_DATA
       "Booking calendar snapshot" // TODO:REAL_DATA
     ]
+    ,
+    industry: "Local Service",
+    tags: ["pipeline", "ai", "seo"]
   }
   // Add more cases as needed
 ];
