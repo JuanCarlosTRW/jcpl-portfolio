@@ -4,6 +4,7 @@
 export const caseStudies = [
   {
     id: "case-1",
+    slug: "case-1",
     kpiStrip: [
       "[X] Pipeline Generated", // TODO:REAL_DATA
       "[Y] Qualified Leads", // TODO:REAL_DATA
