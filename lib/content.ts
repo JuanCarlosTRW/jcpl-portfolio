@@ -55,7 +55,12 @@ export const systemSteps = systemCopy.steps || [];
 export const problemSection = {
   label: "The Problem",
   headline: "Invisible online. Leaking revenue.",
-  bullets: ["Low visibility", "Slow follow-up", "Poor conversion"],
+  problems: [
+    { stat: "[X]+", description: "Qualified leads lost to competitors" },
+    { stat: "[Y]%", description: "Average funnel conversion loss" },
+    { stat: "[Z]", description: "Markets underpenetrated" },
+  ],
+  body: "Most service businesses lose visibility, slow follow-up, and conversion leakage—turning real demand into missed revenue.",
 };
 
 export const whySection = {
