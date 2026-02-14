@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import { applicationCopy } from "../../content/siteCopy";
+import { applicationCopy } from "@/content/siteCopy";
 
 export const QualificationFormStepper = () => (
   <section className="py-12 px-6 bg-neutral-950 text-white flex flex-col items-center">

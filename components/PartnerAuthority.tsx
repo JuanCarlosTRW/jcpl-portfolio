@@ -1,5 +1,5 @@
 import React from "react";
-import { partnerCopy } from "../../content/siteCopy";
+import { partnerCopy } from "@/content/siteCopy";
 
 export const PartnerAuthority = () => (
   <section className="py-12 px-6 bg-neutral-950 text-white flex flex-col items-center">

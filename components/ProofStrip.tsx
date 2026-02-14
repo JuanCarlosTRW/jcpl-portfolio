@@ -1,5 +1,5 @@
 import React from "react";
-import { heroCopy } from "../../content/siteCopy";
+import { heroCopy } from "@/content/siteCopy";
 
 export const ProofStrip = () => (
   <div className="flex flex-wrap gap-2 mt-6">

@@ -1,5 +1,5 @@
 import React from "react";
-import { caseStudies } from "../../content/caseData";
+import { caseStudies } from "@/content/caseData";
 
 export const CaseStudyTemplate = () => (
   <section className="py-12 px-6 bg-neutral-950 text-white">

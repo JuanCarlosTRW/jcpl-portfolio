@@ -1,5 +1,5 @@
 import React from "react";
-import { agitationCopy } from "../../content/siteCopy";
+import { agitationCopy } from "@/content/siteCopy";
 
 export const AgitationCards = () => (
   <section className="flex flex-col md:flex-row gap-6 py-12 px-6 bg-neutral-950 text-white">

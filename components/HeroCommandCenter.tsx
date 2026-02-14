@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
-import { heroCopy } from "../../content/siteCopy";
-import { trackEvent } from "../../lib/trackEvent";
+import { heroCopy } from "@/content/siteCopy";
+import { trackEvent } from "@/lib/trackEvent";
 
 export const HeroCommandCenter = () => {
   return (

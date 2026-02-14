@@ -1,5 +1,5 @@
 import React from "react";
-import { evidenceCopy } from "../../content/siteCopy";
+import { evidenceCopy } from "@/content/siteCopy";
 
 export const EvidenceRoom = () => (
   <section className="py-12 px-6 bg-neutral-950 text-white">

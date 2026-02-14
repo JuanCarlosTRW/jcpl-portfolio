@@ -1,5 +1,5 @@
 import React from "react";
-import { systemCopy } from "../../content/siteCopy";
+import { systemCopy } from "@/content/siteCopy";
 
 export const SystemTimeline = () => (
   <section className="py-12 px-6 bg-neutral-950 text-white">

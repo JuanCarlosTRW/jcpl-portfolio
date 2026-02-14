@@ -1,5 +1,6 @@
+"use client";
 import React, { useState } from "react";
-import { transformationCopy } from "../../content/siteCopy";
+import { transformationCopy } from "@/content/siteCopy";
 
 export const TransformationCompare = () => {
   const [showAfter, setShowAfter] = useState(false);
