@@ -23,10 +23,11 @@ export const caseStudies = [
       "CPL shift chart", // TODO:REAL_DATA
       "Conversion rate change graph", // TODO:REAL_DATA
       "Booking calendar snapshot" // TODO:REAL_DATA
-    ]
-    ,
+    ],
     industry: "Local Service",
-    tags: ["pipeline", "ai", "seo"]
+    tags: ["pipeline", "ai", "seo"],
+    title: "From Referrals to Predictable Pipeline",
+    client: "Regional Plumbing Co."
   }
   // Add more cases as needed
 ];
