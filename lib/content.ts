@@ -65,9 +65,45 @@ export const aboutContent = {
 };
 
 export const serviceTiers = [
-  { id: "core", name: "Core", tagline: "Authority site + baseline automation", featured: false, bestFor: "Newer businesses building authority" },
-  { id: "grow", name: "Grow", tagline: "AI qualification + paid acquisition", featured: true, bestFor: "Owners ready to scale" },
-  { id: "dominate", name: "Dominate", tagline: "Full stack pipeline dominance", featured: false, bestFor: "Established brands seeking market leadership" },
+  {
+    id: "core",
+    name: "Core",
+    tagline: "Authority site + baseline automation",
+    featured: false,
+    bestFor: "Newer businesses building authority",
+    deliverables: ["Authority website", "Basic booking flow", "Conversion copy"],
+    timeline: "4–6 weeks"
+    ,
+    impact: "Get a professional online presence that starts turning traffic into qualified conversations."
+    ,
+    cta: "Book a discovery call"
+  },
+  {
+    id: "grow",
+    name: "Grow",
+    tagline: "AI qualification + paid acquisition",
+    featured: true,
+    bestFor: "Owners ready to scale",
+    deliverables: ["AI qualification", "Paid search setup", "Landing page optimization"],
+    timeline: "6–10 weeks"
+    ,
+    impact: "Scale predictable qualified lead flow and reduce wasted spend with AI-driven qualification."
+    ,
+    cta: "Request pricing"
+  },
+  {
+    id: "dominate",
+    name: "Dominate",
+    tagline: "Full stack pipeline dominance",
+    featured: false,
+    bestFor: "Established brands seeking market leadership",
+    deliverables: ["Full funnel automation", "Multi-channel traffic", "Revenue attribution"],
+    timeline: "12+ weeks"
+    ,
+    impact: "Establish market leadership with full-funnel systems that compound revenue and acquisition efficiency."
+    ,
+    cta: "Apply for partnership"
+  },
 ];
 
 export const systemSteps = (systemCopy.steps || []).map((s: any, idx: number) => ({
