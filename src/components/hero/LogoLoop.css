@@ -1,0 +1,152 @@
+/* ═══════════════════════════════════════════════════
+   LOGO LOOP — Infinite scrolling logo carousel
+   ═══════════════════════════════════════════════════ */
+
+.logoloop {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Track (moves via JS transform) ── */
+.logoloop__track {
+  display: flex;
+  will-change: transform;
+}
+
+.logoloop--horizontal .logoloop__track {
+  flex-direction: row;
+}
+
+.logoloop--vertical .logoloop__track {
+  flex-direction: column;
+}
+
+/* ── List (one copy of all logos) ── */
+.logoloop__list {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--logoloop-gap, 48px);
+}
+
+.logoloop--horizontal .logoloop__list {
+  flex-direction: row;
+  padding-right: var(--logoloop-gap, 48px);
+}
+
+.logoloop--vertical .logoloop__list {
+  flex-direction: column;
+  padding-bottom: var(--logoloop-gap, 48px);
+}
+
+/* ── Individual item ── */
+.logoloop__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: var(--logoloop-logoHeight, 32px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logoloop__item img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: grayscale(1) brightness(0.7);
+  opacity: 0.5;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+.logoloop:hover .logoloop__item img {
+  filter: grayscale(0) brightness(1);
+  opacity: 0.85;
+}
+
+/* ── Scale on hover modifier ── */
+.logoloop--scale-hover .logoloop__item:hover {
+  transform: scale(1.12);
+}
+
+.logoloop--scale-hover .logoloop__item:hover img {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}
+
+/* ── Link styling ── */
+.logoloop__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Node styling ── */
+.logoloop__node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.logoloop:hover .logoloop__node {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── Fade edges modifier ── */
+.logoloop--fade.logoloop--horizontal {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.logoloop--fade.logoloop--vertical {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .logoloop__track {
+    animation: none !important;
+    transform: none !important;
+  }
+  .logoloop__item {
+    transition: none;
+  }
+}
