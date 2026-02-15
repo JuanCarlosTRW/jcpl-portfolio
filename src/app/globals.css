@@ -2,58 +2,58 @@
 @import "../styles/theme.css";
 
 /* ═══════════════════════════════════════════════════
-   LUXURY GREEN WEALTH & DEPTH — Design Token System
+   INK NAVY / VIOLET / ELECTRIC BLUE — Design Token System
    ═══════════════════════════════════════════════════ */
 
 :root {
   /* ─── Background System ─── */
-  --bg-base: #0D1713;
-  --bg-surface: #112019;
-  --bg-elevated: #162820;
-  --bg-soft: #1B2E25;
+  --bg-base: #0a1020;
+  --bg-surface: #0e1530;
+  --bg-elevated: #131a3a;
+  --bg-soft: #182044;
 
   /* ─── Text ─── */
-  --text-primary: #F2F7F2;
-  --text-secondary: #D9E6DA;
-  --text-muted: #A8B8AA;
+  --text-primary: #f0f0f8;
+  --text-secondary: #c8c8e0;
+  --text-muted: #8888b0;
 
-  /* ─── Brand Greens ─── */
-  --brand-accent: #50C878;
-  --brand-deep: #0B3D2E;
-  --brand-forest: #004B3B;
-  --brand-moss: #355E3B;
-  --brand-heritage: #5A7757;
-  --brand-strong: #186016;
+  /* ─── Brand Accents ─── */
+  --brand-accent: #7f5fff;
+  --brand-deep: #5a3fd6;
+  --brand-alt: #33ccff;
+  --brand-subtle: #4a3a8a;
+  --brand-heritage: #6655aa;
+  --brand-strong: #6644cc;
 
   /* ─── Legacy Aliases (for compatibility) ─── */
   --emerald: var(--brand-accent);
   --emerald-deep: var(--brand-deep);
-  --forest: var(--brand-forest);
-  --moss: var(--brand-moss);
+  --forest: var(--brand-subtle);
+  --moss: var(--brand-subtle);
   --heritage: var(--brand-heritage);
 
   /* ─── Semantic ─── */
-  --color-success: #50C878;
+  --color-success: #33ccff;
   --color-danger: #D36B6B;
   --color-warning: #D9C57B;
 
   /* ─── UI Lines ─── */
-  --border-soft: rgba(217, 230, 218, 0.14);
-  --border-strong: rgba(217, 230, 218, 0.24);
+  --border-soft: rgba(200, 200, 224, 0.10);
+  --border-strong: rgba(200, 200, 224, 0.20);
   --border: var(--border-soft);
   --border-2: var(--border-strong);
 
   /* ─── Effects ─── */
   --shadow-premium: 0 16px 60px rgba(0,0,0,0.45);
   --shadow-soft: 0 4px 24px rgba(0,0,0,.25);
-  --glow-accent: 0 0 0 1px rgba(80,200,120,.35), 0 10px 40px rgba(80,200,120,.18);
+  --glow-accent: 0 0 0 1px rgba(127,95,255,.35), 0 10px 40px rgba(127,95,255,.18);
   --glow-primary: var(--glow-accent);
 
   /* ─── Atmospheric Gradients ─── */
-  --hero-atmo: radial-gradient(1200px 700px at 12% 8%, rgba(80,200,120,.16), transparent 60%),
-    radial-gradient(1000px 620px at 82% 16%, rgba(11,61,46,.24), transparent 58%),
-    radial-gradient(900px 580px at 50% 90%, rgba(0,75,59,.18), transparent 62%),
-    linear-gradient(180deg, #0D1713 0%, #112019 52%, #0D1713 100%);
+  --hero-atmo: radial-gradient(1200px 700px at 12% 8%, rgba(127,95,255,.12), transparent 60%),
+    radial-gradient(1000px 620px at 82% 16%, rgba(51,204,255,.08), transparent 58%),
+    radial-gradient(900px 580px at 50% 90%, rgba(127,95,255,.06), transparent 62%),
+    linear-gradient(180deg, #0a1020 0%, #0e1530 52%, #0a1020 100%);
   
   --section-atmo: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
 
@@ -107,7 +107,7 @@ body::before {
 
 ::selection {
   background: var(--brand-accent);
-  color: var(--bg-base);
+  color: #fff;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -162,7 +162,7 @@ body::before {
    ═══════════════════════════════════════════════════ */
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--brand-accent) 60%, #65C6B7 100%);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--brand-accent) 60%, var(--brand-alt) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -177,7 +177,7 @@ body::before {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(80,200,120,0.35), rgba(101,198,183,0.12));
+  background: linear-gradient(135deg, rgba(127,95,255,0.35), rgba(51,204,255,0.12));
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -186,7 +186,7 @@ body::before {
 }
 
 .glass {
-  background: rgba(13, 23, 19, 0.75);
+  background: rgba(10, 16, 32, 0.75);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
@@ -227,7 +227,7 @@ body::before {
    ═══════════════════════════════════════════════════ */
 
 :focus-visible {
-  outline: 2px solid var(--brand-accent);
+  outline: 2px solid var(--brand-alt);
   outline-offset: 2px;
   box-shadow: var(--glow-accent);
 }

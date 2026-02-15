@@ -27,7 +27,7 @@ export default function SystemSection() {
           <Reveal key={step.step} delay={0.08 * i}>
             <div className="group relative gradient-border rounded-2xl bg-[var(--bg-surface)] p-8 transition-all duration-300 hover:bg-[var(--bg-elevated)]">
               {/* Step number */}
-              <div className="absolute -top-3 -left-3 flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-accent)] text-xs font-bold text-[var(--bg-base)]" style={{ boxShadow: '0 0 15px rgba(80,200,120,0.4)' }}>
+              <div className="absolute -top-3 -left-3 flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-accent)] text-xs font-bold text-white" style={{ boxShadow: '0 0 15px rgba(127,95,255,0.4)' }}>
                 {step.step}
               </div>
 

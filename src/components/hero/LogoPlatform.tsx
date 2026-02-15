@@ -55,13 +55,21 @@ export default function LogoPlatform({ laserLanded = false }: LogoPlatformProps)
       {/* Ambient haze behind the platform */}
       <div className="bp-haze" />
 
+      {/* Junction bridge — gradient that smooths laser→platform seam */}
+      {isRevealed && <div className="bp-junction" />}
+
       {/* The platform rectangle */}
       <div className={`bp-platform ${isRevealed ? "bp-platform--landed" : ""}`}>
         {/* Impact glow — where the beam hits center */}
         <div className={`bp-impact ${isRevealed ? "bp-impact--active" : ""}`} />
 
-        {/* Ripple — expanding ring from impact point */}
-        {isRevealed && <div className="bp-ripple" />}
+        {/* Energy spread — continuous pulse from center → edges */}
+        {isRevealed && (
+          <div className="bp-energy-spread">
+            <div className="bp-energy-pulse" />
+            <div className="bp-energy-line" />
+          </div>
+        )}
 
         {/* Light sweep — spreads left to right across the top edge */}
         <div className="bp-sweep" />
@@ -90,7 +98,7 @@ export default function LogoPlatform({ laserLanded = false }: LogoPlatformProps)
             logoHeight={28}
             pauseOnHover
             fadeEdges
-            fadeColor="#0c0e12"
+            fadeColor="#0a1020"
             scaleOnHover
           />
         </div>

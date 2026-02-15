@@ -113,7 +113,7 @@ export default function ApplyForm() {
             </div>
             <div className="h-1 w-full rounded-full bg-white/5">
               <motion.div
-                className="h-1 rounded-full bg-[var(--emerald)]"
+                className="h-1 rounded-full bg-[var(--brand-accent)]"
                 initial={false}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
@@ -145,7 +145,7 @@ export default function ApplyForm() {
                   >
                     {field.label}
                     {field.required && (
-                      <span className="text-[var(--emerald)] ml-1">*</span>
+                      <span className="text-[var(--brand-alt)] ml-1">*</span>
                     )}
                   </label>
 

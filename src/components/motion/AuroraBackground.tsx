@@ -25,13 +25,13 @@ export default function AuroraBackground({ className = "" }: Props) {
       <div style={{ background: "var(--hero-atmo)" }} className="absolute inset-0" />
       <motion.div
         className="absolute -top-24 -left-24 w-[45vw] h-[45vw] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(80,200,120,.25), rgba(80,200,120,0))" }}
+        style={{ background: "radial-gradient(circle, rgba(127,95,255,.20), rgba(127,95,255,0))" }}
         animate={{ x: [0, 30, -20, 0], y: [0, -20, 20, 0], scale: [1, 1.08, 0.95, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="absolute -bottom-24 -right-24 w-[40vw] h-[40vw] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(11,61,46,.35), rgba(11,61,46,0))" }}
+        style={{ background: "radial-gradient(circle, rgba(51,204,255,.15), rgba(51,204,255,0))" }}
         animate={{ x: [0, -25, 15, 0], y: [0, 25, -15, 0], scale: [1, 0.96, 1.06, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
