@@ -63,8 +63,8 @@
   top: 0;
   left: 0;
   right: 0;
-  /* Extend 30vh past hero bottom — bleeds into section 2 */
-  bottom: -30vh;
+  /* Extend 50vh past hero bottom — reaches platform in section 2 */
+  bottom: -50vh;
   z-index: 3;
   mix-blend-mode: screen;
   pointer-events: none;
