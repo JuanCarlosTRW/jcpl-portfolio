@@ -1,0 +1,185 @@
+/* ═══════════════════════════════════════════════════
+   STAR BORDER — Animated Border Wrapper
+   Premium travelling-light effect for containers,
+   cards, CTAs, and impact panels.
+   ═══════════════════════════════════════════════════ */
+
+.star-border {
+  --sb-color: var(--brand-accent);
+  --sb-speed: 6s;
+  --sb-thickness: 1px;
+
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/* ─── Travelling light gradients ─── */
+.star-border__ray {
+  position: absolute;
+  width: 300%;
+  height: var(--sb-thickness);
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    circle,
+    var(--sb-color),
+    transparent 10%
+  );
+  opacity: 0;
+  animation: sb-travel var(--sb-speed) linear infinite;
+}
+
+.star-border__ray--top {
+  top: 0;
+  left: -100%;
+  height: var(--sb-thickness);
+  animation-name: sb-travel-x;
+}
+
+.star-border__ray--bottom {
+  bottom: 0;
+  left: -100%;
+  height: var(--sb-thickness);
+  animation-name: sb-travel-x;
+  animation-delay: calc(var(--sb-speed) / 2);
+}
+
+.star-border__ray--left {
+  top: -100%;
+  left: 0;
+  width: var(--sb-thickness);
+  height: 300%;
+  animation-name: sb-travel-y;
+  animation-delay: calc(var(--sb-speed) / 4);
+}
+
+.star-border__ray--right {
+  top: -100%;
+  right: 0;
+  width: var(--sb-thickness);
+  height: 300%;
+  animation-name: sb-travel-y;
+  animation-delay: calc(var(--sb-speed) * 3 / 4);
+}
+
+/* ─── Static border fallback (always visible, very subtle) ─── */
+.star-border__static {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  border: 1px solid var(--border-soft);
+}
+
+/* ─── Inner content ─── */
+.star-border__content {
+  position: relative;
+  z-index: 3;
+  border-radius: inherit;
+}
+
+/* ═══════════════════════════════════════════════════
+   KEYFRAMES
+   ═══════════════════════════════════════════════════ */
+
+@keyframes sb-travel-x {
+  0% {
+    transform: translateX(-33%);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(33%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(33%);
+    opacity: 0;
+  }
+}
+
+@keyframes sb-travel-y {
+  0% {
+    transform: translateY(-33%);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(33%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(33%);
+    opacity: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   VARIANTS
+   ═══════════════════════════════════════════════════ */
+
+/* Accent (default) — violet brand */
+.star-border--accent {
+  --sb-color: var(--brand-accent);
+}
+
+/* Alt — electric blue */
+.star-border--alt {
+  --sb-color: var(--brand-alt);
+}
+
+/* Subtle — very faint, for cards */
+.star-border--subtle .star-border__ray {
+  opacity: 0;
+  animation-name: sb-travel-x;
+}
+.star-border--subtle .star-border__ray--left,
+.star-border--subtle .star-border__ray--right {
+  animation-name: sb-travel-y;
+}
+
+/* Impact — for beam-hit panel, brighter + faster */
+.star-border--impact {
+  --sb-color: var(--brand-alt);
+  --sb-speed: 3s;
+  --sb-thickness: 2px;
+}
+
+/* ═══════════════════════════════════════════════════
+   HOVER ENHANCEMENT
+   ═══════════════════════════════════════════════════ */
+
+.star-border:hover .star-border__ray {
+  filter: brightness(1.3);
+}
+
+.star-border:hover .star-border__static {
+  border-color: rgba(127, 95, 255, 0.25);
+}
+
+/* ═══════════════════════════════════════════════════
+   REDUCED MOTION — Disable all animation
+   ═══════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .star-border__ray {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .star-border__static {
+    border-color: rgba(127, 95, 255, 0.2);
+  }
+}

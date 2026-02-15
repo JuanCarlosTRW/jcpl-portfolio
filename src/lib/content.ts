@@ -445,6 +445,34 @@ export const aboutPrinciples = [
   "Selective partnerships — I take a limited number of clients per quarter to guarantee results.",
 ];
 
+/* ─── About: Working Model Timeline ─── */
+export const aboutTimeline = [
+  {
+    phase: "Kickoff",
+    title: "Strategy & Foundation",
+    duration: "Week 1",
+    description:
+      "Deep-dive into your business, market, and goals. We define positioning, craft your offer, and map the entire growth system.",
+    icon: "🎯",
+  },
+  {
+    phase: "Build",
+    title: "System Build & Launch",
+    duration: "Weeks 2–4",
+    description:
+      "I build your conversion website, set up ad funnels, configure AI automation, and launch everything with tracking in place.",
+    icon: "🛠️",
+  },
+  {
+    phase: "Optimize",
+    title: "Optimize & Scale",
+    duration: "Ongoing",
+    description:
+      "Continuous data-driven improvements — lowering cost per lead, improving conversion rates, and scaling what works.",
+    icon: "📈",
+  },
+];
+
 /* ─── Case Study Metadata ─── */
 export const caseStudyMeta: Record<string, { industry: string; duration: string; budgetRange: string; primaryChannel: string }> = {
   "rv-rental-google-ads": {
