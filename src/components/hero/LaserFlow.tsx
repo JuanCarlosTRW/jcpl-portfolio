@@ -237,6 +237,12 @@ interface LaserFlowProps {
   falloffStart?: number;
   fogFallSpeed?: number;
   color?: string;
+  /** Intro animation duration in seconds (beam grows from top) */
+  introDuration?: number;
+  /** Delay before intro starts (seconds) */
+  introDelay?: number;
+  /** Callback fired when the intro animation completes (beam has "landed") */
+  onIntroComplete?: () => void;
 }
 
 export const LaserFlow = ({
@@ -260,6 +266,9 @@ export const LaserFlow = ({
   falloffStart = 1.2,
   fogFallSpeed = 0.6,
   color = "#FF79C6",
+  introDuration = 1.8,
+  introDelay = 0.3,
+  onIntroComplete,
 }: LaserFlowProps) => {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -274,6 +283,9 @@ export const LaserFlow = ({
   const emaDtRef = useRef(16.7);
   const pausedRef = useRef(false);
   const inViewRef = useRef(true);
+  const introCompleteRef = useRef(false);
+  const onIntroCompleteRef = useRef(onIntroComplete);
+  onIntroCompleteRef.current = onIntroComplete;
 
   const hexToRGB = (hex: string) => {
     let c = hex.trim();
@@ -355,6 +367,17 @@ export const LaserFlow = ({
     const mouseTarget = new THREE.Vector2(0, 0);
     const mouseSmooth = new THREE.Vector2(0, 0);
 
+    /* ── Intro animation state ── */
+    let introElapsed = 0;
+    const introDelayVal = introDelay;
+    const introDur = introDuration;
+    const targetVLen = verticalSizing;
+    /* Start with beam hidden (verticalSizing=0) */
+    uniforms.uVLenFactor.value = 0;
+    /* Also start wisps, fog, and flow scaled to 0 during intro */
+    uniforms.uWIntensity.value = 0;
+    uniforms.uFogIntensity.value = 0;
+
     const setSizeNow = () => {
       const w = mount.clientWidth || 1;
       const h = mount.clientHeight || 1;
@@ -434,6 +457,25 @@ export const LaserFlow = ({
         fade = Math.min(1, fade + cdt);
         uniforms.uFade.value = fade;
         if (fade >= 1) hasFadedRef.current = true;
+      }
+
+      /* ── Intro animation: grow beam from top to bottom ── */
+      if (!introCompleteRef.current) {
+        introElapsed += cdt;
+        const activeTime = Math.max(0, introElapsed - introDelayVal);
+        /* Ease-out cubic for cinematic deceleration */
+        const rawProgress = Math.min(1, activeTime / Math.max(introDur, 0.01));
+        const eased = 1 - Math.pow(1 - rawProgress, 3);
+        uniforms.uVLenFactor.value = eased * targetVLen;
+        /* Fade in wisps and fog in the last 40% of the intro */
+        const secondaryProgress = Math.max(0, (rawProgress - 0.6) / 0.4);
+        const secondaryEased = 1 - Math.pow(1 - secondaryProgress, 2);
+        uniforms.uWIntensity.value = secondaryEased * wispIntensity;
+        uniforms.uFogIntensity.value = secondaryEased * fogIntensity;
+        if (rawProgress >= 1 && !introCompleteRef.current) {
+          introCompleteRef.current = true;
+          onIntroCompleteRef.current?.();
+        }
       }
       const tau = Math.max(1e-3, mouseSmoothTime);
       const alpha = 1 - Math.exp(-cdt / tau);

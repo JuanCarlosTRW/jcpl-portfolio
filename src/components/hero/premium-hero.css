@@ -57,6 +57,13 @@
   );
 }
 
+/* ── Layer 2.5: Floating particles ── */
+.ph-particles {
+  z-index: 2;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
 /* ── Layer 3: Laser flow (the star) ── */
 .ph-laser {
   position: absolute;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import LogoLoop from "./LogoLoop";
 import "./beam-platform.css";
 
@@ -18,8 +18,17 @@ const PARTNER_LOGOS = [
   { node: "Stripe" },
 ];
 
-export default function LogoPlatform() {
+interface LogoPlatformProps {
+  /** True once the laser beam has finished its intro animation */
+  laserLanded?: boolean;
+}
+
+export default function LogoPlatform({ laserLanded = false }: LogoPlatformProps) {
   const platformRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  /* Trigger entrance when BOTH in viewport AND laser has landed */
+  const isRevealed = inView && laserLanded;
 
   useEffect(() => {
     const el = platformRef.current;
@@ -28,7 +37,7 @@ export default function LogoPlatform() {
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("bp-visible");
+          setInView(true);
         }
       },
       { threshold: 0.15 }
@@ -38,14 +47,21 @@ export default function LogoPlatform() {
   }, []);
 
   return (
-    <div ref={platformRef} className="bp-wrapper" aria-hidden="true">
+    <div
+      ref={platformRef}
+      className={`bp-wrapper ${isRevealed ? "bp-visible" : ""}`}
+      aria-hidden="true"
+    >
       {/* Ambient haze behind the platform */}
       <div className="bp-haze" />
 
       {/* The platform rectangle */}
-      <div className="bp-platform">
+      <div className={`bp-platform ${isRevealed ? "bp-platform--landed" : ""}`}>
         {/* Impact glow — where the beam hits center */}
-        <div className="bp-impact" />
+        <div className={`bp-impact ${isRevealed ? "bp-impact--active" : ""}`} />
+
+        {/* Ripple — expanding ring from impact point */}
+        {isRevealed && <div className="bp-ripple" />}
 
         {/* Light sweep — spreads left to right across the top edge */}
         <div className="bp-sweep" />
@@ -57,8 +73,11 @@ export default function LogoPlatform() {
         {/* Surface sheen */}
         <div className="bp-surface" />
 
+        {/* Frosted glass noise overlay */}
+        <div className="bp-frost-noise" />
+
         {/* ── Logo loop content ── */}
-        <div className="bp-logo-content">
+        <div className={`bp-logo-content ${isRevealed ? "bp-logo-content--revealed" : ""}`}>
           {/* Label above logos */}
           <p className="bp-label">Trusted Technologies</p>
 

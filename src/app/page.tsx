@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import Hero from "@/components/hero/Hero";
 import LogoPlatform from "@/components/hero/LogoPlatform";
@@ -10,10 +13,12 @@ const WhySection = dynamic(() => import("@/components/home/WhySection"));
 const FinalCTA = dynamic(() => import("@/components/home/FinalCTA"));
 
 export default function Home() {
+  const [laserLanded, setLaserLanded] = useState(false);
+
   return (
     <>
-      <Hero />
-      <LogoPlatform />
+      <Hero onLaserLand={() => setLaserLanded(true)} />
+      <LogoPlatform laserLanded={laserLanded} />
       <ProblemSection />
       <SystemSection />
       <ResultsSection />

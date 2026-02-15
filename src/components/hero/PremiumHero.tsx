@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import {
@@ -9,6 +9,7 @@ import {
 } from "@/lib/motion";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import LaserFlow from "@/components/hero/LaserFlow";
+import ParticleField from "@/components/hero/ParticleField";
 import "./premium-hero.css";
 
 const Aurora = dynamic(() => import("@/components/motion/Aurora"), {
@@ -53,9 +54,17 @@ const fadeUp = (delay: number) => ({
 /* ═══════════════════════════════════════════════════
    COMPONENT
    ═══════════════════════════════════════════════════ */
-export default function PremiumHero() {
+export default function PremiumHero({ onLaserLand }: { onLaserLand?: () => void }) {
   const reduced = prefersReducedMotion();
   const init = reduced ? 1 : 0;
+  const [laserLanded, setLaserLanded] = useState(reduced);
+  const onLaserLandRef = useRef(onLaserLand);
+  onLaserLandRef.current = onLaserLand;
+
+  const handleLaserLand = useCallback(() => {
+    setLaserLanded(true);
+    onLaserLandRef.current?.();
+  }, []);
 
   /* refs for GSAP intro sequence */
   const sectionRef = useRef<HTMLElement>(null);
@@ -135,6 +144,14 @@ export default function PremiumHero() {
       <div className="ph-layer ph-vignette" aria-hidden="true" />
 
       {/* ═══════════════════════════════════════════
+          LAYER 2.5 — Floating particle field for depth
+          z-index: 2
+          ═══════════════════════════════════════════ */}
+      <div className="ph-layer ph-particles" aria-hidden="true">
+        <ParticleField />
+      </div>
+
+      {/* ═══════════════════════════════════════════
           LAYER 3 — LASER FLOW (dominant focal point)
           z-index: 3  — centered, extends into section 2
           ═══════════════════════════════════════════ */}
@@ -158,6 +175,9 @@ export default function PremiumHero() {
           verticalSizing={6.0}
           horizontalSizing={0.5}
           color="#FF79C6"
+          introDuration={1.8}
+          introDelay={0.4}
+          onIntroComplete={() => handleLaserLand()}
         />
       </div>
 

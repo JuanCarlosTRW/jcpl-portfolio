@@ -98,11 +98,17 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .logoloop:hover .logoloop__node {
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── Individual node hover glow ── */
+.logoloop--scale-hover .logoloop__item:hover .logoloop__node {
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 0 12px rgba(255, 121, 198, 0.3);
 }
 
 /* ── Fade edges modifier ── */

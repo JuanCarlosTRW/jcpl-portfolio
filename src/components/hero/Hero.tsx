@@ -7,6 +7,6 @@ import PremiumHero from "./PremiumHero";
  * This keeps the implementation (PremiumHero) separate while providing the
  * requested `/src/components/hero/Hero.tsx` entry point.
  */
-export default function Hero() {
-  return <PremiumHero />;
+export default function Hero({ onLaserLand }: { onLaserLand?: () => void }) {
+  return <PremiumHero onLaserLand={onLaserLand} />;
 }
