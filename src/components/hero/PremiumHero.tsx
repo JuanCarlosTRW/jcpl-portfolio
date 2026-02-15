@@ -119,8 +119,8 @@ export default function PremiumHero() {
       >
         <LaserFlow
           className="ph-laser-canvas"
-          horizontalBeamOffset={0.1}
-          verticalBeamOffset={0.0}
+          horizontalBeamOffset={0.15}
+          verticalBeamOffset={-0.15}
           wispDensity={1}
           wispIntensity={5}
           wispSpeed={15}
@@ -129,7 +129,7 @@ export default function PremiumHero() {
           fogScale={0.3}
           decay={1.1}
           falloffStart={1.2}
-          verticalSizing={2.0}
+          verticalSizing={3.5}
           horizontalSizing={0.5}
           color="#FF79C6"
         />

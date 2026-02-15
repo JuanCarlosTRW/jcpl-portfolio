@@ -11,7 +11,7 @@ const FinalCTA = dynamic(() => import("@/components/home/FinalCTA"));
 export default function Home() {
   return (
     <>
-  <Hero />
+      <Hero />
       <ProblemSection />
       <SystemSection />
       <ResultsSection />
