@@ -1,10 +1,16 @@
 /* ═══════════════════════════════════════════════════
    PREMIUM HERO — Cinematic Laser-Dominant Design
    
+   Palette:
+     Ink navy   #0a1020
+     Electric blue  #3cf / #33ccff
+     Violet edge    #7f5fff
+   
    Layer stack (bottom → top):
-     0  ph-base        Deep space radial gradient
-     1  ph-aurora       Aurora WebGL (subtle, moody)
+     0  ph-base        Deep ink navy radial gradient
+     1  ph-aurora       Aurora WebGL (subtle, moody blue)
      2  ph-vignette     Cinematic radial vignette
+   2.5  ph-particles    Floating dust motes
      3  ph-laser        LASER FLOW — dominant focal point
      4  ph-bloom        CSS glow bloom around beam
      5  ph-grain        Film grain texture
@@ -19,7 +25,7 @@
   display: flex;
   align-items: center;
   overflow: visible;
-  background: #050608;
+  background: #0a1020;
 }
 
 /* ── Shared layer positioning ── */
@@ -29,20 +35,20 @@
   pointer-events: none;
 }
 
-/* ── Layer 0: Deep space base ── */
+/* ── Layer 0: Deep ink navy base ── */
 .ph-base {
   z-index: 0;
   background: radial-gradient(
     ellipse 80% 70% at 50% 45%,
-    rgba(11, 61, 46, 0.08) 0%,
-    rgba(5, 6, 8, 1) 70%
+    rgba(26, 58, 92, 0.10) 0%,
+    rgba(10, 16, 32, 1) 70%
   );
 }
 
 /* ── Layer 1: Aurora ── */
 .ph-aurora {
   z-index: 1;
-  opacity: 0.35;
+  opacity: 0.3;
   mix-blend-mode: screen;
 }
 
@@ -52,15 +58,15 @@
   background: radial-gradient(
     ellipse 100% 100% at 50% 45%,
     transparent 18%,
-    rgba(5, 6, 8, 0.5) 50%,
-    rgba(5, 6, 8, 0.92) 100%
+    rgba(10, 16, 32, 0.5) 50%,
+    rgba(10, 16, 32, 0.92) 100%
   );
 }
 
 /* ── Layer 2.5: Floating particles ── */
 .ph-particles {
   z-index: 2;
-  opacity: 0.6;
+  opacity: 0.5;
   mix-blend-mode: screen;
 }
 
@@ -92,8 +98,8 @@
   z-index: 4;
   background: radial-gradient(
     ellipse 50% 70% at 50% 45%,
-    rgba(255, 121, 198, 0.07) 0%,
-    rgba(255, 121, 198, 0.025) 30%,
+    rgba(127, 95, 255, 0.06) 0%,
+    rgba(51, 204, 255, 0.02) 30%,
     transparent 70%
   );
   mix-blend-mode: screen;
@@ -108,20 +114,20 @@
 /* ── Layer 5: Film grain ── */
 .ph-grain {
   z-index: 5;
-  opacity: 0.025;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   mix-blend-mode: overlay;
 }
 
-/* ── Layer 6: Bottom edge-out (very subtle — lets laser bleed through) ── */
+/* ── Layer 6: Bottom edge-out ── */
 .ph-bottom-fade {
   z-index: 6;
   background: linear-gradient(
     to bottom,
     transparent 85%,
-    rgba(5, 6, 8, 0.15) 95%,
-    rgba(5, 6, 8, 0.35) 100%
+    rgba(10, 16, 32, 0.15) 95%,
+    rgba(10, 16, 32, 0.35) 100%
   );
 }
 
@@ -174,7 +180,7 @@
     align-items: flex-start;
     text-align: left;
     margin: 0;
-    max-width: 520px;
+    max-width: 560px;
   }
 }
 
@@ -187,7 +193,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-emerald, #8FAE9D);
+  color: #33ccff;
   will-change: transform, opacity;
 }
 
@@ -195,8 +201,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent-emerald, #8FAE9D);
-  box-shadow: 0 0 8px rgba(143, 174, 157, 0.5);
+  background: #33ccff;
+  box-shadow: 0 0 8px rgba(51, 204, 255, 0.5);
   animation: ph-pulse 2.8s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -210,21 +216,20 @@
 .ph-headline {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--text-main, #E9ECEF);
-  max-width: 16ch;
+  max-width: 18ch;
   will-change: transform, opacity;
-  /* Subtle text-shadow glow that ties into the laser */
   text-shadow:
-    0 0 40px rgba(255, 121, 198, 0.08),
+    0 0 40px rgba(127, 95, 255, 0.06),
     0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 .ph-headline-emphasis {
-  color: var(--accent-emerald, #8FAE9D);
+  color: #33ccff;
   text-shadow:
-    0 0 30px rgba(143, 174, 157, 0.15),
+    0 0 30px rgba(51, 204, 255, 0.12),
     0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -233,7 +238,7 @@
   font-size: clamp(0.95rem, 1.4vw, 1.08rem);
   line-height: 1.65;
   color: var(--text-muted, rgba(233, 236, 239, 0.56));
-  max-width: 500px;
+  max-width: 520px;
   will-change: transform, opacity;
 }
 
@@ -261,12 +266,12 @@
   transform: translateX(5px);
 }
 
-/* ── Proof line ── */
+/* ── Proof pills ── */
 .ph-proof {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0;
+  gap: 0.5rem;
   margin-top: 0.5rem;
   will-change: transform, opacity;
 }
@@ -274,25 +279,27 @@
 @media (max-width: 767px) {
   .ph-proof {
     justify-content: center;
+    gap: 0.375rem;
   }
 }
 
 .ph-proof-item {
   display: inline-flex;
   align-items: center;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--text-main, #E9ECEF);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+  background: rgba(51, 204, 255, 0.06);
+  border: 1px solid rgba(51, 204, 255, 0.12);
+  border-radius: 100px;
+  padding: 0.35rem 0.85rem;
 }
 
 .ph-proof-sep {
-  margin: 0 0.6em;
-  color: var(--text-dim, rgba(233, 236, 239, 0.32));
-  font-weight: 400;
-  user-select: none;
+  display: none;
 }
 
 /* ── Authority micro-line ── */
@@ -322,5 +329,9 @@
   }
   .ph-proof {
     gap: 0.25rem;
+  }
+  .ph-proof-item {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.7rem;
   }
 }

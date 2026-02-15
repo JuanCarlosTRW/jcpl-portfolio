@@ -19,26 +19,26 @@ const Aurora = dynamic(() => import("@/components/motion/Aurora"), {
 /* ═══════════════════════════════════════════════════
    COPY — conversion-optimized, outcome-driven
    ═══════════════════════════════════════════════════ */
-const EYEBROW = "Engineered Growth Systems for Service Businesses";
-const HEADLINE_L1 = "Turn unpredictable lead flow";
-const HEADLINE_L2 = "into controlled revenue growth.";
+const EYEBROW = "Presence-to-Pipeline System™";
+const HEADLINE_L1 = "Predictable Revenue Growth";
+const HEADLINE_L2 = "for Service Businesses";
 const SUBHEADLINE =
-  "I design acquisition, conversion and automation systems that increase revenue without increasing operational chaos.";
+  "We build your Presence-to-Pipeline System™: premium digital presence, AI-assisted qualification, and a traffic engine that drives qualified demand without adding chaos.";
 
-const CTA_PRIMARY = { label: "Book Strategy Call", href: "/apply" };
-const CTA_SECONDARY = { label: "View Case Studies", href: "/case-studies" };
+const CTA_PRIMARY = { label: "Apply for Growth Partnership", href: "/apply" };
+const CTA_SECONDARY = { label: "See Case Studies", href: "/case-studies" };
 
 const PROOF_ITEMS = [
   "+31% Avg Conversion Lift",
-  "–22–41% Cost Per Lead",
+  "–22% to –41% Cost Per Lead",
   "<60s Speed-to-Lead Systems",
 ] as const;
 
 const AUTHORITY_LINE =
   "Selectively working with a limited number of service brands per quarter.";
 
-/* Aurora color scheme — deep moody emerald/teal, kept very subtle */
-const AURORA_COLORS = ["#0B3D2E", "#8FAE9D", "#0B3D2E"];
+/* Aurora color scheme — deep ink navy / electric blue, kept very subtle */
+const AURORA_COLORS = ["#0a1020", "#1a3a5c", "#0a1020"];
 
 /* Framer Motion entrance variants for cinematic reveal */
 const fadeUp = (delay: number) => ({
@@ -164,17 +164,17 @@ export default function PremiumHero({ onLaserLand }: { onLaserLand?: () => void 
           className="ph-laser-canvas"
           horizontalBeamOffset={0}
           verticalBeamOffset={-0.15}
-          wispDensity={1}
-          wispIntensity={5}
-          wispSpeed={15}
-          flowSpeed={0.35}
-          fogIntensity={0.45}
-          fogScale={0.3}
+          wispDensity={0.6}
+          wispIntensity={2.5}
+          wispSpeed={12}
+          flowSpeed={0.3}
+          fogIntensity={0.2}
+          fogScale={0.25}
           decay={1.1}
           falloffStart={1.2}
           verticalSizing={6.0}
-          horizontalSizing={0.5}
-          color="#FF79C6"
+          horizontalSizing={0.4}
+          color="#7f5fff"
           introDuration={1.8}
           introDelay={0.4}
           onIntroComplete={() => handleLaserLand()}
@@ -264,13 +264,8 @@ export default function PremiumHero({ onLaserLand }: { onLaserLand?: () => void 
             style={{ opacity: init }}
             {...(reduced ? {} : fadeUp(1.4))}
           >
-            {PROOF_ITEMS.map((item, i) => (
+            {PROOF_ITEMS.map((item) => (
               <span key={item} className="ph-proof-item">
-                {i > 0 && (
-                  <span className="ph-proof-sep" aria-hidden="true">
-                    ·
-                  </span>
-                )}
                 {item}
               </span>
             ))}

@@ -5,9 +5,9 @@
 
 :root {
   /* ─── Background ─── */
-  --bg-ink: #0B0D10;
-  --bg-charcoal: #12161B;
-  --bg-deep: #090B0E;
+  --bg-ink: #0a1020;
+  --bg-charcoal: #0f1628;
+  --bg-deep: #080c18;
 
   /* ─── Text ─── */
   --text-main: #E9ECEF;
@@ -15,10 +15,10 @@
   --text-dim: rgba(233, 236, 239, 0.32);
 
   /* ─── Accents ─── */
-  --accent-emerald: #8FAE9D;
+  --accent-emerald: #33ccff;
   --accent-warm: #C7A96B;
-  --accent-ice: #A8C4D4;
-  --accent-frost: rgba(168, 196, 212, 0.12);
+  --accent-ice: #7f5fff;
+  --accent-frost: rgba(127, 95, 255, 0.12);
 
   /* ─── Borders ─── */
   --border-subtle: rgba(255, 255, 255, 0.08);
@@ -32,7 +32,7 @@
   /* ─── Shadows ─── */
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.22);
   --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 80px rgba(143, 174, 157, 0.08);
+  --shadow-glow: 0 0 80px rgba(127, 95, 255, 0.08);
 
   /* ─── Transitions ─── */
   --transition-smooth: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
