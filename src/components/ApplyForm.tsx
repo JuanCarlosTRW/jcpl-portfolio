@@ -198,7 +198,7 @@ export default function ApplyForm() {
                 )}
                 <button
                   type="submit"
-                  className="flex-1 rounded-xl bg-[var(--brand-accent)] px-6 py-3 text-sm font-semibold text-[var(--bg-base)] transition-all hover:bg-[var(--brand-strong)] hover:scale-[1.02]"
+                  className="flex-1 rounded-xl bg-[var(--brand-accent)] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[var(--brand-deep)] hover:scale-[1.02]"
                   style={{ boxShadow: 'var(--glow-accent)' }}
                 >
                   {currentStep < totalSteps - 1
@@ -252,7 +252,7 @@ export default function ApplyForm() {
                     href="https://calendly.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-[var(--bg-base)] transition-all hover:bg-[var(--brand-strong)] hover:scale-[1.02]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[var(--brand-deep)] hover:scale-[1.02]"
                     style={{ boxShadow: 'var(--glow-accent)' }}
                     onClick={() => trackEvent("calendly_view")}
                   >

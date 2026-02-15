@@ -18,8 +18,8 @@ export const navigation = [
 ] as const;
 
 export const ctaCopy = {
-  primary: "Apply to Work Together",
-  secondary: "Get a Growth System Review",
+  primary: "Apply for Growth Partnership",
+  secondary: "See Case Studies",
   tertiary: "See If We're a Fit",
   href: "/apply",
 };
@@ -169,7 +169,7 @@ export const serviceTiers = [
     timeline: "2–3 weeks",
     impact:
       "Stop losing clients to competitors who simply look more professional online. Your website becomes your hardest-working salesperson.",
-    cta: "Apply for Foundation",
+    cta: "Apply for Growth Partnership",
   },
   {
     name: "Growth",
@@ -187,7 +187,7 @@ export const serviceTiers = [
     timeline: "3–4 weeks setup + ongoing optimization",
     impact:
       "Predictable lead flow. Qualified prospects booking directly into your calendar. No more feast-or-famine months.",
-    cta: "Apply for Growth",
+    cta: "Apply for Growth Partnership",
     featured: true,
   },
   {
@@ -207,7 +207,7 @@ export const serviceTiers = [
     timeline: "4–6 weeks setup + ongoing partnership",
     impact:
       "You become the obvious choice in your market. Leads come in systematically. You focus on running your business — I focus on filling it.",
-    cta: "Apply for Scale",
+    cta: "Apply for Growth Partnership",
   },
 ];
 

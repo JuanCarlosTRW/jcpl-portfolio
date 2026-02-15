@@ -32,7 +32,7 @@ export default function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Main navigation">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <span className="text-xl font-bold tracking-tight text-white">
@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             href="/apply"
-            className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--brand-deep)] shadow-[0_0_20px_rgba(127,95,255,0.3)] hover:shadow-[0_0_30px_rgba(127,95,255,0.5)]"
+            className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--brand-deep)] shadow-[0_0_20px_rgba(127,95,255,0.3)] hover:shadow-[0_0_30px_rgba(127,95,255,0.5)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-accent)]"
           >
             {ctaCopy.primary}
             <span className="transition-transform duration-300">→</span>
@@ -77,6 +77,7 @@ export default function Navbar() {
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -111,7 +112,7 @@ export default function Navbar() {
                     "rounded-lg px-4 py-3 text-sm font-medium transition-colors",
                     pathname === item.href
                       ? "bg-white/5 text-white"
-                      : "text-[#9a9ab0] hover:text-white hover:bg-white/5"
+                      : "text-[var(--text-secondary)] hover:text-white hover:bg-white/5"
                   )}
                 >
                   {item.label}
@@ -119,7 +120,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="/apply"
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--brand-accent)] px-5 py-3 text-sm font-semibold text-white"
               >
                 {ctaCopy.primary} →
               </Link>

@@ -52,7 +52,7 @@ export default function Footer() {
               <p>Ready to grow your business?</p>
               <Link
                 href="/apply"
-                className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-5 py-2.5 text-sm font-semibold text-[var(--bg-base)] transition-all hover:bg-[var(--brand-strong)] hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[var(--brand-deep)] hover:scale-[1.02]"
               >
                 {ctaCopy.tertiary} →
               </Link>

@@ -8,9 +8,9 @@ interface Props {
 export default function SectionLabel({ label, className = "" }: Props) {
   return (
     <div
-      className={`inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-indigo-400 ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full border border-[var(--brand-accent)]/20 bg-[var(--brand-accent)]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--brand-alt)] ${className}`}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
+      <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-accent)]" />
       {label}
     </div>
   );

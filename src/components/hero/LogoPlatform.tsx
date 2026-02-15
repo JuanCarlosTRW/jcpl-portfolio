@@ -67,6 +67,7 @@ export default function LogoPlatform({ laserLanded = false }: LogoPlatformProps)
         {isRevealed && (
           <div className="bp-energy-spread">
             <div className="bp-energy-pulse" />
+            <div className="bp-energy-echo" />
             <div className="bp-energy-line" />
           </div>
         )}

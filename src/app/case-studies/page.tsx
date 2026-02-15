@@ -5,6 +5,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import CTAButton from "@/components/ui/CTAButton";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import FinalCTA from "@/components/home/FinalCTA";
 
 export const metadata: Metadata = buildMetadata({
@@ -25,7 +26,7 @@ export default function CaseStudiesPage() {
             Real Clients. Real{" "}
             <span className="gradient-text">Results</span>.
           </h1>
-          <p className="mt-6 text-lg text-[#9a9ab0] max-w-2xl mx-auto">
+          <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
             Every project below represents a real business that needed more
             clients — and got them through a systemized approach.
           </p>
@@ -36,18 +37,18 @@ export default function CaseStudiesPage() {
       {caseStudies.map((cs, i) => (
         <SectionWrapper
           key={cs.slug}
-          className={i % 2 === 1 ? "bg-[#0c0c10]/50" : ""}
+          className={i % 2 === 1 ? "bg-[var(--bg-surface)]/50" : ""}
         >
           {/* Header */}
           <AnimatedSection className="mb-12">
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs font-semibold text-indigo-400">
+              <span className="rounded-full bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 px-3 py-1 text-xs font-semibold text-[var(--brand-alt)]">
                 {cs.industry}
               </span>
               {cs.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-white/5 border border-white/5 px-3 py-1 text-xs text-[#5c5c72]"
+                  className="rounded-full bg-white/5 border border-white/5 px-3 py-1 text-xs text-[var(--text-muted)]"
                 >
                   {tag}
                 </span>
@@ -56,16 +57,16 @@ export default function CaseStudiesPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {cs.title}
             </h2>
-            <p className="text-[#9a9ab0]">{cs.client}</p>
+            <p className="text-[var(--text-secondary)]">{cs.client}</p>
           </AnimatedSection>
 
           {/* Hero stat */}
           <AnimatedSection delay={0.1} className="mb-12">
-            <div className="gradient-border rounded-2xl bg-[#0c0c10] p-10 text-center max-w-md mx-auto">
+            <div className="gradient-border rounded-2xl bg-[var(--bg-surface)] p-10 text-center max-w-md mx-auto">
               <div className="text-5xl md:text-6xl font-bold gradient-text mb-2">
                 {cs.heroStat}
               </div>
-              <p className="text-[#9a9ab0]">{cs.heroLabel}</p>
+              <p className="text-[var(--text-secondary)]">{cs.heroLabel}</p>
             </div>
           </AnimatedSection>
 
@@ -74,22 +75,22 @@ export default function CaseStudiesPage() {
             <AnimatedSection delay={0.15} direction="left">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-sm uppercase tracking-wider text-indigo-400 font-semibold mb-2">
+                  <h3 className="text-sm uppercase tracking-wider text-[var(--brand-alt)] font-semibold mb-2">
                     Context
                   </h3>
-                  <p className="text-[#9a9ab0] leading-relaxed">{cs.context}</p>
+                  <p className="text-[var(--text-secondary)] leading-relaxed">{cs.context}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm uppercase tracking-wider text-indigo-400 font-semibold mb-2">
+                  <h3 className="text-sm uppercase tracking-wider text-[var(--brand-alt)] font-semibold mb-2">
                     Problem
                   </h3>
-                  <p className="text-[#9a9ab0] leading-relaxed">{cs.problem}</p>
+                  <p className="text-[var(--text-secondary)] leading-relaxed">{cs.problem}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm uppercase tracking-wider text-indigo-400 font-semibold mb-2">
+                  <h3 className="text-sm uppercase tracking-wider text-[var(--brand-alt)] font-semibold mb-2">
                     Strategy
                   </h3>
-                  <p className="text-[#9a9ab0] leading-relaxed">
+                  <p className="text-[var(--text-secondary)] leading-relaxed">
                     {cs.strategy}
                   </p>
                 </div>
@@ -99,28 +100,28 @@ export default function CaseStudiesPage() {
             <AnimatedSection delay={0.2} direction="right">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-sm uppercase tracking-wider text-indigo-400 font-semibold mb-2">
+                  <h3 className="text-sm uppercase tracking-wider text-[var(--brand-alt)] font-semibold mb-2">
                     Execution
                   </h3>
                   <ul className="space-y-2">
                     {cs.execution.map((step, j) => (
                       <li key={j} className="flex items-start gap-3">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-indigo-500 shrink-0" />
-                        <span className="text-sm text-[#9a9ab0]">{step}</span>
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--brand-accent)] shrink-0" />
+                        <span className="text-sm text-[var(--text-secondary)]">{step}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-sm uppercase tracking-wider text-indigo-400 font-semibold mb-2">
+                  <h3 className="text-sm uppercase tracking-wider text-[var(--brand-alt)] font-semibold mb-2">
                     Outcome
                   </h3>
-                  <p className="text-[#9a9ab0] leading-relaxed">
+                  <p className="text-[var(--text-secondary)] leading-relaxed">
                     {cs.outcome}
                   </p>
                 </div>
-                <div className="rounded-xl bg-indigo-500/5 border border-indigo-500/10 p-5">
-                  <h3 className="text-sm uppercase tracking-wider text-indigo-400 font-semibold mb-2">
+                <div className="rounded-xl bg-[var(--brand-accent)]/5 border border-[var(--brand-accent)]/10 p-5">
+                  <h3 className="text-sm uppercase tracking-wider text-[var(--brand-alt)] font-semibold mb-2">
                     Key Takeaway
                   </h3>
                   <p className="text-white font-medium leading-relaxed">
@@ -133,21 +134,13 @@ export default function CaseStudiesPage() {
 
           {/* Before/After placeholder */}
           <AnimatedSection delay={0.25} className="mt-12">
-            <div className="gradient-border rounded-2xl bg-[#0c0c10] p-8">
-              <h3 className="text-sm uppercase tracking-wider text-[#5c5c72] font-semibold mb-4 text-center">
+            <div className="gradient-border rounded-2xl bg-[var(--bg-surface)] p-8">
+              <h3 className="text-sm uppercase tracking-wider text-[var(--text-muted)] font-semibold mb-4 text-center">
                 Before & After
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-xl bg-white/[0.02] border border-white/5 aspect-video flex items-center justify-center">
-                  <span className="text-[#5c5c72] text-sm">
-                    Before — Screenshot Placeholder
-                  </span>
-                </div>
-                <div className="rounded-xl bg-white/[0.02] border border-indigo-500/10 aspect-video flex items-center justify-center">
-                  <span className="text-indigo-400/60 text-sm">
-                    After — Screenshot Placeholder
-                  </span>
-                </div>
+                <ImagePlaceholder label="Before — Screenshot" variant="before" />
+                <ImagePlaceholder label="After — Screenshot" variant="after" />
               </div>
             </div>
           </AnimatedSection>

@@ -113,36 +113,66 @@
    BEAM-TO-PANEL JUNCTION — smooth gradient bloom bridge
    Eliminates the hard seam between laser bottom and platform top.
    Sits ABOVE the platform, centered, blending laser into impact.
+   Two-layer approach: a tall soft bloom + a tight bright core.
    ═══════════════════════════════════════════════════ */
 .bp-junction {
   position: absolute;
-  top: -80px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(
-    ellipse 100% 100% at 50% 100%,
-    rgba(127, 95, 255, 0.30) 0%,
-    rgba(127, 95, 255, 0.12) 35%,
-    rgba(51, 204, 255, 0.04) 65%,
-    transparent 100%
-  );
+  width: 160px;
+  height: 100px;
   pointer-events: none;
   z-index: 3;
+}
+
+/* Outer soft bloom */
+.bp-junction::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 100%,
+    rgba(127, 95, 255, 0.22) 0%,
+    rgba(127, 95, 255, 0.08) 40%,
+    transparent 100%
+  );
+  animation: bp-junction-breathe 4s ease-in-out infinite alternate;
+}
+
+/* Inner bright core — tighter, brighter, sits right at the seam */
+.bp-junction::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 30px;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 100%,
+    rgba(180, 160, 255, 0.40) 0%,
+    rgba(127, 95, 255, 0.15) 50%,
+    transparent 100%
+  );
+  filter: blur(4px);
   animation: bp-junction-breathe 4s ease-in-out infinite alternate;
 }
 
 @keyframes bp-junction-breathe {
-  0% { opacity: 0.7; transform: translateX(-50%) scaleY(0.92); }
-  100% { opacity: 1; transform: translateX(-50%) scaleY(1.08); }
+  0% { opacity: 0.65; transform: translateX(-50%) scaleY(0.9); }
+  100% { opacity: 1; transform: translateX(-50%) scaleY(1.1); }
 }
 
 @media (min-width: 768px) {
   .bp-junction {
-    width: 180px;
-    height: 160px;
-    top: -100px;
+    width: 220px;
+    height: 140px;
+    top: -80px;
+  }
+  .bp-junction::after {
+    width: 60px;
+    height: 40px;
   }
 }
 
@@ -194,8 +224,9 @@
 
 /* ═══════════════════════════════════════════════════
    ENERGY SPREAD — continuous horizontal pulse
-   Starts at center, propagates to both edges each 4s cycle.
-   Clipped by platform overflow:hidden so it reaches exact edges.
+   Two-wave system: primary pulse + secondary echo.
+   Both start at center, propagate to both edges.
+   Clipped by platform overflow:hidden.
    ═══════════════════════════════════════════════════ */
 .bp-energy-spread {
   position: absolute;
@@ -206,22 +237,19 @@
   border-radius: inherit;
 }
 
-/* The actual pulsing gradient — starts narrow at center, expands to full width */
+/* Primary pulsing gradient — starts narrow at center, expands to full width */
 .bp-energy-pulse {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%) scaleX(0.05);
+  transform: translateX(-50%) scaleX(0.03);
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(127, 95, 255, 0.06) 15%,
-    rgba(127, 95, 255, 0.12) 35%,
-    rgba(51, 204, 255, 0.08) 50%,
-    rgba(127, 95, 255, 0.12) 65%,
-    rgba(127, 95, 255, 0.06) 85%,
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 0%,
+    rgba(127, 95, 255, 0.14) 0%,
+    rgba(127, 95, 255, 0.08) 30%,
+    rgba(51, 204, 255, 0.04) 60%,
     transparent 100%
   );
   opacity: 0;
@@ -229,17 +257,36 @@
   animation: bp-energy-flow 4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
+/* Secondary echo — delayed, dimmer, creates depth */
+.bp-energy-echo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0.02);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 0%,
+    rgba(51, 204, 255, 0.06) 0%,
+    rgba(127, 95, 255, 0.04) 40%,
+    transparent 80%
+  );
+  opacity: 0;
+  pointer-events: none;
+  animation: bp-energy-flow 4s cubic-bezier(0.22, 1, 0.36, 1) 0.6s infinite;
+}
+
 @keyframes bp-energy-flow {
   0% {
-    transform: translateX(-50%) scaleX(0.05);
+    transform: translateX(-50%) scaleX(0.03);
     opacity: 0;
   }
-  10% {
-    opacity: 0.9;
+  8% {
+    opacity: 0.85;
   }
-  70% {
+  60% {
     transform: translateX(-50%) scaleX(1);
-    opacity: 0.5;
+    opacity: 0.4;
   }
   100% {
     transform: translateX(-50%) scaleX(1);
@@ -247,22 +294,22 @@
   }
 }
 
-/* Top-edge energy line — a brighter trace along the top border */
+/* Top-edge energy line — bright trace along the top border */
 .bp-energy-line {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%) scaleX(0.02);
+  transform: translateX(-50%) scaleX(0.01);
   width: 100%;
   height: 2px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(127, 95, 255, 0.2) 20%,
-    rgba(180, 160, 255, 0.6) 45%,
-    rgba(51, 204, 255, 0.5) 50%,
-    rgba(180, 160, 255, 0.6) 55%,
-    rgba(127, 95, 255, 0.2) 80%,
+    rgba(127, 95, 255, 0.15) 15%,
+    rgba(180, 160, 255, 0.55) 42%,
+    rgba(51, 204, 255, 0.45) 50%,
+    rgba(180, 160, 255, 0.55) 58%,
+    rgba(127, 95, 255, 0.15) 85%,
     transparent 100%
   );
   opacity: 0;
@@ -272,15 +319,15 @@
 
 @keyframes bp-energy-line-flow {
   0% {
-    transform: translateX(-50%) scaleX(0.02);
+    transform: translateX(-50%) scaleX(0.01);
     opacity: 0;
   }
-  8% {
+  6% {
     opacity: 1;
   }
-  60% {
+  55% {
     transform: translateX(-50%) scaleX(1);
-    opacity: 0.7;
+    opacity: 0.6;
   }
   100% {
     transform: translateX(-50%) scaleX(1);
@@ -462,17 +509,19 @@
   .bp-impact--active {
     animation: none;
   }
-  .bp-junction {
+  .bp-junction::before,
+  .bp-junction::after {
     animation: none;
   }
-  .bp-energy-pulse {
+  .bp-energy-pulse,
+  .bp-energy-echo {
     animation: none;
-    opacity: 0.08;
+    opacity: 0.06;
     transform: translateX(-50%) scaleX(1);
   }
   .bp-energy-line {
     animation: none;
-    opacity: 0.3;
+    opacity: 0.25;
     transform: translateX(-50%) scaleX(1);
   }
   .bp-logo-content {

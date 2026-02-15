@@ -18,10 +18,10 @@ const base =
 
 const variants = {
   primary:
-    "bg-[var(--brand-accent)] text-[var(--bg-base)] hover:bg-[var(--brand-strong)] hover:scale-[1.02]",
+    "bg-[var(--brand-accent)] text-white hover:bg-[var(--brand-deep)] hover:scale-[1.02]",
   secondary:
     "bg-white/5 text-[var(--text-primary)] border border-[var(--border-soft)] hover:border-[var(--brand-accent)]/40 hover:bg-white/10",
-  ghost: "text-[var(--brand-accent)] hover:text-[var(--brand-strong)] hover:bg-white/5",
+  ghost: "text-[var(--brand-alt)] hover:text-[var(--brand-accent)] hover:bg-white/5",
 };
 
 const sizes = {
