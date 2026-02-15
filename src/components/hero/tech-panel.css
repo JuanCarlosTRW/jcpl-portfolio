@@ -6,14 +6,9 @@
    Layer B: Animated chroma edge accent (subtle)  
    Layer C: Hit-reactive impact line/wave synced with beam
 
-   Single timing variable: --beam-dur
-   Hit delay: --hit-delay
+   Uses unified geometry variables from globals.css:
+   --panel-overlap, --panel-max-w, --beam-duration, --hit-delay
    ═══════════════════════════════════════════════════ */
-
-:root {
-  --beam-dur: 4s;
-  --hit-delay: 0.18s;
-}
 
 /* ── Wrapper ── */
 .tp-wrapper {
@@ -22,8 +17,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 1.5rem;
-  margin-top: -2rem;
+  padding: 0 var(--container-px, 24px);
+  margin-top: calc(-1 * var(--panel-overlap, 2rem));
   z-index: 2;
   opacity: 0;
   transform: translateY(28px) scale(0.97);
@@ -40,10 +35,10 @@
 }
 
 @media (min-width: 768px) {
-  .tp-wrapper { padding: 0 3rem; }
+  .tp-wrapper { padding: 0 var(--container-px-md, 32px); }
 }
 @media (min-width: 1024px) {
-  .tp-wrapper { padding: 0 5rem; }
+  .tp-wrapper { padding: 0 var(--container-px-lg, 48px); }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -52,7 +47,7 @@
 .tp-panel {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: var(--panel-max-w, 900px);
   min-height: 120px;
   border-radius: 16px;
   overflow: hidden;
@@ -97,10 +92,10 @@
 }
 
 @media (min-width: 768px) {
-  .tp-panel { min-height: 140px; border-radius: 20px; max-width: 1000px; }
+  .tp-panel { min-height: 140px; border-radius: 20px; max-width: var(--panel-max-w-md, 1000px); }
 }
 @media (min-width: 1024px) {
-  .tp-panel { max-width: 1100px; min-height: 160px; border-radius: 24px; }
+  .tp-panel { max-width: var(--panel-max-w-lg, 1100px); min-height: 160px; border-radius: 24px; }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -184,7 +179,7 @@
 }
 
 .tp-panel--landed::after {
-  animation: tp-impact-line var(--beam-dur) cubic-bezier(0.22, 1, 0.36, 1) var(--hit-delay) infinite;
+  animation: tp-impact-line var(--beam-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--hit-delay) infinite;
 }
 
 @keyframes tp-impact-line {
@@ -231,7 +226,7 @@
     rgba(127, 95, 255, 0.08) 40%,
     transparent 100%
   );
-  animation: tp-junction-breathe var(--beam-dur) ease-in-out infinite alternate;
+  animation: tp-junction-breathe var(--beam-duration) ease-in-out infinite alternate;
 }
 
 /* Inner bright core */
@@ -250,7 +245,7 @@
     transparent 100%
   );
   filter: blur(4px);
-  animation: tp-junction-breathe var(--beam-dur) ease-in-out infinite alternate;
+  animation: tp-junction-breathe var(--beam-duration) ease-in-out infinite alternate;
 }
 
 @keyframes tp-junction-breathe {
@@ -293,7 +288,7 @@
     rgba(51, 204, 255, 0.04) 60%,
     transparent 100%
   );
-  animation: tp-impact-pulse var(--beam-dur) ease-in-out infinite alternate;
+  animation: tp-impact-pulse var(--beam-duration) ease-in-out infinite alternate;
 }
 
 @keyframes tp-impact-pulse {
@@ -308,7 +303,7 @@
 /* ═══════════════════════════════════════════════════
    ENERGY SPREAD — horizontal propagation center→edges
    Primary pulse + secondary echo + top-edge line
-   All synced to --beam-dur with --hit-delay offset
+   All synced to --beam-duration with --hit-delay offset
    ═══════════════════════════════════════════════════ */
 .tp-energy {
   position: absolute;
@@ -335,7 +330,7 @@
     transparent 100%
   );
   opacity: 0;
-  animation: tp-energy-flow var(--beam-dur) cubic-bezier(0.22, 1, 0.36, 1) var(--hit-delay) infinite;
+  animation: tp-energy-flow var(--beam-duration) cubic-bezier(0.22, 1, 0.36, 1) var(--hit-delay) infinite;
 }
 
 /* Secondary echo wave — delayed, dimmer */
@@ -353,7 +348,7 @@
     transparent 80%
   );
   opacity: 0;
-  animation: tp-energy-flow var(--beam-dur) cubic-bezier(0.22, 1, 0.36, 1) calc(var(--hit-delay) + 0.5s) infinite;
+  animation: tp-energy-flow var(--beam-duration) cubic-bezier(0.22, 1, 0.36, 1) calc(var(--hit-delay) + 0.5s) infinite;
 }
 
 @keyframes tp-energy-flow {
