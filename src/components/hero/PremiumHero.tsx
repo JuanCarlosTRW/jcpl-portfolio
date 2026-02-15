@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import {
@@ -58,12 +58,41 @@ export default function PremiumHero() {
   const init = reduced ? 1 : 0;
 
   /* refs for GSAP intro sequence */
+  const sectionRef = useRef<HTMLElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const ctasRef = useRef<HTMLDivElement>(null);
   const proofRef = useRef<HTMLDivElement>(null);
   const authorityRef = useRef<HTMLParagraphElement>(null);
+
+  /* scroll-driven laser fade — beam follows scroll then fades at section boundary */
+  const [laserOpacity, setLaserOpacity] = useState(1);
+
+  const handleScroll = useCallback(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight;
+    /* Start fading when the bottom of the hero is 40% from the top of the viewport */
+    /* Fully transparent when the hero bottom reaches the top */
+    const fadeStart = vh * 0.4;
+    const fadeEnd = 0;
+    if (rect.bottom >= vh) {
+      setLaserOpacity(1);
+    } else if (rect.bottom <= fadeEnd) {
+      setLaserOpacity(0);
+    } else {
+      const progress = (rect.bottom - fadeEnd) / (fadeStart - fadeEnd);
+      setLaserOpacity(Math.max(0, Math.min(1, progress)));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   useEffect(() => {
     const tl = heroIntroSequence({
@@ -80,7 +109,7 @@ export default function PremiumHero() {
   }, []);
 
   return (
-    <section className="ph" aria-label="Hero — Growth Systems">
+    <section ref={sectionRef} className="ph" aria-label="Hero — Growth Systems">
       {/* ═══════════════════════════════════════════
           LAYER 0 — Deep space base (pure CSS gradient)
           z-index: 0
@@ -116,11 +145,12 @@ export default function PremiumHero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2.0, delay: 0.3, ease: "easeOut" }}
+        style={{ opacity: laserOpacity }}
       >
         <LaserFlow
           className="ph-laser-canvas"
-          horizontalBeamOffset={0.15}
-          verticalBeamOffset={-0.15}
+          horizontalBeamOffset={0}
+          verticalBeamOffset={-0.12}
           wispDensity={1}
           wispIntensity={5}
           wispSpeed={15}
@@ -129,7 +159,7 @@ export default function PremiumHero() {
           fogScale={0.3}
           decay={1.1}
           falloffStart={1.2}
-          verticalSizing={3.5}
+          verticalSizing={4.5}
           horizontalSizing={0.5}
           color="#FF79C6"
         />
