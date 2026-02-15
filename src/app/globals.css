@@ -71,6 +71,13 @@
   --space-6: 48px;
   --space-7: 64px;
   --space-8: 96px;
+
+  /* ─── Layout ─── */
+  --nav-h: 72px;
+  --section-y-mobile: 96px;
+  --section-y-desktop: 128px;
+  --max-content: 1280px;
+  --max-prose: 680px;
 }
 
 /* ═══════════════════════════════════════════════════

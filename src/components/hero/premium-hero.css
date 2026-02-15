@@ -140,24 +140,24 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 7rem 1.5rem 0;
+  padding: calc(var(--nav-h, 72px) + 2rem) 1.5rem 0;
 }
 
 @media (min-width: 768px) {
   .ph-content {
-    padding: 0 3rem 0;
+    padding: calc(var(--nav-h, 72px) + 2rem) 3rem 0;
   }
 }
 
 @media (min-width: 1024px) {
   .ph-content {
-    padding: 0 5rem 0;
+    padding: calc(var(--nav-h, 72px) + 2rem) 5rem 0;
   }
 }
 
 @media (min-width: 1440px) {
   .ph-content {
-    padding: 0 6rem 0;
+    padding: calc(var(--nav-h, 72px) + 2rem) 6rem 0;
   }
 }
 
