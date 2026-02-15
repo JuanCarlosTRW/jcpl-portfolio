@@ -1,7 +1,15 @@
 /* ═══════════════════════════════════════════════════
-   PREMIUM HERO — Conversion-Focused, Premium Aesthetic
-   Left-aligned copy on desktop, centered on mobile.
-   Aurora WebGL background, tight headline rhythm.
+   PREMIUM HERO — Cinematic Laser-Dominant Design
+   
+   Layer stack (bottom → top):
+     0  ph-base        Deep space radial gradient
+     1  ph-aurora       Aurora WebGL (subtle, moody)
+     2  ph-vignette     Cinematic radial vignette
+     3  ph-laser        LASER FLOW — dominant focal point
+     4  ph-bloom        CSS glow bloom around beam
+     5  ph-grain        Film grain texture
+     6  ph-bottom-fade  Bottom edge-out gradient
+    10  ph-content      Text / CTA overlay
    ═══════════════════════════════════════════════════ */
 
 /* ── Section ── */
@@ -11,42 +19,102 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--bg-ink);
+  background: #050608;
 }
 
-/* ── Background layers ── */
-.ph-bg {
+/* ── Shared layer positioning ── */
+.ph-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+/* ── Layer 0: Deep space base ── */
+.ph-base {
   z-index: 0;
-}
-
-.ph-bg-vignette {
-  position: absolute;
-  inset: 0;
   background: radial-gradient(
-    ellipse 110% 110% at 50% 50%,
-    transparent 30%,
-    rgba(9, 11, 14, 0.75) 100%
+    ellipse 80% 70% at 50% 45%,
+    rgba(11, 61, 46, 0.08) 0%,
+    rgba(5, 6, 8, 1) 70%
   );
-  z-index: 1;
 }
 
-.ph-bg-grain {
+/* ── Layer 1: Aurora ── */
+.ph-aurora {
+  z-index: 1;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+}
+
+/* ── Layer 2: Cinematic vignette ── */
+.ph-vignette {
+  z-index: 2;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 48%,
+    transparent 20%,
+    rgba(5, 6, 8, 0.55) 55%,
+    rgba(5, 6, 8, 0.92) 100%
+  );
+}
+
+/* ── Layer 3: Laser flow (the star) ── */
+.ph-laser {
+  z-index: 3;
+  /* Let the laser bleed into surrounding space with screen blend */
+  mix-blend-mode: screen;
+}
+
+.ph-laser-canvas {
   position: absolute;
   inset: 0;
-  opacity: 0.022;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Layer 4: Bloom glow ── */
+.ph-bloom {
+  z-index: 4;
+  background: radial-gradient(
+    ellipse 50% 60% at 50% 48%,
+    rgba(255, 121, 198, 0.06) 0%,
+    rgba(255, 121, 198, 0.02) 30%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  animation: ph-bloom-pulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes ph-bloom-pulse {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* ── Layer 5: Film grain ── */
+.ph-grain {
+  z-index: 5;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   mix-blend-mode: overlay;
-  z-index: 2;
 }
 
-/* ── Content container ── */
+/* ── Layer 6: Bottom edge-out ── */
+.ph-bottom-fade {
+  z-index: 6;
+  background: linear-gradient(
+    to bottom,
+    transparent 70%,
+    rgba(5, 6, 8, 0.6) 88%,
+    rgba(5, 6, 8, 1) 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════
+   CONTENT OVERLAY
+   ═══════════════════════════════════════════════════ */
 .ph-content {
   position: relative;
-  z-index: 3;
+  z-index: 10;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -66,7 +134,8 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   COPY COLUMN — left-aligned on desktop for authority
+   COPY — left-aligned on desktop for authority,
+   centered on mobile
    ═══════════════════════════════════════════════════ */
 .ph-copy {
   display: flex;
@@ -96,7 +165,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-emerald);
+  color: var(--accent-emerald, #8FAE9D);
   will-change: transform, opacity;
 }
 
@@ -104,7 +173,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent-emerald);
+  background: var(--accent-emerald, #8FAE9D);
   box-shadow: 0 0 8px rgba(143, 174, 157, 0.5);
   animation: ph-pulse 2.8s ease-in-out infinite;
   flex-shrink: 0;
@@ -121,20 +190,27 @@
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  color: var(--text-main);
+  color: var(--text-main, #E9ECEF);
   max-width: 16ch;
   will-change: transform, opacity;
+  /* Subtle text-shadow glow that ties into the laser */
+  text-shadow:
+    0 0 40px rgba(255, 121, 198, 0.08),
+    0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 .ph-headline-emphasis {
-  color: var(--accent-emerald);
+  color: var(--accent-emerald, #8FAE9D);
+  text-shadow:
+    0 0 30px rgba(143, 174, 157, 0.15),
+    0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ── Subheadline ── */
 .ph-sub {
   font-size: clamp(0.95rem, 1.4vw, 1.08rem);
   line-height: 1.65;
-  color: var(--text-muted);
+  color: var(--text-muted, rgba(233, 236, 239, 0.56));
   max-width: 500px;
   will-change: transform, opacity;
 }
@@ -163,7 +239,7 @@
   transform: translateX(5px);
 }
 
-/* ── Proof line (inline metrics) ── */
+/* ── Proof line ── */
 .ph-proof {
   display: flex;
   flex-wrap: wrap;
@@ -185,14 +261,14 @@
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--text-main);
+  color: var(--text-main, #E9ECEF);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
 .ph-proof-sep {
   margin: 0 0.6em;
-  color: var(--text-dim);
+  color: var(--text-dim, rgba(233, 236, 239, 0.32));
   font-weight: 400;
   user-select: none;
 }
@@ -201,7 +277,7 @@
 .ph-authority {
   font-size: 0.72rem;
   font-style: italic;
-  color: var(--text-dim);
+  color: var(--text-dim, rgba(233, 236, 239, 0.32));
   letter-spacing: 0.01em;
   line-height: 1.5;
   will-change: transform, opacity;
@@ -212,10 +288,11 @@
    ═══════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   .ph-eyebrow-dot { animation: none; }
+  .ph-bloom { animation: none; }
 }
 
 /* ═══════════════════════════════════════════════════
-   MOBILE
+   MOBILE ADJUSTMENTS
    ═══════════════════════════════════════════════════ */
 @media (max-width: 767px) {
   .ph-headline {

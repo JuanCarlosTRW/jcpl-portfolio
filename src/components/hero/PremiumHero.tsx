@@ -2,11 +2,13 @@
 
 import { useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 import {
   heroIntroSequence,
   prefersReducedMotion,
 } from "@/lib/motion";
 import PrimaryButton from "@/components/ui/PrimaryButton";
+import LaserFlow from "@/components/hero/LaserFlow";
 import "./premium-hero.css";
 
 const Aurora = dynamic(() => import("@/components/motion/Aurora"), {
@@ -17,20 +19,14 @@ const Aurora = dynamic(() => import("@/components/motion/Aurora"), {
    COPY — conversion-optimized, outcome-driven
    ═══════════════════════════════════════════════════ */
 const EYEBROW = "Engineered Growth Systems for Service Businesses";
-
-/* Headline structured with a line break for max visual punch.
-   First line = tension ("unpredictable lead flow").
-   Second line = outcome ("controlled revenue growth"). */
 const HEADLINE_L1 = "Turn unpredictable lead flow";
 const HEADLINE_L2 = "into controlled revenue growth.";
-
 const SUBHEADLINE =
   "I design acquisition, conversion and automation systems that increase revenue without increasing operational chaos.";
 
 const CTA_PRIMARY = { label: "Book Strategy Call", href: "/apply" };
 const CTA_SECONDARY = { label: "View Case Studies", href: "/case-studies" };
 
-/* Proof metrics — inline separator format for density */
 const PROOF_ITEMS = [
   "+31% Avg Conversion Lift",
   "–22–41% Cost Per Lead",
@@ -40,8 +36,19 @@ const PROOF_ITEMS = [
 const AUTHORITY_LINE =
   "Selectively working with a limited number of service brands per quarter.";
 
-/* Aurora color scheme — moody emerald / teal to match brand */
+/* Aurora color scheme — deep moody emerald/teal, kept very subtle */
 const AURORA_COLORS = ["#0B3D2E", "#8FAE9D", "#0B3D2E"];
+
+/* Framer Motion entrance variants for cinematic reveal */
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24, filter: "blur(4px)" },
+  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+  transition: {
+    duration: 0.9,
+    delay,
+    ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+  },
+});
 
 /* ═══════════════════════════════════════════════════
    COMPONENT
@@ -50,7 +57,7 @@ export default function PremiumHero() {
   const reduced = prefersReducedMotion();
   const init = reduced ? 1 : 0;
 
-  /* refs */
+  /* refs for GSAP intro sequence */
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
@@ -58,7 +65,6 @@ export default function PremiumHero() {
   const proofRef = useRef<HTMLDivElement>(null);
   const authorityRef = useRef<HTMLParagraphElement>(null);
 
-  /* intro sequence */
   useEffect(() => {
     const tl = heroIntroSequence({
       eyebrow: eyebrowRef.current,
@@ -68,7 +74,6 @@ export default function PremiumHero() {
       proof: proofRef.current,
       authority: authorityRef.current,
     });
-
     return () => {
       tl?.kill();
     };
@@ -76,64 +81,164 @@ export default function PremiumHero() {
 
   return (
     <section className="ph" aria-label="Hero — Growth Systems">
-      {/* ── Aurora WebGL background ── */}
-      <div className="ph-bg" aria-hidden="true">
+      {/* ═══════════════════════════════════════════
+          LAYER 0 — Deep space base (pure CSS gradient)
+          z-index: 0
+          ═══════════════════════════════════════════ */}
+      <div className="ph-layer ph-base" aria-hidden="true" />
+
+      {/* ═══════════════════════════════════════════
+          LAYER 1 — Aurora WebGL background (subtle, moody)
+          z-index: 1
+          ═══════════════════════════════════════════ */}
+      <div className="ph-layer ph-aurora" aria-hidden="true">
         <Aurora
           colorStops={AURORA_COLORS}
-          amplitude={1.0}
-          blend={0.5}
-          speed={0.3}
+          amplitude={0.8}
+          blend={0.45}
+          speed={0.2}
         />
-        <div className="ph-bg-vignette" />
-        <div className="ph-bg-grain" />
       </div>
 
-      {/* ── Content ── */}
+      {/* ═══════════════════════════════════════════
+          LAYER 2 — Cinematic vignette (darkens edges)
+          z-index: 2
+          ═══════════════════════════════════════════ */}
+      <div className="ph-layer ph-vignette" aria-hidden="true" />
+
+      {/* ═══════════════════════════════════════════
+          LAYER 3 — LASER FLOW (dominant focal point)
+          z-index: 3  — centered, full-bleed, additive feel
+          ═══════════════════════════════════════════ */}
+      <motion.div
+        className="ph-layer ph-laser"
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2.0, delay: 0.3, ease: "easeOut" }}
+      >
+        <LaserFlow
+          className="ph-laser-canvas"
+          horizontalBeamOffset={0.1}
+          verticalBeamOffset={0.0}
+          wispDensity={1}
+          wispIntensity={5}
+          wispSpeed={15}
+          flowSpeed={0.35}
+          fogIntensity={0.45}
+          fogScale={0.3}
+          decay={1.1}
+          falloffStart={1.2}
+          verticalSizing={2.0}
+          horizontalSizing={0.5}
+          color="#FF79C6"
+        />
+      </motion.div>
+
+      {/* ═══════════════════════════════════════════
+          LAYER 4 — Laser glow bloom (CSS radial overlay)
+          z-index: 4  — adds depth-of-field glow around beam
+          ═══════════════════════════════════════════ */}
+      <div className="ph-layer ph-bloom" aria-hidden="true" />
+
+      {/* ═══════════════════════════════════════════
+          LAYER 5 — Film grain texture
+          z-index: 5
+          ═══════════════════════════════════════════ */}
+      <div className="ph-layer ph-grain" aria-hidden="true" />
+
+      {/* ═══════════════════════════════════════════
+          LAYER 6 — Bottom gradient fade (seamless transition
+          to the next section)
+          z-index: 6
+          ═══════════════════════════════════════════ */}
+      <div className="ph-layer ph-bottom-fade" aria-hidden="true" />
+
+      {/* ═══════════════════════════════════════════
+          LAYER 7 — Content overlay
+          z-index: 10
+          ═══════════════════════════════════════════ */}
       <div className="ph-content">
         <div className="ph-copy">
-          {/* Eyebrow — positions the niche */}
-          <div ref={eyebrowRef} className="ph-eyebrow" style={{ opacity: init }}>
+          {/* Eyebrow */}
+          <motion.div
+            ref={eyebrowRef}
+            className="ph-eyebrow"
+            style={{ opacity: init }}
+            {...(reduced ? {} : fadeUp(0.6))}
+          >
             <span className="ph-eyebrow-dot" aria-hidden="true" />
             <span>{EYEBROW}</span>
-          </div>
+          </motion.div>
 
-          {/* Headline — tension → outcome, two-line break */}
-          <h1 ref={headlineRef} className="ph-headline" style={{ opacity: init }}>
+          {/* Headline */}
+          <motion.h1
+            ref={headlineRef}
+            className="ph-headline"
+            style={{ opacity: init }}
+            {...(reduced ? {} : fadeUp(0.8))}
+          >
             {HEADLINE_L1}
             <br />
             <span className="ph-headline-emphasis">{HEADLINE_L2}</span>
-          </h1>
+          </motion.h1>
 
-          {/* Subheadline — mechanism */}
-          <p ref={subRef} className="ph-sub" style={{ opacity: init }}>
+          {/* Subheadline */}
+          <motion.p
+            ref={subRef}
+            className="ph-sub"
+            style={{ opacity: init }}
+            {...(reduced ? {} : fadeUp(1.0))}
+          >
             {SUBHEADLINE}
-          </p>
+          </motion.p>
 
-          {/* CTAs — clear hierarchy */}
-          <div ref={ctasRef} className="ph-ctas" style={{ opacity: init }}>
+          {/* CTAs */}
+          <motion.div
+            ref={ctasRef}
+            className="ph-ctas"
+            style={{ opacity: init }}
+            {...(reduced ? {} : fadeUp(1.2))}
+          >
             <PrimaryButton href={CTA_PRIMARY.href} variant="solid">
               {CTA_PRIMARY.label}
-              <span className="ph-cta-arrow" aria-hidden="true">→</span>
+              <span className="ph-cta-arrow" aria-hidden="true">
+                →
+              </span>
             </PrimaryButton>
             <PrimaryButton href={CTA_SECONDARY.href} variant="outline">
               {CTA_SECONDARY.label}
             </PrimaryButton>
-          </div>
+          </motion.div>
 
-          {/* Proof line — social proof above fold */}
-          <div ref={proofRef} className="ph-proof" style={{ opacity: init }}>
+          {/* Proof metrics */}
+          <motion.div
+            ref={proofRef}
+            className="ph-proof"
+            style={{ opacity: init }}
+            {...(reduced ? {} : fadeUp(1.4))}
+          >
             {PROOF_ITEMS.map((item, i) => (
-              <span key={item} className="ph-proof-item" data-proof>
-                {i > 0 && <span className="ph-proof-sep" aria-hidden="true">·</span>}
+              <span key={item} className="ph-proof-item">
+                {i > 0 && (
+                  <span className="ph-proof-sep" aria-hidden="true">
+                    ·
+                  </span>
+                )}
                 {item}
               </span>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Authority micro-line — exclusivity trigger */}
-          <p ref={authorityRef} className="ph-authority" style={{ opacity: init }}>
+          {/* Authority micro-line */}
+          <motion.p
+            ref={authorityRef}
+            className="ph-authority"
+            style={{ opacity: init }}
+            {...(reduced ? {} : fadeUp(1.6))}
+          >
             {AUTHORITY_LINE}
-          </p>
+          </motion.p>
         </div>
       </div>
     </section>
