@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import {
@@ -59,6 +59,7 @@ export default function PremiumHero() {
 
   /* refs for GSAP intro sequence */
   const sectionRef = useRef<HTMLElement>(null);
+  const laserRef = useRef<HTMLDivElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
@@ -66,25 +67,23 @@ export default function PremiumHero() {
   const proofRef = useRef<HTMLDivElement>(null);
   const authorityRef = useRef<HTMLParagraphElement>(null);
 
-  /* scroll-driven laser fade — beam follows scroll then fades at section boundary */
-  const [laserOpacity, setLaserOpacity] = useState(1);
-
+  /* scroll-driven laser fade — directly via DOM for zero conflicts */
   const handleScroll = useCallback(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
+    const section = sectionRef.current;
+    const laser = laserRef.current;
+    if (!section || !laser) return;
+    const rect = section.getBoundingClientRect();
     const vh = window.innerHeight;
-    /* Start fading when the bottom of the hero is 40% from the top of the viewport */
-    /* Fully transparent when the hero bottom reaches the top */
-    const fadeStart = vh * 0.4;
-    const fadeEnd = 0;
+    /* Laser is fully visible while hero bottom is below the viewport */
+    /* Starts fading when hero bottom enters the lower 60% of viewport */
+    /* Fully gone when hero bottom reaches top of viewport */
     if (rect.bottom >= vh) {
-      setLaserOpacity(1);
-    } else if (rect.bottom <= fadeEnd) {
-      setLaserOpacity(0);
+      laser.style.opacity = "1";
+    } else if (rect.bottom <= 0) {
+      laser.style.opacity = "0";
     } else {
-      const progress = (rect.bottom - fadeEnd) / (fadeStart - fadeEnd);
-      setLaserOpacity(Math.max(0, Math.min(1, progress)));
+      const progress = rect.bottom / (vh * 0.6);
+      laser.style.opacity = String(Math.max(0, Math.min(1, progress)));
     }
   }, []);
 
@@ -137,15 +136,12 @@ export default function PremiumHero() {
 
       {/* ═══════════════════════════════════════════
           LAYER 3 — LASER FLOW (dominant focal point)
-          z-index: 3  — centered, full-bleed, additive feel
+          z-index: 3  — centered, extends into section 2
           ═══════════════════════════════════════════ */}
-      <motion.div
-        className="ph-layer ph-laser"
+      <div
+        ref={laserRef}
+        className="ph-laser"
         aria-hidden="true"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2.0, delay: 0.3, ease: "easeOut" }}
-        style={{ opacity: laserOpacity }}
       >
         <LaserFlow
           className="ph-laser-canvas"
@@ -163,7 +159,7 @@ export default function PremiumHero() {
           horizontalSizing={0.5}
           color="#FF79C6"
         />
-      </motion.div>
+      </div>
 
       {/* ═══════════════════════════════════════════
           LAYER 4 — Laser glow bloom (CSS radial overlay)
