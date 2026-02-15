@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import LogoLoop from "./LogoLoop";
+import StarBorder from "./StarBorder";
 import "./tech-panel.css";
 
 /* ─── Technology logos (text placeholders) ─── */
@@ -52,48 +53,50 @@ export default function TechPanel({ laserLanded = false }: TechPanelProps) {
       {/* Junction bridge — smooths laser→panel seam */}
       {isRevealed && <div className="tp-junction" />}
 
-      {/* The panel rectangle — ::before = chroma accent, ::after = impact line */}
-      <div className={`tp-panel ${isRevealed ? "tp-panel--landed" : ""}`}>
-        {/* Impact glow — radial bloom at beam strike point */}
-        <div className={`tp-impact ${isRevealed ? "tp-impact--active" : ""}`} />
+      {/* The panel rectangle — now wrapped in StarBorder for animated effect */}
+      <StarBorder color="#fff" speed="6s" thickness={2}>
+        <div className={`tp-panel ${isRevealed ? "tp-panel--landed" : ""}`}>
+          {/* Impact glow — radial bloom at beam strike point */}
+          <div className={`tp-impact ${isRevealed ? "tp-impact--active" : ""}`} />
 
-        {/* Energy spread — horizontal propagation center→edges */}
-        {isRevealed && (
-          <div className="tp-energy">
-            <div className="tp-energy-pulse" />
-            <div className="tp-energy-echo" />
+          {/* Energy spread — horizontal propagation center→edges */}
+          {isRevealed && (
+            <div className="tp-energy">
+              <div className="tp-energy-pulse" />
+              <div className="tp-energy-echo" />
+            </div>
+          )}
+
+          {/* Light sweep across top */}
+          <div className="tp-sweep" />
+
+          {/* Permanent edge glow lines */}
+          <div className="tp-edge tp-edge-left" />
+          <div className="tp-edge tp-edge-right" />
+
+          {/* Surface sheen */}
+          <div className="tp-surface" />
+
+          {/* Frosted noise overlay */}
+          <div className="tp-frost" />
+
+          {/* Logo content */}
+          <div className={`tp-logo-content ${isRevealed ? "tp-logo-content--revealed" : ""}`}>
+            <p className="tp-label">Trusted Technologies</p>
+            <LogoLoop
+              logos={TECH_LOGOS}
+              direction="horizontal"
+              speed={35}
+              gap={56}
+              logoHeight={28}
+              pauseOnHover
+              fadeEdges
+              fadeColor="#0a1020"
+              scaleOnHover
+            />
           </div>
-        )}
-
-        {/* Light sweep across top */}
-        <div className="tp-sweep" />
-
-        {/* Permanent edge glow lines */}
-        <div className="tp-edge tp-edge-left" />
-        <div className="tp-edge tp-edge-right" />
-
-        {/* Surface sheen */}
-        <div className="tp-surface" />
-
-        {/* Frosted noise overlay */}
-        <div className="tp-frost" />
-
-        {/* Logo content */}
-        <div className={`tp-logo-content ${isRevealed ? "tp-logo-content--revealed" : ""}`}>
-          <p className="tp-label">Trusted Technologies</p>
-          <LogoLoop
-            logos={TECH_LOGOS}
-            direction="horizontal"
-            speed={35}
-            gap={56}
-            logoHeight={28}
-            pauseOnHover
-            fadeEdges
-            fadeColor="#0a1020"
-            scaleOnHover
-          />
         </div>
-      </div>
+      </StarBorder>
     </div>
   );
 }
