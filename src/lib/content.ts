@@ -430,3 +430,87 @@ export function isQualifiedLead(data: Record<string, string>): boolean {
   ];
   return !disqualifiers.some(Boolean);
 }
+
+/* ─── About: Trust Strip ─── */
+export const aboutTrustStrip = [
+  { metric: "6+", label: "Client systems delivered" },
+  { metric: "4", label: "Niches served" },
+  { metric: "3", label: "Active growth systems running" },
+];
+
+/* ─── About: Operating Principles ─── */
+export const aboutPrinciples = [
+  "Revenue first — every deliverable is measured by booked calls and revenue generated.",
+  "Full-stack ownership — I own the pipeline from positioning to booking, no handoffs.",
+  "Selective partnerships — I take a limited number of clients per quarter to guarantee results.",
+];
+
+/* ─── Case Study Metadata ─── */
+export const caseStudyMeta: Record<string, { industry: string; duration: string; budgetRange: string; primaryChannel: string }> = {
+  "rv-rental-google-ads": {
+    industry: "RV Rentals",
+    duration: "Ongoing (month 1 results shown)",
+    budgetRange: "$1,000–$3,000/mo",
+    primaryChannel: "Google Ads",
+  },
+  "elite-cuts-barbershop": {
+    industry: "Barbershops",
+    duration: "3-week build + ongoing",
+    budgetRange: "Project-based",
+    primaryChannel: "Web Design + Local SEO",
+  },
+  "sharp-fade-studio": {
+    industry: "Barbershops",
+    duration: "2-week build + ongoing",
+    budgetRange: "Project-based",
+    primaryChannel: "Web Design + Social Integration",
+  },
+};
+
+/* ─── Services: Comparison Row ─── */
+export const servicesComparison = {
+  headers: ["", "Foundation", "Growth", "Scale"],
+  rows: [
+    { label: "Setup Time", values: ["2–3 weeks", "3–4 weeks", "4–6 weeks"] },
+    { label: "Channels", values: ["Website + Local SEO", "Website + Ads + SEO + AI", "Multi-channel + AI workflows"] },
+    { label: "Reporting", values: ["Launch report", "Monthly", "Monthly + Quarterly roadmap"] },
+    { label: "First Milestone", values: ["Site live + indexed", "First qualified leads", "Market dominance plan"] },
+  ],
+};
+
+/* ─── Services: Fit Guidance ─── */
+export const servicesFitGuidance: Record<string, { bestFit: string[]; notFit: string[] }> = {
+  Foundation: {
+    bestFit: [
+      "You have no website or an outdated one",
+      "You rely entirely on word of mouth",
+      "You need to look professional online fast",
+    ],
+    notFit: [
+      "You already have a high-converting site",
+      "You need paid ads management",
+    ],
+  },
+  Growth: {
+    bestFit: [
+      "You have a decent site but no lead flow",
+      "You're ready to invest in ads",
+      "You want automated booking and AI",
+    ],
+    notFit: [
+      "You don't have product-market fit yet",
+      "Monthly revenue is under $5K",
+    ],
+  },
+  Scale: {
+    bestFit: [
+      "You're multi-location or high-revenue",
+      "You want to dominate your local market",
+      "You need advanced automation and A/B testing",
+    ],
+    notFit: [
+      "You're just getting started online",
+      "You want a one-time project, not a partnership",
+    ],
+  },
+};

@@ -50,7 +50,7 @@ export default function ResultsSection() {
       </div>
 
       <Reveal className="text-center" delay={0.3}>
-        <CTAButton href="/case-studies" variant="secondary" size="lg">
+        <CTAButton href="/case-studies" variant="secondary" size="lg" eventName="case_card_click">
           View Case Studies
         </CTAButton>
       </Reveal>

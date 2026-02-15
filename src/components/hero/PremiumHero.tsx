@@ -10,6 +10,7 @@ import {
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import LaserFlow from "@/components/hero/LaserFlow";
 import ParticleField from "@/components/hero/ParticleField";
+import { trackEvent } from "@/lib/analytics";
 import "./premium-hero.css";
 
 const Aurora = dynamic(() => import("@/components/motion/Aurora"), {
@@ -246,13 +247,13 @@ export default function PremiumHero({ onLaserLand }: { onLaserLand?: () => void 
             style={{ opacity: init }}
             {...(reduced ? {} : fadeUp(1.2))}
           >
-            <PrimaryButton href={CTA_PRIMARY.href} variant="solid">
+            <PrimaryButton href={CTA_PRIMARY.href} variant="solid" onClick={() => trackEvent("hero_primary_cta_click")}>
               {CTA_PRIMARY.label}
               <span className="ph-cta-arrow" aria-hidden="true">
                 →
               </span>
             </PrimaryButton>
-            <PrimaryButton href={CTA_SECONDARY.href} variant="outline">
+            <PrimaryButton href={CTA_SECONDARY.href} variant="outline" onClick={() => trackEvent("hero_secondary_cta_click")}>
               {CTA_SECONDARY.label}
             </PrimaryButton>
           </motion.div>

@@ -1,8 +1,15 @@
 /* ─── Lightweight Analytics / Event Tracking Utility ─── */
 
 type EventName =
+  | "hero_primary_cta_click"
+  | "hero_secondary_cta_click"
   | "hero_cta_click"
   | "section_cta_click"
+  | "case_card_click"
+  | "apply_form_start"
+  | "apply_form_submit"
+  | "booking_complete"
+  | "thank_you_view"
   | "form_start"
   | "form_step_complete"
   | "form_submit"

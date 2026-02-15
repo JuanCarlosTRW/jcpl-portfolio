@@ -24,7 +24,7 @@ export default function ApplyForm() {
   function updateField(name: string, value: string) {
     if (!formStarted) {
       setFormStarted(true);
-      trackEvent("form_start");
+      trackEvent("apply_form_start");
     }
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => {
@@ -73,7 +73,7 @@ export default function ApplyForm() {
 
   function handleSubmit() {
     setStatus("submitting");
-    trackEvent("form_submit");
+    trackEvent("apply_form_submit");
 
     // Simulate processing
     setTimeout(() => {
@@ -96,11 +96,31 @@ export default function ApplyForm() {
           Let&apos;s Build Your{" "}
           <span className="gradient-text">Growth System</span>
         </h1>
-        <p className="text-lg text-[var(--text-3)] mb-12">
+        <p className="text-lg text-[var(--text-3)] mb-4">
           Answer a few quick questions so I can understand your business and
           goals. If we&apos;re a fit, you&apos;ll be able to book a strategy
           call right away.
         </p>
+
+        {/* Time + privacy + SLA strip */}
+        <div className="flex flex-wrap items-center gap-4 text-xs text-[var(--text-muted)] mb-10">
+          <span className="flex items-center gap-1.5">
+            <span aria-hidden="true">⏱</span> ~2 minutes to complete
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span aria-hidden="true">🔒</span> 100% confidential
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span aria-hidden="true">⚡</span> Response within 24 hours
+          </span>
+        </div>
+
+        {/* Disqualifier note */}
+        <div className="rounded-lg bg-white/[0.02] border border-[var(--border-soft)] p-4 mb-10 text-sm text-[var(--text-muted)]">
+          <strong className="text-[var(--text-secondary)]">Who this is for:</strong>{" "}
+          Established service businesses generating $5K+/month that want a systematic approach to growth.
+          If you&apos;re pre-revenue or just exploring, you&apos;re welcome to apply — I&apos;ll let you know if the timing is right.
+        </div>
 
         {/* Progress bar */}
         {status === "idle" && (

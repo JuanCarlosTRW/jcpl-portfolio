@@ -26,13 +26,14 @@ export default function FinalCTA() {
               qualified leads.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <CTAButton href={ctaCopy.href} size="lg">
+              <CTAButton href={ctaCopy.href} size="lg" eventName="section_cta_click">
                 {ctaCopy.primary}
               </CTAButton>
               <CTAButton
-                href={ctaCopy.href}
+                href="/case-studies"
                 variant="secondary"
                 size="lg"
+                eventName="section_cta_click"
               >
                 {ctaCopy.secondary}
               </CTAButton>
