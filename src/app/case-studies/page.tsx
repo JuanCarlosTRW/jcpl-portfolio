@@ -1,53 +1,74 @@
-import { Metadata } from "next";
-import { buildMetadata } from "@/lib/metadata";
-import { caseStudies, caseStudyMeta, ctaCopy } from "@/lib/content";
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import SectionLabel from "@/components/ui/SectionLabel";
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import CTAButton from "@/components/ui/CTAButton";
-import FinalCTA from "@/components/home/FinalCTA";
-
-export const metadata: Metadata = buildMetadata({
-  title: "Case Studies — Proven Results for Service Businesses",
-  description:
-    "$20,000 generated in month one for an RV rental client. Premium barbershop websites delivered. See the proof.",
-  path: "/case-studies",
-});
+import { caseStudiesContent } from "@/lib/caseStudiesContent";
+import SectionHeader from "@/components/ui/SectionHeader";
+import FeaturedCase from "@/components/case-studies/FeaturedCase";
+import BeforeAfterStrip from "@/components/case-studies/BeforeAfterStrip";
+import EvidenceArtifacts from "@/components/case-studies/EvidenceArtifacts";
+import CaseCard from "@/components/case-studies/CaseCard";
+import ObjectionNote from "@/components/ui/ObjectionNote";
+import SelectiveCTA from "@/components/ui/SelectiveCTA";
 
 export default function CaseStudiesPage() {
   return (
-    <>
-      {/* Hero */}
-      <SectionWrapper className="pt-32 md:pt-40">
-        <AnimatedSection className="text-center max-w-3xl mx-auto">
-          <SectionLabel label="Case Studies" className="mb-6" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Real Clients. Real{" "}
-            <span className="gradient-text">Results</span>.
-          </h1>
-          <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Every project below represents a real business that needed more
-            clients — and got them through a systemized approach.
-          </p>
-        </AnimatedSection>
-      </SectionWrapper>
+    <div className="py-20 md:py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        {/* Section Header */}
+        <SectionHeader
+          eyebrow={caseStudiesContent.eyebrow}
+          title={caseStudiesContent.title}
+          subtitle={caseStudiesContent.subtitle}
+        />
 
-      {/* Cases */}
-      {caseStudies.map((cs, i) => {
-        const meta = caseStudyMeta[cs.slug];
-        return (
-          <SectionWrapper
-            key={cs.slug}
-            className={i % 2 === 1 ? "bg-[var(--bg-surface)]/50" : ""}
-          >
-            {/* Header */}
-            <AnimatedSection className="mb-8">
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="rounded-full bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 px-3 py-1 text-xs font-semibold text-[var(--brand-alt)]">
-                  {cs.industry}
-                </span>
-                {cs.tags.map((tag) => (
-                  <span
+        {/* Featured Case */}
+        <FeaturedCase {...caseStudiesContent.featuredCase} />
+
+        {/* Before/After Strip */}
+        <BeforeAfterStrip data={caseStudiesContent.featuredCase.beforeAfter} />
+
+        {/* What Changed */}
+        <div className="my-12 md:my-16">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-[var(--brand-accent)] mb-4">
+            What Changed
+          </h3>
+          <ul className="space-y-2">
+            {caseStudiesContent.featuredCase.whatChanged.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
+                <span className="w-2 h-2 mt-2 rounded-full bg-[var(--brand-accent)] flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Evidence Artifacts */}
+        <EvidenceArtifacts artifacts={caseStudiesContent.featuredCase.artifacts} />
+
+        {/* Secondary Cases */}
+        <div className="my-16">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] mb-8">
+            More Results
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {caseStudiesContent.secondaryCases.map((c, i) => (
+              <CaseCard key={i} {...c} />
+            ))}
+          </div>
+        </div>
+
+        {/* Objection-safe note */}
+        <ObjectionNote>{caseStudiesContent.disclaimer}</ObjectionNote>
+
+        {/* Selective CTA */}
+        <div className="mt-16 md:mt-24">
+          <SelectiveCTA
+            label={caseStudiesContent.cta.label}
+            href={caseStudiesContent.cta.href}
+            note={caseStudiesContent.cta.note}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
                     key={tag}
                     className="rounded-full bg-white/5 border border-white/5 px-3 py-1 text-xs text-[var(--text-muted)]"
                   >
