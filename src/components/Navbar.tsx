@@ -22,10 +22,10 @@ export default function Navbar() {
     <StaggeredMenu
       items={staggeredMenuItems}
       displayItemNumbering={true}
-      accentColor="#5227FF"
+      accentColor="#33ccff"
       menuButtonColor="#fff"
       openMenuButtonColor="#B19EEF"
-      colors={["#B19EEF", "#5227FF"]}
+      colors={["#B19EEF", "#33ccff"]}
       isFixed={true}
       position="right"
     />
