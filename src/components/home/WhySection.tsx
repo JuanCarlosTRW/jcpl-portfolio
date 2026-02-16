@@ -2,113 +2,115 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
-import PremiumFrame from "@/components/ui/PremiumFrame";
 import Icon from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion";
-import BlurText from "@/components/ui/BlurText";
 
 /* ─── Comparison Matrix Data ─── */
 const COMPARISON_ROWS = [
   {
     label: "Ownership",
     fragmented: "5+ vendors, you coordinate",
-    integrated: "One partner owns the entire pipeline",
+    integrated: "One partner owns the pipeline",
   },
   {
-    label: "Speed to Launch",
-    fragmented: "8–12 weeks (handoffs, miscommunication)",
-    integrated: "2–4 weeks (unified execution)",
+    label: "Speed",
+    fragmented: "8–12 weeks to launch",
+    integrated: "2–4 weeks, unified execution",
   },
   {
     label: "Reporting",
-    fragmented: "Scattered dashboards, no single source",
+    fragmented: "Scattered dashboards",
     integrated: "One report, end-to-end attribution",
   },
   {
     label: "Lead Quality",
-    fragmented: "No feedback loop, wasted spend",
-    integrated: "Built-in qualification, only serious leads",
+    fragmented: "No feedback loop",
+    integrated: "Built-in qualification",
   },
   {
     label: "Accountability",
     fragmented: "Everyone points fingers",
-    integrated: "I own the outcome — booked calls",
+    integrated: "I own the outcome",
   },
 ];
 
 export default function WhySection() {
   return (
-    <SectionWrapper id="advantage" variant="elevated">
-      <Reveal className="text-center mb-12 md:mb-16">
+    <SectionWrapper id="advantage" variant="surface">
+      <Reveal className="text-center mb-16 md:mb-20">
         <SectionLabel label="The Advantage" className="mb-6" />
-        <BlurText
-          text="One Integrated Partner Beats Five Disconnected Freelancers"
-          delay={200}
-          className="section-title heading-2 text-center"
-        />
+        <h2 className="heading-2 max-w-lg mx-auto">
+          One Integrated Partner vs. Five Disconnected Freelancers
+        </h2>
       </Reveal>
 
-      {/* Desktop: Premium table */}
-      <Reveal delay={0.15} className="hidden md:block">
-        <PremiumFrame variant="elevated" radius="xl" padding="none" hover={false}>
-          {/* Header row */}
-          <div className="grid grid-cols-3 gap-4 p-5 border-b border-[var(--border-soft)] bg-[var(--bg-elevated)]/30">
-            <div />
+      {/* Desktop: Editorial comparison table with vertical divider */}
+      <Reveal delay={0.12} className="hidden md:block">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="grid grid-cols-[1fr_1px_1fr] gap-0 mb-8">
             <div className="text-center">
-              <span className="text-xs uppercase tracking-wider font-medium text-[var(--text-muted)]">
+              <span className="text-xs uppercase tracking-[0.2em] font-medium text-[var(--text-muted)]">
                 Fragmented Setup
               </span>
             </div>
+            <div />
             <div className="text-center">
-              <span className="text-xs uppercase tracking-wider font-medium text-[var(--brand-alt)]">
+              <span className="text-xs uppercase tracking-[0.2em] font-medium text-[var(--brand-alt)]">
                 Integrated Partner
               </span>
             </div>
           </div>
 
-          {/* Data rows */}
+          {/* Rows */}
           {COMPARISON_ROWS.map((row, i) => (
             <div
               key={row.label}
-              className={`grid grid-cols-3 gap-4 p-5 items-center ${
-                i < COMPARISON_ROWS.length - 1 ? "border-b border-[var(--border-soft)]" : ""
-              }`}
+              className="grid grid-cols-[1fr_1px_1fr] gap-0 items-center"
             >
-              <div className="font-medium text-[var(--text-primary)] text-sm">
-                {row.label}
+              {/* Left — fragmented (muted) */}
+              <div className="flex items-center justify-end gap-3 py-5 px-6 text-right">
+                <span className="text-sm text-[var(--text-muted)]">{row.fragmented}</span>
+                <Icon name="x" size={14} className="text-[var(--color-danger)] opacity-50 shrink-0" />
               </div>
-              <div className="text-sm text-[var(--text-muted)] text-center flex items-center justify-center gap-2">
-                <Icon name="x" size={14} className="text-[var(--color-danger)]" />
-                <span>{row.fragmented}</span>
+
+              {/* Vertical divider */}
+              <div className="h-full bg-[var(--border-soft)] relative">
+                {/* Row label centered on divider */}
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--bg-surface)] px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-[var(--text-muted)] whitespace-nowrap">
+                  {row.label}
+                </span>
               </div>
-              <div className="text-sm text-[var(--text-secondary)] text-center flex items-center justify-center gap-2">
-                <Icon name="check" size={14} className="text-[var(--color-success)]" />
-                <span>{row.integrated}</span>
+
+              {/* Right — integrated (emphasized) */}
+              <div className="flex items-center gap-3 py-5 px-6">
+                <Icon name="check" size={14} className="text-[var(--brand-alt)] shrink-0" />
+                <span className="text-sm text-[var(--text-primary)] font-medium">{row.integrated}</span>
               </div>
             </div>
           ))}
-        </PremiumFrame>
+        </div>
       </Reveal>
 
-      {/* Mobile: Stacked cards */}
-      <div className="md:hidden space-y-4">
+      {/* Mobile: Clean stacked cards */}
+      <div className="md:hidden space-y-3 max-w-sm mx-auto">
         {COMPARISON_ROWS.map((row, i) => (
-          <Reveal key={row.label} delay={0.08 * i}>
-            <PremiumFrame variant="default" radius="lg" padding="sm">
-              <h4 className="font-semibold text-[var(--text-primary)] text-sm mb-3">
+          <Reveal key={row.label} delay={0.06 * i}>
+            <div className="bg-[var(--bg-elevated)] border border-[var(--border-soft)] rounded-[var(--radius-md)] p-5">
+              <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-[var(--text-muted)] mb-3 block">
                 {row.label}
-              </h4>
+              </span>
               <div className="space-y-2">
-                <div className="flex items-start gap-2 text-sm">
-                  <Icon name="x" size={14} className="text-[var(--color-danger)] mt-0.5 shrink-0" />
+                <div className="flex items-start gap-2.5 text-sm">
+                  <Icon name="x" size={13} className="text-[var(--color-danger)] opacity-50 mt-0.5 shrink-0" />
                   <span className="text-[var(--text-muted)]">{row.fragmented}</span>
                 </div>
-                <div className="flex items-start gap-2 text-sm">
-                  <Icon name="check" size={14} className="text-[var(--color-success)] mt-0.5 shrink-0" />
-                  <span className="text-[var(--text-secondary)]">{row.integrated}</span>
+                <div className="flex items-start gap-2.5 text-sm">
+                  <Icon name="check" size={13} className="text-[var(--brand-alt)] mt-0.5 shrink-0" />
+                  <span className="text-[var(--text-primary)]">{row.integrated}</span>
                 </div>
               </div>
-            </PremiumFrame>
+            </div>
           </Reveal>
         ))}
       </div>

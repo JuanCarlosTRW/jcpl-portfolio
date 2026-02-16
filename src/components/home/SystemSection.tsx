@@ -3,53 +3,39 @@
 import { systemSteps } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
-import SpotlightCard from "@/components/ui/SpotlightCard";
-import Icon, { systemStepIcons } from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion";
-import BlurText from "@/components/ui/BlurText";
 
 export default function SystemSection() {
   return (
     <SectionWrapper id="system" variant="surface">
-      {/* Section header — fully centered */}
-      <Reveal className="text-center mb-12 md:mb-16">
+      <Reveal className="text-center mb-16 md:mb-20">
         <SectionLabel label="The System" className="mb-6" />
-        <BlurText
-          text="The Presence-to-Pipeline System™"
-          delay={200}
-          className="section-title heading-2 text-center"
-        />
-        <p className="mt-4 body-lg max-w-2xl mx-auto">
+        <h2 className="heading-2 max-w-lg mx-auto">
+          The Presence-to-Pipeline System™
+        </h2>
+        <p className="mt-5 text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
           A proven 6-step framework that transforms your online presence into a
           predictable pipeline of qualified booked calls.
         </p>
       </Reveal>
 
-      {/* 6 step cards — SpotlightCard with interactive mouse glow */}
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {/* Dominant element: structured pillar grid — no spotlight glow, no icons */}
+      <div className="grid gap-px md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto border border-[var(--border-soft)] rounded-[var(--radius-lg)] overflow-hidden">
         {systemSteps.map((step, i) => (
           <Reveal key={step.step} delay={0.06 * i}>
-            <SpotlightCard
-              spotlightColor="rgba(127, 95, 255, 0.08)"
-              className="h-full p-6 md:p-7 flex flex-col"
-            >
-              {/* Icon container */}
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand-accent)]/10 text-[var(--brand-accent)]">
-                <Icon name={systemStepIcons[step.step]} size={22} strokeWidth={1.75} />
-              </div>
-
-              {/* Step label */}
-              <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">
+            <div className="bg-[var(--bg-surface)] p-7 md:p-8 h-full flex flex-col">
+              {/* Step number — restrained */}
+              <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)] mb-4">
                 Step {step.step}
               </span>
 
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 leading-snug">
+              <h3 className="text-base font-semibold text-[var(--text-primary)] mb-2 leading-snug">
                 {step.title}
               </h3>
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+              <p className="text-sm text-[var(--text-muted)] leading-relaxed">
                 {step.description}
               </p>
-            </SpotlightCard>
+            </div>
           </Reveal>
         ))}
       </div>

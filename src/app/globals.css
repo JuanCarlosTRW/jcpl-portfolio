@@ -25,9 +25,9 @@
   --container-px-md: 32px;
   --container-px-lg: 48px;
 
-  /* Section vertical rhythm */
-  --section-py: var(--space-8);
-  --section-py-lg: var(--space-9);
+  /* Section vertical rhythm — 120px desktop / 80px mobile */
+  --section-py: 80px;
+  --section-py-lg: 120px;
 
   /* ─── HERO/LASER GEOMETRY (Single Source of Truth) ─── */
   --laser-extend: 40vh;         /* How far laser extends past hero */

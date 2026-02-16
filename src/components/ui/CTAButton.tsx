@@ -43,7 +43,6 @@ export default function CTAButton({
       href={href}
       className={cn(base, variants[variant], sizes[size], className, variant === "primary" ? "group" : "")}
       onClick={() => trackEvent(eventName)}
-      style={variant === "primary" ? { boxShadow: 'var(--glow-accent)' } : undefined}
     >
       {children}
       {variant === "primary" && (
