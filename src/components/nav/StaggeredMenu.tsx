@@ -106,7 +106,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   /* ─── Build open timeline ─── */
   const buildOpenTimeline = useCallback(() => {
     const panel = panelRef.current;
-    const layers = preLayerElsRef.current;
+    const preContainer = preLayersRef.current;
     if (!panel) return null;
 
     openTlRef.current?.kill();
@@ -115,6 +115,12 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       closeTweenRef.current = null;
     }
     itemEntranceTweenRef.current?.kill();
+
+    // Collect prelayers dynamically at build time
+    let layers: HTMLElement[] = [];
+    if (preContainer) {
+      layers = Array.from(preContainer.querySelectorAll('.sm-prelayer')) as HTMLElement[];
+    }
 
     const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel')) as HTMLElement[];
     const numberEls = Array.from(
@@ -187,8 +193,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     itemEntranceTweenRef.current?.kill();
 
     const panel = panelRef.current;
-    const layers = preLayerElsRef.current;
+    const preContainer = preLayersRef.current;
     if (!panel) return;
+
+    // Collect prelayers dynamically at close time
+    let layers: HTMLElement[] = [];
+    if (preContainer) {
+      layers = Array.from(preContainer.querySelectorAll('.sm-prelayer')) as HTMLElement[];
+    }
 
     const all = [...layers, panel];
     closeTweenRef.current?.kill();
