@@ -19,7 +19,7 @@ export default function ProblemSection() {
         <BlurText
           text={problemSection.headline}
           delay={200}
-          className="heading-2 max-w-3xl mx-auto"
+          className="section-title heading-2"
         />
       </Reveal>
 

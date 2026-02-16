@@ -44,7 +44,7 @@ export default function WhySection() {
         <BlurText
           text="One Integrated Partner Beats Five Disconnected Freelancers"
           delay={200}
-          className="heading-2 max-w-3xl mx-auto"
+          className="section-title heading-2"
         />
       </Reveal>
 

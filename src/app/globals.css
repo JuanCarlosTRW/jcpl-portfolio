@@ -149,6 +149,13 @@ body::before {
   color: var(--text-primary);
 }
 
+/* Centered Section Titles */
+.section-title {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
 .body-lg {
   font-size: clamp(1rem, 1.5vw + 0.25rem, 1.125rem);
   line-height: 1.7;

@@ -58,6 +58,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const openRef = useRef(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const preLayersRef = useRef<HTMLDivElement | null>(null);
+  const preLayerElsRef = useRef<HTMLElement[]>([]);
   const plusHRef = useRef<HTMLSpanElement | null>(null);
   const plusVRef = useRef<HTMLSpanElement | null>(null);
   const iconRef = useRef<HTMLSpanElement | null>(null);
@@ -85,33 +86,32 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
   /* ─── Initialize GSAP state on mount (no gsap.context!) ─── */
   useEffect(() => {
-    if (initDone.current) return;
+    if (!panelRef.current || !preLayersRef.current) return;
+
     const panel = panelRef.current;
+    const preContainer = preLayersRef.current;
+    const plusH = plusHRef.current;
+    const plusV = plusVRef.current;
     const icon = iconRef.current;
     const textInner = textInnerRef.current;
-    const btn = toggleBtnRef.current;
-    if (!panel || !icon || !textInner) return;
+    if (!panel || !plusH || !plusV || !icon || !textInner) return;
 
-    initDone.current = true;
-    const layers = getPrelayers();
+    let preLayers: HTMLElement[] = [];
+    if (preContainer) {
+      preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer')) as HTMLElement[];
+    }
+    preLayerElsRef.current = preLayers;
 
-    // Force all sliding elements offscreen via GSAP (overrides CSS transform)
-    gsap.set([panel, ...layers], { xPercent: offscreen, force3D: true });
+    const offscreen = position === 'left' ? -100 : 100;
+    gsap.set([panel, ...preLayers], { xPercent: offscreen });
+    gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
+    gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
     gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
     gsap.set(textInner, { yPercent: 0 });
-    if (btn) gsap.set(btn, { color: menuButtonColor });
+    if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
 
-    // Pre-set item labels offscreen for entrance animation
-    const itemEls = panel.querySelectorAll('.sm-panel-itemLabel');
-    if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
-    const nums = panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item');
-    if (nums.length) gsap.set(nums, { '--sm-num-opacity': 0 } as gsap.TweenVars);
-    const socialTitle = panel.querySelector('.sm-socials-title');
-    if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
-    const socialLinks = panel.querySelectorAll('.sm-socials-link');
-    if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    initDone.current = true; // Mark as initialized
+  }, [menuButtonColor, position]);
 
   /* ─── Build open timeline ─── */
   const buildOpenTimeline = useCallback(() => {

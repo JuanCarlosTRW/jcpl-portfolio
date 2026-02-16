@@ -25,7 +25,7 @@ export default function FinalCTA() {
             <BlurText
               text="Ready to Build Your Growth System?"
               delay={200}
-              className="heading-2 mb-4"
+              className="section-title heading-2 mb-4"
             />
             <p className="body-lg max-w-xl mx-auto mb-8">
               Let&apos;s talk about your business, your goals, and how a

@@ -17,7 +17,7 @@ export default function SystemSection() {
         <BlurText
           text="The Presence-to-Pipeline System™"
           delay={200}
-          className="heading-2 max-w-4xl mx-auto"
+          className="section-title heading-2"
         />
         <p className="mt-4 body-lg max-w-2xl mx-auto">
           A proven 6-step framework that transforms your online presence into a
