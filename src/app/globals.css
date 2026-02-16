@@ -308,10 +308,10 @@ body::before {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  animation: speed-popup-fade-in 0.4s ease-out both;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: speed-popup-fade-in 0.5s ease-out both;
 }
 
 .speed-popup-backdrop.speed-popup-closing {
@@ -320,38 +320,86 @@ body::before {
 
 .speed-popup-panel {
   position: relative;
-  max-width: 480px;
+  max-width: 460px;
   width: 100%;
-  padding: 2.5rem 2rem 2rem;
-  background: rgba(14, 21, 48, 0.92);
-  border: 1px solid rgba(127, 95, 255, 0.2);
+  padding: 3rem 2.5rem 2.5rem;
+  background: linear-gradient(
+    170deg,
+    rgba(18, 24, 52, 0.96) 0%,
+    rgba(10, 16, 32, 0.98) 100%
+  );
+  border: 1px solid rgba(127, 95, 255, 0.22);
   border-radius: var(--radius-xl, 28px);
   box-shadow:
-    0 0 0 1px rgba(127, 95, 255, 0.08),
-    0 0 60px rgba(127, 95, 255, 0.12),
-    0 24px 80px rgba(0, 0, 0, 0.5);
-  animation: speed-popup-scale-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    0 0 0 1px rgba(127, 95, 255, 0.06),
+    0 0 80px rgba(127, 95, 255, 0.14),
+    0 0 160px rgba(127, 95, 255, 0.04),
+    0 24px 80px rgba(0, 0, 0, 0.55);
+  animation: speed-popup-scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  overflow: hidden;
 }
 
 .speed-popup-closing .speed-popup-panel {
   animation: speed-popup-scale-out 0.3s ease-in both;
 }
 
+/* Animated border glow — rotating conic gradient */
+.speed-popup-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--sp-glow-angle, 0deg),
+    rgba(127, 95, 255, 0.00) 0%,
+    rgba(127, 95, 255, 0.30) 10%,
+    rgba(51, 204, 255, 0.18) 18%,
+    rgba(127, 95, 255, 0.00) 30%,
+    rgba(127, 95, 255, 0.00) 50%,
+    rgba(127, 95, 255, 0.20) 60%,
+    rgba(51, 204, 255, 0.12) 68%,
+    rgba(127, 95, 255, 0.00) 80%,
+    rgba(127, 95, 255, 0.00) 100%
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+  animation: speed-popup-glow-rotate 6s linear infinite;
+}
+
+@property --sp-glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes speed-popup-glow-rotate {
+  to { --sp-glow-angle: 360deg; }
+}
+
 .speed-popup-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.125rem;
+  right: 1.125rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 50%;
-  border: 1px solid rgba(200, 200, 224, 0.12);
+  border: 1px solid rgba(200, 200, 224, 0.10);
   background: rgba(255, 255, 255, 0.04);
   color: var(--text-muted, #8888b0);
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
+  z-index: 2;
 }
 
 .speed-popup-close:hover,
@@ -361,32 +409,60 @@ body::before {
   border-color: rgba(127, 95, 255, 0.4);
 }
 
-.speed-popup-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: 0.12em;
+.speed-popup-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #fff 0%, var(--brand-accent, #7f5fff) 80%);
+  color: var(--brand-alt, #33ccff);
+  margin: 0 0 0.75rem 0;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.speed-popup-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    #fff 0%,
+    #fff 30%,
+    var(--brand-accent, #7f5fff) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin: 0 0 1rem 0;
-  line-height: 1.1;
+  margin: 0 0 1.25rem 0;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .speed-popup-accent {
-  width: 3rem;
+  width: 3.5rem;
   height: 2px;
-  background: linear-gradient(90deg, var(--brand-accent, #7f5fff), transparent);
-  margin-bottom: 1.25rem;
+  background: linear-gradient(90deg, var(--brand-accent, #7f5fff), var(--brand-alt, #33ccff), transparent);
+  margin-bottom: 1.5rem;
   border-radius: 1px;
+  position: relative;
+  z-index: 1;
 }
 
 .speed-popup-body {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--text-secondary, #c8c8e0);
   margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.speed-popup-highlight {
+  color: var(--text-primary, #f0f0f8);
+  font-weight: 600;
 }
 
 @keyframes speed-popup-fade-in {
@@ -400,11 +476,15 @@ body::before {
 }
 
 @keyframes speed-popup-scale-in {
-  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  from { opacity: 0; transform: scale(0.90) translateY(16px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 @keyframes speed-popup-scale-out {
   from { opacity: 1; transform: scale(1) translateY(0); }
   to { opacity: 0; transform: scale(0.95) translateY(8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .speed-popup-glow { animation: none; opacity: 0.5; }
 }

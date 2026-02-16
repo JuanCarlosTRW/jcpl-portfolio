@@ -131,10 +131,6 @@
 }
 
 [data-position='left'] .sm-prelayers {
-  transform: translateX(-100%);
-}
-
-[data-position='left'] .sm-prelayers {
   right: auto;
   left: 0;
   transform: translateX(-100%);

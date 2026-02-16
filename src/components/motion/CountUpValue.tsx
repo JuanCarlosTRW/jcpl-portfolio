@@ -48,7 +48,7 @@ export default function CountUpValue({
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {val.toLocaleString()}
+      {val.toLocaleString("en-US")}
       {suffix}
     </span>
   );

@@ -266,7 +266,16 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     gsap.set(inner, { yPercent: 0 });
     const lineCount = seq.length;
     const finalShift = ((lineCount - 1) / lineCount) * 100;
-    textCycleAnimRef.current = gsap.to(inner, { yPercent: -finalShift, duration: 0.5 + lineCount * 0.07, ease: 'power4.out' });
+    textCycleAnimRef.current = gsap.to(inner, {
+      yPercent: -finalShift,
+      duration: 0.5 + lineCount * 0.07,
+      ease: 'power4.out',
+      onComplete: () => {
+        // Reset to single target label to avoid stale state
+        setTextLines([targetLabel]);
+        gsap.set(inner, { yPercent: 0 });
+      },
+    });
   }, []);
 
   /* ─── Toggle menu ─── */
