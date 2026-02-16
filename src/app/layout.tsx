@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SpeedPopup from "@/components/SpeedPopup";
+import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
 import { siteConfig } from "@/lib/content";
 import {
   generatePersonSchema,
@@ -72,10 +73,12 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Navbar />
-        <main id="main-content" className="min-h-screen">{children}</main>
-        <Footer />
-        <SpeedPopup />
+        <SmoothScrollProvider>
+          <Navbar />
+          <main id="main-content" className="min-h-screen">{children}</main>
+          <Footer />
+          <SpeedPopup />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

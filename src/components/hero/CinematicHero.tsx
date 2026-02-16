@@ -4,7 +4,6 @@ import { useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis"; // Correct package name for Lenis
 import { hero, ctaCopy } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
 import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReducedMotionSafe";
@@ -253,17 +252,6 @@ export default function CinematicHero() {
 
     if (!section || !viewport || !containerEl) return;
 
-    // Lenis smooth scrolling (optional)
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-    const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-
     // GSAP ScrollTrigger timeline
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -333,7 +321,6 @@ export default function CinematicHero() {
     }
 
     return () => {
-      lenis.destroy();
       tl.kill();
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
