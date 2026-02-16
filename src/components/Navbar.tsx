@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation, ctaCopy } from "@/lib/content";
 import { cn } from "@/lib/utils";
-import BubbleMenu, { type BubbleMenuItem } from "@/components/nav/BubbleMenu";
+import StaggeredMenu, { StaggeredMenuItem, StaggeredMenuSocial } from "@/components/nav/StaggeredMenu";
 
 /* ─── Map nav items to BubbleMenu format (mobile) ─── */
 const BUBBLE_COLORS = [
@@ -18,21 +18,22 @@ const BUBBLE_COLORS = [
 
 const BUBBLE_ROTATIONS = [-6, 5, -4, 7, -5];
 
-const bubbleItems: BubbleMenuItem[] = [
-  ...navigation.map((item, i) => ({
+const staggeredMenuItems: StaggeredMenuItem[] = [
+  ...navigation.map((item) => ({
     label: item.label,
-    href: item.href,
+    link: item.href,
     ariaLabel: item.label,
-    rotation: BUBBLE_ROTATIONS[i] ?? 0,
-    hoverStyles: BUBBLE_COLORS[i] ?? BUBBLE_COLORS[0],
   })),
   {
     label: ctaCopy.primary,
-    href: ctaCopy.href,
+    link: ctaCopy.href,
     ariaLabel: ctaCopy.primary,
-    rotation: BUBBLE_ROTATIONS[navigation.length] ?? -5,
-    hoverStyles: { bgColor: "rgba(127, 95, 255, 0.95)", textColor: "#ffffff" },
   },
+];
+
+const staggeredMenuSocials: StaggeredMenuSocial[] = [
+  { label: "Twitter", link: "https://twitter.com/juancarlostrw" },
+  { label: "GitHub", link: "https://github.com/JuanCarlosTRW" },
 ];
 
 export default function Navbar() {
@@ -118,18 +119,19 @@ export default function Navbar() {
         </Link>
       </nav>
 
-      {/* ─── Mobile Nav (< md): Bubble Menu ─── */}
-      <div className="md:hidden container flex items-center justify-between h-16">
-        <BubbleMenu
-          items={bubbleItems}
-          logo={
-            <span className="text-lg font-bold tracking-tight text-white">JC</span>
-          }
-          menuBg="rgba(14, 21, 48, 0.95)"
-          menuContentColor="#f0f0f8"
-          animationEase="back.out(1.5)"
-          animationDuration={0.5}
-          staggerDelay={0.1}
+      {/* ─── Mobile Nav (< md): StaggeredMenu ─── */}
+      <div className="md:hidden">
+        <StaggeredMenu
+          items={staggeredMenuItems}
+          socialItems={staggeredMenuSocials}
+          displaySocials={true}
+          displayItemNumbering={true}
+          logoUrl="/logo.svg"
+          accentColor="#5227FF"
+          menuButtonColor="#fff"
+          openMenuButtonColor="#B19EEF"
+          colors={["#B19EEF", "#5227FF"]}
+          isFixed={true}
         />
       </div>
     </header>
