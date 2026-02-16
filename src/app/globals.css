@@ -419,6 +419,7 @@ body::before {
   line-height: 1;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .speed-popup-title {
@@ -439,13 +440,14 @@ body::before {
   line-height: 1;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .speed-popup-accent {
   width: 3.5rem;
   height: 2px;
   background: linear-gradient(90deg, var(--brand-accent, #7f5fff), var(--brand-alt, #33ccff), transparent);
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
   border-radius: 1px;
   position: relative;
   z-index: 1;
@@ -458,6 +460,7 @@ body::before {
   margin: 0;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .speed-popup-highlight {
