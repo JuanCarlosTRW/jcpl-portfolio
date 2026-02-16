@@ -22,7 +22,7 @@ export default function Navbar() {
     <StaggeredMenu
       items={staggeredMenuItems}
       displayItemNumbering={true}
-      accentColor="#33ccff"
+      accentColor="#1e1e22"
       menuButtonColor="#fff"
       openMenuButtonColor="#fff"
       colors={["transparent", "transparent"]}
