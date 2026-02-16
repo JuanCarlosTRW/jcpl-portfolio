@@ -258,29 +258,7 @@ export default function PremiumHero({ onLaserLand }: { onLaserLand?: () => void 
             </PrimaryButton>
           </motion.div>
 
-          {/* Proof metrics */}
-          <motion.div
-            ref={proofRef}
-            className="ph-proof"
-            style={{ opacity: init }}
-            {...(reduced ? {} : fadeUp(1.4))}
-          >
-            {PROOF_ITEMS.map((item) => (
-              <span key={item} className="ph-proof-item">
-                {item}
-              </span>
-            ))}
-          </motion.div>
 
-          {/* Authority micro-line */}
-          <motion.p
-            ref={authorityRef}
-            className="ph-authority"
-            style={{ opacity: init }}
-            {...(reduced ? {} : fadeUp(1.6))}
-          >
-            {AUTHORITY_LINE}
-          </motion.p>
         </div>
       </div>
     </section>
