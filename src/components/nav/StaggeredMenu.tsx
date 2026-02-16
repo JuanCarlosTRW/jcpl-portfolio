@@ -10,19 +10,10 @@ export interface StaggeredMenuItem {
   link: string;
 }
 
-export interface StaggeredMenuSocialItem {
-  label: string;
-  link: string;
-}
-
-export type StaggeredMenuSocial = StaggeredMenuSocialItem;
-
 export interface StaggeredMenuProps {
   position?: 'left' | 'right';
   colors?: string[];
   items?: StaggeredMenuItem[];
-  socialItems?: StaggeredMenuSocialItem[];
-  displaySocials?: boolean;
   displayItemNumbering?: boolean;
   className?: string;
   logoUrl?: string;
@@ -40,8 +31,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   position = 'right',
   colors = ['#B19EEF', '#5227FF'],
   items = [],
-  socialItems = [],
-  displaySocials = true,
   displayItemNumbering = true,
   className,
   logoUrl,
@@ -128,8 +117,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     const numberEls = Array.from(
       panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')
     ) as HTMLElement[];
-    const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
-    const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
 
     // Ensure everything starts offscreen (critical for reliability)
     gsap.set([panel, ...layers], { xPercent: offscreen, force3D: true });
@@ -137,8 +124,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     // Reset items to pre-animation state
     if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
     if (numberEls.length) gsap.set(numberEls, { '--sm-num-opacity': 0 } as gsap.TweenVars);
-    if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
-    if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
 
@@ -191,27 +176,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       }
     }
 
-    // Social links entrance
-    if (socialTitle || socialLinks.length) {
-      const socialsStart = panelInsertTime + panelDuration * 0.4;
-      if (socialTitle) {
-        tl.to(socialTitle, { opacity: 1, duration: 0.5, ease: 'power2.out' }, socialsStart);
-      }
-      if (socialLinks.length) {
-        tl.to(
-          socialLinks,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.55,
-            ease: 'power3.out',
-            stagger: { each: 0.08, from: 'start' },
-          },
-          socialsStart + 0.04
-        );
-      }
-    }
-
     openTlRef.current = tl;
     return tl;
   }, [offscreen, getPrelayers]);
@@ -253,10 +217,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
         const nums = panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item');
         if (nums.length) gsap.set(nums, { '--sm-num-opacity': 0 } as gsap.TweenVars);
-        const st = panel.querySelector('.sm-socials-title');
-        if (st) gsap.set(st, { opacity: 0 });
-        const sl = panel.querySelectorAll('.sm-socials-link');
-        if (sl.length) gsap.set(sl, { y: 25, opacity: 0 });
         busyRef.current = false;
       },
     });
@@ -451,25 +411,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               </li>
             )}
           </ul>
-          {displaySocials && socialItems && socialItems.length > 0 && (
-            <div className="sm-socials" aria-label="Social links">
-              <h3 className="sm-socials-title">Socials</h3>
-              <ul className="sm-socials-list" role="list">
-                {socialItems.map((s, i) => (
-                  <li key={s.label + i} className="sm-socials-item">
-                    <a
-                      href={s.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="sm-socials-link"
-                    >
-                      {s.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
         </div>
       </aside>
 

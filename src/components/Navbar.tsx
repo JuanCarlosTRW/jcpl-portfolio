@@ -2,7 +2,7 @@
 
 import { navigation, ctaCopy } from "@/lib/content";
 import StaggeredMenu from "@/components/nav/StaggeredMenu";
-import type { StaggeredMenuItem, StaggeredMenuSocialItem } from "@/components/nav/StaggeredMenu";
+import type { StaggeredMenuItem } from "@/components/nav/StaggeredMenu";
 
 const staggeredMenuItems: StaggeredMenuItem[] = [
   ...navigation.map((item) => ({
@@ -17,17 +17,10 @@ const staggeredMenuItems: StaggeredMenuItem[] = [
   },
 ];
 
-const staggeredMenuSocials: StaggeredMenuSocialItem[] = [
-  { label: "Twitter", link: "https://twitter.com/juancarlostrw" },
-  { label: "GitHub", link: "https://github.com/JuanCarlosTRW" },
-];
-
 export default function Navbar() {
   return (
     <StaggeredMenu
       items={staggeredMenuItems}
-      socialItems={staggeredMenuSocials}
-      displaySocials={true}
       displayItemNumbering={true}
       accentColor="#5227FF"
       menuButtonColor="#fff"
