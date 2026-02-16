@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import LogoLoop from "./LogoLoop";
-import StarBorder from "./StarBorder";
+import StarBorder from "@/components/ui/StarBorder";
 import "./tech-panel.css";
 
 /* ─── Technology logos (text placeholders) ─── */
