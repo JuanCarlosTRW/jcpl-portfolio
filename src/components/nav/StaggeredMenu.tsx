@@ -84,13 +84,16 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       const plusV = plusVRef.current;
       const icon = iconRef.current;
       const textInner = textInnerRef.current;
-      if (!panel || !plusH || !plusV || !icon || !textInner) return;
 
+      // Initialize prelayers even if other elements aren't ready yet
       let preLayers: HTMLElement[] = [];
       if (preContainer) {
         preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer')) as HTMLElement[];
       }
       preLayerElsRef.current = preLayers;
+
+      // Only set up GSAP if all required elements are present
+      if (!panel || !plusH || !plusV || !icon || !textInner) return;
 
       const offscreen = position === 'left' ? -100 : 100;
       gsap.set([panel, ...preLayers], { xPercent: offscreen });
@@ -107,7 +110,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const buildOpenTimeline = useCallback(() => {
     const panel = panelRef.current;
     const preContainer = preLayersRef.current;
-    if (!panel) return null;
+    if (!panel || !preContainer) return null;
 
     openTlRef.current?.kill();
     if (closeTweenRef.current) {
@@ -177,6 +180,25 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const playOpen = useCallback(() => {
     if (busyRef.current) return;
     busyRef.current = true;
+
+    // Ensure DOM elements are ready before building timeline
+    const panel = panelRef.current;
+    const preContainer = preLayersRef.current;
+
+    if (!panel || !preContainer) {
+      // If elements aren't ready yet, try again after a short delay
+      setTimeout(() => {
+        const tl = buildOpenTimeline();
+        if (tl) {
+          tl.eventCallback('onComplete', () => { busyRef.current = false; });
+          tl.play(0);
+        } else {
+          busyRef.current = false;
+        }
+      }, 10);
+      return;
+    }
+
     const tl = buildOpenTimeline();
     if (tl) {
       tl.eventCallback('onComplete', () => { busyRef.current = false; });
