@@ -24,8 +24,8 @@ export default function Navbar() {
       displayItemNumbering={true}
       accentColor="#33ccff"
       menuButtonColor="#fff"
-      openMenuButtonColor="#33ccff"
-      colors={["#33ccff", "#1a3a5c"]}
+      openMenuButtonColor="#fff"
+      colors={["transparent", "transparent"]}
       isFixed={true}
       position="right"
     />
