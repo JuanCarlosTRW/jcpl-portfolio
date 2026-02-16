@@ -50,61 +50,63 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   accentColor = '#5227FF',
   changeMenuColorOnOpen = true,
   isFixed = false,
-  closeOnClickAway: closeOnClickAwayProp = true,
-  onMenuOpen,
-  onMenuClose
-}) => {
-  const [open, setOpen] = useState(false);
-  const openRef = useRef(false);
-  const panelRef = useRef<HTMLDivElement | null>(null);
-  const preLayersRef = useRef<HTMLDivElement | null>(null);
-  const preLayerElsRef = useRef<HTMLElement[]>([]);
-  const plusHRef = useRef<HTMLSpanElement | null>(null);
-  const plusVRef = useRef<HTMLSpanElement | null>(null);
-  const iconRef = useRef<HTMLSpanElement | null>(null);
-  const textInnerRef = useRef<HTMLSpanElement | null>(null);
-  const textWrapRef = useRef<HTMLSpanElement | null>(null);
-  const [textLines, setTextLines] = useState<string[]>(['Menu', 'Close']);
-
-  const openTlRef = useRef<gsap.core.Timeline | null>(null);
-  const closeTweenRef = useRef<gsap.core.Tween | null>(null);
-  const spinTweenRef = useRef<gsap.core.Tween | null>(null);
-  const textCycleAnimRef = useRef<gsap.core.Tween | null>(null);
-  const colorTweenRef = useRef<gsap.core.Tween | null>(null);
-  const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
-  const busyRef = useRef(false);
-  const itemEntranceTweenRef = useRef<gsap.core.Tween | null>(null);
-
-  /* ─── Initial GSAP setup ─── */
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const panel = panelRef.current;
-      const preContainer = preLayersRef.current;
-      const plusH = plusHRef.current;
-      const plusV = plusVRef.current;
-      const icon = iconRef.current;
-      const textInner = textInnerRef.current;
-      if (!panel || !plusH || !plusV || !icon || !textInner) return;
-
-      let preLayers: HTMLElement[] = [];
-      if (preContainer) {
-        preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer')) as HTMLElement[];
-      }
-      preLayerElsRef.current = preLayers;
-
-      const offscreen = position === 'left' ? -100 : 100;
-      gsap.set([panel, ...preLayers], { xPercent: offscreen });
-      gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
-      gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
-      gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
-      gsap.set(textInner, { yPercent: 0 });
-      if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
-    });
-    return () => ctx.revert();
-  }, [menuButtonColor, position]);
-
-  /* ─── Build open timeline ─── */
-  const buildOpenTimeline = useCallback(() => {
+        {open && (
+          <aside
+            id="staggered-menu-panel"
+            ref={panelRef}
+            className="staggered-menu-panel"
+            aria-hidden={!open}
+          >
+            <div className="sm-panel-inner">
+              <ul
+                className="sm-panel-list"
+                role="list"
+                data-numbering={displayItemNumbering || undefined}
+              >
+                {items && items.length ? (
+                  items.map((it, idx) => (
+                    <li className="sm-panel-itemWrap" key={it.label + idx}>
+                      <a
+                        className="sm-panel-item"
+                        href={it.link}
+                        aria-label={it.ariaLabel}
+                        data-index={idx + 1}
+                        onClick={closeMenu}
+                      >
+                        <span className="sm-panel-itemLabel">{it.label}</span>
+                      </a>
+                    </li>
+                  ))
+                ) : (
+                  <li className="sm-panel-itemWrap" aria-hidden="true">
+                    <span className="sm-panel-item">
+                      <span className="sm-panel-itemLabel">No items</span>
+                    </span>
+                  </li>
+                )}
+              </ul>
+              {displaySocials && socialItems && socialItems.length > 0 && (
+                <div className="sm-socials" aria-label="Social links">
+                  <h3 className="sm-socials-title">Socials</h3>
+                  <ul className="sm-socials-list" role="list">
+                    {socialItems.map((s, i) => (
+                      <li key={s.label + i} className="sm-socials-item">
+                        <a
+                          href={s.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="sm-socials-link"
+                        >
+                          {s.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </aside>
+        )}
     const panel = panelRef.current;
     const layers = preLayerElsRef.current;
     if (!panel) return null;
