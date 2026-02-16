@@ -20,7 +20,7 @@ export default function ResultsSection() {
         <BlurText
           text={resultsPreview.headline}
           delay={200}
-          className="heading-2 max-w-3xl mx-auto"
+          className="heading-2 max-w-3xl mx-auto text-center"
         />
       </Reveal>
 
