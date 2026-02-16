@@ -3,14 +3,41 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import { navigation, ctaCopy } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import BubbleMenu, { type BubbleMenuItem } from "@/components/nav/BubbleMenu";
+
+/* ─── Map nav items to BubbleMenu format (mobile) ─── */
+const BUBBLE_COLORS = [
+  { bgColor: "rgba(127, 95, 255, 0.85)", textColor: "#ffffff" },  // purple
+  { bgColor: "rgba(51, 204, 255, 0.85)", textColor: "#ffffff" },   // cyan
+  { bgColor: "rgba(16, 185, 129, 0.85)", textColor: "#ffffff" },   // emerald
+  { bgColor: "rgba(245, 158, 11, 0.85)", textColor: "#ffffff" },   // amber
+  { bgColor: "rgba(239, 68, 68, 0.85)", textColor: "#ffffff" },    // red
+];
+
+const BUBBLE_ROTATIONS = [-6, 5, -4, 7, -5];
+
+const bubbleItems: BubbleMenuItem[] = [
+  ...navigation.map((item, i) => ({
+    label: item.label,
+    href: item.href,
+    ariaLabel: item.label,
+    rotation: BUBBLE_ROTATIONS[i] ?? 0,
+    hoverStyles: BUBBLE_COLORS[i] ?? BUBBLE_COLORS[0],
+  })),
+  {
+    label: ctaCopy.primary,
+    href: ctaCopy.href,
+    ariaLabel: ctaCopy.primary,
+    rotation: BUBBLE_ROTATIONS[navigation.length] ?? -5,
+    hoverStyles: { bgColor: "rgba(127, 95, 255, 0.95)", textColor: "#ffffff" },
+  },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
   // Expose --nav-h via ResizeObserver
@@ -24,17 +51,10 @@ export default function Navbar() {
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
-
-    // Initial measurement
     updateNavHeight();
-
-    // ResizeObserver for dynamic updates
     const ro = new ResizeObserver(updateNavHeight);
     ro.observe(nav);
-
-    // Also update on font load
     document.fonts?.ready?.then(updateNavHeight);
-
     return () => ro.disconnect();
   }, [updateNavHeight]);
 
@@ -45,11 +65,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
   return (
     <header
       ref={navRef}
@@ -57,25 +72,26 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
           ? "glass border-b border-[var(--border-soft)] shadow-lg shadow-black/20"
-          : "bg-[var(--bg-base)]/50 backdrop-blur-sm"
+          : "bg-transparent"
       )}
     >
+      {/* ─── Desktop Nav (md+) ─── */}
       <nav
-        className="container flex items-center justify-between py-4"
+        className="hidden md:flex container items-center justify-between h-16 md:h-18"
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2.5 group">
           <span className="text-xl font-bold tracking-tight text-white">
             JC
           </span>
-          <span className="hidden sm:inline text-sm text-[var(--text-muted)] font-medium">
+          <span className="text-sm text-[var(--text-muted)] font-medium tracking-wide">
             Growth Systems
           </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Nav links */}
+        <div className="flex items-center gap-8">
           {navigation.map((item) => (
             <Link
               key={item.href}
@@ -92,73 +108,30 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
-          <Link
-            href="/apply"
-            className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--brand-deep)] hover:scale-[1.02] shadow-[0_0_20px_rgba(127,95,255,0.3)] hover:shadow-[0_0_30px_rgba(127,95,255,0.5)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-accent)]"
-          >
-            {ctaCopy.primary}
-            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-          </Link>
-        </div>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2 min-h-[44px] min-w-[44px] items-center justify-center"
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
+        {/* CTA button */}
+        <Link
+          href="/apply"
+          className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--brand-deep)] hover:scale-[1.02] shadow-[0_0_20px_rgba(127,95,255,0.3)] hover:shadow-[0_0_30px_rgba(127,95,255,0.5)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-accent)]"
         >
-          <motion.span
-            animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-white"
-          />
-          <motion.span
-            animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block h-0.5 w-6 bg-white"
-          />
-          <motion.span
-            animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-white"
-          />
-        </button>
+          {ctaCopy.primary}
+          <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </Link>
       </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-[var(--border-soft)] overflow-hidden"
-          >
-            <div className="container flex flex-col gap-1 py-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "rounded-lg px-4 py-3 text-sm font-medium transition-colors min-h-[44px] flex items-center",
-                    pathname === item.href
-                      ? "bg-white/5 text-white"
-                      : "text-[var(--text-secondary)] hover:text-white hover:bg-white/5"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Link
-                href="/apply"
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--brand-accent)] px-5 py-3 text-sm font-semibold text-white min-h-[44px]"
-              >
-                {ctaCopy.primary} →
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* ─── Mobile Nav (< md): Bubble Menu ─── */}
+      <div className="md:hidden container flex items-center justify-between h-16">
+        <BubbleMenu
+          items={bubbleItems}
+          logo={
+            <span className="text-lg font-bold tracking-tight text-white">JC</span>
+          }
+          menuBg="rgba(14, 21, 48, 0.95)"
+          menuContentColor="#f0f0f8"
+          animationEase="back.out(1.5)"
+          animationDuration={0.5}
+          staggerDelay={0.1}
+        />
+      </div>
     </header>
   );
 }

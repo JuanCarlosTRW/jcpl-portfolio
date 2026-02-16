@@ -3,9 +3,13 @@
 import { problemSection } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
-import StarBorder from "@/components/ui/StarBorder";
+import PremiumFrame from "@/components/ui/PremiumFrame";
+import Icon from "@/components/ui/Icon";
 import { Reveal, CountUpValue } from "@/components/motion";
 import BlurText from "@/components/ui/BlurText";
+
+/* Icon mapping for problem cards */
+const problemIcons = ["search", "clock", "trending-up"] as const;
 
 export default function ProblemSection() {
   return (
@@ -19,27 +23,35 @@ export default function ProblemSection() {
         />
       </Reveal>
 
-      {/* 3 consequence cards — equal heights */}
-      <div className="grid gap-6 md:grid-cols-3 mb-12 md:mb-16">
+      {/* 3 consequence cards */}
+      <div className="grid gap-5 md:grid-cols-3 mb-12 md:mb-16">
         {problemSection.problems.map((problem, i) => (
-          <Reveal key={i} delay={0.1 * i}>
-            <StarBorder variant="accent" speed="10s" className="rounded-2xl h-full">
-              <div className="rounded-2xl bg-[var(--bg-surface)] p-6 md:p-8 text-center h-full flex flex-col justify-center min-h-[180px]">
-                <div className="text-4xl md:text-5xl font-bold text-[var(--brand-accent)] mb-3 tabular-nums">
-                  {problem.stat.includes("%") ? (
-                    <CountUpValue
-                      to={parseInt(problem.stat)}
-                      suffix="%"
-                    />
-                  ) : (
-                    problem.stat
-                  )}
-                </div>
-                <p className="text-[var(--text-secondary)] text-sm md:text-base leading-relaxed">
-                  {problem.description}
-                </p>
+          <Reveal key={i} delay={0.08 * i}>
+            <PremiumFrame
+              variant="accent"
+              radius="lg"
+              padding="md"
+              className="text-center h-full flex flex-col justify-center min-h-[180px]"
+            >
+              {/* Small icon indicator */}
+              <div className="mb-3 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-danger)]/10 text-[var(--color-danger)]">
+                <Icon name={problemIcons[i]} size={18} strokeWidth={2} />
               </div>
-            </StarBorder>
+
+              <div className="text-3xl md:text-4xl font-bold text-[var(--brand-accent)] mb-2 tabular-nums">
+                {problem.stat.includes("%") ? (
+                  <CountUpValue
+                    to={parseInt(problem.stat)}
+                    suffix="%"
+                  />
+                ) : (
+                  problem.stat
+                )}
+              </div>
+              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                {problem.description}
+              </p>
+            </PremiumFrame>
           </Reveal>
         ))}
       </div>

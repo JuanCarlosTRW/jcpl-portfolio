@@ -11,6 +11,8 @@ import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReduc
 import HeroBackground from "./HeroBackground";
 import IntroBackground from "./IntroBackground";
 import LogoIntro from "./LogoIntro";
+import Icon from "@/components/ui/Icon";
+import type { IconName } from "@/components/ui/Icon";
 import type { LogoIntroHandle } from "./LogoIntro";
 import "./hero.css";
 
@@ -60,24 +62,24 @@ const SCRUB_SMOOTHING = 0.6;
    SERVICE DATA
    ══════════════════════════════════════════════════════════ */
 
-const services = [
+const services: { icon: IconName; title: string; desc: string }[] = [
   {
-    icon: "◆",
+    icon: "target",
     title: "Growth Systems",
     desc: "Funnels, landing pages & conversion copy engineered to book calls.",
   },
   {
-    icon: "◆",
+    icon: "chart",
     title: "Paid Acquisition",
     desc: "Google Ads campaigns built for ROI, not vanity metrics.",
   },
   {
-    icon: "◆",
+    icon: "trending-up",
     title: "SEO & GEO",
     desc: "Organic visibility optimized for search engines and AI platforms.",
   },
   {
-    icon: "◆",
+    icon: "bot",
     title: "AI Automation",
     desc: "Intelligent receptionist, chat & workflow systems that never sleep.",
   },
@@ -160,8 +162,8 @@ function ServicesLayer() {
       <div className="services-grid">
         {services.map((s) => (
           <div key={s.title} className="service-card">
-            <span className="service-card-icon text-[rgba(255,255,255,0.2)]">
-              {s.icon}
+            <span className="service-card-icon text-[var(--brand-alt)]">
+              <Icon name={s.icon} size={24} />
             </span>
             <h3 className="service-card-title">{s.title}</h3>
             <p className="service-card-desc">{s.desc}</p>
@@ -173,11 +175,11 @@ function ServicesLayer() {
         <Link
           href={ctaCopy.href}
           onClick={() => trackEvent("hero_cta_click")}
-          className="group inline-flex items-center gap-2 rounded-xl bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.12)] px-8 py-4 text-base font-semibold text-[var(--text-primary)] transition-all duration-400 hover:bg-[rgba(255,255,255,0.14)] hover:border-[rgba(255,255,255,0.22)]"
+          className="group inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-white transition-all duration-400 hover:bg-[var(--brand-deep)] shadow-[0_0_20px_rgba(127,95,255,0.3)] hover:shadow-[0_0_30px_rgba(127,95,255,0.5)]"
         >
           {ctaCopy.primary}
-          <span className="transition-transform duration-300 group-hover:translate-x-1 text-[rgba(255,255,255,0.4)]">
-            →
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            <Icon name="arrow-right" size={16} />
           </span>
         </Link>
         <Link

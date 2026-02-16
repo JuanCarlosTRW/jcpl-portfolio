@@ -3,13 +3,15 @@
 import { systemSteps } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
-import StarBorder from "@/components/ui/StarBorder";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import Icon, { systemStepIcons } from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion";
 import BlurText from "@/components/ui/BlurText";
 
 export default function SystemSection() {
   return (
     <SectionWrapper id="system" variant="surface">
+      {/* Section header — fully centered */}
       <Reveal className="text-center mb-12 md:mb-16">
         <SectionLabel label="The System" className="mb-6" />
         <BlurText
@@ -23,29 +25,31 @@ export default function SystemSection() {
         </p>
       </Reveal>
 
-      {/* 6 step cards with Input → Action → Output format */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {/* 6 step cards — SpotlightCard with interactive mouse glow */}
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {systemSteps.map((step, i) => (
-          <Reveal key={step.step} delay={0.08 * i}>
-            <StarBorder variant="accent" speed={`${10 + i}s`} className="rounded-2xl h-full">
-              <div className="relative rounded-2xl bg-[var(--bg-surface)] p-6 md:p-8 h-full transition-colors hover:bg-[var(--bg-elevated)]">
-                {/* Step number badge */}
-                <div
-                  className="absolute -top-3 -left-3 flex h-8 w-8 items-center justify-center rounded-full bg-[var(--brand-accent)] text-xs font-bold text-white z-10"
-                  style={{ boxShadow: "0 0 15px rgba(127,95,255,0.4)" }}
-                >
-                  {step.step}
-                </div>
-
-                <div className="text-3xl mb-4" role="img" aria-label={step.title}>
-                  {step.icon}
-                </div>
-                <h3 className="heading-3 mb-2">{step.title}</h3>
-                <p className="body-text text-sm">
-                  {step.description}
-                </p>
+          <Reveal key={step.step} delay={0.06 * i}>
+            <SpotlightCard
+              spotlightColor="rgba(127, 95, 255, 0.08)"
+              className="h-full p-6 md:p-7 flex flex-col"
+            >
+              {/* Icon container */}
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand-accent)]/10 text-[var(--brand-accent)]">
+                <Icon name={systemStepIcons[step.step]} size={22} strokeWidth={1.75} />
               </div>
-            </StarBorder>
+
+              {/* Step label */}
+              <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">
+                Step {step.step}
+              </span>
+
+              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2 leading-snug">
+                {step.title}
+              </h3>
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                {step.description}
+              </p>
+            </SpotlightCard>
           </Reveal>
         ))}
       </div>
