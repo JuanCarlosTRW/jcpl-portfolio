@@ -82,7 +82,7 @@ export default function TechPanel({ laserLanded = false }: TechPanelProps) {
 
           {/* Logo content */}
           <div className={`tp-logo-content ${isRevealed ? "tp-logo-content--revealed" : ""}`}>
-            <p className="tp-label">Trusted Technologies</p>
+            <p className="tp-label">Trusted by Leading Brands</p>
             <LogoLoop
               logos={TECH_LOGOS}
               direction="horizontal"

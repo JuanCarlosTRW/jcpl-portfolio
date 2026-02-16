@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SpeedPopup from "@/components/SpeedPopup";
 import { siteConfig } from "@/lib/content";
 import {
   generatePersonSchema,
@@ -74,6 +75,7 @@ export default function RootLayout({
         <Navbar />
         <main id="main-content" className="min-h-screen">{children}</main>
         <Footer />
+        <SpeedPopup />
       </body>
     </html>
   );

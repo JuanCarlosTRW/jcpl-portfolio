@@ -36,7 +36,7 @@ export default function ResultsSection() {
           <PremiumFrameGlow color="alt" position="top" />
           <div className="relative z-10">
             <div className="text-5xl md:text-6xl font-bold gradient-text mb-3">
-              <CountUpValue to={20} prefix="$" suffix="K" durationMs={1600} />
+              <CountUpValue to={20000} prefix="$" durationMs={2000} />
             </div>
             <p className="body-lg mb-1">
               {resultsPreview.featured.context}

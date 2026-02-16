@@ -295,3 +295,116 @@ body::before {
     scroll-behavior: auto !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   SPEED POPUP — Premium glass modal
+   ═══════════════════════════════════════════════════ */
+
+.speed-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: speed-popup-fade-in 0.4s ease-out both;
+}
+
+.speed-popup-backdrop.speed-popup-closing {
+  animation: speed-popup-fade-out 0.3s ease-in both;
+}
+
+.speed-popup-panel {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  padding: 2.5rem 2rem 2rem;
+  background: rgba(14, 21, 48, 0.92);
+  border: 1px solid rgba(127, 95, 255, 0.2);
+  border-radius: var(--radius-xl, 28px);
+  box-shadow:
+    0 0 0 1px rgba(127, 95, 255, 0.08),
+    0 0 60px rgba(127, 95, 255, 0.12),
+    0 24px 80px rgba(0, 0, 0, 0.5);
+  animation: speed-popup-scale-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.speed-popup-closing .speed-popup-panel {
+  animation: speed-popup-scale-out 0.3s ease-in both;
+}
+
+.speed-popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 200, 224, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted, #8888b0);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.speed-popup-close:hover,
+.speed-popup-close:focus-visible {
+  background: rgba(127, 95, 255, 0.15);
+  color: #fff;
+  border-color: rgba(127, 95, 255, 0.4);
+}
+
+.speed-popup-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fff 0%, var(--brand-accent, #7f5fff) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+}
+
+.speed-popup-accent {
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-accent, #7f5fff), transparent);
+  margin-bottom: 1.25rem;
+  border-radius: 1px;
+}
+
+.speed-popup-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary, #c8c8e0);
+  margin: 0;
+}
+
+@keyframes speed-popup-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes speed-popup-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes speed-popup-scale-in {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes speed-popup-scale-out {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 0; transform: scale(0.95) translateY(8px); }
+}

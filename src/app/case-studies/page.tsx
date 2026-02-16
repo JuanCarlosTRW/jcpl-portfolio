@@ -10,7 +10,7 @@ import FinalCTA from "@/components/home/FinalCTA";
 export const metadata: Metadata = buildMetadata({
   title: "Case Studies — Proven Results for Service Businesses",
   description:
-    "$20K generated in month one for an RV rental client. Premium barbershop websites delivered. See the proof.",
+    "$20,000 generated in month one for an RV rental client. Premium barbershop websites delivered. See the proof.",
   path: "/case-studies",
 });
 

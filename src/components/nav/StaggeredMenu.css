@@ -127,11 +127,17 @@
   display: flex;
   z-index: 100;
   pointer-events: none;
+  transform: translateX(100%);
+}
+
+[data-position='left'] .sm-prelayers {
+  transform: translateX(-100%);
 }
 
 [data-position='left'] .sm-prelayers {
   right: auto;
   left: 0;
+  transform: translateX(-100%);
 }
 
 .sm-prelayer {
@@ -153,11 +159,13 @@
   justify-content: center;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  transform: translateX(100%);
 }
 
 [data-position='left'] .staggered-menu-panel {
   right: auto;
   left: 0;
+  transform: translateX(-100%);
 }
 
 /* ─── panel inner ─── */

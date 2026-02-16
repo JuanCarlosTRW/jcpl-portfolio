@@ -215,7 +215,7 @@ export const serviceTiers = [
 export const caseStudies = [
   {
     slug: "rv-rental-google-ads",
-    title: "From Zero Online Leads to $20K in Month One",
+    title: "From Zero Online Leads to $20,000 in Month One",
     client: "Premier RV Rentals",
     industry: "RV Rentals",
     heroStat: "$20,000",
@@ -527,7 +527,7 @@ export const servicesFitGuidance: Record<string, { bestFit: string[]; notFit: st
     ],
     notFit: [
       "You don't have product-market fit yet",
-      "Monthly revenue is under $5K",
+      "Monthly revenue is under $5,000",
     ],
   },
   Scale: {
