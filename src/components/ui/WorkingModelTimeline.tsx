@@ -8,7 +8,7 @@ interface TimelineStep {
   title: string;
   duration: string;
   description: string;
-  icon: string;
+  icon?: string;
 }
 
 interface Props {
@@ -48,13 +48,15 @@ export default function WorkingModelTimeline({ timeline }: Props) {
                 <div className="rounded-2xl bg-[var(--bg-surface)] p-6 md:p-8">
                   {/* Header row */}
                   <div className="flex items-center gap-3 mb-3">
-                    <span
-                      className="text-2xl select-none"
-                      role="img"
-                      aria-label={step.phase}
-                    >
-                      {step.icon}
-                    </span>
+                    {step.icon && (
+                      <span
+                        className="text-2xl select-none"
+                        role="img"
+                        aria-label={step.phase}
+                      >
+                        {step.icon}
+                      </span>
+                    )}
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                         <h3 className="text-lg md:text-xl font-bold text-white">

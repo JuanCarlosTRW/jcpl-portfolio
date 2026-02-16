@@ -127,15 +127,11 @@
   display: flex;
   z-index: 100;
   pointer-events: none;
-  opacity: 0;
-  /* Removed: transform: translateX(100%); */
 }
 
 [data-position='left'] .sm-prelayers {
   right: auto;
   left: 0;
-  opacity: 0;
-  /* Removed: transform: translateX(-100%); */
 }
 
 .sm-prelayer {

@@ -67,43 +67,37 @@ export const systemSteps = [
     step: 1,
     title: "Positioning & Offer Clarity",
     description:
-      "We define who you serve, what makes you different, and craft an offer that's impossible to ignore.",
-    icon: "🎯",
+      "Define who you serve, what makes you different, and craft an offer that compels action.",
   },
   {
     step: 2,
     title: "Conversion Website",
     description:
       "A premium, fast-loading site engineered to turn every visitor into a booked call.",
-    icon: "💻",
   },
   {
     step: 3,
     title: "Traffic Activation",
     description:
-      "Google Ads, SEO, and GEO (AI search optimization) so your ideal clients actually find you.",
-    icon: "🚀",
+      "Google Ads, SEO, and GEO (AI search optimization) so qualified prospects find you first.",
   },
   {
     step: 4,
     title: "AI Assist Layer",
     description:
       "An AI receptionist that answers questions, qualifies leads, and books appointments 24/7.",
-    icon: "🤖",
   },
   {
     step: 5,
     title: "Qualification & Booking",
     description:
       "Automated screening so only serious, qualified leads make it onto your calendar.",
-    icon: "📋",
   },
   {
     step: 6,
     title: "Optimization & Scale",
     description:
-      "Continuous data-driven improvements to lower your cost per lead and scale what works.",
-    icon: "📈",
+      "Continuous data-driven improvements to lower cost per lead and scale what works.",
   },
 ];
 
@@ -453,7 +447,6 @@ export const aboutTimeline = [
     duration: "Week 1",
     description:
       "Deep-dive into your business, market, and goals. We define positioning, craft your offer, and map the entire growth system.",
-    icon: "🎯",
   },
   {
     phase: "Build",
@@ -461,7 +454,6 @@ export const aboutTimeline = [
     duration: "Weeks 2–4",
     description:
       "I build your conversion website, set up ad funnels, configure AI automation, and launch everything with tracking in place.",
-    icon: "🛠️",
   },
   {
     phase: "Optimize",
@@ -469,7 +461,6 @@ export const aboutTimeline = [
     duration: "Ongoing",
     description:
       "Continuous data-driven improvements — lowering cost per lead, improving conversion rates, and scaling what works.",
-    icon: "📈",
   },
 ];
 

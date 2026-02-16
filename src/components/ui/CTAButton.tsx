@@ -14,13 +14,13 @@ interface Props {
 }
 
 const base =
-  "relative inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-accent)]";
+  "relative inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-accent)]";
 
 const variants = {
   primary:
-    "bg-[var(--brand-accent)] text-white hover:bg-[var(--brand-deep)] hover:scale-[1.02]",
+    "bg-[var(--brand-accent)] text-white hover:bg-[var(--brand-deep)]",
   secondary:
-    "bg-white/5 text-[var(--text-primary)] border border-[var(--border-soft)] hover:border-[var(--brand-accent)]/40 hover:bg-white/10",
+    "bg-white/5 text-[var(--text-primary)] border border-[var(--border-soft)] hover:border-[var(--brand-accent)]/40 hover:bg-white/8",
   ghost: "text-[var(--brand-alt)] hover:text-[var(--brand-accent)] hover:bg-white/5",
 };
 

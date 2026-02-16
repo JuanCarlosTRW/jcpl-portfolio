@@ -16,7 +16,7 @@ export default function PrimaryButton({
   onClick,
 }: PrimaryButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-alt)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]";
+    "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-alt)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]";
 
   const variants = {
     solid:
