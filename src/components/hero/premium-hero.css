@@ -1,3 +1,13 @@
+/* ── Prominent CTA animation for hero button ── */
+.ph-cta-prominent {
+  box-shadow: 0 0 0 2px var(--brand-accent), 0 0 32px 4px var(--brand-accent), 0 2px 24px rgba(51,204,255,0.18);
+  animation: ph-cta-pulse 2.2s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes ph-cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px var(--brand-accent), 0 0 32px 4px var(--brand-accent), 0 2px 24px rgba(51,204,255,0.18); }
+  50% { box-shadow: 0 0 0 6px var(--brand-accent), 0 0 48px 12px var(--brand-accent), 0 2px 32px rgba(51,204,255,0.28); }
+}
 /* ═══════════════════════════════════════════════════
    PREMIUM HERO — Cinematic Laser-Dominant Design
    
