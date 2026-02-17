@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <Hero onLaserLand={() => setLaserLanded(true)} />
-      <TechPanel laserLanded={laserLanded} />
+  {/* <TechPanel laserLanded={laserLanded} /> */}
       <ProblemSection />
       <SystemSection />
   {/* <LogosSection /> */}
