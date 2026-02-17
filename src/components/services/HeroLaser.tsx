@@ -6,9 +6,7 @@ const PROJECT_ID = "TYGPIf4mmys0ZtEKycno";
 
 declare global {
   interface Window {
-    UnicornStudio?: {
-      init: () => void;
-    };
+    UnicornStudio?: any;
   }
 }
 
