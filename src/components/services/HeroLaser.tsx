@@ -4,10 +4,26 @@ import { useEffect, useRef } from "react";
 const UNICORN_SCRIPT_SRC = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
 const PROJECT_ID = "TYGPIf4mmys0ZtEKycno";
 
+declare global {
+  interface Window {
+    UnicornStudio?: {
+      init: () => void;
+    };
+  }
+}
+
 export default function HeroLaser() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    function tryInit() {
+      if (window.UnicornStudio && typeof window.UnicornStudio.init === "function") {
+        window.UnicornStudio.init();
+        console.log("UnicornStudio.init() called");
+      } else {
+        console.warn("UnicornStudio not available yet");
+      }
+    }
     // Prevent duplicate script loads
     if (!document.querySelector(`script[src="${UNICORN_SCRIPT_SRC}"]`)) {
       const script = document.createElement("script");
@@ -15,13 +31,14 @@ export default function HeroLaser() {
       script.async = true;
       script.onload = () => {
         console.log("UnicornStudio script loaded");
+        setTimeout(tryInit, 100);
       };
       document.body.appendChild(script);
     } else {
       console.log("UnicornStudio script already present");
+      setTimeout(tryInit, 100);
     }
-    // UnicornStudio auto-initializes on elements with data-us-project
-    // No need for manual init
+    // Cleanup: nothing
     return () => {};
   }, []);
 
