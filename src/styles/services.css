@@ -908,6 +908,10 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
+  background: transparent;
+}
+.hero-laser-debug {
+  border: 2px dashed #33ccff !important;
+  pointer-events: auto !important;
+  overflow: visible !important;
 }

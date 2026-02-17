@@ -13,7 +13,12 @@ export default function HeroLaser() {
       const script = document.createElement("script");
       script.src = UNICORN_SCRIPT_SRC;
       script.async = true;
+      script.onload = () => {
+        console.log("UnicornStudio script loaded");
+      };
       document.body.appendChild(script);
+    } else {
+      console.log("UnicornStudio script already present");
     }
     // UnicornStudio auto-initializes on elements with data-us-project
     // No need for manual init
@@ -24,7 +29,7 @@ export default function HeroLaser() {
     <div
       ref={containerRef}
       data-us-project={PROJECT_ID}
-      className="hero-laser-bg"
+      className="hero-laser-bg hero-laser-debug"
       aria-hidden="true"
       style={{
         position: "absolute",
@@ -32,8 +37,8 @@ export default function HeroLaser() {
         width: "100%",
         height: "100%",
         zIndex: 0,
-        pointerEvents: "none",
-        overflow: "hidden",
+        background: "transparent",
+        border: "2px dashed #33ccff",
       }}
     />
   );

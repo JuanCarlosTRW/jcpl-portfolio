@@ -12,7 +12,13 @@ export default function ServicesHero() {
   const beforeAccent = h.headline.replace(h.headlineAccent, "").trim();
 
   return (
-    <div style={{ position: "relative", minHeight: "60vh" }}>
+    <div
+      style={{
+        position: "relative",
+        minHeight: "60vh",
+        background: "transparent",
+      }}
+    >
       <HeroLaser />
       <SectionWrapper className="pt-32 md:pt-40 pb-0 relative z-[1]">
         <AnimatedSection className="text-center max-w-3xl mx-auto">
