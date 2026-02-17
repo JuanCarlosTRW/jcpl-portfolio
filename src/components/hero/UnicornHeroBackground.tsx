@@ -31,7 +31,7 @@ export default function UnicornHeroBackground() {
         try {
           unicornInstance = window.UnicornStudio.init({
             container: containerRef.current,
-            config: UNICORN_JSON,
+            config: unicornConfig,
             ...(window.innerWidth < 768 ? { dpi: 1 } : {})
           });
         } catch (e) {
