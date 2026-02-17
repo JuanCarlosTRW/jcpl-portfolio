@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { unicornHeroConfig } from "@/lib/unicornHeroConfig";
 
 const UNICORN_SCRIPT_SRC =
   "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
@@ -23,36 +22,59 @@ export default function UnicornHeroBackground() {
     let unicornInstance: any = null;
     let destroyed = false;
 
-    function init() {
-      const US = (window as any).UnicornStudio;
-      if (US && typeof US.init === "function" && containerRef.current) {
-        try {
-          unicornInstance = US.init({
-            container: containerRef.current,
-            config: unicornHeroConfig,
-            ...(window.innerWidth < 768 ? { dpi: 1 } : {}),
-          });
-        } catch {
+    async function boot() {
+      try {
+        /* 1. Fetch config JSON from public/ (static asset) */
+        const res = await fetch("/unicorn-config.json");
+        if (!res.ok) throw new Error("Config fetch failed");
+        const config = await res.json();
+
+        /* 2. Load SDK script if not already present */
+        await loadScript();
+
+        /* 3. Init Unicorn Studio with config */
+        if (destroyed || !containerRef.current) return;
+        const US = (window as any).UnicornStudio;
+        if (!US || typeof US.init !== "function") {
           setFailed(true);
+          return;
         }
-      } else {
-        setFailed(true);
+
+        unicornInstance = US.init({
+          container: containerRef.current,
+          config,
+          ...(window.innerWidth < 768 ? { dpi: 1 } : {}),
+        });
+      } catch {
+        if (!destroyed) setFailed(true);
       }
     }
 
-    /* Prevent duplicate script loads */
-    if (!document.querySelector(`script[src="${UNICORN_SCRIPT_SRC}"]`)) {
-      const script = document.createElement("script");
-      script.src = UNICORN_SCRIPT_SRC;
-      script.async = true;
-      script.onload = () => {
-        if (!destroyed) setTimeout(init, 100);
-      };
-      script.onerror = () => setFailed(true);
-      document.body.appendChild(script);
-    } else {
-      setTimeout(init, 100);
+    function loadScript(): Promise<void> {
+      return new Promise((resolve, reject) => {
+        if ((window as any).UnicornStudio) {
+          resolve();
+          return;
+        }
+        const existing = document.querySelector(
+          `script[src="${UNICORN_SCRIPT_SRC}"]`
+        );
+        if (existing) {
+          existing.addEventListener("load", () => resolve());
+          /* If script is already loaded (cached), resolve immediately */
+          if ((window as any).UnicornStudio) resolve();
+          return;
+        }
+        const script = document.createElement("script");
+        script.src = UNICORN_SCRIPT_SRC;
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error("Script load failed"));
+        document.body.appendChild(script);
+      });
     }
+
+    boot();
 
     return () => {
       destroyed = true;
