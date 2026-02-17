@@ -4,40 +4,70 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
+import CTAButton from "@/components/ui/CTAButton";
+import { ctaCopy } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 
 const faqData = [
   {
     question: "What exactly is the Presence-to-Pipeline System™?",
     answer:
-      "A 6-phase growth system that turns your online presence into qualified booked calls. It covers positioning, conversion website, traffic activation, AI automation, qualification, and ongoing optimization — all under one roof.",
+      "A 6-phase growth engine: positioning, conversion website, traffic activation, AI automation, lead qualification, and ongoing optimization. Every phase is built to reinforce the others — so your pipeline compounds instead of fragmenting.",
   },
   {
     question: "Who is this built for?",
     answer:
-      "Service businesses that rely on appointments and consultations: barbershops, RV rental operations, dental practices, real estate, and local services. If your revenue depends on booked calls, this system applies.",
+      "Service businesses that depend on appointments and consultations — barbershops, RV rentals, dental practices, real estate, and local services. If your revenue comes from booked calls, this system applies to you.",
   },
   {
     question: "How fast will I see results?",
     answer:
-      "Most clients generate their first qualified leads within 30 days of launch. One client generated $20,000 in confirmed bookings in month one. Timeline depends on your market and readiness.",
+      "Most clients see their first qualified leads within 30 days of launch. One RV rental client generated $20,000 in confirmed bookings in month one. Timeline depends on your market, offer, and readiness.",
   },
   {
     question: "How is this different from hiring an agency?",
     answer:
-      "Agencies hand off pieces to siloed teams. I own the entire pipeline — strategy, website, ads, AI, booking. No fragmented vendors, no coordination tax, no finger-pointing. One system, one owner.",
+      "Agencies fragment work across siloed teams. I own the entire pipeline — strategy, website, ads, AI, booking. No coordination tax, no finger-pointing. One system, one accountable owner.",
   },
   {
     question: "What if it doesn't work?",
     answer:
-      "If you don't see measurable ROI in 90 days, I continue working at no additional cost until we hit the agreed targets. I can make that commitment because I control the entire system.",
+      "If you don't see measurable ROI within 90 days, I continue working at no additional cost until we hit agreed targets. I can make that commitment because I control every piece of the system.",
   },
   {
     question: "What does this cost?",
     answer:
       "Engagements start at $5,000/month for the complete system — setup, management, and optimization included. Most clients see ROI within the first month. Specifics are discussed on the strategy call.",
   },
+  {
+    question: "Who is NOT a good fit?",
+    answer:
+      "Businesses under $5,000/month in revenue, companies looking for a quick logo or one-off landing page, or anyone who isn't ready to commit to a system. This is a growth partnership, not a one-time transaction.",
+  },
 ];
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+      className={`shrink-0 text-[var(--text-muted)] transition-transform duration-300 ${
+        open ? "rotate-180" : ""
+      }`}
+    >
+      <path
+        d="M5 7.5l5 5 5-5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export default function FAQSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -59,64 +89,73 @@ export default function FAQSection() {
 
   return (
     <SectionWrapper id="faq">
-      <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
+      <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
         <SectionLabel label="Questions" className="mb-5" />
-        <h2 className="heading-2 max-w-lg mx-auto">
+        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           Before You Reach Out
         </h2>
+        <p className="mt-5 text-[var(--text-secondary)] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+          Straight answers to the questions serious business owners ask before
+          committing.
+        </p>
       </Reveal>
 
-      {/* Accessible accordion */}
-      <div className="max-w-2xl mx-auto" role="list">
+      {/* Accordion */}
+      <div className="max-w-2xl mx-auto space-y-3" role="list">
         {faqData.map((faq, i) => {
           const isOpen = activeIndex === i;
-          const panelId = `faq-panel-${i}`;
-          const triggerId = `faq-trigger-${i}`;
+          const isNotFit = faq.question.includes("NOT");
 
           return (
-            <Reveal key={i} delay={0.03 * i}>
+            <Reveal key={i} delay={0.04 * i}>
               <div
-                className={`border-b border-[var(--border-soft)] ${
-                  i === 0 ? "border-t" : ""
-                }`}
                 role="listitem"
+                className={`rounded-xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "border-[rgba(127,95,255,0.2)] bg-[var(--bg-elevated)] shadow-[0_4px_24px_rgba(127,95,255,0.04)]"
+                    : "border-[rgba(255,255,255,0.06)] bg-[var(--bg-surface)] hover:border-[rgba(255,255,255,0.1)]"
+                } ${isNotFit ? "ring-1 ring-[rgba(239,68,68,0.08)]" : ""}`}
               >
                 <button
-                  id={triggerId}
+                  type="button"
                   onClick={() => toggle(i)}
                   onKeyDown={(e) => handleKeyDown(e, i)}
-                  className="w-full py-6 text-left flex items-center justify-between gap-4 group cursor-pointer"
+                  className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left cursor-pointer"
                   aria-expanded={isOpen}
-                  aria-controls={panelId}
+                  aria-controls={`faq-answer-${i}`}
                 >
-                  <h3 className="text-[15px] font-medium text-[var(--text-primary)] leading-snug pr-4 group-hover:text-[var(--brand-alt)] transition-colors duration-200">
-                    {faq.question}
-                  </h3>
                   <span
-                    className={`text-[var(--text-muted)] text-lg shrink-0 transition-transform duration-200 select-none ${
-                      isOpen ? "rotate-45" : ""
-                    }`}
-                    aria-hidden="true"
+                    className={`text-[0.95rem] font-semibold leading-snug ${
+                      isOpen
+                        ? "text-white"
+                        : "text-[var(--text-secondary)]"
+                    } transition-colors duration-200`}
                   >
-                    +
+                    {faq.question}
                   </span>
+                  <ChevronIcon open={isOpen} />
                 </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
-                      id={panelId}
+                      id={`faq-answer-${i}`}
                       role="region"
-                      aria-labelledby={triggerId}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.25, 0.1, 0.25, 1],
+                      }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-6 text-sm text-[var(--text-secondary)] leading-relaxed">
-                        {faq.answer}
-                      </p>
+                      <div className="px-5 md:px-6 pb-5 md:pb-6">
+                        <div className="h-px bg-[rgba(255,255,255,0.04)] mb-4" />
+                        <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -125,6 +164,23 @@ export default function FAQSection() {
           );
         })}
       </div>
+
+      {/* Mini-CTA below FAQ */}
+      <Reveal delay={0.3}>
+        <div className="mt-12 md:mt-16 text-center">
+          <p className="text-sm text-[var(--text-muted)] mb-5">
+            Still have questions? Let&apos;s talk through them on a call.
+          </p>
+          <CTAButton
+            href={ctaCopy.href}
+            variant="secondary"
+            size="md"
+            eventName="faq_cta_click"
+          >
+            {ctaCopy.tertiary}
+          </CTAButton>
+        </div>
+      </Reveal>
     </SectionWrapper>
   );
 }

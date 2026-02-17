@@ -10,7 +10,7 @@ interface Props {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
-  eventName?: "hero_cta_click" | "hero_primary_cta_click" | "hero_secondary_cta_click" | "section_cta_click" | "case_card_click";
+  eventName?: "hero_cta_click" | "hero_primary_cta_click" | "hero_secondary_cta_click" | "section_cta_click" | "case_card_click" | "faq_cta_click" | "final_cta_primary_click" | "final_cta_secondary_click";
 }
 
 const base =

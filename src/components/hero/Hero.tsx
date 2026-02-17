@@ -1,12 +1,7 @@
 "use client";
 
-import PremiumHero from "./PremiumHero";
-
 /**
  * Thin compatibility wrapper named `Hero` so pages importing `Hero` keep working.
- * This keeps the implementation (PremiumHero) separate while providing the
- * requested `/src/components/hero/Hero.tsx` entry point.
+ * Delegates entirely to PremiumHero which contains the full hero implementation.
  */
-export default function Hero({ onLaserLand }: { onLaserLand?: () => void }) {
-  return <PremiumHero onLaserLand={onLaserLand} />;
-}
+export { default } from "./PremiumHero";
