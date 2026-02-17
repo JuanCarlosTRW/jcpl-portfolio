@@ -14,12 +14,12 @@ const WhySection = dynamic(() => import("@/components/home/WhySection"));
 const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
 const FinalCTA = dynamic(() => import("@/components/home/FinalCTA"));
 
-export default function Home() {
+export default function HomePage() {
   const [laserLanded, setLaserLanded] = useState(false);
 
   return (
     <>
-      <Hero onLaserLand={() => setLaserLanded(true)} />
+  <Hero />
   {/* <TechPanel laserLanded={laserLanded} /> */}
       <ProblemSection />
       <SystemSection />
