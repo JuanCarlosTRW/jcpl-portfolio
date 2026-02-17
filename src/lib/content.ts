@@ -164,12 +164,12 @@ export const servicesHero = {
 
 export const servicesProofBar = {
   stats: [
-    { value: "$20K+", label: "Revenue generated for clients" },
-    { value: "<24h", label: "Avg. response time" },
-    { value: "<30 days", label: "To first qualified leads" },
-    { value: "100%", label: "Client retention rate" },
+    { value: "$20K+", label: "Revenue generated for clients", verifiable: true },
+    { value: "6+", label: "Businesses worked with", verifiable: true },
+    { value: "4", label: "Industries served", verifiable: true },
   ],
-  logoRowLabel: "Trusted by service businesses across North America",
+  logoRowLabel: "As seen working with service businesses across North America",
+  socialProof: ["Premier RV Rentals", "Elite Cuts Barbershop", "Sharp Fade Studio"],
 };
 
 export const serviceTiers = [
@@ -178,6 +178,7 @@ export const serviceTiers = [
     icon: "foundation" as const,
     tagline: "Get online. Get credible. Get found.",
     bestFor: "Businesses with no website or an outdated one",
+    revenueStage: "$5K–$15K/mo",
     coreOutcome: "A professional website that turns visitors into booked calls — live in 2–3 weeks.",
     deliverables: [
       "Conversion-optimized website (up to 5 pages)",
@@ -194,13 +195,15 @@ export const serviceTiers = [
     timeline: "2–3 weeks",
     firstWin: "Website live + indexed on Google",
     impact: "Your website becomes your hardest-working salesperson.",
-    cta: "Start Foundation",
+    notIdealIf: "You already have a high-converting site or need paid ads management",
+    planCTA: "Start Foundation",
   },
   {
     name: "Growth",
     icon: "growth" as const,
     tagline: "Fill your calendar with qualified leads.",
     bestFor: "Businesses ready to invest in ads and automation",
+    revenueStage: "$15K–$50K/mo",
     coreOutcome: "A complete lead generation engine — ads, AI, and automated booking — live in 3–4 weeks.",
     deliverables: [
       "Everything in Foundation",
@@ -217,7 +220,8 @@ export const serviceTiers = [
     timeline: "3–4 weeks + ongoing",
     firstWin: "First qualified leads within 30 days",
     impact: "Predictable lead flow. No more feast-or-famine months.",
-    cta: "Apply for Growth",
+    notIdealIf: "You don't have product-market fit or monthly revenue is under $5K",
+    planCTA: "Apply for Growth",
     featured: true,
   },
   {
@@ -225,6 +229,7 @@ export const serviceTiers = [
     icon: "scale" as const,
     tagline: "Dominate your market. Systematize growth.",
     bestFor: "Multi-location or high-revenue businesses",
+    revenueStage: "$50K+/mo",
     coreOutcome: "Multi-channel market dominance with AI automation and strategic partnership.",
     deliverables: [
       "Everything in Growth",
@@ -241,7 +246,8 @@ export const serviceTiers = [
     timeline: "4–6 weeks + ongoing",
     firstWin: "Market dominance plan + first multi-channel results",
     impact: "You become the obvious choice. Leads come in systematically.",
-    cta: "Book Scale Call",
+    notIdealIf: "You're just getting started online or want a one-time project",
+    planCTA: "Book Scale Call",
   },
 ];
 
@@ -623,6 +629,56 @@ export const servicesFinalCTA = {
     { icon: "🔒", text: "100% confidential" },
     { icon: "📋", text: "Limited spots per quarter" },
   ],
+};
+
+/* ─── Services: Micro Quiz ─── */
+export const servicesMicroQuiz = {
+  headline: "Not Sure Which Plan Fits?",
+  subheadline: "Answer 2 quick questions to get a recommendation.",
+  questions: [
+    {
+      id: "website",
+      question: "Do you have a website that generates leads?",
+      options: [
+        { label: "No website / outdated", value: "none", points: { Foundation: 3, Growth: 0, Scale: 0 } },
+        { label: "Yes, but no lead flow", value: "exists-no-leads", points: { Foundation: 1, Growth: 3, Scale: 0 } },
+        { label: "Yes, and it converts", value: "converts", points: { Foundation: 0, Growth: 1, Scale: 3 } },
+      ],
+    },
+    {
+      id: "stage",
+      question: "What's your monthly revenue?",
+      options: [
+        { label: "Under $15K/mo", value: "under-15k", points: { Foundation: 3, Growth: 1, Scale: 0 } },
+        { label: "$15K–$50K/mo", value: "15k-50k", points: { Foundation: 0, Growth: 3, Scale: 1 } },
+        { label: "$50K+/mo or multi-location", value: "50k-plus", points: { Foundation: 0, Growth: 1, Scale: 3 } },
+      ],
+    },
+  ],
+  results: {
+    Foundation: {
+      title: "Foundation is your fit",
+      reason: "You need a professional, conversion-ready website before anything else.",
+      cta: "Start Foundation",
+    },
+    Growth: {
+      title: "Growth is your fit",
+      reason: "You're ready for ads, AI, and automated lead generation.",
+      cta: "Apply for Growth",
+    },
+    Scale: {
+      title: "Scale is your fit",
+      reason: "You need multi-channel dominance and advanced automation.",
+      cta: "Book Scale Call",
+    },
+  },
+};
+
+/* ─── Services: Sticky Mobile CTA ─── */
+export const stickyMobileCTA = {
+  label: "Ready to grow?",
+  cta: "Book Your Fit Call",
+  href: "/apply",
 };
 
 /* ─── Services: Fit Guidance ─── */

@@ -121,13 +121,15 @@ interface ServiceTier {
   icon: "foundation" | "growth" | "scale";
   tagline: string;
   bestFor: string;
+  revenueStage?: string;
   coreOutcome: string;
   deliverables: string[];
   extraDeliverables: string[];
   timeline: string;
   firstWin: string;
   impact: string;
-  cta: string;
+  notIdealIf?: string;
+  planCTA: string;
   featured?: boolean;
 }
 
@@ -275,7 +277,7 @@ export default function ServiceCard({ tier, index }: Props) {
           className="w-full text-center"
           eventName={eventName}
         >
-          {tier.cta}
+          {tier.planCTA}
         </CTAButton>
       </article>
     </AnimatedSection>

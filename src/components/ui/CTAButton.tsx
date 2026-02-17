@@ -10,7 +10,7 @@ interface Props {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
-  eventName?: "hero_cta_click" | "hero_primary_cta_click" | "hero_secondary_cta_click" | "section_cta_click" | "case_card_click" | "faq_cta_click" | "final_cta_primary_click" | "final_cta_secondary_click" | "services_hero_primary_cta_click" | "services_hero_secondary_cta_click" | "services_plan_cta_click_foundation" | "services_plan_cta_click_growth" | "services_plan_cta_click_scale" | "services_final_cta_click" | "services_compare_expand";
+  eventName?: "hero_cta_click" | "hero_primary_cta_click" | "hero_secondary_cta_click" | "section_cta_click" | "case_card_click" | "faq_cta_click" | "final_cta_primary_click" | "final_cta_secondary_click" | "services_hero_primary_cta_click" | "services_hero_secondary_cta_click" | "services_plan_cta_click_foundation" | "services_plan_cta_click_growth" | "services_plan_cta_click_scale" | "services_final_cta_click" | "services_compare_expand" | "services_quiz_cta_click_foundation" | "services_quiz_cta_click_growth" | "services_quiz_cta_click_scale" | "services_sticky_cta_click";
 }
 
 const base =

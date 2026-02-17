@@ -31,7 +31,13 @@ type EventName =
   | "services_compare_expand"
   | "services_final_cta_click"
   | "services_faq_toggle"
-  | "services_payment_methods_view";
+  | "services_payment_methods_view"
+  | "services_quiz_answer"
+  | "services_quiz_result"
+  | "services_quiz_cta_click_foundation"
+  | "services_quiz_cta_click_growth"
+  | "services_quiz_cta_click_scale"
+  | "services_sticky_cta_click";
 
 interface TrackOptions {
   /** Additional data payload */

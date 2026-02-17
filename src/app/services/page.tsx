@@ -5,10 +5,12 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import ServicesHero from "@/components/services/ServicesHero";
 import ProofStrip from "@/components/services/ProofStrip";
 import ServiceCard from "@/components/services/ServiceCard";
+import MicroQuiz from "@/components/services/MicroQuiz";
 import DecisionAssist from "@/components/services/DecisionAssist";
 import ComparisonTable from "@/components/services/ComparisonTable";
 import ServicesFAQ from "@/components/services/ServicesFAQ";
 import ServicesFinalCTA from "@/components/services/ServicesFinalCTA";
+import StickyMobileCTA from "@/components/services/StickyMobileCTA";
 import "@/styles/services.css";
 
 export const metadata: Metadata = buildMetadata({
@@ -43,20 +45,30 @@ export default function ServicesPage() {
         </div>
       </SectionWrapper>
 
+      {/* ═══ MICRO QUIZ ═══ */}
+      <SectionWrapper variant="surface" id="quiz">
+        <div className="max-w-2xl mx-auto">
+          <MicroQuiz />
+        </div>
+      </SectionWrapper>
+
       {/* ═══ COMPARISON TABLE ═══ */}
-      <SectionWrapper variant="surface">
+      <SectionWrapper>
         <div className="max-w-4xl mx-auto">
           <ComparisonTable />
         </div>
       </SectionWrapper>
 
       {/* ═══ FAQ ═══ */}
-      <SectionWrapper>
+      <SectionWrapper variant="surface">
         <ServicesFAQ />
       </SectionWrapper>
 
       {/* ═══ FINAL CTA + GUARANTEES + TRUST ═══ */}
       <ServicesFinalCTA />
+
+      {/* ═══ STICKY MOBILE CTA ═══ */}
+      <StickyMobileCTA />
     </>
   );
 }

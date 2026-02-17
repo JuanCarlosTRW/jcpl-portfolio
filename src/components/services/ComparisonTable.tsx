@@ -1,11 +1,25 @@
 "use client";
 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { servicesComparison } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { Info } from "lucide-react";
+import { Info, ChevronDown } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ComparisonTable() {
+  const [expandedRow, setExpandedRow] = useState<number | null>(null);
+
+  const toggleRow = (index: number) => {
+    setExpandedRow(expandedRow === index ? null : index);
+    if (expandedRow !== index) {
+      trackEvent("services_compare_expand");
+    }
+  };
+
+  const plans = servicesComparison.headers.slice(1); // ["Foundation", "Growth", "Scale"]
+
   return (
     <div>
       <Reveal>
@@ -15,9 +29,10 @@ export default function ComparisonTable() {
         </div>
       </Reveal>
 
+      {/* Desktop: Traditional table */}
       <Reveal delay={0.1}>
         <div
-          className="overflow-x-auto rounded-2xl border border-[var(--border-soft)]"
+          className="comparison-table-desktop overflow-x-auto rounded-2xl border border-[var(--border-soft)]"
           role="region"
           aria-label="Service tier comparison table"
           tabIndex={0}
@@ -29,7 +44,6 @@ export default function ComparisonTable() {
                   <th
                     key={i}
                     scope={i === 0 ? undefined : "col"}
-                    className={i === 0 ? "" : ""}
                   >
                     {h}
                   </th>
@@ -47,6 +61,49 @@ export default function ComparisonTable() {
               ))}
             </tbody>
           </table>
+        </div>
+      </Reveal>
+
+      {/* Mobile: Accordion */}
+      <Reveal delay={0.1}>
+        <div className="comparison-accordion">
+          {servicesComparison.rows.map((row, i) => (
+            <div key={i} className="comparison-accordion__item">
+              <button
+                onClick={() => toggleRow(i)}
+                className="comparison-accordion__trigger"
+                aria-expanded={expandedRow === i}
+              >
+                <span className="comparison-accordion__label">{row.label}</span>
+                <ChevronDown
+                  size={18}
+                  className={`comparison-accordion__icon ${
+                    expandedRow === i ? "comparison-accordion__icon--open" : ""
+                  }`}
+                />
+              </button>
+              <AnimatePresence>
+                {expandedRow === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="comparison-accordion__content"
+                  >
+                    <div className="comparison-accordion__grid">
+                      {plans.map((plan, j) => (
+                        <div key={j} className="comparison-accordion__cell">
+                          <span className="comparison-accordion__plan">{plan}</span>
+                          <span className="comparison-accordion__value">{row.values[j]}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
         </div>
       </Reveal>
 
