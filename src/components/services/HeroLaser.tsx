@@ -4,19 +4,14 @@ import { useEffect, useRef } from "react";
 const UNICORN_SCRIPT_SRC = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
 const PROJECT_ID = "TYGPIf4mmys0ZtEKycno";
 
-declare global {
-  interface Window {
-    UnicornStudio?: any;
-  }
-}
-
 export default function HeroLaser() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function tryInit() {
-      if (window.UnicornStudio && typeof window.UnicornStudio.init === "function") {
-        window.UnicornStudio.init();
+      const US = (window as any).UnicornStudio;
+      if (US && typeof US.init === "function") {
+        US.init();
         console.log("UnicornStudio.init() called");
       } else {
         console.warn("UnicornStudio not available yet");

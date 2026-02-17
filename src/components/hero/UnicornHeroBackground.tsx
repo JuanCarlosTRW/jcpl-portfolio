@@ -1,81 +1,64 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+
+import { useEffect, useRef, useState } from "react";
 
 const UNICORN_SCRIPT_SRC =
   "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
 
-// DO NOT MODIFY: Provided JSON config
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const unicornConfig = require("../../lib/unicornConfig");
-
+const PROJECT_ID = "fSdFsn2BDZ3UDERv6Wix";
 
 export default function UnicornHeroBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
+    /* Respect reduced-motion preference */
     if (
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      typeof window === "undefined" ||
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
     ) {
       setFailed(true);
       return;
     }
 
-    let unicornInstance: any = null;
-    let script: HTMLScriptElement | null = null;
     let destroyed = false;
 
-    const init = () => {
-      if (window.UnicornStudio && containerRef.current) {
+    function tryInit() {
+      const US = (window as any).UnicornStudio;
+      if (US && typeof US.init === "function") {
         try {
-          unicornInstance = window.UnicornStudio.init({
-            container: containerRef.current,
-            config: unicornConfig,
-            ...(window.innerWidth < 768 ? { dpi: 1 } : {})
-          });
-        } catch (e) {
+          US.init();
+        } catch {
           setFailed(true);
         }
       } else {
         setFailed(true);
       }
-    };
+    }
 
-    const loadScript = () => {
-      if (window.UnicornStudio) {
-        requestIdleCallback ? requestIdleCallback(init) : setTimeout(init, 100);
-        return;
-      }
-      script = document.createElement("script");
+    /* Prevent duplicate script loads */
+    if (!document.querySelector(`script[src="${UNICORN_SCRIPT_SRC}"]`)) {
+      const script = document.createElement("script");
       script.src = UNICORN_SCRIPT_SRC;
       script.async = true;
       script.onload = () => {
-        if (destroyed) return;
-        requestIdleCallback ? requestIdleCallback(init) : setTimeout(init, 100);
+        if (!destroyed) setTimeout(tryInit, 100);
       };
       script.onerror = () => setFailed(true);
       document.body.appendChild(script);
-    };
-
-    loadScript();
+    } else {
+      setTimeout(tryInit, 100);
+    }
 
     return () => {
       destroyed = true;
-      if (unicornInstance && typeof unicornInstance.destroy === "function") {
-        unicornInstance.destroy();
-      }
-      if (script && script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
     };
   }, []);
 
   if (failed) {
     return (
       <div
-        className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-black/80 via-black/60 to-black/90"
+        className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0a0a1a] via-[#0d0d2b] to-[#0a0a1a]"
         aria-hidden="true"
       />
     );
@@ -87,6 +70,7 @@ export default function UnicornHeroBackground() {
       className="absolute inset-0 z-0 pointer-events-none"
       aria-hidden="true"
       style={{ width: "100%", height: "100%" }}
+      data-us-project={PROJECT_ID}
     />
   );
 }
