@@ -147,60 +147,66 @@ export const whySection = {
 };
 
 /* ─── Services / Tiers ─── */
+export const servicesHero = {
+  label: "Services",
+  headline: "Stop Guessing. Start Growing.",
+  headlineAccent: "Start Growing.",
+  subheadline:
+    "Three proven systems built for service businesses at every stage — from getting online to dominating your local market. Pick the path that fits where you are today.",
+  trustLine: "Milestone-based delivery · Transparent scope · No long-term lock-in",
+};
+
 export const serviceTiers = [
   {
     name: "Foundation",
+    icon: "foundation" as const,
     tagline: "Get online. Get credible. Get found.",
-    bestFor:
-      "Service businesses that need a professional online presence and aren't currently generating leads online.",
+    coreOutcome: "A professional website that turns visitors into booked calls — live in 2–3 weeks.",
     deliverables: [
-      "Premium conversion-optimized website (up to 5 pages)",
+      "Conversion-optimized website (up to 5 pages)",
       "Mobile-first responsive design",
-      "Basic SEO setup (local keywords, Google Business optimization)",
+      "Local SEO + Google Business setup",
       "Contact form + booking integration",
       "Speed & performance optimization",
     ],
     timeline: "2–3 weeks",
-    impact:
-      "Stop losing clients to competitors who simply look more professional online. Your website becomes your hardest-working salesperson.",
+    impact: "Your website becomes your hardest-working salesperson.",
     cta: "Apply for Growth Partnership",
   },
   {
     name: "Growth",
+    icon: "growth" as const,
     tagline: "Fill your calendar with qualified leads.",
-    bestFor:
-      "Established businesses ready to actively generate leads through ads and search, not just wait for word of mouth.",
+    coreOutcome: "A complete lead generation engine — ads, AI, and automated booking — live in 3–4 weeks.",
     deliverables: [
       "Everything in Foundation",
-      "Google Ads funnel (campaign setup, landing pages, tracking)",
-      "Advanced SEO + GEO optimization (AI search visibility)",
-      "AI receptionist / chatbot for 24/7 lead capture",
-      "Qualification flow + automated booking system",
+      "Google Ads funnel (campaigns, landing pages, tracking)",
+      "Advanced SEO + GEO (AI search visibility)",
+      "AI receptionist for 24/7 lead capture",
+      "Automated qualification + booking system",
       "Monthly performance reporting",
     ],
-    timeline: "3–4 weeks setup + ongoing optimization",
-    impact:
-      "Predictable lead flow. Qualified prospects booking directly into your calendar. No more feast-or-famine months.",
+    timeline: "3–4 weeks + ongoing",
+    impact: "Predictable lead flow. No more feast-or-famine months.",
     cta: "Apply for Growth Partnership",
     featured: true,
   },
   {
     name: "Scale",
+    icon: "scale" as const,
     tagline: "Dominate your market. Systematize growth.",
-    bestFor:
-      "Multi-location or high-revenue businesses ready to scale aggressively and own their local market.",
+    coreOutcome: "Multi-channel market dominance with AI automation and strategic partnership.",
     deliverables: [
       "Everything in Growth",
       "Multi-location SEO/GEO strategy",
-      "Advanced conversion rate optimization (A/B testing, heatmaps)",
-      "Multi-channel ad management (Google + Meta)",
+      "Conversion rate optimization (A/B testing, heatmaps)",
+      "Multi-channel ads (Google + Meta)",
       "Custom AI automation workflows",
       "Priority support + strategy calls",
       "Quarterly growth roadmap",
     ],
-    timeline: "4–6 weeks setup + ongoing partnership",
-    impact:
-      "You become the obvious choice in your market. Leads come in systematically. You focus on running your business — I focus on filling it.",
+    timeline: "4–6 weeks + ongoing",
+    impact: "You become the obvious choice. Leads come in systematically.",
     cta: "Apply for Growth Partnership",
   },
 ];
@@ -491,9 +497,72 @@ export const servicesComparison = {
   headers: ["", "Foundation", "Growth", "Scale"],
   rows: [
     { label: "Setup Time", values: ["2–3 weeks", "3–4 weeks", "4–6 weeks"] },
-    { label: "Channels", values: ["Website + Local SEO", "Website + Ads + SEO + AI", "Multi-channel + AI workflows"] },
-    { label: "Reporting", values: ["Launch report", "Monthly", "Monthly + Quarterly roadmap"] },
+    { label: "Acquisition Channels", values: ["Website + Local SEO", "Website + Ads + SEO + AI", "Multi-channel + AI workflows"] },
+    { label: "AI Layer", values: ["—", "AI receptionist + chatbot", "Custom AI automation"] },
+    { label: "Booking Flow", values: ["Contact form", "Automated qualification + booking", "Advanced qualification + routing"] },
+    { label: "Reporting", values: ["Launch report", "Monthly performance", "Monthly + Quarterly roadmap"] },
+    { label: "Support Level", values: ["Email", "Email + monthly check-in", "Priority + strategy calls"] },
     { label: "First Milestone", values: ["Site live + indexed", "First qualified leads", "Market dominance plan"] },
+  ],
+  helperText: "Not sure which tier fits? Start with Foundation if you need a professional presence, Growth if you're ready to generate leads, or Scale if you want to own your market.",
+};
+
+/* ─── Services: Guarantees ─── */
+export const servicesGuarantees = [
+  {
+    icon: "clock",
+    title: "24h Response",
+    description: "Every inquiry answered within one business day.",
+  },
+  {
+    icon: "milestone",
+    title: "Milestone Delivery",
+    description: "Clear checkpoints so you always know where things stand.",
+  },
+  {
+    icon: "shield",
+    title: "No-Fit Transparency",
+    description: "If we're not the right partner, we'll tell you upfront.",
+  },
+  {
+    icon: "unlock",
+    title: "No Lock-In",
+    description: "You own everything we build. No hostage contracts.",
+  },
+];
+
+/* ─── Services: Risk Reversal ─── */
+export const servicesRiskReversal = {
+  headline: "Why This Feels Safe",
+  points: [
+    "Transparent scope — you know exactly what you're getting before we start",
+    "Clear milestones — visible progress at every phase",
+    "Measurable reporting — real numbers, not vanity metrics",
+    "No long-term lock-in — stay because it works, not because you're stuck",
+  ],
+};
+
+/* ─── Services: Payment Methods ─── */
+/* TODO: Confirm accepted payment methods with business owner */
+export const servicesPaymentMethods = [
+  { name: "Visa", confirmed: false },
+  { name: "Mastercard", confirmed: false },
+  { name: "Amex", confirmed: false },
+  { name: "Bank Transfer", confirmed: false },
+  { name: "Stripe", confirmed: false },
+];
+
+/* ─── Services: Final CTA ─── */
+export const servicesFinalCTA = {
+  headline: "Your Pipeline Won't Build Itself",
+  subheadline:
+    "Apply for a strategy call. We'll review your business, identify the highest-leverage growth opportunities, and determine if we're the right fit.",
+  primary: "Apply for Growth Partnership",
+  secondary: "See Case Studies",
+  trustBadges: [
+    { icon: "⚡", text: "Response within 24 hours" },
+    { icon: "🔒", text: "100% confidential" },
+    { icon: "📋", text: "Limited spots per quarter" },
   ],
 };
 

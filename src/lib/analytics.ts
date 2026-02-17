@@ -18,7 +18,11 @@ type EventName =
   | "form_submit"
   | "lead_qualified_true"
   | "lead_qualified_false"
-  | "calendly_view";
+  | "calendly_view"
+  | "services_hero_cta_click"
+  | "services_card_cta_click"
+  | "services_final_cta_click"
+  | "services_comparison_view";
 
 interface TrackOptions {
   /** Additional data payload */

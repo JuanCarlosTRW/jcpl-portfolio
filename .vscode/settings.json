@@ -1,0 +1,33 @@
+{
+  "editor.formatOnType": false,
+  "editor.minimap.enabled": false,
+  "editor.codeLens": false,
+  "typescript.suggest.enabled": false,
+  "editor.semanticHighlighting.enabled": false,
+  "files.autoSave": "off",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/.turbo/**": true,
+    "**/.cache/**": true,
+    "**/dist/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.turbo": true,
+    "**/.cache": true,
+    "**/dist": true
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.turbo": true,
+    "**/.cache": true,
+    "**/dist": true
+  },
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "workbench.editor.enablePreview": false
+}
