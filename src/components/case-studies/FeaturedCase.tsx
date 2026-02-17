@@ -2,7 +2,10 @@
 
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MetricPanel from "@/components/ui/MetricPanel";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface FeaturedCaseProps {
   client: string;

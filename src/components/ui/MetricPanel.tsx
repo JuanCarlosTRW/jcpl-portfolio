@@ -23,4 +23,6 @@ const MetricPanel = forwardRef<HTMLDivElement, MetricPanelProps>(
   )
 );
 
+MetricPanel.displayName = "MetricPanel";
+
 export default MetricPanel;
