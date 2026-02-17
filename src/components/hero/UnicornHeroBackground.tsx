@@ -5,7 +5,8 @@ const UNICORN_SCRIPT_SRC =
   "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
 
 // DO NOT MODIFY: Provided JSON config
-import unicornConfig from "../../lib/unicornConfig";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const unicornConfig = require("../../lib/unicornConfig");
 
 
 export default function UnicornHeroBackground() {
