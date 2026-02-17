@@ -149,11 +149,27 @@ export const whySection = {
 /* ─── Services / Tiers ─── */
 export const servicesHero = {
   label: "Services",
-  headline: "Stop Guessing. Start Growing.",
-  headlineAccent: "Start Growing.",
+  headline: "Turn Unpredictable Leads Into Predictable Growth",
+  headlineAccent: "Predictable Growth",
   subheadline:
-    "Three proven systems built for service businesses at every stage — from getting online to dominating your local market. Pick the path that fits where you are today.",
-  trustLine: "Milestone-based delivery · Transparent scope · No long-term lock-in",
+    "For service businesses ready to get found, fill their calendar, or dominate their market — in as little as 2 weeks.",
+  primaryCTA: "Book a 15-min Fit Call",
+  secondaryCTA: "See the 3-Step Growth Plan",
+  trustItems: [
+    "Response within 24h",
+    "No long-term lock-in",
+    "Transparent milestone delivery",
+  ],
+};
+
+export const servicesProofBar = {
+  stats: [
+    { value: "$20K+", label: "Revenue generated for clients" },
+    { value: "<24h", label: "Avg. response time" },
+    { value: "<30 days", label: "To first qualified leads" },
+    { value: "100%", label: "Client retention rate" },
+  ],
+  logoRowLabel: "Trusted by service businesses across North America",
 };
 
 export const serviceTiers = [
@@ -161,6 +177,7 @@ export const serviceTiers = [
     name: "Foundation",
     icon: "foundation" as const,
     tagline: "Get online. Get credible. Get found.",
+    bestFor: "Businesses with no website or an outdated one",
     coreOutcome: "A professional website that turns visitors into booked calls — live in 2–3 weeks.",
     deliverables: [
       "Conversion-optimized website (up to 5 pages)",
@@ -169,45 +186,98 @@ export const serviceTiers = [
       "Contact form + booking integration",
       "Speed & performance optimization",
     ],
+    extraDeliverables: [
+      "Brand-aligned visual design",
+      "On-page copywriting guidance",
+      "Launch report + next-steps roadmap",
+    ],
     timeline: "2–3 weeks",
+    firstWin: "Website live + indexed on Google",
     impact: "Your website becomes your hardest-working salesperson.",
-    cta: "Apply for Growth Partnership",
+    cta: "Start Foundation",
   },
   {
     name: "Growth",
     icon: "growth" as const,
     tagline: "Fill your calendar with qualified leads.",
+    bestFor: "Businesses ready to invest in ads and automation",
     coreOutcome: "A complete lead generation engine — ads, AI, and automated booking — live in 3–4 weeks.",
     deliverables: [
       "Everything in Foundation",
-      "Google Ads funnel (campaigns, landing pages, tracking)",
+      "Google Ads funnel (campaigns + landing pages)",
       "Advanced SEO + GEO (AI search visibility)",
       "AI receptionist for 24/7 lead capture",
       "Automated qualification + booking system",
+    ],
+    extraDeliverables: [
       "Monthly performance reporting",
+      "Conversion tracking setup",
+      "Ad creative direction",
     ],
     timeline: "3–4 weeks + ongoing",
+    firstWin: "First qualified leads within 30 days",
     impact: "Predictable lead flow. No more feast-or-famine months.",
-    cta: "Apply for Growth Partnership",
+    cta: "Apply for Growth",
     featured: true,
   },
   {
     name: "Scale",
     icon: "scale" as const,
     tagline: "Dominate your market. Systematize growth.",
+    bestFor: "Multi-location or high-revenue businesses",
     coreOutcome: "Multi-channel market dominance with AI automation and strategic partnership.",
     deliverables: [
       "Everything in Growth",
       "Multi-location SEO/GEO strategy",
-      "Conversion rate optimization (A/B testing, heatmaps)",
+      "Conversion rate optimization (A/B testing)",
       "Multi-channel ads (Google + Meta)",
       "Custom AI automation workflows",
+    ],
+    extraDeliverables: [
       "Priority support + strategy calls",
       "Quarterly growth roadmap",
+      "Heatmap analysis + UX recommendations",
     ],
     timeline: "4–6 weeks + ongoing",
+    firstWin: "Market dominance plan + first multi-channel results",
     impact: "You become the obvious choice. Leads come in systematically.",
-    cta: "Apply for Growth Partnership",
+    cta: "Book Scale Call",
+  },
+];
+
+export const servicesDecisionAssist = {
+  headline: "How to Choose Your Plan",
+  options: [
+    { stage: "Just getting started online?", plan: "Foundation", description: "Get a professional, conversion-ready website fast." },
+    { stage: "Ready to generate leads consistently?", plan: "Growth", description: "Add ads, AI, and automated booking to your site." },
+    { stage: "Multi-location or scaling aggressively?", plan: "Scale", description: "Dominate your market with full-stack growth." },
+  ],
+};
+
+export const servicesFAQ = [
+  {
+    question: "What does this cost?",
+    answer: "Engagements start at $5,000/month for the complete system — setup, management, and optimization included. Most clients see ROI within the first month. Specifics are discussed on the fit call.",
+  },
+  {
+    question: "How fast will I see results?",
+    answer: "Foundation clients go live in 2–3 weeks. Growth clients typically see first qualified leads within 30 days. One client generated $20,000 in confirmed bookings in month one.",
+  },
+  {
+    question: "Is there a long-term contract?",
+    answer: "No. All engagements are month-to-month after the initial build phase. You stay because it works, not because you're locked in.",
+  },
+  {
+    question: "Who is this NOT for?",
+    answer: "Businesses under $5,000/month in revenue, companies looking for a quick logo or one-off landing page, or anyone not ready to commit to a growth system. This is a partnership, not a transaction.",
+  },
+  {
+    question: "How do you communicate and report?",
+    answer: "You get a dedicated Slack channel (or email if preferred), milestone updates at every phase, and monthly performance reports with Growth and Scale plans. No black boxes.",
+  },
+  {
+    question: "Is payment secure?",
+    answer: "All payments are processed through Stripe with bank-level encryption. We accept Visa, Mastercard, Amex, and bank transfer. CAD and USD accepted.",
   },
 ];
 
@@ -496,68 +566,57 @@ export const caseStudyMeta: Record<string, { industry: string; duration: string;
 export const servicesComparison = {
   headers: ["", "Foundation", "Growth", "Scale"],
   rows: [
+    { label: "Best For", values: ["No website or outdated one", "Ready for ads + automation", "Multi-location / high-revenue"] },
     { label: "Setup Time", values: ["2–3 weeks", "3–4 weeks", "4–6 weeks"] },
+    { label: "Typical First Win", values: ["Site live + indexed", "First qualified leads <30 days", "Multi-channel dominance plan"] },
     { label: "Acquisition Channels", values: ["Website + Local SEO", "Website + Ads + SEO + AI", "Multi-channel + AI workflows"] },
     { label: "AI Layer", values: ["—", "AI receptionist + chatbot", "Custom AI automation"] },
     { label: "Booking Flow", values: ["Contact form", "Automated qualification + booking", "Advanced qualification + routing"] },
     { label: "Reporting", values: ["Launch report", "Monthly performance", "Monthly + Quarterly roadmap"] },
     { label: "Support Level", values: ["Email", "Email + monthly check-in", "Priority + strategy calls"] },
-    { label: "First Milestone", values: ["Site live + indexed", "First qualified leads", "Market dominance plan"] },
   ],
   helperText: "Not sure which tier fits? Start with Foundation if you need a professional presence, Growth if you're ready to generate leads, or Scale if you want to own your market.",
 };
 
-/* ─── Services: Guarantees ─── */
+/* ─── Services: Guarantees (unified risk reversal) ─── */
 export const servicesGuarantees = [
   {
     icon: "clock",
-    title: "24h Response",
-    description: "Every inquiry answered within one business day.",
+    title: "24h Response Guarantee",
+    description: "Every inquiry answered within one business day. No ghosting.",
   },
   {
     icon: "milestone",
     title: "Milestone Delivery",
-    description: "Clear checkpoints so you always know where things stand.",
+    description: "Clear checkpoints at every phase. You always know where things stand.",
   },
   {
     icon: "shield",
-    title: "No-Fit Transparency",
-    description: "If we're not the right partner, we'll tell you upfront.",
+    title: "No-Fit Honesty",
+    description: "If we're not the right partner, we'll tell you upfront — not after you've paid.",
   },
   {
     icon: "unlock",
     title: "No Lock-In",
-    description: "You own everything we build. No hostage contracts.",
+    description: "You own everything we build. Month-to-month after the initial build.",
   },
 ];
 
-/* ─── Services: Risk Reversal ─── */
-export const servicesRiskReversal = {
-  headline: "Why This Feels Safe",
-  points: [
-    "Transparent scope — you know exactly what you're getting before we start",
-    "Clear milestones — visible progress at every phase",
-    "Measurable reporting — real numbers, not vanity metrics",
-    "No long-term lock-in — stay because it works, not because you're stuck",
-  ],
-};
-
 /* ─── Services: Payment Methods ─── */
-/* TODO: Confirm accepted payment methods with business owner */
 export const servicesPaymentMethods = [
-  { name: "Visa", confirmed: false },
-  { name: "Mastercard", confirmed: false },
-  { name: "Amex", confirmed: false },
-  { name: "Bank Transfer", confirmed: false },
-  { name: "Stripe", confirmed: false },
+  { name: "Visa", icon: "visa" },
+  { name: "Mastercard", icon: "mastercard" },
+  { name: "Amex", icon: "amex" },
+  { name: "Bank Transfer", icon: "bank" },
 ];
+export const servicesPaymentLine = "Secure payment processing by Stripe · CAD/USD accepted";
 
 /* ─── Services: Final CTA ─── */
 export const servicesFinalCTA = {
   headline: "Your Pipeline Won't Build Itself",
   subheadline:
-    "Apply for a strategy call. We'll review your business, identify the highest-leverage growth opportunities, and determine if we're the right fit.",
-  primary: "Apply for Growth Partnership",
+    "Book a 15-minute fit call. We'll review your business, identify the highest-leverage growth move, and determine if we're the right partner.",
+  primary: "Book Your Fit Call",
   secondary: "See Case Studies",
   trustBadges: [
     { icon: "⚡", text: "Response within 24 hours" },

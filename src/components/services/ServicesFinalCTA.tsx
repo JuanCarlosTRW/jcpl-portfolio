@@ -2,11 +2,10 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CTAButton from "@/components/ui/CTAButton";
-import { servicesFinalCTA, ctaCopy } from "@/lib/content";
+import { servicesFinalCTA } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 import GuaranteesStrip from "./GuaranteesStrip";
 import PaymentTrustRow from "./PaymentTrustRow";
-import RiskReversal from "./RiskReversal";
 
 export default function ServicesFinalCTA() {
   return (
@@ -19,22 +18,17 @@ export default function ServicesFinalCTA() {
       <div className="services-cta-bg" aria-hidden="true" />
 
       <SectionWrapper className="relative z-10">
-        {/* Guarantees strip */}
+        {/* Unified Risk Reversal — Guarantees */}
         <div className="mb-16">
           <Reveal>
             <div className="text-center mb-8">
               <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] font-medium mb-3">
-                Our Commitments
+                Zero Risk
               </p>
-              <h2 className="heading-3">Built on Transparency</h2>
+              <h2 className="heading-3">Built to Earn Your Trust</h2>
             </div>
           </Reveal>
           <GuaranteesStrip />
-        </div>
-
-        {/* Risk Reversal */}
-        <div className="max-w-3xl mx-auto mb-16">
-          <RiskReversal />
         </div>
 
         {/* Divider */}
@@ -42,7 +36,7 @@ export default function ServicesFinalCTA() {
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-[var(--brand-accent)]/30 to-transparent" />
         </div>
 
-        {/* Main CTA */}
+        {/* Main CTA Endcap */}
         <div className="max-w-2xl mx-auto text-center">
           <Reveal>
             <h2
@@ -63,7 +57,7 @@ export default function ServicesFinalCTA() {
           <Reveal delay={0.1}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <CTAButton
-                href={ctaCopy.href}
+                href="/apply"
                 size="lg"
                 eventName="services_final_cta_click"
               >
@@ -103,7 +97,6 @@ export default function ServicesFinalCTA() {
           </div>
         </div>
 
-        {/* Spacer before footer */}
         <div className="h-10 md:h-16" aria-hidden="true" />
       </SectionWrapper>
     </section>

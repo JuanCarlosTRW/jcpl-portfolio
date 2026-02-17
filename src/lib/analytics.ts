@@ -19,10 +19,19 @@ type EventName =
   | "lead_qualified_true"
   | "lead_qualified_false"
   | "calendly_view"
-  | "services_hero_cta_click"
-  | "services_card_cta_click"
+  | "services_hero_primary_cta_click"
+  | "services_hero_secondary_cta_click"
+  | "services_plan_select_foundation"
+  | "services_plan_select_growth"
+  | "services_plan_select_scale"
+  | "services_plan_cta_click_foundation"
+  | "services_plan_cta_click_growth"
+  | "services_plan_cta_click_scale"
+  | "services_plan_expand_scope"
+  | "services_compare_expand"
   | "services_final_cta_click"
-  | "services_comparison_view";
+  | "services_faq_toggle"
+  | "services_payment_methods_view";
 
 interface TrackOptions {
   /** Additional data payload */

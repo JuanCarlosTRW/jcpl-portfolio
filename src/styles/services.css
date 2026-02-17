@@ -2,6 +2,51 @@
    SERVICES FUNNEL — Premium Design Tokens & Styles
    ═══════════════════════════════════════════════════ */
 
+/* ─── PROOF STRIP ─── */
+.proof-strip-wrapper {
+  text-align: center;
+  padding-top: var(--space-6);
+}
+
+.proof-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-4);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+}
+
+.proof-strip__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.proof-strip__value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-alt);
+  letter-spacing: -0.02em;
+}
+
+.proof-strip__label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.proof-strip__logos {
+  margin-top: var(--space-5);
+  text-align: center;
+}
+
 /* ─── SERVICE CARD ─── */
 .service-card {
   position: relative;
@@ -152,27 +197,25 @@
   flex-shrink: 0;
 }
 
-/* ─── FIT GUIDANCE ─── */
-.service-fit {
-  margin-bottom: var(--space-4);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* ─── DECISION ASSIST ─── */
+.decision-assist {
+  background: rgba(127, 95, 255, 0.03);
+  border: 1px solid rgba(127, 95, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
 }
 
-.service-fit__block {
+.decision-assist__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.decision-assist__item {
+  padding: var(--space-3);
   border-radius: var(--radius-sm);
-  padding: 10px var(--space-3);
-}
-
-.service-fit__block--best {
-  background: rgba(52, 211, 153, 0.04);
-  border: 1px solid rgba(52, 211, 153, 0.08);
-}
-
-.service-fit__block--not {
-  background: rgba(248, 113, 113, 0.04);
-  border: 1px solid rgba(248, 113, 113, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-soft);
 }
 
 /* ─── COMPARISON TABLE ─── */
@@ -326,28 +369,6 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* ─── RISK REVERSAL ─── */
-.risk-reversal {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 24px;
-}
-
-.risk-reversal__item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.risk-reversal__check {
-  color: var(--brand-alt);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
 /* ─── SERVICES FINAL CTA ─── */
 .services-cta-section {
   position: relative;
@@ -397,10 +418,27 @@
   .guarantees-strip {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .decision-assist__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── RESPONSIVE: MOBILE ─── */
 @media (max-width: 768px) {
+  .proof-strip {
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .proof-strip__item {
+    min-width: 100px;
+  }
+
+  .proof-strip__value {
+    font-size: 1.25rem;
+  }
+
   .service-card {
     padding: var(--space-4);
   }
@@ -429,10 +467,6 @@
   }
 
   .guarantees-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .risk-reversal {
     grid-template-columns: 1fr;
   }
 }

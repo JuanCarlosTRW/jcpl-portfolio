@@ -1,17 +1,16 @@
 "use client";
 
-import { servicesFitGuidance } from "@/lib/content";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import CTAButton from "@/components/ui/CTAButton";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import { trackEvent } from "@/lib/analytics";
 
 /* ═══════════════════════════════════════════════════════════
    DREAM-OUTCOME SVG ILLUSTRATIONS
    Minimal, abstract, premium — inspired by Linear/Stripe.
-   Each conveys the emotional outcome, not literal features.
    ═══════════════════════════════════════════════════════════ */
 
-/** Foundation — A launchpad: shield + rising signal.
- *  Dream: "You finally exist online — credible, fast, findable." */
 function FoundationSVG() {
   return (
     <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="service-card__svg">
@@ -30,41 +29,17 @@ function FoundationSVG() {
           <stop offset="100%" stopColor="#7f5fff" stopOpacity="0" />
         </radialGradient>
       </defs>
-
-      {/* Ambient glow */}
       <circle cx="100" cy="68" r="52" fill="url(#fGlow)" />
-
-      {/* Shield body */}
-      <path
-        d="M100 22 L140 38 L140 68 Q140 96 100 108 Q60 96 60 68 L60 38 Z"
-        fill="url(#fGrad)"
-        stroke="#7f5fff"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-
-      {/* Inner check — "You're live" */}
-      <path
-        d="M86 64 L96 74 L116 54"
-        stroke="#33ccff"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Signal waves — "You're found" */}
+      <path d="M100 22 L140 38 L140 68 Q140 96 100 108 Q60 96 60 68 L60 38 Z" fill="url(#fGrad)" stroke="#7f5fff" strokeWidth="1.2" strokeLinejoin="round" />
+      <path d="M86 64 L96 74 L116 54" stroke="#33ccff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M148 52 Q156 46 148 40" stroke="#7f5fff" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
       <path d="M154 56 Q166 46 154 36" stroke="#7f5fff" strokeWidth="1.2" strokeLinecap="round" opacity="0.3" />
       <path d="M160 60 Q176 46 160 32" stroke="#7f5fff" strokeWidth="1" strokeLinecap="round" opacity="0.18" />
-
-      {/* Rising beam accent */}
       <rect x="98" y="4" width="4" height="14" rx="2" fill="url(#fBeam)" />
     </svg>
   );
 }
 
-/** Growth — A rising chart with pipeline flow.
- *  Dream: "Your calendar fills itself — predictable, automated growth." */
 function GrowthSVG() {
   return (
     <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="service-card__svg">
@@ -83,35 +58,14 @@ function GrowthSVG() {
           <stop offset="100%" stopColor="#7f5fff" stopOpacity="0" />
         </radialGradient>
       </defs>
-
-      {/* Ambient glow */}
       <ellipse cx="130" cy="55" rx="60" ry="45" fill="url(#gGlow)" />
-
-      {/* Area fill under curve */}
-      <path
-        d="M24 95 Q52 88 74 72 Q96 56 120 42 Q144 28 168 18 L168 100 L24 100 Z"
-        fill="url(#gArea)"
-      />
-
-      {/* Growth curve */}
-      <path
-        d="M24 95 Q52 88 74 72 Q96 56 120 42 Q144 28 168 18"
-        stroke="url(#gLine)"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-
-      {/* Milestone dots */}
+      <path d="M24 95 Q52 88 74 72 Q96 56 120 42 Q144 28 168 18 L168 100 L24 100 Z" fill="url(#gArea)" />
+      <path d="M24 95 Q52 88 74 72 Q96 56 120 42 Q144 28 168 18" stroke="url(#gLine)" strokeWidth="2.5" strokeLinecap="round" fill="none" />
       <circle cx="74" cy="72" r="4" fill="#0e1530" stroke="#7f5fff" strokeWidth="1.5" />
       <circle cx="120" cy="42" r="4" fill="#0e1530" stroke="#7f5fff" strokeWidth="1.5" />
       <circle cx="168" cy="18" r="5" fill="#7f5fff" stroke="#33ccff" strokeWidth="1.5" />
-
-      {/* Arrow head at peak */}
       <path d="M168 18 L174 14" stroke="#33ccff" strokeWidth="2" strokeLinecap="round" />
       <path d="M168 18 L174 22" stroke="#33ccff" strokeWidth="2" strokeLinecap="round" />
-
-      {/* Pipeline drops — "leads flowing in" */}
       <rect x="56" y="96" width="3" height="8" rx="1.5" fill="#7f5fff" opacity="0.35" />
       <rect x="90" y="96" width="3" height="12" rx="1.5" fill="#7f5fff" opacity="0.5" />
       <rect x="124" y="96" width="3" height="16" rx="1.5" fill="#7f5fff" opacity="0.65" />
@@ -120,8 +74,6 @@ function GrowthSVG() {
   );
 }
 
-/** Scale — Crown + orbital system.
- *  Dream: "You dominate your market — the obvious, undeniable choice." */
 function ScaleSVG() {
   return (
     <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="service-card__svg">
@@ -140,34 +92,17 @@ function ScaleSVG() {
           <stop offset="100%" stopColor="#7f5fff" stopOpacity="0" />
         </linearGradient>
       </defs>
-
-      {/* Ambient glow */}
       <circle cx="100" cy="62" r="50" fill="url(#sGlow)" />
-
-      {/* Orbital rings — "multi-channel dominance" */}
       <ellipse cx="100" cy="66" rx="68" ry="22" stroke="url(#sOrbit)" strokeWidth="1" fill="none" />
       <ellipse cx="100" cy="66" rx="52" ry="16" stroke="#7f5fff" strokeWidth="0.6" opacity="0.15" fill="none" />
       <ellipse cx="100" cy="66" rx="84" ry="28" stroke="#7f5fff" strokeWidth="0.5" opacity="0.08" fill="none" />
-
-      {/* Crown — "you're the king of this market" */}
-      <path
-        d="M72 56 L80 34 L92 48 L100 26 L108 48 L120 34 L128 56 Z"
-        fill="url(#sCrown)"
-        stroke="#33ccff"
-        strokeWidth="1"
-        strokeLinejoin="round"
-      />
-      {/* Crown base */}
+      <path d="M72 56 L80 34 L92 48 L100 26 L108 48 L120 34 L128 56 Z" fill="url(#sCrown)" stroke="#33ccff" strokeWidth="1" strokeLinejoin="round" />
       <rect x="72" y="56" width="56" height="6" rx="2" fill="#7f5fff" opacity="0.45" />
-
-      {/* Orbiting nodes — "channels" */}
       <circle cx="32" cy="66" r="5" fill="#0e1530" stroke="#33ccff" strokeWidth="1.2" />
       <circle cx="168" cy="66" r="5" fill="#0e1530" stroke="#33ccff" strokeWidth="1.2" />
       <circle cx="100" cy="94" r="4" fill="#0e1530" stroke="#7f5fff" strokeWidth="1.2" />
       <circle cx="54" cy="46" r="3.5" fill="#0e1530" stroke="#7f5fff" strokeWidth="1" opacity="0.6" />
       <circle cx="146" cy="46" r="3.5" fill="#0e1530" stroke="#7f5fff" strokeWidth="1" opacity="0.6" />
-
-      {/* Center diamond — "you" */}
       <rect x="95" y="61" width="10" height="10" rx="2" transform="rotate(45 100 66)" fill="#7f5fff" opacity="0.6" />
     </svg>
   );
@@ -185,9 +120,12 @@ interface ServiceTier {
   name: string;
   icon: "foundation" | "growth" | "scale";
   tagline: string;
+  bestFor: string;
   coreOutcome: string;
   deliverables: string[];
+  extraDeliverables: string[];
   timeline: string;
+  firstWin: string;
   impact: string;
   cta: string;
   featured?: boolean;
@@ -198,11 +136,19 @@ interface Props {
   index: number;
 }
 
+/* ─── Plan-specific CTA event map ─── */
+const ctaEventMap = {
+  Foundation: "services_plan_cta_click_foundation",
+  Growth: "services_plan_cta_click_growth",
+  Scale: "services_plan_cta_click_scale",
+} as const;
+
 /* ─── Component ─── */
 
 export default function ServiceCard({ tier, index }: Props) {
-  const fitData = servicesFitGuidance[tier.name];
+  const [expanded, setExpanded] = useState(false);
   const Illustration = svgMap[tier.icon];
+  const eventName = ctaEventMap[tier.name as keyof typeof ctaEventMap] ?? "services_plan_cta_click_foundation";
 
   return (
     <AnimatedSection delay={0.08 * index}>
@@ -235,12 +181,18 @@ export default function ServiceCard({ tier, index }: Props) {
           </p>
         </div>
 
-        {/* Core outcome — the single most important line */}
-        <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-5">
+        {/* Best for line */}
+        <p className="text-xs text-[var(--text-muted)] mb-3 flex items-center gap-1.5">
+          <span className="text-[var(--brand-accent)]">●</span>
+          Best for: {tier.bestFor}
+        </p>
+
+        {/* Core outcome */}
+        <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
           {tier.coreOutcome}
         </p>
 
-        {/* Deliverables */}
+        {/* Deliverables — max 5 visible */}
         <div className="service-card__deliverables">
           <ul className="space-y-1.5" role="list" aria-label={`${tier.name} deliverables`}>
             {tier.deliverables.map((d, j) => (
@@ -253,9 +205,54 @@ export default function ServiceCard({ tier, index }: Props) {
               </li>
             ))}
           </ul>
+
+          {/* "See full scope" expandable */}
+          <AnimatePresence initial={false}>
+            {expanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                className="overflow-hidden"
+              >
+                <ul className="space-y-1.5 mt-2 pt-2 border-t border-[var(--border-soft)]" role="list">
+                  {tier.extraDeliverables.map((d, j) => (
+                    <li key={j} className="service-card__deliverable">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="service-card__check" aria-hidden="true">
+                        <circle cx="7" cy="7" r="6.5" stroke="rgba(127,95,255,0.2)" strokeWidth="0.8" />
+                        <path d="M4.5 7 L6.2 8.7 L9.5 5.3" stroke="var(--brand-accent)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                      </svg>
+                      <span className="text-sm text-[var(--text-muted)]">{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <button
+            type="button"
+            onClick={() => {
+              setExpanded(!expanded);
+              if (!expanded) {
+                trackEvent("services_plan_expand_scope", { data: { plan: tier.name } });
+              }
+            }}
+            className="mt-2 text-xs text-[var(--brand-alt)] hover:text-[var(--brand-accent)] transition-colors cursor-pointer flex items-center gap-1"
+            aria-expanded={expanded}
+          >
+            {expanded ? "Hide details" : "See full scope"}
+            <svg
+              width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"
+              className={`transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+            >
+              <path d="M3 5 L6 8 L9 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
         </div>
 
-        {/* Timeline + Impact — compact row */}
+        {/* Timeline + First Win — compact row */}
         <div className="service-card__meta">
           <div className="service-card__meta-item">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -265,42 +262,18 @@ export default function ServiceCard({ tier, index }: Props) {
             <span className="text-xs text-[var(--text-muted)]">{tier.timeline}</span>
           </div>
           <div className="service-card__meta-divider" aria-hidden="true" />
-          <p className="text-xs text-[var(--text-muted)] italic flex-1">{tier.impact}</p>
+          <p className="text-xs text-[var(--text-muted)] italic flex-1">
+            First win: {tier.firstWin}
+          </p>
         </div>
 
-        {/* Fit guidance — condensed */}
-        {fitData && (
-          <div className="service-fit">
-            <div className="service-fit__block service-fit__block--best">
-              <p className="text-[0.65rem] font-semibold text-green-400 uppercase tracking-wider mb-1">
-                ✓ Best Fit
-              </p>
-              <ul className="space-y-0.5" role="list">
-                {fitData.bestFit.map((item, j) => (
-                  <li key={j} className="text-xs text-[var(--text-secondary)]">• {item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="service-fit__block service-fit__block--not">
-              <p className="text-[0.65rem] font-semibold text-red-400 uppercase tracking-wider mb-1">
-                ✗ Not Ideal If
-              </p>
-              <ul className="space-y-0.5" role="list">
-                {fitData.notFit.map((item, j) => (
-                  <li key={j} className="text-xs text-[var(--text-secondary)]">• {item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-
-        {/* CTA */}
+        {/* CTA — plan-specific */}
         <CTAButton
           href={`/apply?tier=${encodeURIComponent(tier.name)}`}
           variant={tier.featured ? "primary" : "secondary"}
           size="lg"
           className="w-full text-center"
-          eventName="services_card_cta_click"
+          eventName={eventName}
         >
           {tier.cta}
         </CTAButton>
