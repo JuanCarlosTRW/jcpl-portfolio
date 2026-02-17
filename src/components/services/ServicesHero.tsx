@@ -5,7 +5,6 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import CTAButton from "@/components/ui/CTAButton";
-import HeroLaser from "@/components/services/HeroLaser";
 
 export default function ServicesHero() {
   const h = servicesHero;
@@ -19,7 +18,6 @@ export default function ServicesHero() {
         background: "transparent",
       }}
     >
-      <HeroLaser />
       <SectionWrapper className="pt-32 md:pt-40 pb-0 relative z-[1]">
         <AnimatedSection className="text-center max-w-3xl mx-auto">
           <SectionLabel label={h.label} className="mb-6" />

@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 const UNICORN_SCRIPT_SRC =
   "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
 
+const PROJECT_ID = "TYGPIf4mmys0ZtEKycno";
+
 export default function UnicornHeroBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
@@ -19,68 +21,39 @@ export default function UnicornHeroBackground() {
       return;
     }
 
-    let unicornInstance: any = null;
     let destroyed = false;
 
-    async function boot() {
-      try {
-        /* 1. Fetch config JSON from public/ (static asset) */
-        const res = await fetch("/unicorn-config.json");
-        if (!res.ok) throw new Error("Config fetch failed");
-        const config = await res.json();
-
-        /* 2. Load SDK script if not already present */
-        await loadScript();
-
-        /* 3. Init Unicorn Studio with config */
-        if (destroyed || !containerRef.current) return;
-        const US = (window as any).UnicornStudio;
-        if (!US || typeof US.init !== "function") {
-          setFailed(true);
-          return;
+    function tryInit() {
+      const US = (window as any).UnicornStudio;
+      if (US && typeof US.init === "function") {
+        try {
+          US.init();
+        } catch {
+          if (!destroyed) setFailed(true);
         }
-
-        unicornInstance = US.init({
-          container: containerRef.current,
-          config,
-          ...(window.innerWidth < 768 ? { dpi: 1 } : {}),
-        });
-      } catch {
-        if (!destroyed) setFailed(true);
+      } else if (!destroyed) {
+        setFailed(true);
       }
     }
 
-    function loadScript(): Promise<void> {
-      return new Promise((resolve, reject) => {
-        if ((window as any).UnicornStudio) {
-          resolve();
-          return;
-        }
-        const existing = document.querySelector(
-          `script[src="${UNICORN_SCRIPT_SRC}"]`
-        );
-        if (existing) {
-          existing.addEventListener("load", () => resolve());
-          /* If script is already loaded (cached), resolve immediately */
-          if ((window as any).UnicornStudio) resolve();
-          return;
-        }
-        const script = document.createElement("script");
-        script.src = UNICORN_SCRIPT_SRC;
-        script.async = true;
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error("Script load failed"));
-        document.body.appendChild(script);
-      });
+    /* Load SDK script, then call init() which scans for data-us-project divs */
+    if (!document.querySelector(`script[src="${UNICORN_SCRIPT_SRC}"]`)) {
+      const script = document.createElement("script");
+      script.src = UNICORN_SCRIPT_SRC;
+      script.async = true;
+      script.onload = () => {
+        if (!destroyed) setTimeout(tryInit, 200);
+      };
+      script.onerror = () => {
+        if (!destroyed) setFailed(true);
+      };
+      document.body.appendChild(script);
+    } else {
+      setTimeout(tryInit, 200);
     }
-
-    boot();
 
     return () => {
       destroyed = true;
-      if (unicornInstance && typeof unicornInstance.destroy === "function") {
-        unicornInstance.destroy();
-      }
     };
   }, []);
 
@@ -96,6 +69,7 @@ export default function UnicornHeroBackground() {
   return (
     <div
       ref={containerRef}
+      data-us-project={PROJECT_ID}
       className="absolute inset-0 z-0 pointer-events-none"
       aria-hidden="true"
       style={{ width: "100%", height: "100%" }}
