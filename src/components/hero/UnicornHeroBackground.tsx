@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { unicornHeroConfig } from "@/lib/unicornHeroConfig";
 
 const UNICORN_SCRIPT_SRC =
   "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
-
-const PROJECT_ID = "fSdFsn2BDZ3UDERv6Wix";
 
 export default function UnicornHeroBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,13 +20,18 @@ export default function UnicornHeroBackground() {
       return;
     }
 
+    let unicornInstance: any = null;
     let destroyed = false;
 
-    function tryInit() {
+    function init() {
       const US = (window as any).UnicornStudio;
-      if (US && typeof US.init === "function") {
+      if (US && typeof US.init === "function" && containerRef.current) {
         try {
-          US.init();
+          unicornInstance = US.init({
+            container: containerRef.current,
+            config: unicornHeroConfig,
+            ...(window.innerWidth < 768 ? { dpi: 1 } : {}),
+          });
         } catch {
           setFailed(true);
         }
@@ -42,16 +46,19 @@ export default function UnicornHeroBackground() {
       script.src = UNICORN_SCRIPT_SRC;
       script.async = true;
       script.onload = () => {
-        if (!destroyed) setTimeout(tryInit, 100);
+        if (!destroyed) setTimeout(init, 100);
       };
       script.onerror = () => setFailed(true);
       document.body.appendChild(script);
     } else {
-      setTimeout(tryInit, 100);
+      setTimeout(init, 100);
     }
 
     return () => {
       destroyed = true;
+      if (unicornInstance && typeof unicornInstance.destroy === "function") {
+        unicornInstance.destroy();
+      }
     };
   }, []);
 
@@ -70,7 +77,6 @@ export default function UnicornHeroBackground() {
       className="absolute inset-0 z-0 pointer-events-none"
       aria-hidden="true"
       style={{ width: "100%", height: "100%" }}
-      data-us-project={PROJECT_ID}
     />
   );
 }
