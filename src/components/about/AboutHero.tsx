@@ -4,8 +4,7 @@ import { aboutContent, ctaCopy } from "@/lib/content";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import CTAButton from "@/components/ui/CTAButton";
-import FounderCard from "@/components/ui/FounderCard";
-import ElectricBorderFrame from "@/components/ui/ElectricBorderFrame";
+
 
 const trustItems = [
   { icon: "⚡", text: "Response within 24h" },
@@ -100,13 +99,18 @@ export default function AboutHero() {
         </AnimatedSection>
       </div>
 
-      {/* ── Right: Portrait (5 cols) — FounderCard + electric border frame ── */}
-      <div className="lg:col-span-5">
-        <AnimatedSection direction="right" delay={0.2}>
-          <ElectricBorderFrame>
-            <FounderCard />
-          </ElectricBorderFrame>
-        </AnimatedSection>
+      {/* ── Right: Portrait (5 cols) — Unicorn Studio Embed ── */}
+      <div className="lg:col-span-5 flex items-center justify-center">
+        <div
+          data-us-project="bi8sQ4960W9R0aV2JSta"
+          style={{ width: 390, height: 844 }}
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `!function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();`,
+          }}
+        />
       </div>
     </div>
   );
