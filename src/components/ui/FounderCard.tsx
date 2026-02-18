@@ -36,9 +36,8 @@ export default function FounderCard() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center gap-4 px-6 text-center">
-    {/* Unicorn Studio Profile Picture */}
-    <FounderUnicornProfile />
-import FounderUnicornProfile from "./FounderUnicornProfile";
+  {/* Unicorn Studio Profile Picture */}
+  <FounderUnicornProfile />
 
           <div className="space-y-1.5">
             <h3 className="text-lg font-semibold text-white">Juan Carlos</h3>
