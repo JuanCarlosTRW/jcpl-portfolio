@@ -416,7 +416,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
       {/* Header bar with logo + toggle */}
       <header className="staggered-menu-header" aria-label="Main navigation header">
-  <div className="sm-logo" aria-label="Logo" style={{ marginTop: 18 }}>
+  <div className="sm-logo" aria-label="Logo">
           {logoUrl ? (
             <a href="/" tabIndex={0} aria-label="Home" style={{ display: 'inline-block' }}>
               <img

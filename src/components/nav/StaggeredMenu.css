@@ -32,8 +32,12 @@
 /* ─── logo ─── */
 .sm-logo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   z-index: 103;
+  padding-top: 22px;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .sm-logo-img {
