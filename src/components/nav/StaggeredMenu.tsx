@@ -416,7 +416,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
       {/* Header bar with logo + toggle */}
       <header className="staggered-menu-header" aria-label="Main navigation header">
-        <div className="sm-logo" aria-label="Logo">
+  <div className="sm-logo" aria-label="Logo" style={{ marginTop: 18 }}>
           {logoUrl ? (
             <a href="/" tabIndex={0} aria-label="Home" style={{ display: 'inline-block' }}>
               <img
@@ -424,9 +424,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 alt="Logo"
                 className="sm-logo-img"
                 draggable={false}
-                width={320}
-                height={96}
-                style={{ cursor: 'pointer', maxHeight: 96, maxWidth: 320, width: '100%', height: 'auto', display: 'block' }}
+                width={400}
+                height={120}
+                style={{ cursor: 'pointer', maxHeight: 120, maxWidth: 400, width: '100%', height: 'auto', display: 'block' }}
               />
             </a>
           ) : (
