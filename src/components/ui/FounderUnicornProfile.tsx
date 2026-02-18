@@ -38,7 +38,9 @@ export default function FounderUnicornProfile() {
         borderRadius: "32px",
         overflow: "hidden",
         background: "transparent",
-        margin: "0 auto"
+        margin: "40px auto 0 auto", // Move container lower
+        paddingTop: 0, // Remove any vertical padding
+        paddingBottom: 0
       }}
     />
   );
