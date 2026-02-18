@@ -6,9 +6,9 @@ import { ctaCopy } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 
 const nextSteps = [
-  { step: "1", label: "Apply", description: "Fill out a short intake form." },
-  { step: "2", label: "We review fit", description: "I personally review your business within 24 hours." },
-  { step: "3", label: "Growth plan call", description: "You get a focused strategy session — no fluff." },
+  { step: "1", label: "Apply", description: "Short intake form — takes 2 min." },
+  { step: "2", label: "We review fit", description: "Personally reviewed within 24 hours." },
+  { step: "3", label: "Growth plan call", description: "Focused strategy session — no fluff." },
 ];
 
 const trustItems = [
@@ -18,12 +18,13 @@ const trustItems = [
 ];
 
 /**
- * AboutCTA — Final CTA with 3-step "what happens next" and trust row.
+ * AboutCTA — Final CTA with 3-step "what happens next", refined hovers,
+ * trust row with improved legibility, and subtle divider above footer.
  */
 export default function AboutCTA() {
   return (
     <section id="about-cta" className="relative overflow-hidden">
-      {/* Background */}
+      {/* Background radial */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -35,54 +36,54 @@ export default function AboutCTA() {
       <SectionWrapper className="relative z-10">
         <div className="max-w-2xl mx-auto text-center">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.12] tracking-tight mb-4">
               Your Pipeline Won&apos;t{" "}
               <span className="bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-alt)] bg-clip-text text-transparent">
                 Build Itself
               </span>
             </h2>
-            <p className="text-[var(--text-secondary)] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
+            <p className="text-[var(--text-secondary)] leading-relaxed mb-8 max-w-md mx-auto text-[0.92rem]">
               Apply for a strategy call. We&apos;ll review your business,
               identify the highest-leverage opportunities, and decide if
               we&apos;re a fit.
             </p>
           </Reveal>
 
-          {/* What happens next */}
-          <Reveal delay={0.1}>
-            <div className="mb-10">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-6">
+          {/* What happens next — tighter, scannable */}
+          <Reveal delay={0.08}>
+            <div className="mb-8">
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-5">
                 What happens next
               </p>
-              <div className="flex flex-col sm:flex-row items-start justify-center gap-0">
+              <div className="flex items-start justify-center gap-0">
                 {nextSteps.map((item, i) => (
-                  <div key={item.step} className="flex flex-row sm:flex-col items-start sm:items-center gap-4 sm:gap-2 flex-1">
-                    {/* Step */}
-                    <div className="flex sm:flex-row items-center gap-3 sm:gap-0 w-full sm:w-auto sm:justify-center">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--brand-accent)] text-xs font-bold text-[var(--brand-accent)]">
+                  <div key={item.step} className="flex flex-col items-center flex-1 max-w-[180px]">
+                    {/* Step badge + connector */}
+                    <div className="relative flex items-center w-full justify-center mb-3">
+                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-[1.5px] border-[var(--brand-accent)] bg-[var(--bg-base)] text-xs font-bold text-[var(--brand-accent)] tabular-nums">
                         {item.step}
                       </span>
-                      {/* Connector arrow — only between items */}
+                      {/* Dashed connector */}
                       {i < nextSteps.length - 1 && (
-                        <span className="hidden sm:block flex-1 h-px border-t border-dashed border-[var(--border-soft)] w-full mx-2" aria-hidden="true" />
+                        <span className="absolute left-[calc(50%+20px)] right-[calc(-50%+20px)] top-1/2 h-px border-t border-dashed border-[var(--border-soft)]" aria-hidden="true" />
                       )}
                     </div>
-                    <div className="text-left sm:text-center pb-4 sm:pb-0 sm:px-2">
-                      <p className="text-sm font-semibold text-white">{item.label}</p>
-                      <p className="text-xs text-[var(--text-muted)] mt-0.5 leading-snug">{item.description}</p>
-                    </div>
+                    <p className="text-[0.82rem] font-semibold text-white mb-0.5">{item.label}</p>
+                    <p className="text-[0.72rem] text-[var(--text-muted)] leading-snug px-2">{item.description}</p>
                   </div>
                 ))}
               </div>
             </div>
           </Reveal>
 
-          <Reveal delay={0.15}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          {/* Buttons with refined hover */}
+          <Reveal delay={0.12}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-7">
               <CTAButton
                 href={ctaCopy.href}
                 size="lg"
                 eventName="final_cta_primary_click"
+                className="hover:shadow-[0_4px_20px_rgba(127,95,255,0.25)] hover:-translate-y-0.5 transition-all duration-300"
               >
                 {ctaCopy.primary}
               </CTAButton>
@@ -91,20 +92,22 @@ export default function AboutCTA() {
                 variant="secondary"
                 size="md"
                 eventName="final_cta_secondary_click"
+                className="hover:-translate-y-0.5 transition-all duration-300"
               >
                 {ctaCopy.secondary}
               </CTAButton>
             </div>
           </Reveal>
 
-          <Reveal delay={0.2}>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          {/* Trust row — improved legibility */}
+          <Reveal delay={0.16}>
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-2">
               {trustItems.map((item) => (
                 <span
                   key={item.text}
-                  className="inline-flex items-center gap-1.5 text-xs text-[var(--text-muted)]"
+                  className="inline-flex items-center gap-1.5 text-[0.72rem] text-[var(--text-secondary)] tracking-wide"
                 >
-                  <span aria-hidden="true" className="text-[0.7rem]">{item.icon}</span>
+                  <span aria-hidden="true" className="text-[0.65rem]">{item.icon}</span>
                   {item.text}
                 </span>
               ))}
@@ -112,6 +115,9 @@ export default function AboutCTA() {
           </Reveal>
         </div>
       </SectionWrapper>
+
+      {/* Subtle divider above footer */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--border-soft)] to-transparent" aria-hidden="true" />
     </section>
   );
 }

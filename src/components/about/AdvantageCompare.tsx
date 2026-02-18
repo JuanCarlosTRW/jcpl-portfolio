@@ -21,36 +21,34 @@ const integrated = [
 
 /**
  * AdvantageCompare — 2-column comparison: Fragmented vs Integrated.
- * Fragmented column uses X icons; Integrated uses check icons.
+ * Distinct column headers, readable bullet text, improved result line.
  */
 export default function AdvantageCompare() {
   return (
-    <div className="max-w-5xl mx-auto">
-      <AnimatedSection className="text-center mb-12">
-        <SectionLabel label="The Advantage" className="mb-4" />
-        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+    <div className="max-w-4xl mx-auto">
+      <AnimatedSection className="text-center mb-10">
+        <SectionLabel label="The Advantage" className="mb-3" />
+        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
           {aboutContent.advantage.headline}
         </h2>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-5">
         {/* Left: Fragmented */}
         <AnimatedSection direction="left" delay={0.1}>
-          <div className="rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-surface)] p-7 h-full">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[var(--text-muted)]">
-                Fragmented Freelancers
-              </span>
-            </div>
-            <ul className="space-y-4">
+          <div className="rounded-xl border border-[var(--border-soft)] bg-[var(--bg-surface)] p-6 h-full">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-red-400/80 mb-5 pb-3 border-b border-[var(--border-soft)]">
+              Fragmented Freelancers
+            </h3>
+            <ul className="space-y-3.5">
               {fragmented.map((point, i) => (
-                <li key={i} className="flex gap-3 items-start">
+                <li key={i} className="flex gap-2.5 items-start">
                   <XCircle
-                    className="mt-0.5 shrink-0 text-red-400/60"
-                    size={17}
+                    className="mt-0.5 shrink-0 text-red-400/50"
+                    size={16}
                     aria-hidden="true"
                   />
-                  <span className="text-sm text-[var(--text-muted)] leading-relaxed">
+                  <span className="text-[0.82rem] text-[var(--text-muted)] leading-relaxed">
                     {point}
                   </span>
                 </li>
@@ -60,31 +58,29 @@ export default function AdvantageCompare() {
         </AnimatedSection>
 
         {/* Right: Integrated */}
-        <AnimatedSection direction="right" delay={0.2}>
-          <div className="rounded-2xl border border-[rgba(127,95,255,0.30)] bg-[var(--bg-elevated)] p-7 h-full relative overflow-hidden">
+        <AnimatedSection direction="right" delay={0.15}>
+          <div className="rounded-xl border border-[rgba(127,95,255,0.25)] bg-[var(--bg-elevated)] p-6 h-full relative overflow-hidden">
             {/* Subtle glow */}
             <div
-              className="absolute inset-0 pointer-events-none rounded-2xl"
+              className="absolute inset-0 pointer-events-none rounded-xl"
               style={{
-                background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(127,95,255,0.08) 0%, transparent 70%)",
+                background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(127,95,255,0.06) 0%, transparent 70%)",
               }}
               aria-hidden="true"
             />
             <div className="relative">
-              <div className="flex items-center gap-2 mb-6">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[var(--brand-accent)]">
-                  Integrated System
-                </span>
-              </div>
-              <ul className="space-y-5">
+              <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--brand-accent)] mb-5 pb-3 border-b border-[var(--brand-accent)]/20">
+                Integrated System
+              </h3>
+              <ul className="space-y-4">
                 {integrated.map((point, i) => (
-                  <li key={i} className="flex gap-3 items-start">
+                  <li key={i} className="flex gap-2.5 items-start">
                     <CheckCircle2
                       className="mt-0.5 shrink-0 text-[var(--brand-accent)]"
-                      size={17}
+                      size={16}
                       aria-hidden="true"
                     />
-                    <span className="text-sm text-[var(--text-secondary)] leading-relaxed font-medium">
+                    <span className="text-[0.82rem] text-[var(--text-secondary)] leading-relaxed font-medium">
                       {point}
                     </span>
                   </li>
@@ -95,9 +91,9 @@ export default function AdvantageCompare() {
         </AnimatedSection>
       </div>
 
-      {/* Result sentence */}
-      <AnimatedSection delay={0.3} className="mt-8 text-center">
-        <p className="text-[var(--text-muted)] text-sm">
+      {/* Result sentence — elevated */}
+      <AnimatedSection delay={0.25} className="mt-8 text-center">
+        <p className="text-base md:text-lg text-[var(--text-secondary)]">
           <span className="text-white font-semibold">The result:</span>{" "}
           faster launches, lower costs, fewer handoffs — and a system that compounds over time.
         </p>

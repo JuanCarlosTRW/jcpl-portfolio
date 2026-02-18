@@ -4,43 +4,64 @@ import { aboutContent } from "@/lib/content";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 
+const philosophyBullets = [
+  "Every deliverable is measured by calls booked and revenue moved.",
+  "If the system isn't compounding, we iterate until it is.",
+  "No vanity metrics — only outcomes that hit your calendar.",
+];
+
 /**
- * PhilosophyBlock — editorial manifesto-style centered block.
- * Large quote ornament at top-left (opacity-20), thin rule lines.
+ * PhilosophyBlock — compact editorial manifesto with signature.
+ * Reduced dead space, micro-proof bullets, clean centered layout.
  */
 export default function PhilosophyBlock() {
   return (
-    <AnimatedSection className="max-w-3xl mx-auto">
-      <div className="relative rounded-3xl border border-[var(--border-soft)] bg-[var(--bg-surface)] py-14 px-8 md:py-20 md:px-14 overflow-hidden text-center">
+    <AnimatedSection className="max-w-2xl mx-auto">
+      <div className="relative rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-surface)] py-10 px-7 md:py-14 md:px-12 overflow-hidden text-center">
         {/* Quote ornament */}
         <span
-          className="absolute top-6 left-8 select-none font-serif leading-none text-[120px] md:text-[160px] text-white/[0.06] pointer-events-none"
+          className="absolute top-4 left-6 select-none font-serif leading-none text-[80px] md:text-[110px] text-white/[0.04] pointer-events-none"
           aria-hidden="true"
         >
           &ldquo;
         </span>
 
         {/* Thin top rule */}
-        <div className="w-12 h-px bg-gradient-to-r from-transparent via-[var(--brand-accent)]/50 to-transparent mx-auto mb-8" aria-hidden="true" />
+        <div className="w-10 h-px bg-gradient-to-r from-transparent via-[var(--brand-accent)]/40 to-transparent mx-auto mb-6" aria-hidden="true" />
 
-        <SectionLabel label="Philosophy" className="mb-6" />
+        <SectionLabel label="Philosophy" className="mb-4" />
 
-        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6 leading-tight">
+        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4 leading-tight">
           {aboutContent.philosophy.headline}
         </h2>
 
-        <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-xl mx-auto font-light">
+        <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto">
           {aboutContent.philosophy.body}
         </p>
 
+        {/* Micro bullets */}
+        <ul className="mt-6 space-y-2 max-w-sm mx-auto text-left">
+          {philosophyBullets.map((bullet, i) => (
+            <li key={i} className="flex items-start gap-2.5 text-[0.8rem] text-[var(--text-muted)] leading-snug">
+              <span className="mt-1.5 h-1 w-1 rounded-full bg-[var(--brand-accent)] shrink-0" aria-hidden="true" />
+              {bullet}
+            </li>
+          ))}
+        </ul>
+
+        {/* Signature */}
+        <p className="mt-6 text-xs text-[var(--text-muted)] italic tracking-wide">
+          — Juan Carlos
+        </p>
+
         {/* Thin bottom rule */}
-        <div className="w-12 h-px bg-gradient-to-r from-transparent via-[var(--border-strong)] to-transparent mx-auto mt-10" aria-hidden="true" />
+        <div className="w-10 h-px bg-gradient-to-r from-transparent via-[var(--border-strong)] to-transparent mx-auto mt-6" aria-hidden="true" />
 
         {/* Subtle glow */}
         <div
-          className="absolute inset-0 pointer-events-none rounded-3xl"
+          className="absolute inset-0 pointer-events-none rounded-2xl"
           style={{
-            background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(127,95,255,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(127,95,255,0.05) 0%, transparent 70%)",
           }}
           aria-hidden="true"
         />

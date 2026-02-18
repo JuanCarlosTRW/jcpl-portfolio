@@ -20,32 +20,32 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Hero: Copy + Portrait (animation untouched) ── */}
-      <SectionWrapper className="pt-32 md:pt-40">
+      <SectionWrapper className="pt-28 md:pt-36 !pb-10 md:!pb-14">
         <AboutHero />
       </SectionWrapper>
 
-      {/* ── Credibility / Proof Strip ── */}
-      <SectionWrapper className="!py-12 md:!py-16">
+      {/* ── Credibility / Metrics — tight to hero ── */}
+      <SectionWrapper className="!py-6 md:!py-8">
         <MetricsRow />
       </SectionWrapper>
 
       {/* ── Operating Principles (3 cards) ── */}
-      <SectionWrapper className="bg-[var(--bg-surface)]/30">
+      <SectionWrapper>
         <Principles />
       </SectionWrapper>
 
       {/* ── Working Model Timeline ── */}
-      <SectionWrapper>
+      <SectionWrapper variant="surface">
         <WorkTimeline />
       </SectionWrapper>
 
       {/* ── Philosophy Statement ── */}
-      <SectionWrapper className="bg-[var(--bg-surface)]/50">
+      <SectionWrapper>
         <PhilosophyBlock />
       </SectionWrapper>
 
       {/* ── Integrated vs Fragmented ── */}
-      <SectionWrapper>
+      <SectionWrapper variant="surface">
         <AdvantageCompare />
       </SectionWrapper>
 
