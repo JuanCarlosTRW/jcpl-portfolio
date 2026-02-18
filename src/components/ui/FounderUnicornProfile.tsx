@@ -14,10 +14,10 @@ export default function FounderUnicornProfile() {
       <div
         style={{
           position: "absolute",
-          top: "-120px", // Shift scene up to show more top
+          top: "-220px", // Increase offset to show even more top
           left: 0,
           width: "100%",
-          height: "calc(100% + 120px)",
+          height: "calc(100% + 220px)",
         }}
       >
         <UnicornScene
