@@ -31,38 +31,15 @@ export default function FounderUnicornProfile() {
   }, []);
   return (
     <div
-      className="overflow-hidden w-full h-full"
+      data-us-project="BfUPDU4SyzVD3w4unVC6"
       style={{
+        width: "768px",
+        height: "1024px",
         borderRadius: "32px",
+        overflow: "hidden",
         background: "transparent",
-        position: "relative",
-        width: "100%",
-        height: "100%",
+        margin: "0 auto"
       }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          data-us-project="bTc3PcQLbkD3NT7jXumo"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "top",
-            borderRadius: "32px"
-          }}
-        />
-      </div>
-    </div>
+    />
   );
 }
