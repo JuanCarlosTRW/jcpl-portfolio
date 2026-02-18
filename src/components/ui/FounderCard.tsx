@@ -11,7 +11,7 @@ import FounderUnicornProfile from "./FounderUnicornProfile";
  */
 export default function FounderCard() {
   return (
-    <StarBorder variant="alt" speed="7s" className="rounded-2xl">
+    <StarBorder variant="alt" speed="7s" className="rounded-2xl" style={{ marginTop: '60px' }}>
       <div className="relative rounded-2xl bg-[var(--bg-surface)] overflow-hidden aspect-[3/4] flex flex-col items-center justify-center">
         {/* Ambient gradient background */}
         <div
