@@ -14,11 +14,13 @@ export default function MetricsRow() {
       {/* Thin top baseline */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--border-soft)] to-transparent mb-1" aria-hidden="true" />
 
-      <div className="grid grid-cols-3 divide-x divide-[var(--border-soft)]">
+      <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-[var(--border-soft)]">
         {aboutTrustStrip.map((item, i) => {
-          const numericMatch = item.metric.match(/^(\d+)/);
+          // Only CountUp pure-numeric metrics (e.g. "6+", "4", "3")
+          // Skip metrics containing letters or en-dash (e.g. "2–4 wks")
+          const numericMatch = item.metric.match(/^(\d+)([^a-zA-Z–]*)$/);
           const numericValue = numericMatch ? parseInt(numericMatch[1], 10) : null;
-          const suffix = numericMatch ? item.metric.slice(numericMatch[1].length) : "";
+          const suffix = numericMatch ? numericMatch[2] : "";
 
           return (
             <AnimatedSection key={i} delay={0.08 * i} className="w-full">

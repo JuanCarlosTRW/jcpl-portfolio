@@ -42,10 +42,13 @@ export default function AboutCTA() {
                 Build Itself
               </span>
             </h2>
-            <p className="text-[var(--text-secondary)] leading-relaxed mb-8 max-w-md mx-auto text-[0.92rem]">
+            <p className="text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto text-[0.92rem]">
               Apply for a strategy call. We&apos;ll review your business,
               identify the highest-leverage opportunities, and decide if
               we&apos;re a fit.
+            </p>
+            <p className="text-sm text-[var(--brand-accent)] font-medium mt-3 mb-8">
+              If I don&apos;t see a clear path to ROI, I&apos;ll tell you.
             </p>
           </Reveal>
 

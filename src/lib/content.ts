@@ -608,6 +608,16 @@ export const caseStudies = [
 /* ─── About ─── */
 export const aboutContent = {
   headline: "I\u2019m Juan Carlos \u2014 Growth Partner for Service Businesses",
+  subhead: "I build systems that turn attention into booked calls.",
+  mechanism: [
+    "Positioning → funnel path → traffic → automation → booking.",
+    "No handoffs. No disconnected freelancers. One operator owns the outcome.",
+  ],
+  mechanismBullets: [
+    "Positioning + offer clarity (so the message converts)",
+    "Conversion path + tracking (so you can see ROI)",
+    "Traffic + automation (so it compounds)",
+  ],
   story: [
     "I didn\u2019t start in marketing. I started by studying what actually makes service businesses grow \u2014 then I built systems to make it happen.",
     "After watching too many owners get burned by pretty deliverables with zero outcomes, I decided to operate differently.",
@@ -754,24 +764,25 @@ export function isQualifiedLead(data: Record<string, string>): boolean {
 
 /* ─── About: Trust Strip ─── */
 export const aboutTrustStrip = [
-  { metric: "6+", label: "Client systems delivered" },
+  { metric: "6+", label: "Systems shipped" },
+  { metric: "2–4 wks", label: "Typical launch timeline" },
   { metric: "4", label: "Niches served" },
-  { metric: "3", label: "Active growth systems running" },
+  { metric: "3", label: "Active systems running" },
 ];
 
 /* ─── About: Operating Principles ─── */
 export const aboutPrinciples = [
   {
     title: "Revenue first",
-    description: "Every deliverable is measured by booked calls and revenue generated.",
+    description: "Measured in booked calls + revenue — not vanity metrics.",
   },
   {
     title: "Full-stack ownership",
-    description: "I own the pipeline from positioning to booking \u2014 no handoffs.",
+    description: "I own the path end-to-end: positioning → booking. No handoffs.",
   },
   {
     title: "Selective partnerships",
-    description: "I take a limited number of clients per quarter to guarantee focus and execution.",
+    description: "Max 3 active clients per quarter to protect focus and execution quality.",
   },
 ];
 
@@ -783,13 +794,15 @@ export const aboutTimeline = [
     duration: "Week 1",
     description:
       "Deep-dive into your market, offer, and constraints. We define positioning and map the growth system.",
+    deliverables: "Offer map • funnel architecture • tracking plan",
   },
   {
     phase: "Build",
     title: "System Build & Launch",
-    duration: "Weeks 2\u20134",
+    duration: "Weeks 2–4",
     description:
-      "I build the conversion website, funnel path, tracking, and automation \u2014 then launch with clarity.",
+      "I build the conversion website, funnel path, tracking, and automation — then launch with clarity.",
+    deliverables: "Website + funnel • automation • analytics live",
   },
   {
     phase: "Optimize",
@@ -797,6 +810,7 @@ export const aboutTimeline = [
     duration: "Ongoing",
     description:
       "We improve conversion, lower costs, and scale what works based on real performance data.",
+    deliverables: "Weekly optimization loop • reporting • compounding improvements",
   },
 ];
 

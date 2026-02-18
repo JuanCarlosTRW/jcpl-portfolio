@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AboutHero from "@/components/about/AboutHero";
 import MetricsRow from "@/components/about/MetricsRow";
+import CaseStudyPreview from "@/components/about/CaseStudyPreview";
 import Principles from "@/components/about/Principles";
 import WorkTimeline from "@/components/about/WorkTimeline";
 import PhilosophyBlock from "@/components/about/PhilosophyBlock";
@@ -27,6 +28,11 @@ export default function AboutPage() {
       {/* ── Credibility / Metrics — tight to hero ── */}
       <SectionWrapper className="!py-6 md:!py-8">
         <MetricsRow />
+      </SectionWrapper>
+
+      {/* ── Proof of Work: Case Study Previews ── */}
+      <SectionWrapper variant="surface">
+        <CaseStudyPreview />
       </SectionWrapper>
 
       {/* ── Operating Principles (3 cards) ── */}

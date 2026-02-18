@@ -52,6 +52,11 @@ export default function WorkTimeline() {
                   <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                     {step.description}
                   </p>
+                  {step.deliverables && (
+                    <p className="mt-2.5 text-[0.72rem] font-medium tracking-wide text-[var(--brand-alt)] leading-relaxed">
+                      {step.deliverables}
+                    </p>
+                  )}
                 </div>
               </div>
             </AnimatedSection>

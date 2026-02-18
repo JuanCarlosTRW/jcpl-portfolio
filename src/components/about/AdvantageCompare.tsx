@@ -69,9 +69,14 @@ export default function AdvantageCompare() {
               aria-hidden="true"
             />
             <div className="relative">
-              <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--brand-accent)] mb-5 pb-3 border-b border-[var(--brand-accent)]/20">
-                Integrated System
-              </h3>
+              <div className="flex flex-wrap items-center gap-2.5 mb-5 pb-3 border-b border-[var(--brand-accent)]/20">
+                <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--brand-accent)]">
+                  Integrated System
+                </h3>
+                <span className="inline-flex items-center rounded-full bg-[rgba(127,95,255,0.12)] border border-[var(--brand-accent)]/30 px-2.5 py-0.5 text-[0.62rem] font-bold text-[var(--brand-accent)] uppercase tracking-wider leading-none">
+                  Recommended
+                </span>
+              </div>
               <ul className="space-y-4">
                 {integrated.map((point, i) => (
                   <li key={i} className="flex gap-2.5 items-start">
@@ -91,8 +96,15 @@ export default function AdvantageCompare() {
         </AnimatedSection>
       </div>
 
+      {/* Fragmentation cost notice */}
+      <AnimatedSection delay={0.2} className="mt-6 text-center">
+        <p className="text-sm text-red-400/70">
+          Fragmentation costs: handoffs, delays, and lost leads.
+        </p>
+      </AnimatedSection>
+
       {/* Result sentence — elevated */}
-      <AnimatedSection delay={0.25} className="mt-8 text-center">
+      <AnimatedSection delay={0.25} className="mt-4 text-center">
         <p className="text-base md:text-lg text-[var(--text-secondary)]">
           <span className="text-white font-semibold">The result:</span>{" "}
           faster launches, lower costs, fewer handoffs — and a system that compounds over time.
