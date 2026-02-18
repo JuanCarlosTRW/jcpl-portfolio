@@ -12,8 +12,9 @@ export default function CaseStudiesPage() {
   return (
     <div className="py-20 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
-        {/* Hero: Unicorn Studio WebGL Scene */}
-        <div className="mb-10">
+        {/* Title and Hero: Unicorn Studio WebGL Scene */}
+        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-6 mt-8">My Results</h2>
+        <div className="mb-10 mt-8">
           <CaseStudiesHero />
         </div>
         {/* Section Header */}
