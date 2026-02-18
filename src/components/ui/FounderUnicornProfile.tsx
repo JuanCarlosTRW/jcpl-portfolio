@@ -4,12 +4,11 @@ import UnicornScene from "unicornstudio-react/next";
 export default function FounderUnicornProfile() {
   return (
     <div
-      className="w-40 h-40 rounded-full overflow-hidden shadow-lg bg-transparent flex items-center justify-center"
+      className="overflow-hidden"
       style={{
-        width: "160px",
-        height: "160px",
-        borderRadius: "9999px",
-        overflow: "hidden",
+        width: "768px",
+        height: "1024px",
+        borderRadius: "32px", // Optional: for rounded corners
         background: "transparent",
         position: "relative",
       }}
