@@ -23,9 +23,9 @@ export default function ServicesFinalCTA() {
           <Reveal>
             <div className="text-center mb-8">
               <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] font-medium mb-3">
-                Zero Risk
+                Our Standards
               </p>
-              <h2 className="heading-3">Built to Earn Your Trust</h2>
+              <h2 className="heading-3">What You Can Expect</h2>
             </div>
           </Reveal>
           <GuaranteesStrip />
@@ -43,10 +43,11 @@ export default function ServicesFinalCTA() {
               id="services-cta-headline"
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5"
             >
-              {servicesFinalCTA.headline.split("Build Itself")[0]}
+              {servicesFinalCTA.headline.split("real ")[0]}real{" "}
               <span className="bg-gradient-to-r from-[#7f5fff] to-[#33ccff] bg-clip-text text-transparent">
-                Build Itself
+                acquisition system
               </span>
+              ?
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
               {servicesFinalCTA.subheadline}

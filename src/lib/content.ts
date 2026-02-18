@@ -323,17 +323,16 @@ export const whySection = {
 
 /* ─── Services / Tiers ─── */
 export const servicesHero = {
-  label: "Services",
-  headline: "Turn Unpredictable Leads Into Predictable Growth",
-  headlineAccent: "Predictable Growth",
+  label: "Growth Systems for Service Businesses",
+  headline: "Turn inconsistent leads into a predictable booking system.",
   subheadline:
-    "For service businesses ready to get found, fill their calendar, or dominate their market — in as little as 2 weeks.",
-  primaryCTA: "Book a 15-min Fit Call",
-  secondaryCTA: "See the 3-Step Growth Plan",
+    "Positioning + conversion architecture + acquisition — engineered as a system.",
+  primaryCTA: "Apply (2 min)",
+  secondaryCTA: "View Case Studies",
   trustItems: [
     "Response within 24h",
-    "No long-term lock-in",
-    "Transparent milestone delivery",
+    "Milestone delivery",
+    "No lock-in",
   ],
 };
 
@@ -347,84 +346,146 @@ export const servicesProofBar = {
   socialProof: ["Premier RV Rentals", "Elite Cuts Barbershop", "Sharp Fade Studio"],
 };
 
+/* ─── Services: Quick Qualification ─── */
+export const servicesQualification = {
+  bestFor: [
+    "Service business owner aiming for predictable acquisition",
+    "Tired of referral dependency and unpredictable revenue",
+    "Wants premium execution with measurable infrastructure",
+    "Ready to invest in a system, not a one-off project",
+  ],
+  notFor: [
+    "Lowest-price shoppers looking for the cheapest option",
+    "\u201CJust a website\u201D requests with no growth intent",
+    "Anyone unwilling to implement or collaborate",
+    "Businesses under $5K/month in revenue",
+  ],
+};
+
 export const serviceTiers = [
   {
     name: "Foundation",
     icon: "foundation" as const,
     tagline: "Get online. Get credible. Get found.",
-    bestFor: "Businesses with no website or an outdated one",
-    revenueStage: "$5K–$15K/mo",
-    coreOutcome: "A professional website that turns visitors into booked calls — live in 2–3 weeks.",
+    outcome: "Launch a conversion-ready digital presence that earns trust and captures leads.",
+    bestFor: "New or rebranding service businesses",
     deliverables: [
-      "Conversion-optimized website (up to 5 pages)",
-      "Mobile-first responsive design",
-      "Local SEO + Google Business setup",
-      "Contact form + booking integration",
-      "Speed & performance optimization",
+      "Premium conversion website (up to 5 pages)",
+      "Conversion copywriting & positioning",
+      "Mobile-first, fast, secure build",
+      "GA4 & event tracking baseline",
+      "Launch checklist & QA",
     ],
-    extraDeliverables: [
-      "Brand-aligned visual design",
-      "On-page copywriting guidance",
-      "Launch report + next-steps roadmap",
-    ],
-    timeline: "2–3 weeks",
-    firstWin: "Website live + indexed on Google",
-    impact: "Your website becomes your hardest-working salesperson.",
-    notIdealIf: "You already have a high-converting site or need paid ads management",
-    planCTA: "Start Foundation",
+    timeline: "2\u20133 weeks",
+    firstWin: "Go live with a high-converting, credible presence.",
+    planCTA: "Apply (2 min)",
   },
   {
     name: "Growth",
     icon: "growth" as const,
     tagline: "Fill your calendar with qualified leads.",
-    bestFor: "Businesses ready to invest in ads and automation",
-    revenueStage: "$15K–$50K/mo",
-    coreOutcome: "A complete lead generation engine — ads, AI, and automated booking — live in 3–4 weeks.",
+    outcome: "Engineer a predictable lead generation system with ads, AI, and automated booking.",
+    bestFor: "Owners ready to scale beyond referrals",
     deliverables: [
       "Everything in Foundation",
-      "Google Ads funnel (campaigns + landing pages)",
-      "Advanced SEO + GEO (AI search visibility)",
-      "AI receptionist for 24/7 lead capture",
-      "Automated qualification + booking system",
-    ],
-    extraDeliverables: [
+      "Google Ads or Meta Ads funnel",
+      "Funnel optimization & landing pages",
+      "AI lead qualification chatbot",
       "Monthly performance reporting",
-      "Conversion tracking setup",
-      "Ad creative direction",
     ],
-    timeline: "3–4 weeks + ongoing",
-    firstWin: "First qualified leads within 30 days",
-    impact: "Predictable lead flow. No more feast-or-famine months.",
-    notIdealIf: "You don't have product-market fit or monthly revenue is under $5K",
-    planCTA: "Apply for Growth",
+    timeline: "30\u201345 days",
+    firstWin: "First qualified leads in your pipeline.",
+    planCTA: "Apply (2 min)",
     featured: true,
   },
   {
     name: "Scale",
     icon: "scale" as const,
     tagline: "Dominate your market. Systematize growth.",
-    bestFor: "Multi-location or high-revenue businesses",
-    revenueStage: "$50K+/mo",
-    coreOutcome: "Multi-channel market dominance with AI automation and strategic partnership.",
+    outcome: "Multiply acquisition channels and automate operations for compounding returns.",
+    bestFor: "Ambitious teams seeking compounding growth",
     deliverables: [
       "Everything in Growth",
-      "Multi-location SEO/GEO strategy",
-      "Conversion rate optimization (A/B testing)",
-      "Multi-channel ads (Google + Meta)",
-      "Custom AI automation workflows",
+      "Multi-channel acquisition strategy",
+      "Advanced automation workflows",
+      "Custom AI integrations",
+      "Ongoing CRO & strategic support",
     ],
-    extraDeliverables: [
-      "Priority support + strategy calls",
-      "Quarterly growth roadmap",
-      "Heatmap analysis + UX recommendations",
-    ],
-    timeline: "4–6 weeks + ongoing",
-    firstWin: "Market dominance plan + first multi-channel results",
-    impact: "You become the obvious choice. Leads come in systematically.",
-    notIdealIf: "You're just getting started online or want a one-time project",
-    planCTA: "Book Scale Call",
+    timeline: "45\u201360 days",
+    firstWin: "Automated, multi-channel lead flow.",
+    planCTA: "Apply (2 min)",
   },
 ];
+
+/* ─── Services: Included in Every Plan ─── */
+export const servicesIncluded = [
+  { title: "Tracking Baseline", description: "GA4 & event tracking from day one." },
+  { title: "Performance Baseline", description: "Speed, Core Web Vitals, mobile-optimized." },
+  { title: "Launch Checklist & QA", description: "Comprehensive testing before every launch." },
+  { title: "Ownership & Handoff", description: "You own everything we build. Full access." },
+  { title: "Reporting Cadence", description: "Clear performance reports, no vanity metrics." },
+  { title: "Communication Standards", description: "Dedicated channel, 24h response time." },
+];
+
+/* ─── Services: Recommender Quiz ─── */
+export const servicesQuiz = {
+  headline: "Not Sure Which Plan Fits?",
+  subheadline: "Answer 2 quick questions. We\u2019ll recommend the right tier.",
+  questions: [
+    {
+      id: "leads",
+      question: "Where do most leads come from today?",
+      options: [
+        { label: "Referrals / word of mouth", value: "referrals", rec: "Foundation" as const },
+        { label: "Some ads, some organic", value: "mixed", rec: "Growth" as const },
+        { label: "Paid ads or multiple channels", value: "ads", rec: "Scale" as const },
+      ],
+    },
+    {
+      id: "bottleneck",
+      question: "What\u2019s the biggest bottleneck?",
+      options: [
+        { label: "No professional presence online", value: "no-presence", rec: "Foundation" as const },
+        { label: "Not enough qualified leads", value: "not-enough", rec: "Growth" as const },
+        { label: "No system to scale what works", value: "no-system", rec: "Scale" as const },
+      ],
+    },
+  ],
+};
+
+/* ─── Services: Proof Block ─── */
+export const servicesProof = {
+  label: "Featured Transformation",
+  client: "RV Rental Company \u2014 Texas",
+  situation: "Family-owned RV rental with 8 vehicles. Zero online acquisition. Revenue was entirely referral-based and unpredictable.",
+  diagnosis: "The market was active. The business simply didn\u2019t exist online. No ads, no funnel, no follow-up.",
+  build: "Full Google Ads funnel: keyword research, conversion-optimized landing pages, automated booking qualification flow.",
+  outcome: "$20,000 in confirmed bookings within the first 30 days.",
+  slug: "rv-rental-texas",
+  caption: "GA4 / Ads metrics (redacted for client privacy).",
+};
+
+/* ─── Services: Process Steps ─── */
+export const servicesProcess = {
+  headline: "A simple process.",
+  steps: [
+    {
+      number: "01",
+      title: "Diagnose",
+      description: "Audit + bottleneck map + execution plan.",
+    },
+    {
+      number: "02",
+      title: "Engineer",
+      description: "Build the system + tracking + launch.",
+    },
+    {
+      number: "03",
+      title: "Scale",
+      description: "Optimize, iterate, expand channels.",
+    },
+  ],
+};
 
 export const servicesDecisionAssist = {
   headline: "How to Choose Your Plan",
@@ -437,28 +498,28 @@ export const servicesDecisionAssist = {
 
 export const servicesFAQ = [
   {
-    question: "What does this cost?",
-    answer: "Engagements start at $5,000/month for the complete system — setup, management, and optimization included. Most clients see ROI within the first month. Specifics are discussed on the fit call.",
+    question: "How fast do we see a first win?",
+    answer: "Foundation clients go live in 2\u20133 weeks. Growth clients typically see first qualified leads within 30 days. Timeline depends on your market and readiness.",
   },
   {
-    question: "How fast will I see results?",
-    answer: "Foundation clients go live in 2–3 weeks. Growth clients typically see first qualified leads within 30 days. One client generated $20,000 in confirmed bookings in month one.",
+    question: "What do you need from me?",
+    answer: "Clear goals, timely feedback, and access to existing assets (if any). I handle the heavy lifting \u2014 you stay focused on running your business.",
   },
   {
-    question: "Is there a long-term contract?",
-    answer: "No. All engagements are month-to-month after the initial build phase. You stay because it works, not because you're locked in.",
+    question: "Any contracts or lock-in?",
+    answer: "No long-term contracts. Engagements are milestone-based and transparent. You stay because it works, not because you\u2019re locked in.",
   },
   {
-    question: "Who is this NOT for?",
-    answer: "Businesses under $5,000/month in revenue, companies looking for a quick logo or one-off landing page, or anyone not ready to commit to a growth system. This is a partnership, not a transaction.",
+    question: "What if it\u2019s not a fit?",
+    answer: "If we\u2019re not a fit, you\u2019ll get honest feedback and recommendations \u2014 no hard sell. I\u2019d rather pass than deliver subpar work.",
   },
   {
-    question: "How do you communicate and report?",
-    answer: "You get a dedicated Slack channel (or email if preferred), milestone updates at every phase, and monthly performance reports with Growth and Scale plans. No black boxes.",
+    question: "How do you measure success?",
+    answer: "Pipeline metrics, conversion rates, and ROI \u2014 not vanity stats. Every engagement includes tracking from day one.",
   },
   {
-    question: "Is payment secure?",
-    answer: "All payments are processed through Stripe with bank-level encryption. We accept Visa, Mastercard, Amex, and bank transfer. CAD and USD accepted.",
+    question: "What happens after I apply?",
+    answer: "You\u2019ll receive a short qualification review within 24 hours. If we\u2019re aligned, I\u2019ll send you a link to book a strategy call.",
   },
 ];
 
@@ -747,39 +808,38 @@ export const caseStudyMeta: Record<string, { industry: string; duration: string;
 export const servicesComparison = {
   headers: ["", "Foundation", "Growth", "Scale"],
   rows: [
-    { label: "Best For", values: ["No website or outdated one", "Ready for ads + automation", "Multi-location / high-revenue"] },
-    { label: "Setup Time", values: ["2–3 weeks", "3–4 weeks", "4–6 weeks"] },
-    { label: "Typical First Win", values: ["Site live + indexed", "First qualified leads <30 days", "Multi-channel dominance plan"] },
-    { label: "Acquisition Channels", values: ["Website + Local SEO", "Website + Ads + SEO + AI", "Multi-channel + AI workflows"] },
-    { label: "AI Layer", values: ["—", "AI receptionist + chatbot", "Custom AI automation"] },
-    { label: "Booking Flow", values: ["Contact form", "Automated qualification + booking", "Advanced qualification + routing"] },
-    { label: "Reporting", values: ["Launch report", "Monthly performance", "Monthly + Quarterly roadmap"] },
-    { label: "Support Level", values: ["Email", "Email + monthly check-in", "Priority + strategy calls"] },
+    { label: "Best for", values: ["New / rebranding", "Scaling owners", "Ambitious teams"] },
+    { label: "Timeline", values: ["2\u20133 weeks", "30\u201345 days", "45\u201360 days"] },
+    { label: "Core deliverables", values: ["Site, funnel, copy", "+ Ads, AI, reporting", "+ Multi-channel, automation"] },
+    { label: "Acquisition layer", values: ["Organic / SEO", "Paid + organic", "Multi-channel"] },
+    { label: "Tracking", values: ["GA4 / events", "GA4 + reporting", "Advanced + custom"] },
+    { label: "Automation / AI", values: ["\u2014", "Lead qualification", "Custom integrations"] },
+    { label: "Support cadence", values: ["Launch support", "Monthly", "Ongoing + strategy"] },
+    { label: "Outcome focus", values: ["Credibility", "Pipeline", "Scale & leverage"] },
   ],
-  helperText: "Not sure which tier fits? Start with Foundation if you need a professional presence, Growth if you're ready to generate leads, or Scale if you want to own your market.",
 };
 
-/* ─── Services: Guarantees (unified risk reversal) ─── */
+/* ─── Services: Standards (Risk Reversal) ─── */
 export const servicesGuarantees = [
-  {
-    icon: "clock",
-    title: "24h Response Guarantee",
-    description: "Every inquiry answered within one business day. No ghosting.",
-  },
   {
     icon: "milestone",
     title: "Milestone Delivery",
     description: "Clear checkpoints at every phase. You always know where things stand.",
   },
   {
-    icon: "shield",
-    title: "No-Fit Honesty",
-    description: "If we're not the right partner, we'll tell you upfront — not after you've paid.",
-  },
-  {
     icon: "unlock",
     title: "No Lock-In",
     description: "You own everything we build. Month-to-month after the initial build.",
+  },
+  {
+    icon: "shield",
+    title: "Honest Fit Assessment",
+    description: "If we\u2019re not the right partner, we\u2019ll tell you upfront \u2014 not after you\u2019ve paid.",
+  },
+  {
+    icon: "clock",
+    title: "Evidence on Request",
+    description: "Redacted case data available for serious prospects. Results are verifiable.",
   },
 ];
 
@@ -794,15 +854,15 @@ export const servicesPaymentLine = "Secure payment processing by Stripe · CAD/U
 
 /* ─── Services: Final CTA ─── */
 export const servicesFinalCTA = {
-  headline: "Your Pipeline Won't Build Itself",
+  headline: "Ready to build a real acquisition system?",
   subheadline:
-    "Book a 15-minute fit call. We'll review your business, identify the highest-leverage growth move, and determine if we're the right partner.",
-  primary: "Book Your Fit Call",
-  secondary: "See Case Studies",
+    "Short application. If we\u2019re a fit, you\u2019ll receive a call link within 24 hours.",
+  primary: "Apply (2 min)",
+  secondary: "View Case Studies",
   trustBadges: [
-    { icon: "⚡", text: "Response within 24 hours" },
-    { icon: "🔒", text: "100% confidential" },
-    { icon: "📋", text: "Limited spots per quarter" },
+    { icon: "\u26A1", text: "Response within 24 hours" },
+    { icon: "\uD83D\uDD12", text: "100% confidential" },
+    { icon: "\uD83D\uDCCB", text: "Limited spots per quarter" },
   ],
 };
 
@@ -812,39 +872,39 @@ export const servicesMicroQuiz = {
   subheadline: "Answer 2 quick questions to get a recommendation.",
   questions: [
     {
-      id: "website",
-      question: "Do you have a website that generates leads?",
+      id: "leads",
+      question: "Where do most leads come from today?",
       options: [
-        { label: "No website / outdated", value: "none", points: { Foundation: 3, Growth: 0, Scale: 0 } },
-        { label: "Yes, but no lead flow", value: "exists-no-leads", points: { Foundation: 1, Growth: 3, Scale: 0 } },
-        { label: "Yes, and it converts", value: "converts", points: { Foundation: 0, Growth: 1, Scale: 3 } },
+        { label: "Referrals / word of mouth", value: "referrals", points: { Foundation: 3, Growth: 1, Scale: 0 } },
+        { label: "Some ads, some organic", value: "mixed", points: { Foundation: 0, Growth: 3, Scale: 1 } },
+        { label: "Paid ads or multiple channels", value: "ads", points: { Foundation: 0, Growth: 1, Scale: 3 } },
       ],
     },
     {
-      id: "stage",
-      question: "What's your monthly revenue?",
+      id: "bottleneck",
+      question: "What\u2019s the biggest bottleneck?",
       options: [
-        { label: "Under $15K/mo", value: "under-15k", points: { Foundation: 3, Growth: 1, Scale: 0 } },
-        { label: "$15K–$50K/mo", value: "15k-50k", points: { Foundation: 0, Growth: 3, Scale: 1 } },
-        { label: "$50K+/mo or multi-location", value: "50k-plus", points: { Foundation: 0, Growth: 1, Scale: 3 } },
+        { label: "No professional presence online", value: "no-presence", points: { Foundation: 3, Growth: 1, Scale: 0 } },
+        { label: "Not enough qualified leads", value: "not-enough", points: { Foundation: 0, Growth: 3, Scale: 1 } },
+        { label: "No system to scale what works", value: "no-system", points: { Foundation: 0, Growth: 1, Scale: 3 } },
       ],
     },
   ],
   results: {
     Foundation: {
-      title: "Foundation is your fit",
-      reason: "You need a professional, conversion-ready website before anything else.",
-      cta: "Start Foundation",
+      title: "We recommend: Foundation",
+      reason: "You need a professional, conversion-ready presence before anything else.",
+      cta: "Apply (2 min)",
     },
     Growth: {
-      title: "Growth is your fit",
-      reason: "You're ready for ads, AI, and automated lead generation.",
-      cta: "Apply for Growth",
+      title: "We recommend: Growth",
+      reason: "You\u2019re ready for ads, AI, and automated lead generation.",
+      cta: "Apply (2 min)",
     },
     Scale: {
-      title: "Scale is your fit",
+      title: "We recommend: Scale",
       reason: "You need multi-channel dominance and advanced automation.",
-      cta: "Book Scale Call",
+      cta: "Apply (2 min)",
     },
   },
 };
@@ -852,7 +912,7 @@ export const servicesMicroQuiz = {
 /* ─── Services: Sticky Mobile CTA ─── */
 export const stickyMobileCTA = {
   label: "Ready to grow?",
-  cta: "Book Your Fit Call",
+  cta: "Apply (2 min)",
   href: "/apply",
 };
 
