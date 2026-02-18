@@ -5,7 +5,9 @@ import { aboutContent, ctaCopy } from "@/lib/content";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import CTAButton from "@/components/ui/CTAButton";
-import FounderCard from "@/components/ui/FounderCard";
+
+// import FounderCard from "@/components/ui/FounderCard";
+import ElectricBorderPlaceholder from "@/components/ui/ElectricBorderPlaceholder";
 
 const trustItems = [
   { icon: "⚡", text: "Response within 24h" },
@@ -128,7 +130,8 @@ export default function AboutHero() {
               className="absolute inset-px z-20 pointer-events-none rounded-2xl border border-white/[0.06]"
               aria-hidden="true"
             />
-            <FounderCard />
+            {/* Placeholder: Electric border effect */}
+            <ElectricBorderPlaceholder width={480} height={600} className="w-full h-[360px] md:h-[480px] lg:h-[600px]" />
           </div>
         </AnimatedSection>
       </div>
