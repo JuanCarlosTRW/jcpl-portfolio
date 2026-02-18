@@ -1,6 +1,8 @@
 "use client";
 
+
 import StarBorder from "@/components/ui/StarBorder";
+import FounderUnicornProfile from "./FounderUnicornProfile";
 
 /**
  * FounderCard — premium fallback card for founder photo.
@@ -34,12 +36,9 @@ export default function FounderCard() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center gap-4 px-6 text-center">
-          {/* Monogram */}
-          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20">
-            <span className="text-3xl font-bold text-[var(--brand-accent)]">
-              JC
-            </span>
-          </div>
+          {/* Unicorn Studio Profile Picture */}
+          <FounderUnicornProfile />
+import FounderUnicornProfile from "./FounderUnicornProfile";
 
           <div className="space-y-1.5">
             <h3 className="text-lg font-semibold text-white">Juan Carlos</h3>
