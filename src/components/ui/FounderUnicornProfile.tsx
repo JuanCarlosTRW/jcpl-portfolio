@@ -2,45 +2,44 @@
 import { useEffect } from "react";
 
 export default function FounderUnicornProfile() {
-  // Inject UnicornStudio script and initialize on mount
   useEffect(() => {
-    const u = window.UnicornStudio;
-    if (u && u.init) {
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", function () {
-          u.init();
-        });
-      } else {
-        u.init();
+    const initUS = () => {
+      if (window.UnicornStudio?.init) {
+        window.UnicornStudio.init();
       }
+    };
+
+    // Check if script already loaded
+    const existingScript = document.querySelector(
+      'script[src*="unicornStudio.umd.js"]'
+    );
+
+    if (window.UnicornStudio?.init) {
+      // Already loaded — re-init to pick up this node
+      setTimeout(initUS, 50);
+    } else if (existingScript) {
+      // Script loading — wait for it
+      setTimeout(initUS, 400);
     } else {
-      window.UnicornStudio = { isInitialized: !1 };
-      const i = document.createElement("script");
-      i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
-      i.onload = function () {
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", function () {
-            window.UnicornStudio.init();
-          });
-        } else {
-          window.UnicornStudio.init();
-        }
-      };
-      (document.head || document.body).appendChild(i);
+      // First load — inject script
+      window.UnicornStudio = { isInitialized: false } as any;
+      const s = document.createElement("script");
+      s.src =
+        "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
+      s.onload = () => setTimeout(initUS, 50);
+      document.body.appendChild(s);
     }
   }, []);
+
   return (
     <div
       data-us-project="ssYW0pynFtz9VELi2aKl"
       style={{
-        width: "768px",
-        height: "1024px",
-        borderRadius: "12px", // Reduce border radius to show more
+        width: "100%",
+        height: "100%",
+        borderRadius: "16px",
         overflow: "hidden",
         background: "transparent",
-        margin: "100px auto 0 auto", // Move container even lower
-        paddingTop: 0,
-        paddingBottom: 0
       }}
     />
   );

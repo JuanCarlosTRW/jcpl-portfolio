@@ -3,11 +3,10 @@
 import { useEffect, useRef, type ReactNode } from "react";
 
 /**
- * ElectricBorderFrame — renders children (e.g. FounderCard) with
- * a UnicornStudio electric border effect as an absolute overlay.
- *
- * The overlay is pointer-events-none so it never blocks interaction.
- * UnicornStudio.init() is called once; it picks up all data-us-project divs.
+ * ElectricBorderFrame — renders children with a UnicornStudio
+ * electric border effect as an absolute overlay.
+ * pointer-events-none so it never blocks interaction.
+ * Re-inits UnicornStudio after a delay to pick up all data-us-project nodes.
  */
 export default function ElectricBorderFrame({
   children,
@@ -24,42 +23,33 @@ export default function ElectricBorderFrame({
     if (initialized.current) return;
     initialized.current = true;
 
-    // Delay init slightly so both UnicornStudio projects' DOM nodes exist
-    const initUS = () => {
+    // Re-init after a delay so the portrait project + this border project both exist
+    const tryInit = () => {
       if (window.UnicornStudio?.init) {
         window.UnicornStudio.init();
       }
     };
 
-    if (window.UnicornStudio?.isInitialized !== undefined) {
-      // Script already loaded — just re-init to pick up new nodes
-      setTimeout(initUS, 100);
-    } else if (!document.getElementById("unicornstudio-script-border")) {
-      // FounderUnicornProfile may have already loaded the script.
-      // Check if script tag exists with the same src.
-      const existing = document.querySelector(
-        'script[src*="unicornStudio.umd.js"]'
-      );
-      if (existing) {
-        // Script is loaded or loading — wait then init
-        setTimeout(initUS, 300);
-      } else {
-        const s = document.createElement("script");
-        s.id = "unicornstudio-script-border";
-        s.src =
-          "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
-        s.onload = () => setTimeout(initUS, 50);
-        document.body.appendChild(s);
+    // Wait for the portrait UnicornStudio to load the script first, then re-init
+    const interval = setInterval(() => {
+      if (window.UnicornStudio?.init) {
+        clearInterval(interval);
+        setTimeout(tryInit, 200);
       }
-    }
+    }, 100);
+
+    // Safety: clear after 5s
+    setTimeout(() => clearInterval(interval), 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className={`relative rounded-2xl ${className}`}>
-      {/* Children (FounderCard / portrait) */}
-      <div className="relative z-10">{children}</div>
+    <div className={`relative rounded-2xl overflow-hidden ${className}`}>
+      {/* Children (FounderCard / portrait) — fills container */}
+      <div className="relative z-10 w-full h-full">{children}</div>
 
-      {/* Electric border overlay — fills same area, does not block clicks */}
+      {/* Electric border overlay — fills same area */}
       <div
         className="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden"
         aria-hidden="true"

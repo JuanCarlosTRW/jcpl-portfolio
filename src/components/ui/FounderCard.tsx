@@ -1,19 +1,15 @@
 "use client";
 
+import FounderUnicornProfile from "./FounderUnicornProfile";
 
-import Image from "next/image";
-
+/**
+ * FounderCard — animated portrait via UnicornStudio.
+ * Fills container, transparent background, no extra chrome.
+ */
 export default function FounderCard() {
   return (
-    <div className="rounded-2xl overflow-hidden aspect-[3/4] flex flex-col items-center justify-center bg-transparent">
-      <Image
-        src="/portrait.jpg"
-        alt="Juan Carlos"
-        width={480}
-        height={640}
-        className="object-cover w-full h-full"
-        priority
-      />
+    <div className="rounded-2xl overflow-hidden aspect-[3/4] bg-transparent">
+      <FounderUnicornProfile />
     </div>
   );
 }
