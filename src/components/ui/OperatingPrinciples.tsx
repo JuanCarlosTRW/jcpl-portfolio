@@ -5,8 +5,13 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import StarBorder from "@/components/ui/StarBorder";
 
+interface Principle {
+  title: string;
+  description: string;
+}
+
 interface Props {
-  principles: string[];
+  principles: Principle[];
 }
 
 /**
@@ -36,9 +41,14 @@ export default function OperatingPrinciples({ principles }: Props) {
                   </span>
 
                   {/* Principle text */}
-                  <p className="text-[var(--text-secondary)] leading-relaxed text-base md:text-lg">
-                    {principle}
-                  </p>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-1">
+                      {principle.title}
+                    </h3>
+                    <p className="text-[var(--text-secondary)] leading-relaxed text-base md:text-lg">
+                      {principle.description}
+                    </p>
+                  </div>
                 </div>
               </StarBorder>
             </AnimatedSection>

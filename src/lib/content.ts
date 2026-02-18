@@ -607,22 +607,31 @@ export const caseStudies = [
 
 /* ─── About ─── */
 export const aboutContent = {
-  headline: "I'm Juan Carlos — Growth Partner for Service Businesses",
+  headline: "I\u2019m Juan Carlos \u2014 Growth Partner for Service Businesses",
   story: [
-    "I didn't start in marketing. I started by studying what actually makes businesses grow — then I built the systems to make it happen.",
-    "After seeing too many service business owners get burned by agencies that deliver pretty designs but zero results, I decided to do things differently.",
-    "I build complete growth systems — not isolated deliverables. Every website, every ad campaign, every AI automation I create is engineered for one outcome: more qualified booked calls on your calendar.",
+    "I didn\u2019t start in marketing. I started by studying what actually makes service businesses grow \u2014 then I built systems to make it happen.",
+    "After watching too many owners get burned by pretty deliverables with zero outcomes, I decided to operate differently.",
+    "I build complete growth systems \u2014 not isolated assets. Every piece is engineered for one outcome: more qualified booked calls on your calendar.",
   ],
   philosophy: {
     headline: "I Win When You Win",
-    body: "I don't measure success in deliverables. I measure it in revenue generated, calls booked, and markets dominated. If your business isn't growing, I haven't done my job.",
+    body: "I don\u2019t measure success in deliverables. I measure it in revenue generated, calls booked, and markets dominated. If your business isn\u2019t growing, the system isn\u2019t done.",
   },
   advantage: {
     headline: "Why Integrated Systems Beat Fragmented Freelancers",
     points: [
-      "A web designer builds you a site. A media buyer runs your ads. An SEO person optimizes keywords. A chatbot vendor sets up automation. None of them talk to each other.",
-      "I own the entire pipeline — from positioning to conversion to traffic to AI automation to booking. Every piece is built to reinforce the others.",
-      "The result: faster launches, lower costs, zero communication gaps, and a system that compounds instead of fragmenting.",
+      {
+        text: "A web designer builds your site. A media buyer runs your ads. An SEO person optimizes keywords. A chatbot vendor sets automation. None of them talk to each other.",
+        accent: false,
+      },
+      {
+        text: "I own the entire pipeline \u2014 from positioning to conversion to traffic to AI automation to booking. Every piece reinforces the others.",
+        accent: true,
+      },
+      {
+        text: "The result: faster launches, lower costs, fewer communication gaps, and a system that compounds instead of fragmenting.",
+        accent: false,
+      },
     ],
   },
 };
@@ -752,9 +761,18 @@ export const aboutTrustStrip = [
 
 /* ─── About: Operating Principles ─── */
 export const aboutPrinciples = [
-  "Revenue first — every deliverable is measured by booked calls and revenue generated.",
-  "Full-stack ownership — I own the pipeline from positioning to booking, no handoffs.",
-  "Selective partnerships — I take a limited number of clients per quarter to guarantee results.",
+  {
+    title: "Revenue first",
+    description: "Every deliverable is measured by booked calls and revenue generated.",
+  },
+  {
+    title: "Full-stack ownership",
+    description: "I own the pipeline from positioning to booking \u2014 no handoffs.",
+  },
+  {
+    title: "Selective partnerships",
+    description: "I take a limited number of clients per quarter to guarantee focus and execution.",
+  },
 ];
 
 /* ─── About: Working Model Timeline ─── */
@@ -764,21 +782,21 @@ export const aboutTimeline = [
     title: "Strategy & Foundation",
     duration: "Week 1",
     description:
-      "Deep-dive into your business, market, and goals. We define positioning, craft your offer, and map the entire growth system.",
+      "Deep-dive into your market, offer, and constraints. We define positioning and map the growth system.",
   },
   {
     phase: "Build",
     title: "System Build & Launch",
-    duration: "Weeks 2–4",
+    duration: "Weeks 2\u20134",
     description:
-      "I build your conversion website, set up ad funnels, configure AI automation, and launch everything with tracking in place.",
+      "I build the conversion website, funnel path, tracking, and automation \u2014 then launch with clarity.",
   },
   {
     phase: "Optimize",
     title: "Optimize & Scale",
     duration: "Ongoing",
     description:
-      "Continuous data-driven improvements — lowering cost per lead, improving conversion rates, and scaling what works.",
+      "We improve conversion, lower costs, and scale what works based on real performance data.",
   },
 ];
 
