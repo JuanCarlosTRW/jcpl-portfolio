@@ -52,7 +52,12 @@ export default function FounderUnicornProfile() {
       >
         <div
           data-us-project="bTc3PcQLbkD3NT7jXumo"
-          style={{ width: "768px", height: "1024px" }}
+          style={{
+            width: "768px",
+            height: "1200px", // Increased height to show more of the top
+            marginTop: "-80px", // Shift up to reveal more hair
+            objectFit: "contain"
+          }}
         />
       </div>
     </div>
