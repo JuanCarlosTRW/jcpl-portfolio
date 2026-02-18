@@ -1,7 +1,34 @@
 "use client";
-import UnicornScene from "unicornstudio-react/next";
+import { useEffect } from "react";
 
 export default function FounderUnicornProfile() {
+  // Inject UnicornStudio script and initialize on mount
+  useEffect(() => {
+    const u = window.UnicornStudio;
+    if (u && u.init) {
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+          u.init();
+        });
+      } else {
+        u.init();
+      }
+    } else {
+      window.UnicornStudio = { isInitialized: !1 };
+      const i = document.createElement("script");
+      i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
+      i.onload = function () {
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            window.UnicornStudio.init();
+          });
+        } else {
+          window.UnicornStudio.init();
+        }
+      };
+      (document.head || document.body).appendChild(i);
+    }
+  }, []);
   return (
     <div
       className="overflow-hidden w-full max-w-[768px] aspect-[3/4] mx-auto"
@@ -23,18 +50,43 @@ export default function FounderUnicornProfile() {
           justifyContent: "center",
         }}
       >
-        <UnicornScene
-          projectId="BfUPDU4SyzVD3w4unVC6"
-          sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js"
-          width="100%"
-          height="100%"
-          production={true}
-          scale={1}
-          dpi={1.5}
-          fps={60}
-          lazyLoad={true}
+        <div
+          data-us-project="bTc3PcQLbkD3NT7jXumo"
+          style={{ width: "768px", height: "1024px" }}
         />
       </div>
+    </div>
+  );
+}
+
+if (typeof window !== "undefined") {
+  // Dynamically inject UnicornStudio script and initialize
+  (function () {
+    var u = window.UnicornStudio;
+    if (u && u.init) {
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+          u.init();
+        });
+      } else {
+        u.init();
+      }
+    } else {
+      window.UnicornStudio = { isInitialized: !1 };
+      var i = document.createElement("script");
+      i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
+      i.onload = function () {
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            UnicornStudio.init();
+          });
+        } else {
+          UnicornStudio.init();
+        }
+      };
+      (document.head || document.body).appendChild(i);
+    }
+  })();
     </div>
   );
 }
