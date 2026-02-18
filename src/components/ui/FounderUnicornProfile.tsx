@@ -35,11 +35,11 @@ export default function FounderUnicornProfile() {
       style={{
         width: "768px",
         height: "1024px",
-        borderRadius: "32px",
+        borderRadius: "12px", // Reduce border radius to show more
         overflow: "hidden",
         background: "transparent",
-        margin: "40px auto 0 auto", // Move container lower
-        paddingTop: 0, // Remove any vertical padding
+        margin: "100px auto 0 auto", // Move container even lower
+        paddingTop: 0,
         paddingBottom: 0
       }}
     />
