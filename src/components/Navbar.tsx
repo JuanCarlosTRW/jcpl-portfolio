@@ -28,6 +28,7 @@ export default function Navbar() {
       colors={["transparent", "transparent"]}
       isFixed={true}
       position="right"
+      logoUrl="https://static.wixstatic.com/media/62f926_145f629a54634971b81de3e9565c7928~mv2.png"
     />
   );
 }

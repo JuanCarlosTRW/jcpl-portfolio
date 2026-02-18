@@ -418,16 +418,21 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       <header className="staggered-menu-header" aria-label="Main navigation header">
         <div className="sm-logo" aria-label="Logo">
           {logoUrl ? (
-            <img
-              src={logoUrl}
-              alt="Logo"
-              className="sm-logo-img"
-              draggable={false}
-              width={110}
-              height={24}
-            />
+            <a href="/" tabIndex={0} aria-label="Home" style={{ display: 'inline-block' }}>
+              <img
+                src={logoUrl}
+                alt="Logo"
+                className="sm-logo-img"
+                draggable={false}
+                width={110}
+                height={24}
+                style={{ cursor: 'pointer' }}
+              />
+            </a>
           ) : (
-            <span className="sm-logo-text">JC</span>
+            <a href="/" tabIndex={0} aria-label="Home" style={{ display: 'inline-block' }}>
+              <span className="sm-logo-text">JC</span>
+            </a>
           )}
         </div>
         <button
