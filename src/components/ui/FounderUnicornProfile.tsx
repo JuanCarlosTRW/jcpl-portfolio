@@ -12,12 +12,15 @@ export default function FounderUnicornProfile() {
       }}
     >
       <div
-          style={{
-            position: "absolute",
-            top: "-320px", // Increased offset to show more of the top
-            left: 0,
-            width: "100%",
-            height: "calc(100% + 320px)", // Increased height to match offset
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <UnicornScene
