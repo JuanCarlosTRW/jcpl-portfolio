@@ -1,4 +1,5 @@
 import { caseStudiesContent } from "@/lib/caseStudiesContent";
+import CaseStudiesHero from "@/components/case-studies/CaseStudiesHero";
 import SectionHeader from "@/components/ui/SectionHeader";
 import FeaturedCase from "@/components/case-studies/FeaturedCase";
 import BeforeAfterStrip from "@/components/case-studies/BeforeAfterStrip";
@@ -11,6 +12,10 @@ export default function CaseStudiesPage() {
   return (
     <div className="py-20 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
+        {/* Hero: Unicorn Studio WebGL Scene */}
+        <div className="mb-10">
+          <CaseStudiesHero />
+        </div>
         {/* Section Header */}
         <SectionHeader
           eyebrow={caseStudiesContent.eyebrow}
