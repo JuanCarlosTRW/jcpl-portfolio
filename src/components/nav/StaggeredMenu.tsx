@@ -424,9 +424,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 alt="Logo"
                 className="sm-logo-img"
                 draggable={false}
-                width={110}
-                height={24}
-                style={{ cursor: 'pointer' }}
+                width={160}
+                height={40}
+                style={{ cursor: 'pointer', maxHeight: 48, maxWidth: 180 }}
               />
             </a>
           ) : (
