@@ -5,27 +5,29 @@ import CTAButton from "@/components/ui/CTAButton";
 import { ctaCopy } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 
+const nextSteps = [
+  { step: "1", label: "Apply", description: "Fill out a short intake form." },
+  { step: "2", label: "We review fit", description: "I personally review your business within 24 hours." },
+  { step: "3", label: "Growth plan call", description: "You get a focused strategy session — no fluff." },
+];
+
+const trustItems = [
+  { icon: "⚡", text: "Response within 24 hours" },
+  { icon: "🔒", text: "100% confidential" },
+  { icon: "📋", text: "Limited spots per quarter" },
+];
+
 /**
- * AboutCTA — Final CTA section for the About page.
- * Matches the home FinalCTA style with micro-proof trust row.
+ * AboutCTA — Final CTA with 3-step "what happens next" and trust row.
  */
 export default function AboutCTA() {
   return (
     <section id="about-cta" className="relative overflow-hidden">
-      {/* Background treatment */}
+      {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(127,95,255,0.06) 0%, transparent 60%)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(180deg, var(--bg-base) 0%, rgba(10,16,32,0.6) 50%, var(--bg-base) 100%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(127,95,255,0.06) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -46,7 +48,36 @@ export default function AboutCTA() {
             </p>
           </Reveal>
 
+          {/* What happens next */}
           <Reveal delay={0.1}>
+            <div className="mb-10">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-6">
+                What happens next
+              </p>
+              <div className="flex flex-col sm:flex-row items-start justify-center gap-0">
+                {nextSteps.map((item, i) => (
+                  <div key={item.step} className="flex flex-row sm:flex-col items-start sm:items-center gap-4 sm:gap-2 flex-1">
+                    {/* Step */}
+                    <div className="flex sm:flex-row items-center gap-3 sm:gap-0 w-full sm:w-auto sm:justify-center">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--brand-accent)] text-xs font-bold text-[var(--brand-accent)]">
+                        {item.step}
+                      </span>
+                      {/* Connector arrow — only between items */}
+                      {i < nextSteps.length - 1 && (
+                        <span className="hidden sm:block flex-1 h-px border-t border-dashed border-[var(--border-soft)] w-full mx-2" aria-hidden="true" />
+                      )}
+                    </div>
+                    <div className="text-left sm:text-center pb-4 sm:pb-0 sm:px-2">
+                      <p className="text-sm font-semibold text-white">{item.label}</p>
+                      <p className="text-xs text-[var(--text-muted)] mt-0.5 leading-snug">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <CTAButton
                 href={ctaCopy.href}
@@ -68,18 +99,12 @@ export default function AboutCTA() {
 
           <Reveal delay={0.2}>
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-              {[
-                { icon: "\u26A1", text: "Response within 24 hours" },
-                { icon: "\uD83D\uDD12", text: "100% confidential" },
-                { icon: "\uD83D\uDCCB", text: "Limited spots per quarter" },
-              ].map((item) => (
+              {trustItems.map((item) => (
                 <span
                   key={item.text}
                   className="inline-flex items-center gap-1.5 text-xs text-[var(--text-muted)]"
                 >
-                  <span aria-hidden="true" className="text-[0.7rem]">
-                    {item.icon}
-                  </span>
+                  <span aria-hidden="true" className="text-[0.7rem]">{item.icon}</span>
                   {item.text}
                 </span>
               ))}

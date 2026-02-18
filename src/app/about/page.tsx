@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AboutHero from "@/components/about/AboutHero";
-import AboutProofRow from "@/components/about/AboutProofRow";
-import AboutPrinciples from "@/components/about/AboutPrinciples";
-import AboutTimeline from "@/components/about/AboutTimeline";
-import AboutPhilosophy from "@/components/about/AboutPhilosophy";
-import AboutIntegrated from "@/components/about/AboutIntegrated";
+import MetricsRow from "@/components/about/MetricsRow";
+import Principles from "@/components/about/Principles";
+import WorkTimeline from "@/components/about/WorkTimeline";
+import PhilosophyBlock from "@/components/about/PhilosophyBlock";
+import AdvantageCompare from "@/components/about/AdvantageCompare";
 import AboutCTA from "@/components/about/AboutCTA";
 
 export const metadata: Metadata = buildMetadata({
@@ -26,27 +26,27 @@ export default function AboutPage() {
 
       {/* ── Credibility / Proof Strip ── */}
       <SectionWrapper className="!py-12 md:!py-16">
-        <AboutProofRow />
+        <MetricsRow />
       </SectionWrapper>
 
       {/* ── Operating Principles (3 cards) ── */}
       <SectionWrapper className="bg-[var(--bg-surface)]/30">
-        <AboutPrinciples />
+        <Principles />
       </SectionWrapper>
 
       {/* ── Working Model Timeline ── */}
       <SectionWrapper>
-        <AboutTimeline />
+        <WorkTimeline />
       </SectionWrapper>
 
       {/* ── Philosophy Statement ── */}
       <SectionWrapper className="bg-[var(--bg-surface)]/50">
-        <AboutPhilosophy />
+        <PhilosophyBlock />
       </SectionWrapper>
 
       {/* ── Integrated vs Fragmented ── */}
       <SectionWrapper>
-        <AboutIntegrated />
+        <AdvantageCompare />
       </SectionWrapper>
 
       {/* ── Final CTA ── */}
