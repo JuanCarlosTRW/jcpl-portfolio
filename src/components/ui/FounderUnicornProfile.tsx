@@ -31,11 +31,13 @@ export default function FounderUnicornProfile() {
   }, []);
   return (
     <div
-      className="overflow-hidden w-full max-w-[768px] aspect-[3/4] mx-auto"
+      className="overflow-hidden w-full h-full"
       style={{
         borderRadius: "32px",
         background: "transparent",
         position: "relative",
+        width: "100%",
+        height: "100%",
       }}
     >
       <div
