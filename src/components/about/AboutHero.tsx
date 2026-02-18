@@ -6,7 +6,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import CTAButton from "@/components/ui/CTAButton";
 
-// import FounderCard from "@/components/ui/FounderCard";
+import FounderCard from "@/components/ui/FounderCard";
 import ElectricBorderPlaceholder from "@/components/ui/ElectricBorderPlaceholder";
 
 const trustItems = [
@@ -130,8 +130,12 @@ export default function AboutHero() {
               className="absolute inset-px z-20 pointer-events-none rounded-2xl border border-white/[0.06]"
               aria-hidden="true"
             />
-            {/* Placeholder: Electric border effect */}
-            <ElectricBorderPlaceholder width={480} height={600} className="w-full h-[360px] md:h-[480px] lg:h-[600px]" />
+            {/* FounderCard: portrait animé */}
+            <FounderCard />
+            {/* Bordure électrique en overlay, ne masque pas l'image */}
+            <div className="absolute inset-0 z-30 pointer-events-none flex items-center justify-center">
+              <ElectricBorderPlaceholder width={480} height={600} className="w-full h-full" />
+            </div>
           </div>
         </AnimatedSection>
       </div>
