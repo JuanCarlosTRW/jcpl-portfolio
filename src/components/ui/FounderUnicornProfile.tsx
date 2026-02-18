@@ -54,8 +54,8 @@ export default function FounderUnicornProfile() {
           data-us-project="bTc3PcQLbkD3NT7jXumo"
           style={{
             width: "768px",
-            height: "1200px", // Increased height to show more of the top
-            marginTop: "-80px", // Shift up to reveal more hair
+            height: "1400px", // Further increase height to show full face
+            marginTop: "100px", // Move image lower to reveal chin and hair
             objectFit: "contain"
           }}
         />
