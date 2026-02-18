@@ -1,13 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { aboutContent, ctaCopy } from "@/lib/content";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import CTAButton from "@/components/ui/CTAButton";
-
 import FounderCard from "@/components/ui/FounderCard";
-import ElectricBorderPlaceholder from "@/components/ui/ElectricBorderPlaceholder";
+import ElectricBorderFrame from "@/components/ui/ElectricBorderFrame";
 
 const trustItems = [
   { icon: "⚡", text: "Response within 24h" },
@@ -102,41 +100,12 @@ export default function AboutHero() {
         </AnimatedSection>
       </div>
 
-      {/* ── Right: Portrait (5 cols) — ANIMATION UNTOUCHED ── */}
+      {/* ── Right: Portrait (5 cols) — FounderCard + electric border frame ── */}
       <div className="lg:col-span-5">
         <AnimatedSection direction="right" delay={0.2}>
-          {/* Premium frame: CSS overlay + vignette + border */}
-          <div className="relative rounded-2xl overflow-hidden">
-            {/* Top + edge gradient overlay */}
-            <div
-              className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
-              aria-hidden="true"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(10,16,32,0.35) 0%, transparent 30%, transparent 70%, rgba(10,16,32,0.45) 100%), linear-gradient(90deg, rgba(10,16,32,0.25) 0%, transparent 15%, transparent 85%, rgba(10,16,32,0.25) 100%)",
-              }}
-            />
-            {/* Vignette mask */}
-            <div
-              className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
-              aria-hidden="true"
-              style={{
-                background:
-                  "radial-gradient(ellipse 75% 65% at 50% 45%, transparent 50%, rgba(10,16,32,0.55) 100%)",
-              }}
-            />
-            {/* Inner highlight border */}
-            <div
-              className="absolute inset-px z-20 pointer-events-none rounded-2xl border border-white/[0.06]"
-              aria-hidden="true"
-            />
-            {/* FounderCard: portrait animé */}
+          <ElectricBorderFrame>
             <FounderCard />
-            {/* Bordure électrique en overlay, ne masque pas l'image */}
-            <div className="absolute inset-0 z-30 pointer-events-none flex items-center justify-center">
-              <ElectricBorderPlaceholder width={480} height={600} className="w-full h-full" />
-            </div>
-          </div>
+          </ElectricBorderFrame>
         </AnimatedSection>
       </div>
     </div>
