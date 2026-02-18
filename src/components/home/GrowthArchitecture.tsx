@@ -1,0 +1,133 @@
+"use client";
+
+import { growthArchitecture } from "@/lib/content";
+import SectionWrapper from "@/components/ui/SectionWrapper";
+import SectionLabel from "@/components/ui/SectionLabel";
+import { Reveal } from "@/components/motion";
+
+/* ─── Pillar Icons ─── */
+const pillarIcons: Record<string, React.ReactNode> = {
+  authority: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  conversion: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  ),
+  acquisition: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  optimization: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 14.5a9 9 0 0116 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M12 14.5V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="12" cy="14.5" r="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 18v3" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeDasharray="2 2" />
+    </svg>
+  ),
+};
+
+const accentMap: Record<string, { border: string; bg: string; glow: string; text: string }> = {
+  violet: {
+    border: "rgba(127,95,255,0.2)",
+    bg: "rgba(127,95,255,0.08)",
+    glow: "rgba(127,95,255,0.12)",
+    text: "var(--brand-accent)",
+  },
+  cyan: {
+    border: "rgba(51,204,255,0.2)",
+    bg: "rgba(51,204,255,0.08)",
+    glow: "rgba(51,204,255,0.12)",
+    text: "var(--brand-alt)",
+  },
+};
+
+export default function GrowthArchitecture() {
+  return (
+    <SectionWrapper id="system">
+      <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
+        <SectionLabel label={growthArchitecture.label} className="mb-5" />
+        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+          {growthArchitecture.headline}
+        </h2>
+        <p className="mt-5 text-[var(--text-secondary)] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+          {growthArchitecture.subheadline}
+        </p>
+      </Reveal>
+
+      <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
+        {growthArchitecture.pillars.map((pillar, i) => {
+          const colors = accentMap[pillar.accent];
+          return (
+            <Reveal key={pillar.id} delay={0.08 * i}>
+              <div
+                className="group relative rounded-2xl p-[1px] h-full transition-all duration-500"
+                style={{
+                  background: `linear-gradient(135deg, ${colors.border}, transparent 60%)`,
+                }}
+              >
+                <div className="relative rounded-2xl bg-[var(--bg-surface)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-500 group-hover:bg-[var(--bg-elevated)]">
+                  {/* Hover glow */}
+                  <div
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-24 pointer-events-none blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                    style={{
+                      background: `radial-gradient(ellipse at center, ${colors.glow} 0%, transparent 70%)`,
+                    }}
+                    aria-hidden="true"
+                  />
+
+                  {/* Icon */}
+                  <div
+                    className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300"
+                    style={{
+                      background: colors.bg,
+                      border: `1px solid ${colors.border}`,
+                      color: colors.text,
+                    }}
+                  >
+                    {pillarIcons[pillar.id]}
+                  </div>
+
+                  {/* Title + Subtitle */}
+                  <h3 className="text-lg font-bold text-white mb-1 leading-snug">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-sm text-[var(--text-muted)] mb-5">
+                    {pillar.subtitle}
+                  </p>
+
+                  {/* Points */}
+                  <ul className="space-y-2.5 mt-auto">
+                    {pillar.points.map((point, j) => (
+                      <li key={j} className="flex items-start gap-2.5 text-sm text-[var(--text-secondary)]">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          aria-hidden="true"
+                          className="shrink-0 mt-0.5"
+                        >
+                          <circle cx="8" cy="8" r="7" stroke={colors.border} strokeWidth="1" />
+                          <path d="M5 8l2 2 4-4" stroke={colors.text} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+    </SectionWrapper>
+  );
+}

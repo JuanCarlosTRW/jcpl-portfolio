@@ -26,9 +26,9 @@ export const ctaCopy = {
 
 /* ─── Hero ─── */
 export const hero = {
-  headline: "I Build Growth Systems That Fill Your Calendar",
+  headline: "Growth Systems That Fill Your Calendar",
   subheadline:
-    "Premium acquisition systems for service businesses — conversion websites, paid funnels, SEO/GEO, and AI automation that generate qualified booked calls.",
+    "Conversion websites, paid funnels, and AI automation — engineered as one system to generate qualified booked calls for service businesses.",
   rotatingNiches: [
     "Barbershops",
     "RV Rentals",
@@ -118,7 +118,182 @@ export const resultsPreview = {
   ],
 };
 
-/* ─── Why Work With Me ─── */
+/* ─── Section B: Client Reality (Pain Bullets) ─── */
+export const clientReality = {
+  label: "The Reality",
+  headline: "Most Service Businesses Don\u2019t Have a Growth System",
+  subheadline: "They have a collection of disconnected tactics that leak money every month.",
+  pains: [
+    {
+      icon: "ghost",
+      title: "Invisible Online",
+      detail: "Clients search. You don\u2019t appear. Competitors take every call you should have owned.",
+    },
+    {
+      icon: "leak",
+      title: "Visitors Don\u2019t Convert",
+      detail: "Your site gets traffic but no one books. No trust signals, no clear next step, no follow-up.",
+    },
+    {
+      icon: "scatter",
+      title: "Scattered Vendors",
+      detail: "A web designer here, an ad buyer there. Nobody owns the outcome. You coordinate everything.",
+    },
+    {
+      icon: "clock",
+      title: "Revenue Left on the Table",
+      detail: "Every week without a system is revenue you\u2019ll never recover. The compounding cost is real.",
+    },
+  ],
+};
+
+/* ─── Section C: Strategic Gap (Truth Blocks) ─── */
+export const strategicGap = {
+  label: "The Insight",
+  headline: "The Problem Isn\u2019t Traffic. It\u2019s Architecture.",
+  truths: [
+    {
+      heading: "More ads won\u2019t fix a broken funnel.",
+      body: "If your website doesn\u2019t convert, paid traffic just burns faster. The issue is never volume alone \u2014 it\u2019s the system behind it.",
+    },
+    {
+      heading: "A pretty website isn\u2019t a growth asset.",
+      body: "Design without strategy is decoration. Every page, every element must drive one outcome: a qualified booked call.",
+    },
+    {
+      heading: "Disconnected tools create disconnected results.",
+      body: "When your site, ads, SEO, and follow-up don\u2019t talk to each other, leads slip through the cracks. Architecture beats tactics.",
+    },
+  ],
+};
+
+/* ─── Section D: The Growth Architecture (Framework Cards) ─── */
+export const growthArchitecture = {
+  label: "The System",
+  headline: "The Growth Architecture\u2122",
+  subheadline: "Four integrated layers that turn online presence into predictable revenue.",
+  pillars: [
+    {
+      id: "authority",
+      title: "Authority Layer",
+      subtitle: "Be found. Be trusted.",
+      points: [
+        "Conversion-engineered website",
+        "SEO & AI search (GEO) optimization",
+        "Professional positioning & copy",
+      ],
+      accent: "violet",
+    },
+    {
+      id: "conversion",
+      title: "Conversion Layer",
+      subtitle: "Turn visitors into booked calls.",
+      points: [
+        "Trust signals & social proof",
+        "Frictionless booking flow",
+        "AI qualification chatbot",
+      ],
+      accent: "cyan",
+    },
+    {
+      id: "acquisition",
+      title: "Acquisition Layer",
+      subtitle: "Drive qualified demand.",
+      points: [
+        "Google Ads with intent targeting",
+        "Retargeting & follow-up sequences",
+        "Landing pages per service/location",
+      ],
+      accent: "violet",
+    },
+    {
+      id: "optimization",
+      title: "Optimization Layer",
+      subtitle: "Compound results monthly.",
+      points: [
+        "Conversion rate optimization",
+        "Cost per lead reduction",
+        "Monthly reporting & scaling",
+      ],
+      accent: "cyan",
+    },
+  ],
+};
+
+/* ─── Section E: Featured Case Study ─── */
+export const featuredCase = {
+  label: "Proof",
+  headline: "Real Results. Real Revenue.",
+  slug: "rv-rental-texas",
+  client: "RV Rental Company \u2014 Texas",
+  result: "$20,000",
+  resultLabel: "in confirmed bookings",
+  timeframe: "First 30 days",
+  method: "Full Google Ads funnel + conversion landing pages",
+  supporting: [
+    { metric: "3x", label: "Online bookings increase" },
+    { metric: "<30", label: "Days to first qualified leads" },
+    { metric: "40%", label: "New client booking growth" },
+  ],
+  cta: "View All Case Studies",
+};
+
+/* ─── Section F: How We Work (Process) ─── */
+export const howWeWork = {
+  label: "The Process",
+  headline: "Three Phases. One Outcome.",
+  subheadline: "Every engagement follows the same proven structure.",
+  steps: [
+    {
+      number: "01",
+      title: "Diagnose",
+      description: "We audit your current presence, identify the highest-leverage bottleneck, and map the full growth system before writing a single line of code.",
+      duration: "Week 1",
+    },
+    {
+      number: "02",
+      title: "Engineer",
+      description: "We build the complete system \u2014 website, ads, AI automation, booking flow \u2014 as one integrated architecture. No handoffs. No fragmentation.",
+      duration: "Weeks 2\u20134",
+    },
+    {
+      number: "03",
+      title: "Scale",
+      description: "Continuous data-driven optimization: lower cost per lead, higher conversion rates, and compounding returns every month.",
+      duration: "Ongoing",
+    },
+  ],
+};
+
+/* ─── Section G: Differentiation ─── */
+export const differentiation = {
+  label: "The Difference",
+  headline: "This Isn\u2019t Freelance Work",
+  subheadline: "It\u2019s a growth partnership with one owner, one system, and one outcome metric.",
+  comparisons: [
+    { dimension: "Ownership", them: "5+ vendors \u2014 you coordinate everything", us: "One partner owns the entire pipeline" },
+    { dimension: "Speed", them: "8\u201312 weeks, stalled handoffs", us: "2\u20134 weeks, unified execution" },
+    { dimension: "Accountability", them: "Everyone points elsewhere", us: "One owner, one outcome metric" },
+    { dimension: "Lead Quality", them: "No feedback loop between channels", us: "Built-in qualification and scoring" },
+    { dimension: "Reporting", them: "Scattered dashboards, no attribution", us: "Single report, full-funnel visibility" },
+    { dimension: "Cost of Delay", them: "Months lost to misalignment", us: "Compounding returns from week one" },
+  ],
+};
+
+/* ─── Section H: Qualification + Final CTA ─── */
+export const qualification = {
+  forYouIf: [
+    "You run a service business that depends on booked appointments",
+    "You\u2019re generating $5K+/month and ready to invest in growth",
+    "You want one integrated system \u2014 not five disconnected freelancers",
+    "You\u2019re serious about dominating your local market",
+  ],
+  notForYouIf: [
+    "You\u2019re looking for a quick logo or one-off landing page",
+    "Your business is under $5K/month revenue",
+    "You want to \u201Ctry a few ads\u201D without committing to a system",
+  ],
+};
 export const whySection = {
   label: "The Advantage",
   headline: "One Integrated Partner. Not Five Disconnected Freelancers.",
