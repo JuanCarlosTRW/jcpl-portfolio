@@ -1,77 +1,105 @@
-import { caseStudiesContent } from "@/lib/caseStudiesContent";
+import Link from "next/link";
+import { caseStudies } from "@/lib/caseStudiesContent";
 import CaseStudiesHero from "@/components/case-studies/CaseStudiesHero";
-import SectionHeader from "@/components/ui/SectionHeader";
-import FeaturedCase from "@/components/case-studies/FeaturedCase";
-import BeforeAfterStrip from "@/components/case-studies/BeforeAfterStrip";
-import EvidenceArtifacts from "@/components/case-studies/EvidenceArtifacts";
-import CaseCard from "@/components/case-studies/CaseCard";
-import ObjectionNote from "@/components/ui/ObjectionNote";
-import SelectiveCTA from "@/components/ui/SelectiveCTA";
 
 export default function CaseStudiesPage() {
   return (
-    <div className="py-20 md:py-32">
-      <div className="mx-auto max-w-5xl px-6">
-        {/* Title and Hero: Unicorn Studio WebGL Scene */}
-        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-6 mt-8">My Results</h2>
-        <div className="mb-10 mt-8">
-          <CaseStudiesHero />
-        </div>
-        {/* Section Header */}
-        <SectionHeader
-          eyebrow={caseStudiesContent.eyebrow}
-          title={caseStudiesContent.title}
-          subtitle={caseStudiesContent.subtitle}
-        />
-
-        {/* Featured Case */}
-        <FeaturedCase {...caseStudiesContent.featuredCase} />
-
-        {/* Before/After Strip */}
-        <BeforeAfterStrip data={caseStudiesContent.featuredCase.beforeAfter} />
-
-        {/* What Changed */}
-        <div className="my-12 md:my-16">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-[var(--brand-accent)] mb-4">
-            What Changed
-          </h3>
-          <ul className="space-y-2">
-            {caseStudiesContent.featuredCase.whatChanged.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                <span className="w-2 h-2 mt-2 rounded-full bg-[var(--brand-accent)] flex-shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Evidence Artifacts */}
-        <EvidenceArtifacts artifacts={caseStudiesContent.featuredCase.artifacts} />
-
-        {/* Secondary Cases */}
-        <div className="my-16">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] mb-8">
-            More Results
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {caseStudiesContent.secondaryCases.map((c, i) => (
-              <CaseCard key={i} {...c} />
-            ))}
-          </div>
-        </div>
-
-        {/* Objection-safe note */}
-        <ObjectionNote>{caseStudiesContent.disclaimer}</ObjectionNote>
-
-        {/* Selective CTA */}
-        <div className="mt-16 md:mt-24">
-          <SelectiveCTA
-            label={caseStudiesContent.cta.label}
-            href={caseStudiesContent.cta.href}
-            note={caseStudiesContent.cta.note}
-          />
-        </div>
+    <main style={{ background: "#0E0E0F", minHeight: "100vh" }}>
+      {/* Header */}
+      <div className="pt-24 md:pt-32 pb-6 px-6 text-center">
+        <span className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--brand-accent)] mb-4 block">
+          Case Evidence
+        </span>
+        <h1
+          className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4"
+          style={{ letterSpacing: "-0.025em" }}
+        >
+          My Results
+        </h1>
+        <p className="text-base md:text-lg text-white/50 max-w-xl mx-auto">
+          Every engagement below is a real system built for a real business. No mockups. No hypotheticals.
+        </p>
       </div>
-    </div>
+
+      {/* Unicorn Studio WebGL Hero */}
+      <CaseStudiesHero />
+
+      {/* Case Study Card Grid */}
+      <section className="px-6 py-16 md:py-24 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {caseStudies.map((study) => (
+            <Link
+              key={study.slug}
+              href={`/case-studies/${study.slug}`}
+              className="group block rounded-2xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.07)",
+              }}
+            >
+              {/* Hover glow */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at 50% 0%, rgba(127,95,255,0.10) 0%, transparent 70%)",
+                }}
+              />
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[var(--brand-accent)] border border-[var(--brand-accent)]/30 px-3 py-1 rounded-full">
+                    {study.label}
+                  </span>
+                  <span className="text-xs text-white/30 group-hover:text-white/60 transition-colors">→</span>
+                </div>
+                <div className="text-xs font-medium uppercase tracking-widest text-white/30 mb-2">
+                  {study.industry} · {study.location}
+                </div>
+                <h3
+                  className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight"
+                  style={{ letterSpacing: "-0.02em" }}
+                >
+                  {study.headline}
+                </h3>
+                <p className="text-sm text-white/50 leading-relaxed mb-8">
+                  {study.subtext}
+                </p>
+                {/* Key metrics */}
+                <div className="flex flex-wrap gap-3">
+                  {study.results.metrics.slice(0, 2).map((m) => (
+                    <div
+                      key={m.label}
+                      className="rounded-xl px-4 py-2"
+                      style={{
+                        background: "rgba(127,95,255,0.08)",
+                        border: "1px solid rgba(127,95,255,0.15)",
+                      }}
+                    >
+                      <div className="text-base font-bold text-white">{m.value}</div>
+                      <div className="text-xs text-white/40">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Disclaimer */}
+        <p className="mt-12 text-center text-xs text-white/25 max-w-lg mx-auto leading-relaxed">
+          All results are client-reported and independently verified. Your results will vary based on market, offer, and execution quality.
+        </p>
+
+        {/* CTA */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/apply"
+            className="inline-flex items-center gap-2 bg-white text-[#0E0E0F] font-bold text-sm px-8 py-4 rounded-full hover:bg-white/90 transition-all hover:scale-[1.02]"
+          >
+            Apply for Growth Strategy Call
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
