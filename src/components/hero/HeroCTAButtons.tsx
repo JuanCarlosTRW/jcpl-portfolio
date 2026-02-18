@@ -1,64 +1,60 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { ctaCopy } from "@/lib/content";
-import { ArrowRight, CheckCircle } from "lucide-react";
 
 export default function HeroCTAButtons() {
-  // Pulse animation on mount (one-time)
-  const primaryRef = useRef<HTMLAnchorElement>(null);
-  useEffect(() => {
-    if (!primaryRef.current) return;
-    primaryRef.current.classList.add("animate-hero-cta-pulse");
-    const timeout = setTimeout(() => {
-      primaryRef.current?.classList.remove("animate-hero-cta-pulse");
-    }, 900);
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
-    <div className="w-full flex flex-col sm:flex-row gap-6 mt-8">
-      {/* Primary Premium CTA */}
-      <a
-        ref={primaryRef}
-        href={ctaCopy.href}
-        className="group relative flex-1 min-w-[220px] px-10 py-5 rounded-xl font-bold text-xl text-white bg-gradient-to-r from-violet-600 via-cyan-400 to-blue-500 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 flex items-center justify-center"
-        style={{ boxShadow: "0 4px 32px 0 rgba(80,0,255,0.18)" }}
-        data-analytics="hero-cta"
-      >
-        <span className="flex items-center gap-3">
-          {ctaCopy.primary}
-          <ArrowRight className="text-2xl group-hover:translate-x-1 transition-transform" />
-        </span>
-        {/* Trust badge */}
-        <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-xs bg-black bg-opacity-80 px-4 py-1 rounded-full text-white font-semibold shadow-md border border-cyan-400 flex items-center gap-2">
-          <CheckCircle className="text-cyan-400 text-base" />
-          Response in 24h · 100% confidential
-        </span>
-      </a>
-      {/* Secondary CTA */}
-      <a
-        href="/case-studies"
-        className="flex-1 min-w-[200px] px-10 py-5 rounded-xl border border-cyan-400 text-cyan-400 font-semibold text-lg bg-black bg-opacity-60 hover:bg-cyan-400 hover:text-white transition-all duration-200 flex items-center gap-3 justify-center shadow-md"
-        data-analytics="hero-secondary-cta"
-        style={{ position: "relative" }}
-      >
-        <CheckCircle className="text-xl" />
-        {ctaCopy.secondary}
-      </a>
-      <style jsx global>{`
-        @media (prefers-reduced-motion: reduce) {
-          .group:hover .group-hover\:translate-x-1 {
-            transform: none !important;
-          }
-        }
-        @keyframes hero-cta-pulse {
-          0% { box-shadow: 0 0 0 12px rgba(128,0,255,0.32), 0 8px 32px 0 rgba(80,0,255,0.22); }
-          100% { box-shadow: 0 0 0 4px rgba(128,0,255,0.18), 0 4px 32px 0 rgba(80,0,255,0.18); }
-        }
-        .animate-hero-cta-pulse {
-          animation: hero-cta-pulse 0.9s cubic-bezier(.4,0,.2,1) 1;
-        }
-      `}</style>
+    <div className="w-full mt-2 space-y-5">
+      {/* ── Row 1: Buttons ── */}
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+        {/* Primary */}
+        <a
+          href="/apply"
+          className="
+            inline-flex items-center justify-center
+            h-14 sm:h-[58px] px-7 rounded-2xl
+            font-semibold text-[17px] text-white
+            bg-gradient-to-r from-violet-500 to-cyan-500
+            shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_40px_rgba(124,58,237,0.18)]
+            hover:translate-y-[-1px]
+            hover:shadow-[0_0_0_1px_rgba(255,255,255,0.10),0_18px_55px_rgba(124,58,237,0.22)]
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70
+            active:scale-[0.98]
+            transition-all duration-200
+          "
+          data-analytics="hero-cta"
+        >
+          Apply for Growth Partnership&nbsp;&rarr;
+        </a>
+
+        {/* Secondary */}
+        <a
+          href="/case-studies"
+          className="
+            inline-flex items-center justify-center
+            h-14 sm:h-[58px] px-7 rounded-2xl
+            font-semibold text-[17px] text-white/90
+            bg-transparent border border-white/[0.12]
+            hover:border-white/20 hover:bg-white/[0.05] hover:translate-y-[-1px]
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/40
+            active:scale-[0.98]
+            transition-all duration-200
+          "
+          data-analytics="hero-secondary-cta"
+        >
+          See Case Studies
+        </a>
+      </div>
+
+      {/* ── Row 2: Trust row ── */}
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/65">
+        <span className="inline-flex items-center gap-1.5">⚡ Response in 24h</span>
+        <span className="inline-flex items-center gap-1.5">🔒 100% confidential</span>
+        <span className="inline-flex items-center gap-1.5">🧩 Limited spots per quarter</span>
+      </div>
+
+      {/* ── Row 3: Microcopy ── */}
+      <p className="text-sm text-white/50">
+        2-minute application · if I don&apos;t see a clear ROI path, I&apos;ll tell you.
+      </p>
     </div>
   );
 }
