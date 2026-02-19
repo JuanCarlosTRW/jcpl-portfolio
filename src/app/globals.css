@@ -122,36 +122,6 @@ body::before {
 }
 
 /* ═══════════════════════════════════════════════════
-   HERO SCRIM — Luxury glass panel for readability
-   Stronger on mobile where beam competes with text
-   ═══════════════════════════════════════════════════ */
-
-.hero-scrim {
-  background: linear-gradient(
-    135deg,
-    rgba(10, 16, 32, 0.78) 0%,
-    rgba(10, 16, 32, 0.52) 100%
-  );
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-}
-
-/* Mobile: stronger scrim for readability over beam */
-@media (max-width: 767px) {
-  .hero-scrim {
-    background: linear-gradient(
-      135deg,
-      rgba(10, 16, 32, 0.88) 0%,
-      rgba(10, 16, 32, 0.72) 100%
-    );
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-}
-
-/* ═══════════════════════════════════════════════════
    TYPOGRAPHY SCALE (fluid with clamp)
    Mobile → Desktop
    ═══════════════════════════════════════════════════ */
