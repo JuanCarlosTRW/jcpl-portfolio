@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { caseStudies } from "@/lib/caseStudiesContent";
 import CaseStudiesHero from "@/components/case-studies/CaseStudiesHero";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Proof of Work",
+  description: "Real systems built for real businesses. See the results.",
+};
 
 export default function CaseStudiesPage() {
   return (
@@ -14,7 +20,7 @@ export default function CaseStudiesPage() {
           className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4"
           style={{ letterSpacing: "-0.025em" }}
         >
-          My Results
+          Proof of Work
         </h1>
         <p className="text-base md:text-lg text-white/50 max-w-xl mx-auto">
           Every engagement below is a real system built for a real business. No mockups. No hypotheticals.

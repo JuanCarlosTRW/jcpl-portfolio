@@ -13,7 +13,7 @@ export const siteConfig = {
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Results", href: "/case-studies" },
   { label: "About", href: "/about" },
 ] as const;
 
@@ -327,7 +327,7 @@ export const servicesHero = {
   headline: "Turn inconsistent leads into a predictable booking system.",
   subheadline:
     "Positioning + conversion architecture + acquisition — engineered as a system.",
-  primaryCTA: "Apply (2 min)",
+  primaryCTA: "Apply for Growth Partnership →",
   secondaryCTA: "View Case Studies",
   trustItems: [
     "Response within 24h",
@@ -764,10 +764,10 @@ export function isQualifiedLead(data: Record<string, string>): boolean {
 
 /* ─── About: Trust Strip ─── */
 export const aboutTrustStrip = [
-  { metric: "6+", label: "Systems shipped" },
+  { metric: "6+", label: "Systems built" },
   { metric: "2–4 wks", label: "Typical launch timeline" },
   { metric: "4", label: "Niches served" },
-  { metric: "3", label: "Active systems running" },
+  { metric: "3", label: "Active partnerships" },
 ];
 
 /* ─── About: Operating Principles ─── */
@@ -782,7 +782,7 @@ export const aboutPrinciples = [
   },
   {
     title: "Selective partnerships",
-    description: "Max 3 active clients per quarter to protect focus and execution quality.",
+    description: "Max 3 active partnerships per quarter. Focus is the product.",
   },
 ];
 

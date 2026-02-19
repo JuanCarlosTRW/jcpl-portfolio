@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
 import './StaggeredMenu.css';
 
@@ -44,6 +45,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   onMenuClose,
 }) => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const openRef = useRef(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const preLayersRef = useRef<HTMLDivElement | null>(null);
@@ -390,19 +392,26 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             data-numbering={displayItemNumbering || undefined}
           >
             {items && items.length ? (
-              items.map((it, idx) => (
-                <li className="sm-panel-itemWrap" key={it.label + idx}>
-                  <a
-                    className="sm-panel-item"
-                    href={it.link}
-                    aria-label={it.ariaLabel}
-                    data-index={idx + 1}
-                    onClick={closeMenu}
-                  >
-                    <span className="sm-panel-itemLabel">{it.label}</span>
-                  </a>
-                </li>
-              ))
+              items.map((it, idx) => {
+                const isActive = pathname === it.link;
+                return (
+                  <li className="sm-panel-itemWrap" key={it.label + idx}>
+                    <a
+                      className="sm-panel-item"
+                      href={it.link}
+                      aria-label={it.ariaLabel}
+                      data-index={idx + 1}
+                      onClick={closeMenu}
+                      style={isActive ? {
+                        color: '#2563EB',
+                        borderBottom: '2px solid #2563EB',
+                      } : undefined}
+                    >
+                      <span className="sm-panel-itemLabel">{it.label}</span>
+                    </a>
+                  </li>
+                );
+              })
             ) : (
               <li className="sm-panel-itemWrap" aria-hidden="true">
                 <span className="sm-panel-item">
@@ -431,7 +440,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             </a>
           ) : (
             <a href="/" tabIndex={0} aria-label="Home" style={{ display: 'inline-block' }}>
-              <span className="sm-logo-text">JC</span>
+              <span className="sm-logo-text">Client Growth</span>
             </a>
           )}
         </div>

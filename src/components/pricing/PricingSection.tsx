@@ -70,24 +70,10 @@ export default function PricingSection() {
               eventName="services_final_cta_click"
               className="shrink-0"
             >
-              Request trial
+              Request Custom Plan
             </CTAButton>
           </div>
         </Reveal>
-      </SectionWrapper>
-
-      {/* ═══ COMPARISON TABLE ═══ */}
-      <SectionWrapper>
-        <div className="max-w-5xl mx-auto">
-          <PricingComparisonTable />
-        </div>
-      </SectionWrapper>
-
-      {/* ═══ ADD-ONS TABLE ═══ */}
-      <SectionWrapper variant="surface">
-        <div className="max-w-5xl mx-auto">
-          <AddOnsTable />
-        </div>
       </SectionWrapper>
 
       {/* ═══ FAQ ═══ */}

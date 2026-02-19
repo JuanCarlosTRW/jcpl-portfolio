@@ -9,10 +9,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-3">
             <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold text-white">
-              JC <span className="text-xs font-medium text-[#8899BB]">Growth Systems</span>
+              Client Growth
             </Link>
             <p className="text-sm text-[#8899BB] max-w-xs leading-relaxed">
-              {siteConfig.description}
+              One partner. One system. One outcome — qualified calls on autopilot.
             </p>
           </div>
 
@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-[rgba(37,99,235,0.15)] text-center text-xs text-[#8899BB]">
-          © {new Date().getFullYear()} Juan Carlos. All rights reserved.
+          © {new Date().getFullYear()} Client Growth. All rights reserved.
         </div>
       </div>
     </footer>
