@@ -1,19 +1,21 @@
 import Link from "next/link";
 import { caseStudies } from "@/lib/caseStudiesContent";
 import CaseStudiesHero from "@/components/case-studies/CaseStudiesHero";
+import { buildMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Proof of Work",
-  description: "Real systems built for real businesses. See the results.",
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Case Studies — Real Systems, Real Revenue",
+  description: "Real growth systems built for real service businesses. See measurable results across Google Ads, web design, SEO, and AI automation.",
+  path: "/case-studies",
+});
 
 export default function CaseStudiesPage() {
   return (
     <main style={{ background: "#0E0E0F", minHeight: "100vh" }}>
       {/* Header */}
       <div className="pt-24 md:pt-32 pb-6 px-6 text-center">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--brand-accent)] mb-4 block">
+        <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#2563EB] mb-4 block">
           Case Evidence
         </span>
         <h1
@@ -48,12 +50,12 @@ export default function CaseStudiesPage() {
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
                   background:
-                    "radial-gradient(ellipse at 50% 0%, rgba(127,95,255,0.10) 0%, transparent 70%)",
+                    "radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.10) 0%, transparent 70%)",
                 }}
               />
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[var(--brand-accent)] border border-[var(--brand-accent)]/30 px-3 py-1 rounded-full">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] border border-[#2563EB]/30 px-3 py-1 rounded-full">
                     {study.label}
                   </span>
                   <span className="text-xs text-white/30 group-hover:text-white/60 transition-colors">→</span>
@@ -77,8 +79,8 @@ export default function CaseStudiesPage() {
                       key={m.label}
                       className="rounded-xl px-4 py-2"
                       style={{
-                        background: "rgba(127,95,255,0.08)",
-                        border: "1px solid rgba(127,95,255,0.15)",
+                        background: "rgba(37,99,235,0.08)",
+                        border: "1px solid rgba(37,99,235,0.20)",
                       }}
                     >
                       <div className="text-base font-bold text-white">{m.value}</div>

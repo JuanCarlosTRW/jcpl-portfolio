@@ -97,7 +97,7 @@ export default function ApplyForm() {
           <span className="gradient-text">Growth System</span>
         </h1>
         <p className="text-lg text-[var(--text-3)] mb-4">
-          Answer a few quick questions so I can understand your business and
+          Answer a few quick questions so we can understand your business and
           goals. If we&apos;re a fit, you&apos;ll be able to book a strategy
           call right away.
         </p>
@@ -105,13 +105,16 @@ export default function ApplyForm() {
         {/* Time + privacy + SLA strip */}
         <div className="flex flex-wrap items-center gap-4 text-xs text-[var(--text-muted)] mb-10">
           <span className="flex items-center gap-1.5">
-            <span aria-hidden="true">⏱</span> ~2 minutes to complete
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3"/><path d="M8 5v3.5l2 1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
+            ~2 minutes to complete
           </span>
           <span className="flex items-center gap-1.5">
-            <span aria-hidden="true">🔒</span> 100% confidential
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/><path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
+            100% confidential
           </span>
           <span className="flex items-center gap-1.5">
-            <span aria-hidden="true">⚡</span> Response within 24 hours
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" fill="none"/></svg>
+            Response within 24 hours
           </span>
         </div>
 

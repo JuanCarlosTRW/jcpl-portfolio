@@ -14,7 +14,7 @@ export default function Principles() {
       <AnimatedSection className="text-center mb-10">
         <SectionLabel label="Operating Principles" className="mb-3" />
         <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-          How I Operate
+          How We Operate
         </h2>
       </AnimatedSection>
 

@@ -7,6 +7,33 @@ import { Reveal } from "@/components/motion";
 import GuaranteesStrip from "./GuaranteesStrip";
 import PaymentTrustRow from "./PaymentTrustRow";
 
+function TrustIcon({ icon }: { icon: string }) {
+  if (icon === "lightning") {
+    return (
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+        <path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+  if (icon === "lock") {
+    return (
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+        <rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+        <path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+        <circle cx="8" cy="11" r="1" fill="currentColor"/>
+      </svg>
+    );
+  }
+  // clipboard
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
 export default function ServicesFinalCTA() {
   return (
     <section
@@ -83,9 +110,7 @@ export default function ServicesFinalCTA() {
                   key={item.text}
                   className="inline-flex items-center gap-1.5 text-xs text-[#8899BB]"
                 >
-                  <span aria-hidden="true" className="text-[0.7rem]">
-                    {item.icon}
-                  </span>
+                  <TrustIcon icon={item.icon} />
                   {item.text}
                 </span>
               ))}

@@ -27,7 +27,7 @@ const faqData = [
   {
     question: "How is this different from hiring an agency?",
     answer:
-      "Agencies fragment work across siloed teams. I own the entire pipeline — strategy, website, ads, AI, booking. No coordination tax, no finger-pointing. One system, one accountable owner.",
+      "Agencies fragment work across siloed teams. We own the entire pipeline — strategy, website, ads, AI, booking. No coordination tax, no finger-pointing. One system, one accountable owner.",
   },
   {
     question: "What if it doesn't work?",

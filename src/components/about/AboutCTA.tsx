@@ -11,10 +11,36 @@ const nextSteps = [
   { step: "3", label: "Growth plan call", description: "Focused strategy session — no fluff." },
 ];
 
+function LightningIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" fill="none" />
+    </svg>
+  );
+}
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <circle cx="8" cy="11" r="1" fill="currentColor"/>
+    </svg>
+  );
+}
+function ClipboardIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
 const trustItems = [
-  { icon: "⚡", text: "Response within 24 hours" },
-  { icon: "🔒", text: "100% confidential" },
-  { icon: "📋", text: "Limited spots per quarter" },
+  { Icon: LightningIcon, text: "Response within 24 hours" },
+  { Icon: LockIcon, text: "100% confidential" },
+  { Icon: ClipboardIcon, text: "Limited spots per quarter" },
 ];
 
 /**
@@ -48,7 +74,7 @@ export default function AboutCTA() {
               we&apos;re a fit.
             </p>
             <p className="text-sm text-[#2563EB] font-medium mt-3 mb-8">
-              If I don&apos;t see a clear path to ROI, I&apos;ll tell you.
+              If we don&apos;t see a clear path to ROI, we&apos;ll tell you.
             </p>
           </Reveal>
 
@@ -105,13 +131,13 @@ export default function AboutCTA() {
           {/* Trust row — improved legibility */}
           <Reveal delay={0.16}>
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-2">
-              {trustItems.map((item) => (
+              {trustItems.map(({ Icon, text }) => (
                 <span
-                  key={item.text}
+                  key={text}
                   className="inline-flex items-center gap-1.5 text-[0.72rem] text-[var(--text-secondary)] tracking-wide"
                 >
-                  <span aria-hidden="true" className="text-[0.65rem]">{item.icon}</span>
-                  {item.text}
+                  <Icon />
+                  {text}
                 </span>
               ))}
             </div>

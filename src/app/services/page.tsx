@@ -6,7 +6,7 @@ import "@/styles/services.css";
 export const metadata: Metadata = buildMetadata({
   title: "Services — Growth Systems for Service Businesses",
   description:
-    "Three clear service tiers to get you online, fill your calendar, and dominate your local market. Foundation, Growth, and Scale packages.",
+    "Three clear service tiers to get you online, fill your calendar, and dominate your local market. Foundation, Growth, and Scale packages — engineered as one system.",
   path: "/services",
 });
 

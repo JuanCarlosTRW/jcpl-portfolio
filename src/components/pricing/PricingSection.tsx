@@ -27,10 +27,10 @@ export default function PricingSection() {
             className="font-extrabold text-white tracking-tight"
             style={{ fontSize: "clamp(2.25rem, 5vw + 0.5rem, 3.5rem)", lineHeight: 1.1 }}
           >
-            Pricing
+            Choose Your Growth Stage
           </h2>
           <p className="mt-4 text-[var(--text-secondary)] text-lg max-w-xl mx-auto">
-            Pick the plan that matches your growth stage.
+            Pick the plan that matches where you are — and where you want to be.
           </p>
         </Reveal>
 

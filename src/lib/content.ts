@@ -1,19 +1,19 @@
 /* ─── Centralized Content & Copy ─── */
 
 export const siteConfig = {
-  name: "Juan Carlos",
+  name: "Client Growth",
   title: "Growth Systems for Service Businesses",
-  url: "https://juancarlos.dev",
+  url: "https://clientgrowth.ca",
   description:
-    "I build premium acquisition systems for service businesses — conversion websites, paid funnels, SEO/GEO, and AI automation to generate qualified booked calls.",
+    "We build premium acquisition systems for service businesses — conversion websites, paid funnels, SEO/GEO, and AI automation to generate qualified booked calls.",
   ogImage: "/og.png",
-  twitterHandle: "@juancarlostrw",
+  twitterHandle: "@clientgrowthca",
 };
 
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Results", href: "/case-studies" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
 ] as const;
 
@@ -301,22 +301,22 @@ export const whySection = {
     {
       title: "Strategy + Execution Under One Roof",
       description:
-        "No more juggling a web designer, an ad agency, an SEO person, and a chatbot vendor. I own the entire pipeline.",
+        "No more juggling a web designer, an ad agency, an SEO person, and a chatbot vendor. We own the entire pipeline.",
     },
     {
       title: "Built for Service Businesses",
       description:
-        "I specialize in barbershops, RV rentals, dental practices, and local services. I know your clients, your margins, and your growth levers.",
+        "We specialize in barbershops, RV rentals, dental practices, and local services. We know your clients, your margins, and your growth levers.",
     },
     {
       title: "Revenue-Focused, Not Deliverable-Focused",
       description:
-        "I don't hand you a pretty website and disappear. Every piece I build is measured by booked calls and revenue generated.",
+        "We don't hand you a pretty website and disappear. Every piece we build is measured by booked calls and revenue generated.",
     },
     {
       title: "AI-Native From Day One",
       description:
-        "Your competitors aren't optimizing for AI search or using AI receptionists yet. That's your window — and I help you seize it.",
+        "Your competitors aren't optimizing for AI search or using AI receptionists yet. That's your window — and we help you seize it.",
     },
   ],
 };
@@ -467,7 +467,7 @@ export const servicesProof = {
 
 /* ─── Services: Process Steps ─── */
 export const servicesProcess = {
-  headline: "A simple process.",
+  headline: "Three Phases. One Outcome.",
   steps: [
     {
       number: "01",
@@ -503,23 +503,23 @@ export const servicesFAQ = [
   },
   {
     question: "What do you need from me?",
-    answer: "Clear goals, timely feedback, and access to existing assets (if any). I handle the heavy lifting \u2014 you stay focused on running your business.",
+    answer: "Clear goals, timely feedback, and access to existing assets (if any). We handle the heavy lifting — you stay focused on running your business.",
   },
   {
     question: "Any contracts or lock-in?",
-    answer: "No long-term contracts. Engagements are milestone-based and transparent. You stay because it works, not because you\u2019re locked in.",
+    answer: "No long-term contracts. Engagements are milestone-based and transparent. You stay because it works, not because you're locked in.",
   },
   {
-    question: "What if it\u2019s not a fit?",
-    answer: "If we\u2019re not a fit, you\u2019ll get honest feedback and recommendations \u2014 no hard sell. I\u2019d rather pass than deliver subpar work.",
+    question: "What if it's not a fit?",
+    answer: "If we're not a fit, you'll get honest feedback and recommendations — no hard sell. We'd rather pass than deliver subpar work.",
   },
   {
     question: "How do you measure success?",
-    answer: "Pipeline metrics, conversion rates, and ROI \u2014 not vanity stats. Every engagement includes tracking from day one.",
+    answer: "Pipeline metrics, conversion rates, and ROI — not vanity stats. Every engagement includes tracking from day one.",
   },
   {
     question: "What happens after I apply?",
-    answer: "You\u2019ll receive a short qualification review within 24 hours. If we\u2019re aligned, I\u2019ll send you a link to book a strategy call.",
+    answer: "You'll receive a short qualification review within 24 hours. If we're aligned, we'll send you a link to book a strategy call.",
   },
 ];
 
@@ -607,8 +607,8 @@ export const caseStudies = [
 
 /* ─── About ─── */
 export const aboutContent = {
-  headline: "I\u2019m Juan Carlos \u2014 Growth Partner for Service Businesses",
-  subhead: "I build systems that turn attention into booked calls.",
+  headline: "Juan Carlos — Growth Partner for Service Businesses",
+  subhead: "We build systems that turn attention into booked calls.",
   mechanism: [
     "Positioning → funnel path → traffic → automation → booking.",
     "No handoffs. No disconnected freelancers. One operator owns the outcome.",
@@ -619,13 +619,13 @@ export const aboutContent = {
     "Traffic + automation (so it compounds)",
   ],
   story: [
-    "I didn\u2019t start in marketing. I started by studying what actually makes service businesses grow \u2014 then I built systems to make it happen.",
-    "After watching too many owners get burned by pretty deliverables with zero outcomes, I decided to operate differently.",
-    "I build complete growth systems \u2014 not isolated assets. Every piece is engineered for one outcome: more qualified booked calls on your calendar.",
+    "Client Growth didn't start with a pitch deck. It started by studying what actually makes service businesses grow — then building the systems to make it happen.",
+    "After watching too many owners get burned by pretty deliverables with zero outcomes, we decided to operate differently.",
+    "We build complete growth systems — not isolated assets. Every piece is engineered for one outcome: more qualified booked calls on your calendar.",
   ],
   philosophy: {
-    headline: "I Win When You Win",
-    body: "I don\u2019t measure success in deliverables. I measure it in revenue generated, calls booked, and markets dominated. If your business isn\u2019t growing, the system isn\u2019t done.",
+    headline: "We Win When You Win",
+    body: "We don't measure success in deliverables. We measure it in revenue generated, calls booked, and markets dominated. If your business isn't growing, the system isn't done.",
   },
   advantage: {
     headline: "Why Integrated Systems Beat Fragmented Freelancers",
@@ -635,7 +635,7 @@ export const aboutContent = {
         accent: false,
       },
       {
-        text: "I own the entire pipeline \u2014 from positioning to conversion to traffic to AI automation to booking. Every piece reinforces the others.",
+        text: "We own the entire pipeline — from positioning to conversion to traffic to AI automation to booking. Every piece reinforces the others.",
         accent: true,
       },
       {
@@ -778,7 +778,7 @@ export const aboutPrinciples = [
   },
   {
     title: "Full-stack ownership",
-    description: "I own the path end-to-end: positioning → booking. No handoffs.",
+    description: "We own the path end-to-end: positioning → booking. No handoffs.",
   },
   {
     title: "Selective partnerships",
@@ -801,7 +801,7 @@ export const aboutTimeline = [
     title: "System Build & Launch",
     duration: "Weeks 2–4",
     description:
-      "I build the conversion website, funnel path, tracking, and automation — then launch with clarity.",
+      "We build the conversion website, funnel path, tracking, and automation — then launch with clarity.",
     deliverables: "Website + funnel • automation • analytics live",
   },
   {
@@ -892,9 +892,9 @@ export const servicesFinalCTA = {
   primary: "Apply (2 min)",
   secondary: "View Case Studies",
   trustBadges: [
-    { icon: "\u26A1", text: "Response within 24 hours" },
-    { icon: "\uD83D\uDD12", text: "100% confidential" },
-    { icon: "\uD83D\uDCCB", text: "Limited spots per quarter" },
+    { icon: "lightning", text: "Response within 24 hours" },
+    { icon: "lock", text: "100% confidential" },
+    { icon: "clipboard", text: "Limited spots per quarter" },
   ],
 };
 

@@ -24,7 +24,7 @@ export default function OperatingPrinciples({ principles }: Props) {
       <AnimatedSection className="max-w-3xl mx-auto">
         <SectionLabel label="Operating Principles" className="mb-6" />
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">
-          How I Operate
+          How We Operate
         </h2>
 
         <div className="space-y-5">

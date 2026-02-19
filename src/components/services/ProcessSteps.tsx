@@ -2,12 +2,14 @@
 
 import { servicesProcess } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 
 export default function ProcessSteps() {
   return (
     <SectionWrapper id="process" variant="surface">
       <Reveal className="text-center mb-12">
+        <SectionLabel label="The Process" className="mb-4" />
         <h2 className="text-2xl md:text-3xl font-bold text-white">
           {servicesProcess.headline}
         </h2>

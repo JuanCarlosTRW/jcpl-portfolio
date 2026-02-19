@@ -46,14 +46,23 @@ export default function HeroCTAButtons() {
 
       {/* ── Row 2: Trust row ── */}
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/65">
-        <span className="inline-flex items-center gap-1.5">⚡ Response in 24h</span>
-        <span className="inline-flex items-center gap-1.5">🔒 100% confidential</span>
-        <span className="inline-flex items-center gap-1.5">🧩 Limited spots per quarter</span>
+        <span className="inline-flex items-center gap-1.5">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/></svg>
+          Response in 24h
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/><path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
+          100% confidential
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/><path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/><path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
+          Limited spots per quarter
+        </span>
       </div>
 
       {/* ── Row 3: Microcopy ── */}
       <p className="text-sm text-white/50">
-        2-minute application · if I don&apos;t see a clear ROI path, I&apos;ll tell you.
+        2-minute application · if we don&apos;t see a clear ROI path, we&apos;ll tell you.
       </p>
     </div>
   );
