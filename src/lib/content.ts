@@ -13,7 +13,7 @@ export const siteConfig = {
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Results", href: "/case-studies" },
+  { label: "Results", href: "/results" },
   { label: "About", href: "/about" },
 ] as const;
 

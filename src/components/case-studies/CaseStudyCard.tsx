@@ -1,17 +1,24 @@
 "use client";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CaseStudy } from "@/content/caseStudies";
 import FrozenWebsitePreview from "./FrozenWebsitePreview";
 
 export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
+  const router = useRouter();
+
+  const handleNavigate = () => {
+    router.push(`/results/${cs.caseStudySlug}`);
+  };
+
   return (
     <div className="bg-[#0F2049] border border-[rgba(37,99,235,0.12)] rounded-2xl overflow-hidden transition-colors duration-300 hover:border-[rgba(37,99,235,0.35)]">
-      {/* Preview */}
+      {/* Preview — clicks navigate to detail page */}
       <FrozenWebsitePreview
         logoUrl={cs.logoUrl}
         websiteUrl={cs.websiteUrl}
         title={cs.title}
         metricsImageUrl={cs.metricsImageUrl}
+        onClickOverride={handleNavigate}
       />
 
       {/* Card body */}
@@ -46,29 +53,24 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
 
         {/* CTA row */}
         <div className="flex gap-2.5 flex-wrap">
-          {(cs.websiteUrl || cs.metricsImageUrl) && (
+          {cs.websiteUrl && (
             <button
               type="button"
               className="bg-[#2563EB] text-white px-4 py-2 rounded-md text-[13px] font-semibold hover:bg-[#1D4ED8] transition-all duration-200"
               onClick={() =>
-                window.open(
-                  cs.websiteUrl || cs.metricsImageUrl,
-                  "_blank",
-                  "noopener,noreferrer"
-                )
+                window.open(cs.websiteUrl!, "_blank", "noopener,noreferrer")
               }
             >
-              {cs.websiteUrl ? "View Live Website →" : "View Metrics →"}
+              View Live Website →
             </button>
           )}
-          {cs.caseStudySlug && (
-            <Link
-              href={`/case-studies/${cs.caseStudySlug}`}
-              className="border border-[rgba(255,255,255,0.15)] text-[rgba(255,255,255,0.7)] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium hover:border-[rgba(37,99,235,0.5)] hover:text-white transition-all duration-200"
-            >
-              View Case Study
-            </Link>
-          )}
+          <button
+            type="button"
+            className="border border-[rgba(255,255,255,0.15)] text-[rgba(255,255,255,0.7)] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium hover:border-[rgba(37,99,235,0.5)] hover:text-white transition-all duration-200"
+            onClick={handleNavigate}
+          >
+            View Case Study
+          </button>
         </div>
       </div>
     </div>

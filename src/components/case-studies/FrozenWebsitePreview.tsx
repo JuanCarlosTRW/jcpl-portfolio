@@ -6,6 +6,7 @@ interface FrozenWebsitePreviewProps {
   websiteUrl: string | null;
   title: string;
   metricsImageUrl?: string;
+  onClickOverride?: () => void;
 }
 
 export default function FrozenWebsitePreview({
@@ -13,6 +14,7 @@ export default function FrozenWebsitePreview({
   websiteUrl,
   title,
   metricsImageUrl,
+  onClickOverride,
 }: FrozenWebsitePreviewProps) {
   const hostname = websiteUrl
     ? (() => {
@@ -25,6 +27,10 @@ export default function FrozenWebsitePreview({
     : "clientgrowth.ca";
 
   const handleClick = () => {
+    if (onClickOverride) {
+      onClickOverride();
+      return;
+    }
     if (websiteUrl) {
       window.open(websiteUrl, "_blank", "noopener,noreferrer");
     } else if (metricsImageUrl) {
@@ -32,12 +38,14 @@ export default function FrozenWebsitePreview({
     }
   };
 
+  const isClickable = !!(onClickOverride || websiteUrl || metricsImageUrl);
+
   return (
     <button
       type="button"
       aria-label={websiteUrl ? `View ${title} website` : `View ${title} metrics`}
       onClick={handleClick}
-      className="group relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.08)] bg-[#080F1F] cursor-pointer focus:outline-none focus-visible:outline-2 focus-visible:outline-[#2563EB] focus-visible:outline-offset-2 transition"
+      className={`group relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.08)] bg-[#080F1F] focus:outline-none focus-visible:outline-2 focus-visible:outline-[#2563EB] focus-visible:outline-offset-2 transition ${isClickable ? "cursor-pointer" : "cursor-default"}`}
     >
       {/* Browser chrome bar */}
       <div className="absolute top-0 left-0 right-0 h-9 flex items-center px-3 bg-[#0D1526] border-b border-[rgba(255,255,255,0.06)] z-10">
@@ -72,10 +80,14 @@ export default function FrozenWebsitePreview({
       </div>
 
       {/* Hover overlay */}
-      <div className="absolute inset-0 bg-[rgba(6,13,31,0.75)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
-      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-[#2563EB] text-white px-5 py-2.5 rounded-full text-[13px] font-semibold opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-300 pointer-events-none">
-        {websiteUrl ? "View Live →" : "View Metrics →"}
-      </span>
+      {isClickable && (
+        <>
+          <div className="absolute inset-0 bg-[rgba(6,13,31,0.75)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-[#2563EB] text-white px-5 py-2.5 rounded-full text-[13px] font-semibold opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-300 pointer-events-none">
+            {websiteUrl ? "View Live →" : "View Metrics →"}
+          </span>
+        </>
+      )}
     </button>
   );
 }
