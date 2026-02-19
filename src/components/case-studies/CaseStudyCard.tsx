@@ -16,9 +16,10 @@ export default function CaseStudyCard({ caseStudy, onOpenPreview }: Props) {
   return (
     <div className="bg-[#0A1628] border border-white/10 rounded-3xl p-6 flex flex-col gap-4">
       <PreviewFrame
-        poster={caseStudy.preview.poster}
+        title={caseStudy.title}
         domain={domain || ""}
-        onOpenPreview={onOpenPreview}
+        screenshotUrl={caseStudy.preview.poster}
+        onOpen={onOpenPreview}
       />
       <div className="text-xs uppercase tracking-[0.12em] text-[#2563EB] font-semibold mt-2">
         {caseStudy.industry}
