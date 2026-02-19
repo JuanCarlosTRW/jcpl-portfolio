@@ -1,108 +1,50 @@
 import UnicornHeroBackground from "./UnicornHeroBackground";
-import { Button } from "../ui/Button";
-import { CheckCircle, Clock, Shield, Sparkles } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden min-h-[92vh] flex items-center">
-      {/* Beam/scene background (untouched) */}
+      {/* Beam/scene background — UNTOUCHED */}
       <UnicornHeroBackground />
 
-      {/* Scrim: left-side gradient for readability — no glass card */}
-      <div
-        className="
-          pointer-events-none
-          absolute inset-0 z-[5]
-          bg-gradient-to-r
-          from-black/80 via-black/50 to-transparent
-          md:from-black/70 md:via-black/40
-        "
-        aria-hidden="true"
-      />
-
-      {/* Content grid: left = text, right = beam breathing room */}
-      <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-[minmax(0,600px)_1fr] max-w-7xl mx-auto px-5 sm:px-8 md:px-12 py-16 md:py-0">
-        {/* LEFT COLUMN: Content (no card, clean left text) */}
-        <div className="flex flex-col justify-center items-start max-w-[600px] w-full py-10 md:py-20">
+      {/* Content: strict left alignment, no overlays on beam */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+        <div className="flex flex-col justify-center items-start max-w-[540px] py-16 md:py-24">
           {/* Overline */}
-          <div className="flex items-center gap-3 mb-5">
-            <span className="block w-7 h-px bg-cyan-400/60" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/55">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="block w-8 h-px bg-white/30" />
+            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">
               For Service Businesses
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-[3.5rem] font-bold leading-[1.02] tracking-[-0.03em] text-white mb-5 max-w-[20ch] [text-wrap:balance] drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
-            Growth Systems Built to Book Qualified Calls.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[0.95] tracking-[-0.02em] text-white mb-6">
+            Predictable Qualified Calls.
+            <br />
+            On Autopilot.
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-[46ch] leading-[1.5] mb-8">
-            Conversion website, paid acquisition, and AI automation—engineered as one system to turn traffic into booked calls.
+          <p className="text-base sm:text-lg md:text-xl text-white/75 max-w-[42ch] leading-[1.5] mb-10">
+            We build and manage the complete system that turns traffic into consistent booked calls.
           </p>
 
-          {/* Bullets */}
-          <ul className="mb-8 space-y-3">
-            <li className="flex items-start gap-2.5 text-[15px] text-white/90 leading-snug">
-              <CheckCircle className="w-[18px] h-[18px] text-cyan-400 mt-0.5 shrink-0" />
-              Conversion site + offer that attracts your ideal clients
-            </li>
-            <li className="flex items-start gap-2.5 text-[15px] text-white/90 leading-snug">
-              <CheckCircle className="w-[18px] h-[18px] text-cyan-400 mt-0.5 shrink-0" />
-              Paid ads with transparent ROI tracking
-            </li>
-            <li className="flex items-start gap-2.5 text-[15px] text-white/90 leading-snug">
-              <CheckCircle className="w-[18px] h-[18px] text-cyan-400 mt-0.5 shrink-0" />
-              Automated follow-up so no lead slips through
-            </li>
-          </ul>
-
-          {/* CTA Block */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 w-full sm:w-auto">
-            <Button
-              variant="primary"
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+            <a
               href="/apply"
-              className="!rounded-full !px-7 !py-3.5 text-base font-semibold shadow-lg hover:-translate-y-0.5 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-cyan-400 active:translate-y-0 transition-all"
+              className="inline-flex items-center justify-center rounded-full bg-violet-600 hover:bg-violet-500 px-7 py-3.5 text-base font-semibold text-white shadow-sm hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all motion-reduce:transition-none motion-reduce:hover:transform-none"
             >
               Apply Now
-              <span className="ml-1.5 text-[11px] font-normal opacity-75">(2 min)</span>
-            </Button>
-            <Button
-              variant="secondary"
+            </a>
+            <a
               href="/case-studies"
-              className="!rounded-full !px-7 !py-3.5 text-base font-semibold border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent hover:bg-white/5 hover:border-white/30 px-7 py-3.5 text-base font-semibold text-white transition-all hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none motion-reduce:hover:transform-none"
             >
               View Case Studies
-            </Button>
+            </a>
           </div>
-
-          {/* Trust row */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] text-white/70 font-medium mb-2.5">
-            <span className="inline-flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-cyan-400/80" />
-              Response in 24h
-            </span>
-            <span className="w-px h-3 bg-white/15" />
-            <span className="inline-flex items-center gap-1.5">
-              <Shield className="w-3.5 h-3.5 text-cyan-400/80" />
-              100% confidential
-            </span>
-            <span className="w-px h-3 bg-white/15" />
-            <span className="inline-flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400/80" />
-              Limited spots per quarter
-            </span>
-          </div>
-
-          {/* Microcopy */}
-          <p className="text-[13px] text-white/50 leading-relaxed">
-            2-minute application — if there&apos;s no clear ROI path, I&apos;ll tell you.
-          </p>
         </div>
-
-        {/* RIGHT COLUMN: Empty — beam breathes here */}
-        <div className="hidden md:block" aria-hidden="true" />
       </div>
     </section>
   );
