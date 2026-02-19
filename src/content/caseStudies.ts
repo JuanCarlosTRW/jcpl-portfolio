@@ -1,80 +1,85 @@
 export type CaseStudy = {
   id: string;
-  slug: string;
   title: string;
   industry: string;
-  summary: string;
+  outcome: string;
   metrics: { label: string; value: string }[];
-  liveUrl: string;
-  preview: {
-    type: "iframe" | "image";
-    poster: string;
-  };
+  websiteUrl: string | null;
+  logoUrl: string;
+  metricsImageUrl?: string;
+  caseStudySlug?: string;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: "01",
-    slug: "elitebyhadi",
-    title: "Elite by Hadi",
-    industry: "Beauty Studio",
-    summary: "Booked out with premium site + paid ads.",
+    id: "elite-barbershop",
+    title: "Elite Barbershop",
+    industry: "Premium Barbershop",
+    outcome: "Full digital presence built from zero.",
     metrics: [
-      { label: "Booked Clients", value: "90+" },
-      { label: "Ad Spend", value: "$350" },
+      { label: "Launch time", value: "2 weeks" },
+      { label: "Channels", value: "SEO + Ads" },
     ],
-    liveUrl: "https://elitebyhadi.com",
-    preview: {
-      type: "iframe",
-      poster: "/case-studies/previews/elitebyhadi.jpg",
-    },
+    websiteUrl: "https://elitebyhadi.com/fr/",
+    logoUrl:
+      "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/ChatGPT_Image_6_janv._2026_17_33_55.png?v=1767738915",
+    caseStudySlug: "elite-barbershop",
   },
   {
-    id: "02",
-    slug: "culturemtl",
-    title: "Culture MTL",
-    industry: "Event Venue",
-    summary: "Doubled bookings with new site + Google Ads.",
+    id: "absolute-painting",
+    title: "Absolute Painting",
+    industry: "Home Services",
+    outcome: "Conversion website + quote funnel launched.",
     metrics: [
-      { label: "Bookings", value: "2x" },
-      { label: "SEO Rank", value: "#1" },
+      { label: "Funnel", value: "Quote → Call" },
+      { label: "Stack", value: "Ads + Landing" },
     ],
-    liveUrl: "https://culturemtl.ca",
-    preview: {
-      type: "iframe",
-      poster: "/case-studies/previews/culturemtl.jpg",
-    },
+    websiteUrl: "https://absolutepainting.vercel.app/quote",
+    logoUrl:
+      "https://static.wixstatic.com/media/62f926_58438d6814374c1b81421512d6762ad0~mv2.png",
+    caseStudySlug: "absolute-painting",
   },
   {
-    id: "03",
-    slug: "triplew",
+    id: "culture-barbershop",
+    title: "Culture Barbershop",
+    industry: "Barbershop — Montreal",
+    outcome: "Brand positioning + full acquisition system.",
+    metrics: [
+      { label: "Market", value: "Montreal" },
+      { label: "System", value: "Full stack" },
+    ],
+    websiteUrl: "https://culturemtl.ca",
+    logoUrl:
+      "https://static.wixstatic.com/media/62f926_ca6524ec96fe4822a3da0d0481995989~mv2.png",
+    caseStudySlug: "culture-barbershop",
+  },
+  {
+    id: "triple-w-rentals",
     title: "Triple W Rentals",
-    industry: "RV Rentals",
-    summary: "$20,000 in first 30 days.",
+    industry: "RV Rental — Texas",
+    outcome: "$20,000 in confirmed bookings within 30 days.",
     metrics: [
       { label: "Revenue", value: "$20,000" },
-      { label: "Bookings", value: "30+" },
+      { label: "Timeline", value: "30 days" },
     ],
-    liveUrl: "",
-    preview: {
-      type: "image",
-      poster: "/case-studies/previews/triplew.jpg",
-    },
+    websiteUrl: null,
+    logoUrl:
+      "https://static.wixstatic.com/media/62f926_5c14016a71f74c77a7eedfa86309eadd~mv2.jpg",
+    metricsImageUrl:
+      "https://static.wixstatic.com/media/62f926_5c7a609ac5c143e48028810fda21af82~mv2.png",
   },
   {
-    id: "04",
-    slug: "centredentairese",
-    title: "Centre Dentaire SE",
+    id: "centre-dentaire-saint-elzear",
+    title: "Centre Dentaire Saint-Élzéar",
     industry: "Dental Clinic",
-    summary: "100+ new patients in 60 days.",
+    outcome: "Premium patient acquisition system live.",
     metrics: [
-      { label: "New Patients", value: "100+" },
-      { label: "Conversion Rate", value: "18%" },
+      { label: "Funnel", value: "Ads → Booking" },
+      { label: "Stack", value: "Full system" },
     ],
-    liveUrl: "https://as.centredentairese.com",
-    preview: {
-      type: "iframe",
-      poster: "/case-studies/previews/centredentairese.jpg",
-    },
+    websiteUrl: "https://as.centredentairese.com",
+    logoUrl:
+      "https://static.wixstatic.com/media/62f926_4ff81d541b9d494985f403570c94e828~mv2.png",
+    caseStudySlug: "centre-dentaire-saint-elzear",
   },
 ];
