@@ -3,22 +3,22 @@ import { navigation, siteConfig } from "@/lib/content";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--border-soft)] bg-[var(--bg-base)]">
+    <footer className="border-t border-[rgba(37,99,235,0.15)] bg-[#030812]">
       <div className="container py-10 md:py-14">
         <div className="grid gap-8 md:gap-10 md:grid-cols-3">
           {/* Brand */}
           <div className="space-y-3">
-            <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
-              JC <span className="text-xs font-medium text-[var(--text-muted)]">Growth Systems</span>
+            <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold text-white">
+              JC <span className="text-xs font-medium text-[#8899BB]">Growth Systems</span>
             </Link>
-            <p className="text-sm text-[var(--text-muted)] max-w-xs leading-relaxed">
+            <p className="text-sm text-[#8899BB] max-w-xs leading-relaxed">
               {siteConfig.description}
             </p>
           </div>
 
           {/* Navigation */}
           <div className="space-y-3">
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)]">
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-[#8899BB]">
               Navigation
             </h4>
             <ul className="space-y-2">
@@ -26,7 +26,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                    className="text-sm text-[#E8EDF5] transition-colors hover:text-[#2563EB]"
                   >
                     {item.label}
                   </Link>
@@ -37,14 +37,14 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="space-y-3">
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)]">
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-[#8899BB]">
               Legal
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link 
                   href="#" 
-                  className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                  className="text-sm text-[#E8EDF5] transition-colors hover:text-[#2563EB]"
                 >
                   Privacy Policy
                 </Link>
@@ -52,7 +52,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="#" 
-                  className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                  className="text-sm text-[#E8EDF5] transition-colors hover:text-[#2563EB]"
                 >
                   Terms of Service
                 </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-[var(--border-soft)] text-center text-xs text-[var(--text-muted)]">
+        <div className="mt-8 pt-6 border-t border-[rgba(37,99,235,0.15)] text-center text-xs text-[#8899BB]">
           © {new Date().getFullYear()} Juan Carlos. All rights reserved.
         </div>
       </div>

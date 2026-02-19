@@ -2,7 +2,7 @@ import UnicornHeroBackground from "./UnicornHeroBackground";
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden min-h-[92vh] flex items-center">
+    <section className="relative isolate overflow-hidden min-h-[92vh] flex items-center bg-[#060D1F]">
       {/* Beam/scene background — UNTOUCHED */}
       <UnicornHeroBackground />
 
@@ -12,7 +12,7 @@ export default function Hero() {
           {/* Overline */}
           <div className="flex items-center gap-3 mb-6">
             <span className="block w-8 h-px bg-white/30" />
-            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">
+            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#8899BB]">
               For Service Businesses
             </span>
           </div>
@@ -25,7 +25,7 @@ export default function Hero() {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base sm:text-lg md:text-xl text-white/75 max-w-[42ch] leading-[1.5] mb-10">
+          <p className="text-base sm:text-lg md:text-xl text-[#E8EDF5] max-w-[42ch] leading-[1.5] mb-10">
             We build and manage the complete system that turns traffic into consistent booked calls.
           </p>
 
@@ -33,13 +33,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
             <a
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-violet-600 hover:bg-violet-500 px-7 py-3.5 text-base font-semibold text-white shadow-sm hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all motion-reduce:transition-none motion-reduce:hover:transform-none"
+              className="inline-flex items-center justify-center rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] px-7 py-3.5 text-base font-semibold text-white shadow-sm hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060D1F] transition-all motion-reduce:transition-none motion-reduce:hover:transform-none"
             >
               Apply Now
             </a>
             <a
               href="/case-studies"
-              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent hover:bg-white/5 hover:border-white/30 px-7 py-3.5 text-base font-semibold text-white transition-all hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none motion-reduce:hover:transform-none"
+              className="inline-flex items-center justify-center rounded-full border border-white/30 bg-transparent hover:bg-white/5 hover:border-white/40 px-7 py-3.5 text-base font-semibold text-white transition-all hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060D1F] motion-reduce:transition-none motion-reduce:hover:transform-none"
             >
               View Case Studies
             </a>

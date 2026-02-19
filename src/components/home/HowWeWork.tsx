@@ -7,13 +7,13 @@ import { Reveal } from "@/components/motion";
 
 export default function HowWeWork() {
   return (
-    <SectionWrapper id="process">
+    <SectionWrapper id="process" className="bg-[#060D1F]">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-        <SectionLabel label={howWeWork.label} className="mb-5" />
+        <SectionLabel label={howWeWork.label} className="mb-5 text-[#8899BB]" />
         <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {howWeWork.headline}
         </h2>
-        <p className="mt-5 text-[var(--text-secondary)] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-[#E8EDF5] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           {howWeWork.subheadline}
         </p>
       </Reveal>
@@ -23,8 +23,7 @@ export default function HowWeWork() {
         <div
           className="hidden md:block absolute left-[39px] top-8 bottom-8 w-px"
           style={{
-            background:
-              "linear-gradient(180deg, rgba(127,95,255,0.3) 0%, rgba(51,204,255,0.3) 50%, rgba(127,95,255,0.1) 100%)",
+            background: "rgba(37,99,235,0.3)",
           }}
           aria-hidden="true"
         />
@@ -37,14 +36,13 @@ export default function HowWeWork() {
                   {/* Step number badge */}
                   <div className="relative shrink-0">
                     <div
-                      className="flex h-[78px] w-[78px] items-center justify-center rounded-2xl border transition-all duration-400 group-hover:border-[rgba(127,95,255,0.3)]"
+                      className="flex h-[78px] w-[78px] items-center justify-center rounded-2xl border transition-all duration-400 group-hover:border-[rgba(37,99,235,0.3)]"
                       style={{
-                        background:
-                          "linear-gradient(135deg, var(--bg-surface), var(--bg-elevated))",
-                        borderColor: "rgba(255,255,255,0.08)",
+                        background: "#0F2049",
+                        borderColor: "rgba(37,99,235,0.3)",
                       }}
                     >
-                      <span className="text-2xl font-bold text-[var(--brand-accent)] tabular-nums">
+                      <span className="text-2xl font-bold text-[#2563EB] tabular-nums">
                         {step.number}
                       </span>
                     </div>
@@ -56,11 +54,11 @@ export default function HowWeWork() {
                       <h3 className="text-xl md:text-2xl font-bold text-white leading-snug">
                         {step.title}
                       </h3>
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-alt)] bg-[rgba(51,204,255,0.08)] px-2.5 py-1 rounded-full border border-[rgba(51,204,255,0.12)]">
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2563EB] bg-[rgba(37,99,235,0.15)] px-2.5 py-1 rounded-full border border-[rgba(37,99,235,0.3)]">
                         {step.duration}
                       </span>
                     </div>
-                    <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-lg">
+                    <p className="text-sm text-[#8899BB] leading-relaxed max-w-lg">
                       {step.description}
                     </p>
                   </div>

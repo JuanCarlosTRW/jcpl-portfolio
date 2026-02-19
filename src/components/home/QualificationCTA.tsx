@@ -8,8 +8,8 @@ import { Reveal } from "@/components/motion";
 function CheckIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <circle cx="9" cy="9" r="8" stroke="rgba(34,197,94,0.3)" strokeWidth="1" />
-      <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="rgba(34,197,94,0.9)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="9" cy="9" r="8" stroke="rgba(37,99,235,0.3)" strokeWidth="1" />
+      <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -25,13 +25,13 @@ function XIcon() {
 
 export default function QualificationCTA() {
   return (
-    <section id="qualify" className="relative overflow-hidden">
+    <section id="qualify" className="relative overflow-hidden bg-[#060D1F]">
       {/* Background treatment */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(127,95,255,0.06) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.06) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -39,7 +39,7 @@ export default function QualificationCTA() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, var(--bg-base) 0%, rgba(10,16,32,0.6) 50%, var(--bg-base) 100%)",
+            "linear-gradient(180deg, #060D1F 0%, rgba(6,13,31,0.6) 50%, #060D1F 100%)",
         }}
         aria-hidden="true"
       />
@@ -50,14 +50,14 @@ export default function QualificationCTA() {
           <Reveal>
             <div className="grid gap-6 md:grid-cols-2 mb-16">
               {/* For You If */}
-              <div className="rounded-2xl border border-[rgba(34,197,94,0.12)] bg-[var(--bg-surface)] p-7 md:p-8">
+              <div className="rounded-2xl border border-[rgba(37,99,235,0.2)] bg-[#0F2049] p-7 md:p-8">
                 <h3 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
-                  <span className="text-[rgba(34,197,94,0.8)]">✓</span>
+                  <span className="text-[#2563EB]">✓</span>
                   This Is for You If…
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-[var(--text-secondary)] leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-sm text-[#E8EDF5] leading-relaxed">
                       <CheckIcon />
                       {item}
                     </li>
@@ -66,14 +66,14 @@ export default function QualificationCTA() {
               </div>
 
               {/* Not For You If */}
-              <div className="rounded-2xl border border-[rgba(239,68,68,0.08)] bg-[var(--bg-surface)] p-7 md:p-8">
+              <div className="rounded-2xl border border-[rgba(239,68,68,0.2)] bg-[#0F2049] p-7 md:p-8">
                 <h3 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
-                  <span className="text-[rgba(239,68,68,0.7)]">✕</span>
+                  <span className="text-[#EF4444]">✕</span>
                   This Is Not for You If…
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.notForYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-[var(--text-muted)] leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-sm text-[#8899BB] leading-relaxed">
                       <XIcon />
                       {item}
                     </li>
@@ -88,11 +88,11 @@ export default function QualificationCTA() {
             <Reveal>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5">
                 Your Pipeline Won&apos;t{" "}
-                <span className="bg-gradient-to-r from-[#7f5fff] to-[#33ccff] bg-clip-text text-transparent">
+                <span className="text-[#2563EB]">
                   Build Itself
                 </span>
               </h2>
-              <p className="text-[var(--text-secondary)] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
+              <p className="text-[#E8EDF5] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
                 Apply for a strategy call. We&apos;ll review your business,
                 identify the highest-leverage growth opportunities, and determine
                 if we&apos;re the right fit.
@@ -129,9 +129,9 @@ export default function QualificationCTA() {
                 ].map((item) => (
                   <span
                     key={item.text}
-                    className="inline-flex items-center gap-1.5 text-xs text-[var(--text-muted)]"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#8899BB]"
                   >
-                    <span aria-hidden="true" className="text-[0.7rem]">
+                    <span aria-hidden="true" className="text-[0.7rem] text-[#2563EB]">
                       {item.icon}
                     </span>
                     {item.text}

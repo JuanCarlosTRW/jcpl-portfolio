@@ -38,39 +38,40 @@
   --beam-duration: 4s;          /* Laser animation cycle */
   --hit-delay: 0.18s;           /* Panel hit reaction delay */
 
-  /* ─── BACKGROUND SYSTEM ─── */
-  --bg-base: #0a1020;
-  --bg-surface: #0e1530;
-  --bg-elevated: #131a3a;
-  --bg-soft: #182044;
+  /* ─── BACKGROUND SYSTEM (Institutional Authority) ─── */
+  --bg-base: #060D1F;
+  --bg-surface: #0F2049;
+  --bg-elevated: #0D1B3E;
+  --bg-soft: #0F2049;
+  --bg-footer: #030812;
 
   /* ─── TEXT ─── */
-  --text-primary: #f0f0f8;
-  --text-secondary: #c8c8e0;
-  --text-muted: #8888b0;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E8EDF5;
+  --text-muted: #8899BB;
 
-  /* ─── BRAND ACCENTS ─── */
-  --brand-accent: #7f5fff;
-  --brand-deep: #5a3fd6;
-  --brand-alt: #33ccff;
-  --brand-subtle: #4a3a8a;
-  --brand-heritage: #6655aa;
-  --brand-strong: #6644cc;
+  /* ─── BRAND ACCENTS (Electric Blue) ─── */
+  --brand-accent: #2563EB;
+  --brand-deep: #1D4ED8;
+  --brand-alt: #2563EB;
+  --brand-subtle: rgba(37, 99, 235, 0.15);
+  --brand-heritage: #2563EB;
+  --brand-strong: #2563EB;
 
   /* ─── SEMANTIC ─── */
-  --color-success: #33ccff;
-  --color-danger: #D36B6B;
+  --color-success: #2563EB;
+  --color-danger: #EF4444;
   --color-warning: #D9C57B;
 
   /* ─── UI LINES ─── */
-  --border-soft: rgba(200, 200, 224, 0.10);
-  --border-strong: rgba(200, 200, 224, 0.20);
+  --border-soft: rgba(37, 99, 235, 0.15);
+  --border-strong: rgba(37, 99, 235, 0.30);
   --border: var(--border-soft);
 
   /* ─── EFFECTS ─── */
   --shadow-premium: 0 16px 60px rgba(0,0,0,0.45);
   --shadow-soft: 0 4px 24px rgba(0,0,0,.25);
-  --glow-accent: 0 0 0 1px rgba(127,95,255,.35), 0 10px 40px rgba(127,95,255,.18);
+  --glow-accent: 0 0 0 1px rgba(37, 99, 235, 0.35), 0 10px 40px rgba(37, 99, 235, 0.18);
 
   /* ─── RADIUS (sharper — consulting, not SaaS) ─── */
   --radius-sm: 6px;

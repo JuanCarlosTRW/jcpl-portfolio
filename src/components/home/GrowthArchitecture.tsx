@@ -34,51 +34,43 @@ const pillarIcons: Record<string, React.ReactNode> = {
   ),
 };
 
-const accentMap: Record<string, { border: string; bg: string; glow: string; text: string }> = {
-  violet: {
-    border: "rgba(127,95,255,0.2)",
-    bg: "rgba(127,95,255,0.08)",
-    glow: "rgba(127,95,255,0.12)",
-    text: "var(--brand-accent)",
-  },
-  cyan: {
-    border: "rgba(51,204,255,0.2)",
-    bg: "rgba(51,204,255,0.08)",
-    glow: "rgba(51,204,255,0.12)",
-    text: "var(--brand-alt)",
-  },
+/* All accent colors unified to electric blue */
+const blueAccent = {
+  border: "rgba(37,99,235,0.2)",
+  bg: "rgba(37,99,235,0.15)",
+  glow: "rgba(37,99,235,0.12)",
+  text: "#2563EB",
 };
 
 export default function GrowthArchitecture() {
   return (
-    <SectionWrapper id="system">
+    <SectionWrapper id="system" className="bg-[#060D1F]">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-        <SectionLabel label={growthArchitecture.label} className="mb-5" />
+        <SectionLabel label={growthArchitecture.label} className="mb-5 text-[#8899BB]" />
         <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {growthArchitecture.headline}
         </h2>
-        <p className="mt-5 text-[var(--text-secondary)] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-[#E8EDF5] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           {growthArchitecture.subheadline}
         </p>
       </Reveal>
 
       <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
         {growthArchitecture.pillars.map((pillar, i) => {
-          const colors = accentMap[pillar.accent];
           return (
             <Reveal key={pillar.id} delay={0.08 * i}>
               <div
                 className="group relative rounded-2xl p-[1px] h-full transition-all duration-500"
                 style={{
-                  background: `linear-gradient(135deg, ${colors.border}, transparent 60%)`,
+                  background: `linear-gradient(135deg, ${blueAccent.border}, transparent 60%)`,
                 }}
               >
-                <div className="relative rounded-2xl bg-[var(--bg-surface)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-500 group-hover:bg-[var(--bg-elevated)]">
+                <div className="relative rounded-2xl bg-[#0F2049] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-500 group-hover:bg-[#0D1B3E]">
                   {/* Hover glow */}
                   <div
                     className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-24 pointer-events-none blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                     style={{
-                      background: `radial-gradient(ellipse at center, ${colors.glow} 0%, transparent 70%)`,
+                      background: `radial-gradient(ellipse at center, ${blueAccent.glow} 0%, transparent 70%)`,
                     }}
                     aria-hidden="true"
                   />
@@ -87,9 +79,9 @@ export default function GrowthArchitecture() {
                   <div
                     className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300"
                     style={{
-                      background: colors.bg,
-                      border: `1px solid ${colors.border}`,
-                      color: colors.text,
+                      background: blueAccent.bg,
+                      border: `1px solid ${blueAccent.border}`,
+                      color: blueAccent.text,
                     }}
                   >
                     {pillarIcons[pillar.id]}
@@ -99,14 +91,14 @@ export default function GrowthArchitecture() {
                   <h3 className="text-lg font-bold text-white mb-1 leading-snug">
                     {pillar.title}
                   </h3>
-                  <p className="text-sm text-[var(--text-muted)] mb-5">
+                  <p className="text-sm text-[#8899BB] mb-5">
                     {pillar.subtitle}
                   </p>
 
                   {/* Points */}
                   <ul className="space-y-2.5 mt-auto">
                     {pillar.points.map((point, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-sm text-[var(--text-secondary)]">
+                      <li key={j} className="flex items-start gap-2.5 text-sm text-[#E8EDF5]">
                         <svg
                           width="16"
                           height="16"
@@ -115,8 +107,8 @@ export default function GrowthArchitecture() {
                           aria-hidden="true"
                           className="shrink-0 mt-0.5"
                         >
-                          <circle cx="8" cy="8" r="7" stroke={colors.border} strokeWidth="1" />
-                          <path d="M5 8l2 2 4-4" stroke={colors.text} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <circle cx="8" cy="8" r="7" stroke={blueAccent.border} strokeWidth="1" />
+                          <path d="M5 8l2 2 4-4" stroke={blueAccent.text} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         {point}
                       </li>
