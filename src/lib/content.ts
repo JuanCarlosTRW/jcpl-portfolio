@@ -327,7 +327,7 @@ export const servicesHero = {
   headline: "Turn inconsistent leads into a predictable booking system.",
   subheadline:
     "Positioning + conversion architecture + acquisition — engineered as a system.",
-  primaryCTA: "Apply for Growth Partnership →",
+  primaryCTA: "Apply for Growth Partnership",
   secondaryCTA: "View Results",
   trustItems: [
     "Response within 24h",

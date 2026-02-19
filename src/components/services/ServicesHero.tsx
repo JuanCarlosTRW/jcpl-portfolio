@@ -18,7 +18,7 @@ export default function ServicesHero() {
         aria-hidden="true"
       />
 
-      <SectionWrapper className="pt-32 md:pt-40 pb-0 relative z-[1]">
+      <SectionWrapper className="w-full pt-32 md:pt-40 pb-0 relative z-[1]">
         <div className="text-center max-w-3xl mx-auto">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8899BB] mb-6">
