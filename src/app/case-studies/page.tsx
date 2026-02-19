@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Case Studies — Real Systems, Real Revenue",
+  title: "Results — Client Growth",
   description: "Real growth systems built for real service businesses. See measurable results across Google Ads, web design, SEO, and AI automation.",
   path: "/case-studies",
 });

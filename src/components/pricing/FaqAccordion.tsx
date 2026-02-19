@@ -31,7 +31,7 @@ function ChevronIcon({ open }: { open: boolean }) {
 }
 
 export default function PricingFaqAccordion() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggle = useCallback((i: number) => {
     setActiveIndex((prev) => (prev === i ? null : i));

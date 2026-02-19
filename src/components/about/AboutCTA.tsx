@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion";
 
 const nextSteps = [
   { step: "1", label: "Apply", description: "Short intake form — takes 2 min." },
-  { step: "2", label: "We review fit", description: "Personally reviewed within 24 hours." },
+  { step: "2", label: "I review fit", description: "Personally reviewed within 24 hours." },
   { step: "3", label: "Growth plan call", description: "Focused strategy session — no fluff." },
 ];
 
@@ -69,12 +69,12 @@ export default function AboutCTA() {
               </span>
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto text-[0.92rem]">
-              Apply for a strategy call. We&apos;ll review your business,
+              Apply for a strategy call. I&apos;ll review your business,
               identify the highest-leverage opportunities, and decide if
-              we&apos;re a fit.
+              I&apos;m a fit.
             </p>
             <p className="text-sm text-[#2563EB] font-medium mt-3 mb-8">
-              If we don&apos;t see a clear path to ROI, we&apos;ll tell you.
+              If I don&apos;t see a clear path to ROI, I&apos;ll tell you.
             </p>
           </Reveal>
 

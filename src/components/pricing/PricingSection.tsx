@@ -8,8 +8,6 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 import PricingToggle from "./PricingToggle";
 import PlanCard from "./PlanCard";
-import PricingComparisonTable from "./ComparisonTable";
-import AddOnsTable from "./AddOnsTable";
 import PricingFaqAccordion from "./FaqAccordion";
 import CTAButton from "@/components/ui/CTAButton";
 

@@ -15,7 +15,7 @@ export default function WorkTimeline() {
       <AnimatedSection className="text-center mb-10">
         <SectionLabel label="Working Model" className="mb-3" />
         <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-          How We Work Together
+          How I Work With You
         </h2>
       </AnimatedSection>
 

@@ -185,7 +185,7 @@ function ServicesLayer() {
           href="/case-studies"
           className="inline-flex items-center gap-2 text-sm font-medium text-[rgba(255,255,255,0.4)] transition-colors duration-300 hover:text-[rgba(255,255,255,0.7)]"
         >
-          View Case Studies
+          View Results
         </Link>
       </div>
     </div>

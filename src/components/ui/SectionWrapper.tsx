@@ -10,7 +10,7 @@ interface Props {
   /** Section ID for anchor links */
   id?: string;
   /** Background variant */
-  variant?: "default" | "surface" | "elevated";
+  variant?: "default" | "alt" | "surface" | "elevated";
 }
 
 /**
@@ -21,6 +21,7 @@ const SectionWrapper = forwardRef<HTMLElement, Props>(
   ({ children, className = "", id, variant = "default" }, ref) => {
     const bgClass = {
       default: "bg-[#060D1F]",
+      alt: "bg-[#0A1628]",
       surface: "bg-[#0F2049]",
       elevated: "bg-[#0D1B3E]",
     }[variant];

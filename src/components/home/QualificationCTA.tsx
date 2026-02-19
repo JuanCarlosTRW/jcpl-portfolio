@@ -23,6 +23,40 @@ function XIcon() {
   );
 }
 
+function LightningIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" fill="none" />
+    </svg>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <circle cx="8" cy="11" r="1" fill="currentColor"/>
+    </svg>
+  );
+}
+
+function ClipboardIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+const trustBadges = [
+  { Icon: LightningIcon, text: "Response within 24 hours" },
+  { Icon: LockIcon, text: "100% confidential" },
+  { Icon: ClipboardIcon, text: "Limited spots per quarter" },
+];
+
 export default function QualificationCTA() {
   return (
     <section id="qualify" className="relative overflow-hidden bg-[#060D1F]">
@@ -52,7 +86,7 @@ export default function QualificationCTA() {
               {/* For You If */}
               <div className="rounded-2xl border border-[rgba(37,99,235,0.2)] bg-[#0F2049] p-7 md:p-8">
                 <h3 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
-                  <span className="text-[#2563EB]">✓</span>
+                  <CheckIcon />
                   This Is for You If…
                 </h3>
                 <ul className="space-y-3.5">
@@ -68,7 +102,7 @@ export default function QualificationCTA() {
               {/* Not For You If */}
               <div className="rounded-2xl border border-[rgba(239,68,68,0.2)] bg-[#0F2049] p-7 md:p-8">
                 <h3 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
-                  <span className="text-[#EF4444]">✕</span>
+                  <XIcon />
                   This Is Not for You If…
                 </h3>
                 <ul className="space-y-3.5">
@@ -93,9 +127,9 @@ export default function QualificationCTA() {
                 </span>
               </h2>
               <p className="text-[#E8EDF5] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
-                Apply for a strategy call. We&apos;ll review your business,
+                Apply for a strategy call. I&apos;ll review your business,
                 identify the highest-leverage growth opportunities, and determine
-                if we&apos;re the right fit.
+                if I&apos;m the right fit.
               </p>
             </Reveal>
 
@@ -119,22 +153,16 @@ export default function QualificationCTA() {
               </div>
             </Reveal>
 
-            {/* Micro-proof strip */}
+            {/* Micro-proof strip — SVG icons */}
             <Reveal delay={0.2}>
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                {[
-                  { icon: "⚡", text: "Response within 24 hours" },
-                  { icon: "🔒", text: "100% confidential" },
-                  { icon: "📋", text: "Limited spots per quarter" },
-                ].map((item) => (
+                {trustBadges.map(({ Icon, text }) => (
                   <span
-                    key={item.text}
+                    key={text}
                     className="inline-flex items-center gap-1.5 text-xs text-[#8899BB]"
                   >
-                    <span aria-hidden="true" className="text-[0.7rem] text-[#2563EB]">
-                      {item.icon}
-                    </span>
-                    {item.text}
+                    <Icon />
+                    {text}
                   </span>
                 ))}
               </div>

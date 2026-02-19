@@ -2,10 +2,10 @@
 
 export const siteConfig = {
   name: "Client Growth",
-  title: "Growth Systems for Service Businesses",
+  title: "Predictable Qualified Calls for Service Businesses",
   url: "https://clientgrowth.ca",
   description:
-    "We build premium acquisition systems for service businesses — conversion websites, paid funnels, SEO/GEO, and AI automation to generate qualified booked calls.",
+    "Client Growth builds complete acquisition systems for service businesses — conversion websites, Google Ads, and AI automation that generate predictable booked calls.",
   ogImage: "/og.png",
   twitterHandle: "@clientgrowthca",
 };
@@ -13,13 +13,13 @@ export const siteConfig = {
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Results", href: "/case-studies" },
   { label: "About", href: "/about" },
 ] as const;
 
 export const ctaCopy = {
   primary: "Apply for Growth Partnership",
-  secondary: "See Case Studies",
+  secondary: "See Results",
   tertiary: "See If We're a Fit",
   href: "/apply",
 };
@@ -28,7 +28,7 @@ export const ctaCopy = {
 export const hero = {
   headline: "Growth Systems That Fill Your Calendar",
   subheadline:
-    "Conversion websites, paid funnels, and AI automation — engineered as one system to generate qualified booked calls for service businesses.",
+    "Positioning, paid acquisition, and AI automation — engineered as one system. No handoffs. No fragmented freelancers.",
   rotatingNiches: [
     "Barbershops",
     "RV Rentals",
@@ -235,7 +235,7 @@ export const featuredCase = {
     { metric: "<30", label: "Days to first qualified leads" },
     { metric: "40%", label: "New client booking growth" },
   ],
-  cta: "View All Case Studies",
+  cta: "View All Results",
 };
 
 /* ─── Section F: How We Work (Process) ─── */
@@ -247,13 +247,13 @@ export const howWeWork = {
     {
       number: "01",
       title: "Diagnose",
-      description: "We audit your current presence, identify the highest-leverage bottleneck, and map the full growth system before writing a single line of code.",
+      description: "I audit your current presence, identify the highest-leverage bottleneck, and map the full growth system before writing a single line of code.",
       duration: "Week 1",
     },
     {
       number: "02",
       title: "Engineer",
-      description: "We build the complete system \u2014 website, ads, AI automation, booking flow \u2014 as one integrated architecture. No handoffs. No fragmentation.",
+      description: "I build the complete system \u2014 website, ads, AI automation, booking flow \u2014 as one integrated architecture. No handoffs. No fragmentation.",
       duration: "Weeks 2\u20134",
     },
     {
@@ -276,7 +276,7 @@ export const differentiation = {
     { dimension: "Accountability", them: "Everyone points elsewhere", us: "One owner, one outcome metric" },
     { dimension: "Lead Quality", them: "No feedback loop between channels", us: "Built-in qualification and scoring" },
     { dimension: "Reporting", them: "Scattered dashboards, no attribution", us: "Single report, full-funnel visibility" },
-    { dimension: "Cost of Delay", them: "Months lost to misalignment", us: "Compounding returns from week one" },
+    { dimension: "Cost of Delay", them: "Revenue lost while vendors point at each other.", us: "Compounding returns from week one" },
   ],
 };
 
@@ -328,7 +328,7 @@ export const servicesHero = {
   subheadline:
     "Positioning + conversion architecture + acquisition — engineered as a system.",
   primaryCTA: "Apply for Growth Partnership →",
-  secondaryCTA: "View Case Studies",
+  secondaryCTA: "View Results",
   trustItems: [
     "Response within 24h",
     "Milestone delivery",
@@ -608,7 +608,7 @@ export const caseStudies = [
 /* ─── About ─── */
 export const aboutContent = {
   headline: "Juan Carlos — Growth Partner for Service Businesses",
-  subhead: "We build systems that turn attention into booked calls.",
+  subhead: "I build systems that turn attention into booked calls.",
   mechanism: [
     "Positioning → funnel path → traffic → automation → booking.",
     "No handoffs. No disconnected freelancers. One operator owns the outcome.",
@@ -620,12 +620,12 @@ export const aboutContent = {
   ],
   story: [
     "Client Growth didn't start with a pitch deck. It started by studying what actually makes service businesses grow — then building the systems to make it happen.",
-    "After watching too many owners get burned by pretty deliverables with zero outcomes, we decided to operate differently.",
-    "We build complete growth systems — not isolated assets. Every piece is engineered for one outcome: more qualified booked calls on your calendar.",
+    "After watching too many owners get burned by pretty deliverables with zero outcomes, I decided to operate differently.",
+    "I build complete growth systems — not isolated assets. Every piece is engineered for one outcome: more qualified booked calls on your calendar.",
   ],
   philosophy: {
-    headline: "We Win When You Win",
-    body: "We don't measure success in deliverables. We measure it in revenue generated, calls booked, and markets dominated. If your business isn't growing, the system isn't done.",
+    headline: "I Win When You Win",
+    body: "I don't measure success in deliverables. I measure it in revenue generated, calls booked, and markets dominated. If your business isn't growing, the system isn't done.",
   },
   advantage: {
     headline: "Why Integrated Systems Beat Fragmented Freelancers",
@@ -635,7 +635,7 @@ export const aboutContent = {
         accent: false,
       },
       {
-        text: "We own the entire pipeline — from positioning to conversion to traffic to AI automation to booking. Every piece reinforces the others.",
+        text: "I own the entire pipeline — from positioning to conversion to traffic to AI automation to booking. Every piece reinforces the others.",
         accent: true,
       },
       {
@@ -778,7 +778,7 @@ export const aboutPrinciples = [
   },
   {
     title: "Full-stack ownership",
-    description: "We own the path end-to-end: positioning → booking. No handoffs.",
+    description: "I own the path end-to-end: positioning → booking. No handoffs.",
   },
   {
     title: "Selective partnerships",
@@ -801,7 +801,7 @@ export const aboutTimeline = [
     title: "System Build & Launch",
     duration: "Weeks 2–4",
     description:
-      "We build the conversion website, funnel path, tracking, and automation — then launch with clarity.",
+      "I build the conversion website, funnel path, tracking, and automation — then launch with clarity.",
     deliverables: "Website + funnel • automation • analytics live",
   },
   {
@@ -809,7 +809,7 @@ export const aboutTimeline = [
     title: "Optimize & Scale",
     duration: "Ongoing",
     description:
-      "We improve conversion, lower costs, and scale what works based on real performance data.",
+      "I improve conversion, lower costs, and scale what works based on real performance data.",
     deliverables: "Weekly optimization loop • reporting • compounding improvements",
   },
 ];
@@ -890,7 +890,7 @@ export const servicesFinalCTA = {
   subheadline:
     "Short application. If we\u2019re a fit, you\u2019ll receive a call link within 24 hours.",
   primary: "Apply (2 min)",
-  secondary: "View Case Studies",
+  secondary: "View Results",
   trustBadges: [
     { icon: "lightning", text: "Response within 24 hours" },
     { icon: "lock", text: "100% confidential" },

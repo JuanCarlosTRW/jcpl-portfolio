@@ -25,7 +25,7 @@ function XIcon() {
 
 export default function QuickQualification() {
   return (
-    <SectionWrapper id="fit" className="bg-[#060D1F]">
+    <SectionWrapper id="fit" variant="alt">
       <Reveal className="text-center mb-10">
         <SectionLabel label="Fit Check" className="mb-4 text-[#8899BB]" />
         <h2 className="text-2xl md:text-3xl font-bold text-white">

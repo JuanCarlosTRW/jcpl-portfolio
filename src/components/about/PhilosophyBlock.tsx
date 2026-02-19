@@ -20,7 +20,8 @@ export default function PhilosophyBlock() {
       <div className="relative rounded-2xl border border-[rgba(37,99,235,0.15)] bg-[#0F2049] py-10 px-7 md:py-14 md:px-12 overflow-hidden text-center">
         {/* Quote ornament */}
         <span
-          className="absolute top-4 left-6 select-none font-serif leading-none text-[80px] md:text-[110px] text-white/[0.04] pointer-events-none"
+          className="absolute top-4 left-6 select-none font-serif leading-none text-[80px] md:text-[110px] pointer-events-none"
+          style={{ color: "rgba(37,99,235,0.2)" }}
           aria-hidden="true"
         >
           &ldquo;

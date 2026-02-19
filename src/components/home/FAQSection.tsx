@@ -10,9 +10,9 @@ import { Reveal } from "@/components/motion";
 
 const faqData = [
   {
-    question: "What exactly is the Presence-to-Pipeline System™?",
+    question: "What exactly is the Growth Architecture™?",
     answer:
-      "A 6-phase growth engine: positioning, conversion website, traffic activation, AI automation, lead qualification, and ongoing optimization. Every phase is built to reinforce the others — so your pipeline compounds instead of fragmenting.",
+      "A complete, integrated system: positioning, conversion website, paid acquisition, AI automation, lead qualification, and ongoing optimization — engineered as one Growth Architecture™. Every component reinforces the others so your pipeline compounds instead of fragmenting.",
   },
   {
     question: "Who is this built for?",
@@ -27,7 +27,7 @@ const faqData = [
   {
     question: "How is this different from hiring an agency?",
     answer:
-      "Agencies fragment work across siloed teams. We own the entire pipeline — strategy, website, ads, AI, booking. No coordination tax, no finger-pointing. One system, one accountable owner.",
+      "Agencies fragment work across siloed teams. I own the entire pipeline — strategy, website, ads, AI, booking. No coordination tax, no finger-pointing. One system, one accountable owner.",
   },
   {
     question: "What if it doesn't work?",
@@ -70,7 +70,7 @@ function ChevronIcon({ open }: { open: boolean }) {
 }
 
 export default function FAQSection() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggle = useCallback(
     (i: number) => setActiveIndex((prev) => (prev === i ? null : i)),
@@ -88,11 +88,11 @@ export default function FAQSection() {
   );
 
   return (
-    <SectionWrapper id="faq" className="bg-[#060D1F]">
+    <SectionWrapper id="faq" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
         <SectionLabel label="Questions" className="mb-5 text-[#8899BB]" />
         <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
-          Before You Reach Out
+          Questions Serious Buyers Ask
         </h2>
         <p className="mt-5 text-[#E8EDF5] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           Straight answers to the questions serious business owners ask before
@@ -126,9 +126,7 @@ export default function FAQSection() {
                 >
                   <span
                     className={`text-[0.95rem] font-semibold leading-snug ${
-                      isOpen
-                        ? "text-white"
-                        : "text-[#E8EDF5]"
+                      isOpen ? "text-white" : "text-[#E8EDF5]"
                     } transition-colors duration-200`}
                   >
                     {faq.question}
@@ -173,11 +171,11 @@ export default function FAQSection() {
           </p>
           <CTAButton
             href={ctaCopy.href}
-            variant="secondary"
+            variant="primary"
             size="md"
             eventName="faq_cta_click"
           >
-            {ctaCopy.tertiary}
+            {ctaCopy.primary}
           </CTAButton>
         </div>
       </Reveal>
