@@ -1,6 +1,5 @@
 "use client";
 
-import { useCallback } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ServicesHero from "./ServicesHero";
 import QuickQualification from "./QuickQualification";
@@ -9,8 +8,6 @@ import ProofBlock from "./ProofBlock";
 import ProcessSteps from "./ProcessSteps";
 import ServicesFinalCTA from "./ServicesFinalCTA";
 import StickyMobileCTA from "./StickyMobileCTA";
-import PricingSection from "@/components/pricing/PricingSection";
-
 export default function ServicesClient() {
   return (
     <>
@@ -23,9 +20,6 @@ export default function ServicesClient() {
           <QuickQualification />
         </div>
       </SectionWrapper>
-
-      {/* ═══ C · PRICING (Cards + Toggle + Enterprise + Comparison + Add-ons + FAQ) ═══ */}
-      <PricingSection />
 
       {/* ═══ D · INCLUDED IN EVERY PLAN ═══ */}
       <SectionWrapper>
