@@ -15,7 +15,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       viewBox="0 0 20 20"
       fill="none"
       aria-hidden="true"
-      className={`shrink-0 text-[var(--text-muted)] transition-transform duration-300 ${
+      className={`shrink-0 text-[#2563EB] transition-transform duration-300 ${
         open ? "rotate-180" : ""
       }`}
     >
@@ -48,7 +48,7 @@ export default function ServicesFAQSection() {
         <h2 className="text-2xl md:text-3xl font-bold text-white">
           Common Questions
         </h2>
-        <p className="mt-3 text-sm text-[var(--text-secondary)] max-w-lg mx-auto">
+        <p className="mt-3 text-sm text-[#E8EDF5] max-w-lg mx-auto">
           Straight answers before you commit.
         </p>
       </Reveal>
@@ -62,8 +62,8 @@ export default function ServicesFAQSection() {
                 role="listitem"
                 className={`rounded-xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "border-[rgba(127,95,255,0.2)] bg-[var(--bg-elevated)] shadow-[0_4px_24px_rgba(127,95,255,0.04)]"
-                    : "border-[rgba(255,255,255,0.06)] bg-[var(--bg-surface)] hover:border-[rgba(255,255,255,0.1)]"
+                    ? "border-[rgba(37,99,235,0.25)] bg-[#0D1A2D] shadow-[0_4px_24px_rgba(37,99,235,0.04)]"
+                    : "border-[rgba(255,255,255,0.06)] bg-[#0A1628] hover:border-[rgba(255,255,255,0.1)]"
                 }`}
               >
                 <button
@@ -75,7 +75,7 @@ export default function ServicesFAQSection() {
                 >
                   <span
                     className={`text-[0.95rem] font-semibold leading-snug ${
-                      isOpen ? "text-white" : "text-[var(--text-secondary)]"
+                      isOpen ? "text-white" : "text-[#E8EDF5]"
                     } transition-colors duration-200`}
                   >
                     {faq.question}
@@ -96,7 +96,7 @@ export default function ServicesFAQSection() {
                     >
                       <div className="px-5 pb-5">
                         <div className="h-px bg-[rgba(255,255,255,0.04)] mb-4" />
-                        <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                        <p className="text-sm text-[#8899BB] leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>

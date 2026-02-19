@@ -73,7 +73,7 @@ export default function PaymentTrustRow() {
             );
           })}
         </div>
-        <p className="text-[0.7rem] text-[var(--text-muted)] mt-3 tracking-wide">
+        <p className="text-[0.7rem] text-[#8899BB] mt-3 tracking-wide">
           {servicesPaymentLine}
         </p>
       </div>

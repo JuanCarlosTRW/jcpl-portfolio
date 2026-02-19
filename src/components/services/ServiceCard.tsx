@@ -16,25 +16,25 @@ function FoundationSVG() {
     <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="service-card__svg">
       <defs>
         <linearGradient id="fGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stopColor="#7f5fff" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="#7f5fff" stopOpacity="0.08" />
+          <stop offset="0%" stopColor="#2563EB" stopOpacity="0.5" />
+          <stop offset="100%" stopColor="#2563EB" stopOpacity="0.08" />
         </linearGradient>
         <linearGradient id="fBeam" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#33ccff" stopOpacity="0" />
-          <stop offset="50%" stopColor="#33ccff" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#33ccff" stopOpacity="0" />
+          <stop offset="0%" stopColor="#60A5FA" stopOpacity="0" />
+          <stop offset="50%" stopColor="#60A5FA" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#60A5FA" stopOpacity="0" />
         </linearGradient>
         <radialGradient id="fGlow" cx="50%" cy="55%">
-          <stop offset="0%" stopColor="#7f5fff" stopOpacity="0.12" />
-          <stop offset="100%" stopColor="#7f5fff" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2563EB" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
         </radialGradient>
       </defs>
       <circle cx="100" cy="68" r="52" fill="url(#fGlow)" />
-      <path d="M100 22 L140 38 L140 68 Q140 96 100 108 Q60 96 60 68 L60 38 Z" fill="url(#fGrad)" stroke="#7f5fff" strokeWidth="1.2" strokeLinejoin="round" />
-      <path d="M86 64 L96 74 L116 54" stroke="#33ccff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M148 52 Q156 46 148 40" stroke="#7f5fff" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-      <path d="M154 56 Q166 46 154 36" stroke="#7f5fff" strokeWidth="1.2" strokeLinecap="round" opacity="0.3" />
-      <path d="M160 60 Q176 46 160 32" stroke="#7f5fff" strokeWidth="1" strokeLinecap="round" opacity="0.18" />
+      <path d="M100 22 L140 38 L140 68 Q140 96 100 108 Q60 96 60 68 L60 38 Z" fill="url(#fGrad)" stroke="#2563EB" strokeWidth="1.2" strokeLinejoin="round" />
+      <path d="M86 64 L96 74 L116 54" stroke="#60A5FA" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M148 52 Q156 46 148 40" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+      <path d="M154 56 Q166 46 154 36" stroke="#2563EB" strokeWidth="1.2" strokeLinecap="round" opacity="0.3" />
+      <path d="M160 60 Q176 46 160 32" stroke="#2563EB" strokeWidth="1" strokeLinecap="round" opacity="0.18" />
       <rect x="98" y="4" width="4" height="14" rx="2" fill="url(#fBeam)" />
     </svg>
   );
@@ -45,31 +45,31 @@ function GrowthSVG() {
     <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="service-card__svg">
       <defs>
         <linearGradient id="gArea" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stopColor="#7f5fff" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="#7f5fff" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2563EB" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="gLine" x1="0%" y1="50%" x2="100%" y2="50%">
-          <stop offset="0%" stopColor="#33ccff" stopOpacity="0.3" />
-          <stop offset="40%" stopColor="#7f5fff" />
-          <stop offset="100%" stopColor="#33ccff" />
+          <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.3" />
+          <stop offset="40%" stopColor="#2563EB" />
+          <stop offset="100%" stopColor="#60A5FA" />
         </linearGradient>
         <radialGradient id="gGlow" cx="65%" cy="45%">
-          <stop offset="0%" stopColor="#7f5fff" stopOpacity="0.14" />
-          <stop offset="100%" stopColor="#7f5fff" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2563EB" stopOpacity="0.14" />
+          <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
         </radialGradient>
       </defs>
       <ellipse cx="130" cy="55" rx="60" ry="45" fill="url(#gGlow)" />
       <path d="M24 95 Q52 88 74 72 Q96 56 120 42 Q144 28 168 18 L168 100 L24 100 Z" fill="url(#gArea)" />
       <path d="M24 95 Q52 88 74 72 Q96 56 120 42 Q144 28 168 18" stroke="url(#gLine)" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      <circle cx="74" cy="72" r="4" fill="#0e1530" stroke="#7f5fff" strokeWidth="1.5" />
-      <circle cx="120" cy="42" r="4" fill="#0e1530" stroke="#7f5fff" strokeWidth="1.5" />
-      <circle cx="168" cy="18" r="5" fill="#7f5fff" stroke="#33ccff" strokeWidth="1.5" />
-      <path d="M168 18 L174 14" stroke="#33ccff" strokeWidth="2" strokeLinecap="round" />
-      <path d="M168 18 L174 22" stroke="#33ccff" strokeWidth="2" strokeLinecap="round" />
-      <rect x="56" y="96" width="3" height="8" rx="1.5" fill="#7f5fff" opacity="0.35" />
-      <rect x="90" y="96" width="3" height="12" rx="1.5" fill="#7f5fff" opacity="0.5" />
-      <rect x="124" y="96" width="3" height="16" rx="1.5" fill="#7f5fff" opacity="0.65" />
-      <rect x="158" y="96" width="3" height="20" rx="1.5" fill="#33ccff" opacity="0.7" />
+      <circle cx="74" cy="72" r="4" fill="#0e1530" stroke="#2563EB" strokeWidth="1.5" />
+      <circle cx="120" cy="42" r="4" fill="#0e1530" stroke="#2563EB" strokeWidth="1.5" />
+      <circle cx="168" cy="18" r="5" fill="#2563EB" stroke="#60A5FA" strokeWidth="1.5" />
+      <path d="M168 18 L174 14" stroke="#60A5FA" strokeWidth="2" strokeLinecap="round" />
+      <path d="M168 18 L174 22" stroke="#60A5FA" strokeWidth="2" strokeLinecap="round" />
+      <rect x="56" y="96" width="3" height="8" rx="1.5" fill="#2563EB" opacity="0.35" />
+      <rect x="90" y="96" width="3" height="12" rx="1.5" fill="#2563EB" opacity="0.5" />
+      <rect x="124" y="96" width="3" height="16" rx="1.5" fill="#2563EB" opacity="0.65" />
+      <rect x="158" y="96" width="3" height="20" rx="1.5" fill="#60A5FA" opacity="0.7" />
     </svg>
   );
 }
@@ -79,31 +79,31 @@ function ScaleSVG() {
     <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="service-card__svg">
       <defs>
         <linearGradient id="sCrown" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stopColor="#33ccff" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="#7f5fff" stopOpacity="0.9" />
+          <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#2563EB" stopOpacity="0.9" />
         </linearGradient>
         <radialGradient id="sGlow" cx="50%" cy="50%">
-          <stop offset="0%" stopColor="#7f5fff" stopOpacity="0.16" />
-          <stop offset="100%" stopColor="#7f5fff" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2563EB" stopOpacity="0.16" />
+          <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="sOrbit" x1="0%" y1="50%" x2="100%" y2="50%">
-          <stop offset="0%" stopColor="#7f5fff" stopOpacity="0" />
-          <stop offset="50%" stopColor="#7f5fff" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="#7f5fff" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2563EB" stopOpacity="0" />
+          <stop offset="50%" stopColor="#2563EB" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
         </linearGradient>
       </defs>
       <circle cx="100" cy="62" r="50" fill="url(#sGlow)" />
       <ellipse cx="100" cy="66" rx="68" ry="22" stroke="url(#sOrbit)" strokeWidth="1" fill="none" />
-      <ellipse cx="100" cy="66" rx="52" ry="16" stroke="#7f5fff" strokeWidth="0.6" opacity="0.15" fill="none" />
-      <ellipse cx="100" cy="66" rx="84" ry="28" stroke="#7f5fff" strokeWidth="0.5" opacity="0.08" fill="none" />
-      <path d="M72 56 L80 34 L92 48 L100 26 L108 48 L120 34 L128 56 Z" fill="url(#sCrown)" stroke="#33ccff" strokeWidth="1" strokeLinejoin="round" />
-      <rect x="72" y="56" width="56" height="6" rx="2" fill="#7f5fff" opacity="0.45" />
-      <circle cx="32" cy="66" r="5" fill="#0e1530" stroke="#33ccff" strokeWidth="1.2" />
-      <circle cx="168" cy="66" r="5" fill="#0e1530" stroke="#33ccff" strokeWidth="1.2" />
-      <circle cx="100" cy="94" r="4" fill="#0e1530" stroke="#7f5fff" strokeWidth="1.2" />
-      <circle cx="54" cy="46" r="3.5" fill="#0e1530" stroke="#7f5fff" strokeWidth="1" opacity="0.6" />
-      <circle cx="146" cy="46" r="3.5" fill="#0e1530" stroke="#7f5fff" strokeWidth="1" opacity="0.6" />
-      <rect x="95" y="61" width="10" height="10" rx="2" transform="rotate(45 100 66)" fill="#7f5fff" opacity="0.6" />
+      <ellipse cx="100" cy="66" rx="52" ry="16" stroke="#2563EB" strokeWidth="0.6" opacity="0.15" fill="none" />
+      <ellipse cx="100" cy="66" rx="84" ry="28" stroke="#2563EB" strokeWidth="0.5" opacity="0.08" fill="none" />
+      <path d="M72 56 L80 34 L92 48 L100 26 L108 48 L120 34 L128 56 Z" fill="url(#sCrown)" stroke="#60A5FA" strokeWidth="1" strokeLinejoin="round" />
+      <rect x="72" y="56" width="56" height="6" rx="2" fill="#2563EB" opacity="0.45" />
+      <circle cx="32" cy="66" r="5" fill="#0e1530" stroke="#60A5FA" strokeWidth="1.2" />
+      <circle cx="168" cy="66" r="5" fill="#0e1530" stroke="#60A5FA" strokeWidth="1.2" />
+      <circle cx="100" cy="94" r="4" fill="#0e1530" stroke="#2563EB" strokeWidth="1.2" />
+      <circle cx="54" cy="46" r="3.5" fill="#0e1530" stroke="#2563EB" strokeWidth="1" opacity="0.6" />
+      <circle cx="146" cy="46" r="3.5" fill="#0e1530" stroke="#2563EB" strokeWidth="1" opacity="0.6" />
+      <rect x="95" y="61" width="10" height="10" rx="2" transform="rotate(45 100 66)" fill="#2563EB" opacity="0.6" />
     </svg>
   );
 }
@@ -178,19 +178,19 @@ export default function ServiceCard({ tier, index }: Props) {
           >
             {tier.name}
           </h3>
-          <p className="mt-1 text-sm text-[var(--brand-alt)] font-medium tracking-wide">
+          <p className="mt-1 text-sm text-[#2563EB] font-medium tracking-wide">
             {tier.tagline}
           </p>
         </div>
 
         {/* Best for line */}
-        <p className="text-xs text-[var(--text-muted)] mb-3 flex items-center gap-1.5">
-          <span className="text-[var(--brand-accent)]">●</span>
+        <p className="text-xs text-[#8899BB] mb-3 flex items-center gap-1.5">
+          <span className="text-[#2563EB]">●</span>
           Best for: {tier.bestFor}
         </p>
 
         {/* Core outcome */}
-        <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
+        <p className="text-sm text-[#E8EDF5] leading-relaxed mb-4">
           {tier.coreOutcome}
         </p>
 
@@ -200,10 +200,10 @@ export default function ServiceCard({ tier, index }: Props) {
             {tier.deliverables.map((d, j) => (
               <li key={j} className="service-card__deliverable">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="service-card__check" aria-hidden="true">
-                  <circle cx="7" cy="7" r="6.5" stroke="rgba(127,95,255,0.35)" strokeWidth="0.8" />
-                  <path d="M4.5 7 L6.2 8.7 L9.5 5.3" stroke="var(--brand-accent)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  <circle cx="7" cy="7" r="6.5" stroke="rgba(37,99,235,0.35)" strokeWidth="0.8" />
+                  <path d="M4.5 7 L6.2 8.7 L9.5 5.3" stroke="#2563EB" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 </svg>
-                <span className="text-sm text-[var(--text-secondary)]">{d}</span>
+                <span className="text-sm text-[#E8EDF5]">{d}</span>
               </li>
             ))}
           </ul>
@@ -218,14 +218,14 @@ export default function ServiceCard({ tier, index }: Props) {
                 transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                 className="overflow-hidden"
               >
-                <ul className="space-y-1.5 mt-2 pt-2 border-t border-[var(--border-soft)]" role="list">
+                <ul className="space-y-1.5 mt-2 pt-2 border-t border-[rgba(255,255,255,0.06)]" role="list">
                   {tier.extraDeliverables.map((d, j) => (
                     <li key={j} className="service-card__deliverable">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="service-card__check" aria-hidden="true">
-                        <circle cx="7" cy="7" r="6.5" stroke="rgba(127,95,255,0.2)" strokeWidth="0.8" />
-                        <path d="M4.5 7 L6.2 8.7 L9.5 5.3" stroke="var(--brand-accent)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                        <circle cx="7" cy="7" r="6.5" stroke="rgba(37,99,235,0.2)" strokeWidth="0.8" />
+                        <path d="M4.5 7 L6.2 8.7 L9.5 5.3" stroke="#2563EB" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                       </svg>
-                      <span className="text-sm text-[var(--text-muted)]">{d}</span>
+                      <span className="text-sm text-[#8899BB]">{d}</span>
                     </li>
                   ))}
                 </ul>
@@ -241,7 +241,7 @@ export default function ServiceCard({ tier, index }: Props) {
                 trackEvent("services_plan_expand_scope", { data: { plan: tier.name } });
               }
             }}
-            className="mt-2 text-xs text-[var(--brand-alt)] hover:text-[var(--brand-accent)] transition-colors cursor-pointer flex items-center gap-1"
+            className="mt-2 text-xs text-[#2563EB] hover:text-white transition-colors cursor-pointer flex items-center gap-1"
             aria-expanded={expanded}
           >
             {expanded ? "Hide details" : "See full scope"}
@@ -258,13 +258,13 @@ export default function ServiceCard({ tier, index }: Props) {
         <div className="service-card__meta">
           <div className="service-card__meta-item">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <circle cx="7" cy="7" r="6" stroke="var(--text-muted)" strokeWidth="0.8" fill="none" />
-              <path d="M7 4 V7 L9.5 8.5" stroke="var(--text-muted)" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+              <circle cx="7" cy="7" r="6" stroke="#8899BB" strokeWidth="0.8" fill="none" />
+              <path d="M7 4 V7 L9.5 8.5" stroke="#8899BB" strokeWidth="0.9" strokeLinecap="round" fill="none" />
             </svg>
-            <span className="text-xs text-[var(--text-muted)]">{tier.timeline}</span>
+            <span className="text-xs text-[#8899BB]">{tier.timeline}</span>
           </div>
           <div className="service-card__meta-divider" aria-hidden="true" />
-          <p className="text-xs text-[var(--text-muted)] italic flex-1">
+          <p className="text-xs text-[#8899BB] italic flex-1">
             First win: {tier.firstWin}
           </p>
         </div>

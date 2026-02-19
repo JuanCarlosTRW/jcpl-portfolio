@@ -21,12 +21,12 @@ export default function PlanCard({ plan, billing, index }: Props) {
         className={`
           group relative flex flex-col h-full rounded-2xl border p-7 md:p-8
           transition-all duration-300
-          focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)]
-          focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]
+          focus-visible:ring-2 focus-visible:ring-[#2563EB]
+          focus-visible:ring-offset-2 focus-visible:ring-offset-[#060D1F]
           hover:-translate-y-1 hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)]
           ${isFeatured
-            ? "border-[rgba(127,95,255,0.35)] bg-[var(--bg-elevated)] shadow-[0_0_60px_rgba(127,95,255,0.08)] hover:border-[rgba(127,95,255,0.5)]"
-            : "border-[var(--border-soft)] bg-[var(--bg-surface)] hover:border-[var(--border-strong)]"
+            ? "border-[rgba(37,99,235,0.35)] bg-[#0D1A2D] shadow-[0_0_60px_rgba(37,99,235,0.08)] hover:border-[rgba(37,99,235,0.5)]"
+            : "border-[rgba(255,255,255,0.06)] bg-[#0A1628] hover:border-[rgba(255,255,255,0.12)]"
           }
         `}
         tabIndex={0}
@@ -38,7 +38,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
             className="absolute inset-x-0 top-0 h-px rounded-t-2xl"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(127,95,255,0.4), rgba(51,204,255,0.2), transparent)",
+                "linear-gradient(90deg, transparent, rgba(37,99,235,0.5), rgba(37,99,235,0.3), transparent)",
             }}
             aria-hidden="true"
           />
@@ -46,7 +46,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
 
         {/* Recommended badge */}
         {isFeatured && (
-          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-deep)] text-white text-[0.65rem] font-semibold uppercase tracking-[0.08em] px-4 py-1 rounded-full whitespace-nowrap shadow-[0_4px_20px_rgba(127,95,255,0.35)]">
+          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2563EB] text-white text-[0.65rem] font-semibold uppercase tracking-[0.08em] px-4 py-1 rounded-full whitespace-nowrap shadow-[0_4px_20px_rgba(37,99,235,0.35)]">
             Recommended
           </span>
         )}
@@ -56,12 +56,12 @@ export default function PlanCard({ plan, billing, index }: Props) {
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-white">{plan.name}</h3>
             {plan.annualOnly && billing === "annual" && (
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-[#8899BB]">
                 Annual only
               </span>
             )}
           </div>
-          <p className="text-sm text-[var(--brand-alt)] font-medium mt-1">
+          <p className="text-sm text-[#2563EB] font-medium mt-1">
             {plan.tagline}
           </p>
         </div>
@@ -80,18 +80,18 @@ export default function PlanCard({ plan, billing, index }: Props) {
               ${price.toLocaleString()}
             </motion.span>
           </AnimatePresence>
-          <span className="text-[var(--text-muted)] text-sm mb-1">per month</span>
+          <span className="text-[#8899BB] text-sm mb-1">per month</span>
         </div>
 
         {/* Divider */}
-        <div className="h-px w-full bg-[var(--border-soft)] mb-6" />
+        <div className="h-px w-full bg-[rgba(255,255,255,0.06)] mb-6" />
 
         {/* Features */}
         <ul className="space-y-3 mb-8 flex-1" role="list">
           {plan.features.map((feature, j) => (
             <li
               key={j}
-              className="flex items-start gap-2.5 text-sm text-[var(--text-secondary)]"
+              className="flex items-start gap-2.5 text-sm text-[#E8EDF5]"
             >
               <svg
                 width="14"
@@ -105,12 +105,12 @@ export default function PlanCard({ plan, billing, index }: Props) {
                   cx="7"
                   cy="7"
                   r="6.5"
-                  stroke="rgba(127,95,255,0.35)"
+                  stroke="rgba(37,99,235,0.35)"
                   strokeWidth="0.8"
                 />
                 <path
                   d="M4.5 7 L6.2 8.7 L9.5 5.3"
-                  stroke="var(--brand-accent)"
+                  stroke="#2563EB"
                   strokeWidth="1.2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -139,7 +139,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
             {plan.ctaLabel}
           </CTAButton>
           {plan.helperText && (
-            <p className="mt-2.5 text-[11px] text-[var(--text-muted)] text-center">
+            <p className="mt-2.5 text-[11px] text-[#8899BB] text-center">
               {plan.helperText}
             </p>
           )}

@@ -22,7 +22,7 @@ export default function ServicesFinalCTA() {
         <div className="mb-16">
           <Reveal>
             <div className="text-center mb-8">
-              <p className="text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] font-medium mb-3">
+              <p className="text-xs uppercase tracking-[0.15em] text-[#8899BB] font-medium mb-3">
                 Our Standards
               </p>
               <h2 className="heading-3">What You Can Expect</h2>
@@ -44,12 +44,12 @@ export default function ServicesFinalCTA() {
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5"
             >
               {servicesFinalCTA.headline.split("real ")[0]}real{" "}
-              <span className="bg-gradient-to-r from-[#7f5fff] to-[#33ccff] bg-clip-text text-transparent">
+              <span className="text-[#2563EB]">
                 acquisition system
               </span>
               ?
             </h2>
-            <p className="text-[var(--text-secondary)] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
+            <p className="text-[#E8EDF5] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
               {servicesFinalCTA.subheadline}
             </p>
           </Reveal>
@@ -81,7 +81,7 @@ export default function ServicesFinalCTA() {
               {servicesFinalCTA.trustBadges.map((item) => (
                 <span
                   key={item.text}
-                  className="inline-flex items-center gap-1.5 text-xs text-[var(--text-muted)]"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#8899BB]"
                 >
                   <span aria-hidden="true" className="text-[0.7rem]">
                     {item.icon}

@@ -25,7 +25,7 @@ export default function IncludedGrid() {
     <SectionWrapper id="included" variant="surface">
       <Reveal className="text-center mb-10">
         <SectionLabel label="Every Plan Includes" className="mb-4" />
-        <p className="text-[var(--text-secondary)] max-w-lg mx-auto text-[0.95rem] leading-relaxed">
+        <p className="text-[#E8EDF5] max-w-lg mx-auto text-[0.95rem] leading-relaxed">
           Every engagement ships with measurable infrastructure — not just pages.
         </p>
       </Reveal>
@@ -33,13 +33,13 @@ export default function IncludedGrid() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
         {servicesIncluded.map((item, i) => (
           <Reveal key={item.title} delay={0.05 * i}>
-            <div className="group flex items-start gap-4 p-5 rounded-xl border border-[rgba(255,255,255,0.06)] bg-[var(--bg-surface)] transition-all duration-300 hover:border-[rgba(127,95,255,0.15)] hover:bg-[var(--bg-elevated)] h-full">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[rgba(127,95,255,0.08)] border border-[rgba(127,95,255,0.12)] text-[var(--brand-accent)] shrink-0 transition-colors duration-300 group-hover:bg-[rgba(127,95,255,0.12)]">
+            <div className="group flex items-start gap-4 p-5 rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#0A1628] transition-all duration-300 hover:border-[rgba(37,99,235,0.2)] hover:bg-[#0D1A2D] h-full">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.12)] text-[#2563EB] shrink-0 transition-colors duration-300 group-hover:bg-[rgba(37,99,235,0.12)]">
                 {icons[i]}
               </div>
               <div>
                 <p className="text-sm font-semibold text-white mb-1">{item.title}</p>
-                <p className="text-xs text-[var(--text-muted)] leading-relaxed">{item.description}</p>
+                <p className="text-xs text-[#8899BB] leading-relaxed">{item.description}</p>
               </div>
             </div>
           </Reveal>

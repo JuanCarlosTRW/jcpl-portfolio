@@ -70,10 +70,10 @@ export default function QuizRecommender({ onRecommend }: Props) {
   };
 
   return (
-    <div className="rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-surface)] p-7 md:p-9 max-w-xl mx-auto">
+    <div className="rounded-2xl border border-[rgba(255,255,255,0.06)] bg-[#0A1628] p-7 md:p-9 max-w-xl mx-auto">
       <div className="text-center mb-6">
         <h3 className="text-xl font-bold text-white mb-2">{headline}</h3>
-        <p className="text-sm text-[var(--text-muted)]">{subheadline}</p>
+        <p className="text-sm text-[#8899BB]">{subheadline}</p>
       </div>
 
       <div className="min-h-[220px]">
@@ -88,12 +88,12 @@ export default function QuizRecommender({ onRecommend }: Props) {
             >
               {/* Progress */}
               <div className="mb-5">
-                <span className="text-[0.7rem] uppercase tracking-[0.1em] text-[var(--text-muted)]">
+                <span className="text-[0.7rem] uppercase tracking-[0.1em] text-[#8899BB]">
                   Question {step + 1} of {totalSteps}
                 </span>
                 <div className="h-1 bg-[rgba(255,255,255,0.06)] rounded-full mt-2 overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-alt)] rounded-full transition-all duration-300"
+                    className="h-full bg-[#2563EB] rounded-full transition-all duration-300"
                     style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
                   />
                 </div>
@@ -112,18 +112,18 @@ export default function QuizRecommender({ onRecommend }: Props) {
                       w-full flex items-center gap-3 p-3.5 rounded-xl border text-left text-sm
                       transition-all duration-200 cursor-pointer
                       ${selectedOption === opt.value
-                        ? "border-[var(--brand-accent)] bg-[rgba(127,95,255,0.1)]"
-                        : "border-[var(--border-soft)] bg-[rgba(255,255,255,0.02)] hover:border-[var(--brand-accent)] hover:bg-[rgba(127,95,255,0.05)] hover:translate-x-1"
+                        ? "border-[#2563EB] bg-[rgba(37,99,235,0.1)]"
+                        : "border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] hover:border-[#2563EB] hover:bg-[rgba(37,99,235,0.05)] hover:translate-x-1"
                       }
                       disabled:cursor-default disabled:opacity-70
                     `}
                   >
-                    <span className={`w-4 h-4 rounded-full border-2 shrink-0 relative ${selectedOption === opt.value ? "border-[var(--brand-accent)]" : "border-[var(--border-soft)]"}`}>
+                    <span className={`w-4 h-4 rounded-full border-2 shrink-0 relative ${selectedOption === opt.value ? "border-[#2563EB]" : "border-[rgba(255,255,255,0.1)]"}`}>
                       {selectedOption === opt.value && (
-                        <span className="absolute inset-[3px] bg-[var(--brand-accent)] rounded-full" />
+                        <span className="absolute inset-[3px] bg-[#2563EB] rounded-full" />
                       )}
                     </span>
-                    <span className="text-[var(--text-secondary)]">{opt.label}</span>
+                    <span className="text-[#E8EDF5]">{opt.label}</span>
                   </button>
                 ))}
               </div>
@@ -137,8 +137,8 @@ export default function QuizRecommender({ onRecommend }: Props) {
               className="text-center py-4"
             >
               {/* Result badge */}
-              <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-[rgba(127,95,255,0.1)] border border-[rgba(127,95,255,0.2)] flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-accent)" strokeWidth="2" aria-hidden="true">
+              <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2" aria-hidden="true">
                   <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
                   <circle cx="12" cy="12" r="10" />
                 </svg>
@@ -147,7 +147,7 @@ export default function QuizRecommender({ onRecommend }: Props) {
               <h4 className="text-lg font-bold text-white mb-2">
                 {resultText[recommendation].title}
               </h4>
-              <p className="text-sm text-[var(--text-secondary)] mb-6 max-w-sm mx-auto">
+              <p className="text-sm text-[#E8EDF5] mb-6 max-w-sm mx-auto">
                 {resultText[recommendation].reason}
               </p>
 
@@ -161,7 +161,7 @@ export default function QuizRecommender({ onRecommend }: Props) {
                 <button
                   type="button"
                   onClick={reset}
-                  className="text-xs text-[var(--text-muted)] hover:text-[var(--brand-alt)] transition-colors cursor-pointer"
+                  className="text-xs text-[#8899BB] hover:text-[#2563EB] transition-colors cursor-pointer"
                 >
                   Retake quiz
                 </button>

@@ -15,25 +15,25 @@ export default function ProofBlock() {
 
       <div className="max-w-4xl mx-auto">
         <Reveal delay={0.05}>
-          <div className="grid md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-start rounded-2xl border border-[rgba(127,95,255,0.12)] bg-[var(--bg-surface)] p-8 md:p-10">
+          <div className="grid md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-start rounded-2xl border border-[rgba(37,99,235,0.12)] bg-[#0A1628] p-8 md:p-10">
             {/* Left: mini case study */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--brand-alt)] mb-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#2563EB] mb-4">
                 {servicesProof.client}
               </p>
 
               <div className="space-y-4 text-sm leading-relaxed">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">Situation</span>
-                  <p className="text-[var(--text-secondary)] mt-1">{servicesProof.situation}</p>
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8899BB]">Situation</span>
+                  <p className="text-[#E8EDF5] mt-1">{servicesProof.situation}</p>
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">Diagnosis</span>
-                  <p className="text-[var(--text-secondary)] mt-1">{servicesProof.diagnosis}</p>
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8899BB]">Diagnosis</span>
+                  <p className="text-[#E8EDF5] mt-1">{servicesProof.diagnosis}</p>
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">Build</span>
-                  <p className="text-[var(--text-secondary)] mt-1">{servicesProof.build}</p>
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8899BB]">Build</span>
+                  <p className="text-[#E8EDF5] mt-1">{servicesProof.build}</p>
                 </div>
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-[0.12em] text-white">Outcome</span>
@@ -55,14 +55,14 @@ export default function ProofBlock() {
 
             {/* Right: proof asset frame */}
             <div className="md:w-[220px] shrink-0">
-              <div className="aspect-[4/3] rounded-xl border border-[rgba(255,255,255,0.06)] bg-[var(--bg-elevated)] flex items-center justify-center overflow-hidden">
+              <div className="aspect-[4/3] rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#0D1A2D] flex items-center justify-center overflow-hidden">
                 <div className="text-center p-4">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" className="mx-auto mb-3 text-[var(--text-muted)] opacity-40">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" className="mx-auto mb-3 text-[#8899BB] opacity-40">
                     <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" strokeWidth="1.5" />
                     <path d="M4 28l8-8 6 6 8-10 10 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     <circle cx="14" cy="14" r="3" stroke="currentColor" strokeWidth="1.5" />
                   </svg>
-                  <p className="text-[0.65rem] text-[var(--text-muted)] leading-snug">
+                  <p className="text-[0.65rem] text-[#8899BB] leading-snug">
                     {servicesProof.caption}
                   </p>
                 </div>

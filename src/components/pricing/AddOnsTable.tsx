@@ -14,7 +14,7 @@ export default function AddOnsTable() {
           <h2 className="text-2xl md:text-3xl font-bold text-white">
             Add-ons
           </h2>
-          <p className="mt-2 text-sm text-[var(--text-secondary)] max-w-lg">
+          <p className="mt-2 text-sm text-[#E8EDF5] max-w-lg">
             From custom integrations to white-glove onboarding, power up your
             growth system with add-ons.
           </p>
@@ -23,21 +23,21 @@ export default function AddOnsTable() {
 
       <Reveal delay={0.1}>
         <div
-          className="overflow-x-auto rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-surface)]"
+          className="overflow-x-auto rounded-2xl border border-[rgba(255,255,255,0.06)] bg-[#0A1628]"
           role="region"
           aria-label="Add-ons pricing table"
           tabIndex={0}
         >
           <table className="w-full min-w-[600px] text-sm">
             <thead>
-              <tr className="border-b border-[var(--border-soft)]">
-                <th className="sticky left-0 z-10 bg-[var(--bg-surface)] text-left px-6 py-4 text-[var(--text-muted)] font-semibold w-[240px] min-w-[200px]">
+              <tr className="border-b border-[rgba(255,255,255,0.06)]">
+                <th className="sticky left-0 z-10 bg-[#0A1628] text-left px-6 py-4 text-[#8899BB] font-semibold w-[240px] min-w-[200px]">
                   Add-on
                 </th>
                 {plans.map((plan) => (
                   <th
                     key={plan.name}
-                    className="px-6 py-4 text-center text-[var(--text-muted)] font-semibold min-w-[140px]"
+                    className="px-6 py-4 text-center text-[#8899BB] font-semibold min-w-[140px]"
                   >
                     {plan.name}
                   </th>
@@ -48,13 +48,13 @@ export default function AddOnsTable() {
               {addOns.map((row) => (
                 <tr
                   key={row.name}
-                  className="border-b border-[var(--border-soft)]/40 transition-colors hover:bg-white/[0.02]"
+                  className="border-b border-[rgba(255,255,255,0.04)] transition-colors hover:bg-white/[0.02]"
                 >
-                  <td className="sticky left-0 z-10 bg-[var(--bg-surface)] px-6 py-4 min-w-[200px]">
-                    <div className="font-medium text-[var(--text-primary)] text-[13px]">
+                  <td className="sticky left-0 z-10 bg-[#0A1628] px-6 py-4 min-w-[200px]">
+                    <div className="font-medium text-white text-[13px]">
                       {row.name}
                     </div>
-                    <div className="text-[11px] text-[var(--text-muted)] mt-0.5">
+                    <div className="text-[11px] text-[#8899BB] mt-0.5">
                       {row.descriptor}
                     </div>
                   </td>
@@ -64,13 +64,13 @@ export default function AddOnsTable() {
                       className="px-6 py-4 text-center text-[13px]"
                     >
                       {price === "—" ? (
-                        <span className="text-[var(--text-muted)]/60">—</span>
+                        <span className="text-[#8899BB]/60">—</span>
                       ) : price === "Included" ? (
-                        <span className="text-[var(--brand-alt)] font-medium">
+                        <span className="text-[#2563EB] font-medium">
                           Included
                         </span>
                       ) : (
-                        <span className="text-[var(--text-secondary)]">
+                        <span className="text-[#E8EDF5]">
                           {price}
                         </span>
                       )}
@@ -82,7 +82,7 @@ export default function AddOnsTable() {
           </table>
 
           {/* Bottom CTA row */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 border-t border-[var(--border-soft)] px-6 py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 border-t border-[rgba(255,255,255,0.06)] px-6 py-5">
             {plans.map((plan) => (
               <CTAButton
                 key={plan.name}
@@ -105,7 +105,7 @@ export default function AddOnsTable() {
 
       {/* Billing note */}
       <Reveal delay={0.15}>
-        <p className="mt-4 text-center text-[11px] text-[var(--text-muted)]">
+        <p className="mt-4 text-center text-[11px] text-[#8899BB]">
           All prices are monthly and billed according to the billing cycle
           selected at checkout. Any applicable sales tax will be added at
           checkout based on your location.

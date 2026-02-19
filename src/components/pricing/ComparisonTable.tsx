@@ -16,7 +16,7 @@ function CheckIcon() {
     >
       <path
         d="M5 9.5 L7.5 12 L13 6"
-        stroke="var(--brand-accent)"
+        stroke="#2563EB"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -27,7 +27,7 @@ function CheckIcon() {
 
 function DashIcon() {
   return (
-    <span className="text-[var(--text-muted)]/60" aria-label="Not included">
+    <span className="text-[#8899BB]/60" aria-label="Not included">
       —
     </span>
   );
@@ -47,7 +47,7 @@ export default function PricingComparisonTable() {
 
       <Reveal delay={0.1}>
         <div
-          className="overflow-x-auto rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-surface)]"
+          className="overflow-x-auto rounded-2xl border border-[rgba(255,255,255,0.06)] bg-[#0A1628]"
           role="region"
           aria-label="Feature comparison table"
           tabIndex={0}
@@ -55,8 +55,8 @@ export default function PricingComparisonTable() {
           <table className="w-full min-w-[680px] text-sm">
             {/* Sticky header with plan names + prices */}
             <thead>
-              <tr className="border-b border-[var(--border-soft)]">
-                <th className="sticky left-0 z-10 bg-[var(--bg-surface)] text-left px-6 py-5 font-semibold text-[var(--text-muted)] w-[240px] min-w-[200px]">
+              <tr className="border-b border-[rgba(255,255,255,0.06)]">
+                <th className="sticky left-0 z-10 bg-[#0A1628] text-left px-6 py-5 font-semibold text-[#8899BB] w-[240px] min-w-[200px]">
                   Feature
                 </th>
                 {plans.map((plan) => (
@@ -67,7 +67,7 @@ export default function PricingComparisonTable() {
                     <span className="block text-white font-semibold text-base">
                       {plan.name}
                     </span>
-                    <span className="block text-[var(--text-muted)] text-xs mt-0.5">
+                    <span className="block text-[#8899BB] text-xs mt-0.5">
                       ${plan.priceMonthly.toLocaleString()}/mo
                     </span>
                   </th>
@@ -99,7 +99,7 @@ function SectionGroup({
       <tr>
         <td
           colSpan={plans.length + 1}
-          className="bg-[var(--bg-base)]/60 text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--text-muted)] px-6 py-2.5"
+          className="bg-[#060D1F]/60 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#8899BB] px-6 py-2.5"
         >
           {section.section}
         </td>
@@ -109,13 +109,13 @@ function SectionGroup({
       {section.rows.map((row) => (
         <tr
           key={row.feature}
-          className="border-b border-[var(--border-soft)]/40 transition-colors hover:bg-white/[0.02]"
+          className="border-b border-[rgba(255,255,255,0.04)] transition-colors hover:bg-white/[0.02]"
         >
-          <td className="sticky left-0 z-10 bg-[var(--bg-surface)] px-6 py-4 min-w-[200px]">
-            <div className="font-medium text-[var(--text-primary)] text-[13px]">
+          <td className="sticky left-0 z-10 bg-[#0A1628] px-6 py-4 min-w-[200px]">
+            <div className="font-medium text-white text-[13px]">
               {row.feature}
             </div>
-            <div className="text-[11px] text-[var(--text-muted)] mt-0.5">
+            <div className="text-[11px] text-[#8899BB] mt-0.5">
               {row.descriptor}
             </div>
           </td>
@@ -126,7 +126,7 @@ function SectionGroup({
               ) : val === false ? (
                 <DashIcon />
               ) : (
-                <span className="text-[var(--text-secondary)] text-[13px]">
+                <span className="text-[#E8EDF5] text-[13px]">
                   {val}
                 </span>
               )}
