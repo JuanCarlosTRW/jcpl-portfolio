@@ -22,7 +22,7 @@ export default function AboutTimeline() {
       <div className="relative">
         {/* Vertical connector line */}
         <div
-          className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--brand-accent)]/40 via-[var(--brand-accent)]/20 to-transparent"
+          className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#2563EB]/40 via-[#2563EB]/20 to-transparent"
           aria-hidden="true"
         />
 
@@ -35,21 +35,21 @@ export default function AboutTimeline() {
                   className="absolute left-3.5 md:left-5.5 top-6 flex h-5 w-5 items-center justify-center"
                   aria-hidden="true"
                 >
-                  <span className="h-3 w-3 rounded-full bg-[var(--brand-accent)] ring-4 ring-[var(--bg-base)]" />
+                  <span className="h-3 w-3 rounded-full bg-[#2563EB] ring-4 ring-[var(--bg-base)]" />
                 </div>
 
                 <StarBorder
-                  variant={i === 0 ? "alt" : "accent"}
+                  variant="accent"
                   speed={`${8 + i * 2}s`}
                   className="rounded-2xl"
                 >
-                  <div className="rounded-2xl bg-[var(--bg-surface)] p-6 md:p-8">
+                  <div className="rounded-2xl bg-[#0F2049] p-6 md:p-8">
                     {/* Header row */}
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
                       <h3 className="text-lg md:text-xl font-bold text-white">
                         {step.title}
                       </h3>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-[var(--brand-alt)]">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#2563EB]">
                         {step.duration}
                       </span>
                     </div>

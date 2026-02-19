@@ -17,7 +17,7 @@ const philosophyBullets = [
 export default function PhilosophyBlock() {
   return (
     <AnimatedSection className="max-w-2xl mx-auto">
-      <div className="relative rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-surface)] py-10 px-7 md:py-14 md:px-12 overflow-hidden text-center">
+      <div className="relative rounded-2xl border border-[rgba(37,99,235,0.15)] bg-[#0F2049] py-10 px-7 md:py-14 md:px-12 overflow-hidden text-center">
         {/* Quote ornament */}
         <span
           className="absolute top-4 left-6 select-none font-serif leading-none text-[80px] md:text-[110px] text-white/[0.04] pointer-events-none"
@@ -27,7 +27,7 @@ export default function PhilosophyBlock() {
         </span>
 
         {/* Thin top rule */}
-        <div className="w-10 h-px bg-gradient-to-r from-transparent via-[var(--brand-accent)]/40 to-transparent mx-auto mb-6" aria-hidden="true" />
+        <div className="w-10 h-px bg-gradient-to-r from-transparent via-[#2563EB]/40 to-transparent mx-auto mb-6" aria-hidden="true" />
 
         <SectionLabel label="Philosophy" className="mb-4" />
 
@@ -42,26 +42,26 @@ export default function PhilosophyBlock() {
         {/* Micro bullets */}
         <ul className="mt-6 space-y-2 max-w-sm mx-auto text-left">
           {philosophyBullets.map((bullet, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-[0.8rem] text-[var(--text-muted)] leading-snug">
-              <span className="mt-1.5 h-1 w-1 rounded-full bg-[var(--brand-accent)] shrink-0" aria-hidden="true" />
+            <li key={i} className="flex items-start gap-2.5 text-[0.8rem] text-[#8899BB] leading-snug">
+              <span className="mt-1.5 h-1 w-1 rounded-full bg-[#2563EB] shrink-0" aria-hidden="true" />
               {bullet}
             </li>
           ))}
         </ul>
 
         {/* Signature */}
-        <p className="mt-6 text-xs text-[var(--text-muted)] italic tracking-wide">
+        <p className="mt-6 text-xs text-[#8899BB] italic tracking-wide">
           — Juan Carlos
         </p>
 
         {/* Thin bottom rule */}
-        <div className="w-10 h-px bg-gradient-to-r from-transparent via-[var(--border-strong)] to-transparent mx-auto mt-6" aria-hidden="true" />
+        <div className="w-10 h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.3)] to-transparent mx-auto mt-6" aria-hidden="true" />
 
         {/* Subtle glow */}
         <div
           className="absolute inset-0 pointer-events-none rounded-2xl"
           style={{
-            background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(127,95,255,0.05) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(37,99,235,0.05) 0%, transparent 70%)",
           }}
           aria-hidden="true"
         />

@@ -23,15 +23,15 @@ export default function AboutIntegrated() {
         {aboutContent.advantage.points.map((point, i) => (
           <AnimatedSection key={i} delay={0.1 * i}>
             <StarBorder
-              variant={point.accent ? "alt" : "accent"}
+              variant="accent"
               speed="10s"
               className="rounded-2xl"
             >
               <div
                 className={`rounded-2xl p-6 md:p-8 ${
                   point.accent
-                    ? "bg-[var(--bg-elevated)]"
-                    : "bg-[var(--bg-surface)]"
+                    ? "bg-[#0F2049]"
+                    : "bg-[#0F2049]"
                 }`}
               >
                 <p

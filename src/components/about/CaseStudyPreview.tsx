@@ -30,24 +30,24 @@ export default function CaseStudyPreview() {
           <AnimatedSection key={cs.slug} direction="up" delay={0.08 * i}>
             <Link
               href={`/case-studies/${cs.slug}`}
-              className="group flex flex-col h-full rounded-xl border border-[var(--border-soft)] bg-[var(--bg-surface)] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(127,95,255,0.35)] hover:shadow-[0_8px_32px_rgba(127,95,255,0.10)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-accent)]"
+              className="group flex flex-col h-full rounded-xl border border-[rgba(37,99,235,0.15)] bg-[#0F2049] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(37,99,235,0.35)] hover:shadow-[0_8px_32px_rgba(37,99,235,0.10)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2563EB]"
               aria-label={`View case study: ${cs.title}`}
             >
               {/* Industry label */}
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[var(--text-muted)] mb-3">
+              <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#8899BB] mb-3">
                 {cs.industry}
               </span>
 
               {/* Outcome stat */}
-              <p className="text-3xl font-bold tabular-nums bg-gradient-to-br from-[var(--brand-accent)] to-[var(--brand-alt)] bg-clip-text text-transparent leading-none mb-1">
+              <p className="text-3xl font-bold tabular-nums text-[#2563EB] leading-none mb-1">
                 {cs.heroStat}
               </p>
-              <p className="text-[0.75rem] text-[var(--text-muted)] mb-4 leading-snug">
+              <p className="text-[0.75rem] text-[#8899BB] mb-4 leading-snug">
                 {cs.heroLabel}
               </p>
 
               {/* Client + title */}
-              <p className="text-[0.82rem] font-semibold text-[var(--brand-accent)] mb-0.5">
+              <p className="text-[0.82rem] font-semibold text-[#2563EB] mb-0.5">
                 {cs.client}
               </p>
               <p className="text-sm text-[var(--text-secondary)] leading-snug flex-1">
@@ -55,7 +55,7 @@ export default function CaseStudyPreview() {
               </p>
 
               {/* CTA link */}
-              <span className="mt-5 inline-flex items-center gap-1 text-[0.78rem] font-medium text-[var(--brand-alt)] group-hover:text-[var(--brand-accent)] transition-colors duration-200">
+              <span className="mt-5 inline-flex items-center gap-1 text-[0.78rem] font-medium text-[#2563EB] group-hover:text-[#60A5FA] transition-colors duration-200">
                 View case study
                 <span
                   className="transition-transform duration-200 group-hover:translate-x-0.5"

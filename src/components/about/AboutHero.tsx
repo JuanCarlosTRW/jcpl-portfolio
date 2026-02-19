@@ -37,14 +37,14 @@ export default function AboutHero() {
           </h1>
 
           {/* Sub-head */}
-          <p className="text-[var(--brand-alt)] font-medium text-base md:text-lg mb-4 leading-snug">
+          <p className="text-[#2563EB] font-medium text-base md:text-lg mb-4 leading-snug">
             {aboutContent.subhead}
           </p>
 
           {/* Mechanism lines */}
           <div className="space-y-1 mb-6 max-w-[52ch]">
             {aboutContent.mechanism.map((line, i) => (
-              <p key={i} className="text-[var(--text-secondary)] text-[0.9rem] md:text-[0.95rem] leading-relaxed">
+              <p key={i} className="text-[#E8EDF5] text-[0.9rem] md:text-[0.95rem] leading-relaxed">
                 {line}
               </p>
             ))}
@@ -53,9 +53,9 @@ export default function AboutHero() {
           {/* Mechanism bullets */}
           <ul className="space-y-2.5 mb-8" aria-label="What I build">
             {aboutContent.mechanismBullets.map((bullet, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-sm text-[var(--text-secondary)]">
+              <li key={i} className="flex items-start gap-2.5 text-sm text-[#E8EDF5]">
                 <span
-                  className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-accent)]"
+                  className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2563EB]"
                   aria-hidden="true"
                 />
                 {bullet}
@@ -69,7 +69,7 @@ export default function AboutHero() {
               href={ctaCopy.href}
               size="lg"
               eventName="hero_primary_cta_click"
-              className="hover:shadow-[0_4px_20px_rgba(127,95,255,0.25)] hover:-translate-y-0.5 transition-all duration-300"
+              className="hover:shadow-[0_4px_20px_rgba(37,99,235,0.25)] hover:-translate-y-0.5 transition-all duration-300"
             >
               {ctaCopy.primary}
             </CTAButton>
@@ -89,9 +89,9 @@ export default function AboutHero() {
             {trustItems.map((item) => (
               <span
                 key={item.text}
-                className="inline-flex items-center gap-1.5 text-[0.72rem] text-[var(--text-muted)] tracking-wide"
+                className="inline-flex items-center gap-1.5 text-[0.72rem] text-[#8899BB] tracking-wide"
               >
-                <span aria-hidden="true">{item.icon}</span>
+                <span aria-hidden="true" className="text-[#2563EB]">{item.icon}</span>
                 {item.text}
               </span>
             ))}

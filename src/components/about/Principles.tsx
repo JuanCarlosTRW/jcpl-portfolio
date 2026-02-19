@@ -22,19 +22,19 @@ export default function Principles() {
         {aboutPrinciples.map((principle, i) => (
           <AnimatedSection key={principle.title} delay={0.08 * i}>
             <div
-              className="group relative flex flex-col gap-4 rounded-xl border border-[var(--border-strong)] bg-[var(--bg-elevated)] p-6 h-full transition-all duration-300 ease-out cursor-default
-                hover:-translate-y-0.5 hover:border-[rgba(127,95,255,0.5)] hover:shadow-[0_4px_20px_rgba(127,95,255,0.10)]"
+              className="group relative flex flex-col gap-4 rounded-xl border border-[rgba(37,99,235,0.15)] bg-[#0F2049] p-6 h-full transition-all duration-300 ease-out cursor-default
+                hover:-translate-y-0.5 hover:border-[rgba(37,99,235,0.5)] hover:shadow-[0_4px_20px_rgba(37,99,235,0.10)]"
             >
               {/* Numbered outlined badge — consistent 36×36 */}
               <span
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-[1.5px] border-[var(--brand-accent)] text-xs font-bold text-[var(--brand-accent)] tabular-nums transition-all duration-300 group-hover:bg-[rgba(127,95,255,0.10)] group-hover:shadow-[0_0_10px_rgba(127,95,255,0.20)]"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#2563EB] text-xs font-bold text-[#2563EB] tabular-nums transition-all duration-300 group-hover:bg-[rgba(37,99,235,0.10)] group-hover:shadow-[0_0_10px_rgba(37,99,235,0.20)]"
                 aria-hidden="true"
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
 
               <div>
-                <h3 className="text-[0.95rem] font-semibold text-white mb-1.5 transition-colors duration-200 group-hover:text-[var(--brand-accent)]">
+                <h3 className="text-[0.95rem] font-semibold text-white mb-1.5 transition-colors duration-200 group-hover:text-[#2563EB]">
                   {principle.title}
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed text-sm">

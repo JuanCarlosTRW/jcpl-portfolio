@@ -36,19 +36,19 @@ export default function AdvantageCompare() {
       <div className="grid md:grid-cols-2 gap-5">
         {/* Left: Fragmented */}
         <AnimatedSection direction="left" delay={0.1}>
-          <div className="rounded-xl border border-[var(--border-soft)] bg-[var(--bg-surface)] p-6 h-full">
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-red-400/80 mb-5 pb-3 border-b border-[var(--border-soft)]">
+          <div className="rounded-xl border border-[rgba(229,115,115,0.2)] bg-[#0F2049] p-6 h-full">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#E57373] mb-5 pb-3 border-b border-[rgba(229,115,115,0.2)]">
               Fragmented Freelancers
             </h3>
             <ul className="space-y-3.5">
               {fragmented.map((point, i) => (
                 <li key={i} className="flex gap-2.5 items-start">
                   <XCircle
-                    className="mt-0.5 shrink-0 text-red-400/50"
+                    className="mt-0.5 shrink-0 text-[#E57373]/50"
                     size={16}
                     aria-hidden="true"
                   />
-                  <span className="text-[0.82rem] text-[var(--text-muted)] leading-relaxed">
+                  <span className="text-[0.82rem] text-[#8899BB] leading-relaxed">
                     {point}
                   </span>
                 </li>
@@ -59,21 +59,21 @@ export default function AdvantageCompare() {
 
         {/* Right: Integrated */}
         <AnimatedSection direction="right" delay={0.15}>
-          <div className="rounded-xl border border-[rgba(127,95,255,0.25)] bg-[var(--bg-elevated)] p-6 h-full relative overflow-hidden">
+          <div className="rounded-xl border border-[rgba(37,99,235,0.25)] bg-[#0F2049] p-6 h-full relative overflow-hidden">
             {/* Subtle glow */}
             <div
               className="absolute inset-0 pointer-events-none rounded-xl"
               style={{
-                background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(127,95,255,0.06) 0%, transparent 70%)",
+                background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.06) 0%, transparent 70%)",
               }}
               aria-hidden="true"
             />
             <div className="relative">
-              <div className="flex flex-wrap items-center gap-2.5 mb-5 pb-3 border-b border-[var(--brand-accent)]/20">
-                <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--brand-accent)]">
+              <div className="flex flex-wrap items-center gap-2.5 mb-5 pb-3 border-b border-[#2563EB]/20">
+                <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#2563EB]">
                   Integrated System
                 </h3>
-                <span className="inline-flex items-center rounded-full bg-[rgba(127,95,255,0.12)] border border-[var(--brand-accent)]/30 px-2.5 py-0.5 text-[0.62rem] font-bold text-[var(--brand-accent)] uppercase tracking-wider leading-none">
+                <span className="inline-flex items-center rounded-full bg-[rgba(37,99,235,0.12)] border border-[#2563EB]/30 px-2.5 py-0.5 text-[0.62rem] font-bold text-[#2563EB] uppercase tracking-wider leading-none">
                   Recommended
                 </span>
               </div>
@@ -81,7 +81,7 @@ export default function AdvantageCompare() {
                 {integrated.map((point, i) => (
                   <li key={i} className="flex gap-2.5 items-start">
                     <CheckCircle2
-                      className="mt-0.5 shrink-0 text-[var(--brand-accent)]"
+                      className="mt-0.5 shrink-0 text-[#2563EB]"
                       size={16}
                       aria-hidden="true"
                     />

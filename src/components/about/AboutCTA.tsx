@@ -28,7 +28,7 @@ export default function AboutCTA() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(127,95,255,0.06) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.06) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -38,7 +38,7 @@ export default function AboutCTA() {
           <Reveal>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.12] tracking-tight mb-4">
               Your Pipeline Won&apos;t{" "}
-              <span className="bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-alt)] bg-clip-text text-transparent">
+              <span className="text-[#2563EB]">
                 Build Itself
               </span>
             </h2>
@@ -47,7 +47,7 @@ export default function AboutCTA() {
               identify the highest-leverage opportunities, and decide if
               we&apos;re a fit.
             </p>
-            <p className="text-sm text-[var(--brand-accent)] font-medium mt-3 mb-8">
+            <p className="text-sm text-[#2563EB] font-medium mt-3 mb-8">
               If I don&apos;t see a clear path to ROI, I&apos;ll tell you.
             </p>
           </Reveal>
@@ -63,16 +63,16 @@ export default function AboutCTA() {
                   <div key={item.step} className="flex flex-col items-center flex-1 max-w-[180px]">
                     {/* Step badge + connector */}
                     <div className="relative flex items-center w-full justify-center mb-3">
-                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-[1.5px] border-[var(--brand-accent)] bg-[var(--bg-base)] text-xs font-bold text-[var(--brand-accent)] tabular-nums">
+                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#2563EB] bg-[var(--bg-base)] text-xs font-bold text-[#2563EB] tabular-nums">
                         {item.step}
                       </span>
                       {/* Dashed connector */}
                       {i < nextSteps.length - 1 && (
-                        <span className="absolute left-[calc(50%+20px)] right-[calc(-50%+20px)] top-1/2 h-px border-t border-dashed border-[var(--border-soft)]" aria-hidden="true" />
+                        <span className="absolute left-[calc(50%+20px)] right-[calc(-50%+20px)] top-1/2 h-px border-t border-dashed border-[rgba(37,99,235,0.2)]" aria-hidden="true" />
                       )}
                     </div>
                     <p className="text-[0.82rem] font-semibold text-white mb-0.5">{item.label}</p>
-                    <p className="text-[0.72rem] text-[var(--text-muted)] leading-snug px-2">{item.description}</p>
+                    <p className="text-[0.72rem] text-[#8899BB] leading-snug px-2">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -86,7 +86,7 @@ export default function AboutCTA() {
                 href={ctaCopy.href}
                 size="lg"
                 eventName="final_cta_primary_click"
-                className="hover:shadow-[0_4px_20px_rgba(127,95,255,0.25)] hover:-translate-y-0.5 transition-all duration-300"
+                className="hover:shadow-[0_4px_20px_rgba(37,99,235,0.25)] hover:-translate-y-0.5 transition-all duration-300"
               >
                 {ctaCopy.primary}
               </CTAButton>
