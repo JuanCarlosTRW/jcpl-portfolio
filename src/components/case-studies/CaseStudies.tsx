@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CaseStudyPreviewModal from "./CaseStudyPreviewModal";
+import PreviewFrame from "./PreviewFrame";
 import { Button } from "@/components/ui/Button";
 
 export type CaseStudy = {
@@ -42,9 +43,20 @@ export default function CaseStudies() {
         <div className="grid gap-6 sm:grid-cols-2">
           {caseStudies.map(cs => (
             <div key={cs.id} className="bg-[#0A1628] border border-white/10 rounded-xl p-6 flex flex-col gap-4">
-              <div className="text-xs uppercase tracking-[0.12em] text-[#2563EB] font-semibold mb-1">{cs.overline}</div>
-              <div className="text-lg font-bold text-white mb-1">{cs.title}</div>
-              <div className="text-sm text-[#E8EDF5] mb-2">{cs.outcome}</div>
+              {/* PreviewFrame placeholder */}
+              <PreviewFrame
+                title={cs.title}
+                domain={new URL(cs.liveUrl).hostname.replace(/^www\./, "")}
+                screenshotUrl={cs.screenshotUrl}
+                onOpen={() => setOpenId(cs.id)}
+              />
+              {/* Overline */}
+              <div className="text-xs uppercase tracking-[0.12em] text-[#2563EB] font-semibold mt-2">{cs.overline}</div>
+              {/* Title */}
+              <div className="text-lg font-bold text-white">{cs.title}</div>
+              {/* Outcome */}
+              <div className="text-sm text-[#E8EDF5]">{cs.outcome}</div>
+              {/* Metrics row */}
               <div className="flex gap-4 mb-2">
                 {cs.metrics.map(m => (
                   <div key={m.label} className="text-xs text-[#8899BB] font-medium">
@@ -52,6 +64,7 @@ export default function CaseStudies() {
                   </div>
                 ))}
               </div>
+              {/* CTA row */}
               <div className="flex gap-2 mt-auto">
                 <button
                   className="bg-[#2563EB] text-white rounded-lg px-4 py-2 font-semibold text-sm transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-[#2563EB]"
