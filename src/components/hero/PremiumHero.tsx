@@ -20,11 +20,11 @@ const Aurora = dynamic(() => import("@/components/motion/Aurora"), {
 /* ═══════════════════════════════════════════════════
    COPY — conversion-optimized, outcome-driven
    ═══════════════════════════════════════════════════ */
-const EYEBROW = "Presence-to-Pipeline System™";
+const EYEBROW = "Growth Architecture™";
 const HEADLINE_L1 = "Predictable Revenue Growth";
 const HEADLINE_L2 = "for Service Businesses";
 const SUBHEADLINE =
-  "We build your Presence-to-Pipeline System™: premium digital presence, AI-assisted qualification, and a traffic engine that drives qualified demand without adding chaos.";
+  "I build your Growth Architecture™: premium digital presence, AI-assisted qualification, and a traffic engine that drives qualified demand without adding chaos.";
 
 const CTA_PRIMARY = { label: "Apply for Growth Partnership", href: "/apply" };
 const CTA_SECONDARY = { label: "See Case Studies", href: "/case-studies" };
@@ -175,7 +175,7 @@ export default function PremiumHero({ onLaserLand }: { onLaserLand?: () => void 
           falloffStart={1.2}
           verticalSizing={6.0}
           horizontalSizing={0.8}
-          color="#7f5fff"
+          color="#2563EB"
           introDuration={1.8}
           introDelay={0.4}
           onIntroComplete={() => handleLaserLand()}

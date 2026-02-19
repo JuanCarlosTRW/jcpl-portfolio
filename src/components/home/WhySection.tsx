@@ -88,7 +88,7 @@ export default function WhySection() {
                   Fragmented Setup
                 </span>
               </div>
-              <div className="p-5 text-center border-l border-[rgba(255,255,255,0.06)] bg-[rgba(127,95,255,0.03)]">
+              <div className="p-5 text-center border-l border-[rgba(255,255,255,0.06)] bg-[rgba(37,99,235,0.03)]">
                 <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-alt)]">
                   Integrated Partner
                 </span>
@@ -121,7 +121,7 @@ export default function WhySection() {
                 </div>
 
                 {/* Integrated */}
-                <div className="p-5 flex items-center gap-3 border-l border-[rgba(255,255,255,0.04)] bg-[rgba(127,95,255,0.02)]">
+                <div className="p-5 flex items-center gap-3 border-l border-[rgba(255,255,255,0.04)] bg-[rgba(37,99,235,0.02)]">
                   <CheckIcon />
                   <span className="text-sm text-white font-medium leading-snug">
                     {row.integrated}

@@ -23,8 +23,8 @@ const DIAGNOSTICS = [
   {
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path d="M6 26V12l10-8 10 8v14a2 2 0 01-2 2H8a2 2 0 01-2-2z" stroke="rgba(127,95,255,0.5)" strokeWidth="1.5" fill="none" />
-        <path d="M12 28V18h8v10" stroke="rgba(127,95,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6 26V12l10-8 10 8v14a2 2 0 01-2 2H8a2 2 0 01-2-2z" stroke="rgba(37,99,235,0.5)" strokeWidth="1.5" fill="none" />
+        <path d="M12 28V18h8v10" stroke="rgba(37,99,235,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     metric: 97,
@@ -57,7 +57,7 @@ export default function ProblemSection() {
         <SectionLabel label="Diagnosis" className="mb-5" />
         <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           Every Day Without a System,{" "}
-          <span className="bg-gradient-to-r from-[#33ccff] to-[#7f5fff] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] bg-clip-text text-transparent">
             You Lose Revenue
           </span>
         </h2>
@@ -71,12 +71,12 @@ export default function ProblemSection() {
       <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
         {DIAGNOSTICS.map((card, i) => {
           const isViolet = card.accent === "violet";
-          const glowColor = isViolet ? "127,95,255" : "51,204,255";
+          const glowColor = isViolet ? "37,99,235" : "51,204,255";
           const borderColor = isViolet
-            ? "rgba(127,95,255,0.15)"
+            ? "rgba(37,99,235,0.15)"
             : "rgba(51,204,255,0.15)";
           const bgGlow = isViolet
-            ? "rgba(127,95,255,0.04)"
+            ? "rgba(37,99,235,0.04)"
             : "rgba(51,204,255,0.04)";
 
           return (

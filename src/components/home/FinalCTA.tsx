@@ -13,7 +13,7 @@ export default function FinalCTA() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(127,95,255,0.06) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.06) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -37,9 +37,9 @@ export default function FinalCTA() {
               </span>
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
-              Apply for a strategy call. We&apos;ll review your business,
+              Apply for a strategy call. I&apos;ll review your business,
               identify the highest-leverage growth opportunities, and determine
-              if we&apos;re the right fit.
+              if I&apos;m the right fit.
             </p>
           </Reveal>
 

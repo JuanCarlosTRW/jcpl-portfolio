@@ -20,7 +20,7 @@ export default function CaseStudySituation({ study }: { study: CaseStudy }) {
               01 / The Situation
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 tracking-tight" style={{ letterSpacing: "-0.02em" }}>
-              Where They Were When We Met
+              Where They Were When I Met Them
             </h2>
             <div className="space-y-6">
               {items.map((item) => (
@@ -51,7 +51,7 @@ export default function CaseStudySituation({ study }: { study: CaseStudy }) {
               {/* Glow */}
               <div
                 className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(127,95,255,0.15) 0%, transparent 70%)", filter: "blur(30px)" }}
+                style={{ background: "radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)", filter: "blur(30px)" }}
               />
               <div className="relative z-10 space-y-4">
                 <div className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-6">

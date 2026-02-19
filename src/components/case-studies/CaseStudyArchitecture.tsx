@@ -13,7 +13,7 @@ export default function CaseStudyArchitecture({ study }: { study: CaseStudy }) {
           className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight"
           style={{ letterSpacing: "-0.02em" }}
         >
-          The Growth Architecture We Implemented
+          The Growth Architecture I Implemented
         </h2>
         <p className="text-[var(--text-secondary)] mb-14 max-w-xl">
           Every engagement runs on a four-layer system. No isolated deliverables. One integrated machine.
@@ -33,14 +33,14 @@ export default function CaseStudyArchitecture({ study }: { study: CaseStudy }) {
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
-                  background: "radial-gradient(ellipse at 50% 0%, rgba(127,95,255,0.12) 0%, transparent 70%)",
+                  background: "radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.12) 0%, transparent 70%)",
                 }}
               />
               <div className="relative z-10">
                 <div
                   className="text-2xl font-bold mb-4"
                   style={{
-                    background: "linear-gradient(135deg, rgba(127,95,255,0.8), rgba(51,204,255,0.6))",
+                    background: "linear-gradient(135deg, rgba(37,99,235,0.8), rgba(37,99,235,0.6))",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}

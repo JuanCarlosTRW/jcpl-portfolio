@@ -66,7 +66,7 @@ export function generateFAQSchema() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is the Presence-to-Pipeline System™?",
+        name: "What is the Growth Architecture™?",
         acceptedAnswer: {
           "@type": "Answer",
           text: `A proven 6-step framework: ${systemSteps.map((s) => s.title).join(", ")}. It transforms your online presence into a predictable pipeline of qualified booked calls.`,

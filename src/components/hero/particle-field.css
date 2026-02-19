@@ -17,7 +17,7 @@
   height: var(--pf-size, 2px);
   border-radius: 50%;
   background: rgba(255, 255, 255, var(--pf-opacity, 0.2));
-  box-shadow: 0 0 4px rgba(127, 95, 255, 0.12);
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.12);
   animation: pf-float var(--pf-dur, 6s) ease-in-out var(--pf-delay, 0s) infinite alternate;
   will-change: transform, opacity;
 }

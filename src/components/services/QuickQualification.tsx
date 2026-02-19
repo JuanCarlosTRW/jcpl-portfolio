@@ -38,7 +38,7 @@ export default function QuickQualification() {
         <Reveal delay={0.05}>
           <div className="rounded-2xl border border-[rgba(37,99,235,0.2)] bg-[#0F2049] p-7 md:p-8 h-full">
             <h3 className="text-base font-bold text-[#2563EB] mb-5 flex items-center gap-2">
-              <span className="text-[#2563EB]">✓</span>
+              <CheckIcon />
               Best For
             </h3>
             <ul className="space-y-3.5">
@@ -56,7 +56,7 @@ export default function QuickQualification() {
         <Reveal delay={0.1}>
           <div className="rounded-2xl border border-[rgba(239,68,68,0.2)] bg-[#0F2049] p-7 md:p-8 h-full">
             <h3 className="text-base font-bold text-white mb-5 flex items-center gap-2">
-              <span className="text-[#EF4444]">✕</span>
+              <XIcon />
               Not For
             </h3>
             <ul className="space-y-3.5">

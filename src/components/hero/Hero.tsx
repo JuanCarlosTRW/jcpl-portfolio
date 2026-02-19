@@ -51,7 +51,7 @@ export default function Hero() {
 				       href="/case-studies"
 				       className="rounded-full py-4 w-full border-white/20 hover:bg-white/5 text-base font-semibold hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:ring-2 focus-visible:ring-white/50 transition-all motion-reduce:transition-none motion-reduce:hover:transform-none sm:min-w-[180px]"
 			       >
-				       View Case Studies
+				       View Results
 			       </Button>
 		       </div>
 			</div>

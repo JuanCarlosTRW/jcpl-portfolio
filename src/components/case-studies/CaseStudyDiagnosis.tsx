@@ -35,14 +35,14 @@ export default function CaseStudyDiagnosis({ study }: { study: CaseStudy }) {
           <div
             className="rounded-2xl px-8 py-7 relative overflow-hidden"
             style={{
-              background: "rgba(127,95,255,0.07)",
-              border: "1px solid rgba(127,95,255,0.18)",
+              background: "rgba(37,99,235,0.07)",
+              border: "1px solid rgba(37,99,235,0.18)",
             }}
           >
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: "radial-gradient(ellipse at 0% 50%, rgba(127,95,255,0.1) 0%, transparent 70%)",
+                background: "radial-gradient(ellipse at 0% 50%, rgba(37,99,235,0.1) 0%, transparent 70%)",
               }}
             />
             <p

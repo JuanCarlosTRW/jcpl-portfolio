@@ -29,7 +29,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
       className="relative min-h-[70vh] flex flex-col justify-end pb-16 md:pb-24 px-6 overflow-hidden"
       style={{
         background:
-          "radial-gradient(ellipse at 60% 0%, rgba(127,95,255,0.13) 0%, transparent 60%), radial-gradient(ellipse at 0% 100%, rgba(51,204,255,0.08) 0%, transparent 60%), #0E0E0F",
+          "radial-gradient(ellipse at 60% 0%, rgba(37,99,235,0.13) 0%, transparent 60%), radial-gradient(ellipse at 0% 100%, rgba(37,99,235,0.08) 0%, transparent 60%), #0E0E0F",
       }}
     >
       {/* Back link */}
@@ -37,7 +37,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
         href="/case-studies"
         className="absolute top-8 left-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[var(--text-muted)] hover:text-white transition-colors"
       >
-        <span className="text-base">←</span> Case Studies
+        <span className="text-base">←</span> Results
       </Link>
 
       {/* Subtle grid overlay */}
@@ -54,7 +54,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
       <div
         className="absolute top-[-80px] right-[-80px] w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(127,95,255,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -92,7 +92,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
             href="/case-studies"
             className="inline-flex items-center gap-2 border border-white/20 text-white font-medium text-sm px-7 py-3.5 rounded-full hover:border-white/50 hover:bg-white/5 transition-all"
           >
-            View All Case Studies →
+            View All Results →
           </Link>
         </div>
       </div>

@@ -41,7 +41,7 @@ export const caseStudies: CaseStudy[] = [
     location: "Texas, USA",
     headline: "From Empty Calendar to $20,000 in 30 Days",
     subtext:
-      "How we engineered a full Google Ads funnel for a Texas RV rental company — delivering $20K in new revenue in the first month of deployment.",
+      "How I engineered a full Google Ads funnel for a Texas RV rental company — delivering $20K in new revenue in the first month of deployment.",
     situation: {
       who: "Family-owned RV rental business in Texas with 8 vehicles and no reliable online acquisition channel.",
       problem: "Bookings were entirely referral-based. No paid traffic. No conversion system. Revenue was unpredictable month-to-month.",
@@ -53,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         "The problem wasn't demand. The RV rental market in Texas is highly active — especially spring through fall. People were searching. The business simply didn't exist online.",
         "The real issue was architecture. No Google Ads presence, no optimized landing page, no follow-up system. Competitors were capturing every search query this owner should have owned.",
-        "Throwing budget at ads without a conversion-ready funnel would have burned cash. We had to build the full system before spending a dollar.",
+        "Throwing budget at ads without a conversion-ready funnel would have burned cash. I had to build the full system before spending a dollar.",
       ],
       highlighted: "The market was ready. The infrastructure wasn't.",
     },
@@ -195,7 +195,7 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         "First impressions are made online before the client ever walks in. An outdated website doesn't just look bad — it actively repels the high-value clients you want.",
         "The issue wasn't the service. It was the signal. Potential premium clients were evaluating the website and choosing competitors who looked more established.",
-        "We needed to build a digital presence that matched — and elevated — the real quality of the in-person experience.",
+        "I needed to build a digital presence that matched — and elevated — the real quality of the in-person experience.",
       ],
       highlighted: "Your website is your first handshake. Make it premium.",
     },
@@ -365,6 +365,6 @@ export const caseStudiesContent = {
   cta: {
     label: "Apply for Selective Partnership",
     href: "/apply",
-    note: "We work with a limited number of partners per quarter.",
+    note: "I work with a limited number of partners per quarter.",
   },
 };

@@ -13,7 +13,7 @@ export default function CaseStudyFinalCTA({ study }: { study: CaseStudy }) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 100%, rgba(127,95,255,0.12) 0%, transparent 65%)",
+            "radial-gradient(ellipse at 50% 100%, rgba(37,99,235,0.12) 0%, transparent 65%)",
         }}
       />
 
@@ -30,7 +30,7 @@ export default function CaseStudyFinalCTA({ study }: { study: CaseStudy }) {
         </h2>
 
         <p className="text-base md:text-lg text-white/60 leading-relaxed mb-12 max-w-lg mx-auto">
-          We take on a limited number of growth partnerships each quarter. If your business is ready to stop guessing and start scaling with a system, apply now.
+          I take on a limited number of growth partnerships each quarter. If your business is ready to stop guessing and start scaling with a system, apply now.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

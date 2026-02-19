@@ -174,7 +174,7 @@ function ServicesLayer() {
         <Link
           href={ctaCopy.href}
           onClick={() => trackEvent("hero_cta_click")}
-          className="group inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-white transition-all duration-400 hover:bg-[var(--brand-deep)] shadow-[0_0_20px_rgba(127,95,255,0.3)] hover:shadow-[0_0_30px_rgba(127,95,255,0.5)]"
+          className="group inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-white transition-all duration-400 hover:bg-[var(--brand-deep)] shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]"
         >
           {ctaCopy.primary}
           <span className="transition-transform duration-300 group-hover:translate-x-1">

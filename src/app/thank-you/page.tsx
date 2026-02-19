@@ -16,7 +16,9 @@ export default function ThankYouPage() {
       <div className="max-w-2xl mx-auto text-center">
         {/* Success icon */}
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 mb-8">
-          <span className="text-4xl" aria-hidden="true">✓</span>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M10 20l7 7 13-14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--brand-accent)]" />
+          </svg>
         </div>
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -46,7 +48,7 @@ export default function ThankYouPage() {
               {
                 step: "3",
                 title: "Strategy Call",
-                desc: "We'll map out your Presence-to-Pipeline System™ together — no obligation.",
+                desc: "I'll map out your Growth Architecture™ together — no obligation.",
               },
             ].map((item) => (
               <li key={item.step} className="flex gap-4">
@@ -65,7 +67,7 @@ export default function ThankYouPage() {
         {/* Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <CTAButton href="/case-studies" variant="secondary" size="lg">
-            See Case Studies While You Wait
+            See Results While You Wait
           </CTAButton>
           <Link
             href="/"

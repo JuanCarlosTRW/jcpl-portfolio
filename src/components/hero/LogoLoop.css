@@ -108,7 +108,7 @@
 /* ── Individual node hover glow ── */
 .logoloop--scale-hover .logoloop__item:hover .logoloop__node {
   color: rgba(255, 255, 255, 1);
-  text-shadow: 0 0 12px rgba(127, 95, 255, 0.3);
+  text-shadow: 0 0 12px rgba(37, 99, 235, 0.3);
 }
 
 /* ── Fade edges modifier ── */

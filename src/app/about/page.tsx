@@ -13,7 +13,7 @@ import AboutCTA from "@/components/about/AboutCTA";
 export const metadata: Metadata = buildMetadata({
   title: "About — Growth Partner for Service Businesses",
   description:
-    "We build complete growth systems — not isolated deliverables. Learn why integrated execution beats fragmented freelancers every time.",
+    "I build complete growth systems — not isolated deliverables. Learn why integrated execution beats fragmented freelancers every time.",
   path: "/about",
 });
 

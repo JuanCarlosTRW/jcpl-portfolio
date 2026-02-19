@@ -70,8 +70,8 @@ const PremiumFrame = forwardRef<HTMLDivElement, PremiumFrameProps>(
       `,
       accent: `
         bg-[var(--bg-surface)]
-        border border-[rgba(127,95,255,0.15)]
-        shadow-[0_4px_24px_rgba(127,95,255,0.08),inset_0_1px_0_rgba(255,255,255,0.03)]
+        border border-[rgba(37,99,235,0.15)]
+        shadow-[0_4px_24px_rgba(37,99,235,0.08),inset_0_1px_0_rgba(255,255,255,0.03)]
       `,
       ghost: `
         bg-transparent
@@ -120,7 +120,7 @@ export function PremiumFrameGlow({
   color?: "accent" | "alt";
   position?: "top" | "center";
 }) {
-  const colorValue = color === "accent" ? "127,95,255" : "51,204,255";
+  const colorValue = color === "accent" ? "37,99,235" : "37,99,235";
   const positionClass = position === "top" ? "top-0" : "top-1/2 -translate-y-1/2";
 
   return (

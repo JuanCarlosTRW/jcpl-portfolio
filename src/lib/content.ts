@@ -20,7 +20,7 @@ export const navigation = [
 export const ctaCopy = {
   primary: "Apply for Growth Partnership",
   secondary: "See Results",
-  tertiary: "See If We're a Fit",
+  tertiary: "Apply for Growth Partnership",
   href: "/apply",
 };
 
@@ -61,7 +61,7 @@ export const problemSection = {
   body: "Most service businesses don't have a lead generation problem — they have a trust and conversion problem. Your website looks outdated. Your ads lead nowhere. And you're invisible to the AI tools your future clients are already using.",
 };
 
-/* ─── Presence-to-Pipeline System ─── */
+/* ─── Growth Architecture System ─── */
 export const systemSteps = [
   {
     step: 1,
@@ -498,12 +498,12 @@ export const servicesDecisionAssist = {
 
 export const servicesFAQ = [
   {
-    question: "How fast do we see a first win?",
+    question: "How fast will I see a first win?",
     answer: "Foundation clients go live in 2\u20133 weeks. Growth clients typically see first qualified leads within 30 days. Timeline depends on your market and readiness.",
   },
   {
     question: "What do you need from me?",
-    answer: "Clear goals, timely feedback, and access to existing assets (if any). We handle the heavy lifting — you stay focused on running your business.",
+    answer: "Clear goals, timely feedback, and access to existing assets (if any). I handle the heavy lifting — you stay focused on running your business.",
   },
   {
     question: "Any contracts or lock-in?",
@@ -511,7 +511,7 @@ export const servicesFAQ = [
   },
   {
     question: "What if it's not a fit?",
-    answer: "If we're not a fit, you'll get honest feedback and recommendations — no hard sell. We'd rather pass than deliver subpar work.",
+    answer: "If I'm not the right fit, you'll get honest feedback and recommendations — no hard sell. I'd rather pass than deliver subpar work.",
   },
   {
     question: "How do you measure success?",
@@ -519,7 +519,7 @@ export const servicesFAQ = [
   },
   {
     question: "What happens after I apply?",
-    answer: "You'll receive a short qualification review within 24 hours. If we're aligned, we'll send you a link to book a strategy call.",
+    answer: "You'll receive a short qualification review within 24 hours. If I determine we're a good fit, I'll send you a link to book a strategy call.",
   },
 ];
 

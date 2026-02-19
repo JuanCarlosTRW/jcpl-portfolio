@@ -240,14 +240,14 @@ export interface FaqItem {
 
 export const pricingFaqs: FaqItem[] = [
   {
-    question: "How fast do we see results?",
+    question: "How fast will I see results?",
     answer:
       "Foundation clients go live in 2–3 weeks. Growth clients typically see first qualified leads within 30 days. Timeline depends on your market and readiness.",
   },
   {
     question: "Can I upgrade my plan later?",
     answer:
-      "Absolutely. You can upgrade at any time and we'll credit your existing investment toward the new tier. Most clients start with Growth and scale from there.",
+      "Absolutely. You can upgrade at any time and I'll credit your existing investment toward the new tier. Most clients start with Growth and scale from there.",
   },
   {
     question: "Is there a contract or lock-in?",
@@ -257,7 +257,7 @@ export const pricingFaqs: FaqItem[] = [
   {
     question: "What do you need from me to get started?",
     answer:
-      "Clear goals, timely feedback, and access to existing assets (if any). We handle the heavy lifting — you stay focused on running your business.",
+      "Clear goals, timely feedback, and access to existing assets (if any). I handle the heavy lifting — you stay focused on running your business.",
   },
   {
     question: "Do you offer discounts for annual billing?",
@@ -267,12 +267,12 @@ export const pricingFaqs: FaqItem[] = [
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept all major credit cards (Visa, Mastercard, Amex) and bank transfers. Payments are processed securely via Stripe in CAD or USD.",
+      "I accept all major credit cards (Visa, Mastercard, Amex) and bank transfers. Payments are processed securely via Stripe in CAD or USD.",
   },
   {
     question: "What if it's not a fit?",
     answer:
-      "If we're not a fit, you'll get honest feedback and recommendations — no hard sell. We'd rather pass than deliver subpar work.",
+      "If I'm not the right fit, you'll get honest feedback and recommendations — no hard sell. I'd rather pass than deliver subpar work.",
   },
   {
     question: "How do you measure success?",

@@ -17,8 +17,8 @@
   /* ─── Accents ─── */
   --accent-blue: #33ccff;
   --accent-warm: #C7A96B;
-  --accent-violet: #7f5fff;
-  --accent-frost: rgba(127, 95, 255, 0.12);
+  --accent-violet: #2563EB;
+  --accent-frost: rgba(37, 99, 235, 0.12);
 
   /* ─── Borders ─── */
   --border-subtle: rgba(255, 255, 255, 0.08);
@@ -32,7 +32,7 @@
   /* ─── Shadows ─── */
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.22);
   --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 80px rgba(127, 95, 255, 0.08);
+  --shadow-glow: 0 0 80px rgba(37, 99, 235, 0.08);
 
   /* ─── Transitions ─── */
   --transition-smooth: 0.4s cubic-bezier(0.22, 1, 0.36, 1);

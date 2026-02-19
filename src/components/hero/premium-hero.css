@@ -14,7 +14,7 @@
    Palette:
      Ink navy   #0a1020
      Electric blue  #3cf / #33ccff
-     Violet edge    #7f5fff
+     Blue edge      #2563EB
    
    Layer stack (bottom → top):
      0  ph-base        Deep ink navy radial gradient
@@ -117,7 +117,7 @@
   z-index: 4;
   background: radial-gradient(
     ellipse 50% 70% at 50% 45%,
-    rgba(127, 95, 255, 0.06) 0%,
+    rgba(37, 99, 235, 0.06) 0%,
     rgba(51, 204, 255, 0.02) 30%,
     transparent 70%
   );
@@ -238,7 +238,7 @@
   max-width: 18ch;
   will-change: transform, opacity;
   text-shadow:
-    0 0 40px rgba(127, 95, 255, 0.06),
+    0 0 40px rgba(37, 99, 235, 0.06),
     0 2px 20px rgba(0, 0, 0, 0.4);
 }
 

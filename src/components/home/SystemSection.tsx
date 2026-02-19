@@ -45,9 +45,9 @@ export default function SystemSection() {
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
         <SectionLabel label="The System" className="mb-5" />
         <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
-          The Presence-to-Pipeline{" "}
-          <span className="bg-gradient-to-r from-[#7f5fff] to-[#33ccff] bg-clip-text text-transparent">
-            System™
+          The{" "}
+          <span className="text-[#2563EB]">
+            Growth Architecture™
           </span>
         </h2>
         <p className="mt-5 text-[var(--text-secondary)] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
@@ -63,7 +63,7 @@ export default function SystemSection() {
           className="hidden lg:block absolute left-1/2 top-8 bottom-8 w-px"
           style={{
             background:
-              "linear-gradient(180deg, rgba(127,95,255,0.3) 0%, rgba(51,204,255,0.3) 50%, rgba(127,95,255,0.1) 100%)",
+              "linear-gradient(180deg, rgba(37,99,235,0.3) 0%, rgba(37,99,235,0.15) 50%, rgba(37,99,235,0.05) 100%)",
           }}
           aria-hidden="true"
         />
@@ -85,11 +85,11 @@ export default function SystemSection() {
                     } h-4 w-4 items-center justify-center`}
                     aria-hidden="true"
                   >
-                    <div className="h-2.5 w-2.5 rounded-full bg-[var(--brand-accent)] shadow-[0_0_8px_rgba(127,95,255,0.5)] transition-shadow duration-300 group-hover:shadow-[0_0_16px_rgba(127,95,255,0.7)]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-[var(--brand-accent)] shadow-[0_0_8px_rgba(37,99,235,0.5)] transition-shadow duration-300 group-hover:shadow-[0_0_16px_rgba(37,99,235,0.7)]" />
                   </div>
 
                   {/* Card */}
-                  <div className="relative rounded-2xl border border-[rgba(255,255,255,0.06)] bg-[var(--bg-surface)] p-7 md:p-8 transition-all duration-400 hover:border-[rgba(127,95,255,0.15)] hover:bg-[var(--bg-elevated)] hover:translate-y-[-2px] hover:shadow-[0_8px_40px_rgba(127,95,255,0.06)]">
+                  <div className="relative rounded-2xl border border-[rgba(255,255,255,0.06)] bg-[var(--bg-surface)] p-7 md:p-8 transition-all duration-400 hover:border-[rgba(37,99,235,0.15)] hover:bg-[var(--bg-elevated)] hover:translate-y-[-2px] hover:shadow-[0_8px_40px_rgba(37,99,235,0.06)]">
                     {/* Phase badge + icon row */}
                     <div
                       className={`flex items-center gap-3 mb-4 ${
@@ -97,7 +97,7 @@ export default function SystemSection() {
                       }`}
                     >
                       {/* Icon */}
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[rgba(127,95,255,0.08)] border border-[rgba(127,95,255,0.12)] text-[var(--brand-accent)] shrink-0 transition-colors duration-300 group-hover:bg-[rgba(127,95,255,0.12)]">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.12)] text-[var(--brand-accent)] shrink-0 transition-colors duration-300 group-hover:bg-[rgba(37,99,235,0.12)]">
                         {PHASE_ICONS[step.step]}
                       </div>
 
