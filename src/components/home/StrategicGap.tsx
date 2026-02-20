@@ -12,7 +12,7 @@ export default function StrategicGap() {
     <SectionWrapper id="insight">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={strategicGap.label} className="mb-5" />
-  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {strategicGap.headline}
         </h2>
       </Reveal>
@@ -21,14 +21,14 @@ export default function StrategicGap() {
         {/* Top featured card */}
         <Reveal>
           <div className="bg-cg-card border border-[rgba(255,255,255,0.08)] rounded-[14px] px-8 sm:px-10 py-8 sm:py-9 mb-5">
-            <span className="text-[11px] uppercase tracking-[0.1em] text-cg-accent-lt font-bold mb-4 block">
+            <span className="text-[12px] uppercase tracking-[0.14em] text-cg-accent-lt font-bold mb-4 block">
               01
             </span>
             <div className="border-l-[3px] border-cg-accent pl-5">
               <h3 className="text-[22px] font-bold text-white mb-3">
                 {truths[0].heading}
               </h3>
-              <p className="text-[15px] text-cg-secondary leading-[1.7] max-w-[640px]">
+              <p className="text-[16px] text-cg-secondary leading-[1.75] max-w-[640px]">
                 {truths[0].body}
               </p>
             </div>
@@ -40,13 +40,13 @@ export default function StrategicGap() {
           {truths.slice(1).map((truth, i) => (
             <Reveal key={i} delay={0.1 * (i + 1)}>
               <div className="flex-1 bg-cg-card border border-[rgba(255,255,255,0.07)] rounded-[14px] px-7 py-7 transition-all duration-300 hover:border-[rgba(37,99,235,0.4)] hover:-translate-y-[2px]">
-                <span className="text-[11px] uppercase tracking-[0.1em] text-cg-accent-lt font-bold mb-3 block">
+                <span className="text-[12px] uppercase tracking-[0.14em] text-cg-accent-lt font-bold mb-3 block">
                   {`0${i + 2}`}
                 </span>
                 <h3 className="text-[18px] font-bold text-white mb-2">
                   {truth.heading}
                 </h3>
-                <p className="text-[14px] text-cg-secondary leading-[1.65]">
+                <p className="text-[16px] text-cg-secondary leading-[1.75]">
                   {truth.body}
                 </p>
               </div>

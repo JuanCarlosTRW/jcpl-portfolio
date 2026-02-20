@@ -11,8 +11,8 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold text-white">
               Client Growth
             </Link>
-            <p className="text-[14px] text-cg-secondary max-w-[280px] leading-[1.65]">
-              One partner. One system. One outcome — qualified calls on autopilot.
+            <p className="text-[15px] text-cg-secondary max-w-[280px] leading-[1.65]">
+              One partner. One system. Qualified calls on autopilot.
             </p>
             <a
               href="https://www.linkedin.com/company/clientgrowth"
@@ -30,7 +30,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="space-y-3">
-            <h4 className="text-[11px] uppercase tracking-[0.1em] font-medium text-cg-muted mb-4">
+            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium text-cg-muted mb-4">
               Navigation
             </h4>
             <ul className="space-y-2.5">
@@ -38,7 +38,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[14px] text-cg-secondary transition-colors duration-150 hover:text-white"
+                    className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -49,14 +49,14 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="space-y-3">
-            <h4 className="text-[11px] uppercase tracking-[0.1em] font-medium text-cg-muted mb-4">
+            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium text-cg-muted mb-4">
               Legal
             </h4>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-[14px] text-cg-secondary transition-colors duration-150 hover:text-white"
+                  className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-white"
                 >
                   Privacy Policy
                 </Link>
@@ -64,7 +64,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-[14px] text-cg-secondary transition-colors duration-150 hover:text-white"
+                  className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-white"
                 >
                   Terms of Service
                 </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:hello@clientgrowth.ca"
-                  className="text-[14px] text-cg-secondary transition-colors duration-150 hover:text-cg-accent-lt"
+                  className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-cg-accent-lt"
                 >
                   hello@clientgrowth.ca
                 </a>

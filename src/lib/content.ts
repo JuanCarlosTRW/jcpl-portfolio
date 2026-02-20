@@ -27,9 +27,9 @@ export const ctaCopy = {
 /* ─── Hero ─── */
 export const hero = {
   overline: "FOR SERVICE BUSINESSES",
-  headline: "Your Competitors Are\nBooking the Clients\nThat Should Be Yours.",
+  headline: "You Built Something Real.\nNow Make Sure\nPeople Can Find It.",
   subheadline:
-    "You built something real. But if your pipeline still\ndepends on referrals and word of mouth, someone else is\ncapturing every lead you're not. I fix that — with one\nsystem that brings them to you, on autopilot.",
+    "You've put years into your craft. But if clients are still finding you through referrals and word of mouth, you're invisible where it counts — and someone else is booking the jobs that should be yours. I build the system that changes that.",
   cta: "Apply for Growth Partnership →",
   ctaSecondary: "See Real Results",
 };
@@ -116,28 +116,28 @@ export const resultsPreview = {
 /* ─── Section B: Client Reality (Pain Bullets) ─── */
 export const clientReality = {
   label: "THE REALITY",
-  headline: "You're Not Losing on Quality.\nYou're Losing on Visibility.",
-  subheadline: "Most service businesses do great work — and still lose\nto inferior competitors who simply show up first online.",
+  headline: "Your Work Is Good.\nYour Pipeline Shouldn't Be This Uncertain.",
+  subheadline: "Most business owners I talk to aren't failing — they're just not set up to grow. There's a difference.",
   pains: [
     {
       icon: "ghost",
-      title: "They Search. You Don't Appear.",
-      detail: "Right now, someone in your city is Googling exactly\nwhat you offer. Your competitor's name comes up. Yours doesn't.\nThat call was yours to lose."
+      title: "Someone Is Searching for You Right Now.",
+      detail: "They typed exactly what you do into Google. A competitor showed up. You didn't. That call is gone. And it happens dozens of times a month."
     },
     {
       icon: "leak",
-      title: "Your Site Looks Fine. It Doesn't Convert.",
-      detail: "Traffic without trust is wasted money. If visitors\ncan't instantly see why you're the obvious choice,\nthey leave — and book someone else."
+      title: "Your Website Looks Fine. It Doesn't Close.",
+      detail: "A website that doesn't immediately answer 'why you, why now' isn't an asset — it's a leaky bucket. Visitors come, feel nothing, and leave."
     },
     {
       icon: "clock",
-      title: "You're Running the Business AND the Marketing.",
-      detail: "You didn't start a business to become a part-time\nmarketer. Every hour you spend figuring out ads or\nfixing your website is an hour not spent on your craft."
+      title: "You're Doing Marketing on Top of Everything Else.",
+      detail: "You built a business because you're great at what you do — not because you wanted to manage ads, update websites, and figure out SEO. That's not where your energy should go."
     },
     {
       icon: "scatter",
-      title: "Referrals Aren't a Strategy. They're a Gamble.",
-      detail: "A good month followed by a quiet month. No way to\npredict it, no way to control it. That's not a business —\nthat's hope dressed up as a pipeline."
+      title: "Referrals Keep You Alive. They Won't Help You Grow.",
+      detail: "Good months, quiet months. No way to predict the next one. If your pipeline depends on who someone happens to mention you to — you're not running a business. You're waiting on luck."
     }
   ],
 };
@@ -145,19 +145,19 @@ export const clientReality = {
 /* ─── Section C: Strategic Gap (Truth Blocks) ─── */
 export const strategicGap = {
   label: "THE INSIGHT",
-  headline: "More Effort Isn't the Answer.\nA Better System Is.",
+  headline: "The Businesses Winning Locally\nAren't Working Harder. They're Set Up Better.",
   truths: [
     {
-      heading: "More ads won't save a broken funnel.",
-      body: "I've seen business owners spend $2,000 a month\non Google Ads with nothing to show for it — not because\nads don't work, but because the system behind them\ndoesn't convert. Traffic is easy. Trust is the problem."
+      heading: "Throwing money at ads won't fix a broken funnel.",
+      body: "I've sat across from business owners who spent thousands on Google Ads and had nothing to show for it. Not because ads don't work — but because the page they sent traffic to didn't convert. The ad was fine. The system behind it was broken."
     },
     {
-      heading: "A beautiful website isn't a growth asset.",
-      body: "Design that doesn't drive a specific action\nis just decoration. Every element on every page\nmust earn its place by moving someone closer to a call."
+      heading: "A website that doesn't convert is just a business card.",
+      body: "Design without intent is decoration. Every single element on every page needs a job: move this person one step closer to picking up the phone. If it doesn't do that, it's costing you."
     },
     {
-      heading: "Fragmented tools produce fragmented results.",
-      body: "When your website, ads, and follow-up don't\ntalk to each other, leads fall through the gaps.\nThe businesses winning locally aren't working harder —\nthey're working connected."
+      heading: "When your tools don't connect, leads disappear.",
+      body: "Your site, your ads, your follow-up — if they're not working as one system, you're losing people in the gaps. The businesses dominating your market aren't smarter than you. They're just more connected."
     }
   ],
 };
@@ -166,12 +166,12 @@ export const strategicGap = {
 export const growthArchitecture = {
   label: "THE SYSTEM",
   headline: "The Growth Architecture™",
-  subheadline: "Four layers. One outcome. Qualified calls — without\nyou having to think about marketing again.",
+  subheadline: "Not a website. Not just ads. One complete system — built so your phone rings with people already convinced you're the right choice.",
   pillars: [
     {
       id: "authority",
       title: "Authority Layer",
-      subtitle: "Be found. Be trusted.",
+      subtitle: "Be found. Be trusted immediately.",
       points: [
         "Conversion-engineered website",
         "SEO & AI search (GEO) optimization",
@@ -182,7 +182,7 @@ export const growthArchitecture = {
     {
       id: "conversion",
       title: "Conversion Layer",
-      subtitle: "Turn visitors into booked calls.",
+      subtitle: "Turn visits into booked calls.",
       points: [
         "Trust signals & social proof",
         "Frictionless booking flow",
@@ -193,7 +193,7 @@ export const growthArchitecture = {
     {
       id: "acquisition",
       title: "Acquisition Layer",
-      subtitle: "Put your name in front of buyers.",
+      subtitle: "Put your name in front of buyers — not browsers.",
       points: [
         "Google Ads with intent targeting",
         "Retargeting & follow-up sequences",
@@ -204,7 +204,7 @@ export const growthArchitecture = {
     {
       id: "optimization",
       title: "Optimization Layer",
-      subtitle: "Compound results every month.",
+      subtitle: "Results that compound every single month.",
       points: [
         "Conversion rate optimization",
         "Cost per lead reduction",
@@ -222,14 +222,14 @@ export const featuredCase = {
   slug: "rv-rental-texas",
   client: "RV RENTAL COMPANY — TEXAS",
   result: "$30,000",
-  resultLabel: "in revenue generated",
-  timeframe: "FIRST 30 DAYS · $900 AD SPEND · GOOGLE ADS FUNNEL",
+  resultLabel: "in revenue. First 30 days.",
+  timeframe: "$900 IN AD SPEND · GOOGLE ADS FUNNEL · 30 DAYS",
   supporting: [
-    { metric: "$900", label: "TOTAL AD SPEND" },
+    { metric: "$900", label: "AD SPEND" },
     { metric: "33x", label: "RETURN ON AD SPEND" },
-    { metric: "30 days", label: "TO FIRST RESULTS" }
+    { metric: "30", label: "DAYS TO RESULTS" }
   ],
-  callout: "$900 in ad spend. $30,000 back. In 30 days.",
+  callout: "$900 in. $30,000 out. In one month.",
   cta: "View All Results →",
 };
 
@@ -237,24 +237,24 @@ export const featuredCase = {
 export const howWeWork = {
   label: "THE PROCESS",
   headline: "Three Phases. One Outcome.",
-  subheadline: "No long onboarding. No 12-week timelines.\nA clear system from day one.",
+  subheadline: "From first conversation to first lead — in under a month.",
   steps: [
     {
       number: "01",
       title: "Diagnose",
-      description: "I audit your current presence, identify exactly\nwhere you're losing clients, and map the full growth\nsystem — before touching a single line of code.",
+      description: "I audit your online presence, identify exactly where clients are slipping away, and map out the full system before a single line of code gets written. You'll know the plan before I start.",
       duration: "Week 1"
     },
     {
       number: "02",
       title: "Build",
-      description: "I build the complete system — website, Google Ads,\nAI automation, booking flow — as one connected architecture.\nNo handoffs. No fragmentation. No excuses.",
+      description: "Website, Google Ads, AI automation, booking flow — built as one system, not a stack of disconnected tools. Fast. Clean. No handoffs. I own the whole thing.",
       duration: "Weeks 2–4"
     },
     {
       number: "03",
       title: "Scale",
-      description: "Once the system is live, I optimize it monthly.\nLower cost per lead. Higher conversion rates.\nCompounding returns — without you lifting a finger.",
+      description: "Every month I look at the numbers and tighten the system. Lower cost per lead. Better conversion. More revenue — with less and less effort on your end. That's the point.",
       duration: "Ongoing"
     }
   ],
@@ -264,29 +264,29 @@ export const howWeWork = {
 export const differentiation = {
   label: "THE DIFFERENCE",
   headline: "This Isn't an Agency. It's a Partnership.",
-  subheadline: "Agencies take your money, deliver a project, and disappear.\nI stay in it with you — because when you win, I win.",
+  subheadline: "Agencies sell deliverables and move on. I measure my success by whether your phone rings.",
   comparisons: [
-    { dimension: "Ownership", them: "5+ vendors, zero accountability", us: "One partner owns the entire pipeline" },
+    { dimension: "Ownership", them: "5+ vendors, no single owner", us: "One partner owns the entire pipeline" },
     { dimension: "Speed", them: "8–12 weeks, constant delays", us: "2–4 weeks, unified execution" },
     { dimension: "Accountability", them: "Everyone points elsewhere", us: "One owner, one outcome metric" },
     { dimension: "Lead Quality", them: "Vanity metrics, no context", us: "Built-in qualification and scoring" },
-    { dimension: "Reporting", them: "Scattered dashboards, no attribution", us: "Single report, full-funnel visibility" },
-    { dimension: "Relationship", them: "Project done, they're gone", us: "Long-term partner invested in your growth" }
+    { dimension: "Reporting", them: "3 dashboards, no clear answer", us: "One report, full-funnel clarity" },
+    { dimension: "After Launch", them: "Project done. They're gone.", us: "Monthly optimization, ongoing growth" }
   ],
 };
 
 /* ─── Section H: Qualification + Final CTA ─── */
 export const qualification = {
   forYouIf: [
-    "You run a service business and your pipeline is too\ndependent on referrals",
-    "You're generating $5K+/month and ready to invest\nin real growth infrastructure",
-    "You want one partner who owns the full system —\nnot five freelancers you have to manage",
-    "You're done watching competitors rank above you\nfor work you're better at"
+    "Your pipeline leans too heavily on referrals and word of mouth",
+    "You're generating $5K+/month and ready to invest in infrastructure that pays back",
+    "You want one person who owns the full picture — not five vendors you have to coordinate",
+    "You're tired of watching competitors rank above you for work you do better"
   ],
   notForYouIf: [
-    "You want a quick logo or a one-off landing page",
+    "You want a logo, a brochure site, or a one-off project",
     "Your business is under $5K/month revenue",
-    "You're not ready to commit to a system —\nyou just want to 'test' a few ads"
+    "You're not ready to commit — you want to 'test the waters' with no real system behind it"
   ],
 };
 export const whySection = {

@@ -43,10 +43,10 @@ export default function ClientReality() {
     <SectionWrapper id="reality" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={clientReality.label} className="mb-5" />
-  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {clientReality.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
           {clientReality.subheadline}
         </p>
       </Reveal>
@@ -61,12 +61,12 @@ export default function ClientReality() {
               </div>
 
               {/* Title */}
-              <h3 className="text-[17px] font-bold text-white mb-2 leading-snug">
+              <h3 className="text-[18px] font-bold text-white mb-2 leading-snug">
                 {pain.title}
               </h3>
 
               {/* Detail */}
-              <p className="text-[14px] text-cg-secondary leading-[1.65]">
+              <p className="text-[16px] text-cg-secondary leading-[1.75]">
                 {pain.detail}
               </p>
             </div>

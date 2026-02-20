@@ -51,9 +51,9 @@ function ClipboardIcon() {
 }
 
 const trustBadges = [
-  { Icon: LightningIcon, text: "Response within 24 hours" },
-  { Icon: LockIcon, text: "100% confidential" },
-  { Icon: ClipboardIcon, text: "Limited spots per quarter" },
+  { Icon: LightningIcon, text: "Reply within 24 hours" },
+  { Icon: LockIcon, text: "No long-term contracts" },
+  { Icon: ClipboardIcon, text: "3 spots per quarter" },
 ];
 
 export default function QualificationCTA() {
@@ -84,13 +84,13 @@ export default function QualificationCTA() {
             <div className="grid gap-6 md:grid-cols-2 mb-16">
               {/* For You If */}
               <div className="rounded-2xl border border-[rgba(37,99,235,0.25)] bg-cg-card p-7 md:p-8">
-                <h3 className="text-[17px] font-bold text-white mb-5 flex items-center gap-2">
+                <h3 className="text-[18px] font-bold text-white mb-5 flex items-center gap-2">
                   <CheckIcon />
                   This Is for You If…
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[14px] text-cg-body leading-[1.6]">
+                    <li key={i} className="flex items-start gap-3 text-[16px] text-cg-body leading-[1.7]">
                       <CheckIcon />
                       {item}
                     </li>
@@ -100,13 +100,13 @@ export default function QualificationCTA() {
 
               {/* Not For You If */}
               <div className="rounded-2xl border border-[rgba(239,68,68,0.25)] bg-cg-card p-7 md:p-8">
-                <h3 className="text-[17px] font-bold text-white mb-5 flex items-center gap-2">
+                <h3 className="text-[18px] font-bold text-white mb-5 flex items-center gap-2">
                   <XIcon />
                   This Is Not for You If…
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.notForYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[14px] text-cg-secondary leading-[1.6]">
+                    <li key={i} className="flex items-start gap-3 text-[16px] text-cg-secondary leading-[1.7]">
                       <XIcon />
                       {item}
                     </li>
@@ -120,16 +120,14 @@ export default function QualificationCTA() {
           <div className="text-center">
             <Reveal>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.12] tracking-tight mb-5">
-                Your Pipeline Won&apos;t{" "}
-                <span className="text-cg-accent">
-                  Build Itself
-                </span>
+                Your Pipeline Won&apos;t Build Itself.
               </h2>
 
-              <p className="text-cg-body leading-relaxed mb-10 max-w-lg mx-auto text-[16px]">
-                Apply for a strategy call. I&apos;ll review your business,
-                identify the highest-leverage growth opportunities, and determine
-                if I&apos;m the right fit.
+              <p className="text-cg-body leading-[1.75] mb-10 max-w-lg mx-auto text-[18px]">
+                Every week without a system is revenue you won&apos;t
+                recover. I take on 3 partnerships per quarter.
+                Apply now — if there&apos;s a fit, you&apos;ll hear from me
+                within 24 hours.
               </p>
             </Reveal>
 
@@ -159,7 +157,7 @@ export default function QualificationCTA() {
                 {trustBadges.map(({ Icon, text }) => (
                   <span
                     key={text}
-                    className="inline-flex items-center gap-1.5 text-[13px] text-cg-secondary"
+                    className="inline-flex items-center gap-1.5 text-[14px] text-cg-secondary"
                   >
                     <Icon />
                     {text}

@@ -33,10 +33,11 @@ export default function FinalCTA() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5">
               Your Pipeline Won&apos;t Build Itself.
             </h2>
-            <p className="text-[var(--text-secondary)] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
-              Every week you wait, a competitor is capturing leads
-              that should be yours. I take on 3 partnerships per quarter.
-              Apply now — if there&apos;s a fit, I&apos;ll tell you within 24 hours.
+            <p className="text-[var(--text-secondary)] leading-[1.75] mb-10 max-w-lg mx-auto text-[18px]">
+              Every week without a system is revenue you won&apos;t
+              recover. I take on 3 partnerships per quarter.
+              Apply now — if there&apos;s a fit, you&apos;ll hear from me
+              within 24 hours.
             </p>
           </Reveal>
 
@@ -65,13 +66,13 @@ export default function FinalCTA() {
           <Reveal delay={0.2}>
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
               {[
-                { icon: "\u26A1", text: "Response within 24 hours" },
+                { icon: "\u26A1", text: "Reply within 24 hours" },
                 { icon: "\uD83D\uDD13", text: "No long-term contracts" },
-                { icon: "\uD83D\uDD39", text: "Max 3 spots per quarter" },
+                { icon: "\uD83D\uDD39", text: "3 spots per quarter" },
               ].map((item) => (
                 <span
                   key={item.text}
-                  className="inline-flex items-center gap-1.5 text-xs text-[var(--text-muted)]"
+                  className="inline-flex items-center gap-1.5 text-[14px] text-[var(--text-muted)]"
                 >
                   <span aria-hidden="true" className="text-[0.7rem]">
                     {item.icon}

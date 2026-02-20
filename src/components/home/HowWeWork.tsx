@@ -10,10 +10,10 @@ export default function HowWeWork() {
     <SectionWrapper id="process" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={howWeWork.label} className="mb-5" />
-  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {howWeWork.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
           {howWeWork.subheadline}
         </p>
       </Reveal>
@@ -43,14 +43,14 @@ export default function HowWeWork() {
                   {/* Content */}
                   <div className="flex-1 pb-12">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-[20px] font-bold text-white leading-snug">
+                      <h3 className="text-[22px] font-bold text-white leading-snug">
                         {step.title}
                       </h3>
-                      <span className="inline-flex bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.4)] rounded-full px-2.5 py-0.5 text-[11px] text-cg-accent-lt font-semibold tracking-[0.05em]">
+                      <span className="inline-flex bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.4)] rounded-full px-2.5 py-0.5 text-[12px] text-cg-accent-lt font-semibold tracking-[0.05em]">
                         {step.duration}
                       </span>
                     </div>
-                    <p className="text-[15px] text-cg-secondary leading-[1.7] max-w-lg">
+                    <p className="text-[17px] text-cg-secondary leading-[1.8] max-w-lg">
                       {step.description}
                     </p>
                   </div>

@@ -47,10 +47,10 @@ export default function GrowthArchitecture() {
     <SectionWrapper id="system" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={growthArchitecture.label} className="mb-5" />
-  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {growthArchitecture.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
           {growthArchitecture.subheadline}
         </p>
       </Reveal>
@@ -67,7 +67,7 @@ export default function GrowthArchitecture() {
                   </div>
 
                   {/* Title + Subtitle */}
-                  <h3 className="text-[17px] font-bold text-white mb-1 leading-snug">
+                  <h3 className="text-[18px] font-bold text-white mb-1 leading-snug">
                     {pillar.title}
                   </h3>
                   <p className="text-[13px] text-cg-muted mb-5">
@@ -77,7 +77,7 @@ export default function GrowthArchitecture() {
                   {/* Points */}
                   <ul className="space-y-2.5 mt-auto">
                     {pillar.points.map((point, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-[14px] text-cg-body leading-[1.55]">
+                      <li key={j} className="flex items-start gap-2.5 text-[16px] text-cg-body leading-[1.75]">
                         <svg
                           width="15"
                           height="15"

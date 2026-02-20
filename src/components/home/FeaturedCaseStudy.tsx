@@ -7,9 +7,9 @@ import { Reveal } from "@/components/motion";
 import Link from "next/link";
 
 const subStats = [
-  { value: "$900", label: "Total ad spend" },
-  { value: "33x", label: "Return on ad spend" },
-  { value: "30", label: "Days to results" },
+  { value: "$900", label: "AD SPEND" },
+  { value: "33x", label: "RETURN ON AD SPEND" },
+  { value: "30", label: "DAYS TO RESULTS" },
 ];
 
 export default function FeaturedCaseStudy() {
@@ -17,7 +17,7 @@ export default function FeaturedCaseStudy() {
     <SectionWrapper id="proof" className="bg-cg-section-a">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={featuredCase.label} className="mb-5" />
-  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {featuredCase.headline}
         </h2>
       </Reveal>
@@ -27,7 +27,7 @@ export default function FeaturedCaseStudy() {
         <div className="max-w-2xl mx-auto">
           <div className="bg-cg-card border border-[rgba(37,99,235,0.2)] rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 text-center relative overflow-hidden">
             {/* Client label */}
-            <p className="text-[11px] uppercase tracking-[0.1em] text-cg-muted mb-4 relative z-10">
+            <p className="text-[12px] uppercase tracking-[0.14em] text-cg-muted mb-4 relative z-10">
               RV RENTAL COMPANY — TEXAS
             </p>
 
@@ -36,11 +36,11 @@ export default function FeaturedCaseStudy() {
                 $30,000
               </div>
 
-            <p className="text-[16px] text-cg-body mb-2 relative z-10">
-              in revenue generated
+            <p className="text-[18px] text-cg-body mb-2 relative z-10">
+              in revenue. First 30 days.
             </p>
-            <p className="text-[11px] uppercase tracking-[0.08em] text-cg-muted mb-8 relative z-10">
-              FIRST 30 DAYS · $900 AD SPEND · GOOGLE ADS FUNNEL
+            <p className="text-[12px] uppercase tracking-[0.14em] text-cg-muted mb-8 relative z-10">
+              $900 IN AD SPEND · GOOGLE ADS FUNNEL · 30 DAYS
             </p>
 
             {/* Divider */}
@@ -60,7 +60,7 @@ export default function FeaturedCaseStudy() {
                   <div className="text-[28px] font-extrabold text-cg-accent-lt">
                     {s.value}
                   </div>
-                  <div className="text-[11px] uppercase tracking-[0.08em] text-cg-muted mt-1">
+                  <div className="text-[12px] uppercase tracking-[0.14em] text-cg-muted mt-1">
                     {s.label}
                   </div>
                 </div>
@@ -68,8 +68,8 @@ export default function FeaturedCaseStudy() {
             </div>
 
             {/* Callout */}
-            <span className="block text-[13px] text-cg-accent-lt font-semibold mt-0 mb-7 relative z-10">
-              $900 in ad spend. $30,000 back. In 30 days.
+            <span className="block text-[14px] text-cg-accent-lt font-semibold mt-0 mb-7 relative z-10">
+              $900 in. $30,000 out. In one month.
             </span>
 
             {/* CTA */}

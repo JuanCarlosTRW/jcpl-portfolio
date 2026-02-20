@@ -27,10 +27,10 @@ export default function Differentiation() {
     <SectionWrapper id="difference" className="bg-cg-section-a">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
         <SectionLabel label={differentiation.label} className="mb-5" />
-  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {differentiation.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
           {differentiation.subheadline}
         </p>
       </Reveal>
@@ -51,7 +51,7 @@ export default function Differentiation() {
                 Dimension
               </div>
               <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-cg-neg text-center">
-                Typical Approach
+                Typical Agency
               </div>
               <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-cg-accent-lt text-center">
                 Growth Architecture™

@@ -44,13 +44,13 @@ export default function SystemSection() {
     <SectionWrapper id="system" variant="surface">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
         <SectionLabel label="The System" className="mb-5" />
-        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+        <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           The{" "}
           <span className="text-cg-accent">
             Growth Architecture™
           </span>
         </h2>
-        <p className="mt-5 text-[var(--text-secondary)] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-[var(--text-secondary)] max-w-lg mx-auto leading-[1.75] text-[18px]">
           Six engineered phases that transform your online presence into a
           predictable pipeline of qualified booked calls.
         </p>
@@ -102,18 +102,18 @@ export default function SystemSection() {
                       </div>
 
                       {/* Phase label */}
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-alt)]">
+                      <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--brand-alt)]">
                         Phase {step.step}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-bold text-white mb-2 leading-snug">
+                    <h3 className="text-[18px] font-bold text-white mb-2 leading-snug">
                       {step.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                    <p className="text-[16px] text-[var(--text-muted)] leading-[1.75]">
                       {step.description}
                     </p>
                   </div>

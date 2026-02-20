@@ -12,37 +12,37 @@ const faqData = [
   {
     question: "What exactly is the Growth Architecture™?",
     answer:
-      "It's a complete acquisition system — not a website, not\njust ads, not an SEO package. All three, built together and\noptimized as one. Positioning, conversion website, paid\nacquisition, AI automation, and ongoing optimization.\nEvery component is designed to reinforce the others so your\npipeline compounds instead of fragmenting."
+      "It's a complete acquisition system — not just a website, not just ads. All of it, built together so each part makes the others stronger. Positioning, conversion website, Google Ads, AI automation, lead qualification, monthly optimization. Built once. Improved every month. It's the last marketing system you'll need to think about."
   },
   {
     question: "Who is this built for?",
     answer:
-      "Service businesses generating at least $5K/month who\nare ready to stop depending on referrals and start owning\ntheir market online. If you're a tradesperson, consultant,\nclinic, or local service provider who wants a predictable\nstream of qualified calls — this is built for you."
+      "Service businesses generating at least $5K/month who are ready to stop relying on referrals and start owning their market. Tradespeople, consultants, clinics, local service providers — if qualified calls are your lifeblood and you want a predictable way to get them, this is built for you."
   },
   {
     question: "How fast will I see results?",
     answer:
-      "The system goes live in 2–4 weeks. Triple W Rentals\ngenerated $30,000 in their first 30 days. Elite Barbershop\nhad 90 new clients in 90 days. Results depend on your\nmarket and offer — but the system is designed to produce\nthem fast."
+      "The full system goes live in 2–4 weeks. Triple W Rentals generated $30,000 in their first 30 days on $900 in ad spend. Elite Barbershop had 90 new clients in 90 days. Results vary by market and offer — but the system is designed for speed, not a 6-month runway."
   },
   {
     question: "How is this different from hiring an agency?",
     answer:
-      "Agencies sell deliverables. I sell outcomes. An agency\nbuilds your website and moves on. I build the system,\nwatch the numbers, and optimize every month until your\ncost per lead drops and your calendar fills. I don't\nget paid to hand things off — I get paid to make them work."
+      "An agency builds your website and moves to the next client. I stay in it. I watch your numbers every month, optimize what's working, cut what isn't, and report back in plain language. I don't get paid to hand things off. I get paid when the system works."
   },
   {
     question: "What if it doesn't work?",
     answer:
-      "Before I take on any engagement, I do a diagnostic to\nconfirm there's real opportunity in your market. If I don't\nthink I can get you results, I'll tell you — and I won't\ntake your money. I only work with businesses I'm confident\nI can help."
+      "Before I take any engagement, I do a diagnostic to confirm there's real opportunity in your market. If I don't think I can deliver, I'll tell you honestly — and I won't take your money. I only work with businesses where I'm confident I can move the needle."
   },
   {
     question: "What does this cost?",
     answer:
-      "Engagements start at $2,500/month. There's no long-term\ncontract — you stay because it's working, not because\nyou're locked in. Apply to see if you qualify, and I'll\nwalk you through exactly what your system would look like\nand what it would cost."
+      "Engagements start at $2,500/month. No long-term contracts — you stay because it's producing results, not because you're locked in. Apply below and I'll show you exactly what your system would look like and what it would cost."
   },
   {
     question: "Who is NOT a good fit?",
     answer:
-      "If you're looking for a logo, a one-page website,\nor someone to 'try a few ads,' this isn't for you.\nI work with business owners who are serious about\nowning their market — and willing to invest in doing\nit properly."
+      "If you want a logo, a one-page site, or someone to 'try a few ads' with no real commitment — this isn't for you. I work with business owners who are serious about owning their local market and ready to build something that lasts."
   },
 ];
 
@@ -91,12 +91,11 @@ export default function FAQSection() {
     <SectionWrapper id="faq" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
         <SectionLabel label="Questions" className="mb-5" />
-  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           Questions Serious Buyers Ask
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
-          Straight answers to the questions serious business owners ask before
-          committing.
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
+          I&apos;d rather answer the hard ones here than waste your time on a call.
         </p>
       </Reveal>
 
@@ -125,7 +124,7 @@ export default function FAQSection() {
                   aria-controls={`faq-answer-${i}`}
                 >
                   <span
-                    className={`text-[16px] font-semibold leading-snug ${
+                    className={`text-[17px] font-semibold leading-snug ${
                       isOpen ? "text-white" : "text-white"
                     } transition-colors duration-200`}
                   >
@@ -150,7 +149,7 @@ export default function FAQSection() {
                     >
                       <div className="px-5 md:px-6 pb-5 md:pb-6">
                         <div className="h-px bg-[rgba(255,255,255,0.07)] mb-4" />
-                        <p className="text-[15px] text-cg-secondary leading-[1.75]">
+                        <p className="text-[17px] text-cg-secondary leading-[1.85]">
                           {faq.answer}
                         </p>
                       </div>
@@ -167,7 +166,7 @@ export default function FAQSection() {
       <Reveal delay={0.3}>
         <div className="mt-12 md:mt-16 text-center">
           <p className="text-sm text-cg-secondary mb-5">
-            Still have questions? Let&apos;s talk through them on a call.
+            Still have a question I didn&apos;t answer? Let&apos;s talk.
           </p>
           <CTAButton
             href={ctaCopy.href}
