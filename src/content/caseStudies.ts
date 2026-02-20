@@ -88,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Revenue", value: "$20,000" },
       { label: "Timeline", value: "30 days" },
     ],
-    websiteUrl: null,
+  websiteUrl: "https://triplewrentals.com",
     logoUrl:
       "https://static.wixstatic.com/media/62f926_5c14016a71f74c77a7eedfa86309eadd~mv2.jpg",
     metricsImageUrl:
