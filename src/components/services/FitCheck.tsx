@@ -19,16 +19,16 @@ function XIcon() {
 }
 
 const bestFor = [
-  "Your pipeline depends too much on referrals and you want to change that",
-  "You are generating at least $5K per month and ready to invest in real infrastructure",
-  "You want one partner who owns the full picture, not five vendors you have to manage",
-  "You are done watching competitors rank above you for work you are better at",
+  "You run a service business and your revenue is inconsistent. You know you should have more clients than you do.",
+  "You are tired of being invisible online while competitors who do worse work rank above you.",
+  "You want one person who owns the full system, not a web designer, an ad guy, and an SEO freelancer who all point at each other when nothing works.",
+  "You are ready to invest in infrastructure that produces returns. Not a one-time project. A system.",
 ];
 const notFor = [
-  "You are looking for the cheapest option available",
-  "You want a one-off website with no growth strategy",
-  "You are not willing to commit to a system",
-  "Your business is under $5K per month in revenue",
+  "You want the cheapest option and will shop around until you find someone who charges less.",
+  "You want a website with no plan behind it and no intention to run it as an acquisition asset.",
+  "You are not ready to commit to a real system. You want to test the waters with no skin in the game.",
+  "Your business is under $5K per month in revenue. This system requires a baseline to build on.",
 ];
 
 export default function FitCheck() {

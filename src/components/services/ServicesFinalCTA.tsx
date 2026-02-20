@@ -50,7 +50,7 @@ export default function ServicesFinalCTA() {
           <Reveal>
             <div className="text-center mb-8">
               <p className="text-xs uppercase tracking-[0.15em] text-cg-secondary font-medium mb-3">
-                Our Standards
+             MY STANDARDS
               </p>
               <h2 className="heading-3">What You Can Expect</h2>
             </div>
@@ -70,14 +70,10 @@ export default function ServicesFinalCTA() {
               id="services-cta-headline"
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5"
             >
-              {servicesFinalCTA.headline.split("real ")[0]}real{" "}
-              <span className="text-cg-accent">
-                acquisition system
-              </span>
-              ?
+            Ready to Build a Real<br />Acquisition System?
             </h2>
             <p className="text-cg-body leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
-              {servicesFinalCTA.subheadline}
+            Short application. If I think I can help, you will receive a call link within 24 hours. If I do not, I will tell you that too.
             </p>
           </Reveal>
 
@@ -89,7 +85,7 @@ export default function ServicesFinalCTA() {
                 size="lg"
                 eventName="services_final_cta_click"
               >
-                {servicesFinalCTA.primary}
+                Apply (2 min) →
               </CTAButton>
               <CTAButton
                 href="/case-studies"
@@ -97,7 +93,7 @@ export default function ServicesFinalCTA() {
                 size="md"
                 eventName="services_final_cta_click"
               >
-                {servicesFinalCTA.secondary}
+                View Results
               </CTAButton>
             </div>
           </Reveal>
@@ -105,10 +101,14 @@ export default function ServicesFinalCTA() {
           {/* Micro-trust badges */}
           <Reveal delay={0.15}>
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10">
-              {servicesFinalCTA.trustBadges.map((item) => (
+              {[
+                { icon: "lightning", text: "Response within 24 hours" },
+                { icon: "lock", text: "100% confidential" },
+                { icon: "clipboard", text: "Limited spots per quarter" },
+              ].map((item) => (
                 <span
                   key={item.text}
-                  className="inline-flex items-center gap-1.5 text-xs text-cg-secondary"
+                  className="inline-flex items-center gap-1.5 text-[14px] text-cg-secondary"
                 >
                   <TrustIcon icon={item.icon} />
                   {item.text}

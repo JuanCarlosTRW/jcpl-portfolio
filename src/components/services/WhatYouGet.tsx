@@ -82,10 +82,7 @@ export default function WhatYouGet() {
     <SectionWrapper variant="surface" className="bg-[#0A1628] py-20">
       <Reveal className="text-center mb-12">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cg-secondary mb-5">WHAT'S INCLUDED</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">Everything Your Business Needs<br />to Dominate Online. Nothing It Doesn't.</h2>
-        <p className="text-cg-body max-w-xl mx-auto text-[17px] leading-[1.7]">
-          Every engagement is scoped around your specific market and baseline. Here is what I build, depending on what your business needs.
-        </p>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">Everything Your Business Needs<br />to Dominate Online.</h2>
       </Reveal>
       <div className="grid gap-7 md:grid-cols-3 max-w-5xl mx-auto">
         {services.map((s, i) => (

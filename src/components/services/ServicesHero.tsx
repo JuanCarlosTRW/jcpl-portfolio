@@ -22,19 +22,19 @@ export default function ServicesHero() {
         <div className="text-center max-w-3xl mx-auto">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cg-secondary mb-6">
-              {servicesHero.label}
+              GROWTH SYSTEMS FOR SERVICE BUSINESSES
             </p>
           </Reveal>
 
           <Reveal delay={0.05}>
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight mb-6">
-              {servicesHero.headline}
+              Turn Inconsistent Leads into a<br />Predictable Booking System.
             </h1>
           </Reveal>
 
           <Reveal delay={0.1}>
             <p className="text-lg text-cg-body max-w-2xl mx-auto leading-relaxed mb-8">
-              {servicesHero.subheadline}
+              Positioning, conversion architecture, and acquisition.<br />Engineered as one system. Built for one outcome.
             </p>
           </Reveal>
 
@@ -46,7 +46,7 @@ export default function ServicesHero() {
                 size="lg"
                 eventName="services_hero_primary_cta_click"
               >
-                {servicesHero.primaryCTA}
+                Apply for Growth Partnership →
               </CTAButton>
               <CTAButton
                 href="/case-studies"
@@ -54,7 +54,7 @@ export default function ServicesHero() {
                 size="md"
                 eventName="services_hero_secondary_cta_click"
               >
-                {servicesHero.secondaryCTA}
+                View Results
               </CTAButton>
             </div>
           </Reveal>
@@ -62,7 +62,11 @@ export default function ServicesHero() {
           {/* Micro-trust strip */}
           <Reveal delay={0.2}>
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-              {servicesHero.trustItems.map((item) => (
+              {[
+                "Response within 24h",
+                "Milestone delivery",
+                "No lock-in",
+              ].map((item) => (
                 <span
                   key={item}
                   className="inline-flex items-center gap-1.5 text-xs text-cg-secondary"
