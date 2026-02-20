@@ -7,18 +7,16 @@ import { Reveal } from "@/components/motion";
 
 function CheckIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <circle cx="9" cy="9" r="8" stroke="rgba(37,99,235,0.3)" strokeWidth="1" />
-      <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
+      <path d="M4 8.5l3 3 5-5.5" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
 function XIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <circle cx="9" cy="9" r="8" stroke="rgba(239,68,68,0.3)" strokeWidth="1" />
-      <path d="M6 6l6 6M12 6l-6 6" stroke="rgba(239,68,68,0.7)" strokeWidth="1.5" strokeLinecap="round" />
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
+      <path d="M4 4l8 8M12 4l-8 8" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -85,13 +83,13 @@ export default function QualificationCTA() {
             <div className="grid gap-6 md:grid-cols-2 mb-16">
               {/* For You If */}
               <div className="rounded-2xl border border-[rgba(37,99,235,0.2)] bg-[#0F2049] p-7 md:p-8">
-                <h3 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
+                <h3 className="text-[17px] font-bold text-white mb-5 flex items-center gap-2">
                   <CheckIcon />
                   This Is for You If…
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-[#E8EDF5] leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-[14px] text-[#E8EDF5] leading-[1.6]">
                       <CheckIcon />
                       {item}
                     </li>
@@ -101,13 +99,13 @@ export default function QualificationCTA() {
 
               {/* Not For You If */}
               <div className="rounded-2xl border border-[rgba(239,68,68,0.2)] bg-[#0F2049] p-7 md:p-8">
-                <h3 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
+                <h3 className="text-[17px] font-bold text-white mb-5 flex items-center gap-2">
                   <XIcon />
                   This Is Not for You If…
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.notForYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-[#8899BB] leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-[14px] text-[#8899BB] leading-[1.6]">
                       <XIcon />
                       {item}
                     </li>

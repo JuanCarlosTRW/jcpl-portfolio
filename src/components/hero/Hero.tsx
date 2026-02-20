@@ -1,7 +1,5 @@
 
 import UnicornHeroBackground from "./UnicornHeroBackground";
-import { Button } from "../ui/Button";
-import { CheckCircle } from "lucide-react";
 
 export default function Hero() {
        return (
@@ -38,21 +36,19 @@ export default function Hero() {
 			       Conversion website, paid acquisition, and AI automation — engineered as one system to turn traffic into booked calls.
 		       </p>
 		       {/* CTA Block */}
-		       <div className="flex flex-col gap-3 w-full sm:flex-row sm:gap-4 mb-5">
-			       <Button
-				       variant="primary"
+		       <div className="flex flex-col gap-3 w-full sm:flex-row sm:flex-nowrap sm:items-center sm:w-auto mb-5">
+			       <a
 				       href="/apply"
-				       className="rounded-full py-4 w-full text-base font-semibold shadow-sm hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] transition-all motion-reduce:transition-none motion-reduce:hover:transform-none sm:min-w-[240px]"
+				       className="w-full sm:w-auto bg-[#2563EB] text-white font-semibold text-[15px] px-7 py-[14px] rounded-[10px] whitespace-nowrap transition-colors duration-200 hover:bg-[#1D4ED8] text-center inline-flex items-center justify-center"
 			       >
-				       Apply for Growth Partnership
-			       </Button>
-			       <Button
-				       variant="secondary"
-				       href="/case-studies"
-				       className="rounded-full py-4 w-full border-white/20 hover:bg-white/5 text-base font-semibold hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:ring-2 focus-visible:ring-white/50 transition-all motion-reduce:transition-none motion-reduce:hover:transform-none sm:min-w-[180px]"
+				       Apply for Growth Partnership →
+			       </a>
+			       <a
+				       href="/results"
+				       className="w-full sm:w-auto bg-transparent border border-white/20 text-white/85 font-medium text-[15px] px-6 py-[14px] rounded-[10px] whitespace-nowrap transition-all duration-200 hover:border-white/50 hover:text-white text-center inline-flex items-center justify-center"
 			       >
 				       View Results
-			       </Button>
+			       </a>
 		       </div>
 			</div>
 		</section>

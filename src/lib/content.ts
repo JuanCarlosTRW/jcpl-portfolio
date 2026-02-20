@@ -106,15 +106,15 @@ export const resultsPreview = {
   label: "Proven Results",
   headline: "Real Outcomes. Real Revenue.",
   featured: {
-    stat: "$20,000",
+    stat: "$30,000",
     context: "generated in month one",
     client: "RV Rental Company",
     method: "Google Ads Funnel",
   },
   highlights: [
-    { metric: "2", label: "Barbershop websites delivered" },
-    { metric: "3", label: "Active client growth systems" },
-    { metric: "<30", label: "Days to first qualified leads" },
+    { metric: "$900", label: "Total ad spend" },
+    { metric: "33x", label: "Return on ad spend" },
+    { metric: "30", label: "Days to results" },
   ],
 };
 
@@ -226,14 +226,14 @@ export const featuredCase = {
   headline: "Real Results. Real Revenue.",
   slug: "rv-rental-texas",
   client: "RV Rental Company \u2014 Texas",
-  result: "$20,000",
-  resultLabel: "in confirmed bookings",
+  result: "$30,000",
+  resultLabel: "in revenue generated",
   timeframe: "First 30 days",
-  method: "Full Google Ads funnel + conversion landing pages",
+  method: "$900 ad spend \u00B7 Google Ads funnel",
   supporting: [
-    { metric: "3x", label: "Online bookings increase" },
-    { metric: "<30", label: "Days to first qualified leads" },
-    { metric: "40%", label: "New client booking growth" },
+    { metric: "$900", label: "Total ad spend" },
+    { metric: "33x", label: "Return on ad spend" },
+    { metric: "30", label: "Days to results" },
   ],
   cta: "View All Results",
 };

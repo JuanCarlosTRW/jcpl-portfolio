@@ -11,14 +11,14 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold text-white">
               Client Growth
             </Link>
-            <p className="text-sm text-[#8899BB] max-w-xs leading-relaxed">
-              One partner. One system. One outcome — qualified calls on autopilot for service businesses.
+            <p className="text-[14px] text-[#8899BB] max-w-[280px] leading-[1.65]">
+              One partner. One system. One outcome — qualified calls on autopilot.
             </p>
             <a
               href="https://www.linkedin.com/company/clientgrowth"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-[#8899BB] hover:text-[#2563EB] transition-colors"
+              className="inline-flex items-center gap-1.5 text-[13px] text-[#8899BB] hover:text-white transition-colors duration-150"
               aria-label="Client Growth on LinkedIn"
             >
               <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4" aria-hidden="true">
@@ -30,15 +30,15 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="space-y-3">
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-[#8899BB]">
+            <h4 className="text-[11px] uppercase tracking-[0.1em] font-medium text-[#8899BB] mb-4">
               Navigation
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[#E8EDF5] transition-colors hover:text-[#2563EB]"
+                    className="text-[14px] text-[#8899BB] transition-colors duration-150 hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -49,14 +49,14 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="space-y-3">
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-[#8899BB]">
+            <h4 className="text-[11px] uppercase tracking-[0.1em] font-medium text-[#8899BB] mb-4">
               Legal
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-sm text-[#E8EDF5] transition-colors hover:text-[#2563EB]"
+                  className="text-[14px] text-[#8899BB] transition-colors duration-150 hover:text-white"
                 >
                   Privacy Policy
                 </Link>
@@ -64,7 +64,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-sm text-[#E8EDF5] transition-colors hover:text-[#2563EB]"
+                  className="text-[14px] text-[#8899BB] transition-colors duration-150 hover:text-white"
                 >
                   Terms of Service
                 </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:hello@clientgrowth.ca"
-                  className="text-sm text-[#E8EDF5] transition-colors hover:text-[#2563EB]"
+                  className="text-[14px] text-[#8899BB] transition-colors duration-150 hover:text-white"
                 >
                   hello@clientgrowth.ca
                 </a>

@@ -4,6 +4,13 @@ import { featuredCase } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal, CountUpValue } from "@/components/motion";
+import Link from "next/link";
+
+const subStats = [
+  { value: "$900", label: "Total ad spend" },
+  { value: "33x", label: "Return on ad spend" },
+  { value: "30", label: "Days to results" },
+];
 
 export default function FeaturedCaseStudy() {
   return (
@@ -17,75 +24,60 @@ export default function FeaturedCaseStudy() {
 
       {/* Featured Result Card */}
       <Reveal delay={0.1}>
-        <div className="max-w-3xl mx-auto">
-          <div
-            className="relative rounded-2xl border border-[rgba(37,99,235,0.15)] overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(180deg, #0F2049 0%, #0D1B3E 100%)",
-            }}
-          >
-            {/* Top glow */}
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-[#0F2049] border border-[rgba(37,99,235,0.15)] rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 text-center">
+            {/* Client label */}
+            <p className="text-[11px] uppercase tracking-[0.1em] text-[#8899BB] mb-4">
+              RV RENTAL COMPANY — TEXAS
+            </p>
+
+            {/* Big number */}
+            <div className="text-[clamp(40px,8vw,56px)] font-extrabold text-white leading-none mb-2">
+              <CountUpValue to={30000} prefix="$" durationMs={2200} />
+            </div>
+            <p className="text-[16px] text-[#8899BB] mb-2">
+              in revenue generated
+            </p>
+            <p className="text-[11px] uppercase tracking-[0.08em] text-[#8899BB] mb-8">
+              FIRST 30 DAYS · $900 AD SPEND · GOOGLE ADS FUNNEL
+            </p>
+
+            {/* Divider */}
             <div
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-32 pointer-events-none blur-[80px]"
+              className="h-px max-w-xs mx-auto mb-8"
               style={{
                 background:
-                  "radial-gradient(ellipse at center, rgba(37,99,235,0.12) 0%, transparent 70%)",
+                  "linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)",
               }}
               aria-hidden="true"
             />
 
-            <div className="relative p-8 md:p-12 text-center">
-              {/* Client label */}
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8899BB] mb-6">
-                {featuredCase.client}
-              </p>
-
-              {/* Dominant metric */}
-              <div className="mb-3">
-                <span className="text-6xl md:text-8xl lg:text-[7rem] font-bold text-white tabular-nums tracking-tight leading-none">
-                  <CountUpValue to={20000} prefix="$" durationMs={1800} />
-                </span>
-              </div>
-              <p className="text-base md:text-lg text-[#E8EDF5] mb-2">
-                {featuredCase.resultLabel}
-              </p>
-              <p className="text-xs text-[#8899BB] uppercase tracking-[0.15em] mb-8">
-                {featuredCase.timeframe} · {featuredCase.method}
-              </p>
-
-              {/* Divider */}
-              <div
-                className="h-px max-w-xs mx-auto mb-8"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)",
-                }}
-                aria-hidden="true"
-              />
-
-              {/* Supporting metrics */}
-              <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-10">
-                {featuredCase.supporting.map((item, i) => (
-                  <div key={i} className="text-center">
-                    <div className="text-xl md:text-2xl font-bold text-[#2563EB] tabular-nums mb-1">
-                      {item.metric}
-                    </div>
-                    <p className="text-xs text-[#8899BB]">
-                      {item.label}
-                    </p>
+            {/* Sub stats */}
+            <div className="flex justify-center gap-8 sm:gap-12 mb-2">
+              {subStats.map((s) => (
+                <div key={s.label} className="text-center">
+                  <div className="text-[28px] font-extrabold text-[#2563EB]">
+                    {s.value}
                   </div>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <a
-                href="/case-studies"
-                className="inline-flex items-center justify-center rounded-full border border-[#2563EB] text-[#2563EB] hover:bg-[#2563EB] hover:text-white px-6 py-3 text-sm font-semibold transition-all"
-              >
-                {featuredCase.cta}
-              </a>
+                  <div className="text-[11px] uppercase tracking-[0.08em] text-[#8899BB] mt-1">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
             </div>
+
+            {/* Callout */}
+            <span className="block text-[13px] text-[#2563EB] font-semibold mt-0 mb-7">
+              $900 in ad spend generated $30,000 in revenue.
+            </span>
+
+            {/* CTA */}
+            <Link
+              href="/results"
+              className="inline-block border border-[rgba(37,99,235,0.4)] text-[#E8EDF5] bg-transparent rounded-[8px] px-6 py-2.5 font-semibold text-[15px] hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-all duration-200"
+            >
+              View All Results
+            </Link>
           </div>
         </div>
       </Reveal>

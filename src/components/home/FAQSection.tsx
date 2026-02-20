@@ -22,7 +22,7 @@ const faqData = [
   {
     question: "How fast will I see results?",
     answer:
-      "Most clients see their first qualified leads within 30 days of launch. One RV rental client generated $20,000 in confirmed bookings in month one. Timeline depends on your market, offer, and readiness.",
+      "Most clients see their first qualified leads within 30 days of launch. One RV rental client generated $30,000 in revenue in month one. Timeline depends on your market, offer, and readiness.",
   },
   {
     question: "How is this different from hiring an agency?",
@@ -110,11 +110,11 @@ export default function FAQSection() {
             <Reveal key={i} delay={0.04 * i}>
               <div
                 role="listitem"
-                className={`rounded-xl border transition-all duration-300 overflow-hidden ${
+                className={`rounded-xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? "border-[rgba(37,99,235,0.25)] bg-[#0D1B3E] shadow-[0_4px_24px_rgba(37,99,235,0.06)]"
-                    : "border-[rgba(37,99,235,0.15)] bg-[#0F2049] hover:border-[rgba(37,99,235,0.25)]"
-                } ${isNotFit ? "ring-1 ring-[rgba(239,68,68,0.15)]" : ""}`}
+                    ? "border-[rgba(37,99,235,0.3)] border-l-[3px] border-l-[#2563EB] bg-[#0D1B3E] shadow-[0_4px_24px_rgba(37,99,235,0.06)]"
+                    : "border-[rgba(37,99,235,0.1)] bg-[#0F2049] hover:border-[rgba(37,99,235,0.25)]"
+                }`}
               >
                 <button
                   type="button"
@@ -125,7 +125,7 @@ export default function FAQSection() {
                   aria-controls={`faq-answer-${i}`}
                 >
                   <span
-                    className={`text-[0.95rem] font-semibold leading-snug ${
+                    className={`text-[16px] font-semibold leading-snug ${
                       isOpen ? "text-white" : "text-[#E8EDF5]"
                     } transition-colors duration-200`}
                   >
@@ -150,7 +150,7 @@ export default function FAQSection() {
                     >
                       <div className="px-5 md:px-6 pb-5 md:pb-6">
                         <div className="h-px bg-[rgba(37,99,235,0.15)] mb-4" />
-                        <p className="text-sm text-[#8899BB] leading-relaxed">
+                        <p className="text-[15px] text-[#8899BB] leading-[1.75]">
                           {faq.answer}
                         </p>
                       </div>

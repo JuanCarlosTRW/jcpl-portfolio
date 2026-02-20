@@ -9,8 +9,7 @@ import { Reveal } from "@/components/motion";
 function XIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0">
-      <circle cx="8" cy="8" r="7" stroke="rgba(239,68,68,0.3)" strokeWidth="1" />
-      <path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(239,68,68,0.8)" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M4 4l8 8M12 4l-8 8" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -18,8 +17,7 @@ function XIcon() {
 function CheckIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0">
-      <circle cx="8" cy="8" r="7" stroke="rgba(37,99,235,0.3)" strokeWidth="1" />
-      <path d="M5 8l2 2 4-4" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 8.5l3 3 5-5.5" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -41,7 +39,7 @@ export default function Differentiation() {
       <Reveal delay={0.1} className="hidden md:block">
         <div className="max-w-4xl mx-auto">
           <div
-            className="rounded-2xl border border-[rgba(37,99,235,0.15)] overflow-hidden"
+            className="rounded-[14px] border border-[rgba(37,99,235,0.15)] overflow-hidden"
             style={{
               background:
                 "linear-gradient(180deg, #0F2049 0%, #060D1F 100%)",
@@ -68,7 +66,7 @@ export default function Differentiation() {
                   i < differentiation.comparisons.length - 1
                     ? "border-b border-[rgba(255,255,255,0.06)]"
                     : ""
-                } hover:bg-[rgba(255,255,255,0.02)] transition-colors duration-200`}
+                } hover:bg-[rgba(37,99,235,0.03)] transition-colors duration-150`}
               >
                 <div className="p-5 text-sm font-medium text-white">
                   {row.dimension}

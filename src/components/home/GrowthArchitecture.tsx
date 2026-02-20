@@ -59,63 +59,40 @@ export default function GrowthArchitecture() {
         {growthArchitecture.pillars.map((pillar, i) => {
           return (
             <Reveal key={pillar.id} delay={0.08 * i}>
-              <div
-                className="group relative rounded-2xl p-[1px] h-full transition-all duration-500"
-                style={{
-                  background: `linear-gradient(135deg, ${blueAccent.border}, transparent 60%)`,
-                }}
-              >
-                <div className="relative rounded-2xl bg-[#0F2049] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-500 group-hover:bg-[#0D1B3E]">
-                  {/* Hover glow */}
-                  <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-24 pointer-events-none blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                    style={{
-                      background: `radial-gradient(ellipse at center, ${blueAccent.glow} 0%, transparent 70%)`,
-                    }}
-                    aria-hidden="true"
-                  />
+              <div className="group relative rounded-2xl bg-[#0F2049] border border-[rgba(37,99,235,0.12)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.35)] hover:-translate-y-[2px] hover:bg-[#0D1B3E]">
 
                   {/* Icon */}
-                  <div
-                    className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300"
-                    style={{
-                      background: blueAccent.bg,
-                      border: `1px solid ${blueAccent.border}`,
-                      color: blueAccent.text,
-                    }}
-                  >
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.25)] text-[#2563EB]">
                     {pillarIcons[pillar.id]}
                   </div>
 
                   {/* Title + Subtitle */}
-                  <h3 className="text-lg font-bold text-white mb-1 leading-snug">
+                  <h3 className="text-[17px] font-bold text-white mb-1 leading-snug">
                     {pillar.title}
                   </h3>
-                  <p className="text-sm text-[#8899BB] mb-5">
+                  <p className="text-[13px] text-[#8899BB] mb-5">
                     {pillar.subtitle}
                   </p>
 
                   {/* Points */}
                   <ul className="space-y-2.5 mt-auto">
                     {pillar.points.map((point, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-sm text-[#E8EDF5]">
+                      <li key={j} className="flex items-start gap-2.5 text-[14px] text-[#E8EDF5]">
                         <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
                           fill="none"
                           aria-hidden="true"
                           className="shrink-0 mt-0.5"
                         >
-                          <circle cx="8" cy="8" r="7" stroke={blueAccent.border} strokeWidth="1" />
-                          <path d="M5 8l2 2 4-4" stroke={blueAccent.text} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M3.5 7.5l2.5 2.5 4.5-5" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         {point}
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
             </Reveal>
           );
         })}
