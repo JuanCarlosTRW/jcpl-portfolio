@@ -29,24 +29,24 @@ export default function CaseStudyPreview() {
       <AnimatedSection direction="up" delay={0.08}>
         <Link
           href={`/case-studies/${preview.slug}`}
-          className="group flex flex-col rounded-xl border border-[rgba(37,99,235,0.15)] bg-[#0F2049] p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(37,99,235,0.35)] hover:shadow-[0_8px_32px_rgba(37,99,235,0.10)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2563EB] max-w-2xl mx-auto"
+          className="group flex flex-col rounded-xl border border-[rgba(37,99,235,0.15)] bg-cg-card p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(37,99,235,0.35)] hover:shadow-[0_8px_32px_rgba(37,99,235,0.10)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cg-accent max-w-2xl mx-auto"
           aria-label={`View case study: ${preview.title}`}
         >
           {/* Industry label */}
-          <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#8899BB] mb-4">
+          <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-cg-secondary mb-4">
             {preview.industry}
           </span>
 
           {/* Outcome stat */}
-          <p className="text-4xl md:text-5xl font-bold tabular-nums text-[#2563EB] leading-none mb-2">
+          <p className="text-4xl md:text-5xl font-bold tabular-nums text-cg-accent leading-none mb-2">
             {preview.heroStat}
           </p>
-          <p className="text-sm text-[#8899BB] mb-6 leading-snug">
+          <p className="text-sm text-cg-secondary mb-6 leading-snug">
             {preview.heroLabel}
           </p>
 
           {/* Client + title */}
-          <p className="text-base font-semibold text-[#2563EB] mb-1">
+          <p className="text-base font-semibold text-cg-accent mb-1">
             {preview.client}
           </p>
           <p className="text-base text-[var(--text-secondary)] leading-relaxed mb-6">
@@ -54,7 +54,7 @@ export default function CaseStudyPreview() {
           </p>
 
           {/* CTA link */}
-          <span className="inline-flex items-center gap-1 text-sm font-medium text-[#2563EB] group-hover:text-[#60A5FA] transition-colors duration-200">
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-cg-accent group-hover:text-[#60A5FA] transition-colors duration-200">
             View case study
             <span
               className="transition-transform duration-200 group-hover:translate-x-0.5"

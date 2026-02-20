@@ -44,19 +44,19 @@ export default function PlanCard({ tier, index, selected, onSelect }: Props) {
         className={`
           group relative rounded-2xl border p-7 md:p-8 h-full flex flex-col
           cursor-pointer transition-all duration-400 outline-none
-          focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060D1F]
+          focus-visible:ring-2 focus-visible:ring-cg-accent focus-visible:ring-offset-2 focus-visible:ring-offset-cg-section-a
           ${isActive
-            ? "border-[rgba(37,99,235,0.4)] bg-[#0A1628] shadow-[0_0_60px_rgba(37,99,235,0.08)]"
+            ? "border-[rgba(37,99,235,0.4)] bg-cg-section-b shadow-[0_0_60px_rgba(37,99,235,0.08)]"
             : isFeatured
-              ? "border-[rgba(37,99,235,0.25)] bg-[#0A1628] hover:border-[rgba(37,99,235,0.4)]"
-              : "border-[rgba(255,255,255,0.06)] bg-[#0A1628] hover:border-[rgba(255,255,255,0.12)]"
+              ? "border-[rgba(37,99,235,0.25)] bg-cg-section-b hover:border-[rgba(37,99,235,0.4)]"
+              : "border-[rgba(255,255,255,0.06)] bg-cg-section-b hover:border-[rgba(255,255,255,0.12)]"
           }
           hover:-translate-y-1 hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)]
         `}
       >
         {/* Featured badge */}
         {isFeatured && (
-          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2563EB] text-white text-[0.65rem] font-semibold uppercase tracking-[0.08em] px-4 py-1 rounded-full whitespace-nowrap shadow-[0_4px_20px_rgba(37,99,235,0.35)]">
+          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-cg-accent text-white text-[0.65rem] font-semibold uppercase tracking-[0.08em] px-4 py-1 rounded-full whitespace-nowrap shadow-[0_4px_20px_rgba(37,99,235,0.35)]">
             Most Popular
           </span>
         )}
@@ -75,24 +75,24 @@ export default function PlanCard({ tier, index, selected, onSelect }: Props) {
         {/* Header */}
         <div className="mb-5">
           <h3 className="text-xl font-bold text-white mb-1">{tier.name}</h3>
-          <p className="text-sm text-[#2563EB] font-medium">{tier.tagline}</p>
+          <p className="text-sm text-cg-accent font-medium">{tier.tagline}</p>
         </div>
 
         {/* Outcome line */}
-        <p className="text-sm text-[#E8EDF5] leading-relaxed mb-5">
+        <p className="text-sm text-cg-body leading-relaxed mb-5">
           {tier.outcome}
         </p>
 
         {/* Best for */}
-        <p className="text-xs text-[#8899BB] mb-5 flex items-center gap-1.5">
-          <span className="text-[#2563EB]">●</span>
+        <p className="text-xs text-cg-secondary mb-5 flex items-center gap-1.5">
+          <span className="text-cg-accent">●</span>
           Best for: {tier.bestFor}
         </p>
 
         {/* Deliverables */}
         <ul className="space-y-2 mb-6 flex-1" role="list">
           {tier.deliverables.map((d, j) => (
-            <li key={j} className="flex items-start gap-2.5 text-sm text-[#E8EDF5]">
+            <li key={j} className="flex items-start gap-2.5 text-sm text-cg-body">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 mt-0.5" aria-hidden="true">
                 <circle cx="7" cy="7" r="6.5" stroke="rgba(37,99,235,0.35)" strokeWidth="0.8" />
                 <path d="M4.5 7 L6.2 8.7 L9.5 5.3" stroke="#2563EB" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -104,10 +104,10 @@ export default function PlanCard({ tier, index, selected, onSelect }: Props) {
 
         {/* Timeline + First Win */}
         <div className="flex items-center gap-3 p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] mb-5">
-          <span className="text-xs font-semibold text-[#2563EB] bg-[rgba(37,99,235,0.08)] px-2.5 py-1 rounded-full border border-[rgba(37,99,235,0.15)] whitespace-nowrap">
+          <span className="text-xs font-semibold text-cg-accent bg-[rgba(37,99,235,0.08)] px-2.5 py-1 rounded-full border border-[rgba(37,99,235,0.15)] whitespace-nowrap">
             {tier.timeline}
           </span>
-          <p className="text-xs text-[#8899BB] italic flex-1">
+          <p className="text-xs text-cg-secondary italic flex-1">
             First win: {tier.firstWin}
           </p>
         </div>
@@ -115,7 +115,7 @@ export default function PlanCard({ tier, index, selected, onSelect }: Props) {
         {/* CTA */}
         <div>
           {isActive && (
-            <p className="text-[10px] uppercase tracking-[0.15em] text-[#2563EB] mb-2 text-center">
+            <p className="text-[10px] uppercase tracking-[0.15em] text-cg-accent mb-2 text-center">
               Applying for: {tier.name}
             </p>
           )}

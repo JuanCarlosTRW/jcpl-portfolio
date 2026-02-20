@@ -1,6 +1,26 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════
+   TAILWIND v4 THEME — Named Design Colors
+   These register as standard Tailwind utilities:
+   text-cg-body, bg-cg-card, text-cg-muted, etc.
+   ═══════════════════════════════════════════════════ */
+@theme {
+  --color-cg-card:       #0F2049;
+  --color-cg-card-alt:   #0D1B3E;
+  --color-cg-body:       #C8D4E8;
+  --color-cg-secondary:  #8FA8C8;
+  --color-cg-muted:      #6B9FD4;
+  --color-cg-dim:        #6B82A0;
+  --color-cg-accent-lt:  #4B8EFF;
+  --color-cg-neg:        #FF6B6B;
+  --color-cg-section-a:  #060D1F;
+  --color-cg-section-b:  #0A1628;
+  --color-cg-accent:     #2563EB;
+  --color-cg-accent-hov: #1D4ED8;
+}
+
+/* ═══════════════════════════════════════════════════
    JCPL PORTFOLIO — UNIFIED DESIGN TOKEN SYSTEM
    Premium dark identity + world-class spacing/typography
    ═══════════════════════════════════════════════════ */

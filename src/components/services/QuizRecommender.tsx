@@ -70,10 +70,10 @@ export default function QuizRecommender({ onRecommend }: Props) {
   };
 
   return (
-    <div className="rounded-2xl border border-[rgba(255,255,255,0.06)] bg-[#0A1628] p-7 md:p-9 max-w-xl mx-auto">
+    <div className="rounded-2xl border border-[rgba(255,255,255,0.06)] bg-cg-section-b p-7 md:p-9 max-w-xl mx-auto">
       <div className="text-center mb-6">
         <h3 className="text-xl font-bold text-white mb-2">{headline}</h3>
-        <p className="text-sm text-[#8899BB]">{subheadline}</p>
+        <p className="text-sm text-cg-secondary">{subheadline}</p>
       </div>
 
       <div className="min-h-[220px]">
@@ -88,12 +88,12 @@ export default function QuizRecommender({ onRecommend }: Props) {
             >
               {/* Progress */}
               <div className="mb-5">
-                <span className="text-[0.7rem] uppercase tracking-[0.1em] text-[#8899BB]">
+                <span className="text-[0.7rem] uppercase tracking-[0.1em] text-cg-secondary">
                   Question {step + 1} of {totalSteps}
                 </span>
                 <div className="h-1 bg-[rgba(255,255,255,0.06)] rounded-full mt-2 overflow-hidden">
                   <div
-                    className="h-full bg-[#2563EB] rounded-full transition-all duration-300"
+                    className="h-full bg-cg-accent rounded-full transition-all duration-300"
                     style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
                   />
                 </div>
@@ -112,18 +112,18 @@ export default function QuizRecommender({ onRecommend }: Props) {
                       w-full flex items-center gap-3 p-3.5 rounded-xl border text-left text-sm
                       transition-all duration-200 cursor-pointer
                       ${selectedOption === opt.value
-                        ? "border-[#2563EB] bg-[rgba(37,99,235,0.1)]"
-                        : "border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] hover:border-[#2563EB] hover:bg-[rgba(37,99,235,0.05)] hover:translate-x-1"
+                        ? "border-cg-accent bg-[rgba(37,99,235,0.1)]"
+                        : "border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] hover:border-cg-accent hover:bg-[rgba(37,99,235,0.05)] hover:translate-x-1"
                       }
                       disabled:cursor-default disabled:opacity-70
                     `}
                   >
-                    <span className={`w-4 h-4 rounded-full border-2 shrink-0 relative ${selectedOption === opt.value ? "border-[#2563EB]" : "border-[rgba(255,255,255,0.1)]"}`}>
+                    <span className={`w-4 h-4 rounded-full border-2 shrink-0 relative ${selectedOption === opt.value ? "border-cg-accent" : "border-[rgba(255,255,255,0.1)]"}`}>
                       {selectedOption === opt.value && (
-                        <span className="absolute inset-[3px] bg-[#2563EB] rounded-full" />
+                        <span className="absolute inset-[3px] bg-cg-accent rounded-full" />
                       )}
                     </span>
-                    <span className="text-[#E8EDF5]">{opt.label}</span>
+                    <span className="text-cg-body">{opt.label}</span>
                   </button>
                 ))}
               </div>
@@ -147,7 +147,7 @@ export default function QuizRecommender({ onRecommend }: Props) {
               <h4 className="text-lg font-bold text-white mb-2">
                 {resultText[recommendation].title}
               </h4>
-              <p className="text-sm text-[#E8EDF5] mb-6 max-w-sm mx-auto">
+              <p className="text-sm text-cg-body mb-6 max-w-sm mx-auto">
                 {resultText[recommendation].reason}
               </p>
 
@@ -161,7 +161,7 @@ export default function QuizRecommender({ onRecommend }: Props) {
                 <button
                   type="button"
                   onClick={reset}
-                  className="text-xs text-[#8899BB] hover:text-[#2563EB] transition-colors cursor-pointer"
+                  className="text-xs text-cg-secondary hover:text-cg-accent transition-colors cursor-pointer"
                 >
                   Retake quiz
                 </button>

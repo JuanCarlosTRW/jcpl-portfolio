@@ -20,8 +20,8 @@ export default function Hero() {
 	       >
 		       {/* Eyebrow */}
 		       <div className="flex items-center gap-3 mb-6">
-			       <span className="block w-5 h-[2px] bg-[#2563EB]" />
-			       <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6B9FD4]">
+			       <span className="block w-5 h-[2px] bg-cg-accent" />
+			       <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cg-muted">
 				       For Service Businesses
 			       </span>
 		       </div>
@@ -32,14 +32,14 @@ export default function Hero() {
 			       to Book Qualified Calls.
 		       </h1>
 		       {/* Subhead */}
-			   <p className="text-[17px] text-[#C8D4E8] leading-[1.65] mb-8 max-w-[36ch]">
+			   <p className="text-[17px] text-cg-body leading-[1.65] mb-8 max-w-[36ch]">
 			       Conversion website, paid acquisition, and AI automation — engineered as one system to turn traffic into booked calls.
 		       </p>
 		       {/* CTA Block */}
 		       <div className="flex flex-col gap-3 w-full sm:flex-row sm:flex-nowrap sm:items-center sm:w-auto mb-5">
 			       <a
 				       href="/apply"
-				       className="w-full sm:w-auto bg-[#2563EB] text-white font-semibold text-[15px] px-7 py-[14px] rounded-[10px] whitespace-nowrap transition-all duration-200 hover:bg-[#1D4ED8] shadow-[0_4px_20px_rgba(37,99,235,0.4)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.5)] text-center inline-flex items-center justify-center"
+				       className="w-full sm:w-auto bg-cg-accent text-white font-semibold text-[15px] px-7 py-[14px] rounded-[10px] whitespace-nowrap transition-all duration-200 hover:bg-cg-accent-hov shadow-[0_4px_20px_rgba(37,99,235,0.4)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.5)] text-center inline-flex items-center justify-center"
 			       >
 				       Apply for Growth Partnership →
 			       </a>

@@ -6,7 +6,7 @@ import FrozenWebsitePreview from "./FrozenWebsitePreview";
 function PulseDot({ size = 6 }: { size?: number }) {
   return (
     <span
-      className="inline-block rounded-full bg-[#2563EB]"
+      className="inline-block rounded-full bg-cg-accent"
       style={{
         width: size,
         height: size,
@@ -25,7 +25,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
 
   return (
     <div
-      className="bg-[#0F2049] border border-[rgba(37,99,235,0.1)] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-[rgba(37,99,235,0.35)] hover:-translate-y-[2px]"
+      className="bg-cg-card border border-[rgba(37,99,235,0.1)] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-[rgba(37,99,235,0.35)] hover:-translate-y-[2px]"
       onClick={handleCardClick}
       role="link"
       tabIndex={0}
@@ -47,7 +47,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
       {/* Card body */}
       <div className="p-6">
         {/* Industry overline */}
-        <div className="text-[10px] uppercase tracking-[0.12em] text-[#8899BB] mb-2">
+        <div className="text-[10px] uppercase tracking-[0.12em] text-cg-secondary mb-2">
           {cs.industry}
         </div>
 
@@ -68,7 +68,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           <div className="mb-5">
             <span className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] rounded-full px-[14px] py-[5px]">
               <PulseDot />
-              <span className="text-[12px] text-[#8899BB] font-medium">
+              <span className="text-[12px] text-cg-secondary font-medium">
                 Results loading — just launched
               </span>
             </span>
@@ -84,7 +84,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
                   <span className="text-[12px] font-bold text-white">
                     {m.value}
                   </span>
-                  <span className="text-[11px] text-[#8899BB] ml-1.5">
+                  <span className="text-[11px] text-cg-secondary ml-1.5">
                     {m.label}
                   </span>
                 </span>
@@ -98,7 +98,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           {cs.websiteUrl && cs.title !== "Triple W Rentals" && (
             <button
               type="button"
-              className="bg-[#2563EB] text-white px-4 py-2 rounded-md text-[13px] font-semibold hover:bg-[#1D4ED8] transition-all duration-200"
+              className="bg-cg-accent text-white px-4 py-2 rounded-md text-[13px] font-semibold hover:bg-cg-accent-hov transition-all duration-200"
               onClick={(e) => {
                 e.stopPropagation();
                 window.open(cs.websiteUrl!, "_blank", "noopener,noreferrer");

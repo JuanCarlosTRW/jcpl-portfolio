@@ -33,7 +33,7 @@ export default function ProcessSteps() {
                   {/* Number badge */}
                   <div className="relative shrink-0">
                     <div className="flex h-[78px] w-[78px] items-center justify-center rounded-2xl border border-[rgba(255,255,255,0.08)] transition-all duration-400 group-hover:border-[rgba(37,99,235,0.35)]" style={{ background: "linear-gradient(135deg, #0A1628, #0D1A2D)" }}>
-                      <span className="text-2xl font-bold text-[#2563EB] tabular-nums">
+                      <span className="text-2xl font-bold text-cg-accent tabular-nums">
                         {step.number}
                       </span>
                     </div>
@@ -42,7 +42,7 @@ export default function ProcessSteps() {
                   {/* Content */}
                   <div className="flex-1 pt-4">
                     <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                    <p className="text-sm text-[#8899BB] leading-relaxed max-w-md">
+                    <p className="text-sm text-cg-secondary leading-relaxed max-w-md">
                       {step.description}
                     </p>
                   </div>

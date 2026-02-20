@@ -17,7 +17,7 @@ const philosophyBullets = [
 export default function PhilosophyBlock() {
   return (
     <AnimatedSection className="max-w-2xl mx-auto">
-      <div className="relative rounded-2xl border border-[rgba(37,99,235,0.15)] bg-[#0F2049] py-10 px-7 md:py-14 md:px-12 overflow-hidden text-center">
+      <div className="relative rounded-2xl border border-[rgba(37,99,235,0.15)] bg-cg-card py-10 px-7 md:py-14 md:px-12 overflow-hidden text-center">
         {/* Quote ornament */}
         <span
           className="absolute top-4 left-6 select-none font-serif leading-none text-[80px] md:text-[110px] pointer-events-none"
@@ -43,15 +43,15 @@ export default function PhilosophyBlock() {
         {/* Micro bullets */}
         <ul className="mt-6 space-y-2 max-w-sm mx-auto text-left">
           {philosophyBullets.map((bullet, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-[0.8rem] text-[#8899BB] leading-snug">
-              <span className="mt-1.5 h-1 w-1 rounded-full bg-[#2563EB] shrink-0" aria-hidden="true" />
+            <li key={i} className="flex items-start gap-2.5 text-[0.8rem] text-cg-secondary leading-snug">
+              <span className="mt-1.5 h-1 w-1 rounded-full bg-cg-accent shrink-0" aria-hidden="true" />
               {bullet}
             </li>
           ))}
         </ul>
 
         {/* Signature */}
-        <p className="mt-6 text-xs text-[#8899BB] italic tracking-wide">
+        <p className="mt-6 text-xs text-cg-secondary italic tracking-wide">
           — Juan Carlos
         </p>
 

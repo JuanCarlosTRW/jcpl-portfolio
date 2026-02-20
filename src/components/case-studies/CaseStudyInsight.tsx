@@ -29,7 +29,7 @@ export default function CaseStudyInsight({ study }: { study: CaseStudy }) {
 
         <div className="w-10 h-px bg-[var(--brand-accent)] mx-auto mb-10 opacity-60" />
 
-        <p className="text-base md:text-lg text-white/60 leading-relaxed">
+        <p className="text-base md:text-lg text-cg-body leading-relaxed">
           {insight.body}
         </p>
       </div>

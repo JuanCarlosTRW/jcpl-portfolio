@@ -46,7 +46,7 @@ export default function SystemSection() {
         <SectionLabel label="The System" className="mb-5" />
         <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           The{" "}
-          <span className="text-[#2563EB]">
+          <span className="text-cg-accent">
             Growth Architecture™
           </span>
         </h2>

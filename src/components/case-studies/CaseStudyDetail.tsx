@@ -23,7 +23,7 @@ function SmallCheck({ size = 12 }: { size?: number }) {
 function PulseDot({ size = 6 }: { size?: number }) {
   return (
     <span
-      className="inline-block rounded-full bg-[#2563EB]"
+      className="inline-block rounded-full bg-cg-accent"
       style={{
         width: size,
         height: size,
@@ -62,13 +62,13 @@ export default function CaseStudyDetail({
   ];
 
   return (
-    <main className="bg-[#060D1F]">
+    <main className="bg-cg-section-a">
       {/* ═══ BACK LINK BAR ═══ */}
       <div className="w-full bg-[rgba(37,99,235,0.04)] border-b border-[rgba(37,99,235,0.08)] py-[14px]">
         <div className="max-w-[1120px] mx-auto px-6">
           <Link
             href="/results"
-            className="inline-flex items-center gap-1.5 text-[13px] text-[#8899BB] hover:text-white transition-colors duration-150"
+            className="inline-flex items-center gap-1.5 text-[13px] text-cg-secondary hover:text-white transition-colors duration-150"
           >
             ← All Results
           </Link>
@@ -91,7 +91,7 @@ export default function CaseStudyDetail({
           <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-center">
             {/* Left column — content */}
             <div>
-              <div className="text-[11px] uppercase tracking-[0.12em] text-[#8899BB] mb-4">
+              <div className="text-[11px] uppercase tracking-[0.12em] text-cg-secondary mb-4">
                 {cs.industry}
               </div>
 
@@ -108,7 +108,7 @@ export default function CaseStudyDetail({
                 <div className="mb-9">
                   <span className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] rounded-full px-5 py-[6px]">
                     <PulseDot size={6} />
-                    <span className="text-[13px] text-[#8899BB] font-medium">
+                    <span className="text-[13px] text-cg-secondary font-medium">
                       Results loading — system just launched
                     </span>
                   </span>
@@ -124,7 +124,7 @@ export default function CaseStudyDetail({
                         <span className="text-[14px] font-extrabold text-white">
                           {m.value}
                         </span>
-                        <span className="text-[11px] text-[#8899BB] ml-2">
+                        <span className="text-[11px] text-cg-secondary ml-2">
                           {m.label}
                         </span>
                       </span>
@@ -135,7 +135,7 @@ export default function CaseStudyDetail({
 
               {/* Triple W special ROI callout */}
               {cs.id === "triple-w-rentals" && (
-                <span className="block text-[13px] text-[#2563EB] font-semibold -mt-5 mb-8">
+                <span className="block text-[13px] text-cg-accent font-semibold -mt-5 mb-8">
                   $900 in ad spend generated $30,000 in revenue.
                 </span>
               )}
@@ -145,7 +145,7 @@ export default function CaseStudyDetail({
                 {cs.websiteUrl && cs.title !== "Triple W Rentals" && (
                   <button
                     type="button"
-                    className="bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold text-[14px] hover:bg-[#1D4ED8] transition-all duration-200"
+                    className="bg-cg-accent text-white px-6 py-3 rounded-lg font-semibold text-[14px] hover:bg-cg-accent-hov transition-all duration-200"
                     onClick={() =>
                       window.open(
                         cs.websiteUrl!,
@@ -160,7 +160,7 @@ export default function CaseStudyDetail({
                 {!cs.inProgress && cs.metricsImageUrl && (
                   <button
                     type="button"
-                    className="border border-[rgba(37,99,235,0.35)] text-[#E8EDF5] bg-transparent px-6 py-3 rounded-lg font-medium text-[14px] hover:border-[#2563EB] hover:text-white transition-all duration-200"
+                    className="border border-[rgba(37,99,235,0.35)] text-cg-body bg-transparent px-6 py-3 rounded-lg font-medium text-[14px] hover:border-cg-accent hover:text-white transition-all duration-200"
                     onClick={scrollToMetrics}
                   >
                     View Metrics ↓
@@ -186,9 +186,9 @@ export default function CaseStudyDetail({
       </section>
 
       {/* ═══ SECTION B — THE SITUATION ═══ */}
-      <section className="bg-[#0A1628] py-20 border-t border-[rgba(37,99,235,0.06)]">
+      <section className="bg-cg-section-b py-20 border-t border-[rgba(37,99,235,0.06)]">
         <div className="max-w-[760px] mx-auto px-6">
-          <span className="block text-[10px] uppercase tracking-[0.15em] text-[#8899BB] mb-4">
+          <span className="block text-[10px] uppercase tracking-[0.15em] text-cg-secondary mb-4">
             THE SITUATION
           </span>
           <h2 className="text-[24px] font-bold text-white mb-5">
@@ -204,9 +204,9 @@ export default function CaseStudyDetail({
 
       {/* ═══ SECTION C — WHAT WAS BUILT ═══ */}
       {cs.deliverables && cs.deliverables.length > 0 && (
-        <section className="bg-[#060D1F] py-20">
+        <section className="bg-cg-section-a py-20">
           <div className="max-w-[760px] mx-auto px-6">
-            <span className="block text-[10px] uppercase tracking-[0.15em] text-[#8899BB] mb-4">
+            <span className="block text-[10px] uppercase tracking-[0.15em] text-cg-secondary mb-4">
               THE BUILD
             </span>
             <h2 className="text-[24px] font-bold text-white mb-8">
@@ -233,7 +233,7 @@ export default function CaseStudyDetail({
 
       {/* ═══ IN PROGRESS CALLOUT (replaces metrics when inProgress) ═══ */}
       {cs.inProgress && (
-        <section className="bg-[#0A1628] py-20 border-t border-[rgba(37,99,235,0.06)]">
+        <section className="bg-cg-section-b py-20 border-t border-[rgba(37,99,235,0.06)]">
           <div className="max-w-[760px] mx-auto px-6">
             <div className="bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.12)] rounded-xl p-8 text-center">
               <div className="flex justify-center mb-4">
@@ -256,20 +256,20 @@ export default function CaseStudyDetail({
       {!cs.inProgress && cs.metricsImageUrl && (
         <section
           id="metrics-section"
-          className="bg-[#0A1628] py-20 border-t border-[rgba(37,99,235,0.06)]"
+          className="bg-cg-section-b py-20 border-t border-[rgba(37,99,235,0.06)]"
         >
           <div className="max-w-[900px] mx-auto px-6">
-            <span className="block text-[10px] uppercase tracking-[0.15em] text-[#8899BB] mb-4">
+            <span className="block text-[10px] uppercase tracking-[0.15em] text-cg-secondary mb-4">
               PERFORMANCE DATA
             </span>
             <h2 className="text-[24px] font-bold text-white mb-2">
               Performance Metrics
             </h2>
-            <p className="text-[14px] text-[#8899BB] mb-8">
+            <p className="text-[14px] text-cg-secondary mb-8">
               Real data from Google Ads dashboard. Client details redacted for
               privacy.
             </p>
-            <div className="bg-[#0F2049] border border-[rgba(37,99,235,0.15)] rounded-[14px] overflow-hidden shadow-[0_0_40px_rgba(37,99,235,0.06)]">
+            <div className="bg-cg-card border border-[rgba(37,99,235,0.15)] rounded-[14px] overflow-hidden shadow-[0_0_40px_rgba(37,99,235,0.06)]">
               <Image
                 src={cs.metricsImageUrl}
                 alt={`${cs.title} Google Ads performance metrics`}
@@ -296,7 +296,7 @@ export default function CaseStudyDetail({
           }}
         />
         <div className="relative max-w-[600px] mx-auto text-center px-6">
-          <span className="block text-[10px] uppercase tracking-[0.15em] text-[#8899BB] mb-4">
+          <span className="block text-[10px] uppercase tracking-[0.15em] text-cg-secondary mb-4">
             NEXT STEP
           </span>
           <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold text-white leading-[1.15] mb-4 tracking-[-0.02em]">
@@ -308,7 +308,7 @@ export default function CaseStudyDetail({
           </p>
           <Link
             href="/apply"
-            className="inline-block bg-[#2563EB] text-white px-9 py-4 rounded-[10px] font-bold text-[16px] tracking-[-0.01em] hover:bg-[#1D4ED8] hover:-translate-y-[1px] transition-all duration-200 shadow-[0_4px_24px_rgba(37,99,235,0.25)] hover:shadow-[0_8px_32px_rgba(37,99,235,0.35)]"
+            className="inline-block bg-cg-accent text-white px-9 py-4 rounded-[10px] font-bold text-[16px] tracking-[-0.01em] hover:bg-cg-accent-hov hover:-translate-y-[1px] transition-all duration-200 shadow-[0_4px_24px_rgba(37,99,235,0.25)] hover:shadow-[0_8px_32px_rgba(37,99,235,0.35)]"
           >
             Apply for Growth Partnership →
           </Link>
@@ -319,7 +319,7 @@ export default function CaseStudyDetail({
             {trustPoints.map((tp) => (
               <span
                 key={tp}
-                className="flex items-center gap-2 text-[12px] text-[#8899BB]"
+                className="flex items-center gap-2 text-[12px] text-cg-secondary"
               >
                 <svg
                   width="10"

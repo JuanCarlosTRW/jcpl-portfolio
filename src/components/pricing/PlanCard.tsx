@@ -21,12 +21,12 @@ export default function PlanCard({ plan, billing, index }: Props) {
         className={`
           group relative flex flex-col h-full rounded-2xl border p-7 md:p-8
           transition-all duration-300
-          focus-visible:ring-2 focus-visible:ring-[#2563EB]
-          focus-visible:ring-offset-2 focus-visible:ring-offset-[#060D1F]
+          focus-visible:ring-2 focus-visible:ring-cg-accent
+          focus-visible:ring-offset-2 focus-visible:ring-offset-cg-section-a
           hover:-translate-y-1 hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)]
           ${isFeatured
             ? "border-[rgba(37,99,235,0.35)] bg-[#0D1A2D] shadow-[0_0_60px_rgba(37,99,235,0.08)] hover:border-[rgba(37,99,235,0.5)]"
-            : "border-[rgba(255,255,255,0.06)] bg-[#0A1628] hover:border-[rgba(255,255,255,0.12)]"
+            : "border-[rgba(255,255,255,0.06)] bg-cg-section-b hover:border-[rgba(255,255,255,0.12)]"
           }
         `}
         tabIndex={0}
@@ -46,7 +46,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
 
         {/* Recommended badge */}
         {isFeatured && (
-          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2563EB] text-white text-[0.65rem] font-semibold uppercase tracking-[0.08em] px-4 py-1 rounded-full whitespace-nowrap shadow-[0_4px_20px_rgba(37,99,235,0.35)]">
+          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-cg-accent text-white text-[0.65rem] font-semibold uppercase tracking-[0.08em] px-4 py-1 rounded-full whitespace-nowrap shadow-[0_4px_20px_rgba(37,99,235,0.35)]">
             Recommended
           </span>
         )}
@@ -56,12 +56,12 @@ export default function PlanCard({ plan, billing, index }: Props) {
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-white">{plan.name}</h3>
             {plan.annualOnly && billing === "annual" && (
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-[#8899BB]">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-cg-secondary">
                 Annual only
               </span>
             )}
           </div>
-          <p className="text-sm text-[#2563EB] font-medium mt-1">
+          <p className="text-sm text-cg-accent font-medium mt-1">
             {plan.tagline}
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
               ${price.toLocaleString()}
             </motion.span>
           </AnimatePresence>
-          <span className="text-[#8899BB] text-sm mb-1">per month</span>
+          <span className="text-cg-secondary text-sm mb-1">per month</span>
         </div>
 
         {/* Divider */}
@@ -91,7 +91,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
           {plan.features.map((feature, j) => (
             <li
               key={j}
-              className="flex items-start gap-2.5 text-sm text-[#E8EDF5]"
+              className="flex items-start gap-2.5 text-sm text-cg-body"
             >
               <svg
                 width="14"
@@ -139,7 +139,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
             {plan.ctaLabel}
           </CTAButton>
           {plan.helperText && (
-            <p className="mt-2.5 text-[11px] text-[#8899BB] text-center">
+            <p className="mt-2.5 text-[11px] text-cg-secondary text-center">
               {plan.helperText}
             </p>
           )}

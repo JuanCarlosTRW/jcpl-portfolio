@@ -29,7 +29,7 @@ export default function CaseStudyFinalCTA({ study }: { study: CaseStudy }) {
           Ready to Engineer Your Own Results?
         </h2>
 
-        <p className="text-base md:text-lg text-white/60 leading-relaxed mb-12 max-w-lg mx-auto">
+        <p className="text-base md:text-lg text-cg-body leading-relaxed mb-12 max-w-lg mx-auto">
           I take on a limited number of growth partnerships each quarter. If your business is ready to stop guessing and start scaling with a system, apply now.
         </p>
 

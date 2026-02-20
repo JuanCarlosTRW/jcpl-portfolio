@@ -23,10 +23,10 @@ export default function AboutPrinciples() {
         {aboutPrinciples.map((principle, i) => (
           <AnimatedSection key={principle.title} delay={0.1 * i}>
             <StarBorder variant="accent" speed="10s" className="rounded-2xl h-full">
-              <div className="flex flex-col items-center text-center gap-4 rounded-2xl bg-[#0F2049] p-6 md:p-8 h-full">
+              <div className="flex flex-col items-center text-center gap-4 rounded-2xl bg-cg-card p-6 md:p-8 h-full">
                 {/* Number badge */}
                 <span
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#2563EB] text-sm font-bold text-white"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cg-accent text-sm font-bold text-white"
                   aria-hidden="true"
                 >
                   {i + 1}

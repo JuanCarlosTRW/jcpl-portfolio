@@ -50,7 +50,7 @@ export default function GrowthArchitecture() {
   <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {growthArchitecture.headline}
         </h2>
-        <p className="mt-5 text-[#C8D4E8] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           {growthArchitecture.subheadline}
         </p>
       </Reveal>
@@ -59,10 +59,10 @@ export default function GrowthArchitecture() {
         {growthArchitecture.pillars.map((pillar, i) => {
           return (
             <Reveal key={pillar.id} delay={0.08 * i}>
-              <div className="group relative rounded-[14px] bg-[#0F2049] border border-[rgba(255,255,255,0.07)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
+              <div className="group relative rounded-[14px] bg-cg-card border border-[rgba(255,255,255,0.07)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
 
                   {/* Icon */}
-                  <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)] text-[#4B8EFF]">
+                  <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)] text-cg-accent-lt">
                     {pillarIcons[pillar.id]}
                   </div>
 
@@ -70,14 +70,14 @@ export default function GrowthArchitecture() {
                   <h3 className="text-[17px] font-bold text-white mb-1 leading-snug">
                     {pillar.title}
                   </h3>
-                  <p className="text-[13px] text-[#6B9FD4] mb-5">
+                  <p className="text-[13px] text-cg-muted mb-5">
                     {pillar.subtitle}
                   </p>
 
                   {/* Points */}
                   <ul className="space-y-2.5 mt-auto">
                     {pillar.points.map((point, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-[14px] text-[#C8D4E8] leading-[1.55]">
+                      <li key={j} className="flex items-start gap-2.5 text-[14px] text-cg-body leading-[1.55]">
                         <svg
                           width="15"
                           height="15"

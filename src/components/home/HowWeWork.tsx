@@ -13,7 +13,7 @@ export default function HowWeWork() {
   <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {howWeWork.headline}
         </h2>
-        <p className="mt-5 text-[#C8D4E8] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           {howWeWork.subheadline}
         </p>
       </Reveal>
@@ -26,7 +26,7 @@ export default function HowWeWork() {
                 <div className="group relative flex gap-6 md:gap-8">
                   {/* Step number circle + connector */}
                   <div className="flex flex-col items-center relative shrink-0">
-                    <div className="w-[52px] h-[52px] rounded-full bg-[rgba(37,99,235,0.15)] border-2 border-[rgba(37,99,235,0.5)] flex items-center justify-center font-extrabold text-[16px] text-[#4B8EFF] relative z-10">
+                    <div className="w-[52px] h-[52px] rounded-full bg-[rgba(37,99,235,0.15)] border-2 border-[rgba(37,99,235,0.5)] flex items-center justify-center font-extrabold text-[16px] text-cg-accent-lt relative z-10">
                       {step.number}
                     </div>
                     {i < howWeWork.steps.length - 1 && (
@@ -46,11 +46,11 @@ export default function HowWeWork() {
                       <h3 className="text-[20px] font-bold text-white leading-snug">
                         {step.title}
                       </h3>
-                      <span className="inline-flex bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.4)] rounded-full px-2.5 py-0.5 text-[11px] text-[#4B8EFF] font-semibold tracking-[0.05em]">
+                      <span className="inline-flex bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.4)] rounded-full px-2.5 py-0.5 text-[11px] text-cg-accent-lt font-semibold tracking-[0.05em]">
                         {step.duration}
                       </span>
                     </div>
-                    <p className="text-[15px] text-[#8FA8C8] leading-[1.7] max-w-lg">
+                    <p className="text-[15px] text-cg-secondary leading-[1.7] max-w-lg">
                       {step.description}
                     </p>
                   </div>

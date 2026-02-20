@@ -54,7 +54,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       viewBox="0 0 20 20"
       fill="none"
       aria-hidden="true"
-      className={`shrink-0 text-[#4B8EFF] transition-transform duration-300 ${
+      className={`shrink-0 text-cg-accent-lt transition-transform duration-300 ${
         open ? "rotate-180" : ""
       }`}
     >
@@ -94,7 +94,7 @@ export default function FAQSection() {
   <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           Questions Serious Buyers Ask
         </h2>
-        <p className="mt-5 text-[#C8D4E8] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           Straight answers to the questions serious business owners ask before
           committing.
         </p>
@@ -112,8 +112,8 @@ export default function FAQSection() {
                 role="listitem"
                 className={`rounded-xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? "border-[rgba(37,99,235,0.4)] border-l-[3px] border-l-[#2563EB] bg-[#0D1B3E] shadow-[0_4px_24px_rgba(37,99,235,0.06)]"
-                    : "border-[rgba(255,255,255,0.07)] bg-[#0F2049] hover:border-[rgba(37,99,235,0.25)]"
+                    ? "border-[rgba(37,99,235,0.4)] border-l-[3px] border-l-cg-accent bg-cg-card-alt shadow-[0_4px_24px_rgba(37,99,235,0.06)]"
+                    : "border-[rgba(255,255,255,0.07)] bg-cg-card hover:border-[rgba(37,99,235,0.25)]"
                 }`}
               >
                 <button
@@ -150,7 +150,7 @@ export default function FAQSection() {
                     >
                       <div className="px-5 md:px-6 pb-5 md:pb-6">
                         <div className="h-px bg-[rgba(255,255,255,0.07)] mb-4" />
-                        <p className="text-[15px] text-[#8FA8C8] leading-[1.75]">
+                        <p className="text-[15px] text-cg-secondary leading-[1.75]">
                           {faq.answer}
                         </p>
                       </div>
@@ -166,7 +166,7 @@ export default function FAQSection() {
       {/* Mini-CTA below FAQ */}
       <Reveal delay={0.3}>
         <div className="mt-12 md:mt-16 text-center">
-          <p className="text-sm text-[#8FA8C8] mb-5">
+          <p className="text-sm text-cg-secondary mb-5">
             Still have questions? Let&apos;s talk through them on a call.
           </p>
           <CTAButton

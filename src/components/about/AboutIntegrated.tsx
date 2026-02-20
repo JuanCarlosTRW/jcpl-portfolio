@@ -30,8 +30,8 @@ export default function AboutIntegrated() {
               <div
                 className={`rounded-2xl p-6 md:p-8 ${
                   point.accent
-                    ? "bg-[#0F2049]"
-                    : "bg-[#0F2049]"
+                    ? "bg-cg-card"
+                    : "bg-cg-card"
                 }`}
               >
                 <p

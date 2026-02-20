@@ -24,8 +24,8 @@ export default function AboutProofRow() {
         return (
           <AnimatedSection key={i} delay={0.12 * i}>
             <StarBorder variant="accent" speed="8s" className="rounded-2xl">
-              <div className="flex flex-col items-center justify-center py-6 px-4 bg-[#0F2049] rounded-2xl text-center min-h-[110px]">
-                <span className="text-3xl md:text-4xl font-bold text-[#2563EB] mb-1 tabular-nums">
+              <div className="flex flex-col items-center justify-center py-6 px-4 bg-cg-card rounded-2xl text-center min-h-[110px]">
+                <span className="text-3xl md:text-4xl font-bold text-cg-accent mb-1 tabular-nums">
                   {numericValue !== null ? (
                     <CountUpValue
                       to={numericValue}
@@ -36,7 +36,7 @@ export default function AboutProofRow() {
                     item.metric
                   )}
                 </span>
-                <span className="text-xs md:text-sm text-[#8899BB] leading-snug">
+                <span className="text-xs md:text-sm text-cg-secondary leading-snug">
                   {item.label}
                 </span>
               </div>

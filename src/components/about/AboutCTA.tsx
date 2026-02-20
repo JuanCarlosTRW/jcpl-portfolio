@@ -13,14 +13,14 @@ const nextSteps = [
 
 function LightningIcon() {
   return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
       <path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" fill="none" />
     </svg>
   );
 }
 function LockIcon() {
   return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
       <rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
       <path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
       <circle cx="8" cy="11" r="1" fill="currentColor"/>
@@ -29,7 +29,7 @@ function LockIcon() {
 }
 function ClipboardIcon() {
   return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
       <rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
       <path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
       <path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
@@ -64,7 +64,7 @@ export default function AboutCTA() {
           <Reveal>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.12] tracking-tight mb-4">
               Your Pipeline Won&apos;t{" "}
-              <span className="text-[#2563EB]">
+              <span className="text-cg-accent">
                 Build Itself
               </span>
             </h2>
@@ -73,7 +73,7 @@ export default function AboutCTA() {
               identify the highest-leverage opportunities, and decide if
               I&apos;m a fit.
             </p>
-            <p className="text-sm text-[#2563EB] font-medium mt-3 mb-8">
+            <p className="text-sm text-cg-accent font-medium mt-3 mb-8">
               If I don&apos;t see a clear path to ROI, I&apos;ll tell you.
             </p>
           </Reveal>
@@ -89,7 +89,7 @@ export default function AboutCTA() {
                   <div key={item.step} className="flex flex-col items-center flex-1 max-w-[180px]">
                     {/* Step badge + connector */}
                     <div className="relative flex items-center w-full justify-center mb-3">
-                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#2563EB] bg-[var(--bg-base)] text-xs font-bold text-[#2563EB] tabular-nums">
+                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-[1.5px] border-cg-accent bg-[var(--bg-base)] text-xs font-bold text-cg-accent tabular-nums">
                         {item.step}
                       </span>
                       {/* Dashed connector */}
@@ -98,7 +98,7 @@ export default function AboutCTA() {
                       )}
                     </div>
                     <p className="text-[0.82rem] font-semibold text-white mb-0.5">{item.label}</p>
-                    <p className="text-[0.72rem] text-[#8899BB] leading-snug px-2">{item.description}</p>
+                    <p className="text-[0.72rem] text-cg-secondary leading-snug px-2">{item.description}</p>
                   </div>
                 ))}
               </div>

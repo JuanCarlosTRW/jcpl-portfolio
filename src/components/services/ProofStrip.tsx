@@ -35,7 +35,7 @@ export default function ProofStrip() {
       {/* Social proof row with client names */}
       <Reveal delay={0.1}>
         <div className="proof-strip__logos">
-          <p className="text-[0.65rem] uppercase tracking-[0.15em] text-[#8899BB] font-medium mb-4">
+          <p className="text-[0.65rem] uppercase tracking-[0.15em] text-cg-secondary font-medium mb-4">
             {servicesProofBar.logoRowLabel}
           </p>
           <div className="proof-strip__clients">

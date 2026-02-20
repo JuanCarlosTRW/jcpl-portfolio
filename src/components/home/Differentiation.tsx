@@ -24,13 +24,13 @@ function CheckIcon() {
 
 export default function Differentiation() {
   return (
-    <SectionWrapper id="difference" className="bg-[#060D1F]">
+    <SectionWrapper id="difference" className="bg-cg-section-a">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
         <SectionLabel label={differentiation.label} className="mb-5" />
   <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {differentiation.headline}
         </h2>
-        <p className="mt-5 text-[#C8D4E8] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           {differentiation.subheadline}
         </p>
       </Reveal>
@@ -47,13 +47,13 @@ export default function Differentiation() {
           >
             {/* Header */}
             <div className="grid grid-cols-[1fr_1fr_1fr] border-b border-[rgba(255,255,255,0.06)]" style={{ background: "rgba(255,255,255,0.03)" }}>
-              <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-[#6B9FD4]">
+              <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-cg-muted">
                 Dimension
               </div>
-              <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-[#FF6B6B] text-center">
+              <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-cg-neg text-center">
                 Typical Approach
               </div>
-              <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-[#4B8EFF] text-center">
+              <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-cg-accent-lt text-center">
                 Growth Architecture™
               </div>
             </div>
@@ -73,13 +73,13 @@ export default function Differentiation() {
                 </div>
                 <div className="p-5 flex items-start gap-2.5 justify-center">
                   <XIcon />
-                  <span className="text-sm text-[#8FA8C8]">
+                  <span className="text-sm text-cg-secondary">
                     {row.them}
                   </span>
                 </div>
                 <div className="p-5 flex items-start gap-2.5 justify-center">
                   <CheckIcon />
-                  <span className="text-sm text-[#C8D4E8]">
+                  <span className="text-sm text-cg-body">
                     {row.us}
                   </span>
                 </div>
@@ -93,20 +93,20 @@ export default function Differentiation() {
       <div className="md:hidden space-y-4 max-w-sm mx-auto">
         {differentiation.comparisons.map((row, i) => (
           <Reveal key={i} delay={0.06 * i}>
-            <div className="rounded-xl border border-[rgba(255,255,255,0.07)] bg-[#0F2049] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6B9FD4] mb-3">
+            <div className="rounded-xl border border-[rgba(255,255,255,0.07)] bg-cg-card p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-cg-muted mb-3">
                 {row.dimension}
               </p>
               <div className="space-y-2.5">
                 <div className="flex items-start gap-2">
                   <XIcon />
-                  <span className="text-sm text-[#8FA8C8]">
+                  <span className="text-sm text-cg-secondary">
                     {row.them}
                   </span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckIcon />
-                  <span className="text-sm text-[#C8D4E8]">
+                  <span className="text-sm text-cg-body">
                     {row.us}
                   </span>
                 </div>

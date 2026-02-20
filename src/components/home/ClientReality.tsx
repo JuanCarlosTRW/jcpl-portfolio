@@ -46,7 +46,7 @@ export default function ClientReality() {
   <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {clientReality.headline}
         </h2>
-        <p className="mt-5 text-[#C8D4E8] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           {clientReality.subheadline}
         </p>
       </Reveal>
@@ -54,7 +54,7 @@ export default function ClientReality() {
       <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
         {clientReality.pains.map((pain, i) => (
           <Reveal key={pain.icon} delay={0.08 * i}>
-            <div className="group relative rounded-[14px] border border-[rgba(255,255,255,0.07)] bg-[#0F2049] p-7 md:p-8 h-full transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
+            <div className="group relative rounded-[14px] border border-[rgba(255,255,255,0.07)] bg-cg-card p-7 md:p-8 h-full transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
               {/* Icon */}
               <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)]">
                 {icons[pain.icon]}
@@ -66,7 +66,7 @@ export default function ClientReality() {
               </h3>
 
               {/* Detail */}
-              <p className="text-[14px] text-[#8FA8C8] leading-[1.65]">
+              <p className="text-[14px] text-cg-secondary leading-[1.65]">
                 {pain.detail}
               </p>
             </div>

@@ -32,7 +32,7 @@ export default function FinalCTA() {
           <Reveal>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5">
               Your Pipeline Won&apos;t{" "}
-              <span className="text-[#2563EB]">
+              <span className="text-cg-accent">
                 Build Itself
               </span>
             </h2>

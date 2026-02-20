@@ -4,7 +4,7 @@ import CaseStudyCard from "./CaseStudyCard";
 
 export default function CaseStudiesSection() {
   return (
-    <section className="bg-[#060D1F] py-12">
+    <section className="bg-cg-section-a py-12">
       <div className="max-w-[1120px] mx-auto px-6">
         {/* Card grid */}
         <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-2">

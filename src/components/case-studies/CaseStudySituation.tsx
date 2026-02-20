@@ -66,7 +66,7 @@ export default function CaseStudySituation({ study }: { study: CaseStudy }) {
                 ].map((row) => (
                   <div key={row.label} className="flex items-center gap-3 py-2 border-b border-white/[0.05]">
                     <span className="text-sm">{row.icon}</span>
-                    <span className="text-sm text-white/60">{row.label}</span>
+                    <span className="text-sm text-cg-body">{row.label}</span>
                   </div>
                 ))}
                 <div className="mt-6 pt-4">

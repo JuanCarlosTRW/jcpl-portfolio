@@ -17,7 +17,7 @@ const stats = [
 
 export default function ResultsPage() {
   return (
-    <main className="bg-[#060D1F] min-h-screen">
+    <main className="bg-cg-section-a min-h-screen">
       {/* ═══ HERO ═══ */}
       <section className="relative pt-36 pb-24" style={{ backgroundColor: "#060D1F" }}>
         {/* Radial glow */}
@@ -39,7 +39,7 @@ export default function ResultsPage() {
         />
 
         <div className="relative max-w-[760px] mx-auto text-center px-6">
-          <span className="block text-[11px] uppercase tracking-[0.15em] text-[#8899BB] mb-5">
+          <span className="block text-[11px] uppercase tracking-[0.15em] text-cg-secondary mb-5">
             RESULTS
           </span>
           <h1 className="text-[clamp(36px,5.5vw,60px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
@@ -61,7 +61,7 @@ export default function ResultsPage() {
                   <span className="text-[28px] font-extrabold text-white block">
                     {s.value}
                   </span>
-                  <span className="text-[10px] uppercase tracking-[0.1em] text-[#8899BB] mt-1 block">
+                  <span className="text-[10px] uppercase tracking-[0.1em] text-cg-secondary mt-1 block">
                     {s.label}
                   </span>
                 </div>

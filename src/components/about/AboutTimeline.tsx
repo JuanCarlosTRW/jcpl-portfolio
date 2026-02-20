@@ -35,7 +35,7 @@ export default function AboutTimeline() {
                   className="absolute left-3.5 md:left-5.5 top-6 flex h-5 w-5 items-center justify-center"
                   aria-hidden="true"
                 >
-                  <span className="h-3 w-3 rounded-full bg-[#2563EB] ring-4 ring-[var(--bg-base)]" />
+                  <span className="h-3 w-3 rounded-full bg-cg-accent ring-4 ring-[var(--bg-base)]" />
                 </div>
 
                 <StarBorder
@@ -43,13 +43,13 @@ export default function AboutTimeline() {
                   speed={`${8 + i * 2}s`}
                   className="rounded-2xl"
                 >
-                  <div className="rounded-2xl bg-[#0F2049] p-6 md:p-8">
+                  <div className="rounded-2xl bg-cg-card p-6 md:p-8">
                     {/* Header row */}
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
                       <h3 className="text-lg md:text-xl font-bold text-white">
                         {step.title}
                       </h3>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-[#2563EB]">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-cg-accent">
                         {step.duration}
                       </span>
                     </div>

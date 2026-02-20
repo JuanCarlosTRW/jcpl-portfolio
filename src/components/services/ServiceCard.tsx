@@ -178,19 +178,19 @@ export default function ServiceCard({ tier, index }: Props) {
           >
             {tier.name}
           </h3>
-          <p className="mt-1 text-sm text-[#2563EB] font-medium tracking-wide">
+          <p className="mt-1 text-sm text-cg-accent font-medium tracking-wide">
             {tier.tagline}
           </p>
         </div>
 
         {/* Best for line */}
-        <p className="text-xs text-[#8899BB] mb-3 flex items-center gap-1.5">
-          <span className="text-[#2563EB]">●</span>
+        <p className="text-xs text-cg-secondary mb-3 flex items-center gap-1.5">
+          <span className="text-cg-accent">●</span>
           Best for: {tier.bestFor}
         </p>
 
         {/* Core outcome */}
-        <p className="text-sm text-[#E8EDF5] leading-relaxed mb-4">
+        <p className="text-sm text-cg-body leading-relaxed mb-4">
           {tier.coreOutcome}
         </p>
 
@@ -203,7 +203,7 @@ export default function ServiceCard({ tier, index }: Props) {
                   <circle cx="7" cy="7" r="6.5" stroke="rgba(37,99,235,0.35)" strokeWidth="0.8" />
                   <path d="M4.5 7 L6.2 8.7 L9.5 5.3" stroke="#2563EB" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 </svg>
-                <span className="text-sm text-[#E8EDF5]">{d}</span>
+                <span className="text-sm text-cg-body">{d}</span>
               </li>
             ))}
           </ul>
@@ -225,7 +225,7 @@ export default function ServiceCard({ tier, index }: Props) {
                         <circle cx="7" cy="7" r="6.5" stroke="rgba(37,99,235,0.2)" strokeWidth="0.8" />
                         <path d="M4.5 7 L6.2 8.7 L9.5 5.3" stroke="#2563EB" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                       </svg>
-                      <span className="text-sm text-[#8899BB]">{d}</span>
+                      <span className="text-sm text-cg-secondary">{d}</span>
                     </li>
                   ))}
                 </ul>
@@ -241,7 +241,7 @@ export default function ServiceCard({ tier, index }: Props) {
                 trackEvent("services_plan_expand_scope", { data: { plan: tier.name } });
               }
             }}
-            className="mt-2 text-xs text-[#2563EB] hover:text-white transition-colors cursor-pointer flex items-center gap-1"
+            className="mt-2 text-xs text-cg-accent hover:text-white transition-colors cursor-pointer flex items-center gap-1"
             aria-expanded={expanded}
           >
             {expanded ? "Hide details" : "See full scope"}
@@ -261,10 +261,10 @@ export default function ServiceCard({ tier, index }: Props) {
               <circle cx="7" cy="7" r="6" stroke="#8899BB" strokeWidth="0.8" fill="none" />
               <path d="M7 4 V7 L9.5 8.5" stroke="#8899BB" strokeWidth="0.9" strokeLinecap="round" fill="none" />
             </svg>
-            <span className="text-xs text-[#8899BB]">{tier.timeline}</span>
+            <span className="text-xs text-cg-secondary">{tier.timeline}</span>
           </div>
           <div className="service-card__meta-divider" aria-hidden="true" />
-          <p className="text-xs text-[#8899BB] italic flex-1">
+          <p className="text-xs text-cg-secondary italic flex-1">
             First win: {tier.firstWin}
           </p>
         </div>

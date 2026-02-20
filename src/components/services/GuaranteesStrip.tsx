@@ -26,7 +26,7 @@ export default function GuaranteesStrip() {
                 <p className="text-sm font-semibold text-white mb-1">
                   {guarantee.title}
                 </p>
-                <p className="text-xs text-[#8899BB] leading-relaxed">
+                <p className="text-xs text-cg-secondary leading-relaxed">
                   {guarantee.description}
                 </p>
               </div>

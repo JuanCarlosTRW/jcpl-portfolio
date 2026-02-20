@@ -10,14 +10,14 @@ import PaymentTrustRow from "./PaymentTrustRow";
 function TrustIcon({ icon }: { icon: string }) {
   if (icon === "lightning") {
     return (
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
         <path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
       </svg>
     );
   }
   if (icon === "lock") {
     return (
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
         <rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
         <path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
         <circle cx="8" cy="11" r="1" fill="currentColor"/>
@@ -26,7 +26,7 @@ function TrustIcon({ icon }: { icon: string }) {
   }
   // clipboard
   return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-[#2563EB]">
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
       <rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
       <path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
       <path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
@@ -49,7 +49,7 @@ export default function ServicesFinalCTA() {
         <div className="mb-16">
           <Reveal>
             <div className="text-center mb-8">
-              <p className="text-xs uppercase tracking-[0.15em] text-[#8899BB] font-medium mb-3">
+              <p className="text-xs uppercase tracking-[0.15em] text-cg-secondary font-medium mb-3">
                 Our Standards
               </p>
               <h2 className="heading-3">What You Can Expect</h2>
@@ -71,12 +71,12 @@ export default function ServicesFinalCTA() {
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5"
             >
               {servicesFinalCTA.headline.split("real ")[0]}real{" "}
-              <span className="text-[#2563EB]">
+              <span className="text-cg-accent">
                 acquisition system
               </span>
               ?
             </h2>
-            <p className="text-[#E8EDF5] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
+            <p className="text-cg-body leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
               {servicesFinalCTA.subheadline}
             </p>
           </Reveal>
@@ -108,7 +108,7 @@ export default function ServicesFinalCTA() {
               {servicesFinalCTA.trustBadges.map((item) => (
                 <span
                   key={item.text}
-                  className="inline-flex items-center gap-1.5 text-xs text-[#8899BB]"
+                  className="inline-flex items-center gap-1.5 text-xs text-cg-secondary"
                 >
                   <TrustIcon icon={item.icon} />
                   {item.text}

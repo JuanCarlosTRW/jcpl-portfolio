@@ -14,7 +14,7 @@ export default function AddOnsTable() {
           <h2 className="text-2xl md:text-3xl font-bold text-white">
             Add-ons
           </h2>
-          <p className="mt-2 text-sm text-[#E8EDF5] max-w-lg">
+          <p className="mt-2 text-sm text-cg-body max-w-lg">
             From custom integrations to white-glove onboarding, power up your
             growth system with add-ons.
           </p>
@@ -23,7 +23,7 @@ export default function AddOnsTable() {
 
       <Reveal delay={0.1}>
         <div
-          className="overflow-x-auto rounded-2xl border border-[rgba(255,255,255,0.06)] bg-[#0A1628]"
+          className="overflow-x-auto rounded-2xl border border-[rgba(255,255,255,0.06)] bg-cg-section-b"
           role="region"
           aria-label="Add-ons pricing table"
           tabIndex={0}
@@ -31,13 +31,13 @@ export default function AddOnsTable() {
           <table className="w-full min-w-[600px] text-sm">
             <thead>
               <tr className="border-b border-[rgba(255,255,255,0.06)]">
-                <th className="sticky left-0 z-10 bg-[#0A1628] text-left px-6 py-4 text-[#8899BB] font-semibold w-[240px] min-w-[200px]">
+                <th className="sticky left-0 z-10 bg-cg-section-b text-left px-6 py-4 text-cg-secondary font-semibold w-[240px] min-w-[200px]">
                   Add-on
                 </th>
                 {plans.map((plan) => (
                   <th
                     key={plan.name}
-                    className="px-6 py-4 text-center text-[#8899BB] font-semibold min-w-[140px]"
+                    className="px-6 py-4 text-center text-cg-secondary font-semibold min-w-[140px]"
                   >
                     {plan.name}
                   </th>
@@ -50,11 +50,11 @@ export default function AddOnsTable() {
                   key={row.name}
                   className="border-b border-[rgba(255,255,255,0.04)] transition-colors hover:bg-white/[0.02]"
                 >
-                  <td className="sticky left-0 z-10 bg-[#0A1628] px-6 py-4 min-w-[200px]">
+                  <td className="sticky left-0 z-10 bg-cg-section-b px-6 py-4 min-w-[200px]">
                     <div className="font-medium text-white text-[13px]">
                       {row.name}
                     </div>
-                    <div className="text-[11px] text-[#8899BB] mt-0.5">
+                    <div className="text-[11px] text-cg-secondary mt-0.5">
                       {row.descriptor}
                     </div>
                   </td>
@@ -64,13 +64,13 @@ export default function AddOnsTable() {
                       className="px-6 py-4 text-center text-[13px]"
                     >
                       {price === "—" ? (
-                        <span className="text-[#8899BB]/60">—</span>
+                        <span className="text-cg-secondary/60">—</span>
                       ) : price === "Included" ? (
-                        <span className="text-[#2563EB] font-medium">
+                        <span className="text-cg-accent font-medium">
                           Included
                         </span>
                       ) : (
-                        <span className="text-[#E8EDF5]">
+                        <span className="text-cg-body">
                           {price}
                         </span>
                       )}
@@ -105,7 +105,7 @@ export default function AddOnsTable() {
 
       {/* Billing note */}
       <Reveal delay={0.15}>
-        <p className="mt-4 text-center text-[11px] text-[#8899BB]">
+        <p className="mt-4 text-center text-[11px] text-cg-secondary">
           All prices are monthly and billed according to the billing cycle
           selected at checkout. Any applicable sales tax will be added at
           checkout based on your location.

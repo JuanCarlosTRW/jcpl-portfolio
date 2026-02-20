@@ -51,7 +51,7 @@ export default function CaseStudyArchitecture({ study }: { study: CaseStudy }) {
                   {layer.title}
                 </h3>
                 <div className="w-6 h-px bg-[var(--brand-accent)] mb-3 opacity-60" />
-                <p className="text-sm text-white/60 leading-relaxed">{layer.description}</p>
+                <p className="text-sm text-cg-body leading-relaxed">{layer.description}</p>
               </div>
             </div>
           ))}

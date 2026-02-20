@@ -14,7 +14,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       viewBox="0 0 18 18"
       fill="none"
       aria-hidden="true"
-      className={`shrink-0 text-[#8899BB] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+      className={`shrink-0 text-cg-secondary transition-transform duration-300 ${open ? "rotate-180" : ""}`}
     >
       <path d="M4.5 6.75l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>

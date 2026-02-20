@@ -20,10 +20,10 @@ interface Props {
 const SectionWrapper = forwardRef<HTMLElement, Props>(
   ({ children, className = "", id, variant = "default" }, ref) => {
     const bgClass = {
-      default: "bg-[#060D1F]",
-      alt: "bg-[#0A1628]",
-      surface: "bg-[#0F2049]",
-      elevated: "bg-[#0D1B3E]",
+      default: "bg-cg-section-a",
+      alt: "bg-cg-section-b",
+      surface: "bg-cg-card",
+      elevated: "bg-cg-card-alt",
     }[variant];
 
     return (

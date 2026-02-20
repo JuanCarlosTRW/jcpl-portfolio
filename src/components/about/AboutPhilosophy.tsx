@@ -13,7 +13,7 @@ export default function AboutPhilosophy() {
   return (
     <AnimatedSection className="max-w-3xl mx-auto text-center">
       <StarBorder variant="accent" speed="12s" className="rounded-3xl">
-        <div className="rounded-3xl bg-[#0F2049] py-12 px-8 md:py-16 md:px-12">
+        <div className="rounded-3xl bg-cg-card py-12 px-8 md:py-16 md:px-12">
           <SectionLabel label="Philosophy" className="mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             {aboutContent.philosophy.headline}

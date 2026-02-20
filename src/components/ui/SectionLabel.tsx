@@ -8,7 +8,7 @@ interface Props {
 export default function SectionLabel({ label, className = "" }: Props) {
   return (
     <p
-      className={`text-xs font-semibold uppercase tracking-[0.2em] text-[#6B9FD4] ${className}`}
+      className={`text-xs font-semibold uppercase tracking-[0.2em] text-cg-muted ${className}`}
     >
       {label}
     </p>
