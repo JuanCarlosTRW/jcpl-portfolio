@@ -1,6 +1,4 @@
-import Link from "next/link";
 import CaseStudiesSection from "@/components/case-studies/CaseStudiesSection";
-import ResultsHeroWebGLLoader from "@/components/results/ResultsHeroWebGLLoader";
 import { buildMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -12,62 +10,69 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const stats = [
-  { value: "5+", label: "Systems Built" },
-  { value: "$20K+", label: "Revenue Generated" },
-  { value: "2–4 wks", label: "Avg. Launch Time" },
+  { value: "5+", label: "SYSTEMS BUILT" },
+  { value: "$20K+", label: "REVENUE GENERATED" },
+  { value: "2–4 wks", label: "AVG. LAUNCH TIME" },
 ];
 
 export default function ResultsPage() {
   return (
     <main className="bg-[#060D1F] min-h-screen">
       {/* ═══ HERO ═══ */}
-      <section className="pt-32 pb-20">
-        <div className="max-w-[720px] mx-auto text-center px-6">
-          <span className="block text-[11px] uppercase tracking-[0.12em] text-[#8899BB] mb-4">
+      <section className="relative pt-36 pb-24" style={{ backgroundColor: "#060D1F" }}>
+        {/* Radial glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37,99,235,0.12) 0%, transparent 70%)",
+          }}
+        />
+        {/* CSS grid pattern */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+
+        <div className="relative max-w-[760px] mx-auto text-center px-6">
+          <span className="block text-[11px] uppercase tracking-[0.15em] text-[#8899BB] mb-5">
             RESULTS
           </span>
-          <h1 className="text-[clamp(32px,5vw,52px)] font-bold text-white leading-[1.15] mb-5">
+          <h1 className="text-[clamp(36px,5.5vw,60px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
             Real Businesses. Real Results.
           </h1>
-          <p className="text-[17px] text-[rgba(255,255,255,0.55)] leading-[1.65] max-w-[540px] mx-auto">
-            Every system I build ships with measurable infrastructure —
-            not just pages. Here&apos;s the proof.
+          <p className="text-[18px] text-[rgba(255,255,255,0.5)] leading-[1.65] max-w-[520px] mx-auto mb-12">
+            Every system I build ships with measurable infrastructure — not just
+            pages. Here&apos;s the proof.
           </p>
 
           {/* Stats row */}
-          <div className="flex items-center justify-center mt-10">
+          <div className="inline-flex items-center bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.07)] rounded-xl py-5 px-10 max-sm:grid max-sm:grid-cols-3 max-sm:rounded-lg max-sm:py-4 max-sm:px-5">
             {stats.map((s, i) => (
               <div key={s.label} className="flex items-center">
                 {i > 0 && (
-                  <div className="w-px h-10 bg-[rgba(255,255,255,0.08)] mx-6 sm:mx-8" />
+                  <div className="w-px h-10 bg-[rgba(255,255,255,0.08)] flex-shrink-0 max-sm:hidden" />
                 )}
-                <div className="text-center">
-                  <div className="text-[28px] font-bold text-white">{s.value}</div>
-                  <div className="text-[12px] uppercase tracking-[0.08em] text-[#8899BB] mt-1">
+                <div className="text-center px-8 max-sm:px-4">
+                  <span className="text-[28px] font-extrabold text-white block">
+                    {s.value}
+                  </span>
+                  <span className="text-[10px] uppercase tracking-[0.1em] text-[#8899BB] mt-1 block">
                     {s.label}
-                  </div>
+                  </span>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        {/* WebGL hero animation — directly under stats */}
-        <ResultsHeroWebGLLoader />
       </section>
 
       {/* ═══ CASE STUDIES GRID ═══ */}
       <CaseStudiesSection />
-
-      {/* ═══ CTA ═══ */}
-      <section className="py-20 text-center px-6">
-        <Link
-          href="/apply"
-          className="inline-flex items-center gap-2 bg-[#2563EB] text-white font-semibold text-[15px] px-8 py-4 rounded-lg hover:bg-[#1D4ED8] transition-all"
-        >
-          Apply for Growth Strategy Call
-        </Link>
-      </section>
     </main>
   );
 }

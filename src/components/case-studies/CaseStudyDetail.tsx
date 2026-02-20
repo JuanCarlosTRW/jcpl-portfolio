@@ -6,18 +6,11 @@ import Image from "next/image";
 import { CaseStudy } from "@/content/caseStudies";
 import FrozenWebsitePreview from "./FrozenWebsitePreview";
 
-function CheckIcon() {
+function SmallCheck({ size = 12 }: { size?: number }) {
   return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      fill="none"
-      className="flex-shrink-0 mt-0.5"
-    >
-      <circle cx="9" cy="9" r="9" fill="rgba(37,99,235,0.15)" />
+    <svg width={size} height={size} fill="none" viewBox="0 0 12 12">
       <path
-        d="M6 9.5l2 2 4-4"
+        d="M3 6.5l2 2 4-4"
         stroke="#2563EB"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -32,7 +25,6 @@ export default function CaseStudyDetail({
 }: {
   caseStudy: CaseStudy;
 }) {
-  // Scroll to top on mount
   React.useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
@@ -43,7 +35,7 @@ export default function CaseStudyDetail({
   };
 
   const handlePreviewClick = () => {
-    if (cs.websiteUrl) {
+    if (cs.websiteUrl && cs.title !== "Triple W Rentals") {
       window.open(cs.websiteUrl, "_blank", "noopener,noreferrer");
     } else if (cs.metricsImageUrl) {
       scrollToMetrics();
@@ -53,45 +45,66 @@ export default function CaseStudyDetail({
   const defaultSituation =
     "This engagement focused on building a complete acquisition system from the ground up — turning an invisible or underperforming online presence into a predictable pipeline of qualified leads.";
 
+  const trustPoints = [
+    "No long-term contracts",
+    "Max 3 partnerships / quarter",
+    "Response within 24h",
+  ];
+
   return (
     <main className="bg-[#060D1F]">
-      {/* ═══ SECTION A — HERO ═══ */}
-      <section className="pt-32 pb-16">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left column — content */}
-            <div className="max-w-[520px]">
-              <Link
-                href="/results"
-                className="inline-flex items-center gap-1.5 text-[13px] text-[#8899BB] hover:text-white transition-colors duration-200 mb-8"
-              >
-                ← Back to Results
-              </Link>
+      {/* ═══ BACK LINK BAR ═══ */}
+      <div className="w-full bg-[rgba(37,99,235,0.04)] border-b border-[rgba(37,99,235,0.08)] py-[14px]">
+        <div className="max-w-[1120px] mx-auto px-6">
+          <Link
+            href="/results"
+            className="inline-flex items-center gap-1.5 text-[13px] text-[#8899BB] hover:text-white transition-colors duration-150"
+          >
+            ← All Results
+          </Link>
+        </div>
+      </div>
 
-              <div className="text-[11px] uppercase tracking-[0.12em] text-[#8899BB] mb-3">
+      {/* ═══ SECTION A — HERO ═══ */}
+      <section
+        className="relative pt-20 pb-16"
+        style={{ backgroundColor: "#060D1F" }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 60% at 60% 0%, rgba(37,99,235,0.1) 0%, transparent 65%)",
+          }}
+        />
+        <div className="relative max-w-[1120px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-center">
+            {/* Left column — content */}
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.12em] text-[#8899BB] mb-4">
                 {cs.industry}
               </div>
 
-              <h1 className="text-[clamp(28px,4vw,44px)] font-bold text-white leading-[1.15] mb-4">
+              <h1 className="text-[clamp(32px,4.5vw,52px)] font-extrabold text-white leading-[1.1] tracking-[-0.02em] mb-4">
                 {cs.title}
               </h1>
 
-              <p className="text-[18px] text-[rgba(255,255,255,0.7)] leading-[1.6] mb-8">
+              <p className="text-[18px] text-[rgba(255,255,255,0.6)] leading-[1.65] mb-8">
                 {cs.outcome}
               </p>
 
               {/* Metrics pills */}
               {cs.metrics?.length > 0 && (
-                <div className="flex gap-2.5 flex-wrap mb-10">
+                <div className="flex gap-2.5 flex-wrap mb-9">
                   {cs.metrics.map((m) => (
                     <span
                       key={m.label}
                       className="bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.25)] rounded-full px-4 py-1.5 flex items-center"
                     >
-                      <span className="text-[15px] font-bold text-white">
+                      <span className="text-[14px] font-extrabold text-white">
                         {m.value}
                       </span>
-                      <span className="text-[11px] text-[#8899BB] ml-1.5">
+                      <span className="text-[11px] text-[#8899BB] ml-2">
                         {m.label}
                       </span>
                     </span>
@@ -99,12 +112,12 @@ export default function CaseStudyDetail({
                 </div>
               )}
 
-              {/* CTA buttons row */}
+              {/* CTA buttons */}
               <div className="flex gap-3 flex-wrap">
-                {cs.websiteUrl && (
+                {cs.websiteUrl && cs.title !== "Triple W Rentals" && (
                   <button
                     type="button"
-                    className="bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold text-[14px] hover:bg-[#1D4ED8] transition"
+                    className="bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold text-[14px] hover:bg-[#1D4ED8] transition-all duration-200"
                     onClick={() =>
                       window.open(
                         cs.websiteUrl!,
@@ -119,7 +132,7 @@ export default function CaseStudyDetail({
                 {cs.metricsImageUrl && (
                   <button
                     type="button"
-                    className="border border-[rgba(37,99,235,0.4)] text-[#E8EDF5] bg-transparent px-6 py-3 rounded-lg font-medium text-[14px] hover:border-[#2563EB] hover:text-white transition"
+                    className="border border-[rgba(37,99,235,0.35)] text-[#E8EDF5] bg-transparent px-6 py-3 rounded-lg font-medium text-[14px] hover:border-[#2563EB] hover:text-white transition-all duration-200"
                     onClick={scrollToMetrics}
                   >
                     View Metrics ↓
@@ -129,43 +142,58 @@ export default function CaseStudyDetail({
             </div>
 
             {/* Right column — frozen preview */}
-            <div className="max-w-[480px] w-full mx-auto lg:mx-0 lg:ml-auto">
-              <FrozenWebsitePreview
-                logoUrl={cs.logoUrl}
-                websiteUrl={cs.websiteUrl}
-                title={cs.title}
-                metricsImageUrl={cs.metricsImageUrl}
-                onClickOverride={handlePreviewClick}
-              />
+            <div className="w-full mt-8 lg:mt-0">
+              <div className="rounded-[14px] border border-[rgba(37,99,235,0.15)] overflow-hidden">
+                <FrozenWebsitePreview
+                  logoUrl={cs.logoUrl}
+                  websiteUrl={cs.websiteUrl}
+                  title={cs.title}
+                  metricsImageUrl={cs.metricsImageUrl}
+                  onClickOverride={handlePreviewClick}
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══ SECTION B — THE SITUATION ═══ */}
-      <section className="bg-[#0A1628] py-20">
-        <div className="max-w-[800px] mx-auto px-6">
-          <h2 className="text-[22px] font-bold text-white mb-4">
-            The Situation
+      <section className="bg-[#0A1628] py-20 border-t border-[rgba(37,99,235,0.06)]">
+        <div className="max-w-[760px] mx-auto px-6">
+          <span className="block text-[10px] uppercase tracking-[0.15em] text-[#8899BB] mb-4">
+            THE SITUATION
+          </span>
+          <h2 className="text-[24px] font-bold text-white mb-5">
+            What Was the Challenge?
           </h2>
-          <p className="text-[16px] text-[rgba(255,255,255,0.6)] leading-[1.8]">
-            {cs.situation || defaultSituation}
-          </p>
+          <div className="pl-5 border-l-2 border-[rgba(37,99,235,0.4)]">
+            <p className="text-[16px] text-[rgba(255,255,255,0.6)] leading-[1.85]">
+              {cs.situation || defaultSituation}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* ═══ SECTION C — WHAT WAS BUILT ═══ */}
       {cs.deliverables && cs.deliverables.length > 0 && (
         <section className="bg-[#060D1F] py-20">
-          <div className="max-w-[800px] mx-auto px-6">
-            <h2 className="text-[22px] font-bold text-white mb-6">
+          <div className="max-w-[760px] mx-auto px-6">
+            <span className="block text-[10px] uppercase tracking-[0.15em] text-[#8899BB] mb-4">
+              THE BUILD
+            </span>
+            <h2 className="text-[24px] font-bold text-white mb-8">
               What Was Built
             </h2>
-            <div className="space-y-3.5">
+            <div className="space-y-2.5">
               {cs.deliverables.map((d, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <CheckIcon />
-                  <span className="text-[15px] text-[rgba(255,255,255,0.7)] leading-[1.5]">
+                <div
+                  key={i}
+                  className="bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.1)] rounded-lg px-[18px] py-[14px] flex items-center gap-3.5 hover:border-[rgba(37,99,235,0.25)] hover:bg-[rgba(37,99,235,0.07)] transition-all duration-200"
+                >
+                  <span className="w-6 h-6 rounded-full bg-[rgba(37,99,235,0.15)] flex items-center justify-center flex-shrink-0">
+                    <SmallCheck />
+                  </span>
+                  <span className="text-[15px] text-[rgba(255,255,255,0.8)] leading-[1.4]">
                     {d}
                   </span>
                 </div>
@@ -175,23 +203,30 @@ export default function CaseStudyDetail({
         </section>
       )}
 
-      {/* ═══ SECTION D — METRICS / RESULTS IMAGE ═══ */}
+      {/* ═══ SECTION D — METRICS ═══ */}
       {cs.metricsImageUrl && (
-        <section id="metrics-section" className="bg-[#0A1628] py-20">
+        <section
+          id="metrics-section"
+          className="bg-[#0A1628] py-20 border-t border-[rgba(37,99,235,0.06)]"
+        >
           <div className="max-w-[900px] mx-auto px-6">
-            <h2 className="text-[22px] font-bold text-white mb-2">
+            <span className="block text-[10px] uppercase tracking-[0.15em] text-[#8899BB] mb-4">
+              PERFORMANCE DATA
+            </span>
+            <h2 className="text-[24px] font-bold text-white mb-2">
               Performance Metrics
             </h2>
             <p className="text-[14px] text-[#8899BB] mb-8">
-              Real data from Google Ads dashboard. Client details redacted.
+              Real data from Google Ads dashboard. Client details redacted for
+              privacy.
             </p>
-            <div className="bg-[#0F2049] border border-[rgba(37,99,235,0.15)] rounded-xl overflow-hidden">
+            <div className="bg-[#0F2049] border border-[rgba(37,99,235,0.15)] rounded-[14px] overflow-hidden shadow-[0_0_40px_rgba(37,99,235,0.06)]">
               <Image
                 src={cs.metricsImageUrl}
-                alt={`${cs.title} performance metrics`}
-                width={1200}
-                height={800}
-                className="w-full h-auto object-contain"
+                alt={`${cs.title} Google Ads performance metrics`}
+                width={1400}
+                height={900}
+                className="w-full h-auto block"
                 priority={false}
               />
             </div>
@@ -200,24 +235,63 @@ export default function CaseStudyDetail({
       )}
 
       {/* ═══ SECTION E — FINAL CTA ═══ */}
-      <section className="bg-[#060D1F] py-24">
-        <div className="max-w-[600px] mx-auto text-center px-6">
-          <h2 className="text-[clamp(24px,3.5vw,36px)] font-bold text-white mb-4">
+      <section
+        className="relative py-28 border-t border-[rgba(37,99,235,0.06)] overflow-hidden"
+        style={{ backgroundColor: "#060D1F" }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 70% at 50% 100%, rgba(37,99,235,0.08) 0%, transparent 65%)",
+          }}
+        />
+        <div className="relative max-w-[600px] mx-auto text-center px-6">
+          <span className="block text-[10px] uppercase tracking-[0.15em] text-[#8899BB] mb-4">
+            NEXT STEP
+          </span>
+          <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold text-white leading-[1.15] mb-4 tracking-[-0.02em]">
             Want results like this?
           </h2>
-          <p className="text-[16px] text-[rgba(255,255,255,0.55)] leading-[1.65] mb-9">
+          <p className="text-[16px] text-[rgba(255,255,255,0.5)] leading-[1.65] mb-9">
             I take on a maximum of 3 active partnerships per quarter. If
             there&apos;s a fit, I&apos;ll tell you within 24 hours.
           </p>
           <Link
             href="/apply"
-            className="inline-block bg-[#2563EB] text-white px-8 py-3.5 rounded-lg font-semibold text-[15px] hover:bg-[#1D4ED8] transition"
+            className="inline-block bg-[#2563EB] text-white px-9 py-4 rounded-[10px] font-bold text-[16px] tracking-[-0.01em] hover:bg-[#1D4ED8] hover:-translate-y-[1px] transition-all duration-200 shadow-[0_4px_24px_rgba(37,99,235,0.25)] hover:shadow-[0_8px_32px_rgba(37,99,235,0.35)]"
           >
             Apply for Growth Partnership →
           </Link>
-          <p className="text-[13px] text-[#8899BB] mt-3.5">
+          <p className="text-[13px] text-[rgba(255,255,255,0.3)] mt-[14px]">
             Short application. I&apos;ll personally review it within 24 hours.
           </p>
+          <div className="flex gap-6 justify-center flex-wrap mt-6">
+            {trustPoints.map((tp) => (
+              <span
+                key={tp}
+                className="flex items-center gap-2 text-[12px] text-[#8899BB]"
+              >
+                <svg
+                  width="10"
+                  height="10"
+                  fill="none"
+                  viewBox="0 0 10 10"
+                  className="flex-shrink-0"
+                >
+                  <circle cx="5" cy="5" r="5" fill="rgba(37,99,235,0.15)" />
+                  <path
+                    d="M3 5.5l1 1 3-3"
+                    stroke="#2563EB"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                {tp}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
     </main>
