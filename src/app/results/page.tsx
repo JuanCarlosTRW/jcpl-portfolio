@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CaseStudiesSection from "@/components/case-studies/CaseStudiesSection";
+import ResultsHeroWebGLLoader from "@/components/results/ResultsHeroWebGLLoader";
 import { buildMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -50,6 +51,9 @@ export default function ResultsPage() {
             ))}
           </div>
         </div>
+
+        {/* WebGL hero animation — directly under stats */}
+        <ResultsHeroWebGLLoader />
       </section>
 
       {/* ═══ CASE STUDIES GRID ═══ */}

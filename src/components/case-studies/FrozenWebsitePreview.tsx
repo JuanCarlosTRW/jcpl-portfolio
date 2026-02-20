@@ -70,7 +70,13 @@ export default function FrozenWebsitePreview({
         <div className="relative w-[55%] h-[55%]">
           <Image
             src={logoUrl}
-            alt={`${title} logo`}
+            alt={
+              title === "Centre Dentaire Saint-Élzéar"
+                ? "Client Growth — Centre Dentaire logo"
+                : title === "Culture Barbershop"
+                ? "Client Growth — Culture Barbershop logo"
+                : `${title} logo`
+            }
             fill
             className="object-contain drop-shadow-[0_0_20px_rgba(37,99,235,0.15)] brightness-105"
             sizes="280px"
