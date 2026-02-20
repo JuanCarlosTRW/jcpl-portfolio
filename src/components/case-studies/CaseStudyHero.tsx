@@ -32,13 +32,16 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
           "radial-gradient(ellipse at 60% 0%, rgba(37,99,235,0.13) 0%, transparent 60%), radial-gradient(ellipse at 0% 100%, rgba(37,99,235,0.08) 0%, transparent 60%), #0E0E0F",
       }}
     >
-      {/* Back link */}
-      <Link
-        href="/case-studies"
-        className="absolute top-8 left-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[var(--text-muted)] hover:text-white transition-colors"
-      >
-        <span className="text-base">←</span> Results
-      </Link>
+      {/* Back link - updated style and link */}
+      <div className="absolute top-8 left-6 z-20">
+        <Link
+          href="/results"
+          className="inline-flex items-center gap-2 bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.12)] rounded-lg px-4 py-2.5 text-[14px] font-medium text-[#D4DFF0] hover:bg-[rgba(255,255,255,0.10)] hover:border-[rgba(255,255,255,0.2)] transition-all duration-200"
+          style={{ marginBottom: 32 }}
+        >
+          <span className="text-lg">←</span> All Results
+        </Link>
+      </div>
 
       {/* Subtle grid overlay */}
       <div

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { useEffect } from "react";
 import { caseStudies } from "@/lib/caseStudiesContent";
 import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
 import CaseStudySituation from "@/components/case-studies/CaseStudySituation";
@@ -26,6 +27,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const { slug } = await params;
   const study = caseStudies.find((s) => s.slug === slug);
   if (!study) notFound();
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
 
   return (
     <main style={{ background: "#0E0E0F" }}>
