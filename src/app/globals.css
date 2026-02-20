@@ -150,42 +150,7 @@ body::before {
   color: var(--text-primary);
 }
 
-/* Centered Section Titles */
-.section-title {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 600px;
-}
 
-.body-lg {
-  font-size: clamp(1rem, 1.5vw + 0.25rem, 1.125rem);
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-
-.body-text {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-
-.caption-text {
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--text-muted);
-}
-
-/* ═══════════════════════════════════════════════════
-   UNIFIED SECTION WRAPPER
-   All sections use this for consistent rhythm
-   ═══════════════════════════════════════════════════ */
-
-.section {
-  position: relative;
-  padding-top: var(--section-py);
-  padding-bottom: var(--section-py);
-  scroll-margin-top: calc(var(--nav-h) + var(--space-4));
-}
 
 @media (min-width: 1024px) {
   .section {

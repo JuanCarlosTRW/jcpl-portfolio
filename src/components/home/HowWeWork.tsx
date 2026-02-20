@@ -10,7 +10,7 @@ export default function HowWeWork() {
     <SectionWrapper id="process" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={howWeWork.label} className="mb-5 text-[#8899BB]" />
-        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto text-glow-blue">
+  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {howWeWork.headline}
         </h2>
         <p className="mt-5 text-[#E8EDF5] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
@@ -26,7 +26,7 @@ export default function HowWeWork() {
                 <div className="group relative flex gap-6 md:gap-8">
                   {/* Step number circle + connector */}
                   <div className="flex flex-col items-center relative shrink-0">
-                    <div className="w-[52px] h-[52px] rounded-full bg-[rgba(37,99,235,0.12)] border-2 border-[rgba(37,99,235,0.4)] flex items-center justify-center font-extrabold text-[16px] text-[#2563EB] relative z-10 icon-glow">
+                    <div className="w-[52px] h-[52px] rounded-full bg-[rgba(37,99,235,0.12)] border-2 border-[rgba(37,99,235,0.4)] flex items-center justify-center font-extrabold text-[16px] text-[#2563EB] relative z-10">
                       {step.number}
                     </div>
                     {i < howWeWork.steps.length - 1 && (

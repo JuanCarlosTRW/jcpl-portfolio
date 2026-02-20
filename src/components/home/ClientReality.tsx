@@ -43,7 +43,7 @@ export default function ClientReality() {
     <SectionWrapper id="reality" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={clientReality.label} className="mb-5 text-[#8899BB]" />
-        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto text-glow-blue">
+  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {clientReality.headline}
         </h2>
         <p className="mt-5 text-[#E8EDF5] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
@@ -56,7 +56,7 @@ export default function ClientReality() {
           <Reveal key={pain.icon} delay={0.08 * i}>
             <div className="group relative rounded-2xl border border-[rgba(37,99,235,0.15)] bg-[#0F2049] p-7 md:p-8 h-full transition-all duration-300 hover:border-[rgba(37,99,235,0.35)] hover:-translate-y-[2px] hover:bg-[#0D1B3E]">
               {/* Icon */}
-              <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.25)] icon-glow">
+              <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.25)]">
                 {icons[pain.icon]}
               </div>
 

@@ -5,7 +5,6 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal, CountUpValue } from "@/components/motion";
 import Link from "next/link";
-import UnicornGlow from "@/components/ui/UnicornGlow";
 
 const subStats = [
   { value: "$900", label: "Total ad spend" },
@@ -18,7 +17,7 @@ export default function FeaturedCaseStudy() {
     <SectionWrapper id="proof" className="bg-[#060D1F]">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={featuredCase.label} className="mb-5 text-[#8899BB]" />
-        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto text-glow-blue">
+  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {featuredCase.headline}
         </h2>
       </Reveal>
@@ -33,11 +32,9 @@ export default function FeaturedCaseStudy() {
             </p>
 
             {/* Big number with Unicorn glow */}
-            <UnicornGlow className="inline-block mb-2" glowHeight="300%" intensity={0.55}>
               <div className="text-[clamp(40px,8vw,56px)] font-extrabold text-white leading-none">
                 <CountUpValue to={30000} prefix="$" durationMs={2200} />
               </div>
-            </UnicornGlow>
 
             <p className="text-[16px] text-[#8899BB] mb-2 relative z-10">
               in revenue generated
