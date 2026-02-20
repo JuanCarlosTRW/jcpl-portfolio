@@ -67,19 +67,14 @@ export default function CaseStudyDetail({
       <div className="w-full bg-[rgba(37,99,235,0.04)] border-b border-[rgba(37,99,235,0.08)] py-[14px]">
         <div className="max-w-[1120px] mx-auto px-6">
           <Link
-            href="https://clientgrowth.ca/results"
+            href="/results"
             className="inline-flex items-center gap-1.5 text-[13px] text-cg-secondary hover:text-white transition-colors duration-150"
           >
             ← All Results
           </Link>
         </div>
       </div>
-
-      {/* ═══ SECTION A — HERO ═══ */}
-      <section
-        className="relative pt-20 pb-16"
-        style={{ backgroundColor: "#060D1F" }}
-      >
+      <div className="relative pt-20 pb-16" style={{ backgroundColor: "#060D1F" }}>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -183,7 +178,7 @@ export default function CaseStudyDetail({
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* ═══ SECTION B — THE SITUATION ═══ */}
       <section className="bg-cg-section-b py-20 border-t border-[rgba(37,99,235,0.06)]">
@@ -270,14 +265,16 @@ export default function CaseStudyDetail({
               privacy.
             </p>
             <div className="bg-cg-card border border-[rgba(37,99,235,0.15)] rounded-[14px] overflow-hidden shadow-[0_0_40px_rgba(37,99,235,0.06)]">
-              <Image
-                src={cs.metricsImageUrl}
-                alt={`${cs.title} Google Ads performance metrics`}
-                width={1400}
-                height={900}
-                className="w-full h-auto block"
-                priority={false}
-              />
+              {cs.metricsImageUrl && (
+                <Image
+                  src={cs.metricsImageUrl as string}
+                  alt={`${cs.title} Google Ads performance metrics`}
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
+                  priority={false}
+                />
+              )}
             </div>
           </div>
         </section>
