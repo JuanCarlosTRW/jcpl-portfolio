@@ -18,16 +18,6 @@ const stats = [
 export default function ResultsPage() {
   return (
     <main className="bg-cg-section-a min-h-screen">
-      {/* Back link - visible and styled */}
-      <div className="max-w-[760px] mx-auto px-6 pt-10">
-        <a
-          href="https://clientgrowth.ca/results"
-          className="inline-flex items-center gap-2 bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.12)] rounded-lg px-4 py-2.5 text-[14px] font-medium text-[#D4DFF0] hover:bg-[rgba(255,255,255,0.10)] hover:border-[rgba(255,255,255,0.2)] transition-all duration-200"
-          style={{ marginBottom: 32 }}
-        >
-          <span className="text-lg">←</span> All Results
-        </a>
-      </div>
       {/* ═══ HERO ═══ */}
       <section className="relative pt-36 pb-24" style={{ backgroundColor: "#060D1F" }}>
         {/* Radial glow */}
