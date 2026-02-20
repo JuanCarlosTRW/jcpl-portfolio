@@ -56,7 +56,7 @@ export default function ClientReality() {
           <Reveal key={pain.icon} delay={0.08 * i}>
             <div className="group relative rounded-[14px] border border-[rgba(255,255,255,0.07)] bg-[#0F2049] p-7 md:p-8 h-full transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
               {/* Icon */}
-              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.18)] border border-[rgba(37,99,235,0.35)]">
+              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)]">
                 {icons[pain.icon]}
               </div>
 

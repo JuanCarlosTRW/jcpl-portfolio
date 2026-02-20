@@ -36,10 +36,10 @@ const pillarIcons: Record<string, React.ReactNode> = {
 
 /* All accent colors unified to electric blue */
 const blueAccent = {
-  border: "rgba(37,99,235,0.2)",
-  bg: "rgba(37,99,235,0.15)",
+  border: "rgba(37,99,235,0.4)",
+  bg: "rgba(37,99,235,0.2)",
   glow: "rgba(37,99,235,0.12)",
-  text: "#2563EB",
+  text: "#4B8EFF",
 };
 
 export default function GrowthArchitecture() {
@@ -62,7 +62,7 @@ export default function GrowthArchitecture() {
               <div className="group relative rounded-[14px] bg-[#0F2049] border border-[rgba(255,255,255,0.07)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
 
                   {/* Icon */}
-                  <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.18)] border border-[rgba(37,99,235,0.35)] text-[#4B8EFF]">
+                  <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)] text-[#4B8EFF]">
                     {pillarIcons[pillar.id]}
                   </div>
 
