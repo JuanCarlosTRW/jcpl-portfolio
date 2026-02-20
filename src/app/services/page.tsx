@@ -1,15 +1,19 @@
-import { Metadata } from "next";
-import { buildMetadata } from "@/lib/metadata";
-import ServicesClient from "@/components/services/ServicesClient";
+
+import ServicesHero from "@/components/services/ServicesHero";
+import WhatYouGet from "@/components/services/WhatYouGet";
+import FitCheck from "@/components/services/FitCheck";
+import InvestmentSection from "@/components/services/InvestmentSection";
+import ServicesFinalCTA from "@/components/services/ServicesFinalCTA";
 import "@/styles/services.css";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Services — Growth Systems for Service Businesses",
-  description:
-    "Three clear service tiers to get you online, fill your calendar, and dominate your local market. Foundation, Growth, and Scale packages — engineered as one system.",
-  path: "/services",
-});
-
 export default function ServicesPage() {
-  return <ServicesClient />;
+  return (
+    <>
+      <ServicesHero />
+      <WhatYouGet />
+      <FitCheck />
+      <InvestmentSection />
+      <ServicesFinalCTA />
+    </>
+  );
 }
