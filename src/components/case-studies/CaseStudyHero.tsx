@@ -35,7 +35,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
       {/* Back link - updated style and link */}
       <div className="absolute top-8 left-6 z-20">
         <Link
-          href="/results"
+          href="https://clientgrowth.ca/results"
           className="inline-flex items-center gap-2 bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.12)] rounded-lg px-4 py-2.5 text-[14px] font-medium text-[#D4DFF0] hover:bg-[rgba(255,255,255,0.10)] hover:border-[rgba(255,255,255,0.2)] transition-all duration-200"
           style={{ marginBottom: 32 }}
         >
@@ -92,7 +92,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
             Apply for Strategy Call
           </Link>
           <Link
-            href="/case-studies"
+            href="https://clientgrowth.ca/results"
             className="inline-flex items-center gap-2 border border-white/20 text-white font-medium text-sm px-7 py-3.5 rounded-full hover:border-white/50 hover:bg-white/5 transition-all"
           >
             View All Results →

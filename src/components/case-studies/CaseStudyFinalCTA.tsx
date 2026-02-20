@@ -41,7 +41,7 @@ export default function CaseStudyFinalCTA({ study }: { study: CaseStudy }) {
             Apply for Growth Strategy Call
           </Link>
           <Link
-            href="/case-studies"
+            href="https://clientgrowth.ca/results"
             className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium text-sm px-8 py-4 rounded-full hover:border-white/50 hover:bg-white/5 transition-all"
           >
             View Another Transformation →

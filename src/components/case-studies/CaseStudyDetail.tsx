@@ -67,7 +67,7 @@ export default function CaseStudyDetail({
       <div className="w-full bg-[rgba(37,99,235,0.04)] border-b border-[rgba(37,99,235,0.08)] py-[14px]">
         <div className="max-w-[1120px] mx-auto px-6">
           <Link
-            href="/results"
+            href="https://clientgrowth.ca/results"
             className="inline-flex items-center gap-1.5 text-[13px] text-cg-secondary hover:text-white transition-colors duration-150"
           >
             ← All Results
