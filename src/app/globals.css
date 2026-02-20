@@ -47,8 +47,9 @@
 
   /* ─── TEXT ─── */
   --text-primary: #FFFFFF;
-  --text-secondary: #E8EDF5;
-  --text-muted: #8899BB;
+  --text-secondary: #C8D4E8;
+  --text-muted: #8FA8C8;
+  --text-dim: #6B82A0;
 
   /* ─── BRAND ACCENTS (Electric Blue) ─── */
   --brand-accent: #2563EB;

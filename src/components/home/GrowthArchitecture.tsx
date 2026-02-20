@@ -46,11 +46,11 @@ export default function GrowthArchitecture() {
   return (
     <SectionWrapper id="system" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-        <SectionLabel label={growthArchitecture.label} className="mb-5 text-[#8899BB]" />
-  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+        <SectionLabel label={growthArchitecture.label} className="mb-5" />
+  <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           {growthArchitecture.headline}
         </h2>
-        <p className="mt-5 text-[#E8EDF5] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
+        <p className="mt-5 text-[#C8D4E8] max-w-lg mx-auto leading-relaxed text-[0.95rem]">
           {growthArchitecture.subheadline}
         </p>
       </Reveal>
@@ -59,10 +59,10 @@ export default function GrowthArchitecture() {
         {growthArchitecture.pillars.map((pillar, i) => {
           return (
             <Reveal key={pillar.id} delay={0.08 * i}>
-              <div className="group relative rounded-2xl bg-[#0F2049] border border-[rgba(37,99,235,0.12)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.35)] hover:-translate-y-[2px] hover:bg-[#0D1B3E]">
+              <div className="group relative rounded-[14px] bg-[#0F2049] border border-[rgba(255,255,255,0.07)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
 
                   {/* Icon */}
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.25)] text-[#2563EB]">
+                  <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.18)] border border-[rgba(37,99,235,0.35)] text-[#4B8EFF]">
                     {pillarIcons[pillar.id]}
                   </div>
 
@@ -70,23 +70,23 @@ export default function GrowthArchitecture() {
                   <h3 className="text-[17px] font-bold text-white mb-1 leading-snug">
                     {pillar.title}
                   </h3>
-                  <p className="text-[13px] text-[#8899BB] mb-5">
+                  <p className="text-[13px] text-[#6B9FD4] mb-5">
                     {pillar.subtitle}
                   </p>
 
                   {/* Points */}
                   <ul className="space-y-2.5 mt-auto">
                     {pillar.points.map((point, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-[14px] text-[#E8EDF5]">
+                      <li key={j} className="flex items-start gap-2.5 text-[14px] text-[#C8D4E8] leading-[1.55]">
                         <svg
-                          width="14"
-                          height="14"
+                          width="15"
+                          height="15"
                           viewBox="0 0 14 14"
                           fill="none"
                           aria-hidden="true"
-                          className="shrink-0 mt-0.5"
+                          className="shrink-0 mt-[2px]"
                         >
-                          <path d="M3.5 7.5l2.5 2.5 4.5-5" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M3.5 7.5l2.5 2.5 4.5-5" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         {point}
                       </li>

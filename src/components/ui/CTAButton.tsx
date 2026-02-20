@@ -18,10 +18,10 @@ const base =
 
 const variants = {
   primary:
-    "bg-[#2563EB] text-white hover:bg-[#1D4ED8]",
+    "bg-[#2563EB] text-white hover:bg-[#1D4ED8] shadow-[0_4px_24px_rgba(37,99,235,0.35)] hover:shadow-[0_6px_32px_rgba(37,99,235,0.45)] hover:-translate-y-[1px]",
   secondary:
-    "bg-white/5 text-white border border-white/25 hover:border-[#2563EB]/40 hover:bg-white/8",
-  ghost: "text-[#2563EB] hover:text-[#1D4ED8] hover:bg-white/5",
+    "bg-transparent text-white border border-[rgba(255,255,255,0.2)] hover:border-[rgba(255,255,255,0.35)] hover:bg-[rgba(255,255,255,0.06)]",
+  ghost: "text-[#4B8EFF] hover:text-[#2563EB] hover:bg-white/5",
 };
 
 const sizes = {

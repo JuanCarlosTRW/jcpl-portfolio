@@ -20,32 +20,32 @@ export default function Hero() {
 	       >
 		       {/* Eyebrow */}
 		       <div className="flex items-center gap-3 mb-6">
-			       <span className="block w-8 h-px bg-white/30" />
-			       <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">
+			       <span className="block w-5 h-[2px] bg-[#2563EB]" />
+			       <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6B9FD4]">
 				       For Service Businesses
 			       </span>
 		       </div>
 		       {/* Headline */}
-				   <h1 className="text-4xl sm:text-5xl font-semibold leading-[0.95] tracking-[-0.02em] text-white mb-6 [text-shadow:0_2px_8px_rgba(6,13,31,0.14)]">
+				   <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] tracking-[-0.025em] text-white mb-6" style={{ textShadow: "0 2px 40px rgba(0,0,0,0.5)" }}>
 			       Growth Systems Built
 			       <br className="hidden md:block" />
 			       to Book Qualified Calls.
 		       </h1>
 		       {/* Subhead */}
-			   <p className="text-base sm:text-lg text-white/85 leading-relaxed mb-8 max-w-[36ch]">
+			   <p className="text-[17px] text-[#C8D4E8] leading-[1.65] mb-8 max-w-[36ch]">
 			       Conversion website, paid acquisition, and AI automation — engineered as one system to turn traffic into booked calls.
 		       </p>
 		       {/* CTA Block */}
 		       <div className="flex flex-col gap-3 w-full sm:flex-row sm:flex-nowrap sm:items-center sm:w-auto mb-5">
 			       <a
 				       href="/apply"
-				       className="w-full sm:w-auto bg-[#2563EB] text-white font-semibold text-[15px] px-7 py-[14px] rounded-[10px] whitespace-nowrap transition-colors duration-200 hover:bg-[#1D4ED8] text-center inline-flex items-center justify-center"
+				       className="w-full sm:w-auto bg-[#2563EB] text-white font-semibold text-[15px] px-7 py-[14px] rounded-[10px] whitespace-nowrap transition-all duration-200 hover:bg-[#1D4ED8] shadow-[0_4px_20px_rgba(37,99,235,0.4)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.5)] text-center inline-flex items-center justify-center"
 			       >
 				       Apply for Growth Partnership →
 			       </a>
 			       <a
 				       href="/results"
-				       className="w-full sm:w-auto bg-transparent border border-white/20 text-white/85 font-medium text-[15px] px-6 py-[14px] rounded-[10px] whitespace-nowrap transition-all duration-200 hover:border-white/50 hover:text-white text-center inline-flex items-center justify-center"
+				       className="w-full sm:w-auto bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.3)] text-white font-medium text-[15px] px-6 py-[14px] rounded-[10px] whitespace-nowrap transition-all duration-200 hover:bg-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.5)] text-center inline-flex items-center justify-center"
 			       >
 				       View Results
 			       </a>
