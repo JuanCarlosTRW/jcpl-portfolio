@@ -26,7 +26,7 @@ export default function Hero() {
 			       </span>
 		       </div>
 		       {/* Headline */}
-			   <h1 className="text-4xl sm:text-5xl font-semibold leading-[0.95] tracking-[-0.02em] text-white mb-6 [text-shadow:0_2px_8px_rgba(6,13,31,0.14)]">
+			   <h1 className="text-4xl sm:text-5xl font-semibold leading-[0.95] tracking-[-0.02em] text-white mb-6 [text-shadow:0_2px_8px_rgba(6,13,31,0.14)] text-glow-blue">
 			       Growth Systems Built
 			       <br className="hidden md:block" />
 			       to Book Qualified Calls.

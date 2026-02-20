@@ -5,6 +5,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal, CountUpValue } from "@/components/motion";
 import Link from "next/link";
+import UnicornGlow from "@/components/ui/UnicornGlow";
 
 const subStats = [
   { value: "$900", label: "Total ad spend" },
@@ -17,7 +18,7 @@ export default function FeaturedCaseStudy() {
     <SectionWrapper id="proof" className="bg-[#060D1F]">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={featuredCase.label} className="mb-5 text-[#8899BB]" />
-        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto text-glow-blue">
           {featuredCase.headline}
         </h2>
       </Reveal>
@@ -25,26 +26,29 @@ export default function FeaturedCaseStudy() {
       {/* Featured Result Card */}
       <Reveal delay={0.1}>
         <div className="max-w-2xl mx-auto">
-          <div className="bg-[#0F2049] border border-[rgba(37,99,235,0.15)] rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 text-center">
+          <div className="bg-[#0F2049] border border-[rgba(37,99,235,0.15)] rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 text-center relative overflow-hidden">
             {/* Client label */}
-            <p className="text-[11px] uppercase tracking-[0.1em] text-[#8899BB] mb-4">
+            <p className="text-[11px] uppercase tracking-[0.1em] text-[#8899BB] mb-4 relative z-10">
               RV RENTAL COMPANY — TEXAS
             </p>
 
-            {/* Big number */}
-            <div className="text-[clamp(40px,8vw,56px)] font-extrabold text-white leading-none mb-2">
-              <CountUpValue to={30000} prefix="$" durationMs={2200} />
-            </div>
-            <p className="text-[16px] text-[#8899BB] mb-2">
+            {/* Big number with Unicorn glow */}
+            <UnicornGlow className="inline-block mb-2" glowHeight="300%" intensity={0.55}>
+              <div className="text-[clamp(40px,8vw,56px)] font-extrabold text-white leading-none">
+                <CountUpValue to={30000} prefix="$" durationMs={2200} />
+              </div>
+            </UnicornGlow>
+
+            <p className="text-[16px] text-[#8899BB] mb-2 relative z-10">
               in revenue generated
             </p>
-            <p className="text-[11px] uppercase tracking-[0.08em] text-[#8899BB] mb-8">
+            <p className="text-[11px] uppercase tracking-[0.08em] text-[#8899BB] mb-8 relative z-10">
               FIRST 30 DAYS · $900 AD SPEND · GOOGLE ADS FUNNEL
             </p>
 
             {/* Divider */}
             <div
-              className="h-px max-w-xs mx-auto mb-8"
+              className="h-px max-w-xs mx-auto mb-8 relative z-10"
               style={{
                 background:
                   "linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)",
@@ -52,11 +56,11 @@ export default function FeaturedCaseStudy() {
               aria-hidden="true"
             />
 
-            {/* Sub stats */}
-            <div className="flex justify-center gap-8 sm:gap-12 mb-2">
+            {/* Sub stats with glow */}
+            <div className="flex justify-center gap-8 sm:gap-12 mb-2 relative z-10">
               {subStats.map((s) => (
                 <div key={s.label} className="text-center">
-                  <div className="text-[28px] font-extrabold text-[#2563EB]">
+                  <div className="text-[28px] font-extrabold text-[#2563EB] drop-shadow-[0_0_12px_rgba(37,99,235,0.4)]">
                     {s.value}
                   </div>
                   <div className="text-[11px] uppercase tracking-[0.08em] text-[#8899BB] mt-1">
@@ -67,14 +71,14 @@ export default function FeaturedCaseStudy() {
             </div>
 
             {/* Callout */}
-            <span className="block text-[13px] text-[#2563EB] font-semibold mt-0 mb-7">
+            <span className="block text-[13px] text-[#2563EB] font-semibold mt-0 mb-7 relative z-10">
               $900 in ad spend generated $30,000 in revenue.
             </span>
 
             {/* CTA */}
             <Link
               href="/results"
-              className="inline-block border border-[rgba(37,99,235,0.4)] text-[#E8EDF5] bg-transparent rounded-[8px] px-6 py-2.5 font-semibold text-[15px] hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-all duration-200"
+              className="relative z-10 inline-block border border-[rgba(37,99,235,0.4)] text-[#E8EDF5] bg-transparent rounded-[8px] px-6 py-2.5 font-semibold text-[15px] hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-all duration-200"
             >
               View All Results
             </Link>

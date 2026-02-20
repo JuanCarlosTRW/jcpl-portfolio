@@ -12,7 +12,7 @@ export default function StrategicGap() {
     <SectionWrapper id="insight">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={strategicGap.label} className="mb-5 text-[#8899BB]" />
-        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
+        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto text-glow-blue">
           {strategicGap.headline}
         </h2>
       </Reveal>

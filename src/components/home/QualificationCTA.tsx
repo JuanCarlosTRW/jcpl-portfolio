@@ -4,6 +4,7 @@ import { qualification, ctaCopy } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CTAButton from "@/components/ui/CTAButton";
 import { Reveal } from "@/components/motion";
+import UnicornGlow from "@/components/ui/UnicornGlow";
 
 function CheckIcon() {
   return (
@@ -118,12 +119,14 @@ export default function QualificationCTA() {
           {/* Final CTA Block */}
           <div className="text-center">
             <Reveal>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5">
-                Your Pipeline Won&apos;t{" "}
-                <span className="text-[#2563EB]">
-                  Build Itself
-                </span>
-              </h2>
+              <UnicornGlow className="inline-block mb-5" glowHeight="250%" intensity={0.5}>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight">
+                  Your Pipeline Won&apos;t{" "}
+                  <span className="text-[#2563EB] drop-shadow-[0_0_20px_rgba(37,99,235,0.5)]">
+                    Build Itself
+                  </span>
+                </h2>
+              </UnicornGlow>
               <p className="text-[#E8EDF5] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
                 Apply for a strategy call. I&apos;ll review your business,
                 identify the highest-leverage growth opportunities, and determine

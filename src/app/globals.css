@@ -503,3 +503,41 @@ body::before {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.4; transform: scale(0.8); }
 }
+
+/* ── Text & SVG Glow Utility ── */
+.text-glow-blue {
+  filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.35))
+          drop-shadow(0 0 20px rgba(37, 99, 235, 0.15));
+}
+
+.text-glow-blue-strong {
+  filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.5))
+          drop-shadow(0 0 32px rgba(37, 99, 235, 0.2));
+}
+
+.icon-glow {
+  filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.3))
+          drop-shadow(0 0 16px rgba(37, 99, 235, 0.12));
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.3))
+            drop-shadow(0 0 20px rgba(37, 99, 235, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(37, 99, 235, 0.45))
+            drop-shadow(0 0 32px rgba(37, 99, 235, 0.2));
+  }
+}
+
+.animate-glow {
+  animation: subtleGlow 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow { animation: none; }
+  .text-glow-blue, .text-glow-blue-strong, .icon-glow {
+    filter: none;
+  }
+}
