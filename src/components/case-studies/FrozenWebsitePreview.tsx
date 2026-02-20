@@ -53,7 +53,11 @@ export default function FrozenWebsitePreview({
         <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E] ml-1.5" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#28C840] ml-1.5" />
         <span className="ml-3 bg-[rgba(255,255,255,0.06)] rounded px-2.5 py-0.5 text-[11px] font-mono text-[rgba(255,255,255,0.35)]">
-          {hostname}
+            {title === "Triple W Rentals"
+              ? "triplewrentals.com"
+              : websiteUrl
+              ? new URL(websiteUrl).hostname.replace(/^www\./, "")
+              : "clientgrowth.ca"}
         </span>
       </div>
 
