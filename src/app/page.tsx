@@ -33,6 +33,12 @@ export default function HomePage() {
 
       {/* LogoLoop: Client logos after proof section */}
       <div className="py-8 md:py-12">
+  {/* LogoLoop Headline */}
+  <div className="text-center mb-4">
+    <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-2">Systems that succeeded</h2>
+    <p className="text-base md:text-lg text-cg-muted max-w-xl mx-auto">I’m not hiding bad case studies—there are none!</p>
+  </div>
+
   <LogoLoop logos={caseStudyLogos} speed={120} gap={40} logoHeight={40} />
       </div>
 
