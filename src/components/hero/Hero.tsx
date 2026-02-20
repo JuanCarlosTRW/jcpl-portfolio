@@ -33,7 +33,7 @@ export default function Hero() {
 		       </h1>
 		       {/* Subhead */}
 			   <p className="text-[17px] text-cg-body leading-[1.65] mb-8 max-w-[36ch]">
-			       Conversion website, paid acquisition, and AI automation — engineered as one system to turn traffic into booked calls.
+			       Conversion website, paid acquisition, and AI automation. Engineered as one system to turn traffic into booked calls.
 		       </p>
 		       {/* CTA Block */}
 		       <div className="flex flex-col gap-3 w-full sm:flex-row sm:flex-nowrap sm:items-center sm:w-auto mb-5">

@@ -5,7 +5,6 @@ import Hero from "@/components/hero/Hero";
 
 /* Dynamic imports for below-the-fold sections — reduces initial JS bundle */
 const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
-const StrategicGap = dynamic(() => import("@/components/home/StrategicGap"));
 const GrowthArchitecture = dynamic(() => import("@/components/home/GrowthArchitecture"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const HowWeWork = dynamic(() => import("@/components/home/HowWeWork"));
@@ -21,9 +20,6 @@ export default function HomePage() {
 
       {/* B — Client Reality: Pain bullets */}
       <ClientReality />
-
-      {/* C — Strategic Gap: Truth blocks */}
-      <StrategicGap />
 
       {/* D — The Growth Architecture: 4 pillars */}
       <GrowthArchitecture />

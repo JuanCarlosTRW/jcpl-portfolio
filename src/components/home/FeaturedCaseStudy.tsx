@@ -4,6 +4,7 @@ import { featuredCase } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
+import CountUpValue from "@/components/motion/CountUpValue";
 import Link from "next/link";
 
 const subStats = [
@@ -28,12 +29,12 @@ export default function FeaturedCaseStudy() {
           <div className="bg-cg-card border border-[rgba(37,99,235,0.2)] rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 text-center relative overflow-hidden">
             {/* Client label */}
             <p className="text-[12px] uppercase tracking-[0.14em] text-cg-muted mb-4 relative z-10">
-              RV RENTAL COMPANY — TEXAS
+              RV RENTAL COMPANY, TEXAS
             </p>
 
             {/* Big number */}
               <div className="text-[clamp(40px,8vw,56px)] font-extrabold text-white leading-none mb-2">
-                $30,000
+                <CountUpValue to={30000} prefix="$" durationMs={1400} />
               </div>
 
             <p className="text-[18px] text-cg-body mb-2 relative z-10">

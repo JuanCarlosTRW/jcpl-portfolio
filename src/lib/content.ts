@@ -5,7 +5,7 @@ export const siteConfig = {
   title: "Predictable Qualified Calls for Service Businesses",
   url: "https://clientgrowth.ca",
   description:
-    "Client Growth builds complete acquisition systems for service businesses — conversion websites, Google Ads, and AI automation that generate predictable booked calls.",
+    "Client Growth builds complete acquisition systems for service businesses. Conversion websites, Google Ads, and AI automation that generate predictable booked calls.",
   ogImage: "/og.png",
   twitterHandle: "@clientgrowthca",
 };
@@ -27,9 +27,9 @@ export const ctaCopy = {
 /* ─── Hero ─── */
 export const hero = {
   overline: "FOR SERVICE BUSINESSES",
-  headline: "You Built Something Real.\nNow Make Sure\nPeople Can Find It.",
+  headline: "Your Business Deserves\nto Be the First Name\nThey See.",
   subheadline:
-    "You've put years into your craft. But if clients are still finding you through referrals and word of mouth, you're invisible where it counts — and someone else is booking the jobs that should be yours. I build the system that changes that.",
+    "You've put years into your craft. But if clients are still finding you through referrals and word of mouth, you're invisible where it counts. Someone else is booking the jobs that should be yours. I build the system that changes that.",
   cta: "Apply for Growth Partnership →",
   ctaSecondary: "See Real Results",
 };
@@ -53,7 +53,7 @@ export const problemSection = {
         "is what you earn from visitors who can't find you, don't trust you, or can't book you",
     },
   ],
-  body: "Most service businesses don't have a lead generation problem — they have a trust and conversion problem. Your website looks outdated. Your ads lead nowhere. And you're invisible to the AI tools your future clients are already using.",
+  body: "Most service businesses don't have a lead generation problem. They have a trust and conversion problem. Your website looks outdated. Your ads lead nowhere. And you're invisible to the AI tools your future clients are already using.",
 };
 
 /* ─── Growth Architecture System ─── */
@@ -117,7 +117,6 @@ export const resultsPreview = {
 export const clientReality = {
   label: "THE REALITY",
   headline: "Your Work Is Good.\nYour Pipeline Shouldn't Be This Uncertain.",
-  subheadline: "Most business owners I talk to aren't failing — they're just not set up to grow. There's a difference.",
   pains: [
     {
       icon: "ghost",
@@ -127,17 +126,17 @@ export const clientReality = {
     {
       icon: "leak",
       title: "Your Website Looks Fine. It Doesn't Close.",
-      detail: "A website that doesn't immediately answer 'why you, why now' isn't an asset — it's a leaky bucket. Visitors come, feel nothing, and leave."
+      detail: "A website that doesn't immediately answer 'why you, why now' isn't an asset. It's a leaky bucket. Visitors come, feel nothing, and leave."
     },
     {
       icon: "clock",
       title: "You're Doing Marketing on Top of Everything Else.",
-      detail: "You built a business because you're great at what you do — not because you wanted to manage ads, update websites, and figure out SEO. That's not where your energy should go."
+      detail: "You built a business because you're great at what you do, not because you wanted to manage ads, update websites, and figure out SEO. That's not where your energy should go."
     },
     {
       icon: "scatter",
       title: "Referrals Keep You Alive. They Won't Help You Grow.",
-      detail: "Good months, quiet months. No way to predict the next one. If your pipeline depends on who someone happens to mention you to — you're not running a business. You're waiting on luck."
+      detail: "Good months, quiet months. No way to predict the next one. If your pipeline depends on who someone happens to mention you to, you're not running a business. You're waiting on luck."
     }
   ],
 };
@@ -149,7 +148,7 @@ export const strategicGap = {
   truths: [
     {
       heading: "Throwing money at ads won't fix a broken funnel.",
-      body: "I've sat across from business owners who spent thousands on Google Ads and had nothing to show for it. Not because ads don't work — but because the page they sent traffic to didn't convert. The ad was fine. The system behind it was broken."
+      body: "I've sat across from business owners who spent thousands on Google Ads and had nothing to show for it. Not because ads don't work, but because the page they sent traffic to didn't convert. The ad was fine. The system behind it was broken."
     },
     {
       heading: "A website that doesn't convert is just a business card.",
@@ -157,7 +156,7 @@ export const strategicGap = {
     },
     {
       heading: "When your tools don't connect, leads disappear.",
-      body: "Your site, your ads, your follow-up — if they're not working as one system, you're losing people in the gaps. The businesses dominating your market aren't smarter than you. They're just more connected."
+      body: "Your site, your ads, your follow-up. If they're not working as one system, you're losing people in the gaps. The businesses dominating your market aren't smarter than you. They're just more connected."
     }
   ],
 };
@@ -166,25 +165,25 @@ export const strategicGap = {
 export const growthArchitecture = {
   label: "THE SYSTEM",
   headline: "The Growth Architecture™",
-  subheadline: "Not a website. Not just ads. One complete system — built so your phone rings with people already convinced you're the right choice.",
+  subheadline: "Not a website. Not just ads. One complete system, built so your phone rings with people already convinced you're the right choice.",
   pillars: [
     {
       id: "authority",
       title: "Authority Layer",
-      subtitle: "Be found. Be trusted immediately.",
+      subtitle: "Be the first name they find. Be the only one they trust.",
       points: [
         "Conversion-engineered website",
-        "SEO & AI search (GEO) optimization",
-        "Professional positioning & copy"
+        "SEO and AI search (GEO) optimization",
+        "Professional positioning and copy"
       ],
       accent: "violet"
     },
     {
       id: "conversion",
       title: "Conversion Layer",
-      subtitle: "Turn visits into booked calls.",
+      subtitle: "Turn every visit into a booked call.",
       points: [
-        "Trust signals & social proof",
+        "Trust signals and social proof",
         "Frictionless booking flow",
         "AI qualification chatbot"
       ],
@@ -193,22 +192,22 @@ export const growthArchitecture = {
     {
       id: "acquisition",
       title: "Acquisition Layer",
-      subtitle: "Put your name in front of buyers — not browsers.",
+      subtitle: "Get in front of buyers, not browsers.",
       points: [
         "Google Ads with intent targeting",
-        "Retargeting & follow-up sequences",
-        "Landing pages per service/location"
+        "Retargeting and follow-up sequences",
+        "Landing pages per service and location"
       ],
       accent: "violet"
     },
     {
       id: "optimization",
       title: "Optimization Layer",
-      subtitle: "Results that compound every single month.",
+      subtitle: "Better results every single month. Exposed.",
       points: [
         "Conversion rate optimization",
         "Cost per lead reduction",
-        "Monthly reporting & scaling"
+        "Monthly reporting and scaling"
       ],
       accent: "cyan"
     }
@@ -220,7 +219,7 @@ export const featuredCase = {
   label: "PROOF",
   headline: "Real Businesses. Real Revenue.",
   slug: "rv-rental-texas",
-  client: "RV RENTAL COMPANY — TEXAS",
+  client: "RV RENTAL COMPANY, TEXAS",
   result: "$30,000",
   resultLabel: "in revenue. First 30 days.",
   timeframe: "$900 IN AD SPEND · GOOGLE ADS FUNNEL · 30 DAYS",
@@ -237,7 +236,6 @@ export const featuredCase = {
 export const howWeWork = {
   label: "THE PROCESS",
   headline: "Three Phases. One Outcome.",
-  subheadline: "From first conversation to first lead — in under a month.",
   steps: [
     {
       number: "01",
@@ -248,13 +246,13 @@ export const howWeWork = {
     {
       number: "02",
       title: "Build",
-      description: "Website, Google Ads, AI automation, booking flow — built as one system, not a stack of disconnected tools. Fast. Clean. No handoffs. I own the whole thing.",
-      duration: "Weeks 2–4"
+      description: "Website, Google Ads, AI automation, booking flow. Built as one system, not a stack of disconnected tools. Fast. Clean. No handoffs. I own the whole thing.",
+      duration: "Weeks 2 to 4"
     },
     {
       number: "03",
       title: "Scale",
-      description: "Every month I look at the numbers and tighten the system. Lower cost per lead. Better conversion. More revenue — with less and less effort on your end. That's the point.",
+      description: "Every month I look at the numbers and tighten the system. Lower cost per lead. Better conversion. More revenue, with less and less effort on your end. That's the point.",
       duration: "Ongoing"
     }
   ],
@@ -267,7 +265,7 @@ export const differentiation = {
   subheadline: "Agencies sell deliverables and move on. I measure my success by whether your phone rings.",
   comparisons: [
     { dimension: "Ownership", them: "5+ vendors, no single owner", us: "One partner owns the entire pipeline" },
-    { dimension: "Speed", them: "8–12 weeks, constant delays", us: "2–4 weeks, unified execution" },
+    { dimension: "Speed", them: "8 to 12 weeks, constant delays", us: "2 to 4 weeks, unified execution" },
     { dimension: "Accountability", them: "Everyone points elsewhere", us: "One owner, one outcome metric" },
     { dimension: "Lead Quality", them: "Vanity metrics, no context", us: "Built-in qualification and scoring" },
     { dimension: "Reporting", them: "3 dashboards, no clear answer", us: "One report, full-funnel clarity" },
@@ -280,13 +278,13 @@ export const qualification = {
   forYouIf: [
     "Your pipeline leans too heavily on referrals and word of mouth",
     "You're generating $5K+/month and ready to invest in infrastructure that pays back",
-    "You want one person who owns the full picture — not five vendors you have to coordinate",
+    "You want one person who owns the full picture, not five vendors you have to coordinate",
     "You're tired of watching competitors rank above you for work you do better"
   ],
   notForYouIf: [
     "You want a logo, a brochure site, or a one-off project",
     "Your business is under $5K/month revenue",
-    "You're not ready to commit — you want to 'test the waters' with no real system behind it"
+    "You're not ready to commit. You want to 'test the waters' with no real system behind it"
   ],
 };
 export const whySection = {

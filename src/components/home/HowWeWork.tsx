@@ -13,9 +13,6 @@ export default function HowWeWork() {
   <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {howWeWork.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
-          {howWeWork.subheadline}
-        </p>
       </Reveal>
 
       <div className="relative max-w-3xl mx-auto">

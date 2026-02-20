@@ -120,13 +120,13 @@ export default function QualificationCTA() {
           <div className="text-center">
             <Reveal>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.12] tracking-tight mb-5">
-                Your Pipeline Won&apos;t Build Itself.
+                Let&apos;s Make Your Business Dominate Your Market.
               </h2>
 
               <p className="text-cg-body leading-[1.75] mb-10 max-w-lg mx-auto text-[18px]">
                 Every week without a system is revenue you won&apos;t
                 recover. I take on 3 partnerships per quarter.
-                Apply now — if there&apos;s a fit, you&apos;ll hear from me
+                Apply now. If there&apos;s a fit, you&apos;ll hear from me
                 within 24 hours.
               </p>
             </Reveal>

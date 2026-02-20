@@ -46,9 +46,6 @@ export default function ClientReality() {
   <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {clientReality.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
-          {clientReality.subheadline}
-        </p>
       </Reveal>
 
       <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
@@ -73,6 +70,18 @@ export default function ClientReality() {
           </Reveal>
         ))}
       </div>
+
+      {/* Transition block */}
+      <Reveal delay={0.2}>
+        <div className="max-w-2xl mx-auto text-center mt-14 md:mt-16">
+          <p className="text-[clamp(22px,3vw,28px)] font-bold text-white leading-snug">
+            This is why I built the Growth Architecture™.
+          </p>
+          <p className="mt-3 text-[16px] text-cg-secondary leading-[1.75] max-w-md mx-auto">
+            A single system that solves all four problems at once.
+          </p>
+        </div>
+      </Reveal>
     </SectionWrapper>
   );
 }

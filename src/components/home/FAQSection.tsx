@@ -12,17 +12,17 @@ const faqData = [
   {
     question: "What exactly is the Growth Architecture™?",
     answer:
-      "It's a complete acquisition system — not just a website, not just ads. All of it, built together so each part makes the others stronger. Positioning, conversion website, Google Ads, AI automation, lead qualification, monthly optimization. Built once. Improved every month. It's the last marketing system you'll need to think about."
+      "It's a complete acquisition system. Not just a website, not just ads. All of it, built together so each part makes the others stronger. Positioning, conversion website, Google Ads, AI automation, lead qualification, monthly optimization. Built once. Improved every month. It's the last marketing system you'll need to think about."
   },
   {
     question: "Who is this built for?",
     answer:
-      "Service businesses generating at least $5K/month who are ready to stop relying on referrals and start owning their market. Tradespeople, consultants, clinics, local service providers — if qualified calls are your lifeblood and you want a predictable way to get them, this is built for you."
+      "Service businesses generating at least $5K/month who are ready to stop relying on referrals and start owning their market. Tradespeople, consultants, clinics, local service providers. If qualified calls are your lifeblood and you want a predictable way to get them, this is built for you."
   },
   {
     question: "How fast will I see results?",
     answer:
-      "The full system goes live in 2–4 weeks. Triple W Rentals generated $30,000 in their first 30 days on $900 in ad spend. Elite Barbershop had 90 new clients in 90 days. Results vary by market and offer — but the system is designed for speed, not a 6-month runway."
+      "The full system goes live in 2 to 4 weeks. Triple W Rentals generated $30,000 in their first 30 days on $900 in ad spend. Elite Barbershop had 90 new clients in 90 days. Results vary by market and offer, but the system is designed for speed, not a 6-month runway."
   },
   {
     question: "How is this different from hiring an agency?",
@@ -32,17 +32,17 @@ const faqData = [
   {
     question: "What if it doesn't work?",
     answer:
-      "Before I take any engagement, I do a diagnostic to confirm there's real opportunity in your market. If I don't think I can deliver, I'll tell you honestly — and I won't take your money. I only work with businesses where I'm confident I can move the needle."
+      "Before I take any engagement, I do a diagnostic to confirm there's real opportunity in your market. If I don't think I can deliver, I'll tell you honestly, and I won't take your money. I only work with businesses where I'm confident I can move the needle."
   },
   {
     question: "What does this cost?",
     answer:
-      "Engagements start at $2,500/month. No long-term contracts — you stay because it's producing results, not because you're locked in. Apply below and I'll show you exactly what your system would look like and what it would cost."
+      "Engagements start at $2,500/month. No long-term contracts. You stay because it's producing results, not because you're locked in. Apply below and I'll show you exactly what your system would look like and what it would cost."
   },
   {
     question: "Who is NOT a good fit?",
     answer:
-      "If you want a logo, a one-page site, or someone to 'try a few ads' with no real commitment — this isn't for you. I work with business owners who are serious about owning their local market and ready to build something that lasts."
+      "If you want a logo, a one-page site, or someone to 'try a few ads' with no real commitment, this isn't for you. I work with business owners who are serious about owning their local market and ready to build something that lasts."
   },
 ];
 
