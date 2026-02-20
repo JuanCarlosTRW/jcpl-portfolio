@@ -3,7 +3,6 @@ import { buildMetadata } from "@/lib/metadata";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AboutHero from "@/components/about/AboutHero";
 import MetricsRow from "@/components/about/MetricsRow";
-import CaseStudyPreview from "@/components/about/CaseStudyPreview";
 import Principles from "@/components/about/Principles";
 import AboutHowIBuiltThis from "@/components/about/AboutHowIBuiltThis";
 import WorkTimeline from "@/components/about/WorkTimeline";
@@ -32,10 +31,7 @@ export default function AboutPage() {
       </SectionWrapper>
 
 
-      {/* ── Proof of Work: Case Study Previews ── */}
-      <SectionWrapper variant="surface">
-        <CaseStudyPreview />
-      </SectionWrapper>
+      {/* Proof of Work section removed as requested */}
 
       {/* ── How I Built This (NEW) ── */}
       <AboutHowIBuiltThis />
