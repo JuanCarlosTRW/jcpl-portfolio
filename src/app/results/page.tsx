@@ -58,8 +58,22 @@ export default function ResultsPage() {
           <p className="text-[18px] text-[#D4DFF0] leading-[1.7] max-w-[640px] mx-auto mt-3">
             Every client. Every result. Independently verifiable.
           </p>
-          {/* UnicornStudio hero webL embed */}
-          <div data-us-project="b84EmKQXVeBLgLd1z0Yn" style={{width:'1440px',height:'900px'}}></div>
+          {/* Immersive, responsive UnicornStudio embed */}
+          <div className="flex justify-center items-center w-full mt-8 mb-8">
+            <div
+              data-us-project="b84EmKQXVeBLgLd1z0Yn"
+              style={{
+                width: '100%',
+                maxWidth: '700px',
+                aspectRatio: '16/9',
+                height: 'auto',
+                borderRadius: '18px',
+                overflow: 'hidden',
+                boxShadow: '0 8px 32px rgba(37,99,235,0.10)',
+              }}
+              className="w-full max-w-[700px] aspect-video rounded-2xl overflow-hidden shadow-lg"
+            ></div>
+          </div>
           <script type="text/javascript" dangerouslySetInnerHTML={{__html:`!function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();`}} />
         </div>
       </section>
