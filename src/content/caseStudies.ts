@@ -17,8 +17,8 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "elite-barbershop",
     title: "Elite Barbershop",
-    industry: "Premium Barbershop",
-    outcome: "90 new clients acquired in the first 90 days.",
+    industry: "PREMIUM BARBERSHOP",
+    outcome: "90 new clients acquired in the first 90 days. Full acquisition system built from scratch.",
     metrics: [
       { label: "New clients", value: "90" },
       { label: "Timeframe", value: "90 days" },
@@ -40,8 +40,8 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "absolute-painting",
     title: "Absolute Painting",
-    industry: "Home Services",
-    outcome: "Acquisition system just launched — results loading.",
+    industry: "HOME SERVICES",
+    outcome: "Full growth system live. Google Ads and conversion website deployed. Performance data compounding.",
     metrics: [],
     websiteUrl: "https://absolutepainting.vercel.app/quote",
     logoUrl:
@@ -60,8 +60,8 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "culture-barbershop",
     title: "Culture Barbershop",
-    industry: "Barbershop — Montreal",
-    outcome: "Custom website built. Acquisition system live.",
+    industry: "BARBERSHOP — MONTREAL",
+    outcome: "Premium conversion website built. Online presence established in a competitive market.",
     metrics: [
       { label: "Deliverable", value: "Website" },
       { label: "Market", value: "Montreal" },
@@ -83,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "triple-w-rentals",
     title: "Triple W Rentals",
-    industry: "RV Rental — Texas",
+    industry: "RV RENTAL — TEXAS",
     outcome:
       "$30,000 in revenue generated in month one. $900 in total ad spend.",
     metrics: [
@@ -111,11 +111,11 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "centre-dentaire-saint-elzear",
     title: "Centre Dentaire Saint-Élzéar",
-    industry: "Dental Clinic",
-    outcome: "Custom website built. Patient acquisition system live.",
+    industry: "DENTAL CLINIC",
+    outcome: "Custom conversion website built. Patient acquisition funnel live and running.",
     metrics: [
       { label: "Deliverable", value: "Website" },
-      { label: "Funnel", value: "Ads → Booking" },
+      { label: "Funnel", value: "Ads to Booking Funnel" },
     ],
     websiteUrl: "https://as.centredentairese.com",
     logoUrl:

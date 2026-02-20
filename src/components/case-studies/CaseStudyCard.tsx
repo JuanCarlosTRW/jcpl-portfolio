@@ -64,33 +64,34 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
         </div>
 
         {/* Metrics pills or In-Progress badge */}
-        {cs.inProgress ? (
+        {/* Absolute Painting: System live tag */}
+        {cs.inProgress && cs.id === "absolute-painting" && (
           <div className="mb-5">
             <span className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] rounded-full px-[14px] py-[5px]">
               <PulseDot />
-              <span className="text-[12px] text-cg-secondary font-medium">
-                Results loading — just launched
+              <span className="text-[12px] text-cg-accent font-medium">
+                System live
               </span>
             </span>
           </div>
-        ) : (
-          cs.metrics.length > 0 && (
-            <div className="flex gap-2 flex-wrap mb-5">
-              {cs.metrics.map((m) => (
-                <span
-                  key={m.label}
-                  className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.18)] rounded-full px-3 py-[3px] flex items-center"
-                >
-                  <span className="text-[12px] font-bold text-white">
-                    {m.value}
-                  </span>
-                  <span className="text-[11px] text-cg-secondary ml-1.5">
-                    {m.label}
-                  </span>
+        )}
+        {/* Metrics pills */}
+        {!cs.inProgress && cs.metrics.length > 0 && (
+          <div className="flex gap-2 flex-wrap mb-5">
+            {cs.metrics.map((m) => (
+              <span
+                key={m.label}
+                className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.18)] rounded-full px-3 py-[3px] flex items-center"
+              >
+                <span className="text-[12px] font-bold text-white">
+                  {m.value}
                 </span>
-              ))}
-            </div>
-          )
+                <span className="text-[11px] text-cg-secondary ml-1.5">
+                  {m.label}
+                </span>
+              </span>
+            ))}
+          </div>
         )}
 
         {/* CTA row */}
@@ -107,16 +108,28 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
               View Live Website →
             </button>
           )}
-          <button
-            type="button"
-            className="border border-[rgba(255,255,255,0.12)] text-[rgba(255,255,255,0.6)] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium hover:border-[rgba(37,99,235,0.4)] hover:text-white transition-all duration-200"
-            onClick={(e) => {
-              e.stopPropagation();
-              router.push(`/results/${cs.caseStudySlug}`);
-            }}
-          >
-            View Case Study
-          </button>
+          {/* Absolute Painting: Case study coming button */}
+          {cs.id === "absolute-painting" ? (
+            <button
+              type="button"
+              disabled
+              className="border border-[rgba(255,255,255,0.15)] text-[#6B8CAE] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium cursor-default"
+              style={{ opacity: 1 }}
+            >
+              Case study coming
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="border border-[rgba(255,255,255,0.12)] text-[rgba(255,255,255,0.6)] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium hover:border-[rgba(37,99,235,0.4)] hover:text-white transition-all duration-200"
+              onClick={(e) => {
+                e.stopPropagation();
+                router.push(`/results/${cs.caseStudySlug}`);
+              }}
+            >
+              View Case Study
+            </button>
+          )}
         </div>
       </div>
     </div>

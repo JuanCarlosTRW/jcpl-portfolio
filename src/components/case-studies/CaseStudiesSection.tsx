@@ -15,8 +15,7 @@ export default function CaseStudiesSection() {
 
         {/* Disclaimer */}
         <p className="mt-10 text-center text-[12px] text-[rgba(255,255,255,0.25)] max-w-[560px] mx-auto leading-relaxed">
-          All results are client-reported and independently verified. Your
-          results will vary based on market, offer, and execution quality.
+          Results shown are from real client engagements. Revenue figures are client-reported. Your results will vary based on market, offer, and execution.
         </p>
       </div>
     </section>

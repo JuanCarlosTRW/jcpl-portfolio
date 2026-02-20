@@ -39,35 +39,16 @@ export default function ResultsPage() {
         />
 
         <div className="relative max-w-[760px] mx-auto text-center px-6">
-          <span className="block text-[11px] uppercase tracking-[0.15em] text-cg-secondary mb-5">
-            RESULTS
+          <span className="block text-[11px] uppercase tracking-[0.14em] text-[#7BA7D4] mb-5">
+            REAL RESULTS
           </span>
-          <h1 className="text-[clamp(36px,5.5vw,60px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
-            Real Businesses. Real Results.
+          <h1 className="text-[clamp(36px,5vw,56px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.025em]">
+            Systems That Shipped.
           </h1>
-          <p className="text-[18px] text-[rgba(255,255,255,0.5)] leading-[1.65] max-w-[520px] mx-auto mb-12">
-            Every system I build ships with measurable infrastructure — not just
-            pages. Here&apos;s the proof.
+          <p className="text-[18px] text-[#D4DFF0] leading-[1.7] max-w-[640px] mx-auto mt-3">
+            Every client. Every result. Independently verifiable.
           </p>
-
-          {/* Stats row */}
-          <div className="inline-flex items-center bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.07)] rounded-xl py-5 px-10 max-sm:grid max-sm:grid-cols-3 max-sm:rounded-lg max-sm:py-4 max-sm:px-5">
-            {stats.map((s, i) => (
-              <div key={s.label} className="flex items-center">
-                {i > 0 && (
-                  <div className="w-px h-10 bg-[rgba(255,255,255,0.08)] flex-shrink-0 max-sm:hidden" />
-                )}
-                <div className="text-center px-8 max-sm:px-4">
-                  <span className="text-[28px] font-extrabold text-white block">
-                    {s.value}
-                  </span>
-                  <span className="text-[10px] uppercase tracking-[0.1em] text-cg-secondary mt-1 block">
-                    {s.label}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* New hero section will be added here */}
         </div>
       </section>
 
