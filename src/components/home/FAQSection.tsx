@@ -12,37 +12,37 @@ const faqData = [
   {
     question: "What exactly is the Growth Architecture™?",
     answer:
-      "A complete, integrated system: positioning, conversion website, paid acquisition, AI automation, lead qualification, and ongoing optimization — engineered as one Growth Architecture™. Every component reinforces the others so your pipeline compounds instead of fragmenting.",
+      "It's a complete acquisition system — not a website, not\njust ads, not an SEO package. All three, built together and\noptimized as one. Positioning, conversion website, paid\nacquisition, AI automation, and ongoing optimization.\nEvery component is designed to reinforce the others so your\npipeline compounds instead of fragmenting."
   },
   {
     question: "Who is this built for?",
     answer:
-      "Service businesses that depend on appointments and consultations — barbershops, RV rentals, dental practices, real estate, and local services. If your revenue comes from booked calls, this system applies to you.",
+      "Service businesses generating at least $5K/month who\nare ready to stop depending on referrals and start owning\ntheir market online. If you're a tradesperson, consultant,\nclinic, or local service provider who wants a predictable\nstream of qualified calls — this is built for you."
   },
   {
     question: "How fast will I see results?",
     answer:
-      "Most clients see their first qualified leads within 30 days of launch. One RV rental client generated $30,000 in revenue in month one. Timeline depends on your market, offer, and readiness.",
+      "The system goes live in 2–4 weeks. Triple W Rentals\ngenerated $30,000 in their first 30 days. Elite Barbershop\nhad 90 new clients in 90 days. Results depend on your\nmarket and offer — but the system is designed to produce\nthem fast."
   },
   {
     question: "How is this different from hiring an agency?",
     answer:
-      "Agencies fragment work across siloed teams. I own the entire pipeline — strategy, website, ads, AI, booking. No coordination tax, no finger-pointing. One system, one accountable owner.",
+      "Agencies sell deliverables. I sell outcomes. An agency\nbuilds your website and moves on. I build the system,\nwatch the numbers, and optimize every month until your\ncost per lead drops and your calendar fills. I don't\nget paid to hand things off — I get paid to make them work."
   },
   {
     question: "What if it doesn't work?",
     answer:
-      "If you don't see measurable ROI within 90 days, I continue working at no additional cost until we hit agreed targets. I can make that commitment because I control every piece of the system.",
+      "Before I take on any engagement, I do a diagnostic to\nconfirm there's real opportunity in your market. If I don't\nthink I can get you results, I'll tell you — and I won't\ntake your money. I only work with businesses I'm confident\nI can help."
   },
   {
     question: "What does this cost?",
     answer:
-      "Engagements start at $5,000/month for the complete system — setup, management, and optimization included. Most clients see ROI within the first month. Specifics are discussed on the strategy call.",
+      "Engagements start at $2,500/month. There's no long-term\ncontract — you stay because it's working, not because\nyou're locked in. Apply to see if you qualify, and I'll\nwalk you through exactly what your system would look like\nand what it would cost."
   },
   {
     question: "Who is NOT a good fit?",
     answer:
-      "Businesses under $5,000/month in revenue, companies looking for a quick logo or one-off landing page, or anyone who isn't ready to commit to a system. This is a growth partnership, not a one-time transaction.",
+      "If you're looking for a logo, a one-page website,\nor someone to 'try a few ads,' this isn't for you.\nI work with business owners who are serious about\nowning their market — and willing to invest in doing\nit properly."
   },
 ];
 

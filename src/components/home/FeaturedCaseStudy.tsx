@@ -69,7 +69,7 @@ export default function FeaturedCaseStudy() {
 
             {/* Callout */}
             <span className="block text-[13px] text-cg-accent-lt font-semibold mt-0 mb-7 relative z-10">
-              $900 in ad spend generated $30,000 in revenue.
+              $900 in ad spend. $30,000 back. In 30 days.
             </span>
 
             {/* CTA */}
@@ -77,7 +77,7 @@ export default function FeaturedCaseStudy() {
               href="/results"
               className="relative z-10 inline-block border border-[rgba(37,99,235,0.5)] text-cg-body bg-transparent rounded-[8px] px-6 py-2.5 font-semibold text-[15px] hover:bg-cg-accent hover:text-white hover:border-cg-accent transition-all duration-200"
             >
-              View All Results
+              View All Results →
             </Link>
           </div>
         </div>

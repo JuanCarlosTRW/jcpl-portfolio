@@ -31,15 +31,12 @@ export default function FinalCTA() {
           {/* Headline */}
           <Reveal>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5">
-              Your Pipeline Won&apos;t{" "}
-              <span className="text-cg-accent">
-                Build Itself
-              </span>
+              Your Pipeline Won&apos;t Build Itself.
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
-              Apply for a strategy call. I&apos;ll review your business,
-              identify the highest-leverage growth opportunities, and determine
-              if I&apos;m the right fit.
+              Every week you wait, a competitor is capturing leads
+              that should be yours. I take on 3 partnerships per quarter.
+              Apply now — if there&apos;s a fit, I&apos;ll tell you within 24 hours.
             </p>
           </Reveal>
 
@@ -69,8 +66,8 @@ export default function FinalCTA() {
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
               {[
                 { icon: "\u26A1", text: "Response within 24 hours" },
-                { icon: "\uD83D\uDD12", text: "100% confidential" },
-                { icon: "\uD83D\uDCCB", text: "Limited spots per quarter" },
+                { icon: "\uD83D\uDD13", text: "No long-term contracts" },
+                { icon: "\uD83D\uDD39", text: "Max 3 spots per quarter" },
               ].map((item) => (
                 <span
                   key={item.text}
