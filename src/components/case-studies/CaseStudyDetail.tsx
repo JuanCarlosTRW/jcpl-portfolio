@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CaseStudy } from "@/content/caseStudies";
@@ -31,6 +32,11 @@ export default function CaseStudyDetail({
 }: {
   caseStudy: CaseStudy;
 }) {
+  // Scroll to top on mount
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   const scrollToMetrics = () => {
     const el = document.getElementById("metrics-section");
     if (el) el.scrollIntoView({ behavior: "smooth" });

@@ -53,7 +53,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
 
         {/* CTA row */}
         <div className="flex gap-2.5 flex-wrap">
-          {cs.websiteUrl && (
+          {cs.websiteUrl && cs.title !== "Triple W Rentals" && (
             <button
               type="button"
               className="bg-[#2563EB] text-white px-4 py-2 rounded-md text-[13px] font-semibold hover:bg-[#1D4ED8] transition-all duration-200"
