@@ -10,8 +10,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const stats = [
-  { value: "5+", label: "SYSTEMS BUILT" },
-  { value: "$20K+", label: "REVENUE GENERATED" },
+  { value: "5", label: "SYSTEMS BUILT" },
+  { value: "$30K+", label: "REVENUE GENERATED" },
   { value: "2–4 wks", label: "AVG. LAUNCH TIME" },
 ];
 

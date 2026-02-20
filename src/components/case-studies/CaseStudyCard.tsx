@@ -3,6 +3,19 @@ import { useRouter } from "next/navigation";
 import { CaseStudy } from "@/content/caseStudies";
 import FrozenWebsitePreview from "./FrozenWebsitePreview";
 
+function PulseDot({ size = 6 }: { size?: number }) {
+  return (
+    <span
+      className="inline-block rounded-full bg-[#2563EB]"
+      style={{
+        width: size,
+        height: size,
+        animation: "pulseDot 2s ease-in-out infinite",
+      }}
+    />
+  );
+}
+
 export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
   const router = useRouter();
 
@@ -45,26 +58,39 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
 
         {/* Outcome */}
         <div className="text-[14px] text-[rgba(255,255,255,0.55)] leading-[1.55] mb-5">
-          {cs.outcome}
+          {cs.inProgress
+            ? "System live. Performance data being collected."
+            : cs.outcome}
         </div>
 
-        {/* Metrics pills */}
-        {cs.metrics.length > 0 && (
-          <div className="flex gap-2 flex-wrap mb-5">
-            {cs.metrics.map((m) => (
-              <span
-                key={m.label}
-                className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.18)] rounded-full px-3 py-[3px] flex items-center"
-              >
-                <span className="text-[12px] font-bold text-white">
-                  {m.value}
-                </span>
-                <span className="text-[11px] text-[#8899BB] ml-1.5">
-                  {m.label}
-                </span>
+        {/* Metrics pills or In-Progress badge */}
+        {cs.inProgress ? (
+          <div className="mb-5">
+            <span className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] rounded-full px-[14px] py-[5px]">
+              <PulseDot />
+              <span className="text-[12px] text-[#8899BB] font-medium">
+                Results loading — just launched
               </span>
-            ))}
+            </span>
           </div>
+        ) : (
+          cs.metrics.length > 0 && (
+            <div className="flex gap-2 flex-wrap mb-5">
+              {cs.metrics.map((m) => (
+                <span
+                  key={m.label}
+                  className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.18)] rounded-full px-3 py-[3px] flex items-center"
+                >
+                  <span className="text-[12px] font-bold text-white">
+                    {m.value}
+                  </span>
+                  <span className="text-[11px] text-[#8899BB] ml-1.5">
+                    {m.label}
+                  </span>
+                </span>
+              ))}
+            </div>
+          )
         )}
 
         {/* CTA row */}

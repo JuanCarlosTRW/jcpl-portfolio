@@ -498,3 +498,8 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .speed-popup-glow { animation: none; opacity: 0.5; }
 }
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}

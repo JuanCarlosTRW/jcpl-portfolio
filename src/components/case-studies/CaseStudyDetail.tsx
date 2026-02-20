@@ -20,6 +20,19 @@ function SmallCheck({ size = 12 }: { size?: number }) {
   );
 }
 
+function PulseDot({ size = 6 }: { size?: number }) {
+  return (
+    <span
+      className="inline-block rounded-full bg-[#2563EB]"
+      style={{
+        width: size,
+        height: size,
+        animation: "pulseDot 2s ease-in-out infinite",
+      }}
+    />
+  );
+}
+
 export default function CaseStudyDetail({
   caseStudy: cs,
 }: {
@@ -41,9 +54,6 @@ export default function CaseStudyDetail({
       scrollToMetrics();
     }
   };
-
-  const defaultSituation =
-    "This engagement focused on building a complete acquisition system from the ground up — turning an invisible or underperforming online presence into a predictable pipeline of qualified leads.";
 
   const trustPoints = [
     "No long-term contracts",
@@ -93,23 +103,41 @@ export default function CaseStudyDetail({
                 {cs.outcome}
               </p>
 
-              {/* Metrics pills */}
-              {cs.metrics?.length > 0 && (
-                <div className="flex gap-2.5 flex-wrap mb-9">
-                  {cs.metrics.map((m) => (
-                    <span
-                      key={m.label}
-                      className="bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.25)] rounded-full px-4 py-1.5 flex items-center"
-                    >
-                      <span className="text-[14px] font-extrabold text-white">
-                        {m.value}
-                      </span>
-                      <span className="text-[11px] text-[#8899BB] ml-2">
-                        {m.label}
-                      </span>
+              {/* Metrics pills OR In-Progress badge */}
+              {cs.inProgress ? (
+                <div className="mb-9">
+                  <span className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] rounded-full px-5 py-[6px]">
+                    <PulseDot size={6} />
+                    <span className="text-[13px] text-[#8899BB] font-medium">
+                      Results loading — system just launched
                     </span>
-                  ))}
+                  </span>
                 </div>
+              ) : (
+                cs.metrics?.length > 0 && (
+                  <div className="flex gap-2.5 flex-wrap mb-9">
+                    {cs.metrics.map((m) => (
+                      <span
+                        key={m.label}
+                        className="bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.25)] rounded-full px-4 py-1.5 flex items-center"
+                      >
+                        <span className="text-[14px] font-extrabold text-white">
+                          {m.value}
+                        </span>
+                        <span className="text-[11px] text-[#8899BB] ml-2">
+                          {m.label}
+                        </span>
+                      </span>
+                    ))}
+                  </div>
+                )
+              )}
+
+              {/* Triple W special ROI callout */}
+              {cs.id === "triple-w-rentals" && (
+                <span className="block text-[13px] text-[#2563EB] font-semibold -mt-5 mb-8">
+                  $900 in ad spend generated $30,000 in revenue.
+                </span>
               )}
 
               {/* CTA buttons */}
@@ -129,7 +157,7 @@ export default function CaseStudyDetail({
                     View Live Website →
                   </button>
                 )}
-                {cs.metricsImageUrl && (
+                {!cs.inProgress && cs.metricsImageUrl && (
                   <button
                     type="button"
                     className="border border-[rgba(37,99,235,0.35)] text-[#E8EDF5] bg-transparent px-6 py-3 rounded-lg font-medium text-[14px] hover:border-[#2563EB] hover:text-white transition-all duration-200"
@@ -168,7 +196,7 @@ export default function CaseStudyDetail({
           </h2>
           <div className="pl-5 border-l-2 border-[rgba(37,99,235,0.4)]">
             <p className="text-[16px] text-[rgba(255,255,255,0.6)] leading-[1.85]">
-              {cs.situation || defaultSituation}
+              {cs.situation}
             </p>
           </div>
         </div>
@@ -203,8 +231,29 @@ export default function CaseStudyDetail({
         </section>
       )}
 
-      {/* ═══ SECTION D — METRICS ═══ */}
-      {cs.metricsImageUrl && (
+      {/* ═══ IN PROGRESS CALLOUT (replaces metrics when inProgress) ═══ */}
+      {cs.inProgress && (
+        <section className="bg-[#0A1628] py-20 border-t border-[rgba(37,99,235,0.06)]">
+          <div className="max-w-[760px] mx-auto px-6">
+            <div className="bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.12)] rounded-xl p-8 text-center">
+              <div className="flex justify-center mb-4">
+                <PulseDot size={10} />
+              </div>
+              <h3 className="text-[20px] font-bold text-white mb-2.5">
+                System live. Results incoming.
+              </h3>
+              <p className="text-[15px] text-[rgba(255,255,255,0.5)] leading-[1.7] max-w-[520px] mx-auto">
+                This engagement launched recently. Performance data is currently
+                being collected and will be published here once statistically
+                meaningful results are in.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ═══ SECTION D — METRICS (hidden when inProgress) ═══ */}
+      {!cs.inProgress && cs.metricsImageUrl && (
         <section
           id="metrics-section"
           className="bg-[#0A1628] py-20 border-t border-[rgba(37,99,235,0.06)]"
