@@ -6,18 +6,20 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { XCircle, CheckCircle2 } from "lucide-react";
 
 const fragmented = [
-  "Web designer, media buyer, SEO person, chatbot vendor — none talk to each other.",
+  "Web designer, media buyer, SEO person, chatbot vendor. None of them talk to each other.",
   "Deliverables ship in silos. No unified strategy.",
   "You become the project manager for five contractors.",
   "Communication gaps erode results and timelines.",
-  "You pay for execution but own zero strategy.",
+  "You pay for execution and own zero strategy.",
 ];
 
 const integrated = [
-  "One operator owns positioning → funnel → traffic → automation → booking.",
-  "Every layer is built to reinforce the others — compounding, not fragmenting.",
+  "One operator owns positioning, funnel, traffic, and automation as one connected system.",
+  "Every layer is built to reinforce the others. Compounding, not fragmenting.",
   "Faster launches, lower costs, and a system that scales.",
 ];
+
+
 
 /**
  * AdvantageCompare — 2-column comparison: Fragmented vs Integrated.
@@ -107,7 +109,7 @@ export default function AdvantageCompare() {
       <AnimatedSection delay={0.25} className="mt-4 text-center">
         <p className="text-base md:text-lg text-[var(--text-secondary)]">
           <span className="text-white font-semibold">The result:</span>{" "}
-          faster launches, lower costs, fewer handoffs — and a system that compounds over time.
+          faster launches, lower costs, fewer handoffs and a system that compounds over time.
         </p>
       </AnimatedSection>
     </div>

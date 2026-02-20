@@ -5,6 +5,7 @@ import AboutHero from "@/components/about/AboutHero";
 import MetricsRow from "@/components/about/MetricsRow";
 import CaseStudyPreview from "@/components/about/CaseStudyPreview";
 import Principles from "@/components/about/Principles";
+import AboutHowIBuiltThis from "@/components/about/AboutHowIBuiltThis";
 import WorkTimeline from "@/components/about/WorkTimeline";
 import PhilosophyBlock from "@/components/about/PhilosophyBlock";
 import AdvantageCompare from "@/components/about/AdvantageCompare";
@@ -30,10 +31,14 @@ export default function AboutPage() {
         <MetricsRow />
       </SectionWrapper>
 
+
       {/* ── Proof of Work: Case Study Previews ── */}
       <SectionWrapper variant="surface">
         <CaseStudyPreview />
       </SectionWrapper>
+
+      {/* ── How I Built This (NEW) ── */}
+      <AboutHowIBuiltThis />
 
       {/* ── Operating Principles (3 cards) ── */}
       <SectionWrapper>

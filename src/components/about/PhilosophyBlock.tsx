@@ -5,9 +5,9 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 const philosophyBullets = [
-  "Every deliverable is measured by calls booked and revenue moved.",
-  "If the system isn't compounding, we iterate until it is.",
-  "No vanity metrics — only outcomes that hit your calendar.",
+  "Every deliverable is measured by calls booked and revenue moved",
+  "If the system is not compounding, I iterate until it is",
+  "No vanity metrics. Only outcomes that hit your calendar."
 ];
 
 /**

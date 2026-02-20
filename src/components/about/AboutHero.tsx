@@ -34,7 +34,7 @@ function ClipboardIcon() {
 const trustItems = [
   { Icon: LightningIcon, text: "Response within 24h" },
   { Icon: LockIcon, text: "100% confidential" },
-  { Icon: ClipboardIcon, text: "Limited spots / quarter" },
+  { Icon: ClipboardIcon, text: "Limited spots per quarter" },
 ];
 
 /**
@@ -47,7 +47,7 @@ export default function AboutHero() {
       {/* ── Left: Copy (7 cols) ── */}
       <div className="lg:col-span-7">
         <AnimatedSection direction="left">
-          <SectionLabel label="About" className="mb-5" />
+          <SectionLabel label="ABOUT" className="mb-5" />
 
           {/* H1 */}
           <h1
@@ -58,54 +58,44 @@ export default function AboutHero() {
               letterSpacing: "-0.02em",
             }}
           >
-            {aboutContent.headline}
+            Juan Carlos. Growth Partner<br />for Service Businesses.
           </h1>
 
           {/* Sub-head */}
           <p className="text-cg-accent font-medium text-base md:text-lg mb-4 leading-snug">
-            {aboutContent.subhead}
+            I build systems that turn attention into booked calls.
           </p>
 
           {/* Mechanism lines */}
           <div className="space-y-1 mb-6 max-w-[52ch]">
-            {aboutContent.mechanism.map((line, i) => (
-              <p key={i} className="text-cg-body text-[0.9rem] md:text-[0.95rem] leading-relaxed">
-                {line}
-              </p>
-            ))}
+            <p className="text-cg-body text-[0.9rem] md:text-[0.95rem] leading-relaxed">
+              Most business owners I talk to are great at what they do. They just never built the infrastructure to let people find them. That is the gap I close. Website, ads, SEO, GEO, automation — designed as one system so the right clients reach you first, already convinced you are the right choice.
+            </p>
           </div>
 
           {/* Mechanism bullets */}
-          <ul className="space-y-2.5 mb-8" aria-label="What we build">
-            {aboutContent.mechanismBullets.map((bullet, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-sm text-cg-body">
-                <span
-                  className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cg-accent"
-                  aria-hidden="true"
-                />
-                {bullet}
-              </li>
-            ))}
+          <ul className="space-y-2.5 mb-8" aria-label="What I build">
+            <li className="flex items-start gap-2 text-cg-secondary text-[0.97rem]">
+              <span className="mt-1.5 h-1 w-1 rounded-full bg-cg-accent shrink-0" aria-hidden="true" />
+              Built around your market and your offer
+            </li>
+            <li className="flex items-start gap-2 text-cg-secondary text-[0.97rem]">
+              <span className="mt-1.5 h-1 w-1 rounded-full bg-cg-accent shrink-0" aria-hidden="true" />
+              Every component measured by one outcome: calls booked
+            </li>
+            <li className="flex items-start gap-2 text-cg-secondary text-[0.97rem]">
+              <span className="mt-1.5 h-1 w-1 rounded-full bg-cg-accent shrink-0" aria-hidden="true" />
+              I stay in it with you after launch
+            </li>
           </ul>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-6">
-            <CTAButton
-              href={ctaCopy.href}
-              size="lg"
-              eventName="hero_primary_cta_click"
-              className="hover:shadow-[0_4px_20px_rgba(37,99,235,0.25)] hover:-translate-y-0.5 transition-all duration-300"
-            >
-              {ctaCopy.primary}
+          <div className="flex flex-col sm:flex-row gap-4 mb-7">
+            <CTAButton href="/apply" size="lg" eventName="hero_primary_cta_click">
+              Apply for Growth Partnership →
             </CTAButton>
-            <CTAButton
-              href="/case-studies"
-              variant="secondary"
-              size="md"
-              eventName="hero_secondary_cta_click"
-              className="hover:-translate-y-0.5 transition-all duration-300"
-            >
-              {ctaCopy.secondary}
+            <CTAButton href="/results" variant="secondary" size="md" eventName="hero_secondary_cta_click">
+              See Results
             </CTAButton>
           </div>
 

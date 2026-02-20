@@ -45,7 +45,7 @@ export default function MetricsRow() {
       <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.15)] to-transparent mt-1" aria-hidden="true" />
 
       <p className="text-center text-[0.7rem] text-cg-secondary mt-3 tracking-wider uppercase">
-        Numbers update as systems ship.
+        UPDATED AS RESULTS COME IN.
       </p>
     </AnimatedSection>
   );

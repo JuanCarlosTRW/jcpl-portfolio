@@ -520,13 +520,13 @@ export const servicesFAQ = [
 export const caseStudies = [
   {
     slug: "rv-rental-google-ads",
-    title: "From Zero Online Leads to $20,000 in Month One",
-    client: "Premier RV Rentals",
+    title: "Triple W Rentals",
+    client: "RV RENTALS",
     industry: "RV Rentals",
-    heroStat: "$20,000",
+    heroStat: "$30,000",
     heroLabel: "Revenue in first 30 days",
     context:
-      "A regional RV rental company with a solid fleet but zero online lead generation. All bookings came from repeat clients and word of mouth — leaving massive revenue on the table during peak season.",
+      "From zero online presence to $30,000 in revenue in the first 30 days. $900 in ad spend.",
     problem:
       "No online presence beyond a basic listing. No paid advertising. No way to capture or qualify leads digitally. Competitors were running Google Ads and dominating search results.",
     strategy:
@@ -539,9 +539,9 @@ export const caseStudies = [
       "Implemented automated follow-up sequences for unconverted leads",
     ],
     outcome:
-      "$20,000 USD in confirmed bookings within the first 30 days of campaign launch. Cost per acquisition well below industry average. Client expanded fleet by 2 vehicles to meet demand.",
+      "$30,000 in confirmed bookings within the first 30 days. $900 in ad spend.",
     takeaway:
-      "When you combine high-intent traffic with a conversion-optimized funnel, results aren't gradual — they're immediate. The system paid for itself in the first week.",
+      "From zero online presence to $30,000 in revenue in the first 30 days. $900 in ad spend.",
     tags: ["Google Ads", "Landing Pages", "Conversion Funnel", "Lead Generation"],
   },
   {
@@ -600,43 +600,70 @@ export const caseStudies = [
 
 /* ─── About ─── */
 export const aboutContent = {
-  headline: "Juan Carlos — Growth Partner for Service Businesses",
+  headline: "Juan Carlos. Growth Partner\nfor Service Businesses.",
   subhead: "I build systems that turn attention into booked calls.",
   mechanism: [
-    "Positioning → funnel path → traffic → automation → booking.",
-    "No handoffs. No disconnected freelancers. One operator owns the outcome.",
+    "Most business owners I talk to are great at what they do. They just never built the infrastructure to let people find them. That is the gap I close. Website, ads, SEO, GEO, automation — designed as one system so the right clients reach you first, already convinced you are the right choice."
   ],
   mechanismBullets: [
-    "Positioning + offer clarity (so the message converts)",
-    "Conversion path + tracking (so you can see ROI)",
-    "Traffic + automation (so it compounds)",
+    "Built around your market and your offer",
+    "Every component measured by one outcome: calls booked",
+    "I stay in it with you after launch",
   ],
-  story: [
-    "Client Growth didn't start with a pitch deck. It started by studying what actually makes service businesses grow — then building the systems to make it happen.",
-    "After watching too many owners get burned by pretty deliverables with zero outcomes, I decided to operate differently.",
-    "I build complete growth systems — not isolated assets. Every piece is engineered for one outcome: more qualified booked calls on your calendar.",
-  ],
+  story: [], // Not used on page
   philosophy: {
     headline: "I Win When You Win",
-    body: "I don't measure success in deliverables. I measure it in revenue generated, calls booked, and markets dominated. If your business isn't growing, the system isn't done.",
+    body: "I do not measure success in deliverables. I measure it in revenue generated, calls booked, and markets dominated. If your business is not growing, the system is not done.",
   },
   advantage: {
-    headline: "Why Integrated Systems Beat Fragmented Freelancers",
+    headline: "Why Integrated Systems\nBeat Fragmented Freelancers",
     points: [
       {
-        text: "A web designer builds your site. A media buyer runs your ads. An SEO person optimizes keywords. A chatbot vendor sets automation. None of them talk to each other.",
+        text: "Web designer, media buyer, SEO person, chatbot vendor. None of them talk to each other.",
         accent: false,
       },
       {
-        text: "I own the entire pipeline — from positioning to conversion to traffic to AI automation to booking. Every piece reinforces the others.",
+        text: "Deliverables ship in silos. No unified strategy.",
+        accent: false,
+      },
+      {
+        text: "You become the project manager for five contractors.",
+        accent: false,
+      },
+      {
+        text: "Communication gaps erode results and timelines.",
+        accent: false,
+      },
+      {
+        text: "You pay for execution and own zero strategy.",
+        accent: false,
+      },
+      {
+        text: "One operator owns positioning, funnel, traffic, and automation as one connected system.",
         accent: true,
       },
       {
-        text: "The result: faster launches, lower costs, fewer communication gaps, and a system that compounds instead of fragmenting.",
-        accent: false,
+        text: "Every layer is built to reinforce the others. Compounding, not fragmenting.",
+        accent: true,
+      },
+      {
+        text: "Faster launches, lower costs, and a system that scales.",
+        accent: true,
       },
     ],
+    resultLine: "The result: faster launches, lower costs, fewer handoffs and a system that compounds over time.",
+    tableLine: "Fragmentation costs: handoffs, delays, and lost leads.",
   },
+};
+// About: How I Built This (NEW SECTION)
+export const aboutHowIBuiltThis = {
+  overline: "THE APPROACH",
+  heading: "Why I Operate Differently\nThan Everyone Else in This Space.",
+  paragraphs: [
+    "I got into this because I saw a pattern. Business owners who do incredible work, losing clients every week to competitors who simply show up first online. Not because the competition was better. Because they had a better system.",
+    "I built Client Growth around one belief: the businesses that win locally in the next five years will not be the ones who worked the hardest. They will be the ones who combined SEO, GEO, paid ads, and AI automation into one compounding system while everyone else was still figuring out which freelancer to hire next.",
+    "GEO optimization, AI-assisted lead qualification, and predictive ad targeting are not the future. They are happening right now. The businesses partnering with me get access to this infrastructure before their competitors even know it exists."
+  ]
 };
 
 /* ─── Apply Form ─── */
