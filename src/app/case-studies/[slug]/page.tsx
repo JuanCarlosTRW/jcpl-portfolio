@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { useEffect } from "react";
 import { caseStudies } from "@/lib/caseStudiesContent";
 import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
 import CaseStudySituation from "@/components/case-studies/CaseStudySituation";
@@ -8,6 +7,7 @@ import CaseStudyArchitecture from "@/components/case-studies/CaseStudyArchitectu
 import CaseStudyResults from "@/components/case-studies/CaseStudyResults";
 import CaseStudyInsight from "@/components/case-studies/CaseStudyInsight";
 import CaseStudyFinalCTA from "@/components/case-studies/CaseStudyFinalCTA";
+import ClientScrollToTop from "@/components/case-studies/ClientScrollToTop";
 
 export function generateStaticParams() {
   return caseStudies.map((study) => ({ slug: study.slug }));
@@ -28,33 +28,30 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const study = caseStudies.find((s) => s.slug === slug);
   if (!study) notFound();
 
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
-
   return (
-    <main style={{ background: "#0E0E0F" }}>
-      {/* 1️⃣ Hero — Outcome Dominance */}
-      <CaseStudyHero study={study} />
+    <ClientScrollToTop>
+      <main style={{ background: "#0E0E0F" }}>
+        {/* 1️⃣ Hero — Outcome Dominance */}
+        <CaseStudyHero study={study} />
 
-      {/* 2️⃣ The Situation */}
-      <CaseStudySituation study={study} />
+        {/* 2️⃣ The Situation */}
+        <CaseStudySituation study={study} />
 
-      {/* 3️⃣ Strategic Diagnosis */}
-      <CaseStudyDiagnosis study={study} />
+        {/* 3️⃣ Strategic Diagnosis */}
+        <CaseStudyDiagnosis study={study} />
 
-      {/* 4️⃣ Growth Architecture */}
-      <CaseStudyArchitecture study={study} />
+        {/* 4️⃣ Growth Architecture */}
+        <CaseStudyArchitecture study={study} />
 
-      {/* 5️⃣ Results */}
-      <CaseStudyResults study={study} />
+        {/* 5️⃣ Results */}
+        <CaseStudyResults study={study} />
 
-      {/* 6️⃣ Strategic Insight */}
-      <CaseStudyInsight study={study} />
+        {/* 6️⃣ Strategic Insight */}
+        <CaseStudyInsight study={study} />
 
-      {/* 7️⃣ Final CTA */}
-      <CaseStudyFinalCTA study={study} />
-    </main>
+        {/* 7️⃣ Final CTA */}
+        <CaseStudyFinalCTA study={study} />
+      </main>
+    </ClientScrollToTop>
   );
 }
