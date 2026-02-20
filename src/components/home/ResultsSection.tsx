@@ -11,9 +11,6 @@ export default function ResultsSection() {
     <SectionWrapper id="results">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label="Results" className="mb-5" />
-        <h2 className="heading-2 max-w-lg mx-auto">
-          {resultsPreview.headline}
-        </h2>
       </Reveal>
 
       {/* Dominant metric */}
