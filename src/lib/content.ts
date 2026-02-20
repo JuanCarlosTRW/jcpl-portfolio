@@ -68,7 +68,7 @@ export const systemSteps = [
     step: 2,
     title: "Conversion Website",
     description:
-      "A premium, fast-loading site engineered to turn every visitor into a booked call.",
+      "I build the conversion website, funnel path, tracking, and automation. Then I launch with full clarity on what success looks like.",
   },
   {
     step: 3,
@@ -813,7 +813,7 @@ export const aboutTimeline = [
     title: "Strategy & Foundation",
     duration: "Week 1",
     description:
-      "Deep-dive into your market, offer, and constraints. We define positioning and map the growth system.",
+      "Deep-dive into your market, offer, and constraints. I define positioning and map the full growth system before a single line of code gets written.",
     deliverables: "Offer map • funnel architecture • tracking plan",
   },
   {

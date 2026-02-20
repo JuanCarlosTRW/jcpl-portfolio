@@ -52,7 +52,7 @@ export default function PhilosophyBlock() {
 
         {/* Signature */}
         <p className="mt-6 text-xs text-cg-secondary italic tracking-wide">
-          — Juan Carlos
+          Juan Carlos
         </p>
 
         {/* Thin bottom rule */}

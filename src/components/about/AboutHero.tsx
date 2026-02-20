@@ -92,7 +92,7 @@ export default function AboutHero() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-7">
             <CTAButton href="/apply" size="lg" eventName="hero_primary_cta_click">
-              Apply for Growth Partnership →
+        Apply for Growth Partnership →
             </CTAButton>
             <CTAButton href="/results" variant="secondary" size="md" eventName="hero_secondary_cta_click">
               See Results

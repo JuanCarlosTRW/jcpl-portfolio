@@ -6,9 +6,9 @@ import { ctaCopy } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 
 const nextSteps = [
-  { step: "1", label: "Apply", description: "Short intake form — takes 2 min." },
+  { step: "1", label: "Apply", description: "Short intake form. Takes 2 minutes." },
   { step: "2", label: "I review fit", description: "Personally reviewed within 24 hours." },
-  { step: "3", label: "Growth plan call", description: "Focused strategy session — no fluff." },
+  { step: "3", label: "Growth plan call", description: "Focused strategy session. No fluff." },
 ];
 
 function LightningIcon() {
