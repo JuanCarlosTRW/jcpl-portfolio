@@ -98,8 +98,9 @@ export const systemSteps = [
 
 /* ─── Results Preview ─── */
 export const resultsPreview = {
-  label: "Proven Results",
-  headline: "Real Outcomes. Real Revenue.",
+  label: "REAL RESULTS",
+  headline: "Systems that succeeded",
+  subheadline: "I’m not hiding bad case studies—there are none!",
   featured: {
     stat: "$30,000",
     context: "generated in month one",
