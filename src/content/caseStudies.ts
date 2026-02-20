@@ -68,7 +68,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     websiteUrl: "https://culturemtl.ca",
     logoUrl:
-      "https://static.wixstatic.com/media/62f926_ca6524ec96fe4822a3da0d0481995989~mv2.png",
+  "https://static.wixstatic.com/media/62f926_26ca6fb6d443456c94fab653adce03cc~mv2.png",
     caseStudySlug: "culture-barbershop",
     inProgress: false,
     situation:
@@ -119,7 +119,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     websiteUrl: "https://as.centredentairese.com",
     logoUrl:
-      "https://static.wixstatic.com/media/62f926_4ff81d541b9d494985f403570c94e828~mv2.png",
+  "https://static.wixstatic.com/media/62f926_b2db4e8f4d74470fb8848ee6183aecde~mv2.png",
     caseStudySlug: "centre-dentaire-saint-elzear",
     inProgress: false,
     situation:
