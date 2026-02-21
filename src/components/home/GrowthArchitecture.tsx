@@ -4,6 +4,7 @@ import { growthArchitecture } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
+import ScrollVelocity from "./ScrollVelocity";
 
 /* ─── Pillar Icons ─── */
 const pillarIcons: Record<string, React.ReactNode> = {
@@ -47,12 +48,19 @@ export default function GrowthArchitecture() {
     <SectionWrapper id="system" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={growthArchitecture.label} className="mb-5" />
-  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
+        <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {growthArchitecture.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
-          {growthArchitecture.subheadline}
-        </p>
+        <div className="mt-5 mb-2">
+          <ScrollVelocity
+            texts={["This is why I built the Growth Architecture™."]}
+            className="text-cg-accent text-[20px] font-semibold"
+            velocity={120}
+            numCopies={4}
+            parallaxClassName="w-full overflow-hidden"
+            scrollerClassName="inline-flex whitespace-nowrap"
+          />
+        </div>
       </Reveal>
 
       <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
