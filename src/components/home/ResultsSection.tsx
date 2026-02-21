@@ -44,7 +44,7 @@ export default function ResultsSection() {
 
       {/* Single CTA — no icon, restrained */}
       <Reveal className="text-center" delay={0.2}>
-        <CTAButton href="/case-studies" variant="secondary" size="md" eventName="case_card_click">
+        <CTAButton href="/results" variant="secondary" size="md" eventName="case_card_click">
           View Case Studies
         </CTAButton>
       </Reveal>

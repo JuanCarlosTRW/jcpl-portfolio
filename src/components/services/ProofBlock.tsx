@@ -43,7 +43,7 @@ export default function ProofBlock() {
 
               <div className="mt-6">
                 <CTAButton
-                  href={`/case-studies/${servicesProof.slug}`}
+                  href={`/results/${servicesProof.slug}`}
                   variant="ghost"
                   size="sm"
                   eventName="case_card_click"

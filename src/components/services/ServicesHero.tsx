@@ -64,7 +64,7 @@ export default function ServicesHero() {
                 Apply for Growth Partnership →
               </CTAButton>
               <CTAButton
-                href="/case-studies"
+                href="/results"
                 variant="secondary"
                 size="md"
                 eventName="services_hero_secondary_cta_click"

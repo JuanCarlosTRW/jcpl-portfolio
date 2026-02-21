@@ -49,6 +49,13 @@ export default function ApplyForm() {
       ) {
         newErrors[field.name] = "Please enter a valid email address";
       }
+      if (
+        field.name === "businessWebsite" &&
+        formData[field.name]?.trim() &&
+        !/^https?:\/\/.+\..+/.test(formData[field.name].trim())
+      ) {
+        newErrors[field.name] = "Please enter a valid URL (e.g. https://example.com)";
+      }
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

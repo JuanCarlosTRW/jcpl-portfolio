@@ -1,18 +1,21 @@
-"use client";
-
-import { useEffect } from "react";
 import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CTAButton from "@/components/ui/CTAButton";
-import { trackEvent } from "@/lib/analytics";
+import ThankYouTracker from "@/components/ui/ThankYouTracker";
+import { buildMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Application Received",
+  description:
+    "Your application has been received. I review every application personally and will respond within 24 hours.",
+  path: "/thank-you",
+});
 
 export default function ThankYouPage() {
-  useEffect(() => {
-    trackEvent("thank_you_view");
-  }, []);
-
   return (
     <SectionWrapper className="pt-32 md:pt-40">
+      <ThankYouTracker />
       <div className="max-w-2xl mx-auto text-center">
         {/* Success icon */}
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 mb-8">

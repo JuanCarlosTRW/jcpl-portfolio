@@ -15,9 +15,23 @@ export async function generateMetadata({
   const { slug } = await params;
   const cs = caseStudies.find((c) => c.caseStudySlug === slug);
   if (!cs) return {};
+  const title = `${cs.title} | Client Growth Results`;
+  const description = cs.outcome;
+  const ogImage = "https://clientgrowth.ca/og.png";
   return {
-    title: `${cs.title} | Client Growth Results`,
-    description: cs.outcome,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
   };
 }
 

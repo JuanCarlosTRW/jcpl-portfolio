@@ -138,7 +138,7 @@ export default function QualificationCTA() {
                   {ctaCopy.primary}
                 </CTAButton>
                 <CTAButton
-                  href="/case-studies"
+                  href="/results"
                   variant="secondary"
                   size="md"
                   eventName="final_cta_secondary_click"

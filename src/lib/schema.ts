@@ -7,6 +7,10 @@ export function generateOrganizationSchema() {
     name: "Client Growth",
     url: siteConfig.url,
     description: siteConfig.description,
+    areaServed: [
+      { "@type": "Country", name: "Canada" },
+      { "@type": "Country", name: "United States" },
+    ],
     knowsAbout: [
       "Digital Marketing",
       "Conversion Rate Optimization",
