@@ -122,12 +122,7 @@ export default function ApplyForm() {
           </span>
         </div>
 
-        {/* Disqualifier note */}
-        <div className="rounded-lg bg-white/[0.02] border border-[var(--border-soft)] p-4 mb-10 text-sm text-[var(--text-muted)]">
-          <strong className="text-[var(--text-secondary)]">Who this is for:</strong>{" "}
-          Established service businesses generating $5,000+/month that want a systematic approach to growth.
-          If you&apos;re pre-revenue or just exploring, you&apos;re welcome to apply — I&apos;ll let you know if the timing is right.
-        </div>
+        {/* Disqualifier note removed as requested */}
 
         {/* Progress bar */}
         {status === "idle" && (
