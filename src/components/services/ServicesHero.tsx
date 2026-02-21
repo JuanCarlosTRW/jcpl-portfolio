@@ -27,8 +27,8 @@ export default function ServicesHero() {
           </Reveal>
 
           <Reveal delay={0.05}>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight mb-6">
-              Turn Inconsistent Leads into a<br />Predictable Booking System.
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight mb-6 text-balance max-w-2xl mx-auto">
+              Turn Inconsistent Leads Into<br className="hidden md:block" /> a Predictable Booking System.
             </h1>
           </Reveal>
 

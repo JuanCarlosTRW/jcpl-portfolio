@@ -50,9 +50,9 @@ export default function ServicesFinalCTA() {
           <Reveal>
             <div className="text-center mb-8">
               <p className="text-xs uppercase tracking-[0.15em] text-cg-secondary font-medium mb-3">
-             MY STANDARDS
+                MY STANDARDS
               </p>
-              <h2 className="heading-3">What You Can Expect</h2>
+              <h2 className="heading-3">What I Guarantee Before You Pay a Dollar.</h2>
             </div>
           </Reveal>
           <GuaranteesStrip />
@@ -118,9 +118,10 @@ export default function ServicesFinalCTA() {
           </Reveal>
 
           {/* Payment trust row */}
-          <div className="mb-8">
-            <PaymentTrustRow />
-          </div>
+          {/* Remove PaymentTrustRow and add invoice billing text below Apply button */}
+          <p className="text-sm text-slate-400 mt-4 text-center">
+            Invoice-based billing. CAD and USD accepted. No retainer required until we confirm fit.
+          </p>
         </div>
 
         <div className="h-10 md:h-16" aria-hidden="true" />

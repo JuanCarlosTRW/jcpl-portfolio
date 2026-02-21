@@ -14,31 +14,31 @@ export default function MetricsRow() {
       {/* Thin top baseline */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.15)] to-transparent mb-1" aria-hidden="true" />
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-[rgba(37,99,235,0.15)] rounded-xl bg-cg-card border border-[rgba(37,99,235,0.15)]">
-        {aboutTrustStrip.map((item, i) => {
-          // Only CountUp pure-numeric metrics (e.g. "6+", "4", "3")
-          // Skip metrics containing letters or en-dash (e.g. "2–4 wks")
-          const numericMatch = item.metric.match(/^(\d+)([^a-zA-Z–]*)$/);
-          const numericValue = numericMatch ? parseInt(numericMatch[1], 10) : null;
-          const suffix = numericMatch ? numericMatch[2] : "";
-
-          return (
-            <AnimatedSection key={i} delay={0.08 * i} className="w-full">
-              <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
-                <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums text-cg-accent leading-none mb-1.5">
-                  {numericValue !== null ? (
-                    <CountUpValue to={numericValue} suffix={suffix} durationMs={1400} />
-                  ) : (
-                    item.metric
-                  )}
-                </span>
-                <span className="text-[0.8rem] text-cg-secondary leading-snug">
-                  {item.label}
-                </span>
-              </div>
-            </AnimatedSection>
-          );
-        })}
+      <div className="grid grid-cols-3 divide-x divide-[rgba(37,99,235,0.15)] rounded-xl bg-cg-card border border-[rgba(37,99,235,0.15)]">
+        <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
+          <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums text-[#2563EB] leading-none mb-1.5">
+            $30,000
+          </span>
+          <span className="text-[0.8rem] text-cg-secondary leading-snug">
+            Revenue generated in first 30 days
+          </span>
+        </div>
+        <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
+          <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums text-[#2563EB] leading-none mb-1.5">
+            33x
+          </span>
+          <span className="text-[0.8rem] text-cg-secondary leading-snug">
+            Return on ad spend, Triple W Rentals
+          </span>
+        </div>
+        <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
+          <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums text-[#2563EB] leading-none mb-1.5">
+            2-4 wks
+          </span>
+          <span className="text-[0.8rem] text-cg-secondary leading-snug">
+            Typical time from signed to live system
+          </span>
+        </div>
       </div>
 
       {/* Thin bottom baseline */}

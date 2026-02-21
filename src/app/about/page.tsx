@@ -25,16 +25,21 @@ export default function AboutPage() {
         <AboutHero />
       </SectionWrapper>
 
+      {/* ── Philosophy Statement (MOVED UP) ── */}
+      <SectionWrapper>
+        <PhilosophyBlock />
+      </SectionWrapper>
+
       {/* ── Credibility / Metrics — tight to hero ── */}
       <SectionWrapper className="!py-6 md:!py-8">
         <MetricsRow />
       </SectionWrapper>
 
-
-      {/* Proof of Work section removed as requested */}
-
       {/* ── How I Built This (NEW) ── */}
       <AboutHowIBuiltThis />
+
+      {/* Divider between Why I Operate Differently and How I Operate */}
+      <hr className="border-t border-slate-700/50 my-2 mx-auto max-w-xs" />
 
       {/* ── Operating Principles (3 cards) ── */}
       <SectionWrapper>
@@ -44,11 +49,6 @@ export default function AboutPage() {
       {/* ── Working Model Timeline ── */}
       <SectionWrapper variant="surface">
         <WorkTimeline />
-      </SectionWrapper>
-
-      {/* ── Philosophy Statement ── */}
-      <SectionWrapper>
-        <PhilosophyBlock />
       </SectionWrapper>
 
       {/* ── Integrated vs Fragmented ── */}
