@@ -29,19 +29,7 @@ export default function ServicesHero() {
 
           <Reveal delay={0.05}>
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight mb-6 text-balance max-w-2xl mx-auto">
-              Turn{' '}
-              <TrueFocus
-                sentence="Inconsistent Predictable"
-                separator=" "
-                manualMode={false}
-                blurAmount={5}
-                borderColor="#2563EB"
-                glowColor="rgba(37,99,235,0.6)"
-                animationDuration={0.5}
-                pauseBetweenAnimations={1}
-                // mainClassName removed, not in TrueFocusProps
-              />{' '}
-              Leads Into a Booking System.
+              Turn Inconsistent Leads Into<br className="hidden md:block" /> a Predictable Booking System.
             </h1>
           </Reveal>
 
