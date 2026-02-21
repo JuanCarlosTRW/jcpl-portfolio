@@ -368,7 +368,7 @@ export const serviceTiers = [
       "GA4 & event tracking baseline",
       "Launch checklist & QA",
     ],
-    timeline: "2\u20133 weeks",
+    timeline: "1\u20132 weeks",
     firstWin: "Go live with a high-converting, credible presence.",
     planCTA: "Apply (2 min)",
   },
