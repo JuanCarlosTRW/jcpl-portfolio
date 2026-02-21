@@ -33,7 +33,7 @@ export default function MetricsRow() {
         </div>
         <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
           <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums text-[#2563EB] leading-none mb-1.5">
-            2-4 wks
+            1-2 wks
           </span>
           <span className="text-[0.8rem] text-cg-secondary leading-snug">
             Typical time from signed to live system
