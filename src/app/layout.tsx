@@ -9,7 +9,7 @@ import RouteScrollManager from "@/components/system/RouteScrollManager";
 import SmoothFollower from "@/components/ui/SmoothFollower";
 import { siteConfig } from "@/lib/content";
 import {
-  generatePersonSchema,
+  generateOrganizationSchema,
   generateProfessionalServiceSchema,
   generateFAQSchema,
 } from "@/lib/schema";
@@ -19,17 +19,12 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.title}`,
+    default: `${siteConfig.name} | ${siteConfig.title}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '32x32' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-    ],
-    apple: { url: '/apple-touch-icon.png', sizes: '180x180' },
+    icon: [{ url: "/favicon.ico", sizes: "32x32" }],
   },
   openGraph: {
     title: siteConfig.title,
@@ -60,7 +55,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generatePersonSchema()),
+            __html: JSON.stringify(generateOrganizationSchema()),
           }}
         />
         <script
@@ -76,7 +71,7 @@ export default function RootLayout({
           }}
         />
       </head>
-        <body className={`${inter.className} antialiased bg-[var(--bg-base)] text-[var(--text-primary)]`}>
+      <body className={`${inter.className} antialiased bg-[var(--bg-base)] text-[var(--text-primary)]`}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-[var(--brand-accent)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none"

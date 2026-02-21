@@ -75,7 +75,7 @@ export default function FeaturedCaseStudy() {
 
             {/* CTA */}
             <Link
-              href="https://clientgrowth.ca/results"
+              href="/results"
               className="relative z-10 inline-block border border-[rgba(37,99,235,0.5)] text-cg-body bg-transparent rounded-[8px] px-6 py-2.5 font-semibold text-[15px] hover:bg-cg-accent hover:text-white hover:border-cg-accent transition-all duration-200"
             >
               View All Results →

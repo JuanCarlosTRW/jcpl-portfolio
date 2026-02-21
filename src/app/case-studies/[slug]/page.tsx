@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const study = caseStudies.find((s) => s.slug === slug);
   if (!study) return {};
   return {
-    title: `${study.headline} — Case Study`,
+    title: `${study.headline} | Case Study`,
     description: study.subtext,
   };
 }
@@ -30,7 +30,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   return (
     <ClientScrollToTop>
-      <main style={{ background: "#0E0E0F" }}>
+      <main className="bg-[#0E0E0F]">
         {/* 1️⃣ Hero — Outcome Dominance */}
         <CaseStudyHero study={study} />
 

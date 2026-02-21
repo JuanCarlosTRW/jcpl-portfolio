@@ -4,23 +4,20 @@ import { buildMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Results — Client Growth",
+  title: "Results",
   description:
     "Real growth systems built for real service businesses. See measurable results across Google Ads, web design, SEO, and AI automation.",
   path: "/results",
 });
 
-const stats = [
-  { value: "5", label: "SYSTEMS BUILT" },
-  { value: "$30K+", label: "REVENUE GENERATED" },
-  { value: "2–4 wks", label: "AVG. LAUNCH TIME" },
-];
-
 export default function ResultsPage() {
   return (
-    <main className="bg-cg-section-a min-h-screen">
-      {/* ═══ HERO ═══ */}
-      <section className="relative pt-36 pb-24" style={{ backgroundColor: "#060D1F" }}>
+    <div className="bg-cg-section-a min-h-screen">
+      {/* HERO */}
+      <section
+        className="relative pt-36 pb-24"
+        style={{ backgroundColor: "#060D1F" }}
+      >
         {/* Radial glow */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -44,7 +41,7 @@ export default function ResultsPage() {
             REAL RESULTS
           </span>
           <h1 className="text-[clamp(36px,5vw,56px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.025em]">
-            Systems That{' '}
+            Systems That{" "}
             <RotatingText
               texts={["Shipped", "Worked", "Dominated"]}
               rotationInterval={2000}
@@ -55,28 +52,34 @@ export default function ResultsPage() {
           <p className="text-[18px] text-[#D4DFF0] leading-[1.7] max-w-[640px] mx-auto mt-3">
             Every client. Every result. Independently verifiable.
           </p>
-          {/* Immersive, responsive UnicornStudio embed */}
+
+          {/* UnicornStudio embed */}
           <div className="flex justify-center items-center w-full mt-8 mb-8">
             <div
               data-us-project="b84EmKQXVeBLgLd1z0Yn"
               style={{
-                width: '100%',
-                maxWidth: '700px',
-                aspectRatio: '16/9',
-                height: 'auto',
-                borderRadius: '18px',
-                overflow: 'hidden',
-                boxShadow: '0 8px 32px rgba(37,99,235,0.10)',
+                width: "100%",
+                maxWidth: "700px",
+                aspectRatio: "16/9",
+                height: "auto",
+                borderRadius: "18px",
+                overflow: "hidden",
+                boxShadow: "0 8px 32px rgba(37,99,235,0.10)",
               }}
               className="w-full max-w-[700px] aspect-video rounded-2xl overflow-hidden shadow-lg"
-            ></div>
+            />
           </div>
-          <script type="text/javascript" dangerouslySetInnerHTML={{__html:`!function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();`}} />
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `!function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();`,
+            }}
+          />
         </div>
       </section>
 
-      {/* ═══ CASE STUDIES GRID ═══ */}
+      {/* CASE STUDIES GRID */}
       <CaseStudiesSection />
-    </main>
+    </div>
   );
 }

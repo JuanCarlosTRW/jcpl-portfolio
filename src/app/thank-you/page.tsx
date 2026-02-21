@@ -43,12 +43,12 @@ export default function ThankYouPage() {
               {
                 step: "2",
                 title: "Fit Assessment",
-                desc: "If we're a match, I'll send you a link to book a free strategy call.",
+                desc: "If there's a fit, I'll send you a Google Meet link within 24 hours.",
               },
               {
                 step: "3",
                 title: "Strategy Call",
-                desc: "I'll map out your Growth Architecture™ together — no obligation.",
+                desc: "I'll map out your Growth Architecture and show you exactly what the system would look like. No obligation.",
               },
             ].map((item) => (
               <li key={item.step} className="flex gap-4">
@@ -66,19 +66,19 @@ export default function ThankYouPage() {
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <CTAButton href="/case-studies" variant="secondary" size="lg">
+          <CTAButton href="/results" variant="secondary" size="lg">
             See Results While You Wait
           </CTAButton>
           <Link
             href="/"
             className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
           >
-            ← Back to Home
+            Back to Home
           </Link>
         </div>
 
         <p className="text-xs text-[var(--text-muted)]">
-          Didn&apos;t mean to submit? No worries — just reply to the email you&apos;ll receive.
+          Didn&apos;t mean to submit? No worries. Just reply to the confirmation email you&apos;ll receive.
         </p>
       </div>
     </SectionWrapper>

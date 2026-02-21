@@ -64,9 +64,9 @@ export default function QuizRecommender({ onRecommend }: Props) {
 
   // Get result copy
   const resultText: Record<PlanName, { title: string; reason: string }> = {
-    Foundation: { title: "We recommend: Foundation", reason: "You need a professional, conversion-ready presence before anything else." },
-    Growth: { title: "We recommend: Growth", reason: "You\u2019re ready for ads, AI, and automated lead generation." },
-    Scale: { title: "We recommend: Scale", reason: "You need multi-channel dominance and advanced automation." },
+    Foundation: { title: "Recommended: Foundation", reason: "You need a professional, conversion-ready presence before anything else." },
+    Growth: { title: "Recommended: Growth", reason: "You\u2019re ready for ads, AI, and automated lead generation." },
+    Scale: { title: "Recommended: Scale", reason: "You need multi-channel dominance and advanced automation." },
   };
 
   return (

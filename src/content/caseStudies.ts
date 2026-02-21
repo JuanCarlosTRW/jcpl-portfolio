@@ -60,7 +60,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "culture-barbershop",
     title: "Culture Barbershop",
-    industry: "BARBERSHOP — MONTREAL",
+    industry: "BARBERSHOP, MONTREAL",
     outcome: "Premium conversion website built. Online presence established in a competitive market.",
     metrics: [
       { label: "Deliverable", value: "Website" },
@@ -83,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "triple-w-rentals",
     title: "Triple W Rentals",
-    industry: "RV RENTAL — TEXAS",
+    industry: "RV RENTAL, TEXAS",
     outcome:
       "$30,000 in revenue generated in month one. $900 in total ad spend.",
     metrics: [

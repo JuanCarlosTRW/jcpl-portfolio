@@ -31,7 +31,7 @@ export default function LogosSection() {
     <SectionWrapper id="credibility" variant="surface">
       {/* Industries served */}
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-        <SectionLabel label="Industries We Serve" className="mb-5" />
+        <SectionLabel label="Industries I Serve" className="mb-5" />
         <h2 className="heading-2 max-w-lg mx-auto">
           Built for Service Businesses
         </h2>

@@ -65,7 +65,7 @@ export default function PricingSection() {
               href="/apply?tier=Enterprise"
               variant="secondary"
               size="md"
-              eventName="services_final_cta_click"
+              eventName="services_final_cta_primary_click"
               className="shrink-0"
             >
               Request Custom Plan

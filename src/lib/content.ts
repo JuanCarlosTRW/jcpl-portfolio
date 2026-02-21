@@ -293,22 +293,22 @@ export const whySection = {
     {
       title: "Strategy + Execution Under One Roof",
       description:
-        "No more juggling a web designer, an ad agency, an SEO person, and a chatbot vendor. We own the entire pipeline.",
+        "No more juggling a web designer, an ad agency, an SEO person, and a chatbot vendor. I own the entire pipeline.",
     },
     {
       title: "Built for Service Businesses",
       description:
-        "We specialize in barbershops, RV rentals, dental practices, and local services. We know your clients, your margins, and your growth levers.",
+        "I specialize in barbershops, RV rentals, dental practices, and local services. I know your clients, your margins, and your growth levers.",
     },
     {
       title: "Revenue-Focused, Not Deliverable-Focused",
       description:
-        "We don't hand you a pretty website and disappear. Every piece we build is measured by booked calls and revenue generated.",
+        "I don't hand you a pretty website and disappear. Every piece I build is measured by booked calls and revenue generated.",
     },
     {
       title: "AI-Native From Day One",
       description:
-        "Your competitors aren't optimizing for AI search or using AI receptionists yet. That's your window — and we help you seize it.",
+        "Your competitors aren't optimizing for AI search or using AI receptionists yet. That's your window. I help you seize it.",
     },
   ],
 };
@@ -414,7 +414,7 @@ export const servicesIncluded = [
   { title: "Tracking Baseline", description: "GA4 & event tracking from day one." },
   { title: "Performance Baseline", description: "Speed, Core Web Vitals, mobile-optimized." },
   { title: "Launch Checklist & QA", description: "Comprehensive testing before every launch." },
-  { title: "Ownership & Handoff", description: "You own everything we build. Full access." },
+  { title: "Ownership & Handoff", description: "You own everything I build. Full access." },
   { title: "Reporting Cadence", description: "Clear performance reports, no vanity metrics." },
   { title: "Communication Standards", description: "Dedicated channel, 24h response time." },
 ];
@@ -422,7 +422,7 @@ export const servicesIncluded = [
 /* ─── Services: Recommender Quiz ─── */
 export const servicesQuiz = {
   headline: "Not Sure Which Plan Fits?",
-  subheadline: "Answer 2 quick questions. We\u2019ll recommend the right tier.",
+  subheadline: "Answer 2 quick questions. I\u2019ll recommend the right tier.",
   questions: [
     {
       id: "leads",
@@ -495,7 +495,7 @@ export const servicesFAQ = [
   },
   {
     question: "What do you need from me?",
-    answer: "Clear goals, timely feedback, and access to existing assets (if any). I handle the heavy lifting — you stay focused on running your business.",
+    answer: "Clear goals, timely feedback, and access to existing assets (if any). I handle the heavy lifting. You stay focused on running your business.",
   },
   {
     question: "Any contracts or lock-in?",
@@ -503,15 +503,15 @@ export const servicesFAQ = [
   },
   {
     question: "What if it's not a fit?",
-    answer: "If I'm not the right fit, you'll get honest feedback and recommendations — no hard sell. I'd rather pass than deliver subpar work.",
+    answer: "If I'm not the right fit, you'll get honest feedback and recommendations. No hard sell. I'd rather pass than deliver subpar work.",
   },
   {
     question: "How do you measure success?",
-    answer: "Pipeline metrics, conversion rates, and ROI — not vanity stats. Every engagement includes tracking from day one.",
+    answer: "Pipeline metrics, conversion rates, and ROI. Not vanity stats. Every engagement includes tracking from day one.",
   },
   {
     question: "What happens after I apply?",
-    answer: "You'll receive a short qualification review within 24 hours. If I determine we're a good fit, I'll send you a link to book a strategy call.",
+    answer: "You'll receive a short qualification review within 24 hours. If there's a good fit, I'll send you a Google Meet link to set up a strategy call.",
   },
 ];
 
@@ -553,7 +553,7 @@ export const caseStudies = [
     context:
       "A high-end barbershop known for exceptional cuts but with a dated website that didn't reflect the quality of their work. Walk-ins were steady, but online bookings were nearly nonexistent.",
     problem:
-      "The existing website was a generic template — slow, not mobile-friendly, and with no clear way to book an appointment. Clients were calling instead of booking online, creating scheduling chaos.",
+      "The existing website was a generic template: slow, not mobile-friendly, and with no clear way to book an appointment. Clients were calling instead of booking online, creating scheduling chaos.",
     strategy:
       "Designed and built a premium, mobile-first website that showcased the shop's atmosphere and craft, with a seamless booking flow integrated directly into the experience.",
     execution: [
@@ -579,9 +579,9 @@ export const caseStudies = [
     context:
       "A trendy barbershop with a strong Instagram following but no website. All communication happened through DMs, leading to lost bookings and no way to capture search traffic.",
     problem:
-      "Relying solely on Instagram meant missing clients searching Google for 'barbershop near me.' There was no professional landing page, no SEO presence, and no automated booking — just DMs and phone tag.",
+      "Relying solely on Instagram meant missing clients searching Google for 'barbershop near me.' There was no professional landing page, no SEO presence, and no automated booking. Just DMs and phone tag.",
     strategy:
-      "Built a conversion-focused website that served as the hub for all online activity — connecting Instagram content, Google search visibility, and a frictionless booking experience.",
+      "Built a conversion-focused website that served as the hub for all online activity: connecting Instagram content, Google search visibility, and a frictionless booking experience.",
     execution: [
       "Designed a bold, modern site matching the studio's brand aesthetic",
       "Integrated Instagram feed to leverage existing social proof",
@@ -592,7 +592,7 @@ export const caseStudies = [
     outcome:
       "40% increase in new client bookings within the first month. Google search visibility went from invisible to top 5 for key local terms. DM booking requests dropped as clients self-served.",
     takeaway:
-      "Instagram builds awareness. A website converts that awareness into booked appointments. You need both — and the website needs to be as sharp as your brand.",
+      "Instagram builds awareness. A website converts that awareness into booked appointments. You need both, and the website needs to be as sharp as your brand.",
     tags: ["Web Design", "Local SEO", "Social Integration", "Booking System"],
   },
 ];
@@ -602,7 +602,7 @@ export const aboutContent = {
   headline: "Juan Carlos. Growth Partner\nfor Service Businesses.",
   subhead: "I build systems that turn attention into booked calls.",
   mechanism: [
-    "Most business owners I talk to are great at what they do. They just never built the infrastructure to let people find them. That is the gap I close. Website, ads, SEO, GEO, automation — designed as one system so the right clients reach you first, already convinced you are the right choice."
+    "Most business owners I talk to are great at what they do. They just never built the infrastructure to let people find them. That is the gap I close. Website, ads, SEO, GEO, automation, designed as one system so the right clients reach you first, already convinced you are the right choice."
   ],
   mechanismBullets: [
     "Built around your market and your offer",
@@ -793,7 +793,7 @@ export const aboutTrustStrip = [
 export const aboutPrinciples = [
   {
     title: "Revenue first",
-    description: "Measured in booked calls + revenue — not vanity metrics.",
+    description: "Measured in booked calls + revenue. Not vanity metrics.",
   },
   {
     title: "Full-stack ownership",
@@ -820,7 +820,7 @@ export const aboutTimeline = [
     title: "System Build & Launch",
     duration: "Weeks 2–4",
     description:
-      "I build the conversion website, funnel path, tracking, and automation — then launch with clarity.",
+      "I build the conversion website, funnel path, tracking, and automation, then launch with clarity.",
     deliverables: "Website + funnel • automation • analytics live",
   },
   {
@@ -880,12 +880,12 @@ export const servicesGuarantees = [
   {
     icon: "unlock",
     title: "No Lock-In",
-    description: "You own everything we build. Month-to-month after the initial build.",
+    description: "You own everything I build. Month-to-month after the initial build.",
   },
   {
     icon: "shield",
     title: "Honest Fit Assessment",
-    description: "If we\u2019re not the right partner, we\u2019ll tell you upfront \u2014 not after you\u2019ve paid.",
+    description: "If I\u2019m not the right partner, I\u2019ll tell you upfront, not after you\u2019ve paid.",
   },
   {
     icon: "clock",
@@ -907,7 +907,7 @@ export const servicesPaymentLine = "Secure payment processing by Stripe · CAD/U
 export const servicesFinalCTA = {
   headline: "Ready to build a real acquisition system?",
   subheadline:
-    "Short application. If we\u2019re a fit, you\u2019ll receive a call link within 24 hours.",
+    "Short application. If there\u2019s a fit, you\u2019ll receive a call link within 24 hours.",
   primary: "Apply (2 min)",
   secondary: "View Results",
   trustBadges: [
@@ -943,17 +943,17 @@ export const servicesMicroQuiz = {
   ],
   results: {
     Foundation: {
-      title: "We recommend: Foundation",
+      title: "Recommended: Foundation",
       reason: "You need a professional, conversion-ready presence before anything else.",
       cta: "Apply (2 min)",
     },
     Growth: {
-      title: "We recommend: Growth",
+      title: "Recommended: Growth",
       reason: "You\u2019re ready for ads, AI, and automated lead generation.",
       cta: "Apply (2 min)",
     },
     Scale: {
-      title: "We recommend: Scale",
+      title: "Recommended: Scale",
       reason: "You need multi-channel dominance and advanced automation.",
       cta: "Apply (2 min)",
     },

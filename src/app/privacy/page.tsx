@@ -21,56 +21,56 @@ export default function PrivacyPage() {
 
         <div className="prose-custom space-y-8">
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">1. Information We Collect</h2>
+            <h2 className="text-lg font-semibold text-white mb-3">1. Information I Collect</h2>
             <p className="text-sm text-cg-secondary leading-relaxed">
-              When you submit our application form, we collect your name, email address, business details, and information about your marketing goals. We use this information solely to assess fit and respond to your inquiry.
+              When you submit the application form, I collect your name, email address, business details, and information about your marketing goals. This information is used solely to assess fit and respond to your inquiry.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">2. How We Use Your Information</h2>
+            <h2 className="text-lg font-semibold text-white mb-3">2. How I Use Your Information</h2>
             <p className="text-sm text-cg-secondary leading-relaxed">
-              We use the information you provide to evaluate partnership fit, communicate with you about our services, and improve our intake process. We do not sell, rent, or share your personal information with third parties for marketing purposes.
+              I use the information you provide to evaluate partnership fit, communicate with you about my services, and improve the intake process. I do not sell, rent, or share your personal information with third parties for marketing purposes.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">3. Analytics</h2>
             <p className="text-sm text-cg-secondary leading-relaxed">
-              We use Google Analytics 4 (GA4) to understand how visitors interact with our website. This data is anonymized and used only to improve our content and user experience. You can opt out via your browser settings or the Google Analytics opt-out extension.
+              This site does not currently use third-party analytics. No tracking pixels or advertising cookies are set.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">4. Cookies</h2>
             <p className="text-sm text-cg-secondary leading-relaxed">
-              Our website uses essential cookies required for site functionality. Analytics cookies (GA4) are used to measure performance. No advertising or retargeting cookies are set without your consent.
+              Only essential cookies required for site functionality are used. No advertising or retargeting cookies are set.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">5. Data Retention</h2>
             <p className="text-sm text-cg-secondary leading-relaxed">
-              Application data is retained for up to 12 months. You may request deletion of your data at any time by contacting us.
+              Application data is retained for up to 12 months. You may request deletion of your data at any time by contacting me.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">6. Your Rights</h2>
             <p className="text-sm text-cg-secondary leading-relaxed">
-              You have the right to access, correct, or delete any personal data we hold about you. To exercise these rights, contact us at the address below.
+              You have the right to access, correct, or delete any personal data I hold about you. To exercise these rights, contact me at the address below.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">7. Contact</h2>
             <p className="text-sm text-cg-secondary leading-relaxed">
-              For privacy-related inquiries, contact us at:{" "}
+              For privacy-related inquiries:{" "}
               <a
-                href="mailto:hello@clientgrowth.ca"
+                href="mailto:juan@clientgrowth.ca"
                 className="text-cg-accent hover:underline"
               >
-                hello@clientgrowth.ca
+                juan@clientgrowth.ca
               </a>
             </p>
           </section>

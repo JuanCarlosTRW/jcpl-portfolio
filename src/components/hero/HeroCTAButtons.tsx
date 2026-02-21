@@ -60,7 +60,7 @@ export default function HeroCTAButtons() {
 
       {/* ── Row 3: Microcopy ── */}
       <p className="text-sm text-cg-secondary">
-        2-minute application · if we don&apos;t see a clear ROI path, we&apos;ll tell you.
+        2-minute application · if I don&apos;t see a clear ROI path, I&apos;ll tell you.
       </p>
     </div>
   );

@@ -83,15 +83,15 @@ export default function ServicesFinalCTA() {
               <CTAButton
                 href="/apply"
                 size="lg"
-                eventName="services_final_cta_click"
+                eventName="services_final_cta_primary_click"
               >
                 Apply (2 min) →
               </CTAButton>
               <CTAButton
-                href="/case-studies"
+                href="/results"
                 variant="secondary"
                 size="md"
-                eventName="services_final_cta_click"
+                eventName="services_final_cta_secondary_click"
               >
                 View Results
               </CTAButton>
@@ -120,7 +120,7 @@ export default function ServicesFinalCTA() {
           {/* Payment trust row */}
           {/* Remove PaymentTrustRow and add invoice billing text below Apply button */}
           <p className="text-sm text-slate-400 mt-4 text-center">
-            Invoice-based billing. CAD and USD accepted. No retainer required until we confirm fit.
+            Invoice-based billing. CAD and USD accepted. No retainer required until I confirm fit.
           </p>
         </div>
 

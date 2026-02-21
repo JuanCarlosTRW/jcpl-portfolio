@@ -253,7 +253,7 @@ export const caseStudies: CaseStudy[] = [
     location: "Texas, USA",
     headline: "24/7 Lead Qualification with Zero Human Overhead",
     subtext:
-      "How we deployed an AI voice agent for the same Texas RV rental company — handling every inbound inquiry automatically, qualifying leads, and booking calls without lifting a finger.",
+      "How I deployed an AI voice agent for the same Texas RV rental company, handling every inbound inquiry automatically, qualifying leads, and booking calls without lifting a finger.",
     situation: {
       who: "The same RV rental company from Case #01 — now generating inbound leads via Google Ads, but owner overwhelmed by volume of inquiries.",
       problem: "More leads than the owner could manually respond to. Slow follow-up was costing bookings. Revenue was being left unrealized.",

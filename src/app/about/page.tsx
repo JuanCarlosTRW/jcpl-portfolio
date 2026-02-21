@@ -11,9 +11,9 @@ import AdvantageCompare from "@/components/about/AdvantageCompare";
 import AboutCTA from "@/components/about/AboutCTA";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About — Growth Partner for Service Businesses",
+  title: "About: Growth Partner for Service Businesses",
   description:
-    "I build complete growth systems — not isolated deliverables. Learn why integrated execution beats fragmented freelancers every time.",
+    "I build complete growth systems, not isolated deliverables. Learn why integrated execution beats fragmented freelancers every time.",
   path: "/about",
 });
 

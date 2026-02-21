@@ -1,6 +1,6 @@
 /* ─── Lightweight Analytics / Event Tracking Utility ─── */
 
-type EventName =
+export type EventName =
   | "hero_primary_cta_click"
   | "hero_secondary_cta_click"
   | "hero_cta_click"
@@ -18,7 +18,6 @@ type EventName =
   | "form_submit"
   | "lead_qualified_true"
   | "lead_qualified_false"
-  | "calendly_view"
   | "services_hero_primary_cta_click"
   | "services_hero_secondary_cta_click"
   | "services_plan_select_foundation"
@@ -29,7 +28,8 @@ type EventName =
   | "services_plan_cta_click_scale"
   | "services_plan_expand_scope"
   | "services_compare_expand"
-  | "services_final_cta_click"
+  | "services_final_cta_primary_click"
+  | "services_final_cta_secondary_click"
   | "services_faq_toggle"
   | "services_payment_methods_view"
   | "services_quiz_answer"
@@ -58,8 +58,7 @@ export function trackEvent(name: EventName, options?: TrackOptions) {
   }
 
   // Google Tag Manager dataLayer
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const w = window as any;
+  const w = window as Window & { dataLayer?: Record<string, unknown>[] };
   w.dataLayer = w.dataLayer || [];
   w.dataLayer.push({ event: name, ...options?.data });
 }

@@ -1,6 +1,3 @@
-"use client";
-
-
 import dynamic from "next/dynamic";
 import Hero from "@/components/hero/Hero";
 import LogoLoop from "@/components/hero/LogoLoop";
@@ -18,29 +15,26 @@ const QualificationCTA = dynamic(() => import("@/components/home/QualificationCT
 export default function HomePage() {
   return (
     <>
-      {/* A — Hero (laser WebGL preserved) */}
+      {/* A — Hero */}
       <Hero />
 
-  {/* B — Client Reality: Pain bullets */}
-  <ClientReality />
+      {/* B — Client Reality: Pain bullets */}
+      <ClientReality />
 
-  {/* Whitespace fix: reduce vertical space between pain and system */}
-  <div className="py-8" />
+      <div className="py-8" />
 
-  {/* D — The Growth Architecture: 4 pillars */}
-  <GrowthArchitecture />
-
+      {/* D — The Growth Architecture: 4 pillars */}
+      <GrowthArchitecture />
 
       {/* E — Proof Injection: Featured case study */}
       <FeaturedCaseStudy />
 
-      {/* LogoLoop: Client logos after proof section */}
+      {/* Client logos */}
       <div className="py-8 md:py-12">
-
-  <LogoLoop logos={caseStudyLogos} speed={120} gap={40} logoHeight={40} />
+        <LogoLoop logos={caseStudyLogos} speed={120} gap={40} logoHeight={40} />
       </div>
 
-      {/* F — How We Work: 3-step process */}
+      {/* F — Process: 3-step */}
       <HowWeWork />
 
       {/* G — Differentiation: Comparison table */}

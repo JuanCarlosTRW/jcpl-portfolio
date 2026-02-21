@@ -96,7 +96,7 @@ export default function SpeedPopup() {
         </button>
 
         {/* Eyebrow */}
-        <p className="speed-popup-eyebrow">Our Promise</p>
+        <p className="speed-popup-eyebrow">My Promise</p>
 
         {/* Title */}
         <h2 id="speed-popup-title" className="speed-popup-title">
@@ -108,7 +108,7 @@ export default function SpeedPopup() {
 
         {/* Body text */}
         <p className="speed-popup-body">
-          I respect your time as much as I respect mine. This is why <strong className="speed-popup-highlight">99% of our projects launch within the first week.</strong>
+          I respect your time as much as I respect mine. This is why <strong className="speed-popup-highlight">99% of my projects launch within the first week.</strong>
         </p>
       </div>
     </div>

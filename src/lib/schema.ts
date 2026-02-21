@@ -1,6 +1,6 @@
 import { siteConfig, serviceTiers, systemSteps } from "@/lib/content";
 
-export function generatePersonSchema() {
+export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -23,7 +23,7 @@ export function generateProfessionalServiceSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: `${siteConfig.name} — Growth Systems`,
+    name: `${siteConfig.name}: Growth Systems`,
     url: siteConfig.url,
     description: siteConfig.description,
     provider: {
@@ -77,7 +77,7 @@ export function generateFAQSchema() {
         name: "What types of businesses do you work with?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We primarily work with barbershops, RV rental companies, dental practices, real estate businesses, and other local service businesses.",
+          text: "I primarily work with barbershops, RV rental companies, dental practices, real estate businesses, and other local service businesses.",
         },
       },
       {
@@ -93,7 +93,7 @@ export function generateFAQSchema() {
         name: "What makes Client Growth different from a typical marketing agency?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We own the entire pipeline — from positioning to conversion website to traffic activation to AI automation to booking. No fragmented freelancers. One integrated system, one accountable partner.",
+          text: "I own the entire pipeline: from positioning to conversion website to traffic activation to AI automation to booking. No fragmented freelancers. One integrated system, one accountable partner.",
         },
       },
     ],

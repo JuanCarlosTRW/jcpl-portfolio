@@ -8,7 +8,7 @@ import { Reveal } from "@/components/motion";
 const ROWS = [
   {
     label: "Ownership",
-    fragmented: "5+ vendors — you coordinate everything",
+    fragmented: "5+ vendors, you coordinate everything",
     integrated: "One partner owns the entire pipeline",
   },
   {

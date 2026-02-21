@@ -15,7 +15,7 @@ export default function AboutPrinciples() {
       <AnimatedSection>
         <SectionLabel label="Operating Principles" className="mb-6" />
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">
-          How We Operate
+          How I Operate
         </h2>
       </AnimatedSection>
 

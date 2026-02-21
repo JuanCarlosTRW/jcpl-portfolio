@@ -218,12 +218,12 @@ export const addOns: AddOn[] = [
   {
     name: "Custom integrations",
     descriptor: "Connect your existing tools",
-    prices: ["—", "$149/mo", "Included"],
+    prices: ["-", "$149/mo", "Included"],
   },
   {
     name: "A/B testing",
     descriptor: "Conversion experiments & optimization",
-    prices: ["—", "—", "Included"],
+    prices: ["-", "-", "Included"],
   },
   {
     name: "Additional landing pages",
@@ -262,7 +262,7 @@ export const pricingFaqs: FaqItem[] = [
   {
     question: "Do you offer discounts for annual billing?",
     answer:
-      "Yes, annual commitments receive a 17% discount. This reflects our ability to plan longer-term and deliver compounding results.",
+      "Yes, annual commitments receive a 17% discount. This reflects my ability to plan longer-term and deliver compounding results.",
   },
   {
     question: "What payment methods do you accept?",
