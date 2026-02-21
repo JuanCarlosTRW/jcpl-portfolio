@@ -21,6 +21,8 @@ export default function HomePage() {
       {/* B — Client Reality: Pain bullets */}
       <ClientReality />
 
+      {/* C — Qualification (For You / Not For You) */}
+      <QualificationCTA />
 
       {/* D — The Growth Architecture: 4 pillars */}
       <GrowthArchitecture />
@@ -41,9 +43,6 @@ export default function HomePage() {
 
       {/* FAQ — Objection handling */}
       <FAQSection />
-
-      {/* H — Qualification + Final CTA */}
-      <QualificationCTA />
     </>
   );
 }
