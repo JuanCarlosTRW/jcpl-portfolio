@@ -51,16 +51,7 @@ export default function GrowthArchitecture() {
         <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {growthArchitecture.headline}
         </h2>
-        <div className="mt-5 mb-2">
-          <ScrollVelocity
-            texts={["This is why I built the Growth Architecture™."]}
-            className="text-cg-accent text-[20px] font-semibold"
-            velocity={120}
-            numCopies={4}
-            parallaxClassName="w-full overflow-hidden"
-            scrollerClassName="inline-flex whitespace-nowrap"
-          />
-        </div>
+        {/* Subheadline removed as requested */}
       </Reveal>
 
       <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
