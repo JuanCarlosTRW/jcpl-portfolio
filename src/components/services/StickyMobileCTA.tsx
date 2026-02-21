@@ -61,7 +61,6 @@ export default function StickyMobileCTA() {
               className="sticky-mobile-cta__button"
             >
               {cta}
-              <span className="sticky-mobile-cta__arrow">→</span>
             </Link>
           </div>
         </motion.div>

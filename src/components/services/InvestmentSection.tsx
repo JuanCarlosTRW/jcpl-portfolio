@@ -36,7 +36,7 @@ export default function InvestmentSection() {
           href="/apply"
           className="w-full bg-cg-accent hover:bg-cg-accent-hov text-white rounded-lg py-4 px-6 font-semibold text-base sm:text-lg transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-cg-accent"
         >
-          Apply to See If You Qualify →
+          Apply to See If You Qualify
         </CTAButton>
         <div className="text-cg-body text-xs text-center mt-2 font-medium">
           Short application. I will personally review it within 24 hours.

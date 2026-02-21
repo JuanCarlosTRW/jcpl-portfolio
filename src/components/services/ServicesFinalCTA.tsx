@@ -85,7 +85,7 @@ export default function ServicesFinalCTA() {
                 size="lg"
                 eventName="services_final_cta_primary_click"
               >
-                Apply (2 min) →
+                Apply (2 min)
               </CTAButton>
               <CTAButton
                 href="/results"

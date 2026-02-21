@@ -48,7 +48,7 @@ export default function ProofBlock() {
                   size="sm"
                   eventName="case_card_click"
                 >
-                  View full breakdown →
+                  View full breakdown
                 </CTAButton>
               </div>
             </div>
