@@ -21,7 +21,6 @@ export default function HomePage() {
       {/* B — Client Reality: Pain bullets */}
       <ClientReality />
 
-      <div className="py-8" />
 
       {/* D — The Growth Architecture: 4 pillars */}
       <GrowthArchitecture />
