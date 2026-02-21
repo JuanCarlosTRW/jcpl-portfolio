@@ -108,6 +108,16 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
               View Live Website →
             </button>
           )}
+          {cs.id === "triple-w-rentals" && (
+            <button
+              type="button"
+              disabled
+              className="border border-[rgba(255,255,255,0.15)] text-[#6B8CAE] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium cursor-default"
+              style={{ opacity: 1 }}
+            >
+              Project is still going
+            </button>
+          )}
           {/* Absolute Painting: Case study coming button */}
           {cs.id === "absolute-painting" ? (
             <button
