@@ -8,7 +8,7 @@ import {
   useVelocity,
   useAnimationFrame
 } from 'framer-motion';
-import './ScrollVelocity.css';
+// Removed missing CSS import to fix build error
 
 function useElementWidth(ref: any) {
   const [width, setWidth] = useState(0);
