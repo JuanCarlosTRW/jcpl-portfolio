@@ -1,5 +1,6 @@
 import CaseStudiesSection from "@/components/case-studies/CaseStudiesSection";
 import RotatingText from "@/components/ui/RotatingText";
+import UnicornEmbed from "@/components/ui/UnicornEmbed";
 import { buildMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -55,26 +56,10 @@ export default function ResultsPage() {
 
           {/* UnicornStudio embed */}
           <div className="flex justify-center items-center w-full mt-8 mb-8">
-            <div
-              data-us-project="b84EmKQXVeBLgLd1z0Yn"
-              style={{
-                width: "100%",
-                maxWidth: "700px",
-                aspectRatio: "16/9",
-                height: "auto",
-                borderRadius: "18px",
-                overflow: "hidden",
-                boxShadow: "0 8px 32px rgba(37,99,235,0.10)",
-              }}
-              className="w-full max-w-[700px] aspect-video rounded-2xl overflow-hidden shadow-lg"
-            />
+            <div className="w-full max-w-[700px] aspect-video rounded-2xl overflow-hidden shadow-lg">
+              <UnicornEmbed projectId="b84EmKQXVeBLgLd1z0Yn" />
+            </div>
           </div>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `!function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();`,
-            }}
-          />
         </div>
       </section>
 
