@@ -4,7 +4,7 @@ export default function SpotsLeftSection() {
   return (
     <section className="bg-cg-section-a py-16 md:py-20 text-center">
       <div className="max-w-xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">3 Spots Left This Quarter. One Could Be Yours.</h2>
+  <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">3 Spots Left This Quarter. One Could Be Yours.</h2>
         <p className="text-cg-body text-lg mb-6">
           Every week without a system is pipeline you will not recover. Apply now. If there is a fit, I will reply within 24 hours.
         </p>
