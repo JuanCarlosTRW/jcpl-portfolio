@@ -44,8 +44,7 @@ export default function HomePage() {
       {/* FAQ — Objection handling */}
       <FAQSection />
 
-      {/* Spots Left Section */}
-      {require("@/components/home/SpotsLeftSection").default()}
+  {/* Spots Left Section (only before footer, not here) */}
     </>
   );
 }
