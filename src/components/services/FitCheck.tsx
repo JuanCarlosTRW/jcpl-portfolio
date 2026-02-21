@@ -36,7 +36,7 @@ export default function FitCheck() {
     <SectionWrapper variant="surface" className="bg-[#060D1F] py-20">
       <Reveal className="text-center mb-12">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cg-secondary mb-5">FIT CHECK</p>
-  <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">You Will Know in 60 Seconds If This Is Built for You.</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Is This Right for You?</h2>
       </Reveal>
       <div className="grid gap-7 md:grid-cols-2 max-w-4xl mx-auto">
         <Reveal delay={0.05}>

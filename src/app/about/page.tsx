@@ -22,38 +22,38 @@ export default function AboutPage() {
     <>
       {/* ── Hero: Copy + Portrait (animation untouched) ── */}
       <SectionWrapper className="pt-28 md:pt-36 !pb-10 md:!pb-14">
-        return (
-          <>
-            {/* ── Hero: Copy + Portrait (animation untouched) ── */}
-            <SectionWrapper className="pt-28 md:pt-36 !pb-10 md:!pb-14">
-              <AboutHero />
-            </SectionWrapper>
+        <AboutHero />
+      </SectionWrapper>
 
-            {/* ── Stats Bar (NEW) — replaces MetricsRow, uses aboutTrustStrip */}
-            <SectionWrapper className="!py-6 md:!py-8">
-              <MetricsRow />
-            </SectionWrapper>
+      {/* ── Credibility / Metrics — tight to hero ── */}
+      <SectionWrapper className="!py-6 md:!py-8">
+        <MetricsRow />
+      </SectionWrapper>
 
-            {/* ── How I Built This (NEW) ── */}
-            <AboutHowIBuiltThis />
 
-            {/* ── AdvantageCompare (Fragmented vs Integrated) — moved up */}
-            <SectionWrapper>
-              <AdvantageCompare />
-            </SectionWrapper>
+      {/* Proof of Work section removed as requested */}
 
-            {/* ── Operating Principles (3 cards) — moved below AdvantageCompare */}
-            <SectionWrapper>
-              <Principles />
-            </SectionWrapper>
+      {/* ── How I Built This (NEW) ── */}
+      <AboutHowIBuiltThis />
 
-            {/* ── Divider above Final CTA ── */}
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--border-soft)] to-transparent my-10 md:my-14" aria-hidden="true" />
+      {/* ── Operating Principles (3 cards) ── */}
+      <SectionWrapper>
+        <Principles />
+      </SectionWrapper>
 
-            {/* ── Final CTA ── */}
-            <AboutCTA />
-          </>
-        );
+      {/* ── Working Model Timeline ── */}
+      <SectionWrapper variant="surface">
+        <WorkTimeline />
+      </SectionWrapper>
+
+      {/* ── Philosophy Statement ── */}
+      <SectionWrapper>
+        <PhilosophyBlock />
+      </SectionWrapper>
+
+      {/* ── Integrated vs Fragmented ── */}
+      <SectionWrapper variant="surface">
+        <AdvantageCompare />
       </SectionWrapper>
 
       {/* ── Final CTA ── */}

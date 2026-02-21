@@ -155,7 +155,7 @@ export default function ServiceCard({ tier, index }: Props) {
   return (
     <AnimatedSection delay={0.08 * index}>
       <article
-        className={`service-card border border-transparent transition-all duration-200 hover:border-l-2 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-900/20 ${tier.featured ? "service-card--featured" : ""}`}
+        className={`service-card ${tier.featured ? "service-card--featured" : ""}`}
         aria-labelledby={`service-${tier.name.toLowerCase()}-title`}
       >
         {/* Featured badge */}
