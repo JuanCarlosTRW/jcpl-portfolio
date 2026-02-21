@@ -130,9 +130,14 @@ export default function CaseStudyDetail({
 
               {/* Triple W special ROI callout */}
               {cs.id === "triple-w-rentals" && (
-                <span className="block text-[13px] text-cg-accent font-semibold -mt-5 mb-8">
-                  $900 in ad spend generated $30,000 in revenue.
-                </span>
+                <>
+                  <span className="block text-[13px] text-cg-accent font-semibold -mt-5 mb-2">
+                    $900 in ad spend generated $30,000 in revenue.
+                  </span>
+                  <span className="block text-[13px] text-cg-secondary font-medium mb-8">
+                    Project is still going
+                  </span>
+                </>
               )}
 
               {/* CTA buttons */}
