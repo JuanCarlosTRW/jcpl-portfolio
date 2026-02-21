@@ -18,6 +18,14 @@ export default function HowWeWork() {
       <div className="relative max-w-3xl mx-auto">
         <div className="flex flex-col gap-0">
           {howWeWork.steps.map((step, i) => {
+            let appended = "";
+            if (step.title === "Diagnose") {
+              appended = " Most owners I talk to are losing 20 to 40 leads a month and have no idea.";
+            } else if (step.title === "Build") {
+              appended = " You do nothing except review and approve. I run the whole build.";
+            } else if (step.title === "Scale") {
+              appended = " This is what referrals can never give you: compounding, predictable growth.";
+            }
             return (
               <Reveal key={step.number} delay={0.1 * i}>
                 <div className="group relative flex gap-6 md:gap-8">
@@ -48,7 +56,7 @@ export default function HowWeWork() {
                       </span>
                     </div>
                     <p className="text-[17px] text-cg-secondary leading-[1.8] max-w-lg">
-                      {step.description}
+                      {step.description + appended}
                     </p>
                   </div>
                 </div>

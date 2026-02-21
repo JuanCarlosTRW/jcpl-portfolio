@@ -77,7 +77,7 @@ export default function QualificationCTA() {
         aria-hidden="true"
       />
 
-      <SectionWrapper className="relative z-10">
+      <SectionWrapper className="relative z-10 border-t border-blue-600">
         <div className="max-w-3xl mx-auto">
           {/* Qualification Grid */}
           <Reveal>
@@ -86,7 +86,7 @@ export default function QualificationCTA() {
               <div className="rounded-2xl border border-[rgba(37,99,235,0.25)] bg-cg-card p-7 md:p-8">
                 <h3 className="text-[18px] font-bold text-white mb-5 flex items-center gap-2">
                   <CheckIcon />
-                  This Is for You If…
+                  This Partnership Is Built for One Type of Business Owner.
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (
@@ -120,14 +120,11 @@ export default function QualificationCTA() {
           <div className="text-center">
             <Reveal>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.12] tracking-tight mb-5">
-                Let&apos;s Make Your Business Dominate Your Market.
+                3 Spots Left This Quarter. One Could Be Yours.
               </h2>
 
               <p className="text-cg-body leading-[1.75] mb-10 max-w-lg mx-auto text-[18px]">
-                Every week without a system is revenue you won&apos;t
-                recover. I take on 3 partnerships per quarter.
-                Apply now. If there&apos;s a fit, you&apos;ll hear from me
-                within 24 hours.
+                Every week without a system is pipeline you will not recover. Apply now. If there is a fit, I will reply within 24 hours.
               </p>
             </Reveal>
 

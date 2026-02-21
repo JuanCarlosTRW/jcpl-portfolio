@@ -220,12 +220,13 @@ const LogoLoop = memo(function LogoLoop({
         alt={item.alt || ""}
         draggable={false}
         loading="eager"
-        style={item.style}
+        className="h-10 w-auto object-contain opacity-60 filter brightness-0 invert"
+        style={{ minWidth: 140, ...item.style }}
       />
     );
 
     return (
-      <div key={idx} className="logoloop__item" style={item.style}>
+      <div key={idx} className="logoloop__item" style={{ minWidth: 140, ...item.style }}>
         {item.href ? (
           <a
             href={item.href}

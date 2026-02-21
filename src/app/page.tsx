@@ -21,11 +21,14 @@ export default function HomePage() {
       {/* A — Hero (laser WebGL preserved) */}
       <Hero />
 
-      {/* B — Client Reality: Pain bullets */}
-      <ClientReality />
+  {/* B — Client Reality: Pain bullets */}
+  <ClientReality />
 
-      {/* D — The Growth Architecture: 4 pillars */}
-      <GrowthArchitecture />
+  {/* Whitespace fix: max 160px vertical space between pain and system */}
+  <div className="py-20" />
+
+  {/* D — The Growth Architecture: 4 pillars */}
+  <GrowthArchitecture />
 
 
       {/* E — Proof Injection: Featured case study */}

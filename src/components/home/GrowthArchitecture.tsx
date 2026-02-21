@@ -60,39 +60,40 @@ export default function GrowthArchitecture() {
           return (
             <Reveal key={pillar.id} delay={0.08 * i}>
               <div className="group relative rounded-[14px] bg-cg-card border border-[rgba(255,255,255,0.07)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
-
-                  {/* Icon */}
-                  <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)] text-cg-accent-lt">
-                    {pillarIcons[pillar.id]}
-                  </div>
-
-                  {/* Title + Subtitle */}
-                  <h3 className="text-[18px] font-bold text-white mb-1 leading-snug">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-[13px] text-cg-muted mb-5">
-                    {pillar.subtitle}
-                  </p>
-
-                  {/* Points */}
-                  <ul className="space-y-2.5 mt-auto">
-                    {pillar.points.map((point, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-[16px] text-cg-body leading-[1.75]">
-                        <svg
-                          width="15"
-                          height="15"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          aria-hidden="true"
-                          className="shrink-0 mt-[2px]"
-                        >
-                          <path d="M3.5 7.5l2.5 2.5 4.5-5" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                {/* Icon */}
+                <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)] text-cg-accent-lt">
+                  {pillarIcons[pillar.id]}
                 </div>
+
+                {/* Title + Subtitle */}
+                <h3 className="text-[18px] font-bold text-white mb-1 leading-snug">
+                  {pillar.title}
+                </h3>
+                <p className="text-[13px] text-cg-muted mb-5">
+                  {pillar.id === "optimization"
+                    ? "Better results. Every month. Without touching it yourself."
+                    : pillar.subtitle}
+                </p>
+
+                {/* Points */}
+                <ul className="space-y-2.5 mt-auto">
+                  {pillar.points.map((point, j) => (
+                    <li key={j} className="flex items-start gap-2.5 text-[16px] text-cg-body leading-[1.75]">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden="true"
+                        className="shrink-0 mt-[2px]"
+                      >
+                        <path d="M3.5 7.5l2.5 2.5 4.5-5" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           );
         })}
