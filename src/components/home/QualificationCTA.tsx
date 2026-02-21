@@ -4,6 +4,7 @@ import { qualification, ctaCopy } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CTAButton from "@/components/ui/CTAButton";
 import { Reveal } from "@/components/motion";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 
 function CheckIcon() {
@@ -58,7 +59,7 @@ const trustBadges = [
 
 export default function QualificationCTA() {
   return (
-  <section id="qualify" className="relative overflow-hidden bg-[#060b14] pt-24 pb-24 border-t border-slate-700/40">
+  <section id="qualify" className="relative overflow-hidden bg-[#060b14] pt-24 pb-32 border-t border-slate-700/40 border-b border-slate-700/40">
       {/* Background treatment */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -79,6 +80,16 @@ export default function QualificationCTA() {
 
       <SectionWrapper className="relative z-10 border-t border-blue-600">
         <div className="max-w-3xl mx-auto">
+          {/* Section Header */}
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <SectionLabel label="WHO THIS IS FOR" className="mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              This Partnership Has a Specific Type of Client.
+            </h2>
+            <p className="text-cg-body text-base md:text-lg text-center">
+              Read both sides before applying. I only work with businesses I know I can move the needle for.
+            </p>
+          </div>
           {/* Qualification Grid */}
           <Reveal>
             <div className="grid gap-6 md:grid-cols-2 mb-16">
@@ -105,7 +116,11 @@ export default function QualificationCTA() {
                   This Is Not for You If…
                 </h3>
                 <ul className="space-y-3.5">
-                  {qualification.notForYouIf.map((item, i) => (
+                  {[
+                    "You want a logo, a brochure site, or a one-off project",
+                    "Your business is under $5K/month revenue",
+                    "You're not ready to commit. You want to 'test the waters' with no real system behind it"
+                  ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-[16px] text-cg-secondary leading-[1.7]">
                       <XIcon />
                       {item}
