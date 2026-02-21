@@ -24,8 +24,8 @@ export default function HomePage() {
   {/* B — Client Reality: Pain bullets */}
   <ClientReality />
 
-  {/* Whitespace fix: max 160px vertical space between pain and system */}
-  <div className="py-20" />
+  {/* Whitespace fix: reduce vertical space between pain and system */}
+  <div className="py-8" />
 
   {/* D — The Growth Architecture: 4 pillars */}
   <GrowthArchitecture />

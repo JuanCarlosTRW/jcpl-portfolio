@@ -1,16 +1,18 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { formSteps, isQualifiedLead } from "@/lib/content";
+import { formSteps } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 type FormData = Record<string, string>;
-type FormStatus = "idle" | "submitting" | "qualified" | "nurture";
+type FormStatus = "idle" | "submitting" | "error";
 
 export default function ApplyForm() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<FormData>({});
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -71,21 +73,24 @@ export default function ApplyForm() {
     if (currentStep > 0) setCurrentStep((prev) => prev - 1);
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     setStatus("submitting");
     trackEvent("apply_form_submit");
 
-    // Simulate processing
-    setTimeout(() => {
-      const qualified = isQualifiedLead(formData);
-      if (qualified) {
-        trackEvent("lead_qualified_true");
-        setStatus("qualified");
-      } else {
-        trackEvent("lead_qualified_false");
-        setStatus("nurture");
-      }
-    }, 1500);
+    try {
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
+      trackEvent("form_submit");
+      router.push("/thank-you");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -97,9 +102,8 @@ export default function ApplyForm() {
           <span className="gradient-text">Growth System</span>
         </h1>
         <p className="text-lg text-[var(--text-3)] mb-4">
-          Answer a few quick questions so we can understand your business and
-          goals. If we&apos;re a fit, you&apos;ll be able to book a strategy
-          call right away.
+          Answer a few quick questions so I can understand your business and
+          goals. If it&apos;s a fit, you&apos;ll hear from me within 24 hours.
         </p>
 
         {/* Time + privacy + SLA strip */}
@@ -248,72 +252,34 @@ export default function ApplyForm() {
             </motion.div>
           )}
 
-          {status === "qualified" && (
+          {status === "error" && (
             <motion.div
-              key="qualified"
+              key="error"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="text-center"
             >
-              <div className="gradient-border rounded-2xl bg-[var(--bg-surface)] p-10 md:p-14">
-                <div className="text-5xl mb-4">🎉</div>
-                <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-3">
-                  Great News — You&apos;re a Fit!
-                </h2>
-                <p className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto">
-                  Based on your answers, I believe we can build something
-                  powerful together. Book a free strategy call below to get
-                  started.
+              <div className="rounded-2xl border border-red-500/20 bg-[var(--bg-surface)] p-10 md:p-14">
+                <p className="text-lg font-semibold text-white mb-3">
+                  Something went wrong.
                 </p>
-
-                {/* Calendly embed placeholder */}
-                <div className="rounded-xl bg-white/[0.02] border border-[var(--brand-accent)]/20 p-8 mb-6">
-                  <p className="text-[var(--text-muted)] text-sm mb-4">
-                    Calendly Embed Placeholder
-                  </p>
-                  <a
-                    href="https://calendly.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[var(--brand-deep)] hover:scale-[1.02]"
-                    style={{ boxShadow: 'var(--glow-accent)' }}
-                    onClick={() => trackEvent("calendly_view")}
-                  >
-                    Book Your Strategy Call →
-                  </a>
-                </div>
-
-                <p className="text-xs text-[var(--text-muted)]">
-                  30-minute call • No obligation • 100% free
-                </p>
-              </div>
-            </motion.div>
-          )}
-
-          {status === "nurture" && (
-            <motion.div
-              key="nurture"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center"
-            >
-              <div className="gradient-border rounded-2xl bg-[var(--bg-surface)] p-10 md:p-14">
-                <div className="text-5xl mb-4">📬</div>
-                <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-3">
-                  Thanks for Your Interest!
-                </h2>
                 <p className="text-[var(--text-secondary)] mb-6 max-w-md mx-auto">
-                  Based on your current situation, my services may not be the
-                  best fit right now — but I&apos;d love to stay in touch and
-                  help when the timing is right.
+                  Your application could not be sent. Please email me directly at{" "}
+                  <a
+                    href="mailto:juan@clientgrowth.ca"
+                    className="text-[var(--brand-accent)] underline"
+                  >
+                    juan@clientgrowth.ca
+                  </a>{" "}
+                  and I will get back to you within 24 hours.
                 </p>
-                <p className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto">
-                  I&apos;ll send you actionable growth tips you can
-                  implement today — no spam, just value.
-                </p>
-                <div className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-[var(--border-soft)] px-6 py-3 text-sm text-[var(--brand-accent)]">
-                  ✓ You&apos;re on the list — check your inbox!
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setStatus("idle")}
+                  className="rounded-xl border border-[var(--border-soft)] bg-white/5 px-6 py-3 text-sm font-semibold text-[var(--text-primary)] transition-all hover:bg-white/10"
+                >
+                  Try again
+                </button>
               </div>
             </motion.div>
           )}
