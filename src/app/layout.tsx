@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SpeedPopup from "@/components/SpeedPopup";
 import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
 import RouteScrollManager from "@/components/system/RouteScrollManager";
+import SmoothFollower from "@/components/ui/SmoothFollower";
 import { siteConfig } from "@/lib/content";
 import {
   generatePersonSchema,
@@ -83,6 +84,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <SmoothScrollProvider>
+          <SmoothFollower />
           <RouteScrollManager />
           <Navbar />
           <main id="main-content" className="min-h-screen">{children}</main>
