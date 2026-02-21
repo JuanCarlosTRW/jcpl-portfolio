@@ -19,6 +19,8 @@ export async function POST(req: NextRequest) {
       monthlyRevenue = "",
       leadSource = "",
       adBudget = "",
+      businessName = "",
+      businessWebsite = "",
       goal = "",
       timeline = "",
     } = formData;
@@ -59,6 +61,8 @@ export async function POST(req: NextRequest) {
               ["Monthly revenue", monthlyRevenue],
               ["Lead source", leadSource],
               ["Ad budget", adBudget],
+              ["Business name", businessName],
+              ["Business website", businessWebsite || "—"],
               ["90-day goal", goal],
               ["Timeline", timeline],
             ]
