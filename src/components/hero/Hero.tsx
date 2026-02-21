@@ -1,5 +1,7 @@
 
+
 import UnicornHeroBackground from "./UnicornHeroBackground";
+import BlurText from "./BlurText";
 
 export default function Hero() {
 	return (
@@ -19,21 +21,27 @@ export default function Hero() {
 			{/* Foreground content — z-20, vertically centered */}
 			<div className="absolute inset-0 flex items-center left-12 max-w-lg z-20">
 				<div className="flex flex-col items-start w-full px-6 sm:px-8">
-					{/* Eyebrow */}
-					<div className="flex items-center gap-3 mb-6">
-						<span className="block w-5 h-[2px] bg-cg-accent" />
-						<span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cg-muted">
-							For Service Businesses
-						</span>
-					</div>
-					{/* Headline */}
-					<h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] tracking-[-0.025em] text-white mb-6" style={{ textShadow: "0 2px 40px rgba(0,0,0,0.5)" }}>
-						Your Competitors Are Getting Calls You Should Be Getting.
-					</h1>
-					{/* Subhead */}
-					<p className="text-[17px] text-cg-body leading-[1.65] mb-8 max-w-[36ch]">
-						I build the complete system: conversion website, Google Ads, and AI automation, so your phone rings with buyers who already trust you.
-					</p>
+									{/* Eyebrow, Headline, Subhead with BlurText animation */}
+									<div className="flex flex-col gap-2 mb-6">
+										<BlurText
+											text="For Service Businesses"
+											className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-cg-muted"
+											animateBy="words"
+											delay={60}
+										/>
+										<BlurText
+											text="Your Competitors Are Getting Calls You Should Be Getting."
+											className="text-4xl sm:text-5xl font-extrabold leading-[1.08] tracking-[-0.025em] text-white mb-2"
+											animateBy="words"
+											delay={80}
+										/>
+										<BlurText
+											text="I build the complete system: conversion website, Google Ads, and AI automation, so your phone rings with buyers who already trust you."
+											className="text-[17px] text-cg-body leading-[1.65] mb-2 max-w-[36ch]"
+											animateBy="words"
+											delay={100}
+										/>
+									</div>
 					{/* CTA Block */}
 					<div className="flex flex-col gap-3 w-full sm:flex-row sm:flex-nowrap sm:items-center sm:w-auto mb-5">
 						<a
