@@ -4,6 +4,7 @@ import { servicesHero } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CTAButton from "@/components/ui/CTAButton";
 import { Reveal } from "@/components/motion";
+import TrueFocus from "@/components/ui/TrueFocus";
 
 export default function ServicesHero() {
   return (
@@ -27,9 +28,18 @@ export default function ServicesHero() {
           </Reveal>
 
           <Reveal delay={0.05}>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight mb-6 text-balance max-w-2xl mx-auto">
-              Turn Inconsistent Leads Into<br className="hidden md:block" /> a Predictable Booking System.
-            </h1>
+            <div className="mb-6">
+              <TrueFocus
+                sentence="Turn Inconsistent Leads Into a Predictable Booking System."
+                separator=" "
+                manualMode={false}
+                blurAmount={5}
+                borderColor="#2563EB"
+                glowColor="rgba(37,99,235,0.6)"
+                animationDuration={0.5}
+                pauseBetweenAnimations={1}
+              />
+            </div>
           </Reveal>
 
           <Reveal delay={0.1}>
