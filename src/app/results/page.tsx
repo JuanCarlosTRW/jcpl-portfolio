@@ -1,4 +1,5 @@
 import CaseStudiesSection from "@/components/case-studies/CaseStudiesSection";
+import RotatingText from "@/components/ui/RotatingText";
 import { buildMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -43,7 +44,13 @@ export default function ResultsPage() {
             REAL RESULTS
           </span>
           <h1 className="text-[clamp(36px,5vw,56px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.025em]">
-            Systems That Shipped.
+            Systems That{' '}
+            <RotatingText
+              texts={["Shipped", "Worked", "Dominated"]}
+              rotationInterval={2000}
+              mainClassName="inline-block text-cg-accent-lt"
+            />
+            .
           </h1>
           <p className="text-[18px] text-[#D4DFF0] leading-[1.7] max-w-[640px] mx-auto mt-3">
             Every client. Every result. Independently verifiable.

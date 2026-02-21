@@ -1,0 +1,22 @@
+.text-rotate {
+  display: inline-block;
+  position: relative;
+}
+.text-rotate-word {
+  display: inline-block;
+}
+.text-rotate-element {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.text-rotate-space {
+  display: inline-block;
+}
+.text-rotate-sr-only {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
