@@ -29,22 +29,9 @@ export default function ServicesHero() {
           </Reveal>
 
           <Reveal delay={0.05}>
-            <div className="mb-6">
-              <TextType
-                text="Turn Inconsistent Leads Into a Predictable Booking System."
-                as="h1"
-                typingSpeed={38}
-                deletingSpeed={24}
-                pauseDuration={1800}
-                loop={false}
-                showCursor={true}
-                className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight text-balance max-w-2xl mx-auto"
-                cursorClassName=""
-                cursorCharacter="|"
-                variableSpeed={undefined}
-                onSentenceComplete={undefined}
-              />
-            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight text-balance max-w-2xl mx-auto mb-6">
+              Someone Is Searching for You Right Now.
+            </h1>
           </Reveal>
 
           <Reveal delay={0.1}>
