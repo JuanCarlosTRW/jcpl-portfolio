@@ -11,21 +11,8 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold text-white">
               Client Growth
             </Link>
-            <p className="text-[15px] text-cg-secondary max-w-[280px] leading-[1.65]">
-              One partner. One system. Qualified calls on autopilot.
-            </p>
-            <a
-              href="https://www.linkedin.com/company/clientgrowth"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[13px] text-cg-secondary hover:text-white transition-colors duration-150"
-              aria-label="Client Growth on LinkedIn"
-            >
-              <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4" aria-hidden="true">
-                <path d="M16.667 2H3.333A1.333 1.333 0 002 3.333v13.334A1.333 1.333 0 003.333 18h13.334A1.333 1.333 0 0018 16.667V3.333A1.333 1.333 0 0016.667 2zM7 15H4.667V8H7v7zM5.833 6.833a1.167 1.167 0 110-2.333 1.167 1.167 0 010 2.333zM15.333 15H13V11.5c0-.828-.672-1.5-1.5-1.5s-1.5.672-1.5 1.5V15H7.667V8H10v1.017C10.488 8.39 11.22 8 12.167 8c1.84 0 3.166 1.343 3.166 3.167V15z"/>
-              </svg>
-              LinkedIn
-            </a>
+            {/* Tagline removed as requested */}
+            {/* LinkedIn link removed as requested */}
           </div>
 
           {/* Navigation */}
@@ -71,10 +58,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:hello@clientgrowth.ca"
+                  href="mailto:juan@clientgrowth.ca"
                   className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-cg-accent-lt"
                 >
-                  hello@clientgrowth.ca
+                  juan@clientgrowth.ca
                 </a>
               </li>
             </ul>
