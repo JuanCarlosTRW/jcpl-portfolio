@@ -70,7 +70,7 @@ export default function FeaturedCaseStudy() {
 
             {/* Callout */}
             <span className="block text-[14px] text-cg-accent-lt font-semibold mt-0 mb-7 relative z-10">
-              $900 in. $30,000 out. In one month.
+              For every $1 we put into ads, we got $33 in return
             </span>
 
             {/* CTA */}

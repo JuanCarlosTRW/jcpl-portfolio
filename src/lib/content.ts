@@ -168,8 +168,8 @@ export const growthArchitecture = {
   pillars: [
     {
       id: "authority",
-      title: "Authority Layer",
-      subtitle: "Be the first name they find. Be the only one they trust.",
+  title: "Show Up First. Own the Search.",
+  subtitle: "I position you on Google and AI tools like ChatGPT at the exact moment buyers in your city are ready to call, before your competitors even know you exist.",
       points: [
         "Conversion-engineered website",
         "SEO and AI search (GEO) optimization",
@@ -179,8 +179,8 @@ export const growthArchitecture = {
     },
     {
       id: "conversion",
-      title: "Conversion Layer",
-      subtitle: "Turn every visit into a booked call.",
+  title: "Turn More Visitors Into Booked Calls.",
+  subtitle: "Most websites lose 95% of their visitors. I build a frictionless booking system that uses trust signals and AI qualification to convert the ones already convinced.",
       points: [
         "Trust signals and social proof",
         "Frictionless booking flow",
@@ -190,8 +190,8 @@ export const growthArchitecture = {
     },
     {
       id: "acquisition",
-      title: "Acquisition Layer",
-      subtitle: "Get in front of buyers, not browsers.",
+  title: "Get in Front of People Ready to Buy Right Now.",
+  subtitle: "I run Google Ads targeting buyers with purchase intent, not browsers. Every dollar tracked. Every keyword chosen because it brings in people ready to call, not just browse.",
       points: [
         "Google Ads with intent targeting",
         "Retargeting and follow-up sequences",
@@ -201,8 +201,8 @@ export const growthArchitecture = {
     },
     {
       id: "optimization",
-      title: "Optimization Layer",
-      subtitle: "Better results every single month. Exposed.",
+  title: "Your Results Get Better Every Single Month.",
+  subtitle: "I look at the numbers every month and tighten what is not working. Lower cost per lead. Higher conversion. The system compounds so you get more calls with less spend over time.",
       points: [
         "Conversion rate optimization",
         "Cost per lead reduction",
@@ -227,7 +227,7 @@ export const featuredCase = {
     { metric: "33x", label: "RETURN ON AD SPEND" },
     { metric: "30", label: "DAYS TO RESULTS" }
   ],
-  callout: "$900 in. $30,000 out. In one month.",
+  callout: "For every $1 we put into ads, we got $33 in return",
   cta: "View All Results →",
 };
 
