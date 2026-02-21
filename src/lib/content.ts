@@ -168,45 +168,44 @@ export const growthArchitecture = {
   pillars: [
     {
       id: "authority",
-  title: "Show Up First. Own the Search.",
-  subtitle: "I position you on Google and AI tools like ChatGPT at the exact moment buyers in your city are ready to call, before your competitors even know you exist.",
+      title: "Show Up First. Own the Search.",
+      subtitle: "I position you on Google and AI tools like ChatGPT at the exact moment buyers in your city are ready to call, before your competitors even know this exists, leaving you the full field to dominate.",
       points: [
-        "Conversion-engineered website",
-        "SEO and AI search (GEO) optimization",
-        "Professional positioning and copy"
+        "A website that makes you the obvious choice",
+        "SEO and GEO (AI search) so you rank above competitors",
+        "Copy written to dominate your local market"
       ],
       accent: "violet"
     },
     {
       id: "conversion",
-  title: "Turn More Visitors Into Booked Calls.",
-  subtitle: "Most websites lose 95% of their visitors. I build a frictionless booking system that uses trust signals and AI qualification to convert the ones already convinced.",
+      title: "Turn More Visitors Into Booked Calls.",
+      subtitle: "Most websites lose 95% of their visitors. I build a booking system that turns people already interested into calls already booked, without you even needing to lift a finger.",
       points: [
-        "Trust signals and social proof",
-        "Frictionless booking flow",
-        "AI qualification chatbot"
+        "Trust signals that kill hesitation instantly",
+        "A booking flow that fills your calendar",
+        "AI that qualifies leads before they reach you"
       ],
       accent: "cyan"
     },
     {
       id: "acquisition",
-  title: "Get in Front of People Ready to Buy Right Now.",
-  subtitle: "I run Google Ads targeting buyers with purchase intent, not browsers. Every dollar tracked. Every keyword chosen because it brings in people ready to call, not just browse.",
+      title: "Get in Front of People Ready to Buy Right Now.",
+      subtitle: "I run Google Ads targeting buyers with purchase intent, not browsers. Every campaign built around one goal: more calls from people ready to hire you today.",
       points: [
-        "Google Ads with intent targeting",
-        "Retargeting and follow-up sequences",
-        "Landing pages per service and location"
+        "Ads that target buyers, not window shoppers",
+        "Dedicated pages per service and city you want to own"
       ],
       accent: "violet"
     },
     {
       id: "optimization",
-  title: "Your Results Get Better Every Single Month.",
-  subtitle: "I look at the numbers every month and tighten what is not working. Lower cost per lead. Higher conversion. The system compounds so you get more calls with less spend over time.",
+      title: "Your Results Get Better Every Single Week.",
+      subtitle: "I look at the numbers every week and cut what is not working. Lower cost per lead. More calls. The system compounds so you pull further ahead of your competition over time.",
       points: [
-        "Conversion rate optimization",
-        "Cost per lead reduction",
-        "Monthly reporting and scaling"
+        "Conversion improvements every single month",
+        "Your cost per lead goes down, not up",
+        "You see exactly what is working and what changed"
       ],
       accent: "cyan"
     }
