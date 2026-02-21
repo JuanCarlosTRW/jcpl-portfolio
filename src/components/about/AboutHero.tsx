@@ -69,7 +69,7 @@ export default function AboutHero() {
           {/* Mechanism lines */}
           <div className="space-y-1 mb-6 max-w-[52ch]">
             <p className="text-cg-body text-[0.9rem] md:text-[0.95rem] leading-relaxed">
-              Most business owners I talk to are great at what they do. They just never built the infrastructure to let people find them. That is the gap I close. Website, ads, SEO, GEO, automation — designed as one system so the right clients reach you first, already convinced you are the right choice.
+              Most business owners I talk to are great at what they do. They just never built the infrastructure to let people find them. That is the gap I close. Website, ads, SEO, GEO, automation: designed as one system so the right clients reach you first, already convinced you are the right choice.
             </p>
           </div>
 

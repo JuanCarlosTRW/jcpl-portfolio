@@ -22,38 +22,38 @@ export default function AboutPage() {
     <>
       {/* ── Hero: Copy + Portrait (animation untouched) ── */}
       <SectionWrapper className="pt-28 md:pt-36 !pb-10 md:!pb-14">
-        <AboutHero />
-      </SectionWrapper>
+        return (
+          <>
+            {/* ── Hero: Copy + Portrait (animation untouched) ── */}
+            <SectionWrapper className="pt-28 md:pt-36 !pb-10 md:!pb-14">
+              <AboutHero />
+            </SectionWrapper>
 
-      {/* ── Credibility / Metrics — tight to hero ── */}
-      <SectionWrapper className="!py-6 md:!py-8">
-        <MetricsRow />
-      </SectionWrapper>
+            {/* ── Stats Bar (NEW) — replaces MetricsRow, uses aboutTrustStrip */}
+            <SectionWrapper className="!py-6 md:!py-8">
+              <MetricsRow />
+            </SectionWrapper>
 
+            {/* ── How I Built This (NEW) ── */}
+            <AboutHowIBuiltThis />
 
-      {/* Proof of Work section removed as requested */}
+            {/* ── AdvantageCompare (Fragmented vs Integrated) — moved up */}
+            <SectionWrapper>
+              <AdvantageCompare />
+            </SectionWrapper>
 
-      {/* ── How I Built This (NEW) ── */}
-      <AboutHowIBuiltThis />
+            {/* ── Operating Principles (3 cards) — moved below AdvantageCompare */}
+            <SectionWrapper>
+              <Principles />
+            </SectionWrapper>
 
-      {/* ── Operating Principles (3 cards) ── */}
-      <SectionWrapper>
-        <Principles />
-      </SectionWrapper>
+            {/* ── Divider above Final CTA ── */}
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--border-soft)] to-transparent my-10 md:my-14" aria-hidden="true" />
 
-      {/* ── Working Model Timeline ── */}
-      <SectionWrapper variant="surface">
-        <WorkTimeline />
-      </SectionWrapper>
-
-      {/* ── Philosophy Statement ── */}
-      <SectionWrapper>
-        <PhilosophyBlock />
-      </SectionWrapper>
-
-      {/* ── Integrated vs Fragmented ── */}
-      <SectionWrapper variant="surface">
-        <AdvantageCompare />
+            {/* ── Final CTA ── */}
+            <AboutCTA />
+          </>
+        );
       </SectionWrapper>
 
       {/* ── Final CTA ── */}
