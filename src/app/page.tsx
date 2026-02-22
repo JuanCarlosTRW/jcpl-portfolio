@@ -18,11 +18,11 @@ export default function HomePage() {
       {/* A — Hero */}
       <Hero />
 
-  {/* B — Client Reality: Pain bullets */}
-  <ClientReality />
-  <div className="h-px bg-slate-700/40 w-full" />
-  {/* C — Qualification (For You / Not For You) */}
-  <QualificationCTA />
+      {/* B — Client Reality: Pain bullets */}
+      <ClientReality />
+      <div className="h-px bg-slate-700/40 w-full" />
+      {/* C — Qualification (For You / Not For You) */}
+      <QualificationCTA />
 
       {/* D — The Growth Architecture: 4 pillars */}
       <GrowthArchitecture />
@@ -44,7 +44,8 @@ export default function HomePage() {
       {/* FAQ — Objection handling */}
       <FAQSection />
 
-  {/* Spots Left Section (only before footer, not here) */}
+      {/* Spots Left Section — now at the end before footer */}
+      {require("@/components/home/SpotsLeftSection").default()}
     </>
   );
 }
