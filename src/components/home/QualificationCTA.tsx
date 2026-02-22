@@ -97,7 +97,7 @@ export default function QualificationCTA() {
               <div className="rounded-2xl border border-[rgba(37,99,235,0.25)] bg-cg-card p-7 md:p-8">
                 <h3 className="text-[18px] font-bold text-white mb-5 flex items-center gap-2">
                   <CheckIcon />
-                  This Partnership Is Built for One Type of Business Owner.
+                  You Do Good Work. Your Calendar Should Reflect That.
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (
@@ -113,7 +113,7 @@ export default function QualificationCTA() {
               <div className="rounded-2xl border border-[rgba(239,68,68,0.25)] bg-cg-card p-7 md:p-8">
                 <h3 className="text-[18px] font-bold text-white mb-5 flex items-center gap-2">
                   <XIcon />
-                  This Is Not for You If…
+                  This Is Not the Right Fit If:
                 </h3>
                 <ul className="space-y-3.5">
                   {[
