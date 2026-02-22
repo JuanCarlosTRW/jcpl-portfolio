@@ -59,7 +59,7 @@ const trustBadges = [
 
 export default function QualificationCTA() {
   return (
-  <section id="qualify" className="relative overflow-hidden bg-[#060b14] pt-24 pb-32 border-t border-slate-700/40 border-b border-slate-700/40">
+  <section id="qualify" className="relative overflow-hidden bg-[#060b14] pt-24 pb-32 border-b border-slate-700/40">
       {/* Background treatment */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -78,7 +78,7 @@ export default function QualificationCTA() {
         aria-hidden="true"
       />
 
-      <SectionWrapper className="relative z-10 border-t border-blue-600">
+  <SectionWrapper className="relative z-10">
         <div className="max-w-3xl mx-auto">
           {/* Section Header */}
           <div className="max-w-2xl mx-auto text-center mb-12">
@@ -131,53 +131,6 @@ export default function QualificationCTA() {
             </div>
           </Reveal>
 
-          {/* Final CTA Block */}
-          <div className="text-center">
-            <Reveal>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.12] tracking-tight mb-5">
-                3 Spots Left This Quarter. One Could Be Yours.
-              </h2>
-
-              <p className="text-cg-body leading-[1.75] mb-10 max-w-lg mx-auto text-[18px]">
-                Every week without a system is pipeline you will not recover. Apply now. If there is a fit, I will reply within 24 hours.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                <CTAButton
-                  href={ctaCopy.href}
-                  size="lg"
-                  eventName="final_cta_primary_click"
-                >
-                  {ctaCopy.primary}
-                </CTAButton>
-                <CTAButton
-                  href="/results"
-                  variant="secondary"
-                  size="md"
-                  eventName="final_cta_secondary_click"
-                >
-                  {ctaCopy.secondary}
-                </CTAButton>
-              </div>
-            </Reveal>
-
-            {/* Micro-proof strip — SVG icons */}
-            <Reveal delay={0.2}>
-              <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 mt-5">
-                {trustBadges.map(({ Icon, text }) => (
-                  <span
-                    key={text}
-                    className="inline-flex items-center gap-1.5 text-[14px] text-cg-secondary"
-                  >
-                    <Icon />
-                    {text}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          </div>
         </div>
       </SectionWrapper>
     </section>
