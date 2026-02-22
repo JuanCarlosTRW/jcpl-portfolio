@@ -186,7 +186,7 @@ export default function CaseStudyDetail({
       </div>
 
       {/* ═══ SECTION B — THE SITUATION ═══ */}
-      <section className="bg-cg-section-b py-20 border-t border-[rgba(37,99,235,0.06)]">
+  <section className="bg-cg-section-b py-16 border-t border-[rgba(37,99,235,0.06)]">
         <div className="max-w-[760px] mx-auto px-6">
           <span className="block text-[10px] uppercase tracking-[0.15em] text-cg-secondary mb-4">
             THE SITUATION
@@ -204,7 +204,7 @@ export default function CaseStudyDetail({
 
       {/* ═══ SECTION C — WHAT WAS BUILT ═══ */}
       {cs.deliverables && cs.deliverables.length > 0 && (
-        <section className="bg-cg-section-a py-20">
+  <section className="bg-cg-section-a py-16">
           <div className="max-w-[760px] mx-auto px-6">
             <span className="block text-[10px] uppercase tracking-[0.15em] text-cg-secondary mb-4">
               THE BUILD
@@ -233,7 +233,7 @@ export default function CaseStudyDetail({
 
       {/* ═══ IN PROGRESS CALLOUT (replaces metrics when inProgress) ═══ */}
       {cs.inProgress && (
-        <section className="bg-cg-section-b py-20 border-t border-[rgba(37,99,235,0.06)]">
+  <section className="bg-cg-section-b py-16 border-t border-[rgba(37,99,235,0.06)]">
           <div className="max-w-[760px] mx-auto px-6">
             <div className="bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.12)] rounded-xl p-8 text-center">
               <div className="flex justify-center mb-4">
@@ -256,7 +256,7 @@ export default function CaseStudyDetail({
       {!cs.inProgress && cs.metricsImageUrl && (
         <section
           id="metrics-section"
-          className="bg-cg-section-b py-20 border-t border-[rgba(37,99,235,0.06)]"
+          className="bg-cg-section-b py-16 border-t border-[rgba(37,99,235,0.06)]"
         >
           <div className="max-w-[900px] mx-auto px-6">
             <span className="block text-[10px] uppercase tracking-[0.15em] text-cg-secondary mb-4">

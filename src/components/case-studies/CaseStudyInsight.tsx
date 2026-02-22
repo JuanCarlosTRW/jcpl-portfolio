@@ -5,7 +5,7 @@ export default function CaseStudyInsight({ study }: { study: CaseStudy }) {
   const { insight } = study;
   return (
     <section
-      className="py-20 md:py-28 px-6 border-t border-white/[0.06]"
+  className="py-16 md:py-28 px-6 border-t border-white/[0.06]"
       style={{ background: "#0E0E0F" }}
     >
       <div className="max-w-3xl mx-auto text-center">

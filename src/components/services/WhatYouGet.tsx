@@ -79,7 +79,7 @@ const services = [
 
 export default function WhatYouGet() {
   return (
-    <SectionWrapper variant="surface" className="bg-[#0A1628] py-20">
+  <SectionWrapper variant="surface" className="bg-[#0A1628] py-16">
       <Reveal className="text-center mb-12">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cg-secondary mb-5">WHAT'S INCLUDED</p>
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">Everything Your Business Needs<br />to Dominate Online.</h2>

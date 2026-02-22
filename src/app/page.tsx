@@ -20,7 +20,7 @@ export default function HomePage() {
 
       {/* B — Client Reality: Pain bullets */}
       <ClientReality />
-      <div className="h-px bg-slate-700/40 w-full" />
+  {/* Removed explicit spacer div for tighter section flow */}
       {/* C — Qualification (For You / Not For You) */}
       <QualificationCTA />
 

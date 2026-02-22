@@ -33,7 +33,7 @@ const notFor = [
 
 export default function FitCheck() {
   return (
-    <SectionWrapper variant="surface" className="bg-[#060D1F] py-20">
+  <SectionWrapper variant="surface" className="bg-[#060D1F] py-16">
       <Reveal className="text-center mb-12">
   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cg-secondary mb-5">FIT CHECK</p>
   <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">You Will Know in 60 Seconds If This Is Built for You.</h2>

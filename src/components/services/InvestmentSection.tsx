@@ -3,7 +3,7 @@ import CTAButton from "@/components/ui/CTAButton";
 
 export default function InvestmentSection() {
   return (
-    <SectionWrapper variant="surface" className="bg-cg-section-a py-16 sm:py-20">
+  <SectionWrapper variant="surface" className="bg-cg-section-a py-16">
       <div className="text-center mb-8">
         <div className="uppercase text-cg-secondary tracking-[0.1em] text-[0.75rem] font-semibold mb-3">INVESTMENT</div>
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">What Does $2,500 Buy You?</h2>

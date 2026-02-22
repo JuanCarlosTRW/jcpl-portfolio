@@ -6,7 +6,7 @@ import { aboutHowIBuiltThis } from "@/lib/content";
 
 export default function AboutHowIBuiltThis() {
   return (
-    <div className="w-full bg-[#0A1628] py-16 md:py-20">
+  <div className="w-full bg-[#0A1628] py-16">
       <AnimatedSection className="max-w-2xl mx-auto text-left">
         <SectionLabel label={aboutHowIBuiltThis.overline} className="mb-4" />
         <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-6 whitespace-pre-line">

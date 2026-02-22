@@ -5,7 +5,7 @@ import type { CaseStudy } from "@/lib/caseStudiesContent";
 export default function CaseStudyFinalCTA({ study }: { study: CaseStudy }) {
   return (
     <section
-      className="py-24 md:py-36 px-6 border-t border-white/[0.06] relative overflow-hidden"
+  className="py-20 px-6 border-t border-white/[0.06] relative overflow-hidden"
       style={{ background: "#080809" }}
     >
       {/* Radial glow */}

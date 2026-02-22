@@ -4,7 +4,7 @@ import type { CaseStudy } from "@/lib/caseStudiesContent";
 export default function CaseStudyArchitecture({ study }: { study: CaseStudy }) {
   const { architecture } = study;
   return (
-    <section className="py-20 md:py-28 px-6 border-t border-white/[0.06]" style={{ background: "#0E0E0F" }}>
+  <section className="py-16 md:py-28 px-6 border-t border-white/[0.06]" style={{ background: "#0E0E0F" }}>
       <div className="max-w-5xl mx-auto">
         <span className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--brand-accent)] mb-4 block">
           03 / Growth Architecture

@@ -66,7 +66,7 @@ export default function CaseStudyResults({ study }: { study: CaseStudy }) {
 
   return (
     <section
-      className="py-20 md:py-28 px-6 border-t border-white/[0.06]"
+  className="py-16 md:py-28 px-6 border-t border-white/[0.06]"
       style={{
         background: "linear-gradient(180deg, #0E0E0F 0%, #111113 100%)",
       }}
