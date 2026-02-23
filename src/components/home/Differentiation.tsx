@@ -115,6 +115,13 @@ export default function Differentiation() {
           </Reveal>
         ))}
       </div>
+
+      {/* Operational footnote */}
+      <Reveal delay={0.2}>
+        <p className="text-xs text-slate-500 text-center mt-6 max-w-2xl mx-auto">
+          Average agency onboarding takes 6 to 8 weeks. My median build time is 11 days from signed agreement to live system.
+        </p>
+      </Reveal>
     </SectionWrapper>
   );
 }

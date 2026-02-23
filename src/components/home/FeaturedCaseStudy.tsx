@@ -70,7 +70,7 @@ export default function FeaturedCaseStudy() {
 
             {/* Callout */}
             <span className="block text-[14px] text-cg-accent-lt font-semibold mt-0 mb-7 relative z-10">
-              For every $1 we put into ads, we got $33 in return
+              {featuredCase.callout}
             </span>
 
             {/* CTA */}
@@ -81,6 +81,43 @@ export default function FeaturedCaseStudy() {
               View All Results →
             </Link>
           </div>
+        </div>
+      </Reveal>
+
+      {/* Micro-case strips */}
+      <Reveal delay={0.2}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto">
+          {[
+            {
+              label: "Local SEO",
+              metric: "Page 1",
+              description: "Ranking achieved in under 60 days for primary service keyword in a competitive Texas market.",
+              business: "Painting contractor",
+            },
+            {
+              label: "Cost Per Lead",
+              metric: "$27",
+              description: "Average cost per qualified inbound call across active Google Ads accounts.",
+              business: "Measured Q4 2025",
+            },
+            {
+              label: "Time to Results",
+              metric: "11 days",
+              description: "Median time from campaign launch to first booked call across all client accounts.",
+              business: "All niches combined",
+            },
+          ].map(({ label, metric, description, business }) => (
+            <div key={label} className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-400 mb-2">
+                {label}
+              </p>
+              <p className="text-3xl font-bold text-white">{metric}</p>
+              <p className="text-sm text-slate-400 mt-2">{description}</p>
+              <p className="text-xs text-slate-500 mt-4 font-medium uppercase tracking-wide">
+                {business}
+              </p>
+            </div>
+          ))}
         </div>
       </Reveal>
     </SectionWrapper>

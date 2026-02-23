@@ -119,8 +119,8 @@ export const clientReality = {
   pains: [
     {
       icon: "ghost",
-      title: "Someone Is Searching for You Right Now.",
-      detail: "They typed exactly what you do into Google. A competitor showed up. You didn't. That call is gone. And it happens dozens of times a month."
+      title: "Right Now, 3 to 8 People in Your City Are Searching Your Exact Service.",
+      detail: "None of them will find you. Not because your work is worse. Because your digital infrastructure does not exist where they are looking. Google, AI search, maps. Your competitor is there. You are not. That call is gone before you knew it existed."
     },
     {
       icon: "leak",
@@ -130,7 +130,7 @@ export const clientReality = {
     {
       icon: "clock",
       title: "You're Doing Marketing on Top of Everything Else.",
-      detail: "You built a business because you're great at what you do, not because you wanted to manage ads, update websites, and figure out SEO. That's not where your energy should go."
+      detail: "Every hour you spend on marketing is an hour you are not doing the work you charge for. DIY marketing costs more than it saves. And it still does not compound."
     },
     {
       icon: "scatter",
@@ -164,7 +164,7 @@ export const strategicGap = {
 export const growthArchitecture = {
   label: "THE SYSTEM",
   headline: "The Growth Architecture™",
-  subheadline: "Not a website. Not just ads. One complete system, built so your phone rings with people already convinced you're the right choice.",
+  subheadline: "Four integrated layers. Each one makes the others stronger. Positioning, search visibility, paid acquisition, and weekly optimization. Built as one connected system in 2 to 4 weeks.",
   pillars: [
     {
       id: "authority",
@@ -226,7 +226,7 @@ export const featuredCase = {
     { metric: "33x", label: "RETURN ON AD SPEND" },
     { metric: "30", label: "DAYS TO RESULTS" }
   ],
-  callout: "For every $1 we put into ads, we got $33 in return",
+  callout: "Every $1 in ad spend returned $33 in revenue.",
   cta: "View All Results →",
 };
 
@@ -238,19 +238,19 @@ export const howWeWork = {
     {
       number: "01",
       title: "Diagnose",
-      description: "I audit your online presence, identify exactly where clients are slipping away, and map out the full system before a single line of code gets written. You'll know the plan before I start.",
+      description: "I run a full acquisition audit: where your traffic is leaking, what your competitors rank for that you do not, what your current site converts at, and what a realistic cost per lead looks like in your market. You receive a written growth map before I touch a single file.",
       duration: "Week 1"
     },
     {
       number: "02",
       title: "Build",
-      description: "Website, Google Ads, AI automation, booking flow. Built as one system, not a stack of disconnected tools. Fast. Clean. No handoffs. I own the whole thing.",
+      description: "Website rebuild or conversion overhaul, Google Ads campaign architecture, GEO content for AI search visibility, booking flow, and AI lead qualification. Built as connected infrastructure. You review and approve. I run the build.",
       duration: "Weeks 2 to 4"
     },
     {
       number: "03",
       title: "Scale",
-      description: "Every month I look at the numbers and tighten the system. Lower cost per lead. Better conversion. More revenue, with less and less effort on your end. That's the point.",
+      description: "Every week I review conversion data, ad performance, and search position. I cut what is not working and double what is. The system compounds. Your cost per lead goes down every month it runs.",
       duration: "Ongoing"
     }
   ],
@@ -259,8 +259,8 @@ export const howWeWork = {
 /* ─── Section G: Differentiation ─── */
 export const differentiation = {
   label: "THE DIFFERENCE",
-  headline: "This Isn't an Agency. It's a Partnership.",
-  subheadline: "Agencies sell deliverables and move on. I measure my success by whether your phone rings.",
+  headline: "Most Agencies Optimize for Hours Billed. I Optimize for Calls Booked.",
+  subheadline: "An agency delivers the project and invoices. I measure success by one number: qualified calls on your calendar. If that number does not grow, I have not done my job.",
   comparisons: [
     { dimension: "Ownership", them: "5+ vendors, no single owner", us: "One partner owns the entire pipeline" },
     { dimension: "Speed", them: "8 to 12 weeks, constant delays", us: "2 to 4 weeks, unified execution" },
@@ -317,7 +317,7 @@ export const servicesHero = {
   label: "Growth Systems for Service Businesses",
   headline: "Turn inconsistent leads into a predictable booking system.",
   subheadline:
-    "Positioning + conversion architecture + acquisition — engineered as a system.",
+    "Positioning + conversion architecture + acquisition, engineered as a system.",
   primaryCTA: "Apply for Growth Partnership",
   secondaryCTA: "View Results",
   trustItems: [

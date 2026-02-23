@@ -48,21 +48,32 @@ export default function ClientReality() {
         </h2>
       </Reveal>
 
-      <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
-        {clientReality.pains.map((pain, i) => (
-          <Reveal key={pain.icon} delay={0.08 * i}>
+      {/* Card 1 — full width, featured treatment */}
+      <Reveal className="max-w-4xl mx-auto mb-5">
+        <div className="group relative rounded-[14px] border border-[rgba(255,255,255,0.07)] bg-cg-card p-10 transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px] lg:border-r-4 lg:border-r-blue-500/30">
+          <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)]">
+            {icons[clientReality.pains[0].icon]}
+          </div>
+          <h3 className="text-2xl font-bold text-white mb-2 leading-snug">
+            {clientReality.pains[0].title}
+          </h3>
+          <p className="text-[16px] text-cg-secondary leading-[1.75] max-w-2xl">
+            {clientReality.pains[0].detail}
+          </p>
+        </div>
+      </Reveal>
+
+      {/* Cards 2-4 — 3-col on desktop, 2-col on tablet */}
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+        {clientReality.pains.slice(1).map((pain, i) => (
+          <Reveal key={pain.icon} delay={0.08 * (i + 1)}>
             <div className="group relative rounded-[14px] border border-[rgba(255,255,255,0.07)] bg-cg-card p-7 md:p-8 h-full transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
-              {/* Icon */}
               <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)]">
                 {icons[pain.icon]}
               </div>
-
-              {/* Title */}
               <h3 className="text-[18px] font-bold text-white mb-2 leading-snug">
                 {pain.title}
               </h3>
-
-              {/* Detail */}
               <p className="text-[16px] text-cg-secondary leading-[1.75]">
                 {pain.detail}
               </p>

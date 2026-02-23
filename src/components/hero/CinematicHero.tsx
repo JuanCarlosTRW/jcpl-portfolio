@@ -149,44 +149,83 @@ function HookLayer() {
    LAYER 3 — Services Universe
    ══════════════════════════════════════════════════════════ */
 
-function ServicesLayer() {
+function ProofArtifact() {
   return (
-    <div className="max-w-5xl mx-auto px-6 text-center">
-      <p
-        className="services-title text-xs font-medium tracking-[0.3em] uppercase text-[rgba(255,255,255,0.35)] mb-10"
-      >
-        What I Build
+    <div className="rounded-2xl bg-slate-800/60 backdrop-blur border-l-2 border-blue-500 border border-slate-700/60 p-7">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-400 mb-4">
+        Live Result
+      </p>
+      <p className="text-4xl font-bold text-white mb-2">$30,000</p>
+      <p className="text-sm text-slate-300 mb-6">
+        Revenue generated. 30 days. $900 ad spend.
       </p>
 
-      <div className="services-grid">
-        {services.map((s) => (
-          <div key={s.title} className="service-card">
-            <span className="service-card-icon text-[var(--brand-alt)]">
-              <Icon name={s.icon} size={24} />
-            </span>
-            <h3 className="service-card-title">{s.title}</h3>
-            <p className="service-card-desc">{s.desc}</p>
+      <div className="grid grid-cols-3 gap-3 mb-6">
+        {[
+          { stat: "33x", label: "Return on ad spend" },
+          { stat: "11 days", label: "To first booked call" },
+          { stat: "1 market", label: "Exclusively theirs" },
+        ].map(({ stat, label }) => (
+          <div key={stat} className="text-center">
+            <p className="text-lg font-bold text-white leading-none mb-1">{stat}</p>
+            <p className="text-[10px] text-slate-400 leading-snug">{label}</p>
           </div>
         ))}
       </div>
 
-      <div className="services-cta mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Link
-          href={ctaCopy.href}
-          onClick={() => trackEvent("hero_cta_click")}
-          className="group inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-white transition-all duration-400 hover:bg-[var(--brand-deep)] shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]"
-        >
-          {ctaCopy.primary}
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
-            <Icon name="arrow-right" size={16} />
-          </span>
-        </Link>
-        <Link
-          href="/results"
-          className="inline-flex items-center gap-2 text-sm font-medium text-[rgba(255,255,255,0.4)] transition-colors duration-300 hover:text-[rgba(255,255,255,0.7)]"
-        >
-          View Results
-        </Link>
+      <p className="text-[11px] text-slate-500">
+        Triple W Rentals, Texas. Google Ads funnel.
+      </p>
+    </div>
+  );
+}
+
+function ServicesLayer() {
+  return (
+    <div className="max-w-5xl mx-auto px-6">
+      <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-14">
+        {/* Left column: existing content */}
+        <div className="flex-1 text-center lg:text-left">
+          <p className="services-title text-xs font-medium tracking-[0.3em] uppercase text-[rgba(255,255,255,0.35)] mb-10">
+            What I Build
+          </p>
+
+          <div className="services-grid">
+            {services.map((s) => (
+              <div key={s.title} className="service-card">
+                <span className="service-card-icon text-[var(--brand-alt)]">
+                  <Icon name={s.icon} size={24} />
+                </span>
+                <h3 className="service-card-title">{s.title}</h3>
+                <p className="service-card-desc">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="services-cta mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <Link
+              href={ctaCopy.href}
+              onClick={() => trackEvent("hero_cta_click")}
+              className="group inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-white transition-all duration-400 hover:bg-[var(--brand-deep)] shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]"
+            >
+              {ctaCopy.primary}
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                <Icon name="arrow-right" size={16} />
+              </span>
+            </Link>
+            <Link
+              href="/results"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[rgba(255,255,255,0.4)] transition-colors duration-300 hover:text-[rgba(255,255,255,0.7)]"
+            >
+              View Results
+            </Link>
+          </div>
+        </div>
+
+        {/* Right column: proof artifact */}
+        <div className="w-full lg:w-[38%] lg:shrink-0 lg:mt-10">
+          <ProofArtifact />
+        </div>
       </div>
     </div>
   );

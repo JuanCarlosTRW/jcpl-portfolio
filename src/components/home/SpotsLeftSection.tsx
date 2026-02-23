@@ -4,9 +4,9 @@ export default function SpotsLeftSection() {
   return (
     <section className="bg-cg-section-a py-16 md:py-20 text-center">
       <div className="max-w-xl mx-auto">
-  <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">3 Spots Left This Quarter. One Could Be Yours.</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">I Run 3 Partnerships at a Time.</h2>
         <p className="text-cg-body text-lg mb-6">
-          Every week without a system is pipeline you will not recover. Apply now. If there is a fit, I will reply within 24 hours.
+          Not because of artificial scarcity. Because more than that and I cannot give each system the attention it needs to compound. One spot is currently open. Apply now and I will review your business within 24 hours.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <CTAButton href="/apply" size="lg">

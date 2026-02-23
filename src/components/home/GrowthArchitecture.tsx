@@ -46,12 +46,14 @@ const blueAccent = {
 export default function GrowthArchitecture() {
   return (
     <SectionWrapper id="system" variant="alt">
-      <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
+      <Reveal className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0 mb-14 md:mb-16">
         <SectionLabel label={growthArchitecture.label} className="mb-5" />
-        <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
+        <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl lg:max-w-none">
           {growthArchitecture.headline}
         </h2>
-        {/* Subheadline removed as requested */}
+        <p className="mt-5 text-cg-body max-w-lg leading-[1.75] text-[17px]">
+          {growthArchitecture.subheadline}
+        </p>
       </Reveal>
 
       <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">

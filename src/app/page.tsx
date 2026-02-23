@@ -7,6 +7,7 @@ import { caseStudyLogos } from "@/components/hero/LogoLoopData";
 const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
 const GrowthArchitecture = dynamic(() => import("@/components/home/GrowthArchitecture"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
+const DataBenchmarkBlock = dynamic(() => import("@/components/home/DataBenchmarkBlock"));
 const HowWeWork = dynamic(() => import("@/components/home/HowWeWork"));
 const Differentiation = dynamic(() => import("@/components/home/Differentiation"));
 const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
@@ -34,6 +35,9 @@ export default function HomePage() {
       <div className="py-8 md:py-12">
         <LogoLoop logos={caseStudyLogos} speed={120} gap={40} logoHeight={40} />
       </div>
+
+      {/* Data benchmark — stark single-number section */}
+      <DataBenchmarkBlock />
 
       {/* F — Process: 3-step */}
       <HowWeWork />
