@@ -48,7 +48,7 @@ export default function InfrastructureTiers() {
       <div className="flex flex-col lg:flex-row items-stretch gap-6 w-full">
 
         {/* Card 1: Foundation Architecture — Left, 27% */}
-        <div className="w-full lg:w-[27%] lg:mt-5 bg-slate-800/40 border border-slate-700 rounded-2xl p-6 flex flex-col">
+        <div className="w-full lg:w-[27%] lg:mt-8 bg-slate-800/40 border border-slate-700 rounded-2xl p-6 flex flex-col">
           <p className="text-xs font-semibold tracking-widest text-slate-500 uppercase mb-3">TIER 01</p>
           <h3 className="text-xl font-bold text-white mb-2">Foundation Architecture</h3>
           <p className="text-sm text-slate-400 mb-6">
@@ -93,7 +93,7 @@ export default function InfrastructureTiers() {
         </div>
 
         {/* Card 2: Performance Engine — Center, 46% */}
-        <div className="w-full lg:w-[46%] lg:mt-0 bg-slate-800/80 border border-blue-500/30 rounded-2xl p-10 flex flex-col shadow-lg shadow-blue-500/10 relative">
+        <div className="w-full lg:w-[46%] lg:mt-0 min-h-[720px] bg-slate-800/80 border border-blue-500/30 rounded-2xl p-10 flex flex-col shadow-lg shadow-blue-500/10 relative">
           <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold tracking-widest uppercase px-4 py-1 rounded-full">
             MOST SELECTED
           </span>
@@ -104,7 +104,7 @@ export default function InfrastructureTiers() {
             The full acquisition system. First qualified call within 11 days. $33 average cost per lead.
           </p>
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-xs text-blue-300 font-medium mb-6 w-fit">
-            $33 avg. cost per qualified call — Q4 2025
+            $33 avg. cost per qualified call. Q4 2025.
           </span>
 
           <p className="text-xs font-semibold tracking-widest text-slate-400 uppercase mb-2">FOR</p>
@@ -132,6 +132,9 @@ export default function InfrastructureTiers() {
             <p className="text-xs text-blue-300/80 italic">
               This system generated $30,000 from $900 in ad spend. Triple W Rentals, Texas. 30 days from launch.
             </p>
+            <p className="text-xs text-blue-300/70 mt-1 not-italic">
+              They now dominate the RV rental niche across Texas.
+            </p>
           </div>
 
           <div className="mt-6 p-3 bg-slate-900/50 rounded-lg border border-slate-700">
@@ -155,7 +158,7 @@ export default function InfrastructureTiers() {
         </div>
 
         {/* Card 3: Market Domination System — Right, 27% */}
-        <div className="w-full lg:w-[27%] lg:mt-5 bg-slate-900/80 border border-slate-600 rounded-2xl p-6 flex flex-col">
+        <div className="w-full lg:w-[27%] lg:mt-8 bg-slate-900/80 border border-slate-600 rounded-2xl p-6 flex flex-col">
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-slate-700 border border-slate-600 text-xs font-bold tracking-widest text-slate-400 uppercase mb-4 w-fit">
             BY APPLICATION ONLY
           </span>
@@ -246,6 +249,7 @@ export default function InfrastructureTiers() {
             </div>
           ))}
           <p className="text-xs text-slate-500 mt-4">Triple W Rentals. Texas. Google Ads.</p>
+          <p className="text-xs text-blue-400/80 mt-2 font-medium">Triple W Rentals now dominates the RV rental niche across Texas.</p>
         </div>
       </div>
 

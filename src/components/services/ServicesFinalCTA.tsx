@@ -70,7 +70,7 @@ export default function ServicesFinalCTA() {
               id="services-cta-headline"
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5"
             >
-            Ready to Build a Real<br />Acquisition System?
+            I Run 3 Partnerships at a Time.
             </h2>
             <p className="text-cg-body leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
             Short application. If I think I can help, you will receive a call link within 24 hours. If I do not, I will tell you that too.
