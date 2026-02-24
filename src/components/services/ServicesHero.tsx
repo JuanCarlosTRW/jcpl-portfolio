@@ -46,7 +46,7 @@ export default function ServicesHero() {
         `}
       </Script>
 
-      <SectionWrapper className="w-full pt-32 md:pt-40 pb-0 relative z-[1]">
+  <SectionWrapper className="w-full pt-32 md:pt-40 pb-0 relative z-[1]" variant={undefined}>
         <div className="text-center max-w-3xl mx-auto">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white drop-shadow-lg mb-6">
