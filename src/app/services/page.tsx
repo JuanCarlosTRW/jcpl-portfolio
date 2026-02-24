@@ -3,14 +3,14 @@ import { buildMetadata } from "@/lib/metadata";
 import ServicesHero from "@/components/services/ServicesHero";
 import WhatYouGet from "@/components/services/WhatYouGet";
 import FitCheck from "@/components/services/FitCheck";
-import InvestmentSection from "@/components/services/InvestmentSection";
+import InfrastructureTiers from "@/components/home/InfrastructureTiers";
 import ServicesFinalCTA from "@/components/services/ServicesFinalCTA";
 import "@/styles/services.css";
 
 export const metadata: Metadata = buildMetadata({
   title: "Growth Systems for Service Businesses",
   description:
-    "Conversion websites, Google Ads, SEO, and AI automation built as one integrated system. Starting at $2,500/month. Apply to see if you qualify.",
+    "Conversion websites, Google Ads, SEO, and AI automation built as one integrated system. Three tiers built around your revenue stage. Apply to see if you qualify.",
   path: "/services",
 });
 
@@ -20,7 +20,7 @@ export default function ServicesPage() {
       <ServicesHero />
       <WhatYouGet />
       <FitCheck />
-      <InvestmentSection />
+      <InfrastructureTiers />
       <ServicesFinalCTA />
     </>
   );
