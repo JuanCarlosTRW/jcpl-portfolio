@@ -97,7 +97,7 @@ export default function QualificationCTA() {
               <div className="rounded-2xl border border-[rgba(37,99,235,0.25)] bg-cg-card p-7 md:p-8">
                 <h3 className="text-[18px] font-bold text-white mb-5 flex items-center gap-2">
                   <CheckIcon />
-                  You Do Good Work. Your Calendar Should Reflect That.
+                  Serious operators build infrastructure. Everyone else waits for the phone to ring.
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (

@@ -82,6 +82,16 @@ export default function ClientReality() {
         ))}
       </div>
 
+      {/* Inaction cost line */}
+      <Reveal delay={0.15}>
+        <div className="text-center mt-12 mb-4">
+          <p className="text-xl font-semibold text-white">
+            Every week without this system is pipeline you will not recover.
+          </p>
+          <p className="text-sm text-slate-400 mt-2">It does not pause while you think about it.</p>
+        </div>
+      </Reveal>
+
       {/* Transition block */}
       <Reveal delay={0.2}>
         <div className="max-w-2xl mx-auto text-center mt-14 md:mt-16">

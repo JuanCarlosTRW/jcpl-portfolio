@@ -5,6 +5,9 @@ export default function SpotsLeftSection() {
     <section className="bg-cg-section-a py-16 md:py-20 text-center">
       <div className="max-w-xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">I Run 3 Partnerships at a Time.</h2>
+        <p className="text-sm text-slate-400 mt-4 mb-6 max-w-lg mx-auto text-center">
+          The businesses that apply are the ones who decided to stop leaving pipeline on the table.
+        </p>
         <p className="text-cg-body text-lg mb-6">
           Not because of artificial scarcity. Because more than that and I cannot give each system the attention it needs to compound. One spot is currently open. Apply now and I will review your business within 24 hours.
         </p>

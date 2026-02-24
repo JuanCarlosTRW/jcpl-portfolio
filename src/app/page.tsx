@@ -10,6 +10,7 @@ const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseSt
 const DataBenchmarkBlock = dynamic(() => import("@/components/home/DataBenchmarkBlock"));
 const HowWeWork = dynamic(() => import("@/components/home/HowWeWork"));
 const Differentiation = dynamic(() => import("@/components/home/Differentiation"));
+const InfrastructureTiers = dynamic(() => import("@/components/home/InfrastructureTiers"));
 const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 
@@ -44,6 +45,9 @@ export default function HomePage() {
 
       {/* G — Differentiation: Comparison table */}
       <Differentiation />
+
+      {/* H — Infrastructure Tiers: Three-tier pricing */}
+      <InfrastructureTiers />
 
       {/* FAQ — Objection handling */}
       <FAQSection />

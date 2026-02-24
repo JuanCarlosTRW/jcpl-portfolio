@@ -29,7 +29,7 @@ export const hero = {
   overline: "FOR SERVICE BUSINESSES",
   headline: "Your Business Deserves\nto Be the First Name\nThey See.",
   subheadline:
-    "You've put years into your craft. But if clients are still finding you through referrals and word of mouth, you're invisible where it counts. Someone else is booking the jobs that should be yours. I build the system that changes that.",
+    "Right now, buyers in your city are searching your exact service. Most of them will call your competitor. Not because their work is better. Because their infrastructure exists and yours does not. I build the system that changes that.",
   cta: "Apply for Growth Partnership →",
   ctaSecondary: "See Real Results",
 };
