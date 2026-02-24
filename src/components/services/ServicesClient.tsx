@@ -3,7 +3,7 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ServicesHero from "./ServicesHero";
 import QuickQualification from "./QuickQualification";
-import InvestmentSection from "./InvestmentSection";
+import InfrastructureTiers from "@/components/home/InfrastructureTiers";
 export default function ServicesClient() {
   return (
     <>
@@ -17,7 +17,7 @@ export default function ServicesClient() {
         </div>
       </SectionWrapper>
 
-  <InvestmentSection />
+  <InfrastructureTiers />
     </>
   );
 }
