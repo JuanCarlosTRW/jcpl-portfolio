@@ -40,6 +40,7 @@ export default function ServicesFinalCTA() {
       id="services-cta"
       className="services-cta-section"
       aria-labelledby="services-cta-headline"
+      style={{ background: "linear-gradient(180deg, #0A0F1E 0%, #070B14 100%)" }}
     >
       {/* Background */}
       <div className="services-cta-bg" aria-hidden="true" />
@@ -49,10 +50,10 @@ export default function ServicesFinalCTA() {
         <div className="mb-16">
           <Reveal>
             <div className="text-center mb-8">
-              <p className="text-xs uppercase tracking-[0.15em] text-cg-secondary font-medium mb-3">
-                MY STANDARDS
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-center" style={{ color: "#1E3A5F" }}>
+                HOW I WORK
               </p>
-              <h2 className="heading-3">What I Guarantee Before You Pay a Dollar.</h2>
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center" style={{ color: "#F1F5F9" }}>What You Know Before Signing Anything.</h2>
             </div>
           </Reveal>
           <GuaranteesStrip />

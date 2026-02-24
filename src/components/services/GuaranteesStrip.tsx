@@ -8,40 +8,101 @@ export default function GuaranteesStrip() {
       <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 mt-12">
 
         {/* Left: Featured standard */}
-        <div className="bg-slate-800/50 border border-blue-500/20 rounded-2xl p-10 flex flex-col justify-between">
+        <div
+          className="rounded-2xl p-8 flex flex-col justify-between"
+          style={{
+            background: "#0F1623",
+            border: "1px solid rgba(59, 130, 246, 0.12)",
+            minHeight: "420px",
+          }}
+        >
           <div>
-            <p className="text-xs font-semibold tracking-widest text-blue-400 uppercase mb-4">
-              THE NON-NEGOTIABLE
+            <p
+              className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+              style={{ color: "#3B82F6" }}
+            >
+              THE STANDARD
             </p>
-            <h3 className="text-2xl font-bold text-white mb-4">Verifiable Results Only.</h3>
-            <p className="text-sm text-slate-300 leading-relaxed">
-              Every result I show is from a live client account. No projections. No hypotheticals. No &ldquo;typical results may vary&rdquo; disclaimers. If I cannot back a number with a real campaign, I do not publish it. Redacted case studies are available for serious prospects before you sign anything.
+            <h3
+              className="text-2xl font-semibold leading-snug mb-5"
+              style={{ color: "#F1F5F9" }}
+            >
+              Every number is real or it does not get published.
+            </h3>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "#475569" }}
+            >
+              Every result on this site comes from a live client account. No projections. No hypotheticals. If I cannot point to a real campaign with real numbers, I do not publish it. Before you sign anything, I can walk you through exactly where each result came from.
             </p>
           </div>
-          <div className="mt-8 pt-6 border-t border-slate-700">
-            <p className="text-3xl font-black text-white">$30,000</p>
-            <p className="text-xs text-slate-400 mt-1">Most recent verifiable result. 30 days.</p>
+          <div>
+            <p
+              className="text-5xl font-bold mt-8 leading-none"
+              style={{ color: "#E2F0FF" }}
+            >
+              $30,000
+            </p>
+            <p
+              className="text-xs mt-2"
+              style={{ color: "#334155" }}
+            >
+              Most recent verifiable result. 30 days.
+            </p>
           </div>
         </div>
 
         {/* Right: Three stacked smaller standards */}
         <div className="flex flex-col gap-4">
-          <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6">
-            <p className="text-base font-semibold text-white mb-2">Milestone Delivery</p>
-            <p className="text-sm text-slate-400">
-              Clear checkpoints at every phase. You always know exactly where things stand and what is being built.
+          <div
+            className="rounded-2xl p-6"
+            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+          >
+            <p
+              className="text-base font-semibold mb-2"
+              style={{ color: "#CBD5E1" }}
+            >
+              You always know what is being built.
+            </p>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "#475569" }}
+            >
+              Every phase has a defined output. Website live by week two. Ads running by week three. Nothing moves forward without you seeing what was delivered.
             </p>
           </div>
-          <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6">
-            <p className="text-base font-semibold text-white mb-2">No Lock-In</p>
-            <p className="text-sm text-slate-400">
-              You own everything I build. Month-to-month after the initial build. Stay because it works. Not because you have to.
+          <div
+            className="rounded-2xl p-6"
+            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+          >
+            <p
+              className="text-base font-semibold mb-2"
+              style={{ color: "#CBD5E1" }}
+            >
+              Month-to-month after the build. No exceptions.
+            </p>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "#475569" }}
+            >
+              You own the website, the ad accounts, the tracking setup. Everything. If you leave, you take it all. I keep nothing.
             </p>
           </div>
-          <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6">
-            <p className="text-base font-semibold text-white mb-2">Honest Fit Assessment</p>
-            <p className="text-sm text-slate-400">
-              If I am not the right partner for your business, I will tell you upfront. Before you pay anything. No hard sell. No wasted time.
+          <div
+            className="rounded-2xl p-6"
+            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+          >
+            <p
+              className="text-base font-semibold mb-2"
+              style={{ color: "#CBD5E1" }}
+            >
+              I will tell you if it is not a fit before you pay.
+            </p>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "#475569" }}
+            >
+              If your market is too small, your margins too thin, or your operation not ready, I say it on the first call. I do not take money from businesses I cannot move the needle for.
             </p>
           </div>
         </div>

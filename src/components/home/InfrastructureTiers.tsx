@@ -136,14 +136,16 @@ export default function InfrastructureTiers() {
         </div>
 
         {/* PART 3: Tier Cards Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
 
           {/* CARD 1: Foundation Architecture — FIX 3 */}
           <div
-            className="relative flex flex-col rounded-2xl p-8 h-full min-h-[520px] transition-all duration-200 hover:-translate-y-[2px]"
+            className="relative flex flex-col rounded-2xl p-8 transition-all duration-200 hover:-translate-y-[2px]"
             style={{
               background: "linear-gradient(160deg, #0E1520 0%, #0A1018 100%)",
               border: "1px solid rgba(148, 163, 184, 0.10)",
+              minHeight: "100%",
+              height: "100%",
             }}
           >
             <p
