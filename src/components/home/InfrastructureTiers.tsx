@@ -166,6 +166,13 @@ export default function InfrastructureTiers() {
             >
               Built before you run a single ad. Paid traffic without this fails.
             </p>
+            <div className="mb-5">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span style={{ fontSize: "2rem", fontWeight: 700, color: "#CBD5E1", letterSpacing: "-0.02em" }}>$2,500</span>
+                <span style={{ fontSize: "13px", color: "#475569" }}>one-time build</span>
+              </div>
+              <p style={{ fontSize: "12px", color: "#334155" }}>+ $1,200/month to maintain and optimize.</p>
+            </div>
             <span
               className="block text-xs rounded-lg px-4 py-3 mb-7 leading-relaxed"
               style={{
@@ -271,6 +278,13 @@ export default function InfrastructureTiers() {
             >
               Predictable booked calls. Tracked cost per call.
             </p>
+            <div className="mb-5">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span style={{ fontSize: "2rem", fontWeight: 700, color: "#FFFFFF", letterSpacing: "-0.02em" }}>$2,500</span>
+                <span style={{ fontSize: "13px", color: "#93C5FD" }}>/month</span>
+              </div>
+              <p style={{ fontSize: "12px", color: "#4D7090" }}>+ ad spend. Minimum $500/month.</p>
+            </div>
             <span
               className="block text-xs rounded-lg px-4 py-3 mb-7 leading-relaxed"
               style={{
@@ -402,6 +416,13 @@ export default function InfrastructureTiers() {
             >
               Limit competition structurally.
             </p>
+            <div className="mb-5">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span style={{ fontSize: "2rem", fontWeight: 700, color: "#FDE68A", letterSpacing: "-0.02em" }}>$4,000</span>
+                <span style={{ fontSize: "13px", color: "rgba(245, 158, 11, 0.60)" }}>/month</span>
+              </div>
+              <p style={{ fontSize: "12px", color: "rgba(245, 158, 11, 0.40)" }}>+ ad spend. Minimum $1,500/month.</p>
+            </div>
             <span
               className="block text-xs rounded-lg px-4 py-3 mb-7 leading-relaxed"
               style={{

@@ -1,59 +1,50 @@
 "use client";
 
+import { useState } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import CTAButton from "@/components/ui/CTAButton";
-import { servicesFinalCTA } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 import GuaranteesStrip from "./GuaranteesStrip";
-import PaymentTrustRow from "./PaymentTrustRow";
 
-function TrustIcon({ icon }: { icon: string }) {
-  if (icon === "lightning") {
-    return (
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
-        <path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
-      </svg>
-    );
-  }
-  if (icon === "lock") {
-    return (
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
-        <rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
-        <path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-        <circle cx="8" cy="11" r="1" fill="currentColor"/>
-      </svg>
-    );
-  }
-  // clipboard
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent">
-      <rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
-      <path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-      <path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-    </svg>
-  );
-}
+const tiers = [
+  { id: "foundation", label: "Foundation Architecture", desc: "Website + SEO. The base layer." },
+  { id: "performance", label: "Performance Engine", desc: "Full system + Google Ads." },
+  { id: "ownership", label: "Market Ownership", desc: "Multi-city. Dominate the niche." },
+];
+
+const revenueOptions = [
+  "Under $5,000/month",
+  "$5,000 – $10,000/month",
+  "$10,000 – $25,000/month",
+  "$25,000 – $50,000/month",
+  "$50,000+/month",
+];
 
 export default function ServicesFinalCTA() {
+  const [selectedTier, setSelectedTier] = useState("performance");
+
   return (
     <section
-      id="services-cta"
-      className="services-cta-section"
-      aria-labelledby="services-cta-headline"
+      id="apply"
       style={{ background: "linear-gradient(180deg, #0A0F1E 0%, #070B14 100%)" }}
     >
-      {/* Background */}
-      <div className="services-cta-bg" aria-hidden="true" />
-
       <SectionWrapper className="relative z-10">
-        {/* Unified Risk Reversal — Guarantees */}
+
+        {/* HOW I WORK */}
         <div className="mb-16">
           <Reveal>
             <div className="text-center mb-8">
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-center" style={{ color: "#1E3A5F" }}>
+              <p
+                className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-center"
+                style={{ color: "#1E3A5F" }}
+              >
                 HOW I WORK
               </p>
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center" style={{ color: "#FFFFFF" }}>What You Know Before Signing Anything.</h2>
+              <h2
+                className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center"
+                style={{ color: "#FFFFFF" }}
+              >
+                What You Know Before Signing Anything.
+              </h2>
             </div>
           </Reveal>
           <GuaranteesStrip />
@@ -61,68 +52,197 @@ export default function ServicesFinalCTA() {
 
         {/* Divider */}
         <div className="flex justify-center mb-16" aria-hidden="true">
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[var(--brand-accent)]/30 to-transparent" />
+          <div
+            className="w-16 h-px"
+            style={{ background: "linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.30), transparent)" }}
+          />
         </div>
 
-        {/* Main CTA Endcap */}
-        <div className="max-w-2xl mx-auto text-center">
+        {/* Application form */}
+        <div className="max-w-2xl mx-auto">
           <Reveal>
-            <h2
-              id="services-cta-headline"
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5"
+            <div className="text-center mb-10">
+              <p
+                className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+                style={{ color: "#1E3A5F" }}
+              >
+                APPLY
+              </p>
+              <h2
+                className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
+                style={{ color: "#FFFFFF" }}
+              >
+                I Run 3 Partnerships at a Time.
+              </h2>
+              <p
+                className="text-base leading-relaxed"
+                style={{ color: "#64748B" }}
+              >
+                Short application. If I think I can help, you will get a call link within 24 hours. If not, I will tell you directly.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.05}>
+            <form
+              className="rounded-2xl p-8"
+              style={{ background: "#0F1A2E", border: "1px solid rgba(59, 130, 246, 0.15)" }}
             >
-            I Run 3 Partnerships at a Time.
-            </h2>
-            <p className="text-cg-body leading-relaxed mb-10 max-w-lg mx-auto text-[0.95rem]">
-            Short application. If I think I can help, you will receive a call link within 24 hours. If I do not, I will tell you that too.
-            </p>
-          </Reveal>
-
-          {/* CTAs */}
-          <Reveal delay={0.1}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <CTAButton
-                href="/apply"
-                size="lg"
-                eventName="services_final_cta_primary_click"
-              >
-                Apply (2 min)
-              </CTAButton>
-              <CTAButton
-                href="/results"
-                variant="secondary"
-                size="md"
-                eventName="services_final_cta_secondary_click"
-              >
-                View Results
-              </CTAButton>
-            </div>
-          </Reveal>
-
-          {/* Micro-trust badges */}
-          <Reveal delay={0.15}>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10">
-              {[
-                { icon: "lightning", text: "Response within 24 hours" },
-                { icon: "lock", text: "100% confidential" },
-                { icon: "clipboard", text: "Limited spots per quarter" },
-              ].map((item) => (
-                <span
-                  key={item.text}
-                  className="inline-flex items-center gap-1.5 text-[14px] text-cg-secondary"
+              {/* Tier selection */}
+              <div className="mb-7">
+                <p
+                  className="text-xs font-semibold tracking-[0.15em] uppercase mb-3"
+                  style={{ color: "#475569" }}
                 >
-                  <TrustIcon icon={item.icon} />
-                  {item.text}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+                  Which tier are you applying for?
+                </p>
+                <div className="flex flex-col gap-2">
+                  {tiers.map((tier) => (
+                    <label
+                      key={tier.id}
+                      className="flex items-start gap-3 rounded-xl px-4 py-3 cursor-pointer transition-colors"
+                      style={{
+                        background: selectedTier === tier.id ? "rgba(37, 99, 235, 0.12)" : "rgba(148, 163, 184, 0.04)",
+                        border: selectedTier === tier.id ? "1px solid rgba(59, 130, 246, 0.35)" : "1px solid rgba(148, 163, 184, 0.10)",
+                      }}
+                    >
+                      <input
+                        type="radio"
+                        name="tier"
+                        value={tier.id}
+                        checked={selectedTier === tier.id}
+                        onChange={() => setSelectedTier(tier.id)}
+                        className="mt-0.5 accent-blue-500"
+                      />
+                      <div>
+                        <p
+                          className="text-sm font-semibold"
+                          style={{ color: selectedTier === tier.id ? "#FFFFFF" : "#94A3B8" }}
+                        >
+                          {tier.label}
+                        </p>
+                        <p className="text-xs mt-0.5" style={{ color: "#475569" }}>
+                          {tier.desc}
+                        </p>
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </div>
 
-          {/* Payment trust row */}
-          {/* Remove PaymentTrustRow and add invoice billing text below Apply button */}
-          <p className="text-sm text-slate-400 mt-4 text-center">
-            Invoice-based billing. CAD and USD accepted. No retainer required until I confirm fit.
-          </p>
+              {/* Name + Business */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="First and last"
+                    className="w-full rounded-lg px-4 py-2.5 text-sm outline-none"
+                    style={{
+                      background: "rgba(148, 163, 184, 0.05)",
+                      border: "1px solid rgba(148, 163, 184, 0.12)",
+                      color: "#F1F5F9",
+                    }}
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                    Business name
+                  </label>
+                  <input
+                    type="text"
+                    name="business"
+                    placeholder="Your business"
+                    className="w-full rounded-lg px-4 py-2.5 text-sm outline-none"
+                    style={{
+                      background: "rgba(148, 163, 184, 0.05)",
+                      border: "1px solid rgba(148, 163, 184, 0.12)",
+                      color: "#F1F5F9",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Revenue + Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                    Monthly revenue
+                  </label>
+                  <select
+                    name="revenue"
+                    defaultValue=""
+                    className="w-full rounded-lg px-4 py-2.5 text-sm outline-none"
+                    style={{
+                      background: "rgba(148, 163, 184, 0.05)",
+                      border: "1px solid rgba(148, 163, 184, 0.12)",
+                      color: "#94A3B8",
+                    }}
+                  >
+                    <option value="" disabled>Select range</option>
+                    {revenueOptions.map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="you@business.com"
+                    className="w-full rounded-lg px-4 py-2.5 text-sm outline-none"
+                    style={{
+                      background: "rgba(148, 163, 184, 0.05)",
+                      border: "1px solid rgba(148, 163, 184, 0.12)",
+                      color: "#F1F5F9",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="mb-6">
+                <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                  What are you trying to solve?{" "}
+                  <span style={{ color: "#334155" }}>(optional)</span>
+                </label>
+                <textarea
+                  name="message"
+                  rows={3}
+                  placeholder="Briefly describe your current situation and goal."
+                  className="w-full rounded-lg px-4 py-2.5 text-sm outline-none resize-none"
+                  style={{
+                    background: "rgba(148, 163, 184, 0.05)",
+                    border: "1px solid rgba(148, 163, 184, 0.12)",
+                    color: "#F1F5F9",
+                  }}
+                />
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="w-full py-3.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-150 hover:brightness-110"
+                style={{
+                  background: "linear-gradient(90deg, #2563EB, #3B82F6)",
+                  color: "#FFFFFF",
+                  boxShadow: "0 4px 24px rgba(37, 99, 235, 0.35)",
+                }}
+              >
+                Submit Application →
+              </button>
+
+              <p className="text-xs text-center mt-4" style={{ color: "#334155" }}>
+                Response within 24 hours. No retainer until I confirm fit.
+              </p>
+            </form>
+          </Reveal>
         </div>
 
         <div className="h-10 md:h-16" aria-hidden="true" />

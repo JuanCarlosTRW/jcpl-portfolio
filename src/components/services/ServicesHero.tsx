@@ -1,98 +1,95 @@
 "use client";
 
-import { servicesHero } from "@/lib/content";
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import CTAButton from "@/components/ui/CTAButton";
-import { Reveal } from "@/components/motion";
-import TrueFocus from "@/components/ui/TrueFocus";
-import TextType from "@/components/ui/TextType";
-
-
-
 export default function ServicesHero() {
   return (
-    <div className="relative min-h-[60vh] flex items-center bg-cg-section-a">
-      {/* Subtle radial background */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(37,99,235,0.06) 0%, transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
+    <section
+      className="relative w-full min-h-[75vh] flex items-center px-6 overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #060912 0%, #070B14 100%)" }}
+    >
+      <div className="relative z-10 max-w-4xl mx-auto pt-28 pb-24">
+        <p
+          className="mb-6"
+          style={{
+            fontSize: "11px",
+            fontWeight: 500,
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "#1E3A5F",
+          }}
+        >
+          CLIENT GROWTH / SERVICES
+        </p>
 
-      <SectionWrapper className="w-full pt-32 md:pt-40 pb-0 relative z-[1]">
-        <div className="text-center max-w-3xl mx-auto">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cg-secondary mb-6">
-              GROWTH SYSTEMS FOR SERVICE BUSINESSES
-            </p>
-          </Reveal>
+        <h1
+          className="mb-6"
+          style={{
+            fontSize: "clamp(2.75rem, 5vw, 4.5rem)",
+            fontWeight: 600,
+            lineHeight: 1.05,
+            letterSpacing: "-0.02em",
+            color: "#FFFFFF",
+            maxWidth: "800px",
+          }}
+        >
+          The Growth Infrastructure<br />
+          Built for Service Businesses.
+        </h1>
 
-          <Reveal delay={0.05}>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight text-balance max-w-2xl mx-auto mb-6">
-              Pricing
-            </h1>
-          </Reveal>
+        <p
+          className="mb-10"
+          style={{
+            fontSize: "17px",
+            fontWeight: 400,
+            lineHeight: 1.7,
+            color: "#475569",
+            maxWidth: "520px",
+          }}
+        >
+          A conversion website. Local SEO. Google Ads with a tracked cost per call. AI lead capture that works after hours. One system. One person. Built in 2 to 4 weeks.
+        </p>
 
-          <Reveal delay={0.1}>
-            <p className="text-lg text-cg-body max-w-2xl mx-auto leading-relaxed mb-8">
-              Three Systems. Built Around Revenue Stage.
-            </p>
-          </Reveal>
-
-          {/* CTA row */}
-          <Reveal delay={0.15}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-              <CTAButton
-                href="/apply"
-                size="lg"
-                eventName="services_hero_primary_cta_click"
-              >
-                Apply for Growth Partnership →
-              </CTAButton>
-              <CTAButton
-                href="/results"
-                variant="secondary"
-                size="md"
-                eventName="services_hero_secondary_cta_click"
-              >
-                View Results
-              </CTAButton>
-            </div>
-          </Reveal>
-
-          {/* Micro-trust strip */}
-          <Reveal delay={0.2}>
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-              {[
-                "Response within 24h",
-                "Milestone delivery",
-                "No lock-in",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex items-center gap-1.5 text-xs text-cg-secondary"
-                >
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    aria-hidden="true"
-                    className="text-cg-accent"
-                  >
-                    <circle cx="6" cy="6" r="5.5" stroke="currentColor" strokeWidth="0.8" />
-                    <path d="M3.8 6 L5.3 7.5 L8.2 4.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  {item}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a
+            href="#apply"
+            className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-150"
+            style={{
+              background: "linear-gradient(90deg, #2563EB, #3B82F6)",
+              color: "#FFFFFF",
+              boxShadow: "0 4px 24px rgba(37, 99, 235, 0.35)",
+            }}
+          >
+            Apply for a Partnership →
+          </a>
+          <a
+            href="#tiers"
+            className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-medium transition-colors"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              color: "#94A3B8",
+            }}
+          >
+            See the three tiers
+          </a>
         </div>
-      </SectionWrapper>
-    </div>
+
+        <div className="flex flex-wrap gap-6 mt-8">
+          {[
+            "Response within 24 hours",
+            "No retainer until I confirm fit",
+            "One spot currently open",
+          ].map((item) => (
+            <span
+              key={item}
+              className="text-xs flex items-center gap-2"
+              style={{ color: "#3D5875" }}
+            >
+              <span style={{ color: "#1E3A5F" }}>✓</span>
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
