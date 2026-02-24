@@ -488,7 +488,7 @@ export default function InfrastructureTiers() {
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-red-500/20 text-red-400">
+                <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-red-500/20" style={{ color: "#94A3B8" }}>
                   BEFORE
                 </span>
                 <p className="text-sm" style={{ color: "#64748B" }}>
@@ -496,7 +496,7 @@ export default function InfrastructureTiers() {
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-green-500/20 text-green-400">
+                <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-green-500/20" style={{ color: "#94A3B8" }}>
                   AFTER
                 </span>
                 <p className="text-sm" style={{ color: "#64748B" }}>
@@ -525,7 +525,7 @@ export default function InfrastructureTiers() {
             <p className="text-sm leading-relaxed mb-2" style={{ color: "#64748B" }}>
               The system runs whether you are on a job or not.
             </p>
-            <p className="text-xs mt-4 leading-relaxed" style={{ color: "#1E3A5F" }}>
+            <p className="text-xs mt-4 leading-relaxed" style={{ color: "#334155" }}>
               Results depend on market size, ad spend, and service type. Specifics reviewed on application call.
             </p>
           </div>

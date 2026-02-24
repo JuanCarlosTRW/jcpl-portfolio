@@ -11,8 +11,8 @@ export default function GuaranteesStrip() {
         <div
           className="rounded-2xl p-8 flex flex-col justify-between"
           style={{
-            background: "#0F1623",
-            border: "1px solid rgba(59, 130, 246, 0.12)",
+            background: "#111827",
+            border: "1px solid rgba(59, 130, 246, 0.15)",
             minHeight: "420px",
           }}
         >
@@ -31,21 +31,21 @@ export default function GuaranteesStrip() {
             </h3>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#475569" }}
+              style={{ color: "#94A3B8" }}
             >
               Every result on this site comes from a live client account. No projections. No hypotheticals. If I cannot point to a real campaign with real numbers, I do not publish it. Before you sign anything, I can walk you through exactly where each result came from.
             </p>
           </div>
           <div>
             <p
-              className="text-5xl font-bold mt-8 leading-none"
-              style={{ color: "#E2F0FF" }}
+              className="text-5xl font-bold mt-auto pt-8 leading-none"
+              style={{ color: "#FFFFFF" }}
             >
               $30,000
             </p>
             <p
               className="text-xs mt-2"
-              style={{ color: "#334155" }}
+              style={{ color: "#475569" }}
             >
               Most recent verifiable result. 30 days.
             </p>
@@ -56,53 +56,53 @@ export default function GuaranteesStrip() {
         <div className="flex flex-col gap-4">
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.10)" }}
           >
             <p
-              className="text-base font-semibold mb-2"
-              style={{ color: "#CBD5E1" }}
+              className="text-base font-semibold mb-3"
+              style={{ color: "#F1F5F9" }}
             >
-              You always know what is being built.
+              Milestone Delivery
             </p>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#475569" }}
+              style={{ color: "#64748B" }}
             >
-              Every phase has a defined output. Website live by week two. Ads running by week three. Nothing moves forward without you seeing what was delivered.
+              Phase 1 delivers your Market Gap Report, Funnel Audit, and 90-day roadmap. Phase 2 delivers a live website, active ad campaigns, and a booking system. You see every deliverable before the next phase starts.
             </p>
           </div>
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.10)" }}
           >
             <p
-              className="text-base font-semibold mb-2"
-              style={{ color: "#CBD5E1" }}
+              className="text-base font-semibold mb-3"
+              style={{ color: "#F1F5F9" }}
             >
-              Month-to-month after the build. No exceptions.
+              No Lock-In
             </p>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#475569" }}
+              style={{ color: "#64748B" }}
             >
-              You own the website, the ad accounts, the tracking setup. Everything. If you leave, you take it all. I keep nothing.
+              The website is yours. The ad accounts are yours. The tracking setup is yours. Month-to-month after the initial build. If you leave tomorrow, you take everything I built with you.
             </p>
           </div>
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.10)" }}
           >
             <p
-              className="text-base font-semibold mb-2"
-              style={{ color: "#CBD5E1" }}
+              className="text-base font-semibold mb-3"
+              style={{ color: "#F1F5F9" }}
             >
-              I will tell you if it is not a fit before you pay.
+              Honest Fit Assessment
             </p>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#475569" }}
+              style={{ color: "#64748B" }}
             >
-              If your market is too small, your margins too thin, or your operation not ready, I say it on the first call. I do not take money from businesses I cannot move the needle for.
+              Before any agreement, I review your market, your current revenue, and your operation. If I do not think I can produce a return, I tell you on the call. I have turned down clients. I will do it again.
             </p>
           </div>
         </div>
