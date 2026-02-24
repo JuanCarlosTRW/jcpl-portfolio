@@ -33,20 +33,24 @@ const notFor = [
 
 export default function FitCheck() {
   return (
-  <SectionWrapper variant="surface" className="bg-[#060D1F] py-16">
+  <div style={{ background: "#070B14" }}>
+  <SectionWrapper variant="surface" className="py-16">
       <Reveal className="text-center mb-12">
   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cg-secondary mb-5">FIT CHECK</p>
   <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">You Will Know in 60 Seconds If This Is Built for You.</h2>
       </Reveal>
       <div className="grid gap-7 md:grid-cols-2 max-w-4xl mx-auto">
         <Reveal delay={0.05}>
-          <div className="rounded-2xl border border-[rgba(37,99,235,0.25)] bg-cg-card p-8 h-full">
-            <h3 className="text-[17px] font-bold mb-5 flex items-center gap-2 text-[#5B9FFF]">
+          <div
+            className="rounded-2xl p-8 h-full"
+            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.10)" }}
+          >
+            <h3 className="text-[17px] font-bold mb-5 flex items-center gap-2" style={{ color: "#F1F5F9" }}>
               <CheckIcon /> This Is for You If...
             </h3>
             <ul className="space-y-4">
               {bestFor.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[16px] text-cg-body leading-[1.7]">
+                <li key={i} className="flex items-start gap-3 text-[16px] leading-[1.7]" style={{ color: "#64748B" }}>
                   <CheckIcon /> {item}
                 </li>
               ))}
@@ -54,13 +58,16 @@ export default function FitCheck() {
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="rounded-2xl border border-[rgba(239,68,68,0.2)] bg-cg-card p-8 h-full">
-            <h3 className="text-[17px] font-bold mb-5 flex items-center gap-2 text-[#FF7070]">
+          <div
+            className="rounded-2xl p-8 h-full"
+            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.10)" }}
+          >
+            <h3 className="text-[17px] font-bold mb-5 flex items-center gap-2" style={{ color: "#F1F5F9" }}>
               <XIcon /> This Is Not for You If...
             </h3>
             <ul className="space-y-4">
               {notFor.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[16px] text-cg-body leading-[1.7]">
+                <li key={i} className="flex items-start gap-3 text-[16px] leading-[1.7]" style={{ color: "#64748B" }}>
                   <XIcon /> {item}
                 </li>
               ))}
@@ -69,5 +76,6 @@ export default function FitCheck() {
         </Reveal>
       </div>
     </SectionWrapper>
+  </div>
   );
 }

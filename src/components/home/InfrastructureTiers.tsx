@@ -96,7 +96,7 @@ export default function InfrastructureTiers() {
               </p>
               <p
                 className="text-xs mt-2 tracking-wide"
-                style={{ color: "#4A6580" }}
+                style={{ color: "#4D7090" }}
               >
                 Revenue generated in 30 days
               </p>
@@ -113,7 +113,7 @@ export default function InfrastructureTiers() {
               </p>
               <p
                 className="text-xs mt-2 tracking-wide"
-                style={{ color: "#4A6580" }}
+                style={{ color: "#4D7090" }}
               >
                 Cost per booked call
               </p>
@@ -127,7 +127,7 @@ export default function InfrastructureTiers() {
               </p>
               <p
                 className="text-xs mt-2 tracking-wide"
-                style={{ color: "#4A6580" }}
+                style={{ color: "#4D7090" }}
               >
                 Days to first booked call
               </p>
@@ -156,13 +156,13 @@ export default function InfrastructureTiers() {
             </p>
             <h3
               className="text-[1.375rem] font-semibold tracking-tight mb-1.5"
-              style={{ color: "#CBD5E1" }}
+              style={{ color: "#F1F5F9" }}
             >
               Foundation Architecture
             </h3>
             <p
               className="text-sm mb-5"
-              style={{ color: "#475569" }}
+              style={{ color: "#64748B" }}
             >
               Built before you run a single ad. Paid traffic without this fails.
             </p>
@@ -170,8 +170,8 @@ export default function InfrastructureTiers() {
               className="block text-xs rounded-lg px-4 py-3 mb-7 leading-relaxed"
               style={{
                 color: "#94A3B8",
-                background: "rgba(148, 163, 184, 0.05)",
-                border: "1px solid rgba(148, 163, 184, 0.10)",
+                background: "rgba(148, 163, 184, 0.07)",
+                border: "1px solid rgba(148, 163, 184, 0.12)",
               }}
             >
               Most clients come from referrals. Digital presence is minimal or nonexistent.
@@ -352,7 +352,7 @@ export default function InfrastructureTiers() {
             </a>
             <p
               className="text-[11px] text-center mt-3 leading-relaxed"
-              style={{ color: "#4A6580" }}
+              style={{ color: "#4D7090" }}
             >
               Short application. I only book a call if I think I can help.
             </p>
