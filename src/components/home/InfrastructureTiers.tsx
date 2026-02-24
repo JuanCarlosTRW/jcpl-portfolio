@@ -481,9 +481,9 @@ export default function InfrastructureTiers() {
           {/* Block 1: Before / After */}
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.10)" }}
           >
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "#334155" }}>
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "#3D5875" }}>
               BEFORE / AFTER
             </p>
             <div className="space-y-3">
@@ -504,19 +504,19 @@ export default function InfrastructureTiers() {
                 </p>
               </div>
             </div>
-            <p className="text-xs mt-4" style={{ color: "#334155" }}>Barbershop. Local SEO + website rebuild.</p>
+            <p className="text-xs mt-4" style={{ color: "#3D5875" }}>Barbershop. Local SEO + website rebuild.</p>
             <p className="text-sm italic mt-2" style={{ color: "#475569" }}>Juan has been an amazing help.</p>
           </div>
 
           {/* Block 2: Outcome Summary */}
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.10)" }}
           >
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "#334155" }}>
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "#3D5875" }}>
               WHAT THIS LOOKS LIKE
             </p>
-            <h4 className="text-xl font-semibold leading-snug mb-4" style={{ color: "#F1F5F9" }}>
+            <h4 className="text-xl font-semibold leading-snug mb-4" style={{ color: "#FFFFFF" }}>
               A Full Calendar. Calls From Strangers. Zero Chasing.
             </h4>
             <p className="text-sm leading-relaxed mb-2" style={{ color: "#64748B" }}>
@@ -525,7 +525,7 @@ export default function InfrastructureTiers() {
             <p className="text-sm leading-relaxed mb-2" style={{ color: "#64748B" }}>
               The system runs whether you are on a job or not.
             </p>
-            <p className="text-xs mt-4 leading-relaxed" style={{ color: "#334155" }}>
+            <p className="text-xs mt-4 leading-relaxed" style={{ color: "#2D4A6A" }}>
               Results depend on market size, ad spend, and service type. Specifics reviewed on application call.
             </p>
           </div>
@@ -533,9 +533,9 @@ export default function InfrastructureTiers() {
           {/* Block 3: Campaign Metrics */}
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.08)" }}
+            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.10)" }}
           >
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "#334155" }}>
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "#3D5875" }}>
               CAMPAIGN METRICS
             </p>
             {campaignMetrics.map(({ number, label }) => (
@@ -545,17 +545,17 @@ export default function InfrastructureTiers() {
                 style={{ borderBottom: "1px solid rgba(148,163,184,0.06)" }}
               >
                 <p className="text-2xl font-bold" style={{ color: "#E2F0FF" }}>{number}</p>
-                <p className="text-xs" style={{ color: "#334155" }}>{label}</p>
+                <p className="text-xs" style={{ color: "#3D5875" }}>{label}</p>
               </div>
             ))}
-            <p className="text-xs mt-4" style={{ color: "#334155" }}>Triple W Rentals. Texas. Google Ads.</p>
-            <p className="text-xs mt-2 underline underline-offset-2 transition-colors hover:text-blue-300" style={{ color: "#3B82F6" }}>
+            <p className="text-xs mt-4" style={{ color: "#3D5875" }}>Triple W Rentals. Texas. Google Ads.</p>
+            <p className="text-xs underline underline-offset-2 hover:text-blue-300 transition-colors block mt-1" style={{ color: "#3B82F6" }}>
               Triple W Rentals now dominates the RV rental niche across Texas.
             </p>
           </div>
         </div>
 
-        <p className="text-center text-xs mt-6 max-w-6xl mx-auto" style={{ color: "#1E3A5F" }}>
+        <p className="text-center text-xs mt-6 max-w-6xl mx-auto" style={{ color: "#2D4A6A" }}>
           All results are from live client accounts. Updated as new data becomes available.
         </p>
       </div>

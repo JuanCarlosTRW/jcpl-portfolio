@@ -53,7 +53,7 @@ export default function ServicesFinalCTA() {
               <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-center" style={{ color: "#1E3A5F" }}>
                 HOW I WORK
               </p>
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center" style={{ color: "#F1F5F9" }}>What You Know Before Signing Anything.</h2>
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center" style={{ color: "#FFFFFF" }}>What You Know Before Signing Anything.</h2>
             </div>
           </Reveal>
           <GuaranteesStrip />

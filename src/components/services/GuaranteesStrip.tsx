@@ -11,8 +11,8 @@ export default function GuaranteesStrip() {
         <div
           className="rounded-2xl p-8 flex flex-col justify-between"
           style={{
-            background: "#111827",
-            border: "1px solid rgba(59, 130, 246, 0.15)",
+            background: "#0F1A2E",
+            border: "1px solid rgba(59, 130, 246, 0.18)",
             minHeight: "420px",
           }}
         >
@@ -25,7 +25,7 @@ export default function GuaranteesStrip() {
             </p>
             <h3
               className="text-2xl font-semibold leading-snug mb-5"
-              style={{ color: "#F1F5F9" }}
+              style={{ color: "#FFFFFF" }}
             >
               Every number is real or it does not get published.
             </h3>
@@ -45,7 +45,7 @@ export default function GuaranteesStrip() {
             </p>
             <p
               className="text-xs mt-2"
-              style={{ color: "#475569" }}
+              style={{ color: "#3D5875" }}
             >
               Most recent verifiable result. 30 days.
             </p>
@@ -56,11 +56,11 @@ export default function GuaranteesStrip() {
         <div className="flex flex-col gap-4">
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.10)" }}
+            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.12)" }}
           >
             <p
-              className="text-base font-semibold mb-3"
-              style={{ color: "#F1F5F9" }}
+              className="text-base font-semibold mb-2"
+              style={{ color: "#E2E8F0" }}
             >
               Milestone Delivery
             </p>
@@ -73,11 +73,11 @@ export default function GuaranteesStrip() {
           </div>
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.10)" }}
+            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.12)" }}
           >
             <p
-              className="text-base font-semibold mb-3"
-              style={{ color: "#F1F5F9" }}
+              className="text-base font-semibold mb-2"
+              style={{ color: "#E2E8F0" }}
             >
               No Lock-In
             </p>
@@ -90,11 +90,11 @@ export default function GuaranteesStrip() {
           </div>
           <div
             className="rounded-2xl p-6"
-            style={{ background: "#0F1623", border: "1px solid rgba(148, 163, 184, 0.10)" }}
+            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.12)" }}
           >
             <p
-              className="text-base font-semibold mb-3"
-              style={{ color: "#F1F5F9" }}
+              className="text-base font-semibold mb-2"
+              style={{ color: "#E2E8F0" }}
             >
               Honest Fit Assessment
             </p>
