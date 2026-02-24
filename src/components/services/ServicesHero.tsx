@@ -10,7 +10,7 @@ import Script from "next/script";
 
 export default function ServicesHero() {
   return (
-    <div className="relative min-h-[60vh] flex items-center bg-cg-section-a">
+  <div className="relative min-h-[60vh] flex items-center">
       {/* Embedded UnicornStudio background */}
       <div
         className="absolute inset-0 z-0 flex justify-center items-center pointer-events-none"
@@ -49,19 +49,19 @@ export default function ServicesHero() {
       <SectionWrapper className="w-full pt-32 md:pt-40 pb-0 relative z-[1]">
         <div className="text-center max-w-3xl mx-auto">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cg-secondary mb-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white drop-shadow-lg mb-6">
               GROWTH SYSTEMS FOR SERVICE BUSINESSES
             </p>
           </Reveal>
 
           <Reveal delay={0.05}>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight text-balance max-w-2xl mx-auto mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white drop-shadow-xl leading-[1.1] tracking-tight text-balance max-w-2xl mx-auto mb-6">
               Pricing
             </h1>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <p className="text-lg text-cg-body max-w-2xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg text-white drop-shadow-lg max-w-2xl mx-auto leading-relaxed mb-8">
               Three Systems. Built Around Revenue Stage.
             </p>
           </Reveal>
@@ -73,6 +73,7 @@ export default function ServicesHero() {
                 href="/apply"
                 size="lg"
                 eventName="services_hero_primary_cta_click"
+                className="drop-shadow-lg"
               >
                 Apply for Growth Partnership →
               </CTAButton>
@@ -81,6 +82,7 @@ export default function ServicesHero() {
                 variant="secondary"
                 size="md"
                 eventName="services_hero_secondary_cta_click"
+                className="drop-shadow-lg"
               >
                 View Results
               </CTAButton>
@@ -97,7 +99,7 @@ export default function ServicesHero() {
               ].map((item) => (
                 <span
                   key={item}
-                  className="inline-flex items-center gap-1.5 text-xs text-cg-secondary"
+                  className="inline-flex items-center gap-1.5 text-xs text-white drop-shadow-md"
                 >
                   <svg
                     width="12"
