@@ -8,9 +8,9 @@ import { Reveal } from "@/components/motion";
 
 /* ─── KPI Strip Data ─── */
 const kpiItems = [
-  { number: "$30,000", label: "Revenue generated in 30 days from $900 ad spend" },
-  { number: "$33", label: "Average cost per qualified call. Q4 2025." },
-  { number: "11 days", label: "Median time from launch to first booked call" },
+  { number: "$30,000", label: "Revenue generated in 30 days from $900 ad spend", context: "12x return on partnership fee" },
+  { number: "$33", label: "Average cost per qualified call. Q4 2025.", context: "Across active client accounts" },
+  { number: "11 days", label: "Median time from launch to first booked call", context: "From campaign launch" },
 ];
 
 /* ─── Proof Snapshot Data ─── */
@@ -37,10 +37,11 @@ export default function InfrastructureTiers() {
 
       {/* ── 1B: KPI Anchor Strip ── */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center mb-12">
-        {kpiItems.map(({ number, label }) => (
+        {kpiItems.map(({ number, label, context }) => (
           <div key={number} className="py-4">
             <p className="text-3xl font-black text-white">{number}</p>
-            <p className="text-xs text-slate-400 mt-1 max-w-[140px]">{label}</p>
+            <p className="text-xs text-slate-400 mt-1 max-w-[140px] mx-auto">{label}</p>
+            <p className="text-xs text-slate-600 mt-1">{context}</p>
           </div>
         ))}
       </div>
@@ -81,6 +82,19 @@ export default function InfrastructureTiers() {
               <p className="text-xs text-slate-500">
                 <span className="font-semibold text-slate-400 uppercase tracking-widest">NOT INCLUDED:</span>{" "}
                 Paid traffic. Fix the foundation before running ads.
+              </p>
+            </div>
+
+            {/* Pricing block */}
+            <div className="border-t border-slate-700 my-6" />
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <p className="text-3xl font-black text-white">$2,500</p>
+                <p className="text-sm text-slate-400 font-medium">one-time build</p>
+              </div>
+              <p className="text-sm text-slate-400 mt-1">Then $1,200/month to maintain and optimize.</p>
+              <p className="text-xs text-slate-500 mt-3 bg-slate-700/30 rounded-lg px-3 py-2">
+                The foundation layer. Built once. Compounding from month one.
               </p>
             </div>
 
@@ -143,6 +157,22 @@ export default function InfrastructureTiers() {
             </p>
           </div>
 
+          {/* Pricing block */}
+          <div className="border-t border-slate-700/50 my-6" />
+          <div className="mb-6">
+            <div className="flex items-baseline gap-2">
+              <p className="text-3xl font-black text-white">$2,500</p>
+              <p className="text-sm text-blue-300 font-medium">per month</p>
+            </div>
+            <p className="text-sm text-slate-400 mt-1">+ your ad spend (minimum $500/month)</p>
+            <p className="text-xs text-blue-300/60 mt-3 bg-blue-500/5 border border-blue-500/20 rounded-lg px-3 py-2">
+              Triple W Rentals paid $2,500/month. They generated $30,000 in 30 days.
+            </p>
+            <p className="text-xs text-slate-500 mt-2">
+              That is a 12x return on the partnership fee alone. Before counting ad spend returns.
+            </p>
+          </div>
+
           <div className="mt-auto pt-2">
             <Link
               href="/apply"
@@ -196,6 +226,22 @@ export default function InfrastructureTiers() {
               </p>
             </div>
 
+            {/* Pricing block */}
+            <div className="border-t border-amber-500/10 my-6" />
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <p className="text-3xl font-black text-white">$4,000</p>
+                <p className="text-sm text-amber-400 font-medium">per month</p>
+              </div>
+              <p className="text-sm text-slate-400 mt-1">+ your ad spend (minimum $1,500/month)</p>
+              <p className="text-xs text-amber-400/60 mt-3 bg-amber-500/5 border border-amber-500/20 rounded-lg px-3 py-2">
+                Two clients per niche per city. This price reflects full market exclusivity.
+              </p>
+              <p className="text-xs text-slate-500 mt-2">
+                Reviewed personally before any commitment. No hard sell. No wasted time.
+              </p>
+            </div>
+
             <Link
               href="/apply"
               className="text-sm text-amber-400/80 hover:text-amber-300 transition-colors"
@@ -205,6 +251,11 @@ export default function InfrastructureTiers() {
           </div>
         </div>
       </div>
+
+      {/* Pricing trust line */}
+      <p className="text-xs text-slate-600 text-center mt-8 mb-4">
+        No long-term contracts after the initial build. No hidden fees. No retainers for work not done.
+      </p>
 
       {/* ── 1D: Proof Snapshot Strip ── */}
       <div className="mt-16 grid grid-cols-1 lg:grid-cols-[2fr_3fr_2fr] gap-6">
