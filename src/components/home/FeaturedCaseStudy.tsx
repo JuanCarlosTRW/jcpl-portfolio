@@ -116,7 +116,6 @@ export default function FeaturedCaseStudy() {
 			<div className="mt-16 mb-10">
 				<LogoArrowLoop />
 			</div>
-			{/* CLIENTS label and description removed */}
 
 			{/* Stats Row 2 */}
 			<Reveal delay={0.2}>
