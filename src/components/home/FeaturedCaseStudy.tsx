@@ -6,7 +6,6 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 import CountUpValue from "@/components/motion/CountUpValue";
 import Link from "next/link";
-import LogoArrowLoop from "../proof/LogoArrowLoop";
 
 const subStats = [
 	{ value: "$900", label: "AD SPEND", sub: "Total campaign spend" },
@@ -65,8 +64,7 @@ export default function FeaturedCaseStudy() {
 									in revenue. First 30 days.
 								</p>
 								<p className="text-[11px] uppercase tracking-[0.14em] text-cg-muted mb-6">
-									$900 IN AD SPEND&nbsp;·&nbsp;GOOGLE ADS FUNNEL&nbsp;·&nbsp;30
-									DAYS
+									$900 IN AD SPEND&nbsp;·&nbsp;GOOGLE ADS FUNNEL&nbsp;·&nbsp;30 DAYS
 								</p>
 
 								{/* Divider */}
@@ -111,11 +109,6 @@ export default function FeaturedCaseStudy() {
 					</div>
 				</div>
 			</Reveal>
-
-			{/* CLIENT LOGO LOOP — Upward Arrow Animation */}
-			<div className="mt-16 mb-10">
-				<LogoArrowLoop />
-			</div>
 
 			{/* Stats Row 2 */}
 			<Reveal delay={0.2}>
