@@ -18,6 +18,9 @@ interface LogoImageItem {
   alt?: string;
   href?: string;
   style?: CSSProperties;
+  name?: string;
+  city?: string;
+  service?: string;
 }
 
 interface LogoNodeItem {
@@ -212,9 +215,8 @@ const LogoLoop = memo(function LogoLoop({
     .join(" ");
 
   const renderItem = (item: LogoItem, idx: number) => {
-    const inner = isNodeItem(item) ? (
-      <span className="logoloop__node">{item.node}</span>
-    ) : (
+    const hasLabels = !isNodeItem(item) && (item.name || item.city || item.service);
+    const imgEl = isNodeItem(item) ? null : (
       <img
         src={item.src}
         alt={item.alt || ""}
@@ -225,8 +227,29 @@ const LogoLoop = memo(function LogoLoop({
       />
     );
 
+    const inner = isNodeItem(item) ? (
+      <span className="logoloop__node">{item.node}</span>
+    ) : hasLabels ? (
+      <div className="flex flex-col items-center gap-1.5">
+        {imgEl}
+        <div className="text-center">
+          {(item as LogoImageItem).name && (
+            <p className="text-[11px] font-semibold text-white/70 leading-tight">{(item as LogoImageItem).name}</p>
+          )}
+          {(item as LogoImageItem).city && (
+            <p className="text-[10px] text-white/40 leading-tight">{(item as LogoImageItem).city}</p>
+          )}
+          {(item as LogoImageItem).service && (
+            <p className="text-[10px] italic text-white/35 leading-tight">{(item as LogoImageItem).service}</p>
+          )}
+        </div>
+      </div>
+    ) : (
+      imgEl
+    );
+
     return (
-      <div key={idx} className="logoloop__item" style={{ minWidth: 140, ...item.style }}>
+      <div key={idx} className="logoloop__item" style={{ minWidth: 140, ...(!isNodeItem(item) ? item.style : {}) }}>
         {item.href ? (
           <a
             href={item.href}

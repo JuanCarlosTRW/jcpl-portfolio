@@ -164,7 +164,7 @@ export const strategicGap = {
 export const growthArchitecture = {
   label: "THE SYSTEM",
   headline: "The Growth Architecture™",
-  subheadline: "Four integrated layers. Each one makes the others stronger. Positioning, search visibility, paid acquisition, and weekly optimization. Built as one connected system in 2 to 4 weeks.",
+  subheadline: "Four integrated layers. Each one makes the others stronger. Built as one connected system in 2 to 4 weeks. Most clients see their first booked call within 11 days of going live.",
   pillars: [
     {
       id: "authority",
@@ -223,10 +223,10 @@ export const featuredCase = {
   timeframe: "$900 IN AD SPEND · GOOGLE ADS FUNNEL · 30 DAYS",
   supporting: [
     { metric: "$900", label: "AD SPEND" },
-    { metric: "33x", label: "RETURN ON AD SPEND" },
+    { metric: "46x", label: "RETURN ON AD SPEND" },
     { metric: "30", label: "DAYS TO RESULTS" }
   ],
-  callout: "Every $1 in ad spend returned $33 in revenue.",
+  callout: "Every $1 in ad spend returned $46 in revenue.",
   cta: "View All Results →",
 };
 
@@ -262,11 +262,8 @@ export const differentiation = {
   headline: "Most Agencies Optimize for Hours Billed. I Optimize for Calls Booked.",
   subheadline: "An agency delivers the project and invoices. I measure success by one number: qualified calls on your calendar. If that number does not grow, I have not done my job.",
   comparisons: [
-    { dimension: "Ownership", them: "5+ vendors, no single owner", us: "One partner owns the entire pipeline" },
+    { dimension: "Ownership", them: "5+ vendors, no single owner", us: "One partner owns the full pipeline" },
     { dimension: "Speed", them: "8 to 12 weeks, constant delays", us: "2 to 4 weeks, unified execution" },
-    { dimension: "Accountability", them: "Everyone points elsewhere", us: "One owner, one outcome metric" },
-    { dimension: "Lead Quality", them: "Vanity metrics, no context", us: "Built-in qualification and scoring" },
-    { dimension: "Reporting", them: "3 dashboards, no clear answer", us: "One report, full-funnel clarity" },
     { dimension: "After Launch", them: "Project done. They're gone.", us: "Monthly optimization, ongoing growth" }
   ],
 };
@@ -274,15 +271,18 @@ export const differentiation = {
 /* ─── Section H: Qualification + Final CTA ─── */
 export const qualification = {
   forYouIf: [
-    "Your pipeline leans too heavily on referrals and word of mouth",
-    "You're generating $5K+/month and ready to invest in infrastructure that pays back",
-    "You want one person who owns the full picture, not five vendors you have to coordinate",
-    "You're tired of watching competitors rank above you for work you do better"
+    "You lie awake knowing the work is out there. You just can't find it online.",
+    "You're generating $5K or more per month and ready to invest in infrastructure that returns 5x to 10x.",
+    "Your pipeline leans too heavily on referrals and word of mouth.",
+    "You're tired of watching competitors rank above you for work you do better.",
+    "You want one person who owns the full picture, not five vendors you have to coordinate."
   ],
   notForYouIf: [
-    "You want a logo, a brochure site, or a one-off project",
-    "Your business is under $5K/month revenue",
-    "You're not ready to commit. You want to 'test the waters' with no real system behind it"
+    "You want a logo, a brochure site, or a one-off project.",
+    "Your business is under $5K per month in revenue.",
+    "You want to test the waters with no real commitment behind it.",
+    "You are not prepared for a 90-day initial run.",
+    "You expect results without showing up for a one-hour onboarding call."
   ],
 };
 export const whySection = {

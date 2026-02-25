@@ -4,6 +4,7 @@ import { differentiation } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
+import Link from "next/link";
 
 /* ─── Inline SVG Icons ─── */
 function XIcon() {
@@ -25,24 +26,30 @@ function CheckIcon() {
 export default function Differentiation() {
   return (
     <SectionWrapper id="difference" className="bg-cg-section-a">
-      <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
+      <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-12">
         <SectionLabel label={differentiation.label} className="mb-5" />
-  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
+        <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {differentiation.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
-          {differentiation.subheadline}
+      </Reveal>
+
+      {/* Body paragraphs */}
+      <Reveal className="max-w-2xl mx-auto mb-12">
+        <p className="text-cg-body text-[17px] leading-[1.8] mb-5">
+          An agency will take your $3,000, spend 6 weeks onboarding you, send you a report full of impressions and clicks, and invoice you again while you still wait for the phone to ring.
+        </p>
+        <p className="text-cg-body text-[17px] leading-[1.8]">
+          I have one metric: qualified calls on your calendar. If that number is not growing, I have not done my job. That is it. Nothing else counts.
         </p>
       </Reveal>
 
-      {/* ── Desktop Comparison Table ── */}
+      {/* ── Desktop Comparison Table — 3 rows only ── */}
       <Reveal delay={0.1} className="hidden md:block">
         <div className="max-w-4xl mx-auto">
           <div
             className="rounded-[14px] border border-[rgba(255,255,255,0.08)] overflow-hidden"
             style={{
-              background:
-                "linear-gradient(180deg, #0F2049 0%, #060D1F 100%)",
+              background: "linear-gradient(180deg, #0F2049 0%, #060D1F 100%)",
             }}
           >
             {/* Header */}
@@ -54,11 +61,11 @@ export default function Differentiation() {
                 Typical Agency
               </div>
               <div className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-cg-accent-lt text-center">
-                Growth Architecture™
+                Growth Architecture
               </div>
             </div>
 
-            {/* Rows */}
+            {/* 3 rows only */}
             {differentiation.comparisons.map((row, i) => (
               <div
                 key={i}
@@ -71,13 +78,13 @@ export default function Differentiation() {
                 <div className="p-5 text-sm font-semibold text-white">
                   {row.dimension}
                 </div>
-                <div className="p-5 flex items-start gap-2.5 justify-center">
+                <div className="p-5 flex items-start gap-2.5 justify-center" style={{ background: "rgba(239,68,68,0.03)" }}>
                   <XIcon />
                   <span className="text-sm text-cg-secondary">
                     {row.them}
                   </span>
                 </div>
-                <div className="p-5 flex items-start gap-2.5 justify-center">
+                <div className="p-5 flex items-start gap-2.5 justify-center" style={{ background: "rgba(37,99,235,0.04)" }}>
                   <CheckIcon />
                   <span className="text-sm text-cg-body">
                     {row.us}
@@ -116,11 +123,19 @@ export default function Differentiation() {
         ))}
       </div>
 
-      {/* Operational footnote */}
+      {/* Stat line + link to full table */}
       <Reveal delay={0.2}>
-        <p className="text-xs text-slate-500 text-center mt-6 max-w-2xl mx-auto">
+        <p className="text-sm text-slate-400 text-center mt-6 max-w-2xl mx-auto">
           Average agency onboarding takes 6 to 8 weeks. My median build time is 11 days from signed agreement to live system.
         </p>
+        <div className="text-center mt-4">
+          <Link
+            href="/services"
+            className="text-[14px] font-medium text-cg-accent-lt hover:text-white transition-colors duration-200 underline underline-offset-4 decoration-[rgba(75,142,255,0.4)]"
+          >
+            See all 6 differences →
+          </Link>
+        </div>
       </Reveal>
     </SectionWrapper>
   );

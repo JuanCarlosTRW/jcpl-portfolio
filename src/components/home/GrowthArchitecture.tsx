@@ -4,101 +4,100 @@ import { growthArchitecture } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
-import ScrollVelocity from "./ScrollVelocity";
+import Link from "next/link";
 
-/* ─── Pillar Icons ─── */
-const pillarIcons: Record<string, React.ReactNode> = {
-  authority: (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  conversion: (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  acquisition: (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  optimization: (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M4 14.5a9 9 0 0116 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M12 14.5V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="12" cy="14.5" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 18v3" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeDasharray="2 2" />
-    </svg>
-  ),
-};
-
-/* All accent colors unified to electric blue */
-const blueAccent = {
-  border: "rgba(37,99,235,0.4)",
-  bg: "rgba(37,99,235,0.2)",
-  glow: "rgba(37,99,235,0.12)",
-  text: "#4B8EFF",
-};
+const tiles = [
+  {
+    number: "01",
+    headline: "Show Up First.",
+    body: "I position you on Google and AI tools like ChatGPT at the exact moment buyers in your city are ready to call. Before your competitors know this exists.",
+    tags: ["Conversion website", "Local SEO", "GEO content"],
+  },
+  {
+    number: "02",
+    headline: "Turn Visitors Into Calls.",
+    body: "95% of website visitors leave without doing anything. I build a booking flow that captures people who are already interested in hiring you, without you lifting a finger.",
+    tags: ["Booking flow", "AI lead qualifier", "Trust signals"],
+  },
+  {
+    number: "03",
+    headline: "Get in Front of Buyers Now.",
+    body: "Google Ads targeting people with purchase intent, not browsers. Every campaign built around one goal: more calls from people ready to hire you today.",
+    tags: ["Paid traffic", "Dedicated landing pages", "Tracked cost per call"],
+  },
+  {
+    number: "04",
+    headline: "Results Get Better Every Week.",
+    body: "I look at the numbers every week and cut what is not working. The system compounds. Your cost per lead goes down every month it runs.",
+    tags: ["Weekly optimization", "Monthly review call", "Conversion improvements"],
+  },
+];
 
 export default function GrowthArchitecture() {
   return (
     <SectionWrapper id="system" variant="alt">
-      <Reveal className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0 mb-14 md:mb-16">
+      <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label={growthArchitecture.label} className="mb-5" />
-        <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl lg:max-w-none">
+        <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {growthArchitecture.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg leading-[1.75] text-[17px]">
+        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[17px]">
           {growthArchitecture.subheadline}
         </p>
       </Reveal>
 
+      {/* 2x2 Compact Tile Grid */}
       <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
-        {growthArchitecture.pillars.map((pillar, i) => {
-          return (
-            <Reveal key={pillar.id} delay={0.08 * i}>
-              <div className="group relative rounded-[14px] bg-cg-card border border-[rgba(255,255,255,0.07)] p-8 md:p-9 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
-                {/* Icon */}
-                <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)] text-cg-accent-lt">
-                  {pillarIcons[pillar.id]}
-                </div>
-
-                {/* Title + Subtitle */}
-                <h3 className="text-[18px] font-bold text-white mb-1 leading-snug">
-                  {pillar.title}
+        {tiles.map((tile, i) => (
+          <Reveal key={tile.number} delay={0.07 * i}>
+            <div className="group relative rounded-[14px] bg-cg-card border border-[rgba(255,255,255,0.07)] p-7 md:p-8 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
+              {/* Number + Headline */}
+              <div className="flex items-baseline gap-3 mb-3">
+                <span className="text-[13px] font-bold text-cg-accent-lt opacity-70 tracking-wider">
+                  {tile.number}
+                </span>
+                <h3 className="text-[18px] font-bold text-white leading-snug">
+                  {tile.headline}
                 </h3>
-                <p className="text-[13px] text-cg-muted mb-5">
-                  {pillar.id === "optimization"
-                    ? "I look at the numbers every week and cut what is not working. Lower cost per lead. More calls. The system compounds so you pull further ahead of your competition over time."
-                    : pillar.subtitle}
-                </p>
-
-                {/* Points */}
-                <ul className="space-y-2.5 mt-auto">
-                  {pillar.points.map((point, j) => (
-                    <li key={j} className="flex items-start gap-2.5 text-[16px] text-cg-body leading-[1.75]">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                        aria-hidden="true"
-                        className="shrink-0 mt-[2px]"
-                      >
-                        <path d="M3.5 7.5l2.5 2.5 4.5-5" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
               </div>
-            </Reveal>
-          );
-        })}
+
+              {/* Body */}
+              <p className="text-[15px] text-cg-secondary leading-[1.75] mb-5 flex-1">
+                {tile.body}
+              </p>
+
+              {/* Feature Tags */}
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {tile.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center px-2.5 py-1 rounded-md text-[12px] font-medium"
+                    style={{
+                      background: "rgba(37,99,235,0.12)",
+                      border: "1px solid rgba(37,99,235,0.25)",
+                      color: "#93C5FD",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        ))}
       </div>
+
+      {/* Link to /services */}
+      <Reveal delay={0.2}>
+        <div className="text-center mt-10">
+          <Link
+            href="/services"
+            className="text-[15px] font-medium text-cg-accent-lt hover:text-white transition-colors duration-200 underline underline-offset-4 decoration-[rgba(75,142,255,0.4)]"
+          >
+            Want the full breakdown? See how the system is built →
+          </Link>
+        </div>
+      </Reveal>
     </SectionWrapper>
   );
 }

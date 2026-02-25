@@ -66,6 +66,12 @@ export default function HowWeWork() {
                       </span>
                     ))}
                   </div>
+                  {/* Kicker line for Build phase */}
+                  {step.title === "Build" && (
+                    <p className="mt-4 text-[14px] font-bold text-emerald-400 leading-snug">
+                      Most clients see their first booked call within 11 days of going live.
+                    </p>
+                  )}
                 </div>
               </div>
             </Reveal>

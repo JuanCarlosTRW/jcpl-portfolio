@@ -1,8 +1,7 @@
 "use client";
 
-import { qualification, ctaCopy } from "@/lib/content";
+import { qualification } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import CTAButton from "@/components/ui/CTAButton";
 import { Reveal } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -23,43 +22,9 @@ function XIcon() {
   );
 }
 
-function LightningIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent-lt">
-      <path d="M9 1L3 9h5l-1 6 7-9H9l1-5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" fill="none" />
-    </svg>
-  );
-}
-
-function LockIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent-lt">
-      <rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
-      <path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-      <circle cx="8" cy="11" r="1" fill="currentColor"/>
-    </svg>
-  );
-}
-
-function ClipboardIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-cg-accent-lt">
-      <rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
-      <path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-      <path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-    </svg>
-  );
-}
-
-const trustBadges = [
-  { Icon: LightningIcon, text: "Reply within 24 hours" },
-  { Icon: LockIcon, text: "No long-term contracts" },
-  { Icon: ClipboardIcon, text: "3 spots per quarter" },
-];
-
 export default function QualificationCTA() {
   return (
-  <section id="qualify" className="relative overflow-hidden bg-[#060b14] py-16 border-b border-slate-700/40">
+    <section id="qualify" className="relative overflow-hidden bg-[#060b14] py-16 border-b border-slate-700/40">
       {/* Background treatment */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -78,7 +43,7 @@ export default function QualificationCTA() {
         aria-hidden="true"
       />
 
-  <SectionWrapper className="relative z-10">
+      <SectionWrapper className="relative z-10">
         <div className="max-w-3xl mx-auto">
           {/* Section Header */}
           <div className="max-w-2xl mx-auto text-center mb-12">
@@ -87,21 +52,30 @@ export default function QualificationCTA() {
               This Partnership Has a Specific Type of Client.
             </h2>
             <p className="text-cg-body text-base md:text-lg text-center">
-              Read both sides before applying. I only work with businesses I know I can move the needle for.
+              I only work with businesses I know I can move the needle for. Read both sides before applying.
             </p>
           </div>
+
           {/* Qualification Grid */}
           <Reveal>
-            <div className="grid gap-6 md:grid-cols-2 mb-16">
-              {/* For You If */}
-              <div className="rounded-2xl border border-[rgba(37,99,235,0.25)] bg-cg-card p-7 md:p-8">
-                <h3 className="text-[18px] font-bold text-white mb-5 flex items-center gap-2">
-                  <CheckIcon />
-                  Serious operators build infrastructure. Everyone else waits for the phone to ring.
+            <div className="grid gap-6 md:grid-cols-2 mb-12">
+              {/* For You If — green left border, light green tint */}
+              <div
+                className="rounded-2xl bg-cg-card p-7 md:p-8"
+                style={{
+                  borderLeft: "4px solid rgba(52,211,153,0.6)",
+                  border: "1px solid rgba(52,211,153,0.2)",
+                  borderLeftWidth: "4px",
+                  borderLeftColor: "rgba(52,211,153,0.6)",
+                  background: "rgba(52,211,153,0.04)",
+                }}
+              >
+                <h3 className="text-[17px] font-bold text-white mb-5">
+                  You are the right fit if:
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[16px] text-cg-body leading-[1.7]">
+                    <li key={i} className="flex items-start gap-3 text-[15px] text-cg-body leading-[1.7]">
                       <CheckIcon />
                       {item}
                     </li>
@@ -109,19 +83,23 @@ export default function QualificationCTA() {
                 </ul>
               </div>
 
-              {/* Not For You If */}
-              <div className="rounded-2xl border border-[rgba(239,68,68,0.25)] bg-cg-card p-7 md:p-8">
-                <h3 className="text-[18px] font-bold text-white mb-5 flex items-center gap-2">
-                  <XIcon />
-                  This Is Not the Right Fit If:
+              {/* Not For You If — red right border, light red tint */}
+              <div
+                className="rounded-2xl bg-cg-card p-7 md:p-8"
+                style={{
+                  borderRight: "4px solid rgba(239,68,68,0.5)",
+                  border: "1px solid rgba(239,68,68,0.2)",
+                  borderRightWidth: "4px",
+                  borderRightColor: "rgba(239,68,68,0.5)",
+                  background: "rgba(239,68,68,0.03)",
+                }}
+              >
+                <h3 className="text-[17px] font-bold text-white mb-5">
+                  This is NOT the right fit if:
                 </h3>
                 <ul className="space-y-3.5">
-                  {[
-                    "You want a logo, a brochure site, or a one-off project",
-                    "Your business is under $5K/month revenue",
-                    "You're not ready to commit. You want to 'test the waters' with no real system behind it"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[16px] text-cg-secondary leading-[1.7]">
+                  {qualification.notForYouIf.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[15px] text-cg-secondary leading-[1.7]">
                       <XIcon />
                       {item}
                     </li>
@@ -131,6 +109,12 @@ export default function QualificationCTA() {
             </div>
           </Reveal>
 
+          {/* Closing line */}
+          <Reveal delay={0.1}>
+            <p className="text-center text-[20px] md:text-[22px] font-bold text-white leading-snug">
+              Serious operators build infrastructure. Everyone else waits for the phone to ring.
+            </p>
+          </Reveal>
         </div>
       </SectionWrapper>
     </section>

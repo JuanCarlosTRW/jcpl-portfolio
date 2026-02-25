@@ -1,105 +1,115 @@
 "use client";
 
-import { clientReality } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 
-/* ─── Pain Icons (updated to blue palette) ─── */
-const icons: Record<string, React.ReactNode> = {
-  ghost: (
-    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <circle cx="10" cy="10" r="7" stroke="#4B8EFF" strokeWidth="1.5" />
-      <path d="M7 13c0-1.5 1.5-2.5 3-2.5s3 1 3 2.5" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="8" cy="9" r="1" fill="#4B8EFF" />
-      <circle cx="12" cy="9" r="1" fill="#4B8EFF" />
-    </svg>
-  ),
-  leak: (
-    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M5 6h10v7a2 2 0 01-2 2H7a2 2 0 01-2-2V6z" stroke="#4B8EFF" strokeWidth="1.5" />
-      <path d="M8 15v3M10 15v4M12 15v2.5" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
-      <path d="M5 6h10" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  scatter: (
-    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#4B8EFF" strokeWidth="1.5" />
-      <rect x="12" y="2" width="6" height="6" rx="1.5" stroke="#4B8EFF" strokeWidth="1.5" />
-      <rect x="2" y="12" width="6" height="6" rx="1.5" stroke="#4B8EFF" strokeWidth="1.5" />
-      <rect x="12" y="12" width="6" height="6" rx="1.5" stroke="#4B8EFF" strokeWidth="1.5" />
-    </svg>
-  ),
-  clock: (
-    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <circle cx="10" cy="10" r="7.5" stroke="#4B8EFF" strokeWidth="1.5" />
-      <path d="M10 6v4l3 2" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-};
-
 export default function ClientReality() {
   return (
-  <SectionWrapper id="reality" variant="alt" className="border-b border-slate-700/40">
+    <SectionWrapper id="reality" variant="alt" className="border-b border-slate-700/40">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-        <SectionLabel label={clientReality.label} className="mb-5" />
-  <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
-          {clientReality.headline}
+        <SectionLabel label="THE REALITY" className="mb-5" />
+        <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
+          Your Work Is Good. Your Pipeline Shouldn&apos;t Be This Uncertain.
         </h2>
       </Reveal>
 
-      {/* Card 1 — full width, featured treatment */}
+      {/* Featured Pain Card — full width, dark blue border */}
       <Reveal className="max-w-4xl mx-auto mb-5">
-        <div className="group relative rounded-[14px] border border-[rgba(255,255,255,0.07)] bg-cg-card p-10 transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px] lg:border-r-4 lg:border-r-blue-500/30">
-          <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)]">
-            {icons[clientReality.pains[0].icon]}
-          </div>
-          <h3 className="text-2xl font-bold text-white mb-2 leading-snug">
-            {clientReality.pains[0].title}
+        <div className="group relative rounded-[14px] border border-[rgba(37,99,235,0.35)] bg-cg-card p-10 transition-all duration-300 hover:border-[rgba(37,99,235,0.55)] hover:-translate-y-[2px]">
+          <h3 className="text-2xl font-bold text-white mb-3 leading-snug">
+            Right Now, 3 to 8 People in Your City Are Searching Your Exact Service.
           </h3>
           <p className="text-[16px] text-cg-secondary leading-[1.75] max-w-2xl">
-            {clientReality.pains[0].detail}
+            None of them will find you. Not because your work is worse. Because your digital infrastructure does not exist where they are looking. Google, AI search, maps. Your competitor is there. You are not. That call is gone before you knew it existed.
           </p>
         </div>
       </Reveal>
 
-      {/* Cards 2-4 — 3-col on desktop, 2-col on tablet */}
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
-        {clientReality.pains.slice(1).map((pain, i) => (
-          <Reveal key={pain.icon} delay={0.08 * (i + 1)}>
-            <div className="group relative rounded-[14px] border border-[rgba(255,255,255,0.07)] bg-cg-card p-7 md:p-8 h-full transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
-              <div className="mb-5 flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)]">
-                {icons[pain.icon]}
-              </div>
-              <h3 className="text-[18px] font-bold text-white mb-2 leading-snug">
+      {/* Scene Block — "picture this" moment */}
+      <Reveal className="max-w-4xl mx-auto mb-8">
+        <div
+          className="w-full rounded-[12px] px-8 py-7 text-center"
+          style={{
+            background: "#0A0E18",
+            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid rgba(255,255,255,0.06)",
+          }}
+        >
+          <p className="text-[17px] italic text-cg-secondary leading-[1.85] max-w-2xl mx-auto">
+            Picture it: Someone in your city searched &ldquo;painting contractor near me&rdquo; this morning. They clicked the first result. That company&apos;s phone rang at 8:47am. They booked a $1,400 job before breakfast. Your phone was quiet. Not because your work is worse. Because that company had the system and you didn&apos;t.
+          </p>
+        </div>
+      </Reveal>
+
+      {/* Three Pain Cards — 3-col grid, each with red left border */}
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto mb-8">
+        {[
+          {
+            title: "Your Website Looks Fine. It Doesn't Close.",
+            body: "A website that doesn't immediately answer 'why you, why now' is not an asset. It's a leaky bucket. Visitors come, feel nothing, and leave. Most agency sites convert less than 1% of visitors.",
+            kicker: "That visitor who just bounced? They booked your competitor instead.",
+          },
+          {
+            title: "You're Doing Marketing on Top of Everything Else.",
+            body: "Every hour you spend on ads is an hour you are not doing the work clients pay you for. DIY marketing costs more than it saves. And it still doesn't compound.",
+            kicker: "Your competitor outsourced this. Their system runs while they sleep.",
+          },
+          {
+            title: "Referrals Keep You Alive. They Won't Help You Grow.",
+            body: "Good months. Quiet months. No way to predict the next one. Referrals don't run at 2am when someone searches your service. They don't rank on Google. They will not save a slow month.",
+            kicker: "If your pipeline depends on who someone happens to mention you to, you are not running a business. You are running on luck.",
+          },
+        ].map((pain, i) => (
+          <Reveal key={pain.title} delay={0.08 * (i + 1)}>
+            <div
+              className="group relative rounded-[14px] bg-cg-card p-7 md:p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-[2px]"
+              style={{ borderLeft: "3px solid rgba(239,68,68,0.5)", border: "1px solid rgba(255,255,255,0.07)", borderLeftWidth: "3px", borderLeftColor: "rgba(239,68,68,0.5)" }}
+            >
+              <h3 className="text-[18px] font-bold text-white mb-3 leading-snug">
                 {pain.title}
               </h3>
-              <p className="text-[16px] text-cg-secondary leading-[1.75]">
-                {pain.detail}
+              <p className="text-[15px] text-cg-secondary leading-[1.75] mb-4 flex-1">
+                {pain.body}
+              </p>
+              <p className="text-[14px] font-bold text-red-400 leading-snug mt-auto">
+                {pain.kicker}
               </p>
             </div>
           </Reveal>
         ))}
       </div>
 
-      {/* Inaction cost line */}
+      {/* Urgency Strip */}
       <Reveal delay={0.15}>
-        <div className="text-center mt-12 mb-4">
-          <p className="text-xl font-semibold text-white">
-            Every week without this system is pipeline you will not recover.
+        <div
+          className="max-w-4xl mx-auto rounded-[12px] px-8 py-8 mb-10 text-center"
+          style={{
+            background: "rgba(254,242,242,0.04)",
+            borderTop: "2px solid rgba(239,68,68,0.5)",
+            borderBottom: "2px solid rgba(239,68,68,0.5)",
+          }}
+        >
+          <p className="text-[18px] md:text-[20px] font-bold text-red-400 leading-snug mb-3">
+            At $33 per qualified call, every week this system is not running costs you 3 to 7 booked calls you will never get back.
           </p>
-          <p className="text-sm text-slate-400 mt-2">It does not pause while you think about it.</p>
+          <p className="text-[15px] text-white/80 mb-3">
+            That is $100 to $230 in pipeline. Per week. While your competitor&apos;s system runs every single night.
+          </p>
+          <p className="text-[15px] font-bold text-white">
+            It does not pause while you think about it. It either runs for you or it runs for them.
+          </p>
         </div>
       </Reveal>
 
-      {/* Transition block */}
+      {/* Bridge Lines */}
       <Reveal delay={0.2}>
-        <div className="max-w-2xl mx-auto text-center mt-14 md:mt-16">
+        <div className="max-w-2xl mx-auto text-center">
           <p className="text-[clamp(22px,3vw,28px)] font-bold text-white leading-snug">
-            This is why I built the Growth Architecture™.
+            This is why I built the Growth Architecture.
           </p>
-          <p className="mt-3 text-[16px] text-cg-secondary leading-[1.75] max-w-md mx-auto">
-            A single system that solves all four problems at once.
+          <p className="mt-3 text-[16px] italic text-cg-secondary leading-[1.75] max-w-md mx-auto">
+            One system. Four layers. Solves all of it at once.
           </p>
         </div>
       </Reveal>

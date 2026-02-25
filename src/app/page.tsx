@@ -33,7 +33,9 @@ export default function HomePage() {
       <FeaturedCaseStudy />
 
       {/* Client logos */}
-      <div className="py-8 md:py-12">
+      <div className="py-10 md:py-14 bg-cg-section-b">
+        <p className="text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-cg-muted mb-2">CLIENTS</p>
+        <p className="text-center text-[13px] text-cg-dim mb-7">Every business below is a real active or past client account.</p>
         <LogoLoop logos={caseStudyLogos} speed={120} gap={40} logoHeight={40} />
       </div>
 

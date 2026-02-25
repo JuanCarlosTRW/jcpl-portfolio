@@ -2,14 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { isQualifiedLead } from "@/lib/content";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Verified sender address — requires clientgrowth.ca domain verified in Resend dashboard
 const FROM_ADDRESS = "Client Growth <noreply@clientgrowth.ca>";
 const OWNER_EMAIL = "juan@clientgrowth.ca";
 
 export async function POST(req: NextRequest) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const formData: Record<string, string> = await req.json();
 
     const {
