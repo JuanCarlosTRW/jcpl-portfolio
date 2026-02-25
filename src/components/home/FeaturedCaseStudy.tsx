@@ -109,7 +109,7 @@ export default function FeaturedCaseStudy() {
         </div>
       </Reveal>
 
-      {/* CLIENT LOGO LOOP — Upward Arrow Animation */}
+      {/* CLIENT LOGO LOOP — Upward Arrow Animation (label/description removed) */}
       <div className="mt-16 mb-10">
         <LogoArrowLoop />
       </div>
