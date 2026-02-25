@@ -6,6 +6,8 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 import CountUpValue from "@/components/motion/CountUpValue";
 import Link from "next/link";
+import LogoArrowLoop from "../proof/LogoArrowLoop";
+import Image from "next/image";
 
 const subStats = [
   { value: "$900", label: "AD SPEND", sub: "Total campaign spend" },
@@ -88,34 +90,29 @@ export default function FeaturedCaseStudy() {
                 </Link>
               </div>
 
-              {/* Right — Google Ads dashboard screenshot placeholder */}
-              <div
-                className="w-full md:w-[260px] shrink-0 rounded-[10px] flex flex-col items-center justify-center text-center p-6"
-                style={{
-                  background: "rgba(37,99,235,0.06)",
-                  border: "1px dashed rgba(37,99,235,0.3)",
-                  minHeight: 200,
-                }}
-              >
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="mb-3 opacity-40">
-                  <rect x="3" y="3" width="18" height="18" rx="2" stroke="#93C5FD" strokeWidth="1.5" />
-                  <path d="M3 9h18M9 21V9" stroke="#93C5FD" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                <p className="text-[12px] text-cg-muted leading-snug mb-1">
-                  Google Ads Dashboard
-                </p>
-                <p className="text-[11px] text-cg-dim leading-snug">
-                  Triple W Rentals — asset pending
-                </p>
-                <p className="text-[11px] italic text-cg-dim mt-2">
-                  Live account. Last verified February 2026.
-                </p>
+              {/* Right — Google Ads proof image */}
+              <div className="w-full md:w-[260px] shrink-0 rounded-[10px] flex flex-col items-center justify-center text-center p-6" style={{background: "rgba(37,99,235,0.06)", border: "1px dashed rgba(37,99,235,0.3)", minHeight: 200}}>
+                <Image
+                  src="https://static.wixstatic.com/media/62f926_c4b40943b49c4e5096d91da9a8ecdf32~mv2.png"
+                  alt="Google Ads Proof $41,084.85"
+                  width={220}
+                  height={120}
+                  loading="lazy"
+                  style={{borderRadius: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.08)"}}
+                />
+                <p className="text-[12px] text-cg-muted leading-snug mb-1">Google Ads Dashboard</p>
+                <p className="text-[11px] text-cg-dim leading-snug">Triple W Rentals — verified</p>
+                <p className="text-[11px] italic text-cg-dim mt-2">Live account. Last verified February 2026.</p>
               </div>
             </div>
           </div>
         </div>
       </Reveal>
 
+      {/* CLIENT LOGO LOOP — Upward Arrow Animation */}
+      <div className="mt-16 mb-10">
+        <LogoArrowLoop />
+      </div>
       {/* Stats Row 2 */}
       <Reveal delay={0.2}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto">
