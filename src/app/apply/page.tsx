@@ -9,18 +9,6 @@ export const metadata: Metadata = buildMetadata({
   path: "/apply",
 });
 
-const tierMap: Record<string, string> = {
-  foundation: "Foundation Architecture — $2,500 build + $1,200/month",
-  performance: "Performance Engine — $2,500/month + ad spend",
-  ownership: "Market Ownership — $4,000/month + ad spend",
-};
-
-export default async function ApplyPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ tier?: string }>;
-}) {
-  const params = await searchParams;
-  const initialTier = params.tier ? (tierMap[params.tier] ?? "") : "";
-  return <ApplyForm initialTier={initialTier} />;
+export default function ApplyPage() {
+  return <ApplyForm />;
 }

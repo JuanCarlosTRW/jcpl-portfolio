@@ -670,17 +670,6 @@ export const formSteps = [
     id: "contact",
     title: "Let's Start With You",
     fields: [
-      {
-        name: "serviceTier",
-        label: "Which tier are you applying for?",
-        type: "select" as const,
-        required: true,
-        options: [
-          "Foundation Architecture — $2,500 build + $1,200/month",
-          "Performance Engine — $2,500/month + ad spend",
-          "Market Ownership — $4,000/month + ad spend",
-        ],
-      },
       { name: "name", label: "Your Name", type: "text" as const, required: true },
       { name: "email", label: "Email Address", type: "email" as const, required: true },
     ],
