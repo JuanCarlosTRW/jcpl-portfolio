@@ -745,6 +745,17 @@ export const formSteps = [
       { name: "businessName", label: "Business Name", type: "text" as const, required: true },
       { name: "businessWebsite", label: "Business Website (optional)", type: "text" as const, required: false },
       {
+        name: "planType",
+        label: "Which plan are you interested in?",
+        type: "select" as const,
+        required: true,
+        options: [
+          "Foundation Architecture",
+          "Performance Engine",
+          "Market Ownership",
+        ],
+      },
+      {
         name: "goal",
         label: "What's your primary goal in the next 90 days?",
         type: "select" as const,
