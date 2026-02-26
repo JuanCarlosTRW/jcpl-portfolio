@@ -103,16 +103,6 @@ export default function Hero() {
 			);
 		}
 
-		// 2. Border sweep fades in
-		if (borderRef.current) {
-			tl.fromTo(
-				borderRef.current,
-				{ opacity: 0 },
-				{ opacity: 1, duration: 0.6 },
-				0.2
-			);
-		}
-
 		// 3. Eyebrow
 		if (eyebrowRef.current) {
 			tl.fromTo(
@@ -180,133 +170,70 @@ export default function Hero() {
 			{/* Ambient drift */}
 			<div className="cb-ambient" aria-hidden="true" />
 
-			{/* ═══════════════════════════════════════════════════
-			    HERO SHELL — sky-blue device casing
-			    Layout: column flex — topbar / screen / bottom-plate
-			    ═══════════════════════════════════════════════════ */}
-			<div className="hero-shell">
+			{/* ═══════════════════════════════════════════════
+			    HERO — full-bleed WebGL + content layers
+			    No outer frame. Section IS the container.
+			    ═══════════════════════════════════════════════ */}
+			<div ref={frameRef} className={`cb-frame ${styles.frame}`} style={{ opacity: 0 }}>
 
-				{/* ── Structural top bar — embedded into casing, NOT floating ── */}
-				<div className="hero-topbar" aria-hidden="true">
-					<div className="hero-logo-plate">
-						{/* eslint-disable-next-line @next/next/no-img-element */}
-						<img
-							src="https://static.wixstatic.com/media/62f926_5324879084e1438391f656f8121a391a~mv2.png"
-							alt=""
-							className="hero-logo-img"
-						/>
-					</div>
+				{/* ── LAYER 1 — WebGL background ── */}
+				<div ref={bgLayerRef} className="cb-layer cb-layer--bg" aria-hidden="true">
+					<HeroWebGLBackground />
 				</div>
 
-				{/* ── Inner dark screen — WebGL + content ── */}
-				<div ref={frameRef} className={`cb-frame ${styles.frame}`} style={{ opacity: 0 }}>
+				{/* ── LAYER 2 — Readability overlays ── */}
+				<div className="cb-layer cb-overlay-top" aria-hidden="true" />
+				<div className="cb-layer cb-overlay-vignette" aria-hidden="true" />
+				<div className="cb-layer cb-grain" aria-hidden="true" />
 
-					{/* ═══════════════════════════════════════════════════
-					    TOP UI RAIL — Avatar-faithful HUD inside screen
-					    [HOME][APPLY]  ──── ◆ CLIENT GROWTH ◆ ────  [RESULTS][CONTACT]
-					    ═══════════════════════════════════════════════════ */}
-					<div className={styles.topRail} aria-hidden="true">
+				{/* ── LAYER 3 — Content ── */}
+				<div ref={contentLayerRef} className="cb-content-wrap">
+					<div className="cb-content">
 
-						{/* Left pill cluster: HOME · APPLY */}
-						<div className={styles.railSide}>
-							<span className={styles.railPill}>HOME</span>
-							<span className={styles.railPill}>APPLY</span>
+						{/* Eyebrow */}
+						<div ref={eyebrowRef} className="cb-eyebrow" style={{ opacity: 0 }}>
+							<span className="cb-eyebrow-dot" aria-hidden="true" />
+							<span>{EYEBROW}</span>
 						</div>
 
-						{/* Center: line ◆ CLIENT GROWTH ◆ line */}
-						<div className={styles.railCenter}>
-							<div className={styles.railLine} />
-							<div className={styles.railConnector} aria-hidden="true" />
-							<div className={styles.centerLogo}>CLIENT&nbsp;GROWTH</div>
-							<div className={styles.railConnector} aria-hidden="true" />
-							<div className={styles.railLine} />
-						</div>
-
-						{/* Right pill cluster: RESULTS · CONTACT */}
-						<div className={styles.railSide}>
-							<span className={styles.railPill}>RESULTS</span>
-							<span className={styles.railPill}>CONTACT</span>
-						</div>
-					</div>
-
-					{/* Inner surface — full frame height, padding-top reserves rail space */}
-					<div className="cb-surface">
-						{/* ═══ LAYER 1 — WebGL background ═══ */}
-						<div ref={bgLayerRef} className="cb-layer cb-layer--bg" aria-hidden="true">
-							<HeroWebGLBackground />
-						</div>
-
-						{/* ═══ LAYER 2 — Readability overlay ═══ */}
-						<div className="cb-layer cb-overlay-top" aria-hidden="true" />
-						<div className="cb-layer cb-overlay-vignette" aria-hidden="true" />
-						<div className="cb-layer cb-grain" aria-hidden="true" />
-
-						{/* Side vertical labels (Avatar: "2024" left, "NETFLIX" right) */}
-						<div className={`${styles.sideText} ${styles.sideTextLeft}`} aria-hidden="true">
-							JCPL · BUILD
-						</div>
-						<div className={`${styles.sideText} ${styles.sideTextRight}`} aria-hidden="true">
-							GROWTH SYS
-						</div>
-
-						{/* Bottom center ornament — Avatar's circular connector symbol */}
-						<div className="cb-bottom-ornament" aria-hidden="true">
-							<div className="cb-bottom-gem" />
-						</div>
-
-						{/* ═══ LAYER 3 — Content ═══ */}
-						<div ref={contentLayerRef} className="cb-content-wrap">
-							<div className="cb-content">
-								{/* Eyebrow */}
-								<div ref={eyebrowRef} className="cb-eyebrow" style={{ opacity: 0 }}>
-									<span className="cb-eyebrow-dot" aria-hidden="true" />
-									<span>{EYEBROW}</span>
-								</div>
-
-								{/* DOMINATE H1 — words wrapped in cb-word (white-space:nowrap)
-								    so browser can only break BETWEEN words, never mid-word */}
-								<h1 className="cb-headline">
-									<span ref={headlineRef} aria-label={HEADLINE}>
-										{HEADLINE.split(" ").map((word, wi, arr) => (
-											<Fragment key={wi}>
-												<span className="cb-word" aria-hidden="true">
-													{word.split("").map((char, ci) => (
-														<span key={ci} data-char="" className="cb-char">
-															{char}
-														</span>
-													))}
+						{/* DOMINATE H1 */}
+						<h1 className="cb-headline">
+							<span ref={headlineRef} aria-label={HEADLINE}>
+								{HEADLINE.split(" ").map((word, wi, arr) => (
+									<Fragment key={wi}>
+										<span className="cb-word" aria-hidden="true">
+											{word.split("").map((char, ci) => (
+												<span key={ci} data-char="" className="cb-char">
+													{char}
 												</span>
-												{/* Plain space = natural word-boundary line-break opportunity */}
-												{wi < arr.length - 1 && " "}
-											</Fragment>
-										))}
-									</span>
-								</h1>
+											))}
+										</span>
+										{wi < arr.length - 1 && " "}
+									</Fragment>
+								))}
+							</span>
+						</h1>
 
-								{/* Mechanism line */}
-								<p ref={mechRef} className="cb-mechanism" style={{ opacity: 0 }}>
-									{MECHANISM}
-								</p>
+						{/* Mechanism line */}
+						<p ref={mechRef} className="cb-mechanism" style={{ opacity: 0 }}>
+							{MECHANISM}
+						</p>
 
-								{/* Proof line */}
-								<p ref={proofRef} className="cb-proof-line" style={{ opacity: 0 }}>
-									{PROOF}
-								</p>
+						{/* Proof line */}
+						<p ref={proofRef} className="cb-proof-line" style={{ opacity: 0 }}>
+							{PROOF}
+						</p>
 
-								{/* CTA */}
-								<div ref={ctaRef} className="cb-cta-wrap" style={{ opacity: 0 }}>
-									<a href={CTA_PRIMARY.href} className="cb-cta cb-cta--primary">
-										{CTA_PRIMARY.label}
-										<span className="cb-cta-arrow" aria-hidden="true">→</span>
-									</a>
-								</div>
-							</div>
+						{/* CTA */}
+						<div ref={ctaRef} className="cb-cta-wrap" style={{ opacity: 0 }}>
+							<a href={CTA_PRIMARY.href} className="cb-cta cb-cta--primary">
+								{CTA_PRIMARY.label}
+								<span className="cb-cta-arrow" aria-hidden="true">→</span>
+							</a>
 						</div>
+
 					</div>
 				</div>
-
-				{/* ── Bottom plate — sky-blue tab at casing bottom center ── */}
-				<div className="hero-bottom-plate" aria-hidden="true" />
 
 			</div>
 		</section>

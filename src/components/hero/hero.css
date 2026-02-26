@@ -1,11 +1,10 @@
 /* ═══════════════════════════════════════════════════
-   COMMAND BRIDGE HERO — Cinematic Institutional
-   Avatar frame + Unicorn WebGL BG
+   COMMAND BRIDGE HERO — Full-bleed WebGL + Content
+   No outer frame. Section fills viewport.
    3-Layer: WebGL → Readability overlay → Content
-   Token-based only (Sapphire Veil / sv tokens)
    ═══════════════════════════════════════════════════ */
 
-/* ── Section ── */
+/* ── Section — fills viewport, centers content ── */
 .cb {
   position: relative;
   min-height: 100svh;
@@ -14,19 +13,6 @@
   justify-content: center;
   overflow: hidden;
   background: var(--bg-base);
-  padding: 24px;
-}
-
-@media (min-width: 768px) {
-  .cb {
-    padding: 32px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .cb {
-    padding: 48px;
-  }
 }
 
 /* ── Ambient gradient drift ── */
@@ -42,204 +28,26 @@
 }
 
 @keyframes cb-drift {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(-3%, 2%) scale(1.02);
-  }
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-3%, 2%) scale(1.02); }
 }
 
 /* ═══════════════════════════════════════════════════
-   HERO SHELL — structural sky-blue device casing
-   Column flex: topbar → screen → (abs) bottom-plate
-   No padding. Topbar IS the casing's top zone.
-   ═══════════════════════════════════════════════════ */
-.hero-shell {
-  position: relative;
-  width: 100%;
-  max-width: 1300px;
-  /* Section default padding: 24px × 2 = 48px */
-  height: calc(100svh - 48px);
-  background: #CDEAF4;
-  border-radius: 18px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.60),
-    0 30px 70px rgba(0, 0, 0, 0.40);
-}
-
-@media (min-width: 768px) {
-  .hero-shell {
-    /* Section 32px × 2 = 64px */
-    height: calc(100svh - 64px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-shell {
-    /* Section 48px × 2 = 96px */
-    height: calc(100svh - 96px);
-  }
-}
-
-/* ── Structural top bar — the sky-blue "forehead" of the device ── */
-.hero-topbar {
-  position: relative;       /* stacking context for logo-plate + pseudo lines */
-  width: 100%;
-  height: 70px;
-  flex-shrink: 0;
-  background: #CDEAF4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;               /* sits above cb-frame (z-index: 2) */
-}
-
-/* ── Left tech line — extends from far left toward the logo plate ── */
-.hero-topbar::before,
-.hero-topbar::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 2px;
-  width: 140px;
-  background: #7FB8C9;
-  pointer-events: none;
-}
-
-/* Left line: right edge is 130px left of center (logo plate edge) */
-.hero-topbar::before {
-  left: calc(50% - 270px);  /* 270 = 130 plate-half + 140 line-width */
-}
-
-/* Right line: left edge is 130px right of center */
-.hero-topbar::after {
-  right: calc(50% - 270px);
-}
-
-/* ── Logo plate — embedded at the bottom of the topbar, overlaps screen ── */
-.hero-logo-plate {
-  position: absolute;
-  bottom: -1px;             /* 1px overlap into the inner screen edge */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-  height: 42px;
-  background: #BFE3EF;
-  border-radius: 0 0 14px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.60);
-  pointer-events: none;
-}
-
-/* Logo image inside the plate */
-.hero-logo-img {
-  display: block;
-  height: 22px;
-  width: auto;
-  filter: brightness(0.82);
-  user-select: none;
-  pointer-events: none;
-}
-
-/* ── Bottom plate — sky-blue tab at casing bottom center ── */
-.hero-bottom-plate {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 28px;
-  background: #CDEAF4;
-  border-radius: 12px 12px 0 0;
-  pointer-events: none;
-  z-index: 3;
-}
-
-/* ═══════════════════════════════════════════════════
-   INNER DARK SCREEN
-   flex: 1 fills remaining shell height after topbar (70px)
-   margin: 0 22px 22px insets it from casing sides/bottom
+   HERO FRAME — full-bleed transparent container
+   No border. No shadow. No radius.
+   Just provides stacking context for the 3 layers.
    ═══════════════════════════════════════════════════ */
 .cb-frame {
-  position: relative;
-  flex: 1;                  /* fills shell height minus topbar */
-  margin: 0 22px 22px;      /* inset from casing sides and bottom */
-  border-radius: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.35);
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   will-change: transform, opacity;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Border sweep removed — replaced by HeroAvatarFrame.module.css ::before gradient stroke */
-
-/* Rail label/dot/status styles removed — module handles the full rail */
-
-/* ── Bottom center ornament (z-7 — above content, below frame ::before) ── */
-.cb-bottom-ornament {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 7;
-  pointer-events: none;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.cb-bottom-gem {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(107, 141, 184, 0.55);
-  box-shadow:
-    0 0 10px rgba(43, 90, 140, 0.40),
-    inset 0 0 4px rgba(43, 90, 140, 0.30);
-  position: relative;
-}
-
-/* Horizontal tick marks flanking the gem */
-.cb-bottom-gem::before,
-.cb-bottom-gem::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 16px;
-  height: 1px;
-  background: rgba(107, 141, 184, 0.35);
-  transform: translateY(-50%);
-}
-
-.cb-bottom-gem::before { right: calc(100% + 5px); }
-.cb-bottom-gem::after  { left:  calc(100% + 5px); }
-
-/* ═══════════════════════════════════════════════════
-   INNER SURFACE
-   ═══════════════════════════════════════════════════ */
-.cb-surface {
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-elevated);
-  overflow: hidden;
-  /* Push flex-center down so content clears the floating topRail (46px) */
-  padding-top: 46px;
 }
 
 /* ── Generic layer ── */
@@ -264,7 +72,7 @@
   overflow: hidden;
 }
 
-/* Force UnicornStudio canvas to fill the container — cover behavior */
+/* Force UnicornStudio canvas to fill the container */
 .hero-webgl-wrap canvas {
   position: absolute !important;
   top: 0 !important;
@@ -275,26 +83,26 @@
 
 /* ═══ LAYER 2 — Readability overlays ═══ */
 
-/* Top-heavy gradient — darkens the upper 60% for H1 legibility */
+/* Top-heavy gradient — darkens upper 60% for H1 legibility */
 .cb-overlay-top {
   z-index: 3;
   background: linear-gradient(to bottom,
-      rgba(6, 14, 26, 0.75) 0%,
-      rgba(6, 14, 26, 0.55) 30%,
-      rgba(6, 14, 26, 0.25) 55%,
-      transparent 75%);
+    rgba(6, 14, 26, 0.75) 0%,
+    rgba(6, 14, 26, 0.55) 30%,
+    rgba(6, 14, 26, 0.25) 55%,
+    transparent 75%);
 }
 
-/* Edge vignette — subtle darkening around all edges */
+/* Edge vignette */
 .cb-overlay-vignette {
   z-index: 4;
   background: radial-gradient(ellipse 100% 100% at 50% 50%,
-      transparent 25%,
-      rgba(6, 14, 26, 0.45) 70%,
-      rgba(6, 14, 26, 0.75) 100%);
+    transparent 25%,
+    rgba(6, 14, 26, 0.45) 70%,
+    rgba(6, 14, 26, 0.75) 100%);
 }
 
-/* Grain */
+/* Film grain */
 .cb-grain {
   z-index: 5;
   opacity: 0.02;
@@ -304,7 +112,7 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   LAYER 3 — Content (z-6, below frame ::before stroke at z-10)
+   LAYER 3 — Content
    ═══════════════════════════════════════════════════ */
 .cb-content-wrap {
   position: relative;
@@ -358,17 +166,8 @@
 }
 
 @keyframes cb-pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.3;
-    transform: scale(0.75);
-  }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.75); }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -386,13 +185,11 @@
   text-rendering: optimizeLegibility;
   margin: 0;
   max-width: none;
-  /* Never hyphenate or break within a word */
   word-break: keep-all;
   hyphens: none;
   overflow-wrap: normal;
 }
 
-/* Word wrapper — keeps characters together, break only at word boundaries */
 .cb-word {
   display: inline-block;
   white-space: nowrap;
@@ -474,33 +271,12 @@
    REDUCED MOTION
    ═══════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
+  .cb-eyebrow-dot { animation: none; }
+  .cb-ambient     { animation: none; }
+  .cb-char        { will-change: auto; }
 
-  .cb-eyebrow-dot,
-  .cb-rail-dot {
-    animation: none;
-  }
-
-  .cb-ambient {
-    animation: none;
-  }
-
-  .cb-border-sweep {
-    animation: none;
-    opacity: 0.5;
-  }
-
-  .cb-char {
-    will-change: auto;
-  }
-
-  /* Static gradient fallback when WebGL is skipped */
   .hero-webgl-wrap {
-    background: linear-gradient(
-      135deg,
-      #122845 0%,
-      #0E1F35 55%,
-      #060E1A 100%
-    );
+    background: linear-gradient(135deg, #122845 0%, #0E1F35 55%, #060E1A 100%);
   }
 
   .hero-webgl-wrap canvas {
@@ -512,61 +288,6 @@
    MOBILE
    ═══════════════════════════════════════════════════ */
 @media (max-width: 767px) {
-  .cb {
-    padding: 12px;
-  }
-
-  /* Shell tightens on mobile — section 12px × 2 = 24px */
-  .hero-shell {
-    height: calc(100svh - 24px);
-    border-radius: 14px;
-  }
-
-  /* Shorter topbar on mobile */
-  .hero-topbar {
-    height: 56px;
-  }
-
-  /* Narrower logo plate on mobile */
-  .hero-logo-plate {
-    width: 180px;
-    height: 36px;
-  }
-
-  .hero-logo-img {
-    height: 18px;
-  }
-
-  /* Shorter tech lines on mobile */
-  .hero-topbar::before,
-  .hero-topbar::after {
-    width: 90px;
-  }
-
-  .hero-topbar::before {
-    left: calc(50% - 180px);  /* 90px half-plate + 90px line */
-  }
-
-  .hero-topbar::after {
-    right: calc(50% - 180px);
-  }
-
-  /* Tighter screen margin on mobile */
-  .cb-frame {
-    margin: 0 14px 14px;
-    border-radius: 10px;
-  }
-
-  /* Smaller bottom plate */
-  .hero-bottom-plate {
-    width: 80px;
-    height: 20px;
-  }
-
-  .cb-rail-label {
-    font-size: 0.42rem;
-  }
-
   .cb-headline {
     letter-spacing: 0.04em;
   }
