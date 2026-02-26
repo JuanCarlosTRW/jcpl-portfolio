@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════════════════════
    COMMAND BRIDGE HERO — Cinematic Institutional
    Avatar-style framed viewport with DOMINATE typography.
+   3-Layer depth: BG → Laser → Content
    Token-based only (Sapphire Veil / sv tokens).
    ═══════════════════════════════════════════════════ */
 
@@ -28,17 +29,14 @@
   }
 }
 
-/* ── Ambient gradient drift (very slow, 30s loop) ── */
+/* ── Ambient gradient drift (very slow, 25s loop) ── */
 .cb-ambient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 30% 40%,
-      rgba(43, 90, 140, 0.06) 0%,
-      transparent 60%),
-    radial-gradient(ellipse 60% 50% at 70% 65%,
-      rgba(43, 90, 140, 0.04) 0%,
-      transparent 50%);
-  animation: cb-drift 30s ease-in-out infinite alternate;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 40%, rgba(43, 90, 140, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 65%, rgba(43, 90, 140, 0.04) 0%, transparent 50%);
+  animation: cb-drift 25s ease-in-out infinite alternate;
   pointer-events: none;
   z-index: 0;
 }
@@ -55,7 +53,6 @@
 
 /* ═══════════════════════════════════════════════════
    THE FRAME — Avatar-style container
-   Subtle border, rounded corners, inner glow
    ═══════════════════════════════════════════════════ */
 .cb-frame {
   position: relative;
@@ -65,6 +62,7 @@
   border: 1px solid rgba(43, 90, 140, 0.12);
   box-shadow:
     inset 0 1px 0 rgba(232, 237, 243, 0.03),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
     0 0 120px rgba(43, 90, 140, 0.05);
   overflow: hidden;
   will-change: transform, opacity;
@@ -80,6 +78,45 @@
 @media (min-width: 1024px) {
   .cb-frame {
     height: calc(100svh - 96px);
+  }
+}
+
+/* ── Border highlight sweep (rotating conic gradient) ── */
+@property --cb-sweep-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.cb-border-sweep {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--cb-sweep-angle),
+      transparent 0%,
+      rgba(43, 90, 140, 0.00) 15%,
+      rgba(43, 90, 140, 0.35) 25%,
+      rgba(107, 141, 184, 0.20) 30%,
+      rgba(43, 90, 140, 0.00) 40%,
+      transparent 50%,
+      transparent 100%);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 30;
+  animation: cb-sweep-rotate 8s linear infinite;
+}
+
+@keyframes cb-sweep-rotate {
+  to {
+    --cb-sweep-angle: 360deg;
   }
 }
 
@@ -132,44 +169,85 @@
   overflow: hidden;
 }
 
-/* ── Background layer (WebGL + parallax) ── */
-.cb-bg-layer {
+/* ── Generic layer positioning ── */
+.cb-layer {
   position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ═══ LAYER 1 — Background (WebGL + parallax) ═══ */
+.cb-layer--bg {
   inset: -12px;
   z-index: 0;
-  pointer-events: none;
   will-change: transform;
 }
 
-/* ── Vignette overlay ── */
+/* ═══ LAYER 2 — Laser beam (central energy) ═══ */
+.cb-layer--laser {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cb-laser-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Radial laser glow (centered bloom behind content) ── */
+.cb-laser-glow {
+  z-index: 3;
+  background: radial-gradient(ellipse 30% 60% at 50% 45%,
+      rgba(43, 90, 140, 0.12) 0%,
+      rgba(43, 90, 140, 0.04) 40%,
+      transparent 70%);
+  animation: cb-glow-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes cb-glow-pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ── Vignette (edge darkening) ── */
 .cb-vignette {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+  z-index: 4;
   background: radial-gradient(ellipse 100% 100% at 50% 50%,
       transparent 20%,
-      rgba(6, 14, 26, 0.7) 80%);
-  pointer-events: none;
+      rgba(6, 14, 26, 0.65) 75%);
 }
 
 /* ── Grain texture ── */
 .cb-grain {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+  z-index: 5;
   opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   mix-blend-mode: overlay;
-  pointer-events: none;
 }
 
 /* ═══════════════════════════════════════════════════
-   CONTENT — Centered, restrained
+   LAYER 3 — Content (with parallax)
    ═══════════════════════════════════════════════════ */
-.cb-content {
+.cb-content-wrap {
   position: relative;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.cb-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -225,7 +303,7 @@
 
 /* ═══════════════════════════════════════════════════
    DOMINATE H1
-   Extremely large scale, wide tracking, crisp rendering.
+   Massive scale, wide tracking, laser text gradient.
    ═══════════════════════════════════════════════════ */
 .cb-headline {
   font-size: clamp(2.8rem, 10vw + 0.5rem, 9rem);
@@ -233,7 +311,15 @@
   line-height: 0.95;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  /* Laser-center text gradient: bright white center → muted edges */
+  background: radial-gradient(ellipse 60% 80% at 50% 50%,
+      var(--text-primary) 0%,
+      var(--text-primary) 40%,
+      var(--text-secondary) 80%,
+      var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -241,7 +327,6 @@
   max-width: none;
 }
 
-/* Individual char styling for stagger animation */
 .cb-char {
   display: inline-block;
   will-change: transform, opacity;
@@ -257,7 +342,7 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   CTAs
+   CTAs — with hover glow
    ═══════════════════════════════════════════════════ */
 .cb-ctas {
   display: flex;
@@ -294,7 +379,9 @@
 
 .cb-cta--primary:hover {
   background: var(--brand-deep);
-  box-shadow: 0 6px 28px rgba(43, 90, 140, 0.4);
+  box-shadow:
+    0 6px 28px rgba(43, 90, 140, 0.4),
+    0 0 40px rgba(43, 90, 140, 0.15);
   transform: translateY(-1px);
 }
 
@@ -307,6 +394,7 @@
 .cb-cta--secondary:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 24px rgba(43, 90, 140, 0.08);
   transform: translateY(-1px);
 }
 
@@ -352,6 +440,15 @@
   }
 
   .cb-ambient {
+    animation: none;
+  }
+
+  .cb-border-sweep {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  .cb-laser-glow {
     animation: none;
   }
 
