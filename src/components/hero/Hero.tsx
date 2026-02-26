@@ -181,13 +181,21 @@ export default function Hero() {
 			<div className="cb-ambient" aria-hidden="true" />
 
 			{/* ═══════════════════════════════════════════════════
-			    SKY-BLUE OUTER DEVICE CASING — Avatar-style frame
+			    HERO SHELL — sky-blue device casing
+			    Layout: column flex — topbar / screen / bottom-plate
 			    ═══════════════════════════════════════════════════ */}
-			<div className="hero-casing">
+			<div className="hero-shell">
 
-				{/* ── Centered top notch plate — sits above the inner screen ── */}
-				<div className="hero-notch" aria-hidden="true">
-					<span className="hero-notch-logo">CLIENT&nbsp;GROWTH</span>
+				{/* ── Structural top bar — embedded into casing, NOT floating ── */}
+				<div className="hero-topbar" aria-hidden="true">
+					<div className="hero-logo-plate">
+						{/* eslint-disable-next-line @next/next/no-img-element */}
+						<img
+							src="https://static.wixstatic.com/media/62f926_5324879084e1438391f656f8121a391a~mv2.png"
+							alt=""
+							className="hero-logo-img"
+						/>
+					</div>
 				</div>
 
 				{/* ── Inner dark screen — WebGL + content ── */}
@@ -297,7 +305,7 @@ export default function Hero() {
 					</div>
 				</div>
 
-				{/* ── Bottom mini plate — small sky-blue tab at frame bottom ── */}
+				{/* ── Bottom plate — sky-blue tab at casing bottom center ── */}
 				<div className="hero-bottom-plate" aria-hidden="true" />
 
 			</div>
