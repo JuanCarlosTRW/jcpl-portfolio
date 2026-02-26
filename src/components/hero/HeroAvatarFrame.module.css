@@ -89,42 +89,104 @@
 /* ── TOP UI RAIL ── */
 /*
    Absolutely positioned HUD overlay — floats above the WebGL surface.
-   Avatar-style: left labels | ── gradient line ── | right label + status.
+   Avatar-style:  [HOME] ──── CLIENT GROWTH ──── [APPLY]
    z-index 11 — topmost within the frame stacking context.
+   pointer-events: none on rail; re-enabled selectively on interactive children.
 */
 .topRail {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 40px;
+  height: 44px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 18px;
+  /* No gap — spacing controlled by railLine flex + centerLogo padding */
+  gap: 0;
+  padding: 0 20px;
   z-index: 11;
   pointer-events: none;
-  /* Fade-out gradient so the rail blends into the WebGL below */
+  /* Fade-out gradient — rail blends into WebGL, no hard edge */
   background: linear-gradient(
     to bottom,
-    rgba(6, 14, 26, 0.72) 0%,
-    rgba(6, 14, 26, 0.20) 75%,
+    rgba(6, 14, 26, 0.68) 0%,
+    rgba(6, 14, 26, 0.12) 80%,
     transparent 100%
   );
-  border-bottom: 1px solid rgba(43, 90, 140, 0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(43, 90, 140, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* Expanding gradient line — fills middle of the rail */
+/* ── Far left / right micro labels (HOME / APPLY) ── */
+/*
+   Optional context labels flanking the logo.
+   opacity ~0.55 so they recede behind the logo.
+*/
+.railLabel {
+  flex-shrink: 0;
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(232, 237, 243, 0.52);  /* --text-primary at 52% */
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ── Expanding gradient line ── */
+/*
+   Grows via flex: 1 to fill the space between labels and centerLogo.
+   Gradient fades from transparent → sapphire → transparent so it
+   appears to "radiate" out from the logo on both sides.
+*/
 .railLine {
   flex: 1;
   height: 1px;
+  min-width: 16px;
+  /* (43, 90, 140) = --brand-accent */
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(43, 90, 140, 0.55) 50%,
+    rgba(43, 90, 140, 0.50) 50%,
     transparent 100%
   );
-  min-width: 20px;
+}
+
+/* ── Center wordmark / logo ── */
+/*
+   Avatar-equivalent: the centered brand text between the two rail lines.
+   Desktop: ~0.82rem / 800 weight — prominent but not dominating.
+   Mobile: scales down via clamp.
+   text-shadow adds a subtle sapphire halo without being neon.
+*/
+.centerLogo {
+  flex-shrink: 0;
+  padding: 0 18px;  /* breathing room from the rail lines */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: clamp(0.60rem, 1.2vw, 0.82rem);
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(232, 237, 243, 0.76);  /* --text-primary at 76% */
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  white-space: nowrap;
+  user-select: none;
+  /* Restrained sapphire glow — premium, not neon */
+  text-shadow: 0 0 22px rgba(43, 90, 140, 0.45);
+}
+
+/* Thin separator dot between "CLIENT" and "GROWTH" */
+.centerLogoDot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(107, 141, 184, 0.65);  /* --sv-muted */
+  flex-shrink: 0;
+  margin-bottom: 1px; /* optical vertical alignment with cap-height */
 }

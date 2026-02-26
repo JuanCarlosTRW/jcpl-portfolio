@@ -186,16 +186,26 @@ export default function Hero() {
 			{/* styles.frame adds ::before border stroke + ::after inner glow */}
 			<div ref={frameRef} className={`cb-frame ${styles.frame}`} style={{ opacity: 0 }}>
 
-				{/* ── TOP UI RAIL (HUD overlay, z-11) ── */}
+				{/* ── TOP UI RAIL — Avatar style: [HOME] ──── CLIENT·GROWTH ──── [APPLY] ── */}
 				<div className={styles.topRail} aria-hidden="true">
-					<span className="cb-rail-label">CLIENT GROWTH</span>
-					<span className="cb-rail-divider" />
-					<span className="cb-rail-status">
-						<span className="cb-rail-dot" />
-						LIVE
-					</span>
+					{/* Far-left micro label */}
+					<span className={styles.railLabel}>HOME</span>
+
+					{/* Left line — expands from label to logo */}
 					<div className={styles.railLine} />
-					<span className="cb-rail-label">AUTH GATE ACTIVE</span>
+
+					{/* Center wordmark (Avatar equivalent of "AVATAR" title) */}
+					<div className={styles.centerLogo}>
+						<span>CLIENT</span>
+						<span className={styles.centerLogoDot} aria-hidden="true" />
+						<span>GROWTH</span>
+					</div>
+
+					{/* Right line — expands from logo to label */}
+					<div className={styles.railLine} />
+
+					{/* Far-right micro label */}
+					<span className={styles.railLabel}>APPLY</span>
 				</div>
 
 				{/* Inner surface — full frame height, padding-top reserves rail space */}

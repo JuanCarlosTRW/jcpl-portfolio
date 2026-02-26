@@ -96,48 +96,7 @@
 
 /* Border sweep removed — replaced by HeroAvatarFrame.module.css ::before gradient stroke */
 
-/* ═══════════════════════════════════════════════════
-   UI RAIL — shared token styles used by HeroAvatarFrame topRail
-   (layout/positioning handled by CSS module)
-   ═══════════════════════════════════════════════════ */
-
-.cb-rail-label {
-  font-size: 0.5rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
-  user-select: none;
-  white-space: nowrap;
-}
-
-.cb-rail-divider {
-  width: 1px;
-  height: 9px;
-  background: rgba(43, 90, 140, 0.20);
-}
-
-.cb-rail-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.48rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-success);
-  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
-}
-
-.cb-rail-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-success);
-  box-shadow: 0 0 6px rgba(45, 107, 79, 0.5);
-  animation: cb-pulse 3s ease-in-out infinite;
-}
+/* Rail label/dot/status styles removed — module handles the full rail */
 
 /* ── Bottom center ornament (z-7 — above content, below frame ::before) ── */
 .cb-bottom-ornament {
@@ -189,8 +148,8 @@
   justify-content: center;
   background: var(--bg-elevated);
   overflow: hidden;
-  /* Push flex-center down so content clears the floating topRail (40px) */
-  padding-top: 40px;
+  /* Push flex-center down so content clears the floating topRail (44px) */
+  padding-top: 44px;
 }
 
 /* ── Generic layer ── */
