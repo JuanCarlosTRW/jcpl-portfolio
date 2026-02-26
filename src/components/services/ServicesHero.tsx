@@ -53,9 +53,9 @@ export default function ServicesHero() {
             href="#apply"
             className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-150"
             style={{
-              background: "linear-gradient(90deg, #2563EB, #3B82F6)",
+              background: "linear-gradient(90deg, var(--brand-accent), #3B82F6)",
               color: "#FFFFFF",
-              boxShadow: "0 4px 24px rgba(37, 99, 235, 0.35)",
+              boxShadow: "0 4px 24px rgba(43, 90, 140, 0.35)",
             }}
           >
             Apply for a Partnership →

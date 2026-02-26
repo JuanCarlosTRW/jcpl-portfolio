@@ -12,9 +12,9 @@ export default function HeroCTAButtons() {
             inline-flex items-center justify-center
             px-7 py-[14px] rounded-[10px]
             font-semibold text-[15px] text-white whitespace-nowrap
-            bg-cg-accent
-            hover:bg-cg-accent-hov hover:translate-y-[-1px]
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cg-accent/60
+            bg-sv-primary
+            hover:bg-sv-primary-hov hover:translate-y-[-1px]
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sv-primary/60
             active:scale-[0.98]
             transition-all duration-200
           "
@@ -59,7 +59,7 @@ export default function HeroCTAButtons() {
       </div>
 
       {/* ── Row 3: Microcopy ── */}
-      <p className="text-sm text-cg-secondary">
+      <p className="text-sm text-sv-text-sub">
         2-minute application · if I don&apos;t see a clear ROI path, I&apos;ll tell you.
       </p>
     </div>

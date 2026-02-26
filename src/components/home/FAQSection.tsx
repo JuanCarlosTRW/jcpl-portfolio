@@ -67,7 +67,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       viewBox="0 0 20 20"
       fill="none"
       aria-hidden="true"
-      className={`shrink-0 text-cg-accent-lt transition-transform duration-300 ${
+      className={`shrink-0 text-sv-muted transition-transform duration-300 ${
         open ? "rotate-180" : ""
       }`}
     >
@@ -107,7 +107,7 @@ export default function FAQSection() {
         <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           Questions Serious Buyers Ask.
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[18px]">
+        <p className="mt-5 text-sv-text-sub max-w-lg mx-auto leading-[1.75] text-[18px]">
           I&apos;d rather answer the hard ones here than waste your time on a call.
         </p>
       </Reveal>
@@ -123,10 +123,10 @@ export default function FAQSection() {
                 role="listitem"
                 className={`rounded-xl border transition-all duration-200 overflow-hidden ${
                   faq.featured && !isOpen
-                    ? "border-[rgba(52,211,153,0.35)] bg-cg-card"
+                    ? "border-[rgba(52,211,153,0.35)] bg-sv-surface"
                     : isOpen
-                    ? "border-[rgba(37,99,235,0.4)] border-l-[3px] border-l-cg-accent bg-cg-card-alt shadow-[0_4px_24px_rgba(37,99,235,0.06)]"
-                    : "border-[rgba(255,255,255,0.07)] bg-cg-card hover:border-[rgba(37,99,235,0.25)]"
+                    ? "border-[rgba(37,99,235,0.4)] border-l-[3px] border-l-sv-primary bg-sv-elevated shadow-[0_4px_24px_rgba(37,99,235,0.06)]"
+                    : "border-[rgba(255,255,255,0.07)] bg-sv-surface hover:border-[rgba(37,99,235,0.25)]"
                 }`}
               >
                 {/* Featured label for first FAQ */}
@@ -176,7 +176,7 @@ export default function FAQSection() {
                       <div className="px-5 md:px-6 pb-5 md:pb-6">
                         <div className="h-px bg-[rgba(255,255,255,0.07)] mb-4" />
                         {faq.answer.split("\n\n").map((para, j) => (
-                          <p key={j} className="text-[17px] text-cg-secondary leading-[1.85] mb-3 last:mb-0">
+                          <p key={j} className="text-[17px] text-sv-text-sub leading-[1.85] mb-3 last:mb-0">
                             {para}
                           </p>
                         ))}
@@ -193,7 +193,7 @@ export default function FAQSection() {
       {/* Mini-CTA below FAQ */}
       <Reveal delay={0.3}>
         <div className="mt-12 md:mt-16 text-center">
-          <p className="text-sm text-cg-secondary mb-5">
+          <p className="text-sm text-sv-text-sub mb-5">
             Still have a question I didn&apos;t answer? Let&apos;s talk.
           </p>
           <CTAButton

@@ -70,10 +70,10 @@ export default function QuizRecommender({ onRecommend }: Props) {
   };
 
   return (
-    <div className="rounded-2xl border border-[rgba(255,255,255,0.06)] bg-cg-section-b p-7 md:p-9 max-w-xl mx-auto">
+    <div className="rounded-2xl border border-[rgba(255,255,255,0.06)] bg-sv-surface p-7 md:p-9 max-w-xl mx-auto">
       <div className="text-center mb-6">
         <h3 className="text-xl font-bold text-white mb-2">{headline}</h3>
-        <p className="text-sm text-cg-secondary">{subheadline}</p>
+        <p className="text-sm text-sv-text-sub">{subheadline}</p>
       </div>
 
       <div className="min-h-[220px]">
@@ -88,12 +88,12 @@ export default function QuizRecommender({ onRecommend }: Props) {
             >
               {/* Progress */}
               <div className="mb-5">
-                <span className="text-[0.7rem] uppercase tracking-[0.1em] text-cg-secondary">
+                <span className="text-[0.7rem] uppercase tracking-[0.1em] text-sv-text-sub">
                   Question {step + 1} of {totalSteps}
                 </span>
                 <div className="h-1 bg-[rgba(255,255,255,0.06)] rounded-full mt-2 overflow-hidden">
                   <div
-                    className="h-full bg-cg-accent rounded-full transition-all duration-300"
+                    className="h-full bg-sv-primary rounded-full transition-all duration-300"
                     style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
                   />
                 </div>
@@ -112,18 +112,18 @@ export default function QuizRecommender({ onRecommend }: Props) {
                       w-full flex items-center gap-3 p-3.5 rounded-xl border text-left text-sm
                       transition-all duration-200 cursor-pointer
                       ${selectedOption === opt.value
-                        ? "border-cg-accent bg-[rgba(37,99,235,0.1)]"
-                        : "border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] hover:border-cg-accent hover:bg-[rgba(37,99,235,0.05)] hover:translate-x-1"
+                        ? "border-sv-primary bg-[rgba(37,99,235,0.1)]"
+                        : "border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] hover:border-sv-primary hover:bg-[rgba(37,99,235,0.05)] hover:translate-x-1"
                       }
                       disabled:cursor-default disabled:opacity-70
                     `}
                   >
-                    <span className={`w-4 h-4 rounded-full border-2 shrink-0 relative ${selectedOption === opt.value ? "border-cg-accent" : "border-[rgba(255,255,255,0.1)]"}`}>
+                    <span className={`w-4 h-4 rounded-full border-2 shrink-0 relative ${selectedOption === opt.value ? "border-sv-primary" : "border-[rgba(255,255,255,0.1)]"}`}>
                       {selectedOption === opt.value && (
-                        <span className="absolute inset-[3px] bg-cg-accent rounded-full" />
+                        <span className="absolute inset-[3px] bg-sv-primary rounded-full" />
                       )}
                     </span>
-                    <span className="text-cg-body">{opt.label}</span>
+                    <span className="text-sv-text-sub">{opt.label}</span>
                   </button>
                 ))}
               </div>
@@ -138,7 +138,7 @@ export default function QuizRecommender({ onRecommend }: Props) {
             >
               {/* Result badge */}
               <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-accent)" strokeWidth="2" aria-hidden="true">
                   <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
                   <circle cx="12" cy="12" r="10" />
                 </svg>
@@ -147,7 +147,7 @@ export default function QuizRecommender({ onRecommend }: Props) {
               <h4 className="text-lg font-bold text-white mb-2">
                 {resultText[recommendation].title}
               </h4>
-              <p className="text-sm text-cg-body mb-6 max-w-sm mx-auto">
+              <p className="text-sm text-sv-text-sub mb-6 max-w-sm mx-auto">
                 {resultText[recommendation].reason}
               </p>
 
@@ -161,7 +161,7 @@ export default function QuizRecommender({ onRecommend }: Props) {
                 <button
                   type="button"
                   onClick={reset}
-                  className="text-xs text-cg-secondary hover:text-cg-accent transition-colors cursor-pointer"
+                  className="text-xs text-sv-text-sub hover:text-sv-primary transition-colors cursor-pointer"
                 >
                   Retake quiz
                 </button>

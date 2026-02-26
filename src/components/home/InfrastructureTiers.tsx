@@ -212,7 +212,7 @@ export default function InfrastructureTiers() {
               <span
                 className="text-[11px] font-bold tracking-[0.18em] uppercase px-5 py-1.5 rounded-full"
                 style={{
-                  background: "linear-gradient(90deg, #2563EB, #3B82F6)",
+                  background: "linear-gradient(90deg, var(--brand-accent), #3B82F6)",
                   color: "#fff",
                   boxShadow: "0 0 20px rgba(59,130,246,0.4)",
                 }}
@@ -288,7 +288,7 @@ export default function InfrastructureTiers() {
             />
             <p
               className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-4"
-              style={{ color: "#1D4ED8" }}
+              style={{ color: "var(--brand-deep)" }}
             >
               INCLUDES
             </p>
@@ -317,7 +317,7 @@ export default function InfrastructureTiers() {
               href="/apply"
               className="block w-full text-sm font-bold py-3.5 rounded-xl tracking-wide transition-all duration-150 hover:brightness-110 text-center"
               style={{
-                background: "linear-gradient(90deg, #2563EB, #3B82F6)",
+                background: "linear-gradient(90deg, var(--brand-accent), #3B82F6)",
                 color: "#FFFFFF",
                 boxShadow: "0 4px 24px rgba(37,99,235,0.35)",
               }}
@@ -532,7 +532,7 @@ export default function InfrastructureTiers() {
               </div>
             </div>
 
-            <blockquote className="text-[15px] italic text-cg-secondary leading-[1.8] mb-4">
+            <blockquote className="text-[15px] italic text-sv-text-sub leading-[1.8] mb-4">
               &ldquo;Juan rebuilt our entire booking system from the ground up. Three weeks later, clients who had never heard of us were finding us on Google and booking online. Our calendar has not had a gap since.&rdquo;
             </blockquote>
 

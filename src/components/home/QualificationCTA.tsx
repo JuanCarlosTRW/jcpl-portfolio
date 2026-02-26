@@ -9,7 +9,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 function CheckIcon() {
   return (
     <svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <path d="M4 8.5l3 3 5-5.5" stroke="#4B8EFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 8.5l3 3 5-5.5" stroke="var(--brand-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -51,7 +51,7 @@ export default function QualificationCTA() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
               This Partnership Has a Specific Type of Client.
             </h2>
-            <p className="text-cg-body text-base md:text-lg text-center">
+            <p className="text-sv-text-sub text-base md:text-lg text-center">
               I only work with businesses I know I can move the needle for. Read both sides before applying.
             </p>
           </div>
@@ -61,7 +61,7 @@ export default function QualificationCTA() {
             <div className="grid gap-6 md:grid-cols-2 mb-12">
               {/* For You If — green left border, light green tint */}
               <div
-                className="rounded-2xl bg-cg-card p-7 md:p-8"
+                className="rounded-2xl bg-sv-surface p-7 md:p-8"
                 style={{
                   borderLeft: "4px solid rgba(52,211,153,0.6)",
                   border: "1px solid rgba(52,211,153,0.2)",
@@ -75,7 +75,7 @@ export default function QualificationCTA() {
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[15px] text-cg-body leading-[1.7]">
+                    <li key={i} className="flex items-start gap-3 text-[15px] text-sv-text-sub leading-[1.7]">
                       <CheckIcon />
                       {item}
                     </li>
@@ -85,7 +85,7 @@ export default function QualificationCTA() {
 
               {/* Not For You If — red right border, light red tint */}
               <div
-                className="rounded-2xl bg-cg-card p-7 md:p-8"
+                className="rounded-2xl bg-sv-surface p-7 md:p-8"
                 style={{
                   borderRight: "4px solid rgba(239,68,68,0.5)",
                   border: "1px solid rgba(239,68,68,0.2)",
@@ -99,7 +99,7 @@ export default function QualificationCTA() {
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.notForYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[15px] text-cg-secondary leading-[1.7]">
+                    <li key={i} className="flex items-start gap-3 text-[15px] text-sv-text-sub leading-[1.7]">
                       <XIcon />
                       {item}
                     </li>

@@ -20,15 +20,15 @@ export default function StrategicGap() {
       <div className="max-w-4xl mx-auto">
         {/* Top featured card */}
         <Reveal>
-          <div className="bg-cg-card border border-[rgba(255,255,255,0.08)] rounded-[14px] px-8 sm:px-10 py-8 sm:py-9 mb-5">
-            <span className="text-[12px] uppercase tracking-[0.14em] text-cg-accent-lt font-bold mb-4 block">
+          <div className="bg-sv-surface border border-[rgba(255,255,255,0.08)] rounded-[14px] px-8 sm:px-10 py-8 sm:py-9 mb-5">
+            <span className="text-[12px] uppercase tracking-[0.14em] text-sv-muted font-bold mb-4 block">
               01
             </span>
-            <div className="border-l-[3px] border-cg-accent pl-5">
+            <div className="border-l-[3px] border-sv-primary pl-5">
               <h3 className="text-[22px] font-bold text-white mb-3">
                 {truths[0].heading}
               </h3>
-              <p className="text-[16px] text-cg-secondary leading-[1.75] max-w-[640px]">
+              <p className="text-[16px] text-sv-text-sub leading-[1.75] max-w-[640px]">
                 {truths[0].body}
               </p>
             </div>
@@ -39,14 +39,14 @@ export default function StrategicGap() {
         <div className="flex flex-col sm:flex-row gap-5">
           {truths.slice(1).map((truth, i) => (
             <Reveal key={i} delay={0.1 * (i + 1)}>
-              <div className="flex-1 bg-cg-card border border-[rgba(255,255,255,0.07)] rounded-[14px] px-7 py-7 transition-all duration-300 hover:border-[rgba(37,99,235,0.4)] hover:-translate-y-[2px]">
-                <span className="text-[12px] uppercase tracking-[0.14em] text-cg-accent-lt font-bold mb-3 block">
+              <div className="flex-1 bg-sv-surface border border-[rgba(255,255,255,0.07)] rounded-[14px] px-7 py-7 transition-all duration-300 hover:border-[rgba(37,99,235,0.4)] hover:-translate-y-[2px]">
+                <span className="text-[12px] uppercase tracking-[0.14em] text-sv-muted font-bold mb-3 block">
                   {`0${i + 2}`}
                 </span>
                 <h3 className="text-[18px] font-bold text-white mb-2">
                   {truth.heading}
                 </h3>
-                <p className="text-[16px] text-cg-secondary leading-[1.75]">
+                <p className="text-[16px] text-sv-text-sub leading-[1.75]">
                   {truth.body}
                 </p>
               </div>

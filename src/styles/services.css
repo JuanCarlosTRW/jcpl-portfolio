@@ -70,14 +70,14 @@
 }
 
 .service-card--featured {
-  border-color: rgba(37, 99, 235, 0.25);
-  box-shadow: 0 0 60px rgba(37, 99, 235, 0.08);
+  border-color: rgba(43, 90, 140, 0.25);
+  box-shadow: 0 0 60px rgba(43, 90, 140, 0.08);
 }
 
 .service-card--featured:hover {
-  border-color: rgba(37, 99, 235, 0.45);
+  border-color: rgba(43, 90, 140, 0.45);
   box-shadow:
-    0 0 80px rgba(37, 99, 235, 0.14),
+    0 0 80px rgba(43, 90, 140, 0.14),
     0 12px 48px rgba(0, 0, 0, 0.35);
 }
 
@@ -90,9 +90,9 @@
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(37, 99, 235, 0.5) 0%,
-    rgba(37, 99, 235, 0.25) 50%,
-    rgba(37, 99, 235, 0.3) 100%
+    rgba(43, 90, 140, 0.5) 0%,
+    rgba(43, 90, 140, 0.25) 50%,
+    rgba(43, 90, 140, 0.3) 100%
   );
   mask:
     linear-gradient(#fff 0 0) content-box,
@@ -111,7 +111,7 @@
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: #2563EB;
+  background: var(--brand-accent);
   color: #fff;
   font-size: 0.7rem;
   font-weight: 600;
@@ -120,7 +120,7 @@
   padding: 5px 18px;
   border-radius: 999px;
   white-space: nowrap;
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 20px rgba(43, 90, 140, 0.35);
 }
 
 /* ─── CARD SECTIONS ─── */
@@ -199,8 +199,8 @@
 
 /* ─── DECISION ASSIST ─── */
 .decision-assist {
-  background: rgba(37, 99, 235, 0.03);
-  border: 1px solid rgba(37, 99, 235, 0.08);
+  background: rgba(43, 90, 140, 0.03);
+  border: 1px solid rgba(43, 90, 140, 0.08);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
 }
@@ -280,11 +280,11 @@
 
 /* Highlight Growth column subtly */
 .comparison-table th:nth-child(3) {
-  background: rgba(37, 99, 235, 0.08);
+  background: rgba(43, 90, 140, 0.08);
 }
 
 .comparison-table td:nth-child(3) {
-  background: rgba(37, 99, 235, 0.03);
+  background: rgba(43, 90, 140, 0.03);
 }
 
 /* Zebra stripe for readability */
@@ -293,7 +293,7 @@
 }
 
 .comparison-table tbody tr:nth-child(even) td:nth-child(3) {
-  background: rgba(37, 99, 235, 0.04);
+  background: rgba(43, 90, 140, 0.04);
 }
 
 
@@ -348,7 +348,7 @@
   inset: 0;
   background: radial-gradient(
     ellipse 80% 60% at 50% 100%,
-    rgba(37, 99, 235, 0.06) 0%,
+    rgba(43, 90, 140, 0.06) 0%,
     transparent 60%
   );
 }
@@ -367,8 +367,8 @@
 
 /* ─── HOW TO CHOOSE HELPER ─── */
 .how-to-choose {
-  background: rgba(37, 99, 235, 0.03);
-  border: 1px solid rgba(37, 99, 235, 0.08);
+  background: rgba(43, 90, 140, 0.03);
+  border: 1px solid rgba(43, 90, 140, 0.08);
   border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
   margin-top: var(--space-5);
@@ -545,14 +545,14 @@
 }
 
 .micro-quiz__option:hover:not(:disabled) {
-  border-color: #2563EB;
-  background: rgba(37, 99, 235, 0.05);
+  border-color: var(--brand-accent);
+  background: rgba(43, 90, 140, 0.05);
   transform: translateX(4px);
 }
 
 .micro-quiz__option--selected {
-  border-color: #2563EB;
-  background: rgba(37, 99, 235, 0.1);
+  border-color: var(--brand-accent);
+  background: rgba(43, 90, 140, 0.1);
 }
 
 .micro-quiz__option:disabled {
@@ -571,14 +571,14 @@
 }
 
 .micro-quiz__option--selected .micro-quiz__option-indicator {
-  border-color: #2563EB;
+  border-color: var(--brand-accent);
 }
 
 .micro-quiz__option--selected .micro-quiz__option-indicator::after {
   content: "";
   position: absolute;
   inset: 3px;
-  background: #2563EB;
+  background: var(--brand-accent);
   border-radius: 50%;
 }
 
@@ -596,8 +596,8 @@
   width: 64px;
   height: 64px;
   margin: 0 auto var(--space-4);
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  background: rgba(43, 90, 140, 0.1);
+  border: 1px solid rgba(43, 90, 140, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -607,7 +607,7 @@
 .micro-quiz__result-icon {
   width: 32px;
   height: 32px;
-  color: #2563EB;
+  color: var(--brand-accent);
 }
 
 .micro-quiz__result-title {
@@ -804,8 +804,8 @@
 
 /* Highlight Growth cell */
 .comparison-accordion__cell:nth-child(2) {
-  background: rgba(37, 99, 235, 0.05);
-  border: 1px solid rgba(37, 99, 235, 0.1);
+  background: rgba(43, 90, 140, 0.05);
+  border: 1px solid rgba(43, 90, 140, 0.1);
 }
 
 /* ═══════════════════════════════════════════════════
@@ -863,7 +863,7 @@
   background: transparent;
 }
 .hero-laser-debug {
-  border: 2px dashed #33ccff !important;
+  border: 2px dashed var(--brand-accent) !important;
   pointer-events: auto !important;
   overflow: visible !important;
 }

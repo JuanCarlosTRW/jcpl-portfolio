@@ -1,23 +1,26 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════
-   TAILWIND v4 THEME — Named Design Colors
+   TAILWIND v4 THEME — Sapphire Veil Design Tokens
    These register as standard Tailwind utilities:
-   text-cg-body, bg-cg-card, text-cg-muted, etc.
+   bg-sv-base, text-sv-text, bg-sv-primary, etc.
    ═══════════════════════════════════════════════════ */
 @theme {
-  --color-cg-card:       #0F2049;
-  --color-cg-card-alt:   #0D1B3E;
-  --color-cg-body:       #C8D4E8;
-  --color-cg-secondary:  #8FA8C8;
-  --color-cg-muted:      #6B9FD4;
-  --color-cg-dim:        #6B82A0;
-  --color-cg-accent-lt:  #4B8EFF;
-  --color-cg-neg:        #FF6B6B;
-  --color-cg-section-a:  #060D1F;
-  --color-cg-section-b:  #0A1628;
-  --color-cg-accent:     #2563EB;
-  --color-cg-accent-hov: #1D4ED8;
+  --color-sv-base:        #060E1A;
+  --color-sv-surface:     #0E1F35;
+  --color-sv-elevated:    #122845;
+  --color-sv-soft:        #1A2A3D;
+  --color-sv-primary:     #2B5A8C;
+  --color-sv-primary-hov: #1E4A75;
+  --color-sv-muted:       #6B8DB8;
+  --color-sv-light:       #D9E4EF;
+  --color-sv-text:        #E8EDF3;
+  --color-sv-text-sub:    #B0C1D4;
+  --color-sv-text-muted:  #7A92AB;
+  --color-sv-text-dim:    #56708A;
+  --color-sv-danger:      #C0392B;
+  --color-sv-warn:        #C9A84C;
+  --color-sv-success:     #2D6B4F;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -58,41 +61,41 @@
   --beam-duration: 4s;          /* Laser animation cycle */
   --hit-delay: 0.18s;           /* Panel hit reaction delay */
 
-  /* ─── BACKGROUND SYSTEM (Institutional Authority) ─── */
-  --bg-base: #060D1F;
-  --bg-surface: #0F2049;
-  --bg-elevated: #0D1B3E;
-  --bg-soft: #0F2049;
-  --bg-footer: #030812;
+  /* ─── BACKGROUND SYSTEM (Sapphire Veil — Institutional) ─── */
+  --bg-base: #060E1A;
+  --bg-surface: #0E1F35;
+  --bg-elevated: #122845;
+  --bg-soft: #1A2A3D;
+  --bg-footer: #040A12;
 
   /* ─── TEXT ─── */
-  --text-primary: #FFFFFF;
-  --text-secondary: #C8D4E8;
-  --text-muted: #8FA8C8;
-  --text-dim: #6B82A0;
+  --text-primary: #E8EDF3;
+  --text-secondary: #B0C1D4;
+  --text-muted: #7A92AB;
+  --text-dim: #56708A;
 
-  /* ─── BRAND ACCENTS (Electric Blue) ─── */
-  --brand-accent: #2563EB;
-  --brand-deep: #1D4ED8;
-  --brand-alt: #2563EB;
-  --brand-subtle: rgba(37, 99, 235, 0.15);
-  --brand-heritage: #2563EB;
-  --brand-strong: #2563EB;
+  /* ─── BRAND ACCENTS (Sapphire Veil) ─── */
+  --brand-accent: #2B5A8C;
+  --brand-deep: #1E4A75;
+  --brand-alt: #2B5A8C;
+  --brand-subtle: rgba(43, 90, 140, 0.15);
+  --brand-heritage: #2B5A8C;
+  --brand-strong: #2B5A8C;
 
   /* ─── SEMANTIC ─── */
-  --color-success: #2563EB;
-  --color-danger: #EF4444;
-  --color-warning: #D9C57B;
+  --color-success: #2D6B4F;
+  --color-danger: #C0392B;
+  --color-warning: #C9A84C;
 
   /* ─── UI LINES ─── */
-  --border-soft: rgba(37, 99, 235, 0.15);
-  --border-strong: rgba(37, 99, 235, 0.30);
+  --border-soft: rgba(43, 90, 140, 0.15);
+  --border-strong: rgba(43, 90, 140, 0.30);
   --border: var(--border-soft);
 
   /* ─── EFFECTS ─── */
   --shadow-premium: 0 16px 60px rgba(0,0,0,0.45);
   --shadow-soft: 0 4px 24px rgba(0,0,0,.25);
-  --glow-accent: 0 0 0 1px rgba(37, 99, 235, 0.35), 0 10px 40px rgba(37, 99, 235, 0.18);
+  --glow-accent: 0 0 0 1px rgba(43, 90, 140, 0.35), 0 10px 40px rgba(43, 90, 140, 0.18);
 
   /* ─── RADIUS (sharper — consulting, not SaaS) ─── */
   --radius-sm: 6px;
@@ -140,7 +143,7 @@ body::before {
 
 ::selection {
   background: var(--brand-accent);
-  color: #fff;
+  color: var(--text-primary);
 }
 
 /* ═══════════════════════════════════════════════════
@@ -213,7 +216,7 @@ body::before {
    ═══════════════════════════════════════════════════ */
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--brand-accent) 60%, var(--brand-alt) 100%);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--brand-accent) 60%, var(--brand-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -228,7 +231,7 @@ body::before {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(37,99,235,0.35), rgba(37,99,235,0.12));
+  background: linear-gradient(135deg, rgba(43,90,140,0.35), rgba(43,90,140,0.12));
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -326,12 +329,12 @@ body::before {
     rgba(18, 24, 52, 0.96) 0%,
     rgba(10, 16, 32, 0.98) 100%
   );
-  border: 1px solid rgba(37, 99, 235, 0.22);
+  border: 1px solid rgba(43, 90, 140, 0.22);
   border-radius: var(--radius-xl, 28px);
   box-shadow:
-    0 0 0 1px rgba(37, 99, 235, 0.06),
-    0 0 80px rgba(37, 99, 235, 0.14),
-    0 0 160px rgba(37, 99, 235, 0.04),
+    0 0 0 1px rgba(43, 90, 140, 0.06),
+    0 0 80px rgba(43, 90, 140, 0.14),
+    0 0 160px rgba(43, 90, 140, 0.04),
     0 24px 80px rgba(0, 0, 0, 0.55);
   animation: speed-popup-scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   overflow: hidden;
@@ -349,15 +352,15 @@ body::before {
   padding: 1px;
   background: conic-gradient(
     from var(--sp-glow-angle, 0deg),
-    rgba(37, 99, 235, 0.00) 0%,
-    rgba(37, 99, 235, 0.30) 10%,
-    rgba(37, 99, 235, 0.18) 18%,
-    rgba(37, 99, 235, 0.00) 30%,
-    rgba(37, 99, 235, 0.00) 50%,
-    rgba(37, 99, 235, 0.20) 60%,
-    rgba(37, 99, 235, 0.12) 68%,
-    rgba(37, 99, 235, 0.00) 80%,
-    rgba(37, 99, 235, 0.00) 100%
+    rgba(43, 90, 140, 0.00) 0%,
+    rgba(43, 90, 140, 0.30) 10%,
+    rgba(43, 90, 140, 0.18) 18%,
+    rgba(43, 90, 140, 0.00) 30%,
+    rgba(43, 90, 140, 0.00) 50%,
+    rgba(43, 90, 140, 0.20) 60%,
+    rgba(43, 90, 140, 0.12) 68%,
+    rgba(43, 90, 140, 0.00) 80%,
+    rgba(43, 90, 140, 0.00) 100%
   );
   mask:
     linear-gradient(#fff 0 0) content-box,
@@ -394,7 +397,7 @@ body::before {
   border-radius: 50%;
   border: 1px solid rgba(200, 200, 224, 0.10);
   background: rgba(255, 255, 255, 0.04);
-  color: var(--text-muted, #8888b0);
+  color: var(--text-muted);
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
   z-index: 2;
@@ -402,9 +405,9 @@ body::before {
 
 .speed-popup-close:hover,
 .speed-popup-close:focus-visible {
-  background: rgba(37, 99, 235, 0.15);
-  color: #fff;
-  border-color: rgba(37, 99, 235, 0.4);
+  background: rgba(43, 90, 140, 0.15);
+  color: var(--text-primary);
+  border-color: rgba(43, 90, 140, 0.4);
 }
 
 .speed-popup-eyebrow {
@@ -412,7 +415,7 @@ body::before {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--brand-alt, #33ccff);
+  color: var(--brand-accent);
   margin: 0 0 0.75rem 0;
   line-height: 1;
   position: relative;
@@ -427,9 +430,9 @@ body::before {
   text-transform: uppercase;
   background: linear-gradient(
     135deg,
-    #fff 0%,
-    #fff 30%,
-    var(--brand-accent, #2563EB) 100%
+    var(--text-primary) 0%,
+    var(--text-primary) 30%,
+    var(--brand-accent) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -444,7 +447,7 @@ body::before {
 .speed-popup-accent {
   width: 3.5rem;
   height: 2px;
-  background: linear-gradient(90deg, var(--brand-accent, #2563EB), var(--brand-alt, #33ccff), transparent);
+  background: linear-gradient(90deg, var(--brand-accent), var(--text-muted), transparent);
   margin: 0 auto 1.5rem;
   border-radius: 1px;
   position: relative;
@@ -454,7 +457,7 @@ body::before {
 .speed-popup-body {
   font-size: 1rem;
   line-height: 1.75;
-  color: var(--text-secondary, #c8c8e0);
+  color: var(--text-secondary);
   margin: 0;
   position: relative;
   z-index: 1;
@@ -462,7 +465,7 @@ body::before {
 }
 
 .speed-popup-highlight {
-  color: var(--text-primary, #f0f0f8);
+  color: var(--text-primary);
   font-weight: 600;
 }
 
@@ -497,28 +500,28 @@ body::before {
 
 /* ── Text & SVG Glow Utility ── */
 .text-glow-blue {
-  filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.35))
-          drop-shadow(0 0 20px rgba(37, 99, 235, 0.15));
+  filter: drop-shadow(0 0 8px rgba(43, 90, 140, 0.35))
+          drop-shadow(0 0 20px rgba(43, 90, 140, 0.15));
 }
 
 .text-glow-blue-strong {
-  filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.5))
-          drop-shadow(0 0 32px rgba(37, 99, 235, 0.2));
+  filter: drop-shadow(0 0 12px rgba(43, 90, 140, 0.5))
+          drop-shadow(0 0 32px rgba(43, 90, 140, 0.2));
 }
 
 .icon-glow {
-  filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.3))
-          drop-shadow(0 0 16px rgba(37, 99, 235, 0.12));
+  filter: drop-shadow(0 0 6px rgba(43, 90, 140, 0.3))
+          drop-shadow(0 0 16px rgba(43, 90, 140, 0.12));
 }
 
 @keyframes subtleGlow {
   0%, 100% {
-    filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.3))
-            drop-shadow(0 0 20px rgba(37, 99, 235, 0.1));
+    filter: drop-shadow(0 0 8px rgba(43, 90, 140, 0.3))
+            drop-shadow(0 0 20px rgba(43, 90, 140, 0.1));
   }
   50% {
-    filter: drop-shadow(0 0 14px rgba(37, 99, 235, 0.45))
-            drop-shadow(0 0 32px rgba(37, 99, 235, 0.2));
+    filter: drop-shadow(0 0 14px rgba(43, 90, 140, 0.45))
+            drop-shadow(0 0 32px rgba(43, 90, 140, 0.2));
   }
 }
 

@@ -175,7 +175,7 @@ export default function PremiumHero({ onLaserLand }: { onLaserLand?: () => void 
           falloffStart={1.2}
           verticalSizing={6.0}
           horizontalSizing={0.8}
-          color="#2563EB"
+          color="var(--brand-accent)"
           introDuration={1.8}
           introDelay={0.4}
           onIntroComplete={() => handleLaserLand()}

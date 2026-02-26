@@ -41,7 +41,7 @@ export default function GrowthArchitecture() {
         <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {growthArchitecture.headline}
         </h2>
-        <p className="mt-5 text-cg-body max-w-lg mx-auto leading-[1.75] text-[17px]">
+        <p className="mt-5 text-sv-text-sub max-w-lg mx-auto leading-[1.75] text-[17px]">
           {growthArchitecture.subheadline}
         </p>
       </Reveal>
@@ -50,10 +50,10 @@ export default function GrowthArchitecture() {
       <div className="grid gap-5 md:grid-cols-2 max-w-4xl mx-auto">
         {tiles.map((tile, i) => (
           <Reveal key={tile.number} delay={0.07 * i}>
-            <div className="group relative rounded-[14px] bg-cg-card border border-[rgba(255,255,255,0.07)] p-7 md:p-8 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
+            <div className="group relative rounded-[14px] bg-sv-surface border border-[rgba(255,255,255,0.07)] p-7 md:p-8 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
               {/* Number + Headline */}
               <div className="flex items-baseline gap-3 mb-3">
-                <span className="text-[13px] font-bold text-cg-accent-lt opacity-70 tracking-wider">
+                <span className="text-[13px] font-bold text-sv-muted opacity-70 tracking-wider">
                   {tile.number}
                 </span>
                 <h3 className="text-[18px] font-bold text-white leading-snug">
@@ -62,7 +62,7 @@ export default function GrowthArchitecture() {
               </div>
 
               {/* Body */}
-              <p className="text-[15px] text-cg-secondary leading-[1.75] mb-5 flex-1">
+              <p className="text-[15px] text-sv-text-sub leading-[1.75] mb-5 flex-1">
                 {tile.body}
               </p>
 
@@ -92,7 +92,7 @@ export default function GrowthArchitecture() {
         <div className="text-center mt-10">
           <Link
             href="/services"
-            className="text-[15px] font-medium text-cg-accent-lt hover:text-white transition-colors duration-200 underline underline-offset-4 decoration-[rgba(75,142,255,0.4)]"
+            className="text-[15px] font-medium text-sv-muted hover:text-white transition-colors duration-200 underline underline-offset-4 decoration-[rgba(75,142,255,0.4)]"
           >
             Want the full breakdown? See how the system is built →
           </Link>

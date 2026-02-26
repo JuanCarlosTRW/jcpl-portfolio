@@ -37,7 +37,7 @@ const stats2 = [
 
 export default function FeaturedCaseStudy() {
 	return (
-		<SectionWrapper id="proof" className="bg-cg-section-a">
+		<SectionWrapper id="proof" className="bg-sv-base">
 			<Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
 				<SectionLabel label={featuredCase.label} className="mb-5" />
 				<h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
@@ -48,9 +48,9 @@ export default function FeaturedCaseStudy() {
 			{/* Hero Proof Card */}
 			<Reveal delay={0.1}>
 				<div className="max-w-3xl mx-auto">
-					<div className="bg-cg-card border border-[rgba(37,99,235,0.3)] rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 relative overflow-hidden">
+					<div className="bg-sv-surface border border-[rgba(37,99,235,0.3)] rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 relative overflow-hidden">
 						{/* Tag label */}
-						<p className="text-[11px] uppercase tracking-[0.16em] text-cg-muted mb-5">
+						<p className="text-[11px] uppercase tracking-[0.16em] text-sv-text-muted mb-5">
 							RV RENTAL COMPANY&nbsp; /&nbsp; TEXAS&nbsp; /&nbsp; GOOGLE ADS
 						</p>
 
@@ -60,10 +60,10 @@ export default function FeaturedCaseStudy() {
 								<div className="text-[clamp(40px,8vw,56px)] font-extrabold text-white leading-none mb-2">
 									<CountUpValue to={41084.85} prefix="$" durationMs={1400} />
 								</div>
-								<p className="text-[18px] text-cg-body mb-3">
+								<p className="text-[18px] text-sv-text-sub mb-3">
 									in revenue. First 30 days.
 								</p>
-								<p className="text-[11px] uppercase tracking-[0.14em] text-cg-muted mb-6">
+								<p className="text-[11px] uppercase tracking-[0.14em] text-sv-text-muted mb-6">
 									$900 IN AD SPEND&nbsp;·&nbsp;GOOGLE ADS FUNNEL&nbsp;·&nbsp;30 DAYS
 								</p>
 
@@ -81,10 +81,10 @@ export default function FeaturedCaseStudy() {
 								<div className="flex gap-6 sm:gap-10 mb-4">
 									{subStats.map((s) => (
 										<div key={s.label} className="text-center">
-											<div className="text-[24px] font-extrabold text-cg-accent-lt">
+											<div className="text-[24px] font-extrabold text-sv-muted">
 												{s.value}
 											</div>
-											<div className="text-[10px] uppercase tracking-[0.14em] text-cg-muted mt-0.5">
+											<div className="text-[10px] uppercase tracking-[0.14em] text-sv-text-muted mt-0.5">
 												{s.label}
 											</div>
 										</div>
@@ -92,7 +92,7 @@ export default function FeaturedCaseStudy() {
 								</div>
 
 								{/* Callout */}
-								<p className="text-[14px] text-cg-accent-lt font-semibold mb-6">
+								<p className="text-[14px] text-sv-muted font-semibold mb-6">
 									Every $1 in ad spend returned $46 in revenue. Live account. Last
 									verified February 2026.
 								</p>
@@ -100,7 +100,7 @@ export default function FeaturedCaseStudy() {
 								{/* CTA */}
 								<Link
 									href="/results"
-									className="inline-block border border-[rgba(37,99,235,0.5)] text-cg-body bg-transparent rounded-[8px] px-6 py-2.5 font-semibold text-[15px] hover:bg-cg-accent hover:text-white hover:border-cg-accent transition-all duration-200"
+									className="inline-block border border-[rgba(37,99,235,0.5)] text-sv-text-sub bg-transparent rounded-[8px] px-6 py-2.5 font-semibold text-[15px] hover:bg-sv-primary hover:text-white hover:border-sv-primary transition-all duration-200"
 								>
 									View All Results →
 								</Link>

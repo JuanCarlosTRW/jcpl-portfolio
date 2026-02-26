@@ -57,7 +57,7 @@ export default function ProblemSection() {
         <SectionLabel label="Diagnosis" className="mb-5" />
         <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight max-w-xl mx-auto">
           Every Day Without a System,{" "}
-          <span className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-deep)] bg-clip-text text-transparent">
             You Lose Revenue
           </span>
         </h2>

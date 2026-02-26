@@ -16,11 +16,11 @@ export default function ClientReality() {
 
       {/* Featured Pain Card — full width, dark blue border */}
       <Reveal className="max-w-4xl mx-auto mb-5">
-        <div className="group relative rounded-[14px] border border-[rgba(37,99,235,0.35)] bg-cg-card p-10 transition-all duration-300 hover:border-[rgba(37,99,235,0.55)] hover:-translate-y-[2px]">
+        <div className="group relative rounded-[14px] border border-[rgba(37,99,235,0.35)] bg-sv-surface p-10 transition-all duration-300 hover:border-[rgba(37,99,235,0.55)] hover:-translate-y-[2px]">
           <h3 className="text-2xl font-bold text-white mb-3 leading-snug">
             Right Now, 3 to 8 People in Your City Are Searching Your Exact Service.
           </h3>
-          <p className="text-[16px] text-cg-secondary leading-[1.75] max-w-2xl">
+          <p className="text-[16px] text-sv-text-sub leading-[1.75] max-w-2xl">
             None of them will find you. Not because your work is worse. Because your digital infrastructure does not exist where they are looking. Google, AI search, maps. Your competitor is there. You are not. That call is gone before you knew it existed.
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function ClientReality() {
             borderBottom: "1px solid rgba(255,255,255,0.06)",
           }}
         >
-          <p className="text-[17px] italic text-cg-secondary leading-[1.85] max-w-2xl mx-auto">
+          <p className="text-[17px] italic text-sv-text-sub leading-[1.85] max-w-2xl mx-auto">
             Picture it: Someone in your city searched &ldquo;painting contractor near me&rdquo; this morning. They clicked the first result. That company&apos;s phone rang at 8:47am. They booked a $1,400 job before breakfast. Your phone was quiet. Not because your work is worse. Because that company had the system and you didn&apos;t.
           </p>
         </div>
@@ -63,13 +63,13 @@ export default function ClientReality() {
         ].map((pain, i) => (
           <Reveal key={pain.title} delay={0.08 * (i + 1)}>
             <div
-              className="group relative rounded-[14px] bg-cg-card p-7 md:p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-[2px]"
+              className="group relative rounded-[14px] bg-sv-surface p-7 md:p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-[2px]"
               style={{ borderLeft: "3px solid rgba(239,68,68,0.5)", border: "1px solid rgba(255,255,255,0.07)", borderLeftWidth: "3px", borderLeftColor: "rgba(239,68,68,0.5)" }}
             >
               <h3 className="text-[18px] font-bold text-white mb-3 leading-snug">
                 {pain.title}
               </h3>
-              <p className="text-[15px] text-cg-secondary leading-[1.75] mb-4 flex-1">
+              <p className="text-[15px] text-sv-text-sub leading-[1.75] mb-4 flex-1">
                 {pain.body}
               </p>
               <p className="text-[14px] font-bold text-red-400 leading-snug mt-auto">
@@ -108,7 +108,7 @@ export default function ClientReality() {
           <p className="text-[clamp(22px,3vw,28px)] font-bold text-white leading-snug">
             This is why I built the Growth Architecture.
           </p>
-          <p className="mt-3 text-[16px] italic text-cg-secondary leading-[1.75] max-w-md mx-auto">
+          <p className="mt-3 text-[16px] italic text-sv-text-sub leading-[1.75] max-w-md mx-auto">
             One system. Four layers. Solves all of it at once.
           </p>
         </div>

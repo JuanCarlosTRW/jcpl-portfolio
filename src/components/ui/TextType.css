@@ -12,7 +12,7 @@
 .text-type__cursor {
   display: inline-block;
   margin-left: 2px;
-  color: #2563EB;
+  color: var(--brand-accent);
   font-weight: 800;
   font-size: inherit;
   animation: blink 1s steps(1) infinite;

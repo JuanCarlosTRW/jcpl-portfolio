@@ -15,7 +15,7 @@ export default function AboutHowIBuiltThis() {
         {aboutHowIBuiltThis.paragraphs.map((p, i) => (
           <p
             key={i}
-            className="text-[17px] text-cg-body leading-[1.8] mb-5 last:mb-0"
+            className="text-[17px] text-sv-text-sub leading-[1.8] mb-5 last:mb-0"
             style={{ color: "#D4DFF0" }}
           >
             {p}

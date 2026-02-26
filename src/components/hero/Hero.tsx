@@ -25,7 +25,7 @@ export default function Hero() {
 						{/* Eyebrow */}
 						<BlurText
 							text="For Service Businesses"
-							className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-cg-muted"
+							className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-sv-text-muted"
 							animateBy="words"
 							delay={60}
 						/>
@@ -57,7 +57,7 @@ export default function Hero() {
 						{/* Subhead */}
 						<BlurText
 							text="I build one complete system: a conversion website, Google Ads targeting people ready to hire today, and AI that qualifies leads before your phone rings. Your phone rings with buyers who already trust you before you pick up."
-							className="text-[17px] text-cg-body leading-[1.65] mb-2 max-w-[36ch]"
+							className="text-[17px] text-sv-text-sub leading-[1.65] mb-2 max-w-[36ch]"
 							animateBy="words"
 							delay={100}
 						/>
@@ -69,7 +69,7 @@ export default function Hero() {
 						<div className="flex flex-col gap-1">
 							<a
 								href="/apply"
-								className="w-full sm:w-auto bg-cg-accent text-white font-semibold text-[15px] px-7 py-[14px] rounded-[10px] whitespace-nowrap transition-all duration-200 hover:bg-cg-accent-hov shadow-[0_4px_20px_rgba(37,99,235,0.4)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.5)] text-center inline-flex items-center justify-center"
+								className="w-full sm:w-auto bg-sv-primary text-white font-semibold text-[15px] px-7 py-[14px] rounded-[10px] whitespace-nowrap transition-all duration-200 hover:bg-sv-primary-hov shadow-[0_4px_20px_rgba(37,99,235,0.4)] hover:shadow-[0_6px_28px_rgba(37,99,235,0.5)] text-center inline-flex items-center justify-center"
 							>
 								Apply for Growth Partnership →
 							</a>

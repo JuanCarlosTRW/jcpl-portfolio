@@ -14,8 +14,8 @@ export default function DecisionAssist() {
           {servicesDecisionAssist.options.map((opt) => (
             <div key={opt.plan} className="decision-assist__item">
               <p className="text-sm font-medium text-white mb-1">{opt.stage}</p>
-              <p className="text-xs text-cg-secondary">
-                <span className="text-cg-accent font-semibold">{opt.plan}</span>
+              <p className="text-xs text-sv-text-sub">
+                <span className="text-sv-primary font-semibold">{opt.plan}</span>
                 {" — "}
                 {opt.description}
               </p>

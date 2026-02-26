@@ -81,24 +81,24 @@ export default function WhatYouGet() {
   return (
   <SectionWrapper variant="surface" className="bg-[#0A1628] py-16">
       <Reveal className="text-center mb-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cg-secondary mb-5">WHAT'S INCLUDED</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sv-text-sub mb-5">WHAT'S INCLUDED</p>
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">Everything Your Business Needs<br />to Dominate Online.</h2>
       </Reveal>
       <div className="grid gap-7 md:grid-cols-3 max-w-5xl mx-auto">
         {services.map((s, i) => (
           <Reveal key={s.title} delay={0.07 * i}>
-            <div className="group rounded-[14px] border border-[rgba(255,255,255,0.08)] bg-cg-card p-7 flex flex-col items-start transition-all duration-300 hover:border-[rgba(37,99,235,0.4)] hover:-translate-y-[2px]">
+            <div className="group rounded-[14px] border border-[rgba(255,255,255,0.08)] bg-sv-surface p-7 flex flex-col items-start transition-all duration-300 hover:border-[rgba(37,99,235,0.4)] hover:-translate-y-[2px]">
               <div className="flex h-[44px] w-[44px] items-center justify-center rounded-[10px] bg-[rgba(37,99,235,0.2)] border border-[rgba(37,99,235,0.4)]">
                 {s.icon}
               </div>
               <h3 className="text-white text-[17px] font-bold mt-4 mb-2">{s.title}</h3>
-              <p className="text-cg-body text-[15px] leading-[1.7]">{s.body}</p>
+              <p className="text-sv-text-sub text-[15px] leading-[1.7]">{s.body}</p>
             </div>
           </Reveal>
         ))}
       </div>
       <div className="text-center mt-10">
-        <p className="text-[14px] text-cg-secondary max-w-[560px] mx-auto mt-4">
+        <p className="text-[14px] text-sv-text-sub max-w-[560px] mx-auto mt-4">
           Not every engagement includes all six. During the strategy call, I scope exactly what your business needs to move the needle.
         </p>
       </div>

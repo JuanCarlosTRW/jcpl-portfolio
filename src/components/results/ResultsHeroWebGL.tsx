@@ -26,7 +26,7 @@ export default function ResultsHeroWebGL() {
   return (
     <div className="mt-6 w-full max-w-[1100px] mx-auto px-6">
       <div
-        className="w-full h-[240px] sm:h-[320px] rounded-2xl overflow-hidden border border-[rgba(37,99,235,0.15)] bg-cg-card"
+        className="w-full h-[240px] sm:h-[320px] rounded-2xl overflow-hidden border border-[rgba(37,99,235,0.15)] bg-sv-surface"
         aria-label="Results hero animation"
       >
         {/* Only render animation after mount and if reduced motion is not preferred */}
@@ -45,7 +45,7 @@ export default function ResultsHeroWebGL() {
         )}
         {/* Reduced motion: static fallback — dark panel, no animation */}
         {mounted && prefersReducedMotion && (
-          <div className="w-full h-full bg-cg-card" aria-hidden="true" />
+          <div className="w-full h-full bg-sv-surface" aria-hidden="true" />
         )}
       </div>
     </div>

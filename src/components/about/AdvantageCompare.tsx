@@ -38,7 +38,7 @@ export default function AdvantageCompare() {
       <div className="grid md:grid-cols-2 gap-5">
         {/* Left: Fragmented */}
         <AnimatedSection direction="left" delay={0.1}>
-          <div className="rounded-xl border border-[rgba(229,115,115,0.2)] bg-cg-card p-6 h-full">
+          <div className="rounded-xl border border-[rgba(229,115,115,0.2)] bg-sv-surface p-6 h-full">
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#E57373] mb-5 pb-3 border-b border-[rgba(229,115,115,0.2)]">
               Fragmented Freelancers
             </h3>
@@ -50,7 +50,7 @@ export default function AdvantageCompare() {
                     size={16}
                     aria-hidden="true"
                   />
-                  <span className="text-[0.82rem] text-cg-secondary leading-relaxed">
+                  <span className="text-[0.82rem] text-sv-text-sub leading-relaxed">
                     {point}
                   </span>
                 </li>
@@ -61,7 +61,7 @@ export default function AdvantageCompare() {
 
         {/* Right: Integrated */}
         <AnimatedSection direction="right" delay={0.15}>
-          <div className="rounded-xl border border-[rgba(37,99,235,0.25)] bg-cg-card p-6 h-full relative overflow-hidden">
+          <div className="rounded-xl border border-[rgba(37,99,235,0.25)] bg-sv-surface p-6 h-full relative overflow-hidden">
             {/* Subtle glow */}
             <div
               className="absolute inset-0 pointer-events-none rounded-xl"
@@ -71,11 +71,11 @@ export default function AdvantageCompare() {
               aria-hidden="true"
             />
             <div className="relative">
-              <div className="flex flex-wrap items-center gap-2.5 mb-5 pb-3 border-b border-cg-accent/20">
-                <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-cg-accent">
+              <div className="flex flex-wrap items-center gap-2.5 mb-5 pb-3 border-b border-sv-primary/20">
+                <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-sv-primary">
                   Integrated System
                 </h3>
-                <span className="inline-flex items-center rounded-full bg-[rgba(37,99,235,0.12)] border border-cg-accent/30 px-2.5 py-0.5 text-[0.62rem] font-bold text-cg-accent uppercase tracking-wider leading-none">
+                <span className="inline-flex items-center rounded-full bg-[rgba(37,99,235,0.12)] border border-sv-primary/30 px-2.5 py-0.5 text-[0.62rem] font-bold text-sv-primary uppercase tracking-wider leading-none">
                   Recommended
                 </span>
               </div>
@@ -83,7 +83,7 @@ export default function AdvantageCompare() {
                 {integrated.map((point, i) => (
                   <li key={i} className="flex gap-2.5 items-start">
                     <CheckCircle2
-                      className="mt-0.5 shrink-0 text-cg-accent"
+                      className="mt-0.5 shrink-0 text-sv-primary"
                       size={16}
                       aria-hidden="true"
                     />

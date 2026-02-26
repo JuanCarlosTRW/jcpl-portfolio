@@ -13,7 +13,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function ResultsPage() {
   return (
-    <div className="bg-cg-section-a min-h-screen">
+    <div className="bg-sv-base min-h-screen">
       {/* HERO */}
       <section
         className="relative pt-36 pb-24"
@@ -46,7 +46,7 @@ export default function ResultsPage() {
             <RotatingText
               texts={["Shipped", "Worked", "Dominated"]}
               rotationInterval={2000}
-              mainClassName="inline-block text-cg-accent-lt"
+              mainClassName="inline-block text-sv-muted"
             />
             .
           </h1>

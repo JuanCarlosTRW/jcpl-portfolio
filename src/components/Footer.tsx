@@ -17,7 +17,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="space-y-3">
-            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium text-cg-muted mb-4">
+            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium text-sv-text-muted mb-4">
               Navigation
             </h4>
             <ul className="space-y-2.5">
@@ -25,7 +25,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-white"
+                    className="text-[15px] text-sv-text-sub transition-colors duration-150 hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -36,14 +36,14 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="space-y-3">
-            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium text-cg-muted mb-4">
+            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium text-sv-text-muted mb-4">
               Legal
             </h4>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-white"
+                  className="text-[15px] text-sv-text-sub transition-colors duration-150 hover:text-white"
                 >
                   Privacy Policy
                 </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-white"
+                  className="text-[15px] text-sv-text-sub transition-colors duration-150 hover:text-white"
                 >
                   Terms of Service
                 </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:juan@clientgrowth.ca"
-                  className="text-[15px] text-cg-secondary transition-colors duration-150 hover:text-cg-accent-lt"
+                  className="text-[15px] text-sv-text-sub transition-colors duration-150 hover:text-sv-muted"
                 >
                   juan@clientgrowth.ca
                 </a>
@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)] text-center text-[13px] text-cg-dim">
+        <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)] text-center text-[13px] text-sv-text-dim">
           © {new Date().getFullYear()} Client Growth. All rights reserved.
         </div>
       </div>

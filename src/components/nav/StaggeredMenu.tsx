@@ -403,8 +403,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                       data-index={idx + 1}
                       onClick={closeMenu}
                       style={isActive ? {
-                        color: '#2563EB',
-                        borderBottom: '2px solid #2563EB',
+                        color: 'var(--brand-accent)',
+                        borderBottom: '2px solid var(--brand-accent)',
                       } : undefined}
                     >
                       <span className="sm-panel-itemLabel">{it.label}</span>

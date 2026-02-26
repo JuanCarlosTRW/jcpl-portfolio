@@ -102,7 +102,7 @@ export default function ServicesFinalCTA() {
                       key={tier.id}
                       className="flex items-start gap-3 rounded-xl px-4 py-3 cursor-pointer transition-colors"
                       style={{
-                        background: selectedTier === tier.id ? "rgba(37, 99, 235, 0.12)" : "rgba(148, 163, 184, 0.04)",
+                        background: selectedTier === tier.id ? "rgba(43, 90, 140, 0.12)" : "rgba(148, 163, 184, 0.04)",
                         border: selectedTier === tier.id ? "1px solid rgba(59, 130, 246, 0.35)" : "1px solid rgba(148, 163, 184, 0.10)",
                       }}
                     >
@@ -230,9 +230,9 @@ export default function ServicesFinalCTA() {
                 type="submit"
                 className="w-full py-3.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-150 hover:brightness-110"
                 style={{
-                  background: "linear-gradient(90deg, #2563EB, #3B82F6)",
+                  background: "linear-gradient(90deg, var(--brand-accent), #3B82F6)",
                   color: "#FFFFFF",
-                  boxShadow: "0 4px 24px rgba(37, 99, 235, 0.35)",
+                  boxShadow: "0 4px 24px rgba(43, 90, 140, 0.35)",
                 }}
               >
                 Submit Application →

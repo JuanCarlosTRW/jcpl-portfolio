@@ -14,14 +14,14 @@ interface Props {
 }
 
 const base =
-  "relative inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cg-accent";
+  "relative inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sv-primary";
 
 const variants = {
   primary:
-    "bg-cg-accent text-white hover:bg-cg-accent-hov shadow-[0_4px_24px_rgba(37,99,235,0.35)] hover:shadow-[0_6px_32px_rgba(37,99,235,0.45)] hover:-translate-y-[1px]",
+    "bg-sv-primary text-white hover:bg-sv-primary-hov shadow-[0_4px_24px_rgba(37,99,235,0.35)] hover:shadow-[0_6px_32px_rgba(37,99,235,0.45)] hover:-translate-y-[1px]",
   secondary:
     "bg-transparent text-white border border-[rgba(255,255,255,0.2)] hover:border-[rgba(255,255,255,0.35)] hover:bg-[rgba(255,255,255,0.06)]",
-  ghost: "text-cg-accent-lt hover:text-cg-accent hover:bg-white/5",
+  ghost: "text-sv-muted hover:text-sv-primary hover:bg-white/5",
 };
 
 const sizes = {
