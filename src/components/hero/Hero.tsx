@@ -191,15 +191,30 @@ export default function Hero() {
 					style={{ opacity: 0 }}
 				/>
 
-				{/* UI Rail (top micro-bar) */}
+				{/* ── Avatar corner L-brackets (4 corners) ── */}
+				<div className="cb-corner cb-corner--tl" aria-hidden="true" />
+				<div className="cb-corner cb-corner--tr" aria-hidden="true" />
+				<div className="cb-corner cb-corner--bl" aria-hidden="true" />
+				<div className="cb-corner cb-corner--br" aria-hidden="true" />
+
+				{/* UI Rail — Avatar style: left | ── TITLE ── | right */}
 				<div className="cb-rail" aria-hidden="true">
-					<span className="cb-rail-label">SYS_CORE // 01</span>
-					<span className="cb-rail-divider" />
-					<span className="cb-rail-label">JCPL.BUILD</span>
-					<span className="cb-rail-status">
-						<span className="cb-rail-dot" />
-						LIVE
-					</span>
+					<div className="cb-rail-left">
+						<span className="cb-rail-label">SYS_CORE</span>
+						<span className="cb-rail-divider" />
+						<span className="cb-rail-label">AUTH GATE ACTIVE</span>
+					</div>
+					<div className="cb-rail-center">
+						<span className="cb-rail-line" aria-hidden="true" />
+						<span className="cb-rail-title">JCPL.BUILD</span>
+						<span className="cb-rail-line" aria-hidden="true" />
+					</div>
+					<div className="cb-rail-right">
+						<span className="cb-rail-status">
+							<span className="cb-rail-dot" />
+							LIVE
+						</span>
+					</div>
 				</div>
 
 				{/* Inner surface */}
@@ -213,6 +228,11 @@ export default function Hero() {
 					<div className="cb-layer cb-overlay-top" aria-hidden="true" />
 					<div className="cb-layer cb-overlay-vignette" aria-hidden="true" />
 					<div className="cb-layer cb-grain" aria-hidden="true" />
+
+					{/* Bottom center ornament (Avatar style) */}
+					<div className="cb-bottom-ornament" aria-hidden="true">
+						<div className="cb-bottom-gem" />
+					</div>
 
 					{/* ═══ LAYER 3 — Content ═══ */}
 					<div ref={contentLayerRef} className="cb-content-wrap">

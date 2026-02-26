@@ -60,25 +60,64 @@
   max-width: 1300px;
   height: calc(100svh - 48px);
   border-radius: 28px;
-  /* Strengthened border — visible sapphire stroke */
-  border: 1px solid rgba(43, 90, 140, 0.40);
+  /* Avatar-style border — solid, luminous sapphire stroke */
+  border: 1.5px solid rgba(43, 90, 140, 0.72);
   box-shadow:
-    /* Top edge highlight — thin pearl shimmer */
-    inset 0 1px 0 rgba(107, 141, 184, 0.18),
-    /* Inner blue glow — Avatar immersion */
-    inset 0 0 60px rgba(43, 90, 140, 0.09),
-    /* Bottom edge shadow — depth */
-    inset 0 -1px 0 rgba(0, 0, 0, 0.30),
-    /* Outer ambient glow */
-    0 0 100px rgba(43, 90, 140, 0.10),
-    /* Micro border reinforcement */
-    0 0 0 1px rgba(43, 90, 140, 0.12);
+    /* Top edge pearl shimmer */
+    inset 0 1px 0 rgba(107, 141, 184, 0.22),
+    /* Inner blue glow */
+    inset 0 0 80px rgba(43, 90, 140, 0.10),
+    /* Bottom edge depth */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    /* Outer glow — Avatar luminous halo */
+    0 0 0 1px rgba(43, 90, 140, 0.18),
+    0 0 24px rgba(43, 90, 140, 0.28),
+    0 0 60px rgba(43, 90, 140, 0.14);
   overflow: hidden;
   will-change: transform, opacity;
   z-index: 1;
   display: flex;
   flex-direction: column;
 }
+
+/* ── Avatar corner L-bracket decorations ── */
+.cb-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 28;
+  pointer-events: none;
+}
+
+.cb-corner::before,
+.cb-corner::after {
+  content: "";
+  position: absolute;
+  background: rgba(107, 141, 184, 0.70);
+  border-radius: 1px;
+}
+
+/* Horizontal leg */
+.cb-corner::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+}
+
+/* Vertical leg */
+.cb-corner::after {
+  top: 0;
+  left: 0;
+  width: 1.5px;
+  height: 100%;
+}
+
+/* Position each corner — offset 14px to stay inside the border-radius clip */
+.cb-corner--tl { top: 14px; left: 14px; }
+.cb-corner--tr { top: 14px; right: 14px; transform: scaleX(-1); }
+.cb-corner--bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+.cb-corner--br { bottom: 14px; right: 14px; transform: scale(-1); }
 
 @media (min-width: 768px) {
   .cb-frame {
@@ -132,44 +171,96 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   UI RAIL — thin top bar (Avatar micro-nav)
+   UI RAIL — Avatar 3-column: left | ── TITLE ── | right
    ═══════════════════════════════════════════════════ */
 .cb-rail {
   position: relative;
   z-index: 25;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 10px 20px;
-  border-bottom: 1px solid rgba(43, 90, 140, 0.10);
-  background: rgba(6, 14, 26, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  height: 38px;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(43, 90, 140, 0.14);
+  background: rgba(6, 14, 26, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  flex-shrink: 0;
+  gap: 0;
+}
+
+/* Left cluster */
+.cb-rail-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Center — title flanked by expanding lines */
+.cb-rail-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  min-width: 0;
+}
+
+/* Expanding line */
+.cb-rail-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(43, 90, 140, 0.50) 50%,
+    transparent 100%
+  );
+  min-width: 20px;
+}
+
+/* Center title */
+.cb-rail-title {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(232, 237, 243, 0.55);
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  white-space: nowrap;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Right cluster */
+.cb-rail-right {
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
 .cb-rail-label {
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-dim);
   font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
   user-select: none;
+  white-space: nowrap;
 }
 
 .cb-rail-divider {
   width: 1px;
-  height: 10px;
-  background: rgba(43, 90, 140, 0.15);
+  height: 9px;
+  background: rgba(43, 90, 140, 0.20);
 }
 
 .cb-rail-status {
-  margin-left: auto;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.5rem;
+  font-size: 0.48rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -185,6 +276,45 @@
   box-shadow: 0 0 6px rgba(45, 107, 79, 0.5);
   animation: cb-pulse 3s ease-in-out infinite;
 }
+
+/* ── Bottom center ornament ── */
+.cb-bottom-ornament {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cb-bottom-gem {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(107, 141, 184, 0.55);
+  box-shadow:
+    0 0 10px rgba(43, 90, 140, 0.40),
+    inset 0 0 4px rgba(43, 90, 140, 0.30);
+  position: relative;
+}
+
+/* Horizontal tick marks flanking the gem */
+.cb-bottom-gem::before,
+.cb-bottom-gem::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 1px;
+  background: rgba(107, 141, 184, 0.35);
+  transform: translateY(-50%);
+}
+
+.cb-bottom-gem::before { right: calc(100% + 5px); }
+.cb-bottom-gem::after  { left:  calc(100% + 5px); }
 
 /* ═══════════════════════════════════════════════════
    INNER SURFACE
@@ -479,13 +609,33 @@
   }
 
   .cb-rail {
-    padding: 8px 12px;
-    gap: 0.5rem;
+    padding: 0 10px;
+    height: 34px;
   }
 
   .cb-rail-label {
-    font-size: 0.45rem;
+    font-size: 0.42rem;
   }
+
+  /* Hide secondary left label on smallest screens */
+  .cb-rail-left .cb-rail-divider,
+  .cb-rail-left .cb-rail-label:last-child {
+    display: none;
+  }
+
+  .cb-corner {
+    width: 14px;
+    height: 14px;
+  }
+
+  .cb-corner--tl,
+  .cb-corner--tr { top: 10px; }
+  .cb-corner--bl,
+  .cb-corner--br { bottom: 10px; }
+  .cb-corner--tl,
+  .cb-corner--bl { left: 10px; }
+  .cb-corner--tr,
+  .cb-corner--br { right: 10px; }
 
   .cb-headline {
     letter-spacing: 0.04em;
