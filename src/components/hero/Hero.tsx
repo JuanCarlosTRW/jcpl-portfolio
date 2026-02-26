@@ -2,31 +2,27 @@
 
 import { useRef, useEffect, useCallback } from "react";
 import gsap from "gsap";
-import UnicornHeroBackground from "./UnicornHeroBackground";
+import HeroWebGLBackground from "./HeroWebGLBackground";
 import TextSplitter from "./TextSplitter";
 import { prefersReducedMotion } from "@/lib/motion";
 import "./hero.css";
 
 /* ═══════════════════════════════════════════════════
-   COPY — conversion-optimized, outcome-driven
+   COPY — DOMINATE style, institutional authority
    ═══════════════════════════════════════════════════ */
 const EYEBROW = "Growth Architecture™";
 const HEADLINE = "DOMINATE YOUR MARKET";
-const SUBHEADLINE =
-	"I build one complete system: a conversion website, Google Ads targeting people ready to hire today, and AI that qualifies leads before your phone rings.";
-
+const MECHANISM =
+	"One system: conversion site, Google Ads for ready-to-hire buyers, and AI that qualifies leads before your phone rings.";
+const PROOF = "Last result: $900 ad spend → $41,084.85 revenue. Texas RV company. 30 days.";
 const CTA_PRIMARY = {
 	label: "Apply. I\u2019ll review you in 24h.",
 	href: "/apply",
 };
-const CTA_SECONDARY = {
-	label: "See the $41,084.85 Result",
-	href: "/results",
-};
 
 /* ═══════════════════════════════════════════════════
    COMPONENT — Command Bridge Hero
-   3-Layer: Unicorn BG → Vignette overlay → Content
+   3 Layers: WebGL BG → Readability overlay → Content
    ═══════════════════════════════════════════════════ */
 export default function Hero() {
 	const sectionRef = useRef<HTMLElement>(null);
@@ -34,13 +30,13 @@ export default function Hero() {
 	const borderRef = useRef<HTMLDivElement>(null);
 	const headlineRef = useRef<HTMLSpanElement>(null);
 	const eyebrowRef = useRef<HTMLDivElement>(null);
-	const subRef = useRef<HTMLParagraphElement>(null);
-	const ctasRef = useRef<HTMLDivElement>(null);
-	const proofRef = useRef<HTMLDivElement>(null);
+	const mechRef = useRef<HTMLParagraphElement>(null);
+	const proofRef = useRef<HTMLParagraphElement>(null);
+	const ctaRef = useRef<HTMLDivElement>(null);
 	const bgLayerRef = useRef<HTMLDivElement>(null);
 	const contentLayerRef = useRef<HTMLDivElement>(null);
 
-	/* ── mousemove parallax (bg: 6px, content: 3px) ── */
+	/* ── Mousemove parallax (bg: 6px, content: 3px) ── */
 	const handleMouseMove = useCallback((e: MouseEvent) => {
 		if (prefersReducedMotion()) return;
 		const cx = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -78,9 +74,9 @@ export default function Hero() {
 		const allEls = [
 			frameRef.current,
 			eyebrowRef.current,
-			subRef.current,
-			ctasRef.current,
+			mechRef.current,
 			proofRef.current,
+			ctaRef.current,
 		].filter(Boolean);
 
 		if (reduced) {
@@ -97,7 +93,7 @@ export default function Hero() {
 
 		const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-		// 1. Frame raises in (0.8s)
+		// 1. Frame rises in (0.8s)
 		if (frameRef.current) {
 			tl.fromTo(
 				frameRef.current,
@@ -127,49 +123,46 @@ export default function Hero() {
 			);
 		}
 
-		// 4. Headline chars stagger (0.035s per char)
+		// 4. Headline chars stagger (0.04s/char)
 		if (headlineRef.current) {
 			const chars = headlineRef.current.querySelectorAll("[data-char]");
 			if (chars.length) {
 				tl.fromTo(
 					chars,
 					{ opacity: 0, y: 40 },
-					{ opacity: 1, y: 0, duration: 0.7, stagger: 0.035 },
+					{ opacity: 1, y: 0, duration: 0.7, stagger: 0.04 },
 					0.45
 				);
 			}
 		}
 
-		// 5. Subheadline fades in
-		if (subRef.current) {
+		// 5. Mechanism line fades in
+		if (mechRef.current) {
 			tl.fromTo(
-				subRef.current,
+				mechRef.current,
 				{ opacity: 0, y: 18 },
 				{ opacity: 1, y: 0, duration: 0.65 },
 				0.9
 			);
 		}
 
-		// 6. CTAs slide in last
-		if (ctasRef.current) {
-			const buttons = ctasRef.current.querySelectorAll("a");
-			if (buttons.length) {
-				tl.fromTo(
-					buttons,
-					{ opacity: 0, y: 16 },
-					{ opacity: 1, y: 0, duration: 0.55, stagger: 0.1 },
-					1.1
-				);
-			}
-		}
-
-		// 7. Proof
+		// 6. Proof line
 		if (proofRef.current) {
 			tl.fromTo(
 				proofRef.current,
-				{ opacity: 0 },
-				{ opacity: 1, duration: 0.5 },
-				1.4
+				{ opacity: 0, y: 12 },
+				{ opacity: 1, y: 0, duration: 0.55 },
+				1.15
+			);
+		}
+
+		// 7. CTA appears last
+		if (ctaRef.current) {
+			tl.fromTo(
+				ctaRef.current,
+				{ opacity: 0, y: 16 },
+				{ opacity: 1, y: 0, duration: 0.55 },
+				1.35
 			);
 		}
 
@@ -184,12 +177,12 @@ export default function Hero() {
 			className="cb"
 			aria-label="Hero — Growth Systems"
 		>
-			{/* ── Ambient gradient drift ── */}
+			{/* Ambient drift */}
 			<div className="cb-ambient" aria-hidden="true" />
 
-			{/* ═══════════════════════════════════════════
-          THE COMMAND BRIDGE FRAME
-          ═══════════════════════════════════════════ */}
+			{/* ═══════════════════════════════
+          THE AVATAR FRAME
+          ═══════════════════════════════ */}
 			<div ref={frameRef} className="cb-frame" style={{ opacity: 0 }}>
 				{/* Border highlight sweep */}
 				<div
@@ -199,44 +192,34 @@ export default function Hero() {
 					style={{ opacity: 0 }}
 				/>
 
-				{/* Frame corner labels (Avatar micro-nav) */}
-				<div className="cb-frame-label cb-frame-label--tl" aria-hidden="true">
-					SYS_CORE // 01
-				</div>
-				<div className="cb-frame-label cb-frame-label--tr" aria-hidden="true">
-					AUTH_GATE: ACTIVE
-				</div>
-				<div className="cb-frame-label cb-frame-label--bl" aria-hidden="true">
-					JCPL.BUILD
-				</div>
-				<div className="cb-frame-label cb-frame-label--br" aria-hidden="true">
-					v2.0
+				{/* UI Rail (top micro-bar) */}
+				<div className="cb-rail" aria-hidden="true">
+					<span className="cb-rail-label">SYS_CORE // 01</span>
+					<span className="cb-rail-divider" />
+					<span className="cb-rail-label">JCPL.BUILD</span>
+					<span className="cb-rail-status">
+						<span className="cb-rail-dot" />
+						LIVE
+					</span>
 				</div>
 
 				{/* Inner surface */}
 				<div className="cb-surface">
-					{/* ═══ LAYER 1 — Unicorn Studio WebGL background ═══ */}
-					<div
-						ref={bgLayerRef}
-						className="cb-layer cb-layer--bg"
-						aria-hidden="true"
-					>
-						<UnicornHeroBackground />
+					{/* ═══ LAYER 1 — WebGL background ═══ */}
+					<div ref={bgLayerRef} className="cb-layer cb-layer--bg" aria-hidden="true">
+						<HeroWebGLBackground />
 					</div>
 
-					{/* ═══ LAYER 2 — Vignette + gradient overlay ═══ */}
-					<div className="cb-layer cb-vignette" aria-hidden="true" />
+					{/* ═══ LAYER 2 — Readability overlay ═══ */}
+					<div className="cb-layer cb-overlay-top" aria-hidden="true" />
+					<div className="cb-layer cb-overlay-vignette" aria-hidden="true" />
 					<div className="cb-layer cb-grain" aria-hidden="true" />
 
-					{/* ═══ LAYER 3 — Content (with parallax) ═══ */}
+					{/* ═══ LAYER 3 — Content ═══ */}
 					<div ref={contentLayerRef} className="cb-content-wrap">
 						<div className="cb-content">
 							{/* Eyebrow */}
-							<div
-								ref={eyebrowRef}
-								className="cb-eyebrow"
-								style={{ opacity: 0 }}
-							>
+							<div ref={eyebrowRef} className="cb-eyebrow" style={{ opacity: 0 }}>
 								<span className="cb-eyebrow-dot" aria-hidden="true" />
 								<span>{EYEBROW}</span>
 							</div>
@@ -251,40 +234,22 @@ export default function Hero() {
 								/>
 							</h1>
 
-							{/* Subheadline */}
-							<p ref={subRef} className="cb-sub" style={{ opacity: 0 }}>
-								{SUBHEADLINE}
+							{/* Mechanism line */}
+							<p ref={mechRef} className="cb-mechanism" style={{ opacity: 0 }}>
+								{MECHANISM}
 							</p>
 
-							{/* CTAs */}
-							<div ref={ctasRef} className="cb-ctas" style={{ opacity: 0 }}>
+							{/* Proof line */}
+							<p ref={proofRef} className="cb-proof-line" style={{ opacity: 0 }}>
+								{PROOF}
+							</p>
+
+							{/* CTA */}
+							<div ref={ctaRef} className="cb-cta-wrap" style={{ opacity: 0 }}>
 								<a href={CTA_PRIMARY.href} className="cb-cta cb-cta--primary">
 									{CTA_PRIMARY.label}
-									<span className="cb-cta-arrow" aria-hidden="true">
-										→
-									</span>
+									<span className="cb-cta-arrow" aria-hidden="true">→</span>
 								</a>
-								<a
-									href={CTA_SECONDARY.href}
-									className="cb-cta cb-cta--secondary"
-								>
-									{CTA_SECONDARY.label}
-								</a>
-							</div>
-
-							{/* Proof anchor */}
-							<div
-								ref={proofRef}
-								className="cb-proof"
-								style={{ opacity: 0 }}
-							>
-								<span className="cb-proof-item">
-									Last result: $900 ad spend → $41,084.85 revenue
-								</span>
-								<span className="cb-proof-sep">·</span>
-								<span className="cb-proof-item">
-									Texas RV company. 30 days.
-								</span>
 							</div>
 						</div>
 					</div>
