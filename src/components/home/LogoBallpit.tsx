@@ -1,0 +1,493 @@
+"use client";
+
+import { useRef, useEffect } from "react";
+import {
+  Clock,
+  PerspectiveCamera,
+  Scene,
+  WebGLRenderer,
+  SRGBColorSpace,
+  MathUtils,
+  Vector2,
+  Vector3,
+  MeshPhysicalMaterial,
+  ShaderChunk,
+  Color,
+  PMREMGenerator,
+  SphereGeometry,
+  PlaneGeometry,
+  AmbientLight,
+  PointLight,
+  ACESFilmicToneMapping,
+  Raycaster,
+  Plane,
+  TextureLoader,
+  Mesh,
+  MeshBasicMaterial,
+  Group,
+  CanvasTexture,
+} from "three";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
+
+// ─── Public type ──────────────────────────────────────────────────────────────
+
+export type LogoBallItem = {
+  id:   string;
+  name: string;
+  logo: string; // image URL
+};
+
+// ─── Circular alpha-mask texture ──────────────────────────────────────────────
+// Applied to the logo plane so it reads as a circular decal, not a rectangle.
+
+function makeCircleMask(): CanvasTexture {
+  const S = 256;
+  const cv = document.createElement("canvas");
+  cv.width = S; cv.height = S;
+  const ctx = cv.getContext("2d")!;
+  const g = ctx.createRadialGradient(S / 2, S / 2, S * 0.52, S / 2, S / 2, S / 2);
+  g.addColorStop(0,    "rgba(255,255,255,1)");
+  g.addColorStop(0.76, "rgba(255,255,255,1)");
+  g.addColorStop(1,    "rgba(255,255,255,0)");
+  ctx.fillStyle = g;
+  ctx.beginPath();
+  ctx.arc(S / 2, S / 2, S / 2, 0, Math.PI * 2);
+  ctx.fill();
+  return new CanvasTexture(cv);
+}
+
+// ─── Subsurface-scattering material (ported from user's Ballpit source) ───────
+// Adds a real-time scattering term on top of MeshPhysicalMaterial so balls feel
+// translucent and lit from within — matching the original Ballpit premium look.
+
+class BallMaterial extends MeshPhysicalMaterial {
+  declare uniforms: Record<string, { value: number }>;
+  onBeforeCompile2?: (s: any) => void;
+
+  constructor(params: ConstructorParameters<typeof MeshPhysicalMaterial>[0]) {
+    super(params);
+    (this as any).uniforms = {
+      thicknessDistortion:  { value: 0.1 },
+      thicknessAmbient:     { value: 0 },
+      thicknessAttenuation: { value: 0.1 },
+      thicknessPower:       { value: 2 },
+      thicknessScale:       { value: 10 },
+    };
+    (this as any).defines = (this as any).defines ?? {};
+    (this as any).defines["USE_UV"] = "";
+
+    this.onBeforeCompile = (shader) => {
+      Object.assign(shader.uniforms, (this as any).uniforms);
+
+      shader.fragmentShader =
+        `uniform float thicknessPower;
+         uniform float thicknessScale;
+         uniform float thicknessDistortion;
+         uniform float thicknessAmbient;
+         uniform float thicknessAttenuation;
+        ` + shader.fragmentShader;
+
+      shader.fragmentShader = shader.fragmentShader.replace(
+        "void main() {",
+        `void RE_Direct_Scattering(
+           const in IncidentLight directLight,
+           const in vec2 uv,
+           const in vec3 geometryPosition,
+           const in vec3 geometryNormal,
+           const in vec3 geometryViewDir,
+           const in vec3 geometryClearcoatNormal,
+           inout ReflectedLight reflectedLight
+         ) {
+           vec3 scatteringHalf = normalize(directLight.direction + (geometryNormal * thicknessDistortion));
+           float scatteringDot = pow(saturate(dot(geometryViewDir, -scatteringHalf)), thicknessPower) * thicknessScale;
+           #ifdef USE_COLOR
+             vec3 scatteringIllu = (scatteringDot + thicknessAmbient) * vColor;
+           #else
+             vec3 scatteringIllu = (scatteringDot + thicknessAmbient) * diffuse;
+           #endif
+           reflectedLight.directDiffuse += scatteringIllu * thicknessAttenuation * directLight.color;
+         }
+         void main() {`
+      );
+
+      const replaced = ShaderChunk.lights_fragment_begin.replaceAll(
+        "RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );",
+        `RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );
+         RE_Direct_Scattering(directLight, vUv, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, reflectedLight);`
+      );
+      shader.fragmentShader = shader.fragmentShader.replace(
+        "#include <lights_fragment_begin>",
+        replaced
+      );
+
+      this.onBeforeCompile2?.(shader);
+    };
+  }
+}
+
+// ─── Physics engine (ported from user's Ballpit W class) ──────────────────────
+// Unchanged physics: gravity, friction, wall bounce, ball-ball collision.
+// Ball 0 optionally follows cursor (controlSphere0 flag).
+
+const _I = new Vector3(), _B = new Vector3(), _O = new Vector3(),
+      _N = new Vector3(), _D = new Vector3(), _j = new Vector3(),
+      _H = new Vector3(), _T = new Vector3(), _F = new Vector3();
+
+interface PhysicsConfig {
+  count:          number;
+  minSize:        number;
+  maxSize:        number;
+  size0:          number;
+  gravity:        number;
+  friction:       number;
+  wallBounce:     number;
+  maxVelocity:    number;
+  maxX:           number;
+  maxY:           number;
+  maxZ:           number;
+  controlSphere0: boolean;
+}
+
+class Physics {
+  config:       PhysicsConfig;
+  positionData: Float32Array;
+  velocityData: Float32Array;
+  sizeData:     Float32Array;
+  center:       Vector3;
+
+  constructor(config: PhysicsConfig) {
+    this.config       = config;
+    this.positionData = new Float32Array(3 * config.count).fill(0);
+    this.velocityData = new Float32Array(3 * config.count).fill(0);
+    this.sizeData     = new Float32Array(config.count).fill(1);
+    this.center       = new Vector3();
+    this.init();
+    this.setSizes();
+  }
+
+  init() {
+    const { config: c, positionData: p } = this;
+    this.center.toArray(p, 0);
+    for (let i = 1; i < c.count; i++) {
+      const b = 3 * i;
+      p[b]     = MathUtils.randFloatSpread(2 * c.maxX);
+      p[b + 1] = MathUtils.randFloatSpread(2 * c.maxY);
+      p[b + 2] = MathUtils.randFloatSpread(2 * c.maxZ);
+    }
+  }
+
+  setSizes() {
+    const { config: c, sizeData: s } = this;
+    s[0] = c.size0;
+    for (let i = 1; i < c.count; i++) s[i] = MathUtils.randFloat(c.minSize, c.maxSize);
+  }
+
+  update(e: { delta: number }) {
+    const { config: c, positionData: p, sizeData: s, velocityData: v, center } = this;
+    let start = 0;
+
+    if (c.controlSphere0) {
+      start = 1;
+      _F.fromArray(p, 0).lerp(center, 0.1).toArray(p, 0);
+      new Vector3().toArray(v, 0);
+    }
+
+    for (let i = start; i < c.count; i++) {
+      const b = 3 * i;
+      _I.fromArray(p, b); _B.fromArray(v, b);
+      _B.y -= e.delta * c.gravity * s[i];
+      _B.multiplyScalar(c.friction).clampLength(0, c.maxVelocity);
+      _I.add(_B);
+      _I.toArray(p, b); _B.toArray(v, b);
+    }
+
+    for (let i = start; i < c.count; i++) {
+      const b = 3 * i;
+      _I.fromArray(p, b); _B.fromArray(v, b);
+      const ri = s[i];
+
+      for (let j = i + 1; j < c.count; j++) {
+        const ob = 3 * j;
+        _O.fromArray(p, ob); _N.fromArray(v, ob);
+        const rj   = s[j];
+        _D.copy(_O).sub(_I);
+        const dist = _D.length();
+        const sum  = ri + rj;
+        if (dist < sum) {
+          const over = sum - dist;
+          _j.copy(_D).normalize().multiplyScalar(0.5 * over);
+          _H.copy(_j).multiplyScalar(Math.max(_B.length(), 1));
+          _T.copy(_j).multiplyScalar(Math.max(_N.length(), 1));
+          _I.sub(_j); _B.sub(_H); _I.toArray(p, b);  _B.toArray(v, b);
+          _O.add(_j); _N.add(_T); _O.toArray(p, ob); _N.toArray(v, ob);
+        }
+      }
+
+      if (c.controlSphere0) {
+        _D.copy(_F).sub(_I);
+        const dist = _D.length();
+        const sum0 = ri + s[0];
+        if (dist < sum0) {
+          const d0 = sum0 - dist;
+          _j.copy(_D.normalize()).multiplyScalar(d0);
+          _H.copy(_j).multiplyScalar(Math.max(_B.length(), 2));
+          _I.sub(_j); _B.sub(_H);
+        }
+      }
+
+      if (Math.abs(_I.x) + ri > c.maxX) { _I.x = Math.sign(_I.x) * (c.maxX - ri); _B.x = -_B.x * c.wallBounce; }
+      if (c.gravity === 0) {
+        if (Math.abs(_I.y) + ri > c.maxY) { _I.y = Math.sign(_I.y) * (c.maxY - ri); _B.y = -_B.y * c.wallBounce; }
+      } else if (_I.y - ri < -c.maxY) { _I.y = -c.maxY + ri; _B.y = -_B.y * c.wallBounce; }
+      const maxBz = Math.max(c.maxZ, c.maxSize);
+      if (Math.abs(_I.z) + ri > maxBz) { _I.z = Math.sign(_I.z) * (c.maxZ - ri); _B.z = -_B.z * c.wallBounce; }
+
+      _I.toArray(p, b); _B.toArray(v, b);
+    }
+  }
+}
+
+// ─── Per-ball colors — dark navy tones matching brand ─────────────────────────
+
+const BALL_COLORS = [
+  new Color("#0c2340"),
+  new Color("#0a1e38"),
+  new Color("#0d2848"),
+  new Color("#091c34"),
+  new Color("#0b2542"),
+];
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+export default function LogoBallpit({
+  logos,
+  className   = "",
+  height      = 460,
+  followCursor = true,
+}: {
+  logos:        LogoBallItem[];
+  className?:   string;
+  height?:      number;
+  followCursor?: boolean;
+}) {
+  const wrapRef   = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const wrap   = wrapRef.current;
+    if (!canvas || !wrap || !logos.length) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // ── Renderer ──
+    const renderer = new WebGLRenderer({ canvas, powerPreference: "high-performance", antialias: true, alpha: true });
+    renderer.outputColorSpace = SRGBColorSpace;
+    renderer.toneMapping      = ACESFilmicToneMapping;
+
+    // ── Camera ──
+    const camera = new PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 20);
+    camera.lookAt(0, 0, 0);
+
+    // ── Scene ──
+    const scene = new Scene();
+
+    // ── Environment (drives clearcoat reflections) ──
+    const pmrem      = new PMREMGenerator(renderer);
+    const envTexture = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    pmrem.dispose();
+
+    // ── Lights ──
+    const ambient = new AmbientLight(0xffffff, 1);
+    const point   = new PointLight(0x4488ff, 200);
+    scene.add(ambient, point);
+
+    // ── Physics ──
+    const physCfg: PhysicsConfig = {
+      count:          logos.length,
+      minSize:        0.72,
+      maxSize:        1.0,
+      size0:          0.88,
+      gravity:        reduced ? 0 : 0.35,
+      friction:       0.9975,
+      wallBounce:     0.88,
+      maxVelocity:    0.13,
+      maxX:           5,
+      maxY:           5,
+      maxZ:           1.5,
+      controlSphere0: false,
+    };
+    const physics = new Physics(physCfg);
+
+    // ── Shared geometries + mask ──
+    const sphereGeo   = new SphereGeometry(1, 36, 36);
+    const planeGeo    = new PlaneGeometry(2.0, 2.0);
+    const circleMask  = makeCircleMask();
+
+    // ── Build one Group per logo ball ──
+    // Each Group = sphere mesh (BallMaterial) + logo plane (billboard, MeshBasicMaterial).
+    const groups:     Group[] = [];
+    const logoPlanes: Mesh[]  = [];
+
+    logos.forEach((item, i) => {
+      const group = new Group();
+
+      // Sphere
+      const mat = new BallMaterial({
+        color:              BALL_COLORS[i % BALL_COLORS.length],
+        metalness:          0.1,
+        roughness:          0.18,
+        clearcoat:          1,
+        clearcoatRoughness: 0.12,
+        envMap:             envTexture,
+      });
+      (mat as any).envMapRotation.x = -Math.PI / 2;
+      group.add(new Mesh(sphereGeo, mat));
+
+      // Logo plane — starts transparent, texture added once image loads
+      const logoMat = new MeshBasicMaterial({
+        transparent: true,
+        alphaMap:    circleMask,
+        opacity:     0,
+        depthWrite:  false,
+      });
+      const plane = new Mesh(planeGeo, logoMat);
+      plane.position.z   = 1.02; // just outside sphere surface
+      plane.renderOrder  = 1;
+      group.add(plane);
+      logoPlanes.push(plane);
+
+      // Set initial physics-driven position/scale
+      group.position.fromArray(physics.positionData, 3 * i);
+      group.scale.setScalar(physics.sizeData[i]);
+
+      scene.add(group);
+      groups.push(group);
+    });
+
+    // ── Load logo textures (async, non-blocking) ──
+    const loader = new TextureLoader();
+    loader.crossOrigin = "anonymous";
+    logos.forEach((item, i) => {
+      loader.load(item.logo, (tex) => {
+        tex.colorSpace = SRGBColorSpace;
+        const mat = logoPlanes[i].material as MeshBasicMaterial;
+        mat.map     = tex;
+        mat.opacity = 0.9;
+        mat.needsUpdate = true;
+      });
+    });
+
+    // ── Resize ──
+    function resize() {
+      const w = wrap!.offsetWidth;
+      const h = wrap!.offsetHeight;
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      // Keep physics bounds matched to world space
+      const fovRad             = (camera.fov * Math.PI) / 180;
+      const wH                 = 2 * Math.tan(fovRad / 2) * camera.position.z;
+      const wW                 = wH * camera.aspect;
+      physics.config.maxX      = (wW / 2) * 0.88;
+      physics.config.maxY      = (wH / 2) * 0.88;
+    }
+    resize();
+    const resizeObs = new ResizeObserver(resize);
+    resizeObs.observe(wrap);
+
+    // ── Cursor interaction (ball 0 follows cursor, pushes others) ──
+    const pointer    = new Vector2();
+    const raycaster  = new Raycaster();
+    const planeZ     = new Plane(new Vector3(0, 0, 1), 0);
+    const cursorPt   = new Vector3();
+
+    function onPointerMove(e: PointerEvent) {
+      const rect = canvas!.getBoundingClientRect();
+      pointer.set(
+         ((e.clientX - rect.left) / rect.width)  * 2 - 1,
+        -((e.clientY - rect.top)  / rect.height) * 2 + 1,
+      );
+      raycaster.setFromCamera(pointer, camera);
+      raycaster.ray.intersectPlane(planeZ, cursorPt);
+      physics.center.copy(cursorPt);
+      physics.config.controlSphere0 = true;
+    }
+    function onPointerLeave() {
+      physics.config.controlSphere0 = false;
+    }
+
+    if (followCursor && !reduced) {
+      canvas.style.touchAction    = "none";
+      canvas.style.userSelect     = "none";
+      canvas.addEventListener("pointermove",  onPointerMove);
+      canvas.addEventListener("pointerleave", onPointerLeave);
+    }
+
+    // ── Intersection observer — pause RAF when off-screen ──
+    let visible = false;
+    const intObs = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0 });
+    intObs.observe(canvas);
+
+    // ── Animation loop ──
+    const clock = new Clock();
+    let rafId: number;
+    let running = true;
+
+    function animate() {
+      if (!running) return;
+      rafId = requestAnimationFrame(animate);
+      if (!visible) return;
+
+      const delta = Math.min(clock.getDelta(), 0.05);
+
+      if (!reduced) physics.update({ delta });
+
+      for (let i = 0; i < logos.length; i++) {
+        groups[i].position.fromArray(physics.positionData, 3 * i);
+        groups[i].scale.setScalar(physics.sizeData[i]);
+        // Billboard: logo plane always faces camera
+        logoPlanes[i].quaternion.copy(camera.quaternion);
+      }
+
+      // Point light tracks ball 0 for ambient mood lighting
+      point.position.fromArray(physics.positionData, 0);
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // ── Cleanup ──
+    return () => {
+      running = false;
+      cancelAnimationFrame(rafId);
+      canvas.removeEventListener("pointermove",  onPointerMove);
+      canvas.removeEventListener("pointerleave", onPointerLeave);
+      resizeObs.disconnect();
+      intObs.disconnect();
+      sphereGeo.dispose();
+      planeGeo.dispose();
+      circleMask.dispose();
+      envTexture.dispose();
+      groups.forEach((g) =>
+        g.traverse((obj) => {
+          if (obj instanceof Mesh) {
+            (Array.isArray(obj.material)
+              ? obj.material
+              : [obj.material]
+            ).forEach((m) => { m.dispose(); });
+          }
+        })
+      );
+      renderer.dispose();
+    };
+  }, [logos, followCursor]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <div ref={wrapRef} className={className} style={{ height, width: "100%" }}>
+      <canvas ref={canvasRef} style={{ width: "100%", height: "100%", display: "block" }} />
+    </div>
+  );
+}

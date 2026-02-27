@@ -1,19 +1,28 @@
 import dynamic from "next/dynamic";
 import Hero from "@/components/hero/Hero";
-import LogoLoop from "@/components/hero/LogoLoop";
 import { caseStudyLogos } from "@/components/hero/LogoLoopData";
 import SpotsLeftSection from "@/components/home/SpotsLeftSection";
+import type { LogoBallItem } from "@/components/home/LogoBallpit";
 
 /* Dynamic imports for below-the-fold sections — reduces initial JS bundle */
+// LogoBallpit: Three.js, must be client-only (ssr:false)
+const LogoBallpit     = dynamic(() => import("@/components/home/LogoBallpit"),   { ssr: false });
 const DataBenchmarkBlock = dynamic(() => import("@/components/home/DataBenchmarkBlock"));
-const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
+const ClientReality   = dynamic(() => import("@/components/home/ClientReality"));
 const Differentiation = dynamic(() => import("@/components/home/Differentiation"));
 const GrowthArchitecture = dynamic(() => import("@/components/home/GrowthArchitecture"));
-const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
-const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
+const FeaturedCaseStudy  = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
+const QualificationCTA   = dynamic(() => import("@/components/home/QualificationCTA"));
 const InfrastructureTiers = dynamic(() => import("@/components/home/InfrastructureTiers"));
-const HowWeWork = dynamic(() => import("@/components/home/HowWeWork"));
+const HowWeWork  = dynamic(() => import("@/components/home/HowWeWork"));
 const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
+
+// Map LogoLoopData → LogoBallItem (one ball per real client)
+const proofBalls: LogoBallItem[] = caseStudyLogos.map((l) => ({
+  id:   l.alt ?? l.src,
+  name: l.name ?? l.alt ?? "",
+  logo: l.src,
+}));
 
 export default function HomePage() {
   return (
@@ -21,11 +30,15 @@ export default function HomePage() {
       {/* 1 — Hero: Hook + authority signal */}
       <Hero />
 
-      {/* 2 — Proof: Real client logos + hard benchmark stat */}
-      <div className="py-10 md:py-14 bg-sv-surface">
-        <p className="text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-sv-text-muted mb-2">CLIENTS</p>
-        <p className="text-center text-[13px] text-sv-text-dim mb-7">Every business below is a real active or past client account.</p>
-        <LogoLoop logos={caseStudyLogos} speed={120} gap={40} logoHeight={40} />
+      {/* 2 — Proof: Logo ball pit — one ball per real client */}
+      <div className="bg-sv-surface pt-10 md:pt-14">
+        <p className="text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-sv-text-muted mb-2">
+          CLIENTS
+        </p>
+        <p className="text-center text-[13px] text-sv-text-dim mb-4">
+          Every ball below is a real active or past client account.
+        </p>
+        <LogoBallpit logos={proofBalls} height={460} followCursor />
       </div>
       <DataBenchmarkBlock />
 
