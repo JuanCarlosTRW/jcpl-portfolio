@@ -261,9 +261,9 @@ const BALL_COLORS = [
 
 export default function LogoBallpit({
   logos,
-  className   = "",
-  height      = 460,
-  followCursor = true,
+  className    = "",
+  height       = 360,
+  followCursor = false, // disabled by default — balls drift autonomously
 }: {
   logos:        LogoBallItem[];
   className?:   string;
@@ -299,8 +299,11 @@ export default function LogoBallpit({
     pmrem.dispose();
 
     // ── Lights ──
-    const ambient = new AmbientLight(0xffffff, 1);
-    const point   = new PointLight(0x4488ff, 200);
+    const ambient = new AmbientLight(0xffffff, 1.1);
+    // Fixed position — NOT tracking ball 0. Tracking ball 0 made it glow white
+    // and appear as a "special" cursor ball. Fixed light = all balls lit equally.
+    const point   = new PointLight(0x4488ff, 160);
+    point.position.set(3, 4, 8);
     scene.add(ambient, point);
 
     // ── Physics ──
@@ -309,10 +312,10 @@ export default function LogoBallpit({
       minSize:        0.72,
       maxSize:        1.0,
       size0:          0.88,
-      gravity:        reduced ? 0 : 0.35,
-      friction:       0.9975,
-      wallBounce:     0.88,
-      maxVelocity:    0.13,
+      gravity:        reduced ? 0 : 0.18, // gentler fall (was 0.35)
+      friction:       0.995,              // more drag — balls slow down sooner (was 0.9975)
+      wallBounce:     0.55,               // soft bounce — no pinball energy (was 0.88)
+      maxVelocity:    0.07,               // slower top speed (was 0.13)
       maxX:           5,
       maxY:           5,
       maxZ:           1.5,
@@ -451,9 +454,6 @@ export default function LogoBallpit({
         // Billboard: logo plane always faces camera
         logoPlanes[i].quaternion.copy(camera.quaternion);
       }
-
-      // Point light tracks ball 0 for ambient mood lighting
-      point.position.fromArray(physics.positionData, 0);
 
       renderer.render(scene, camera);
     }
