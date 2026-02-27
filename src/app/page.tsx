@@ -16,6 +16,7 @@ const QualificationCTA   = dynamic(() => import("@/components/home/Qualification
 const InfrastructureTiers = dynamic(() => import("@/components/home/InfrastructureTiers"));
 const HowWeWork  = dynamic(() => import("@/components/home/HowWeWork"));
 const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
+const FinalConvictionSection = dynamic(() => import("@/components/home/FinalConvictionSection"));
 
 // Map LogoLoopData → LogoBallItem (one ball per real client)
 const proofBalls: LogoBallItem[] = caseStudyLogos.map((l) => ({
@@ -68,6 +69,9 @@ export default function HomePage() {
 
       {/* 11 — Final CTA: Spots Left */}
       <SpotsLeftSection />
+
+      {/* 12 — Conviction: Final visual momentum block before footer */}
+      <FinalConvictionSection />
     </>
   );
 }
