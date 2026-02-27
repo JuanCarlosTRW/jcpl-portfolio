@@ -8,7 +8,6 @@ import {
   WebGLRenderer,
   SRGBColorSpace,
   MathUtils,
-  Vector2,
   Vector3,
   MeshPhysicalMaterial,
   ShaderChunk,
@@ -19,8 +18,6 @@ import {
   AmbientLight,
   PointLight,
   ACESFilmicToneMapping,
-  Raycaster,
-  Plane,
   TextureLoader,
   Mesh,
   MeshBasicMaterial,
@@ -247,12 +244,6 @@ const BALL_COLORS = [
   new Color("#0b2542"),
 ];
 
-// ─── Repulsion field constants ─────────────────────────────────────────────────
-// Touch/cursor pushes balls away — feels natural on mobile and desktop.
-
-const REPULSION_RADIUS   = 2.6; // world-space units
-const REPULSION_STRENGTH = 0.025; // velocity impulse per pointer event (controlled, not explosive)
-
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function LogoBallpit({
@@ -406,45 +397,6 @@ export default function LogoBallpit({
     const resizeObs = new ResizeObserver(resize);
     resizeObs.observe(wrap);
 
-    // ── Touch / cursor repulsion field ────────────────────────────────────────
-    // Always active — pointer pushes all balls within REPULSION_RADIUS away.
-    // Works with mouse (desktop) and touch (mobile) via Pointer Events API.
-    const pointer   = new Vector2();
-    const raycaster = new Raycaster();
-    const planeZ    = new Plane(new Vector3(0, 0, 1), 0);
-    const cursorPt  = new Vector3();
-
-    canvas.style.touchAction = "none"; // prevent scroll hijack on touch
-    canvas.style.userSelect  = "none";
-
-    function onPointerMove(e: PointerEvent) {
-      const rect = canvas!.getBoundingClientRect();
-      pointer.set(
-         ((e.clientX - rect.left) / rect.width)  * 2 - 1,
-        -((e.clientY - rect.top)  / rect.height) * 2 + 1,
-      );
-      raycaster.setFromCamera(pointer, camera);
-      raycaster.ray.intersectPlane(planeZ, cursorPt);
-
-      if (reduced) return;
-
-      // Apply repulsion impulse to every ball within radius
-      for (let i = 0; i < ballCount; i++) {
-        const b  = 3 * i;
-        const dx = physics.positionData[b]     - cursorPt.x;
-        const dy = physics.positionData[b + 1] - cursorPt.y;
-        const d2 = dx * dx + dy * dy;
-        if (d2 < REPULSION_RADIUS * REPULSION_RADIUS && d2 > 0.001) {
-          const dist  = Math.sqrt(d2);
-          const force = (1 - dist / REPULSION_RADIUS) * REPULSION_STRENGTH;
-          physics.velocityData[b]     += (dx / dist) * force;
-          physics.velocityData[b + 1] += (dy / dist) * force;
-        }
-      }
-    }
-
-    canvas.addEventListener("pointermove",  onPointerMove, { passive: true });
-
     // ── Intersection observer — pause RAF when off-screen ──
     let visible = false;
     const intObs = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0 });
@@ -494,7 +446,6 @@ export default function LogoBallpit({
     return () => {
       running = false;
       cancelAnimationFrame(rafId);
-      canvas.removeEventListener("pointermove", onPointerMove);
       resizeObs.disconnect();
       intObs.disconnect();
       sphereGeo.dispose();
