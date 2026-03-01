@@ -1,3 +1,5 @@
+"use client";
+
 import CTAButton from "@/components/ui/CTAButton";
 
 export default function SpotsLeftSection() {
