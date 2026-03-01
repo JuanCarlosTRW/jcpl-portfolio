@@ -535,3 +535,64 @@ body::before {
     filter: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   TYPE SCALE — Semantic role classes
+   ═══════════════════════════════════════════════════ */
+
+.type-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.50;
+}
+
+.type-section-headline {
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+}
+
+.type-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.type-lead {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.type-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  opacity: 0.68;
+}
+
+.type-meta {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.45;
+}
+
+.type-metric {
+  font-size: 130px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+/* ── Mobile overrides (< 768px) ── */
+@media (max-width: 767px) {
+  .type-section-headline { font-size: clamp(32px, 9vw, 44px); }
+  .type-card-title { font-size: 19px; }
+  .type-body { font-size: 14px; }
+  .type-metric { font-size: clamp(72px, 18vw, 96px); }
+}

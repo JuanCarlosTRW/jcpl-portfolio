@@ -35,10 +35,10 @@ export default function Differentiation() {
 
       {/* Body paragraphs */}
       <Reveal className="max-w-2xl mx-auto mb-12">
-        <p className="text-sv-text-sub text-[17px] leading-[1.8] mb-5">
+        <p className="text-[15px] font-[400] leading-[1.8] opacity-[0.68] mb-5">
           An agency will take your $3,000, spend 6 weeks onboarding you, send you a report full of impressions and clicks, and invoice you again while you still wait for the phone to ring.
         </p>
-        <p className="text-sv-text-sub text-[17px] leading-[1.8]">
+        <p className="text-[15px] font-[400] leading-[1.8] opacity-[0.68]">
           I have one metric: qualified calls on your calendar. If that number is not growing, I have not done my job. That is it. Nothing else counts.
         </p>
       </Reveal>
@@ -80,13 +80,13 @@ export default function Differentiation() {
                 </div>
                 <div className="p-5 flex items-start gap-2.5 justify-center" style={{ background: "rgba(239,68,68,0.03)" }}>
                   <XIcon />
-                  <span className="text-sm text-sv-text-sub">
+                  <span className="text-sm font-[400] opacity-[0.55]">
                     {row.them}
                   </span>
                 </div>
                 <div className="p-5 flex items-start gap-2.5 justify-center" style={{ background: "rgba(37,99,235,0.04)" }}>
                   <CheckIcon />
-                  <span className="text-sm text-sv-text-sub">
+                  <span className="text-sm font-[600] text-white opacity-[1.0]">
                     {row.us}
                   </span>
                 </div>
@@ -107,13 +107,13 @@ export default function Differentiation() {
               <div className="space-y-2.5">
                 <div className="flex items-start gap-2">
                   <XIcon />
-                  <span className="text-sm text-sv-text-sub">
+                  <span className="text-sm font-[400] opacity-[0.55]">
                     {row.them}
                   </span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckIcon />
-                  <span className="text-sm text-sv-text-sub">
+                  <span className="text-sm font-[600] text-white opacity-[1.0]">
                     {row.us}
                   </span>
                 </div>

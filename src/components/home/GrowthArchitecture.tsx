@@ -53,16 +53,16 @@ export default function GrowthArchitecture() {
             <div className="group relative rounded-[14px] bg-sv-surface border border-[rgba(255,255,255,0.07)] p-7 md:p-8 h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.45)] hover:-translate-y-[2px]">
               {/* Number + Headline */}
               <div className="flex items-baseline gap-3 mb-3">
-                <span className="text-[13px] font-bold text-sv-muted opacity-70 tracking-wider">
+                <span className="text-[12px] font-[400] opacity-[0.35] tracking-wider">
                   {tile.number}
                 </span>
-                <h3 className="text-[18px] font-bold text-white leading-snug">
+                <h3 className="text-[21px] font-[700] text-white leading-snug">
                   {tile.headline}
                 </h3>
               </div>
 
               {/* Body */}
-              <p className="text-[15px] text-sv-text-sub leading-[1.75] mb-5 flex-1">
+              <p className="text-[14px] font-[400] leading-[1.65] opacity-[0.65] mb-5 flex-1">
                 {tile.body}
               </p>
 

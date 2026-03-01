@@ -153,7 +153,7 @@ export default function FAQSection() {
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${i}`}
                 >
-                  <span className="text-[17px] font-semibold leading-snug text-white transition-colors duration-200">
+                  <span className="text-[16px] font-[600] leading-snug text-white transition-colors duration-200">
                     {faq.question}
                   </span>
                   <ChevronIcon open={isOpen} />
@@ -176,7 +176,7 @@ export default function FAQSection() {
                       <div className="px-5 md:px-6 pb-5 md:pb-6">
                         <div className="h-px bg-[rgba(255,255,255,0.07)] mb-4" />
                         {faq.answer.split("\n\n").map((para, j) => (
-                          <p key={j} className="text-[17px] text-sv-text-sub leading-[1.85] mb-3 last:mb-0">
+                          <p key={j} className="text-[15px] font-[400] leading-[1.7] opacity-[0.72] mb-3 last:mb-0">
                             {para}
                           </p>
                         ))}

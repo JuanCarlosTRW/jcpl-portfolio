@@ -102,13 +102,13 @@ export default function InfrastructureTiers() {
             }}
           >
             <p
-              className="text-[10px] font-semibold tracking-[0.22em] uppercase mb-2"
+              className="text-[10px] font-semibold tracking-[0.22em] uppercase mb-2 opacity-[0.45]"
               style={{ color: "#475569" }}
             >
               TIER 01
             </p>
             <h3
-              className="text-[1.375rem] font-semibold tracking-tight mb-1.5"
+              className="text-[24px] font-[700] mb-1.5"
               style={{ color: "#F1F5F9" }}
             >
               Foundation Architecture
@@ -121,17 +121,21 @@ export default function InfrastructureTiers() {
             </p>
             <div className="mb-5">
               <div className="flex items-baseline gap-2 mb-1">
-                <span style={{ fontSize: "2rem", fontWeight: 700, color: "#CBD5E1", letterSpacing: "-0.02em" }}>$2,500</span>
+                <span style={{ fontSize: "46px", fontWeight: 900, color: "#CBD5E1", letterSpacing: "-0.02em" }}>$2,500</span>
                 <span style={{ fontSize: "13px", color: "#475569" }}>one-time build</span>
               </div>
               <p style={{ fontSize: "12px", color: "#334155" }}>+ $1,200/month to maintain</p>
             </div>
             <span
-              className="block text-xs rounded-lg px-4 py-3 mb-4 leading-relaxed"
+              className="block rounded-lg px-4 py-3 mb-4 leading-relaxed"
               style={{
                 color: "#94A3B8",
                 background: "rgba(148,163,184,0.07)",
                 border: "1px solid rgba(148,163,184,0.12)",
+                fontSize: "13px",
+                fontWeight: 400,
+                opacity: 0.60,
+                fontStyle: "italic",
               }}
             >
               For: Most clients come from referrals. Digital presence is minimal or nonexistent.
@@ -163,7 +167,7 @@ export default function InfrastructureTiers() {
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <BulletSlate />
-                  <span className="text-sm leading-snug" style={{ color: "#94A3B8" }}>{item}</span>
+                  <span className="text-[14px] font-[400] leading-[1.6] opacity-[0.75]" style={{ color: "#94A3B8" }}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -221,13 +225,13 @@ export default function InfrastructureTiers() {
               </span>
             </div>
             <p
-              className="text-[10px] font-semibold tracking-[0.22em] uppercase mb-2"
+              className="text-[10px] font-semibold tracking-[0.22em] uppercase mb-2 opacity-[0.45]"
               style={{ color: "#3B82F6" }}
             >
               TIER 02
             </p>
             <h3
-              className="text-[1.375rem] font-semibold tracking-tight mb-1.5"
+              className="text-[24px] font-[700] mb-1.5"
               style={{ color: "#FFFFFF" }}
             >
               Performance Engine
@@ -240,17 +244,21 @@ export default function InfrastructureTiers() {
             </p>
             <div className="mb-5">
               <div className="flex items-baseline gap-2 mb-1">
-                <span style={{ fontSize: "2rem", fontWeight: 700, color: "#FFFFFF", letterSpacing: "-0.02em" }}>$2,500</span>
+                <span style={{ fontSize: "46px", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.02em" }}>$2,500</span>
                 <span style={{ fontSize: "13px", color: "#93C5FD" }}>/month</span>
               </div>
               <p style={{ fontSize: "12px", color: "#4D7090" }}>+ ad spend. Minimum $500/month.</p>
             </div>
             <span
-              className="block text-xs rounded-lg px-4 py-3 mb-4 leading-relaxed"
+              className="block rounded-lg px-4 py-3 mb-4 leading-relaxed"
               style={{
                 color: "#93C5FD",
                 background: "rgba(59,130,246,0.08)",
                 border: "1px solid rgba(59,130,246,0.20)",
+                fontSize: "13px",
+                fontWeight: 400,
+                opacity: 0.60,
+                fontStyle: "italic",
               }}
             >
               For: Strong work. Still waiting on the phone. No predictable way to get new clients this week.
@@ -303,7 +311,7 @@ export default function InfrastructureTiers() {
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <BulletBlue />
-                  <span className="text-sm leading-snug" style={{ color: "#CBD5E1" }}>{item}</span>
+                  <span className="text-[14px] font-[400] leading-[1.6] opacity-[0.75]" style={{ color: "#CBD5E1" }}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -358,13 +366,13 @@ export default function InfrastructureTiers() {
               </span>
             </div>
             <p
-              className="text-[10px] font-semibold tracking-[0.22em] uppercase mb-2"
+              className="text-[10px] font-semibold tracking-[0.22em] uppercase mb-2 opacity-[0.45]"
               style={{ color: "rgba(245,158,11,0.50)" }}
             >
               TIER 03
             </p>
             <h3
-              className="text-[1.375rem] font-semibold tracking-tight mb-1.5"
+              className="text-[24px] font-[700] mb-1.5"
               style={{ color: "#FDE68A" }}
             >
               Market Ownership
@@ -377,17 +385,21 @@ export default function InfrastructureTiers() {
             </p>
             <div className="mb-5">
               <div className="flex items-baseline gap-2 mb-1">
-                <span style={{ fontSize: "2rem", fontWeight: 700, color: "#FDE68A", letterSpacing: "-0.02em" }}>$4,000</span>
+                <span style={{ fontSize: "46px", fontWeight: 900, color: "#FDE68A", letterSpacing: "-0.02em" }}>$4,000</span>
                 <span style={{ fontSize: "13px", color: "rgba(245,158,11,0.60)" }}>/month</span>
               </div>
               <p style={{ fontSize: "12px", color: "rgba(245,158,11,0.40)" }}>+ ad spend. Minimum $1,500/month.</p>
             </div>
             <span
-              className="block text-xs rounded-lg px-4 py-3 mb-7 leading-relaxed"
+              className="block rounded-lg px-4 py-3 mb-7 leading-relaxed"
               style={{
                 color: "#D97706",
                 background: "rgba(245,158,11,0.05)",
                 border: "1px solid rgba(245,158,11,0.12)",
+                fontSize: "13px",
+                fontWeight: 400,
+                opacity: 0.60,
+                fontStyle: "italic",
               }}
             >
               For: Proven demand. Ready to own the market before a competitor does.
@@ -412,7 +424,7 @@ export default function InfrastructureTiers() {
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <BulletAmber />
-                  <span className="text-sm leading-snug" style={{ color: "#CA8A04" }}>{item}</span>
+                  <span className="text-[14px] font-[400] leading-[1.6] opacity-[0.75]" style={{ color: "#CA8A04" }}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -477,7 +489,7 @@ export default function InfrastructureTiers() {
                 >
                   BEFORE
                 </span>
-                <p className="text-sm leading-relaxed" style={{ color: "#94A3B8" }}>
+                <p className="text-[14px] font-[400] leading-[1.6] opacity-[0.75]" style={{ color: "#94A3B8" }}>
                   Bookings inconsistent. Website looked unprofessional. Most clients came from word of mouth. Calendar had empty weeks they couldn&apos;t predict.
                 </p>
               </div>
@@ -492,7 +504,7 @@ export default function InfrastructureTiers() {
                 >
                   AFTER
                 </span>
-                <p className="text-sm leading-relaxed" style={{ color: "#94A3B8" }}>
+                <p className="text-[14px] font-[400] leading-[1.6] opacity-[0.75]" style={{ color: "#94A3B8" }}>
                   Booking calendar full. New clients find them through Google search. Clients compliment the website on arrival. No more empty weeks.
                 </p>
               </div>
@@ -527,12 +539,12 @@ export default function InfrastructureTiers() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-semibold text-white/70">Mike S.</p>
-                <p className="text-[11px] text-white/40">Culture Barbershop, Montreal, QC</p>
+                <p className="text-[14px] font-[700] text-white opacity-[1.0]">Mike S.</p>
+                <p className="text-[13px] font-[400] opacity-[0.50]">Culture Barbershop, Montreal, QC</p>
               </div>
             </div>
 
-            <blockquote className="text-[15px] italic text-sv-text-sub leading-[1.8] mb-4">
+            <blockquote className="text-[17px] italic font-[400] leading-[1.75] opacity-[0.90] mb-4">
               &ldquo;Juan rebuilt our entire booking system from the ground up. Three weeks later, clients who had never heard of us were finding us on Google and booking online. Our calendar has not had a gap since.&rdquo;
             </blockquote>
 

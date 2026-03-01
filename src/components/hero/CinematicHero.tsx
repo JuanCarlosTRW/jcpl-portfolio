@@ -113,7 +113,7 @@ function HookLayer() {
         {hero.headline}
       </h1>
       <p
-        className="mt-6 text-lg md:text-xl text-[rgba(255,255,255,0.5)] max-w-[640px] mx-auto leading-relaxed"
+        className="mt-6 text-[18px] font-[400] opacity-[0.75] max-w-[640px] mx-auto leading-relaxed"
         style={{ letterSpacing: "0.01em" }}
       >
         {hero.subheadline}
@@ -133,7 +133,7 @@ function ProofCard() {
         LIVE RESULT
       </p>
   <p className="text-5xl font-black text-white mb-1">$41,084.85</p>
-      <p className="text-sm text-slate-400 mb-6">
+      <p className="text-[13px] font-[400] opacity-[0.50] mb-6">
         Revenue generated. 30 days. $900 ad spend.
       </p>
       <div className="grid grid-cols-3 gap-2 border-t border-slate-700 pt-6">
@@ -167,7 +167,7 @@ function ServicesLayer() {
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] text-white mb-6 whitespace-pre-line">
             {hero.headline}
           </h1>
-          <p className="text-base text-slate-400 leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
+          <p className="text-[18px] font-[400] opacity-[0.75] leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
             {hero.subheadline}
           </p>
           <div className="services-cta flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

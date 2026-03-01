@@ -40,7 +40,7 @@ export default function FeaturedCaseStudy() {
 		<SectionWrapper id="proof" className="bg-sv-base">
 			<Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
 				<SectionLabel label={featuredCase.label} className="mb-5" />
-				<h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
+				<h2 className="text-[clamp(56px,7vw,80px)] font-[800] text-white leading-[1.0] tracking-[-0.03em] max-w-xl mx-auto">
 					{featuredCase.headline}
 				</h2>
 			</Reveal>
@@ -57,13 +57,13 @@ export default function FeaturedCaseStudy() {
 						<div className="flex flex-col md:flex-row gap-8 items-start">
 							{/* Left — numbers */}
 							<div className="flex-1">
-								<div className="text-[clamp(40px,8vw,56px)] font-extrabold text-white leading-none mb-2">
+								<div className="text-[88px] font-[900] text-white leading-none tracking-[-0.03em] mb-2">
 									<CountUpValue to={41084.85} prefix="$" durationMs={1400} />
 								</div>
-								<p className="text-[18px] text-sv-text-sub mb-3">
+								<p className="text-[16px] font-[500] opacity-[0.80] mb-3">
 									in revenue. First 30 days.
 								</p>
-								<p className="text-[11px] uppercase tracking-[0.14em] text-sv-text-muted mb-6">
+								<p className="text-[11px] font-[500] opacity-[0.42] tracking-[0.08em] uppercase mb-6">
 									$900 IN AD SPEND&nbsp;·&nbsp;GOOGLE ADS FUNNEL&nbsp;·&nbsp;30 DAYS
 								</p>
 
@@ -81,7 +81,7 @@ export default function FeaturedCaseStudy() {
 								<div className="flex gap-6 sm:gap-10 mb-4">
 									{subStats.map((s) => (
 										<div key={s.label} className="text-center">
-											<div className="text-[24px] font-extrabold text-sv-muted">
+											<div className="text-[52px] font-[900] tracking-[-0.02em]">
 												{s.value}
 											</div>
 											<div className="text-[10px] uppercase tracking-[0.14em] text-sv-text-muted mt-0.5">

@@ -70,12 +70,12 @@ export default function QualificationCTA() {
                   background: "rgba(52,211,153,0.04)",
                 }}
               >
-                <h3 className="text-[17px] font-bold text-white mb-5">
+                <h3 className="text-[18px] font-[700] text-white mb-5">
                   You are the right fit if:
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.forYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[15px] text-sv-text-sub leading-[1.7]">
+                    <li key={i} className="flex items-start gap-3 text-[14px] font-[400] leading-[1.7] opacity-[0.80]">
                       <CheckIcon />
                       {item}
                     </li>
@@ -94,12 +94,12 @@ export default function QualificationCTA() {
                   background: "rgba(239,68,68,0.03)",
                 }}
               >
-                <h3 className="text-[17px] font-bold text-white mb-5">
+                <h3 className="text-[18px] font-[700] text-white mb-5">
                   This is NOT the right fit if:
                 </h3>
                 <ul className="space-y-3.5">
                   {qualification.notForYouIf.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[15px] text-sv-text-sub leading-[1.7]">
+                    <li key={i} className="flex items-start gap-3 text-[14px] font-[400] leading-[1.7] opacity-[0.80]">
                       <XIcon />
                       {item}
                     </li>
@@ -111,7 +111,7 @@ export default function QualificationCTA() {
 
           {/* Closing line */}
           <Reveal delay={0.1}>
-            <p className="text-center text-[20px] md:text-[22px] font-bold text-white leading-snug">
+            <p className="text-center text-[18px] font-[700] text-white opacity-[1.0] leading-snug">
               Serious operators build infrastructure. Everyone else waits for the phone to ring.
             </p>
           </Reveal>
