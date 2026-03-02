@@ -95,7 +95,7 @@ export default function CurvedLoop({
       {/* Two copies ensure true infinite loop - no gaps */}
       <text
         className={className}
-        fontSize="120"
+        fontSize="180" // Bigger text!
         fontWeight="bold"
         letterSpacing="12"
         xmlSpace="preserve"
@@ -112,7 +112,7 @@ export default function CurvedLoop({
       
       <text
         className={className}
-        fontSize="120"
+        fontSize="180" // Bigger text!
         fontWeight="bold"
         letterSpacing="12"
         xmlSpace="preserve"
