@@ -21,64 +21,34 @@ export default function CurvedLoop({
   className,
 }: Props) {
   const pathId = useId().replace(/:/g, "-");
-  const textRef1 = useRef<SVGTextPathElement>(null);
-  const textRef2 = useRef<SVGTextPathElement>(null);
+  const textRef = useRef<SVGTextPathElement>(null);
   const offsetRef = useRef(0);
   const rafRef = useRef<number>(0);
 
   // Path sits at y=150 so ascenders are fully visible inside the 200px viewBox
   const pathD = `M-200,150 Q720,${150 - curveAmount} 1640,150`;
 
+  // Repeat the text enough times with lots of spaces so it wraps smoothly
+  const repeatedText = Array(4)
+    .fill(`${marqueeText}     `)
+    .join("");
+
   useEffect(() => {
     if (prefersReducedMotion()) {
-      textRef1.current?.setAttribute("startOffset", "0%");
-      textRef2.current?.setAttribute("startOffset", "50%");
+      textRef.current?.setAttribute("startOffset", "0%");
       return;
     }
 
-    const refs = [textRef1, textRef2];
-
     const tick = () => {
-      // speed unit = % per frame  (at 60fps, speed=1.2 → ~72% per sec → ~1.4s full loop)
       offsetRef.current += (direction === "left" ? -speed : speed) * 0.12;
-
-      refs.forEach((ref, idx) => {
-        if (!ref.current) return;
-        // Space the 2 copies exactly 50% apart so they never overlap
-        let pct = idx * 50 + offsetRef.current;
-        pct = ((pct % 100) + 100) % 100;
-        ref.current.setAttribute("startOffset", `${pct}%`);
-      });
-
+      let pct = ((offsetRef.current % 100) + 100) % 100;
+      textRef.current?.setAttribute("startOffset", `${pct}%`);
       rafRef.current = requestAnimationFrame(tick);
     };
 
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
   }, [speed, direction]);
-
-  const svgContent = (
-    <>
-      <defs>
-        <path id={pathId} d={pathD} />
-      </defs>
-      {/* fontSize + letterSpacing keep words readable and well-spaced */}
-      <text
-        className={className}
-        fontSize="72"
-        fontWeight="bold"
-        letterSpacing="10"
-        xmlSpace="preserve"
-      >
-        <textPath ref={textRef1} href={`#${pathId}`} startOffset="0%">
-          {marqueeText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </textPath>
-        <textPath ref={textRef2} href={`#${pathId}`} startOffset="50%">
-          {marqueeText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </textPath>
-      </text>
-    </>
-  );
 
   return (
     <svg
@@ -89,12 +59,24 @@ export default function CurvedLoop({
         width: "100%",
         height: "200px",
         display: "block",
-        // overflow visible so ascenders aren't clipped
         overflow: "visible",
         pointerEvents: interactive ? "auto" : "none",
       }}
     >
-      {svgContent}
+      <defs>
+        <path id={pathId} d={pathD} />
+      </defs>
+      <text
+        className={className}
+        fontSize="96" // bigger text
+        fontWeight="bold"
+        letterSpacing="12"
+        xmlSpace="preserve"
+      >
+        <textPath ref={textRef} href={`#${pathId}`} startOffset="0%">
+          {repeatedText}
+        </textPath>
+      </text>
     </svg>
   );
 }
