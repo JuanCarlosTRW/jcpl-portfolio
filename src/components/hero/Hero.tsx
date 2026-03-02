@@ -215,20 +215,14 @@ export default function Hero() {
 
 						{/* DOMINATE H1 */}
 						<h1 className="cb-headline">
-							<span ref={headlineRef} aria-label={HEADLINE}>
-								{HEADLINE.split(" ").map((word, wi, arr) => (
-									<Fragment key={wi}>
-										<span className="cb-word" aria-hidden="true">
-											{word.split("").map((char, ci) => (
-												<span key={ci} data-char="" className="cb-char">
-													{char}
-												</span>
-											))}
-										</span>
-										{wi < arr.length - 1 && " "}
-									</Fragment>
-								))}
-							</span>
+							<CurvedLoop
+								marqueeText="DOMINATE YOUR MARKET"
+								speed={0.4}
+								curveAmount={120}
+								direction="left"
+								interactive={false}
+								className="rainbow-text"
+							/>
 						</h1>
 
 						{/* Mechanism line */}
