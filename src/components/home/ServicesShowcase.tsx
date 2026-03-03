@@ -10,7 +10,17 @@ import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReduc
 import { cn } from "@/lib/utils";
 
 const ACCENT_ORANGE = "#FE7F26";
-const IMAGE_TRANSITION = { duration: 0.35, ease: [0.16, 1, 0.3, 1] as const };
+const IMAGE_TRANSITION = { duration: 0.38, ease: [0.16, 1, 0.3, 1] as const };
+const BG_GLOW_TRANSITION = { duration: 0.75, ease: [0.16, 1, 0.3, 1] as const };
+
+const SERVICE_BG_GLOWS: Record<string, string> = {
+  website: "rgba(254,127,38,0.16)",
+  seo: "rgba(56,161,105,0.16)",
+  geo: "rgba(59,130,246,0.16)",
+  copy: "rgba(139,92,246,0.16)",
+};
+
+type Service = (typeof servicesShowcaseContent.services)[number];
 
 interface ServiceTabCardProps {
   title: string;
@@ -47,7 +57,7 @@ function ServiceTabCard({
         "min-h-[120px] md:min-h-[157px] p-5 flex flex-col justify-center pr-10",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FE7F26]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-sv-base",
         isActive
-          ? "border-[#FE7F26]/60 bg-sv-surface shadow-[0_0_24px_rgba(254,127,38,0.08)]"
+          ? "border-[#FE7F26]/60 bg-[#0f2640] shadow-[0_0_28px_rgba(254,127,38,0.1)]"
           : "border-[rgba(255,255,255,0.08)] bg-sv-surface/80 hover:border-[#FE7F26]/30"
       )}
     >
@@ -68,17 +78,11 @@ function ServiceTabCard({
         {title}
       </h3>
       {subtitle && <p className="mt-1 text-sm text-sv-text-sub">{subtitle}</p>}
-      {/* Circular indicator dot (active only) */}
+      {/* Circular indicator dot (active only, anchored inside card) */}
       {isActive && (
-        <motion.span
+        <span
           className="absolute right-5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full"
           style={{ backgroundColor: ACCENT_ORANGE }}
-          animate={
-            reducedMotion
-              ? undefined
-              : { opacity: [1, 0.5, 1], scale: [1, 0.9, 1] }
-          }
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           aria-hidden
         />
       )}
@@ -90,7 +94,8 @@ export default function ServicesShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const reducedMotion = usePrefersReducedMotionSafe();
   const { brandTitle, brandParagraph, services } = servicesShowcaseContent;
-  const activeService = services[activeIndex];
+  const activeService = services[activeIndex] as Service;
+  const bgGlowColor = SERVICE_BG_GLOWS[activeService.id] ?? SERVICE_BG_GLOWS.website;
 
   const imageVariants = reducedMotion
     ? {
@@ -99,9 +104,9 @@ export default function ServicesShowcase() {
         exit: { opacity: 0 },
       }
     : {
-        initial: { opacity: 0, y: 10 },
-        animate: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -8 },
+        initial: { opacity: 0, y: 8, scale: 1.01 },
+        animate: { opacity: 1, y: 0, scale: 1 },
+        exit: { opacity: 0, y: -6, scale: 0.995 },
       };
 
   const handleKeyDown = (index: number) => (e: React.KeyboardEvent) => {
@@ -121,7 +126,6 @@ export default function ServicesShowcase() {
     }
   };
 
-  // Preload other images
   useEffect(() => {
     if (typeof window === "undefined") return;
     services.forEach((s, i) => {
@@ -132,22 +136,56 @@ export default function ServicesShowcase() {
     });
   }, [services]);
 
+  const imageScale = "imageScale" in activeService ? activeService.imageScale : 1;
+  const imagePosition = "imagePosition" in activeService ? activeService.imagePosition : "center";
+  const objectFit = ("objectFit" in activeService ? activeService.objectFit : "cover") as "cover" | "contain";
+  const panelGlow = "panelGlow" in activeService ? activeService.panelGlow : "rgba(254,127,38,0.10)";
+
   return (
     <SectionWrapper
       id="services"
       variant="alt"
-      className="[&>.container]:!max-w-[1400px]"
+      className={cn(
+        "[&>.container]:!max-w-[1400px]",
+        "relative overflow-hidden"
+      )}
     >
-      <div className="w-full">
+      {/* Dynamic background glow layers */}
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        aria-hidden
+      >
+        <motion.div
+          className="absolute -top-1/2 -right-1/4 w-[80%] h-[120%] rounded-full blur-[120px] opacity-60"
+          animate={{
+            background: `radial-gradient(circle, ${bgGlowColor} 0%, transparent 70%)`,
+          }}
+          transition={BG_GLOW_TRANSITION}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[800px] h-[80%] rounded-full blur-[100px] opacity-40"
+          animate={{
+            background: `radial-gradient(ellipse, ${bgGlowColor} 0%, transparent 70%)`,
+          }}
+          transition={BG_GLOW_TRANSITION}
+        />
+      </div>
+
+      <div className="relative z-10 w-full">
         <Reveal className="mb-12 md:mb-16">
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-sv-text-muted mb-4">
             WHAT WE BUILD
           </p>
         </Reveal>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div
+          className={cn(
+            "flex flex-col gap-12 items-start",
+            "lg:grid lg:grid-cols-[minmax(340px,460px)_minmax(520px,680px)_minmax(280px,360px)] lg:gap-x-10 lg:gap-y-0"
+          )}
+        >
           {/* Left column */}
-          <div className="lg:w-[38%] lg:min-w-[320px] shrink-0">
+          <div className="w-full shrink-0">
             <Reveal delay={0.05}>
               <h2 className="text-[clamp(32px,4vw,48px)] font-[800] text-white leading-[1.1] tracking-[-0.025em] mb-5">
                 {brandTitle}
@@ -158,60 +196,88 @@ export default function ServicesShowcase() {
             </Reveal>
           </div>
 
-          {/* Right column: image + vertical service cards */}
-          <div className="flex-1 w-full flex flex-col lg:flex-row gap-8 lg:gap-6 items-stretch lg:items-start min-w-0">
-            {/* Main image area */}
-            <div
-              className="relative w-full lg:flex-1 max-w-[1052px] aspect-[1052/776] rounded-[14px] overflow-hidden border border-[rgba(255,255,255,0.08)] bg-sv-surface"
-              role="tabpanel"
-              id={`services-panel-${activeIndex}`}
-              aria-labelledby={`services-tab-${activeIndex}`}
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeService.id}
-                  initial={imageVariants.initial}
-                  animate={imageVariants.animate}
-                  exit={imageVariants.exit}
-                  transition={IMAGE_TRANSITION}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={activeService.imageUrl}
-                    alt={activeService.imageAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1052px"
-                    className="object-cover"
-                    priority={activeIndex === 0}
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
+          {/* Image panel */}
+          <div
+            className="relative w-full aspect-[1052/776] max-w-[680px] rounded-[14px] overflow-hidden border border-[rgba(255,255,255,0.06)] bg-sv-surface shadow-[inset_0_2px_20px_rgba(0,0,0,0.4)]"
+            role="tabpanel"
+            id={`services-panel-${activeIndex}`}
+            aria-labelledby={`services-tab-${activeIndex}`}
+          >
+            {/* Ambient service-colored glow behind image */}
+            <motion.div
+              className="absolute inset-0 blur-3xl opacity-80 pointer-events-none"
+              animate={{
+                backgroundColor: panelGlow,
+              }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              style={{ transform: "scale(1.2)" }}
+              aria-hidden
+            />
 
-            {/* Vertical stack of service tab cards */}
+            {/* Vignette overlay */}
             <div
-              role="tablist"
-              aria-label="Services"
-              className="flex flex-row lg:flex-col gap-3 lg:gap-3 lg:min-w-[280px] lg:max-w-[340px] overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible"
-            >
-              {services.map((service, index) => (
-                <Reveal
-                  key={service.id}
-                  delay={0.08 + index * 0.05}
-                  className="shrink-0 lg:shrink lg:w-full min-w-[240px] lg:min-w-0"
-                >
-                  <ServiceTabCard
-                    title={service.title}
-                    subtitle={service.subtitle}
-                    isActive={activeIndex === index}
-                    index={index}
-                    onClick={() => setActiveIndex(index)}
-                    onKeyDown={handleKeyDown(index)}
-                    reducedMotion={reducedMotion}
-                  />
-                </Reveal>
-              ))}
-            </div>
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(0,0,0,0.4) 100%)",
+              }}
+              aria-hidden
+            />
+
+            {/* Image */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeService.id}
+                initial={imageVariants.initial}
+                animate={imageVariants.animate}
+                exit={imageVariants.exit}
+                transition={IMAGE_TRANSITION}
+                className="absolute inset-0"
+                style={{
+                  transform: `scale(${imageScale})`,
+                }}
+              >
+                <Image
+                  src={activeService.imageUrl}
+                  alt={activeService.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 680px"
+                  className={objectFit === "contain" ? "object-contain" : "object-cover"}
+                  style={{
+                    objectPosition: imagePosition,
+                  }}
+                  priority={activeIndex === 0}
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Vertical stack of service tab cards */}
+          <div
+            role="tablist"
+            aria-label="Services"
+            className={cn(
+              "flex flex-row lg:flex-col gap-3 w-full overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible",
+              "min-w-0 lg:min-w-[280px]"
+            )}
+          >
+            {services.map((service, index) => (
+              <Reveal
+                key={service.id}
+                delay={0.08 + index * 0.05}
+                className="shrink-0 lg:shrink lg:w-full min-w-[240px] lg:min-w-0"
+              >
+                <ServiceTabCard
+                  title={service.title}
+                  subtitle={service.subtitle}
+                  isActive={activeIndex === index}
+                  index={index}
+                  onClick={() => setActiveIndex(index)}
+                  onKeyDown={handleKeyDown(index)}
+                  reducedMotion={reducedMotion}
+                />
+              </Reveal>
+            ))}
           </div>
         </div>
       </div>

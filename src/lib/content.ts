@@ -272,47 +272,63 @@ export const differentiation = {
 export const servicesShowcaseContent = {
   brandTitle: "Conversion-Built Marketing Systems",
   brandParagraph:
-    "Website, SEO, GEO, and copywriting — engineered to turn clicks into booked calls. One integrated system, not five disconnected vendors.",
+    "Website, SEO, GEO, and copywriting — engineered to turn clicks into booked calls. One integrated system, not four disconnected freelancers.",
   services: [
     {
       id: "website",
-      title: "Conversion Website",
+      title: "Conversion Website System",
       subtitle: "Trust + action in one experience",
       description:
         "A premium site engineered to turn clicks into booked calls — fast, clean, persuasive.",
       imageUrl:
         "https://static.wixstatic.com/media/62f926_b75fd5a18ec14881b9e4a9d82c36bc5e~mv2.png",
       imageAlt: "Conversion website showcase",
+      imagePosition: "center",
+      imageScale: 1.03,
+      panelGlow: "rgba(254,127,38,0.10)",
+      objectFit: "cover" as const,
     },
     {
       id: "seo",
-      title: "SEO",
-      subtitle: "Rank above competitors",
+      title: "SEO That Compounds",
+      subtitle: "Rank above competitors over time",
       description:
         "Technical + content SEO that compounds. Get found when buyers are searching.",
       imageUrl:
         "https://static.wixstatic.com/media/62f926_816997cd50b14f1181c99704a6fe1a2b~mv2.png",
       imageAlt: "SEO presence showcase",
+      imagePosition: "center",
+      imageScale: 1.0,
+      panelGlow: "rgba(64,200,120,0.10)",
+      objectFit: "cover" as const,
     },
     {
       id: "geo",
-      title: "GEO",
-      subtitle: "AI Search Presence",
+      title: "AI Search Presence",
+      subtitle: "Show up inside AI answers",
       description:
         "Get recommended inside AI answers (ChatGPT, Gemini, etc.) with structured authority signals.",
       imageUrl:
         "https://static.wixstatic.com/media/62f926_f59f91d54df04cf38b7acfb4f81f3b25~mv2.png",
       imageAlt: "GEO AI search presence showcase",
+      imagePosition: "center",
+      imageScale: 0.98,
+      panelGlow: "rgba(80,160,255,0.10)",
+      objectFit: "cover" as const,
     },
     {
       id: "copy",
-      title: "Copywriting",
-      subtitle: "Words that sell",
+      title: "Copy That Converts",
+      subtitle: "Words engineered to sell",
       description:
         "Messaging, offers, and landing-page copy built to convert cold traffic into revenue.",
       imageUrl:
         "https://static.wixstatic.com/media/62f926_69911d750f2741e689fb60f65c28deea~mv2.png",
       imageAlt: "Copywriting showcase",
+      imagePosition: "72% center",
+      imageScale: 1.08,
+      panelGlow: "rgba(255,210,100,0.10)",
+      objectFit: "cover" as const,
     },
   ],
 } as const;
