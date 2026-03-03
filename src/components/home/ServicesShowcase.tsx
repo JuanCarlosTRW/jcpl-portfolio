@@ -12,12 +12,13 @@ import { cn } from "@/lib/utils";
 const IMAGE_TRANSITION = { duration: 0.38, ease: [0.16, 1, 0.3, 1] as const };
 const BG_GLOW_TRANSITION = { duration: 0.75, ease: [0.16, 1, 0.3, 1] as const };
 
-const SERVICE_BG_GLOWS: Record<string, string> = {
-  website: "rgba(254,127,38,0.16)",
-  seo: "rgba(56,161,105,0.16)",
-  geo: "rgba(59,130,246,0.16)",
-  copy: "rgba(139,92,246,0.16)",
-};
+function hexToRgba(hex: string, alpha: number): string {
+  const h = hex.replace("#", "");
+  const r = parseInt(h.slice(0, 2), 16);
+  const g = parseInt(h.slice(2, 4), 16);
+  const b = parseInt(h.slice(4, 6), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
 
 type Service = (typeof servicesShowcaseContent.services)[number];
 
@@ -111,7 +112,8 @@ export default function ServicesShowcase() {
   const reducedMotion = usePrefersReducedMotionSafe();
   const { services } = servicesShowcaseContent;
   const activeService = services[activeIndex] as Service;
-  const bgGlowColor = SERVICE_BG_GLOWS[activeService.id] ?? SERVICE_BG_GLOWS.website;
+  const bgGlowColor = hexToRgba(activeService.accentColor, 0.16);
+  const sectionTintColor = hexToRgba(activeService.accentColor, 0.08);
 
   const imageVariants = reducedMotion
     ? {
@@ -171,6 +173,13 @@ export default function ServicesShowcase() {
         className="absolute inset-0 overflow-hidden pointer-events-none"
         aria-hidden
       >
+        {/* Full-section tint overlay */}
+        <motion.div
+          className="absolute inset-0"
+          animate={{ backgroundColor: sectionTintColor }}
+          transition={BG_GLOW_TRANSITION}
+          aria-hidden
+        />
         <motion.div
           className="absolute -top-1/2 -right-1/4 w-[80%] h-[120%] rounded-full blur-[120px] opacity-60"
           animate={{
