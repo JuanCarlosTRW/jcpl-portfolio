@@ -48,3 +48,10 @@ export const TRAIL = {
   baseOpacity: 0.35,
   fadeFactor: 0.65,
 } as const;
+
+/* Scroll pin duration (vh) */
+export const SCROLL = {
+  PIN_DURATION_DESKTOP: 250,
+  PIN_DURATION_MOBILE: 120,
+  STEP_THRESHOLDS: [0.33, 0.66, 1] as const,
+} as const;

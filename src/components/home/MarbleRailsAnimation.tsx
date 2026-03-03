@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReducedMotionSafe";
+import { useMemo } from "react";
 import {
   RAIL_COLORS,
   RAIL_OPACITY,
-  TIMING,
   DIMENSIONS,
   BALL,
   TRAIL,
@@ -19,128 +16,144 @@ const rail1Y = 70;
 const rail2Y = 70 + railGap;
 const rail3Y = 70 + railGap * 2;
 
-export default function MarbleRailsAnimation() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const ballRef = useRef<SVGGElement>(null);
-  const trailRef = useRef<{ x: number; y: number }[]>([]);
-  const timelineRef = useRef<gsap.core.Timeline | null>(null);
-  const inViewRef = useRef(true);
-  const [trailPositions, setTrailPositions] = useState<{ x: number; y: number }[]>([]);
-  const [activeRailIndex, setActiveRailIndex] = useState<number | null>(null);
-  const rafRef = useRef<number>(0);
+/* Progress segments (0–1): rail1 roll, drop1, rail2 roll, drop2, rail3 roll */
+const R1_END = 0.33;
+const D1_END = 0.38;
+const R2_END = 0.66;
+const D2_END = 0.71;
 
-  const reduced = usePrefersReducedMotionSafe();
+function lerp(a: number, b: number, t: number) {
+  return a + (b - a) * t;
+}
 
-  useEffect(() => {
-    if (reduced || !ballRef.current) return;
+function progressToPosition(progress: number): { x: number; y: number } {
+  if (progress <= 0) return { x: left, y: rail1Y };
+  if (progress >= 1) return { x: right, y: rail3Y };
 
-    const el = ballRef.current;
-    gsap.set(el, { x: left, y: rail1Y });
+  if (progress < R1_END) {
+    const t = progress / R1_END;
+    return { x: lerp(left, right, t), y: rail1Y };
+  }
+  if (progress < D1_END) {
+    const t = (progress - R1_END) / (D1_END - R1_END);
+    return { x: right, y: lerp(rail1Y, rail2Y, t) };
+  }
+  if (progress < R2_END) {
+    const t = (progress - D1_END) / (R2_END - D1_END);
+    return { x: lerp(right, left, t), y: rail2Y };
+  }
+  if (progress < D2_END) {
+    const t = (progress - R2_END) / (D2_END - R2_END);
+    return { x: left, y: lerp(rail2Y, rail3Y, t) };
+  }
+  const t = (progress - D2_END) / (1 - D2_END);
+  return { x: lerp(left, right, t), y: rail3Y };
+}
 
-    const tl = gsap.timeline({
-      repeat: -1,
-      paused: true,
-      onRepeat: () => {
-        trailRef.current = [];
-      },
-    });
+function progressToActiveRail(progress: number): number | null {
+  if (progress < R1_END) return 0;
+  if (progress < D1_END) return null;
+  if (progress < R2_END) return 1;
+  if (progress < D2_END) return null;
+  return 2;
+}
 
-    tl.to(el, {
-      x: right,
-      y: rail1Y,
-      duration: TIMING.rollDuration,
-      ease: "power2.inOut",
-    })
-      .to({}, { duration: TIMING.pauseAfterRoll })
-      .to(el, {
-        x: right,
-        y: rail2Y,
-        duration: TIMING.dropDuration,
-        ease: "bounce.out",
-      })
-      .to(el, {
-        x: left,
-        y: rail2Y,
-        duration: TIMING.rollDuration,
-        ease: "power2.inOut",
-      })
-      .to({}, { duration: TIMING.pauseAfterRoll })
-      .to(el, {
-        x: left,
-        y: rail3Y,
-        duration: TIMING.dropDuration,
-        ease: "bounce.out",
-      })
-      .to(el, {
-        x: right,
-        y: rail3Y,
-        duration: TIMING.rollDuration,
-        ease: "power2.inOut",
-      })
-      .to({}, { duration: TIMING.pauseAfterRoll })
-      .to(el, {
-        x: left,
-        y: rail1Y,
-        duration: TIMING.resetDuration,
-        ease: "power2.inOut",
-      });
+interface MarbleRailsAnimationProps {
+  progress: number;
+  reduced: boolean;
+}
 
-    timelineRef.current = tl;
+export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsAnimationProps) {
+  const pos = useMemo(() => progressToPosition(progress), [progress]);
+  const activeRailIndex = useMemo(() => progressToActiveRail(progress), [progress]);
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        const isInView = entries[0]?.isIntersecting ?? false;
-        inViewRef.current = isInView;
-        if (isInView) tl.play();
-        else tl.pause();
-      },
-      { root: null, rootMargin: "-5% 0px -5% 0px", threshold: 0 }
+  const trailPositions = useMemo(() => {
+    if (reduced || progress <= 0) return [];
+    const samples: { x: number; y: number }[] = [];
+    const count = TRAIL.count;
+    for (let i = count; i >= 0; i--) {
+      const p = Math.max(0, progress - (i * 0.015));
+      samples.push(progressToPosition(p));
+    }
+    return samples;
+  }, [progress, reduced]);
+
+  if (reduced) {
+    return (
+      <div className="relative w-full" style={{ minHeight: H }}>
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+          className="w-full h-auto max-w-2xl mx-auto block"
+        >
+          <defs>
+            <filter id="marble-rail-glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="marble-rail-glow-purple" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="marble-rail-glow-emerald" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <radialGradient id="marble-ball-gloss" cx="35%" cy="35%" r="50%">
+              <stop offset="0%" stopColor={BALL.glossHighlight} stopOpacity="1" />
+              <stop offset="70%" stopColor={BALL.baseColor} stopOpacity="1" />
+              <stop offset="100%" stopColor="rgba(240,240,245,0.98)" stopOpacity="1" />
+            </radialGradient>
+          </defs>
+          <Rail
+            line={{ x1: left, y1: rail1Y, x2: right, y2: rail1Y }}
+            color={RAIL_COLORS.blue}
+            filter="url(#marble-rail-glow-blue)"
+            active={false}
+          />
+          <Rail
+            line={{ x1: left, y1: rail2Y, x2: right, y2: rail2Y }}
+            color={RAIL_COLORS.purple}
+            filter="url(#marble-rail-glow-purple)"
+            active={false}
+          />
+          <Rail
+            line={{ x1: left, y1: rail3Y, x2: right, y2: rail3Y }}
+            color={RAIL_COLORS.emerald}
+            filter="url(#marble-rail-glow-emerald)"
+            active={false}
+          />
+          <g
+            style={{
+              transformOrigin: "0 0",
+              transform: `translate(${right}px, ${rail3Y}px)`,
+            }}
+          >
+            <circle
+              cx={0}
+              cy={0}
+              r={BALL.radius}
+              fill="url(#marble-ball-gloss)"
+              opacity={0.9}
+            />
+          </g>
+        </svg>
+      </div>
     );
-
-    if (sectionRef.current) io.observe(sectionRef.current);
-    tl.play();
-
-    return () => {
-      io.disconnect();
-      tl.kill();
-      timelineRef.current = null;
-    };
-  }, [reduced]);
-
-  /* Trail: sample ball position and push to trail buffer */
-  useEffect(() => {
-    if (reduced) return;
-
-    const updateTrail = () => {
-      rafRef.current = requestAnimationFrame(updateTrail);
-      const el = ballRef.current;
-      if (!el || !inViewRef.current) return;
-
-      const x = gsap.getProperty(el, "x") as number;
-      const y = gsap.getProperty(el, "y") as number;
-
-      const tolerance = 25;
-      if (Math.abs(y - rail1Y) < tolerance) setActiveRailIndex(0);
-      else if (Math.abs(y - rail2Y) < tolerance) setActiveRailIndex(1);
-      else if (Math.abs(y - rail3Y) < tolerance) setActiveRailIndex(2);
-      else setActiveRailIndex(null);
-
-      const trail = trailRef.current;
-      const last = trail[trail.length - 1];
-      const dist = last ? Math.hypot(x - last.x, y - last.y) : 10;
-      if (dist > 3) {
-        trail.push({ x, y });
-        if (trail.length > TRAIL.count) trail.shift();
-        setTrailPositions([...trail]);
-      }
-    };
-
-    rafRef.current = requestAnimationFrame(updateTrail);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [reduced]);
+  }
 
   return (
-    <div ref={sectionRef} className="relative w-full" style={{ minHeight: H }}>
+    <div className="relative w-full" style={{ minHeight: H }}>
       <svg
         viewBox={`0 0 ${W} ${H}`}
         preserveAspectRatio="xMidYMid meet"
@@ -183,7 +196,6 @@ export default function MarbleRailsAnimation() {
           </radialGradient>
         </defs>
 
-        {/* Rails */}
         <Rail
           line={{ x1: left, y1: rail1Y, x2: right, y2: rail1Y }}
           color={RAIL_COLORS.blue}
@@ -203,30 +215,26 @@ export default function MarbleRailsAnimation() {
           active={activeRailIndex === 2}
         />
 
-        {/* Trail */}
-        {!reduced &&
-          trailPositions.map((p, i) => {
-            const opacity =
-              TRAIL.baseOpacity * Math.pow(TRAIL.fadeFactor, trailPositions.length - 1 - i);
-            return (
-              <circle
-                key={`trail-${i}-${p.x.toFixed(0)}-${p.y.toFixed(0)}`}
-                cx={p.x}
-                cy={p.y}
-                r={BALL.radius * 0.6}
-                fill="rgba(255,255,255,0.6)"
-                opacity={opacity}
-                style={{ filter: "blur(2px)" }}
-              />
-            );
-          })}
+        {trailPositions.map((p, i) => {
+          const opacity =
+            TRAIL.baseOpacity * Math.pow(TRAIL.fadeFactor, trailPositions.length - 1 - i);
+          return (
+            <circle
+              key={`trail-${i}-${p.x.toFixed(0)}-${p.y.toFixed(0)}`}
+              cx={p.x}
+              cy={p.y}
+              r={BALL.radius * 0.6}
+              fill="rgba(255,255,255,0.6)"
+              opacity={opacity}
+              style={{ filter: "blur(2px)" }}
+            />
+          );
+        })}
 
-        {/* Ball */}
         <g
-          ref={ballRef}
           style={{
             transformOrigin: "0 0",
-            transform: `translate(${left}px, ${rail1Y}px)`,
+            transform: `translate(${pos.x}px, ${pos.y}px)`,
           }}
         >
           <circle
@@ -257,7 +265,6 @@ function Rail({
   const lineOpacity = active ? 1 : RAIL_OPACITY.centerLine;
   return (
     <g>
-      {/* Center line - 2px solid, 90% opacity (brighter when active) */}
       <line
         x1={line.x1}
         y1={line.y1}
@@ -270,7 +277,6 @@ function Rail({
         fill="none"
         style={{ transition: "opacity 0.3s ease" }}
       />
-      {/* Glow layer - base 40-60%, brightens when active */}
       <line
         x1={line.x1}
         y1={line.y1}

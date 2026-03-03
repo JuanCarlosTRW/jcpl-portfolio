@@ -259,8 +259,22 @@ export const howWeWork = {
 /* ─── Marble System Animation (3-step visualization) ─── */
 export const marbleSystemSection = {
   label: "THE SYSTEM",
-  headline: "Diagnose → Build → Scale",
+  headline: "Diagnose. Build. Scale.",
   subheadline: "A clear path from where you are to where you need to be.",
+  steps: [
+    {
+      title: "Diagnose",
+      copy: "Understand what is broken, what is leaking, and what is blocking growth.",
+    },
+    {
+      title: "Build",
+      copy: "Create the system, assets, and messaging required to move the business forward.",
+    },
+    {
+      title: "Scale",
+      copy: "Turn the system into momentum through refinement, optimization, and controlled growth.",
+    },
+  ],
 };
 
 /* ─── Section G: Differentiation ─── */
