@@ -116,6 +116,9 @@ export default function MarbleSystemSection() {
 
       // Segment B – motion along path (0.12–0.90)
       const path = motionPathRef.current;
+      if (!path) {
+        return;
+      }
       tl.to(
         marbleRef.current,
         {
