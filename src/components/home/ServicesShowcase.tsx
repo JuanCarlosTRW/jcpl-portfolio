@@ -205,28 +205,12 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
             custom={reducedMotion}
             transition={{ duration: 0.9, ease: EASE }}
           >
-            {/* Ambient service-colored glow behind image */}
-            <motion.div
-              className="absolute inset-0 blur-3xl opacity-80 pointer-events-none"
-              animate={{ backgroundColor: panelGlow }}
-              transition={{ duration: 0.5, ease: EASE }}
-              style={{ transform: "scale(1.2)" }}
-              aria-hidden
-            />
+            {/* Removed ambient service-colored glow behind image */}
 
             {/* Inner stage - positioned left and lower */}
             <div className="absolute inset-0 flex items-end justify-start p-4 md:p-6 lg:p-8 pt-8 md:pt-10 lg:pt-12 pl-4 md:pl-6 lg:pl-8 pr-8 md:pr-10 pb-6 md:pb-8 lg:pb-10">
               {/* Media glow - only for transparent-logo */}
-              {useGlow && (
-                <div
-                  className="absolute inset-0 rounded-[10px] pointer-events-none"
-                  style={{
-                    background: `radial-gradient(ellipse 70% 70% at 50% 50%, ${hexToRgba(activeService.accentColor, 0.12)} 0%, transparent 70%)`,
-                    filter: "blur(28px)",
-                  }}
-                  aria-hidden
-                />
-              )}
+              {/* Removed media glow for transparent-logo */}
 
               {/* Image wrapper - fills stage, centers content, subtle downward nudge */}
               <div className="relative w-full h-full min-h-0 flex items-center justify-center">
