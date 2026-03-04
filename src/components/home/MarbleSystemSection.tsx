@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -7,16 +8,31 @@ import { marbleSystemSection } from "@/lib/content";
 import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReducedMotionSafe";
 import SectionLabel from "@/components/ui/SectionLabel";
 import MarbleRailsAnimation from "./MarbleRailsAnimation";
-import { SCROLL } from "@/lib/marbleConfig";
+import { SCROLL, STEP_ACTIVE_RANGES } from "@/lib/marbleConfig";
 
 gsap.registerPlugin(ScrollTrigger);
+
+function getStepStyle(progress: number, stepIndex: number): { opacity: number; transform: string } {
+  const [start, end] = STEP_ACTIVE_RANGES[stepIndex];
+  const effectiveStart = stepIndex === 0 ? 0 : start;
+  const fadeInStart = stepIndex === 0 ? 0 : STEP_ACTIVE_RANGES[stepIndex - 1][1] - 0.02;
+
+  if (progress < fadeInStart) {
+    return { opacity: 0, transform: "translateY(8px)" };
+  }
+  if (progress >= effectiveStart && progress <= end) {
+    return { opacity: 1, transform: "translateY(0)" };
+  }
+  if (progress > end) {
+    return { opacity: 0.3, transform: "translateY(4px)" };
+  }
+  const t = (progress - fadeInStart) / (start - fadeInStart);
+  return { opacity: t, transform: `translateY(${8 - 8 * t}px)` };
+}
 
 export default function MarbleSystemSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
-  const step0Ref = useRef<HTMLDivElement>(null);
-  const step1Ref = useRef<HTMLDivElement>(null);
-  const step2Ref = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -36,46 +52,25 @@ export default function MarbleSystemSection() {
     const pinDuration = isMobile ? SCROLL.PIN_DURATION_MOBILE : SCROLL.PIN_DURATION_DESKTOP;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
+      gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
           end: `+=${pinDuration}vh`,
           pin: viewportRef.current,
-          scrub: 1.5,
+          scrub: SCROLL.SCRUB,
           onUpdate: (self) => setProgress(self.progress),
         },
       });
-
-      /* Step 0: reveal 0–0.08, hold active 0.08–0.38, fade to inactive 0.38–0.45 */
-      tl.fromTo(
-        step0Ref.current,
-        { opacity: 0, y: 8 },
-        { opacity: 1, y: 0, duration: 0.08, ease: "power2.out" },
-        0
-      );
-      tl.to(step0Ref.current, { opacity: 0.3, duration: 0.07, ease: "power2.inOut" }, 0.38);
-
-      /* Step 1: reveal 0.35–0.42, hold active 0.42–0.75, fade to inactive 0.75–0.82 */
-      tl.fromTo(
-        step1Ref.current,
-        { opacity: 0, y: 8 },
-        { opacity: 1, y: 0, duration: 0.07, ease: "power2.out" },
-        0.35
-      );
-      tl.to(step1Ref.current, { opacity: 0.3, duration: 0.07, ease: "power2.inOut" }, 0.75);
-
-      /* Step 2: reveal 0.72–0.78, hold active to end */
-      tl.fromTo(
-        step2Ref.current,
-        { opacity: 0, y: 8 },
-        { opacity: 1, y: 0, duration: 0.06, ease: "power2.out" },
-        0.72
-      );
     }, sectionRef);
 
     return () => ctx.revert();
   }, [reduced, isMobile]);
+
+  const stepStyles = useMemo(
+    () => [getStepStyle(progress, 0), getStepStyle(progress, 1), getStepStyle(progress, 2)],
+    [progress]
+  );
 
   const steps = marbleSystemSection.steps ?? [];
 
@@ -139,24 +134,20 @@ export default function MarbleSystemSection() {
             </p>
 
             <div className="mt-14 md:mt-20 space-y-10 md:space-y-12">
-              {steps.map((step, i) => {
-                const ref = [step0Ref, step1Ref, step2Ref][i];
-                return (
-                  <div
-                    key={i}
-                    ref={ref}
-                    className="will-change-transform"
-                    style={{ opacity: 0 }}
-                  >
-                    <h3 className="text-lg md:text-xl font-semibold text-neutral-900">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 leading-relaxed text-neutral-600">
-                      {step.copy}
-                    </p>
-                  </div>
-                );
-              })}
+              {steps.map((step, i) => (
+                <div
+                  key={i}
+                  className="will-change-transform transition-[opacity,transform] duration-200 ease-out"
+                  style={stepStyles[i]}
+                >
+                  <h3 className="text-lg md:text-xl font-semibold text-neutral-900">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 leading-relaxed text-neutral-600">
+                    {step.copy}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 

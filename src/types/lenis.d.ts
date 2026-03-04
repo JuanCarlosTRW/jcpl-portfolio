@@ -7,6 +7,8 @@ declare module "lenis" {
       direction?: "vertical" | "horizontal";
     });
 
+    readonly scroll: number;
+    scrollTo(target: number | string | HTMLElement, options?: { immediate?: boolean }): void;
     on(event: "scroll", callback: (lenis: Lenis) => void): void;
     raf(time: number): void;
     destroy(): void;

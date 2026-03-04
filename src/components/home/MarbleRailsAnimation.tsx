@@ -11,6 +11,7 @@ import {
   TRAIL,
   PROGRESS_SEGMENTS,
   RAIL_DARKENING,
+  DROP_OFF,
 } from "@/lib/marbleConfig";
 
 const { width: W, height: H, railGap } = DIMENSIONS;
@@ -28,6 +29,8 @@ const {
   DWELL2_END,
   DROP2_END,
   RAIL3_END,
+  DROP_OFF_START,
+  DROP_OFF_END,
 } = PROGRESS_SEGMENTS;
 
 function lerp(a: number, b: number, t: number) {
@@ -48,7 +51,6 @@ function dropBounce(t: number): number {
 
 function progressToPosition(progress: number): { x: number; y: number } {
   if (progress <= 0) return { x: left, y: rail1Y };
-  if (progress >= 1) return { x: right, y: rail3Y };
 
   if (progress < RAIL1_END) {
     const t = progress / RAIL1_END;
@@ -81,7 +83,24 @@ function progressToPosition(progress: number): { x: number; y: number } {
     const eased = easeOut(t);
     return { x: lerp(left, right, eased), y: rail3Y };
   }
-  return { x: right, y: rail3Y };
+  /* Dwell at end of rail3: 0.82–0.84 */
+  if (progress < DROP_OFF_START) {
+    return { x: right, y: rail3Y };
+  }
+  /* Drop-off phase: 0.84–0.90 forward nudge, 0.90–1.0 vertical drop */
+  const dropProgress = (progress - DROP_OFF_START) / (DROP_OFF_END - DROP_OFF_START);
+  const nudgeEnd = 0.375; /* 0.84–0.90 ≈ 37.5% of drop phase */
+  if (dropProgress < nudgeEnd) {
+    const t = dropProgress / nudgeEnd;
+    const eased = easeOutQuart(t);
+    const forward = 18;
+    return { x: right + forward * eased, y: rail3Y };
+  }
+  const t = (dropProgress - nudgeEnd) / (1 - nudgeEnd);
+  const eased = easeOutQuart(t);
+  const dropY = rail3Y + DROP_OFF.distancePx * eased;
+  const forward = 18;
+  return { x: right + forward, y: dropY };
 }
 
 /* easeOutQuart: for ball scale and rail darkness */
@@ -91,8 +110,21 @@ function easeOutQuart(t: number): number {
 
 function progressToScale(progress: number): number {
   const t = Math.max(0, Math.min(1, progress));
-  const eased = easeOutQuart(t);
+  if (t >= DROP_OFF_START) {
+    const dropT = (t - DROP_OFF_START) / (DROP_OFF_END - DROP_OFF_START);
+    const eased = easeOutQuart(dropT);
+    return lerp(BALL_SCALE.max, BALL_SCALE.min, eased);
+  }
+  const effectiveT = t / DROP_OFF_START;
+  const eased = easeOutQuart(effectiveT);
   return lerp(BALL_SCALE.min, BALL_SCALE.max, eased);
+}
+
+function progressToBallOpacity(progress: number): number {
+  if (progress < DROP_OFF_START) return 1;
+  const t = (progress - DROP_OFF_START) / (DROP_OFF_END - DROP_OFF_START);
+  const eased = easeOutQuart(t);
+  return lerp(1, DROP_OFF.opacityEnd, eased);
 }
 
 /* Per-rail darkness 0–1: increases as ball reaches/passes that rail */
@@ -140,6 +172,7 @@ interface MarbleRailsAnimationProps {
 export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsAnimationProps) {
   const pos = useMemo(() => progressToPosition(progress), [progress]);
   const scale = useMemo(() => progressToScale(progress), [progress]);
+  const ballOpacity = useMemo(() => progressToBallOpacity(progress), [progress]);
   const rail0Darkness = useMemo(() => progressToRailDarkness(progress, 0), [progress]);
   const rail1Darkness = useMemo(() => progressToRailDarkness(progress, 1), [progress]);
   const rail2Darkness = useMemo(() => progressToRailDarkness(progress, 2), [progress]);
@@ -172,6 +205,13 @@ export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsA
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
+            <filter id="marble-rail-glow-blue-active" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation={RAIL_GLOW.blurStdDevActive} result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
             <filter id="marble-rail-glow-violet" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur in="SourceGraphic" stdDeviation={RAIL_GLOW.blurStdDevBase} result="blur" />
               <feMerge>
@@ -179,8 +219,22 @@ export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsA
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
+            <filter id="marble-rail-glow-violet-active" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation={RAIL_GLOW.blurStdDevActive} result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
             <filter id="marble-rail-glow-emerald" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur in="SourceGraphic" stdDeviation={RAIL_GLOW.blurStdDevBase} result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="marble-rail-glow-emerald-active" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation={RAIL_GLOW.blurStdDevActive} result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -347,6 +401,7 @@ export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsA
             r={BALL.radius}
             fill="url(#marble-ball-gloss)"
             filter="url(#marble-ball-glow)"
+            opacity={ballOpacity}
           />
         </g>
       </svg>

@@ -51,10 +51,10 @@ export const BALL = {
   ambientGlow: true,
 } as const;
 
-/* Ball scale progression (smaller at start, full size by end) */
+/* Ball scale progression (1 at start, grows to 1.3 as journey advances) */
 export const BALL_SCALE = {
-  min: 0.88,
-  max: 1,
+  min: 1,
+  max: 1.3,
 } as const;
 
 /* Trail appearance */
@@ -66,26 +66,42 @@ export const TRAIL = {
 
 /* Scroll pin duration (vh) — longer for premium storytelling feel */
 export const SCROLL = {
-  PIN_DURATION_DESKTOP: 480,
-  PIN_DURATION_MOBILE: 160,
+  PIN_DURATION_DESKTOP: 600,
+  PIN_DURATION_MOBILE: 220,
+  SCRUB: 1.2,
   STEP_THRESHOLDS: [0.12, 0.42, 0.74] as const,
 } as const;
 
 /* Progress segment boundaries (0–1)
- * Phase: 1.Rail1 roll, 2.Dwell1, 3.Drop1, 4.Rail2 roll, 5.Dwell2, 6.Drop2, 7.Rail3 roll, 8.Dwell3
+ * Phase: 1.Rail1 roll, 2.Dwell1, 3.Drop1, 4.Rail2 roll, 5.Dwell2, 6.Drop2, 7.Rail3 roll, 8.Dwell3, 9.Drop-off
  * Each stage has clear entry → hold → transition for deliberate pacing
  */
 export const PROGRESS_SEGMENTS = {
-  RAIL1_END: 0.28,
-  DWELL1_END: 0.36,
-  DROP1_END: 0.40,
-  RAIL2_END: 0.62,
-  DWELL2_END: 0.70,
-  DROP2_END: 0.74,
-  RAIL3_END: 0.95,
+  RAIL1_END: 0.24,
+  DWELL1_END: 0.30,
+  DROP1_END: 0.34,
+  RAIL2_END: 0.54,
+  DWELL2_END: 0.60,
+  DROP2_END: 0.64,
+  RAIL3_END: 0.82,
+  DROP_OFF_START: 0.84,
+  DROP_OFF_END: 1,
+} as const;
+
+/* Step text activation ranges — when each step is "active" (aligned with ball stages) */
+export const STEP_ACTIVE_RANGES = [
+  [0.02, 0.32], /* Diagnose: rail1 + dwell1 */
+  [0.34, 0.62], /* Build: rail2 + dwell2 */
+  [0.64, 0.84], /* Scale: rail3 + dwell3 */
+] as const;
+
+/* Final drop-off: ball falls off rail 3 (scroll distance in px within SVG) */
+export const DROP_OFF = {
+  distancePx: 70,
+  opacityEnd: 0.65,
 } as const;
 
 /* Rail darkening: blend from base color toward resolved dark state */
 export const RAIL_DARKENING = {
-  targetColor: "#1a1a1a",
+  targetColor: "#0d0d0d",
 } as const;
