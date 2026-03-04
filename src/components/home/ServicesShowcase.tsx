@@ -187,7 +187,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
                   <h2 className="text-[clamp(36px,5vw,56px)] font-[800] text-white leading-[1.08] tracking-[-0.03em] mb-2 lg:mb-4">
                     {activeService.title}
                   </h2>
-                  <p className="text-[18px] md:text-[20px] text-sv-text-sub leading-[1.8] max-w-2xl">
+                  <p className="text-[18px] md:text-[20px] text-sv-text-sub leading-[1.8] max-w-3xl mx-auto text-left">
                     {activeService.description}
                   </p>
                 </motion.div>
