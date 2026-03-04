@@ -9,6 +9,7 @@ import {
 } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ServicesShaderBackground from "./ServicesShaderBackground";
+import PillItem from "./PillItem";
 import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReducedMotionSafe";
 import { cn } from "@/lib/utils";
 
@@ -22,119 +23,6 @@ function hexToRgba(hex: string, alpha: number): string {
   const g = parseInt(h.slice(2, 4), 16);
   const b = parseInt(h.slice(4, 6), 16);
   return `rgba(${r},${g},${b},${alpha})`;
-}
-
-interface ServiceTabCardProps {
-  title: string;
-  subtitle?: string;
-  accentColor: string;
-  hoverAccentColor: string;
-  isActive: boolean;
-  index: number;
-  onClick: () => void;
-  onKeyDown: (e: React.KeyboardEvent) => void;
-  reducedMotion: boolean;
-}
-
-function ServiceTabCard({
-  title,
-  subtitle,
-  accentColor,
-  hoverAccentColor,
-  isActive,
-  index,
-  onClick,
-  onKeyDown,
-  reducedMotion,
-}: ServiceTabCardProps) {
-  const rgb = (() => {
-    const hex = accentColor.replace("#", "");
-    const r = parseInt(hex.slice(0, 2), 16);
-    const g = parseInt(hex.slice(2, 4), 16);
-    const b = parseInt(hex.slice(4, 6), 16);
-    return `${r},${g},${b}`;
-  })();
-
-  const hoverRgb = (() => {
-    const hex = hoverAccentColor.replace("#", "");
-    const r = parseInt(hex.slice(0, 2), 16);
-    const g = parseInt(hex.slice(2, 4), 16);
-    const b = parseInt(hex.slice(4, 6), 16);
-    return `${r},${g},${b}`;
-  })();
-
-  return (
-    <motion.button
-      type="button"
-      role="tab"
-      tabIndex={isActive ? 0 : -1}
-      aria-selected={isActive}
-      id={`services-tab-${index}`}
-      aria-controls={`services-panel-${index}`}
-      onClick={onClick}
-      onKeyDown={onKeyDown}
-      whileHover={reducedMotion ? undefined : { y: -2 }}
-      className={cn(
-        "group relative w-full text-left rounded-[10px] border transition-all duration-200",
-        "min-h-[120px] md:min-h-[157px] p-5 flex flex-col justify-center pr-10",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-sv-base",
-        isActive
-          ? "bg-[#0f2640]"
-          : "border-[rgba(255,255,255,0.08)] bg-sv-surface/80"
-      )}
-      style={
-        isActive
-          ? {
-              borderColor: `${accentColor}99`,
-              boxShadow: `0 0 28px rgba(${rgb},0.1)`,
-              ["--tw-ring-color" as string]: `${accentColor}80`,
-            }
-          : {
-              ["--tw-ring-color" as string]: `${hoverAccentColor}80`,
-            }
-      }
-    >
-      {/* Hover border tint for inactive cards - overlay ring */}
-      {!isActive && (
-        <span
-          className="absolute -inset-px rounded-[10px] border-2 border-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-          style={{
-            borderColor: `rgba(${hoverRgb},0.35)`,
-          }}
-          aria-hidden
-        />
-      )}
-      {/* Top strip (active only) */}
-      <span
-        className={cn(
-          "absolute left-0 right-0 top-0 h-[3px] rounded-t-[10px] transition-all duration-200",
-          isActive ? "opacity-100" : "opacity-0 group-hover:opacity-50"
-        )}
-        style={{ backgroundColor: hoverAccentColor }}
-      />
-      <h3
-        className={cn(
-          "text-base md:text-lg font-semibold text-white transition-colors relative z-[1]",
-          isActive && "text-white"
-        )}
-      >
-        {title}
-      </h3>
-      {subtitle && (
-        <p className="mt-1 text-sm text-sv-text-sub relative z-[1]">
-          {subtitle}
-        </p>
-      )}
-      {/* Circular indicator dot (active only, anchored inside card) */}
-      {isActive && (
-        <span
-          className="absolute right-5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full z-[1]"
-          style={{ backgroundColor: accentColor }}
-          aria-hidden
-        />
-      )}
-    </motion.button>
-  );
 }
 
 const sectionVariants = {
@@ -362,7 +250,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
             role="tablist"
             aria-label="Services"
             className={cn(
-              "flex flex-row lg:flex-col gap-3 w-full overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible",
+              "flex flex-row lg:flex-col gap-4 w-full overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible",
               "min-w-0 lg:min-w-[280px]"
             )}
             variants={{
@@ -381,11 +269,13 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
                 variants={cardVariants}
                 custom={reducedMotion}
                 transition={{ duration: 0.55, ease: EASE }}
-                className="shrink-0 lg:shrink lg:w-full min-w-[240px] lg:min-w-0"
+                className="shrink-0 lg:shrink lg:w-full min-w-[280px] lg:min-w-0"
               >
-                <ServiceTabCard
+                <PillItem
                   title={service.title}
                   subtitle={service.subtitle}
+                  imageUrl={service.imageUrl}
+                  imageAlt={service.imageAlt}
                   accentColor={service.accentColor}
                   hoverAccentColor={service.hoverAccentColor}
                   isActive={activeIndex === index}
