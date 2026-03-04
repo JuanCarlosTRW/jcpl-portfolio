@@ -197,7 +197,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
 
           {/* Image panel */}
           <motion.div
-            className="relative w-full aspect-[1052/776] max-w-[680px] overflow-hidden"
+            className="relative w-full aspect-[1052/776] max-w-[740px] overflow-hidden flex items-end pt-10"
             role="tabpanel"
             id={`services-panel-${activeIndex}`}
             aria-labelledby={`services-tab-${activeIndex}`}
