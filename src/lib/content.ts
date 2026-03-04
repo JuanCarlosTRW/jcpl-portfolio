@@ -292,6 +292,8 @@ export const differentiation = {
 /* ─── Services Showcase (Figma-style section) ─── */
 export type ServiceBgKey = "website" | "seo" | "geo" | "copy" | "googleAds";
 
+export type HeroMediaType = "transparent-logo" | "framed-image";
+
 export interface ServiceItem {
   id: string;
   title: string;
@@ -304,6 +306,8 @@ export interface ServiceItem {
   imagePosition?: string;
   imageScale?: number;
   bgKey: ServiceBgKey;
+  mediaType?: HeroMediaType;
+  useGlow?: boolean;
 }
 
 export const servicesShowcaseContent = {
@@ -355,6 +359,8 @@ export const servicesShowcaseContent = {
       imagePosition: "center",
       imageScale: 0.98,
       bgKey: "geo" as const,
+      mediaType: "transparent-logo" as const,
+      useGlow: true,
     },
     {
       id: "copy",
@@ -385,6 +391,8 @@ export const servicesShowcaseContent = {
       imagePosition: "center",
       imageScale: 1.0,
       bgKey: "googleAds" as const,
+      mediaType: "transparent-logo" as const,
+      useGlow: true,
     },
   ],
 } as const;

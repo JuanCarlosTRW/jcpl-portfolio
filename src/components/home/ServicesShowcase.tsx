@@ -6,6 +6,7 @@ import Image from "next/image";
 import {
   servicesShowcaseContent,
   type ServiceItem,
+  type HeroMediaType,
 } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ServicesShaderBackground from "./ServicesShaderBackground";
@@ -110,6 +111,12 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
 
   const imageScale = activeService.imageScale ?? 1;
   const imagePosition = activeService.imagePosition ?? "center";
+
+  const mediaType = (activeService as ServiceItem & { mediaType?: HeroMediaType }).mediaType ?? "framed-image";
+  const useGlow =
+    (activeService as ServiceItem & { useGlow?: boolean }).useGlow ??
+    (mediaType === "transparent-logo");
+  const isTransparentLogo = mediaType === "transparent-logo";
 
   return (
     <SectionWrapper
@@ -217,32 +224,51 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
               aria-hidden
             />
 
-            {/* Image */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeService.id}
-                initial={imageVariants.initial}
-                animate={imageVariants.animate}
-                exit={imageVariants.exit}
-                transition={IMAGE_TRANSITION}
-                className="absolute inset-0"
-                style={{
-                  transform: `scale(${imageScale})`,
-                }}
-              >
-                <Image
-                  src={activeService.imageUrl}
-                  alt={activeService.imageAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 680px"
-                  className="object-cover"
+            {/* Centered inner stage */}
+            <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8 lg:p-10">
+              {/* Media glow - only for transparent-logo */}
+              {useGlow && (
+                <div
+                  className="absolute inset-0 rounded-[10px] pointer-events-none"
                   style={{
-                    objectPosition: imagePosition,
+                    background: `radial-gradient(ellipse 70% 70% at 50% 50%, ${hexToRgba(activeService.accentColor, 0.12)} 0%, transparent 70%)`,
+                    filter: "blur(28px)",
                   }}
-                  priority={activeIndex === 0}
+                  aria-hidden
                 />
-              </motion.div>
-            </AnimatePresence>
+              )}
+
+              {/* Image wrapper - fills stage, centers content */}
+              <div className="relative w-full h-full min-h-0 flex items-center justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeService.id}
+                    initial={imageVariants.initial}
+                    animate={imageVariants.animate}
+                    exit={imageVariants.exit}
+                    transition={IMAGE_TRANSITION}
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{
+                      transform: isTransparentLogo ? "scale(1)" : `scale(${imageScale})`,
+                    }}
+                  >
+                    <Image
+                      src={activeService.imageUrl}
+                      alt={activeService.imageAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 680px"
+                      className={
+                        isTransparentLogo ? "object-contain object-center" : "object-cover"
+                      }
+                      style={{
+                        objectPosition: isTransparentLogo ? "center" : imagePosition,
+                      }}
+                      priority={activeIndex === 0}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
           </motion.div>
 
           {/* Vertical stack of service tab cards */}
