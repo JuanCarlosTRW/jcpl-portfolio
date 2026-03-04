@@ -11,20 +11,13 @@ import { SCROLL } from "@/lib/marbleConfig";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const STEP_THRESHOLDS = SCROLL.STEP_THRESHOLDS;
-
-function getActiveStep(progress: number): number | null {
-  if (progress >= STEP_THRESHOLDS[2]) return 2;
-  if (progress >= STEP_THRESHOLDS[1]) return 1;
-  if (progress >= STEP_THRESHOLDS[0]) return 0;
-  return null;
-}
-
 export default function MarbleSystemSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const step0Ref = useRef<HTMLDivElement>(null);
+  const step1Ref = useRef<HTMLDivElement>(null);
+  const step2Ref = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
-  const [activeStep, setActiveStep] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   const reduced = usePrefersReducedMotionSafe();
@@ -43,23 +36,45 @@ export default function MarbleSystemSection() {
     const pinDuration = isMobile ? SCROLL.PIN_DURATION_MOBILE : SCROLL.PIN_DURATION_DESKTOP;
 
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: `+=${pinDuration}vh`,
-        pin: viewportRef.current,
-        scrub: 1,
-        onUpdate: (self) => {
-          const p = self.progress;
-          setProgress(p);
-          setActiveStep(getActiveStep(p));
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${pinDuration}vh`,
+          pin: viewportRef.current,
+          scrub: 1.5,
+          onUpdate: (self) => setProgress(self.progress),
         },
       });
+
+      /* Step 0: reveal 0–0.08, hold active 0.08–0.38, fade to inactive 0.38–0.45 */
+      tl.fromTo(
+        step0Ref.current,
+        { opacity: 0, y: 8 },
+        { opacity: 1, y: 0, duration: 0.08, ease: "power2.out" },
+        0
+      );
+      tl.to(step0Ref.current, { opacity: 0.3, duration: 0.07, ease: "power2.inOut" }, 0.38);
+
+      /* Step 1: reveal 0.35–0.42, hold active 0.42–0.75, fade to inactive 0.75–0.82 */
+      tl.fromTo(
+        step1Ref.current,
+        { opacity: 0, y: 8 },
+        { opacity: 1, y: 0, duration: 0.07, ease: "power2.out" },
+        0.35
+      );
+      tl.to(step1Ref.current, { opacity: 0.3, duration: 0.07, ease: "power2.inOut" }, 0.75);
+
+      /* Step 2: reveal 0.72–0.78, hold active to end */
+      tl.fromTo(
+        step2Ref.current,
+        { opacity: 0, y: 8 },
+        { opacity: 1, y: 0, duration: 0.06, ease: "power2.out" },
+        0.72
+      );
     }, sectionRef);
 
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, [reduced, isMobile]);
 
   const steps = marbleSystemSection.steps ?? [];
@@ -108,47 +123,35 @@ export default function MarbleSystemSection() {
     >
       <div
         ref={viewportRef}
-        className="min-h-screen flex flex-col md:flex-row md:items-center md:justify-between gap-16 md:gap-20 lg:gap-28 py-20 md:py-24"
+        className="min-h-screen flex flex-col md:flex-row md:items-center md:justify-between gap-16 md:gap-24 lg:gap-32 py-24 md:py-28"
       >
-        <div className="container flex flex-col md:flex-row md:items-center md:justify-between gap-16 md:gap-20 lg:gap-28 w-full">
+        <div className="container flex flex-col md:flex-row md:items-center md:justify-between gap-16 md:gap-24 lg:gap-32 w-full">
           <div className="flex-1 max-w-xl">
             <SectionLabel
               label={marbleSystemSection.label}
               className="mb-4 text-neutral-500"
             />
-            <h2 className="text-[clamp(32px,4vw,48px)] font-[800] text-neutral-900 leading-[1.15] tracking-[-0.025em]">
+            <h2 className="text-[clamp(32px,4vw,52px)] font-[800] text-neutral-900 leading-[1.15] tracking-[-0.025em]">
               {marbleSystemSection.headline}
             </h2>
-            <p className="mt-5 text-neutral-600 leading-[1.75] text-[17px]">
+            <p className="mt-5 text-neutral-600 leading-[1.75] text-[17px] max-w-lg">
               {marbleSystemSection.subheadline}
             </p>
 
-            <div className="mt-12 md:mt-16 space-y-8">
+            <div className="mt-14 md:mt-20 space-y-10 md:space-y-12">
               {steps.map((step, i) => {
-                const isRevealed = activeStep !== null && i <= activeStep;
-                const isCurrent = activeStep === i;
+                const ref = [step0Ref, step1Ref, step2Ref][i];
                 return (
                   <div
                     key={i}
-                    className="transition-all duration-700 ease-out"
-                    style={{
-                      opacity: isRevealed ? (isCurrent ? 1 : 0.4) : 0,
-                      transform: isRevealed ? "translateY(0)" : "translateY(8px)",
-                      pointerEvents: isRevealed ? "auto" : "none",
-                    }}
+                    ref={ref}
+                    className="will-change-transform"
+                    style={{ opacity: 0 }}
                   >
-                    <h3
-                      className={`text-lg font-semibold ${
-                        isCurrent ? "text-neutral-900" : "text-neutral-500"
-                      }`}
-                    >
+                    <h3 className="text-lg md:text-xl font-semibold text-neutral-900">
                       {step.title}
                     </h3>
-                    <p
-                      className={`mt-2 leading-relaxed ${
-                        isCurrent ? "text-neutral-600" : "text-neutral-500"
-                      }`}
-                    >
+                    <p className="mt-2 leading-relaxed text-neutral-600">
                       {step.copy}
                     </p>
                   </div>
@@ -157,7 +160,7 @@ export default function MarbleSystemSection() {
             </div>
           </div>
 
-          <div className="flex-1 flex items-center justify-center min-h-[320px] md:min-w-[420px]">
+          <div className="flex-1 flex items-center justify-center min-h-[320px] md:min-h-[360px] md:min-w-[480px] lg:min-w-[520px]">
             <MarbleRailsAnimation progress={progress} reduced={false} />
           </div>
         </div>

@@ -7,8 +7,10 @@ import {
   RAIL_GLOW,
   DIMENSIONS,
   BALL,
+  BALL_SCALE,
   TRAIL,
   PROGRESS_SEGMENTS,
+  RAIL_DARKENING,
 } from "@/lib/marbleConfig";
 
 const { width: W, height: H, railGap } = DIMENSIONS;
@@ -82,13 +84,52 @@ function progressToPosition(progress: number): { x: number; y: number } {
   return { x: right, y: rail3Y };
 }
 
-function progressToActiveRail(progress: number): number | null {
-  if (progress < RAIL1_END) return 0;
-  if (progress < DROP1_END) return null;
-  if (progress < RAIL2_END) return 1;
-  if (progress < DROP2_END) return null;
-  if (progress <= 1) return 2;
-  return 2;
+/* easeOutQuart: for ball scale and rail darkness */
+function easeOutQuart(t: number): number {
+  return 1 - Math.pow(1 - t, 4);
+}
+
+function progressToScale(progress: number): number {
+  const t = Math.max(0, Math.min(1, progress));
+  const eased = easeOutQuart(t);
+  return lerp(BALL_SCALE.min, BALL_SCALE.max, eased);
+}
+
+/* Per-rail darkness 0–1: increases as ball reaches/passes that rail */
+function progressToRailDarkness(progress: number, railIndex: number): number {
+  if (railIndex === 0) {
+    const t = progress / RAIL1_END;
+    return Math.min(1, easeOutQuart(Math.max(0, t)));
+  }
+  if (railIndex === 1) {
+    const start = DROP1_END;
+    const end = RAIL2_END;
+    const t = (progress - start) / (end - start);
+    return Math.min(1, easeOutQuart(Math.max(0, t)));
+  }
+  if (railIndex === 2) {
+    const start = DROP2_END;
+    const end = RAIL3_END;
+    const t = (progress - start) / (end - start);
+    return Math.min(1, easeOutQuart(Math.max(0, t)));
+  }
+  return 0;
+}
+
+function hexToRgb(hex: string): [number, number, number] {
+  const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+  if (!m) return [0, 0, 0];
+  return [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)];
+}
+
+function rgbToHex(r: number, g: number, b: number): string {
+  return "#" + [r, g, b].map((x) => Math.round(x).toString(16).padStart(2, "0")).join("");
+}
+
+function lerpColor(from: string, to: string, t: number): string {
+  const [r1, g1, b1] = hexToRgb(from);
+  const [r2, g2, b2] = hexToRgb(to);
+  return rgbToHex(lerp(r1, r2, t), lerp(g1, g2, t), lerp(b1, b2, t));
 }
 
 interface MarbleRailsAnimationProps {
@@ -98,7 +139,10 @@ interface MarbleRailsAnimationProps {
 
 export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsAnimationProps) {
   const pos = useMemo(() => progressToPosition(progress), [progress]);
-  const activeRailIndex = useMemo(() => progressToActiveRail(progress), [progress]);
+  const scale = useMemo(() => progressToScale(progress), [progress]);
+  const rail0Darkness = useMemo(() => progressToRailDarkness(progress, 0), [progress]);
+  const rail1Darkness = useMemo(() => progressToRailDarkness(progress, 1), [progress]);
+  const rail2Darkness = useMemo(() => progressToRailDarkness(progress, 2), [progress]);
 
   const trailPositions = useMemo(() => {
     if (reduced || progress <= 0) return [];
@@ -150,24 +194,24 @@ export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsA
           </defs>
           <Rail
             line={{ x1: left, y1: rail1Y, x2: right, y2: rail1Y }}
-            color={RAIL_COLORS.blue}
+            baseColor={RAIL_COLORS.blue}
+            darkness={1}
             filterBase="url(#marble-rail-glow-blue)"
             filterActive="url(#marble-rail-glow-blue-active)"
-            active={false}
           />
           <Rail
             line={{ x1: left, y1: rail2Y, x2: right, y2: rail2Y }}
-            color={RAIL_COLORS.violet}
+            baseColor={RAIL_COLORS.violet}
+            darkness={1}
             filterBase="url(#marble-rail-glow-violet)"
             filterActive="url(#marble-rail-glow-violet-active)"
-            active={false}
           />
           <Rail
             line={{ x1: left, y1: rail3Y, x2: right, y2: rail3Y }}
-            color={RAIL_COLORS.emerald}
+            baseColor={RAIL_COLORS.emerald}
+            darkness={1}
             filterBase="url(#marble-rail-glow-emerald)"
             filterActive="url(#marble-rail-glow-emerald-active)"
-            active={false}
           />
           <g
             style={{
@@ -255,24 +299,24 @@ export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsA
 
         <Rail
           line={{ x1: left, y1: rail1Y, x2: right, y2: rail1Y }}
-          color={RAIL_COLORS.blue}
+          baseColor={RAIL_COLORS.blue}
+          darkness={rail0Darkness}
           filterBase="url(#marble-rail-glow-blue)"
           filterActive="url(#marble-rail-glow-blue-active)"
-          active={activeRailIndex === 0}
         />
         <Rail
           line={{ x1: left, y1: rail2Y, x2: right, y2: rail2Y }}
-          color={RAIL_COLORS.violet}
+          baseColor={RAIL_COLORS.violet}
+          darkness={rail1Darkness}
           filterBase="url(#marble-rail-glow-violet)"
           filterActive="url(#marble-rail-glow-violet-active)"
-          active={activeRailIndex === 1}
         />
         <Rail
           line={{ x1: left, y1: rail3Y, x2: right, y2: rail3Y }}
-          color={RAIL_COLORS.emerald}
+          baseColor={RAIL_COLORS.emerald}
+          darkness={rail2Darkness}
           filterBase="url(#marble-rail-glow-emerald)"
           filterActive="url(#marble-rail-glow-emerald-active)"
-          active={activeRailIndex === 2}
         />
 
         {trailPositions.map((p, i) => {
@@ -294,7 +338,7 @@ export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsA
         <g
           style={{
             transformOrigin: "0 0",
-            transform: `translate(${pos.x}px, ${pos.y}px)`,
+            transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`,
           }}
         >
           <circle
@@ -312,21 +356,22 @@ export default function MarbleRailsAnimation({ progress, reduced }: MarbleRailsA
 
 function Rail({
   line,
-  color,
+  baseColor,
+  darkness,
   filterBase,
   filterActive,
-  active,
 }: {
   line: { x1: number; y1: number; x2: number; y2: number };
-  color: string;
+  baseColor: string;
+  darkness: number;
   filterBase: string;
   filterActive: string;
-  active?: boolean;
 }) {
-  const glowOpacity = active ? RAIL_OPACITY.active : RAIL_OPACITY.base;
-  const lineOpacity = active ? RAIL_OPACITY.centerLineActive : RAIL_OPACITY.centerLine;
-  const strokeWidth = active ? RAIL_GLOW.strokeWidthActive : RAIL_GLOW.strokeWidthBase;
-  const filter = active ? filterActive : filterBase;
+  const strokeColor = lerpColor(baseColor, RAIL_DARKENING.targetColor, darkness);
+  const glowOpacity = lerp(RAIL_OPACITY.base, RAIL_OPACITY.active, darkness);
+  const lineOpacity = lerp(RAIL_OPACITY.centerLine, RAIL_OPACITY.centerLineActive, darkness);
+  const strokeWidth = lerp(RAIL_GLOW.strokeWidthBase, RAIL_GLOW.strokeWidthActive, darkness);
+  const filter = darkness > 0.5 ? filterActive : filterBase;
 
   return (
     <g>
@@ -336,12 +381,11 @@ function Rail({
         y1={line.y1}
         x2={line.x2}
         y2={line.y2}
-        stroke={color}
-        strokeWidth="1.5"
+        stroke={strokeColor}
+        strokeWidth="2"
         strokeLinecap="round"
         opacity={lineOpacity}
         fill="none"
-        style={{ transition: "opacity 0.4s ease" }}
       />
       {/* Soft outer glow */}
       <line
@@ -349,12 +393,12 @@ function Rail({
         y1={line.y1}
         x2={line.x2}
         y2={line.y2}
-        stroke={color}
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         opacity={glowOpacity}
         fill="none"
-        style={{ filter, transition: "opacity 0.4s ease" }}
+        style={{ filter }}
       />
     </g>
   );

@@ -7,6 +7,7 @@ declare module "lenis" {
       direction?: "vertical" | "horizontal";
     });
 
+    on(event: "scroll", callback: (lenis: Lenis) => void): void;
     raf(time: number): void;
     destroy(): void;
   }

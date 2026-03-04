@@ -51,6 +51,12 @@ export const BALL = {
   ambientGlow: true,
 } as const;
 
+/* Ball scale progression (smaller at start, full size by end) */
+export const BALL_SCALE = {
+  min: 0.88,
+  max: 1,
+} as const;
+
 /* Trail appearance */
 export const TRAIL = {
   count: 6,
@@ -58,22 +64,28 @@ export const TRAIL = {
   fadeFactor: 0.6,
 } as const;
 
-/* Scroll pin duration (vh) */
+/* Scroll pin duration (vh) — longer for premium storytelling feel */
 export const SCROLL = {
-  PIN_DURATION_DESKTOP: 280,
-  PIN_DURATION_MOBILE: 100,
-  STEP_THRESHOLDS: [0.1, 0.38, 0.68] as const,
+  PIN_DURATION_DESKTOP: 480,
+  PIN_DURATION_MOBILE: 160,
+  STEP_THRESHOLDS: [0.12, 0.42, 0.74] as const,
 } as const;
 
 /* Progress segment boundaries (0–1)
  * Phase: 1.Rail1 roll, 2.Dwell1, 3.Drop1, 4.Rail2 roll, 5.Dwell2, 6.Drop2, 7.Rail3 roll, 8.Dwell3
+ * Each stage has clear entry → hold → transition for deliberate pacing
  */
 export const PROGRESS_SEGMENTS = {
-  RAIL1_END: 0.22,
-  DWELL1_END: 0.28,
-  DROP1_END: 0.32,
-  RAIL2_END: 0.55,
-  DWELL2_END: 0.61,
-  DROP2_END: 0.65,
-  RAIL3_END: 0.88,
+  RAIL1_END: 0.28,
+  DWELL1_END: 0.36,
+  DROP1_END: 0.40,
+  RAIL2_END: 0.62,
+  DWELL2_END: 0.70,
+  DROP2_END: 0.74,
+  RAIL3_END: 0.95,
+} as const;
+
+/* Rail darkening: blend from base color toward resolved dark state */
+export const RAIL_DARKENING = {
+  targetColor: "#1a1a1a",
 } as const;

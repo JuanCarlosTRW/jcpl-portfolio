@@ -260,7 +260,7 @@ export const howWeWork = {
 export const marbleSystemSection = {
   label: "THE SYSTEM",
   headline: "Diagnose. Build. Scale.",
-  subheadline: "A clear path from where you are to where you need to be.",
+  subheadline: "A guided system that turns friction into forward motion.",
   steps: [
     {
       title: "Diagnose",

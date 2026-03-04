@@ -19,15 +19,15 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    lenis.on("scroll", ScrollTrigger.update);
 
+    const raf = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
+      gsap.ticker.remove(raf);
     };
   }, [reduced]);
 
