@@ -169,12 +169,12 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
         >
           {/* Left column */}
           <motion.div
-            className="w-full shrink-0"
+            className="w-full shrink-0 flex items-center lg:h-[calc(100vh-120px)]"
             variants={leftCopyVariants}
             custom={reducedMotion}
             transition={{ duration: 0.55, ease: EASE }}
           >
-            <div className="relative min-h-[140px] md:min-h-[180px]">
+            <div className="relative min-h-[140px] md:min-h-[180px] flex items-center lg:h-full">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeService.id}
@@ -182,7 +182,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
                   animate={imageVariants.animate}
                   exit={imageVariants.exit}
                   transition={IMAGE_TRANSITION}
-                  className="absolute inset-0"
+                  className="absolute inset-0 flex flex-col justify-center h-full"
                 >
                   <h2 className="text-[clamp(32px,4vw,48px)] font-[800] text-white leading-[1.1] tracking-[-0.025em] mb-5">
                     {activeService.title}
