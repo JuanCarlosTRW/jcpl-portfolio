@@ -18,6 +18,8 @@ type BlurTextProps = {
   style?: React.CSSProperties;
   animateBy?: 'words' | 'letters';
   direction?: 'top' | 'bottom';
+  /** When true, bypass IntersectionObserver and trigger reveal immediately. Use for scroll-controlled reveals. */
+  active?: boolean;
   threshold?: number;
   rootMargin?: string;
   animationFrom?: Record<string, any>;
@@ -34,6 +36,7 @@ const BlurText = ({
   style = {},
   animateBy = 'words',
   direction = 'top',
+  active,
   threshold = 0.1,
   rootMargin = '0px',
   animationFrom,
@@ -43,10 +46,14 @@ const BlurText = ({
   stepDuration = 0.35
 }: BlurTextProps) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(active === true);
   const ref = useRef<HTMLParagraphElement>(null);
 
+  // When active is provided, use it for reveal; otherwise use IntersectionObserver
+  const isRevealed = active !== undefined ? active : inView;
+
   useEffect(() => {
+    if (active !== undefined) return; // Bypass IntersectionObserver when active is controlled externally
     if (!ref.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -59,7 +66,12 @@ const BlurText = ({
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [threshold, rootMargin]);
+  }, [active, threshold, rootMargin]);
+
+  // Keep inView synced when active becomes true
+  useEffect(() => {
+    if (active === true) setInView(true);
+  }, [active]);
 
   const defaultFrom = useMemo(
     () =>
@@ -102,7 +114,7 @@ const BlurText = ({
             className="inline-block will-change-[transform,filter,opacity]"
             key={index}
             initial={fromSnapshot}
-            animate={inView ? animateKeyframes : fromSnapshot}
+            animate={isRevealed ? animateKeyframes : fromSnapshot}
             transition={spanTransition}
             onAnimationComplete={index === elements.length - 1 ? onAnimationComplete : undefined}
           >
