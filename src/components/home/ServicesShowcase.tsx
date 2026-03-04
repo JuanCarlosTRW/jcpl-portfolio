@@ -226,7 +226,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
                       transform: isTransparentLogo ? "scale(1)" : `scale(${imageScale})`,
                     }}
                   >
-                    <div className={`relative w-full h-full flex items-center justify-center ${activeService.id !== 'seo' ? 'min-h-[900px] translate-y-32' : 'min-h-[420px] translate-y-10'}`}>
+                    <div className="relative w-full h-full flex items-center justify-center min-h-[700px] translate-y-16">
                       <Image
                         src={activeService.imageUrl}
                         alt={activeService.imageAlt}
