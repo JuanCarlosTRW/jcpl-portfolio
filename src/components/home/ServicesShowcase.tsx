@@ -250,7 +250,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
             role="tablist"
             aria-label="Services"
             className={cn(
-              "flex flex-row lg:flex-col gap-4 w-full overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible",
+              "flex flex-row lg:flex-col gap-5 w-full overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible",
               "min-w-0 lg:min-w-[280px]"
             )}
             variants={{

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-const PILL_AVATAR_SIZE = 68;
+const PILL_AVATAR_SIZE = 72;
 
 interface PillItemProps {
   title: string;
@@ -56,18 +56,20 @@ export default function PillItem({
       onKeyDown={onKeyDown}
       whileHover={reducedMotion ? undefined : { y: -1 }}
       className={cn(
-        "group relative w-full text-left rounded-full border transition-all duration-200 ease-out",
-        "flex items-center gap-4 md:gap-5 px-5 md:px-6 py-3 md:py-4 pr-10 min-h-[72px] md:min-h-[92px]",
+        "group relative w-full text-left rounded-[9999px] border transition-all duration-200 ease-out",
+        "flex items-center gap-5 pl-4 pr-10 py-4 md:pl-5 md:pr-12 md:py-4",
+        "min-h-[80px] md:min-h-[100px]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-sv-base",
+        "border-white/[0.06] shadow-[0_2px_12px_rgba(0,0,0,0.15)]",
         isActive
-          ? "bg-[#0f2640]"
-          : "border-white/[0.08] bg-sv-surface/80 hover:bg-sv-surface"
+          ? "bg-sv-elevated border-white/[0.12] shadow-[0_2px_16px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.06)]"
+          : "bg-sv-surface/90 hover:bg-sv-surface hover:border-white/[0.1]"
       )}
       style={
         isActive
           ? {
-              borderColor: `${accentColor}99`,
-              boxShadow: `0 0 28px rgba(${rgb},0.1)`,
+              borderColor: `rgba(${rgb},0.4)`,
+              boxShadow: `0 2px 16px rgba(0,0,0,0.25), 0 0 20px rgba(${rgb},0.06)`,
               ["--tw-ring-color" as string]: `${accentColor}80`,
             }
           : {
@@ -78,52 +80,57 @@ export default function PillItem({
       {/* Hover border tint for inactive pills */}
       {!isActive && (
         <span
-          className="absolute -inset-px rounded-full border-2 border-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+          className="absolute -inset-px rounded-[9999px] border border-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
           style={{
-            borderColor: `rgba(${hoverRgb},0.35)`,
+            borderColor: `rgba(${hoverRgb},0.25)`,
           }}
           aria-hidden
         />
       )}
 
-      {/* Avatar */}
+      {/* Avatar - large, left-anchored, dominant */}
       <div
-        className="shrink-0 rounded-full overflow-hidden ring-2 transition-all duration-200"
-        style={{
-          ["--tw-ring-color" as string]: isActive ? `${accentColor}99` : "rgba(255,255,255,0.08)",
-        }}
+        className={cn(
+          "shrink-0 rounded-full overflow-hidden transition-all duration-200",
+          isActive ? "ring-0" : "ring-2 ring-white/[0.06]"
+        )}
+        style={
+          isActive
+            ? { boxShadow: `0 0 0 2px rgba(${rgb},0.45)` }
+            : undefined
+        }
       >
         <Image
           src={imageUrl}
           alt={imageAlt}
           width={PILL_AVATAR_SIZE}
           height={PILL_AVATAR_SIZE}
-          sizes="(max-width: 767px) 56px, (max-width: 1023px) 60px, 68px"
-          className="h-14 w-14 md:h-[60px] md:w-[60px] lg:h-[68px] lg:w-[68px] object-cover rounded-full"
+          sizes="(max-width: 767px) 52px, (max-width: 1023px) 60px, 72px"
+          className="h-[52px] w-[52px] md:h-[60px] md:w-[60px] lg:h-[72px] lg:w-[72px] object-cover rounded-full"
         />
       </div>
 
-      {/* Text block */}
-      <div className="flex-1 min-w-0">
+      {/* Text block - improved spacing and hierarchy */}
+      <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
         <h3
           className={cn(
-            "text-[15px] md:text-base font-semibold text-white transition-colors relative z-[1] leading-tight",
-            isActive && "text-white"
+            "text-[15px] md:text-[16px] font-semibold text-white leading-snug tracking-[-0.01em]",
+            isActive ? "text-white" : "text-white/95"
           )}
         >
           {title}
         </h3>
         {subtitle && (
-          <p className="mt-0.5 text-[13px] md:text-sm text-sv-text-sub opacity-80 line-clamp-2 relative z-[1]">
+          <p className="mt-1.5 text-[13px] md:text-[14px] text-sv-text-sub opacity-75 line-clamp-2 leading-relaxed">
             {subtitle}
           </p>
         )}
       </div>
 
-      {/* Status dot (active only) */}
+      {/* Status dot - refined placement */}
       {isActive && (
         <span
-          className="absolute right-5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full z-[1] shrink-0"
+          className="absolute right-5 md:right-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full z-[1] shrink-0"
           style={{ backgroundColor: accentColor }}
           aria-hidden
         />

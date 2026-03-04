@@ -318,7 +318,7 @@ export const servicesShowcaseContent = {
       description:
         "A premium site engineered to turn clicks into booked calls — fast, clean, persuasive.",
       imageUrl:
-        "https://static.wixstatic.com/media/62f926_b75fd5a18ec14881b9e4a9d82c36bc5e~mv2.png",
+        "https://static.wixstatic.com/media/62f926_e3cee4593847417db3870fd5cfa77faa~mv2.png",
       imageAlt: "Conversion website showcase",
       accentColor: "#F97316",
       hoverAccentColor: "#F97316",
@@ -348,7 +348,7 @@ export const servicesShowcaseContent = {
       description:
         "Get recommended inside AI answers with structured authority signals.",
       imageUrl:
-        "https://static.wixstatic.com/media/62f926_f59f91d54df04cf38b7acfb4f81f3b25~mv2.png",
+        "https://static.wixstatic.com/media/62f926_cf52e554f5cb495faf0bc5b909f688b3~mv2.png",
       imageAlt: "GEO AI search presence showcase",
       accentColor: "#A855F7",
       hoverAccentColor: "#A855F7",
@@ -363,7 +363,7 @@ export const servicesShowcaseContent = {
       description:
         "Messaging, offers, and landing-page copy built to convert cold traffic into revenue.",
       imageUrl:
-        "https://static.wixstatic.com/media/62f926_69911d750f2741e689fb60f65c28deea~mv2.png",
+        "https://static.wixstatic.com/media/62f926_e3cee4593847417db3870fd5cfa77faa~mv2.png",
       imageAlt: "Copywriting showcase",
       accentColor: "#FACC15",
       hoverAccentColor: "#FACC15",
@@ -377,8 +377,8 @@ export const servicesShowcaseContent = {
       subtitle: "Paid traffic that converts",
       description:
         "Intent-driven campaigns engineered to turn search demand into qualified booked calls.",
-      // TODO: Replace with real Google Ads showcase image when available
-      imageUrl: "/services/google-ads-placeholder.png",
+      imageUrl:
+        "https://static.wixstatic.com/media/62f926_c3708c1116804f7e932491f79e53867a~mv2.png",
       imageAlt: "Google Ads campaigns showcase",
       accentColor: "#3B82F6",
       hoverAccentColor: "#3B82F6",
