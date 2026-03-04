@@ -369,7 +369,7 @@ export const servicesShowcaseContent = {
       description:
         "Messaging, offers, and landing-page copy built to convert cold traffic into revenue.",
       imageUrl:
-        "https://static.wixstatic.com/media/62f926_e3cee4593847417db3870fd5cfa77faa~mv2.png",
+          "https://static.wixstatic.com/media/62f926_7bd90c38d7be4dd9ae467b545839def3~mv2.png",
       imageAlt: "Copywriting showcase",
       accentColor: "#FACC15",
       hoverAccentColor: "#FACC15",
