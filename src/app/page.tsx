@@ -69,14 +69,14 @@ export default function HomePage() {
       {/* 10 — FAQ: Designjoy-style accordion + CTA card */}
       <FAQ />
 
-      {/* 11 — Final CTA: Spots Left */}
+      {/* 11 — Book a call: Cal.com inline (before final CTA) */}
+      <CalendarSection />
+
+      {/* 12 — Final CTA: Spots Left */}
       <SpotsLeftSection />
 
-      {/* 12 — Conviction: Final visual momentum block */}
+      {/* 13 — Conviction: Final visual momentum block */}
       <FinalConvictionSection />
-
-      {/* 13 — Book a call: Cal.com embed (right before footer) */}
-      <CalendarSection />
     </>
   );
 }
