@@ -15,10 +15,12 @@ const PremiumPricingSection = dynamic(
 const MarbleToServicesBridge = dynamic(
   () => import("@/components/home/MarbleToServicesBridge")
 );
-const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
+const BenefitsRail = dynamic(() => import("@/components/sections/BenefitsRail"));
+const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const FinalConvictionSection = dynamic(
   () => import("@/components/home/FinalConvictionSection")
 );
+const BookCall = dynamic(() => import("@/components/sections/BookCall"));
 
 export default function HomePage() {
   return (
@@ -61,14 +63,20 @@ export default function HomePage() {
       {/* 8 — Offer Stack: Premium pricing tiers */}
       <PremiumPricingSection />
 
-      {/* 9 — FAQ: Objection handling */}
-      <FAQSection />
+      {/* 9 — Benefits Rail: System benefits cards */}
+      <BenefitsRail />
+
+      {/* 10 — FAQ: Designjoy-style accordion + CTA card */}
+      <FAQ />
 
       {/* 11 — Final CTA: Spots Left */}
       <SpotsLeftSection />
 
-      {/* 12 — Conviction: Final visual momentum block before footer */}
+      {/* 12 — Conviction: Final visual momentum block */}
       <FinalConvictionSection />
+
+      {/* 13 — Book a call: Cal.com embed (right before footer) */}
+      <BookCall />
     </>
   );
 }

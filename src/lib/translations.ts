@@ -158,6 +158,40 @@ export type TranslationsShape = {
     menu: string;
     close: string;
   };
+  benefits: {
+    eyebrow: string;
+    headline: string;
+    paragraph: string;
+    card1Title: string;
+    card1Desc: string;
+    card2Title: string;
+    card2Desc: string;
+    card3Title: string;
+    card3Desc: string;
+    card4Title: string;
+    card4Desc: string;
+    card5Title: string;
+    card5Desc: string;
+    card6Title: string;
+    card6Desc: string;
+  };
+  faqBooking: {
+    heading: string;
+    items: Array<{ question: string; answer: string }>;
+    ctaTitle: string;
+    ctaBody: string;
+    ctaButton: string;
+    ctaEmail: string;
+  };
+  bookCall: {
+    eyebrow: string;
+    headline: string;
+    body: string;
+    bullet1: string;
+    bullet2: string;
+    bullet3: string;
+    cta: string;
+  };
 };
 
 export const translations: Record<Locale, TranslationsShape> = {
@@ -211,6 +245,52 @@ export const translations: Record<Locale, TranslationsShape> = {
       menu: "Menu",
       close: "Close",
     },
+    benefits: {
+      eyebrow: "SYSTEM BENEFITS",
+      headline: 'It\'s "finally a system" better',
+      paragraph:
+        "Client Growth replaces scattered vendors and guesswork with one connected growth system built to turn attention into qualified calls.",
+      card1Title: "One partner, one system",
+      card1Desc: "One operator owns the full pipeline.",
+      card2Title: "Built to convert",
+      card2Desc: "Every page engineered to drive booked calls.",
+      card3Title: "Tracked from click to call",
+      card3Desc: "Clear attribution and reporting.",
+      card4Title: "Faster to launch",
+      card4Desc: "Clean execution without months of delays.",
+      card5Title: "You own the assets",
+      card5Desc: "Site + data + infrastructure stays yours.",
+      card6Title: "Compounds over time",
+      card6Desc: "SEO + conversion gains stack monthly.",
+    },
+    faqBooking: {
+      heading: "Frequently asked questions",
+      items: [
+        { question: "How fast can this go live?", answer: "Most clients are live within 2–4 weeks. We start with a quick audit, then build. No lengthy discovery phases." },
+        { question: "What if I already have a website?", answer: "We can overhaul your existing site for conversion, or build a new one. The goal is the same: qualified calls." },
+        { question: "Do you handle Google Ads?", answer: "Yes. Google Ads, conversion landing pages, and tracking are part of the system. Ad spend goes directly to Google." },
+        { question: "Do you do SEO and AI search visibility?", answer: "Yes. Local SEO and GEO content for AI search (ChatGPT, etc.) are included where they make sense for your market." },
+        { question: "What do I need to provide?", answer: "Basic business info, your offer clarity, and access to analytics/ads if we're optimizing. We handle the heavy lifting." },
+        { question: "Do I own the website and assets?", answer: "Yes. The site, data, and infrastructure are yours. No lock-in." },
+        { question: "What happens after launch?", answer: "Weekly optimization, monthly review calls, and ongoing improvements. The system compounds over time." },
+        { question: "How do you track results?", answer: "Calls, cost per call, and source attribution. You get a clear dashboard, not vanity metrics." },
+        { question: "What's the minimum ad spend?", answer: "$500/month for Performance Engine, $1,500 for Market Ownership. Ad spend goes to Google, not to us." },
+        { question: "Who is this best for?", answer: "Service businesses doing $5K+/month that want predictable leads from the internet instead of relying on referrals." },
+      ],
+      ctaTitle: "Book a 15-min strategy call",
+      ctaBody: "We'll review your market, your current pipeline, and whether this system makes sense for your business.",
+      ctaButton: "Book a strategy call →",
+      ctaEmail: "hello@clientgrowth.ca",
+    },
+    bookCall: {
+      eyebrow: "BOOK A CALL",
+      headline: "See if this system is the right fit for your market",
+      body: "Book a short call. We'll look at your market, your current pipeline, and the fastest path to qualified calls.",
+      bullet1: "15 minutes",
+      bullet2: "Clear next steps",
+      bullet3: "No bloated sales process",
+      cta: "Book a strategy call →",
+    },
   },
   fr: {
     nav: {
@@ -262,6 +342,52 @@ export const translations: Record<Locale, TranslationsShape> = {
       skipToContent: "Aller au contenu",
       menu: "Menu",
       close: "Fermer",
+    },
+    benefits: {
+      eyebrow: "AVANTAGES DU SYSTÈME",
+      headline: "C'est « enfin un système » mieux",
+      paragraph:
+        "Client Growth remplace les prestataires dispersés et les approximations par un système de croissance connecté, conçu pour transformer l'attention en appels qualifiés.",
+      card1Title: "Un partenaire, un système",
+      card1Desc: "Un seul opérateur gère tout le pipeline.",
+      card2Title: "Conçu pour convertir",
+      card2Desc: "Chaque page conçue pour générer des appels réservés.",
+      card3Title: "Traçabilité de clic à appel",
+      card3Desc: "Attribution claire et rapports.",
+      card4Title: "Lancement plus rapide",
+      card4Desc: "Exécution propre sans mois de délais.",
+      card5Title: "Vous possédez les actifs",
+      card5Desc: "Site, données et infrastructure restent à vous.",
+      card6Title: "Effet cumulatif",
+      card6Desc: "SEO et conversion progressent chaque mois.",
+    },
+    faqBooking: {
+      heading: "Questions fréquentes",
+      items: [
+        { question: "En combien de temps c'est en ligne?", answer: "La plupart des clients sont en ligne en 2 à 4 semaines. On commence par un audit rapide, puis on construit." },
+        { question: "Et si j'ai déjà un site web?", answer: "On peut refondre votre site existant pour la conversion, ou en créer un nouveau. L'objectif reste le même: des appels qualifiés." },
+        { question: "Vous gérez Google Ads?", answer: "Oui. Google Ads, pages d'atterrissage et suivi font partie du système. Le budget pub va directement à Google." },
+        { question: "Vous faites du SEO et la visibilité sur les moteurs IA?", answer: "Oui. SEO local et contenu GEO pour la recherche IA (ChatGPT, etc.) sont inclus selon votre marché." },
+        { question: "Qu'est-ce que je dois fournir?", answer: "Infos de base sur votre entreprise, clarté de votre offre, accès aux analytics/ads si on optimise." },
+        { question: "Est-ce que je possède le site et les actifs?", answer: "Oui. Le site, les données et l'infrastructure sont à vous. Pas de verrouillage." },
+        { question: "Que se passe-t-il après le lancement?", answer: "Optimisation hebdomadaire, appels de revue mensuels, améliorations continues. Le système progresse." },
+        { question: "Comment suivez-vous les résultats?", answer: "Appels, coût par appel, attribution des sources. Tableau de bord clair, pas de métriques vaines." },
+        { question: "Quel est le budget pub minimum?", answer: "500 $/mois pour Performance Engine, 1 500 $ pour Market Ownership. Le budget pub va à Google." },
+        { question: "Pour qui est-ce le mieux?", answer: "Entreprises de services à 5 000 $+/mois qui veulent des leads prévisibles sur Internet plutôt que les références." },
+      ],
+      ctaTitle: "Réservez un appel stratégie de 15 min",
+      ctaBody: "On examinera votre marché, votre pipeline actuel et si ce système convient à votre entreprise.",
+      ctaButton: "Réserver un appel stratégie →",
+      ctaEmail: "hello@clientgrowth.ca",
+    },
+    bookCall: {
+      eyebrow: "RÉSERVER UN APPEL",
+      headline: "Voyez si ce système convient à votre marché",
+      body: "Réservez un court appel. On regardera votre marché, votre pipeline actuel et la voie la plus rapide vers des appels qualifiés.",
+      bullet1: "15 minutes",
+      bullet2: "Prochaines étapes claires",
+      bullet3: "Pas de processus commercial lourd",
+      cta: "Réserver un appel stratégie →",
     },
   },
 };
