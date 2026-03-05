@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, User } from "lucide-react";
 
-const KNIGHT_AVATAR = "/knight-avatar.png";
+const KNIGHT_AVATAR =
+  "https://static.wixstatic.com/media/62f926_750bab7cd7e5447c99453f33115c7146~mv2.png";
 
 function KnightAvatar() {
   const [imgError, setImgError] = useState(false);
