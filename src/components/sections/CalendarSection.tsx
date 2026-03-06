@@ -1,15 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { useTranslations } from "@/context/LocaleContext";
 
 const CAL_LINK = "clientgrowth/15min";
 const CAL_BOOKING_URL = `https://app.cal.com/${CAL_LINK}?layout=column&hideEventTypeDetails=1`;
 
+const BallPit = dynamic(() => import("./BallPit"), {
+  ssr: false,
+  loading: () => <div className="min-h-[360px] bg-transparent" aria-hidden />,
+});
+
 export default function CalendarSection() {
   const t = useTranslations();
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [showBallpit, setShowBallpit] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,6 +30,12 @@ export default function CalendarSection() {
     if (el) observer.observe(el);
     return () => (el ? observer.unobserve(el) : undefined);
   }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    const id = window.setTimeout(() => setShowBallpit(true), 2000);
+    return () => window.clearTimeout(id);
+  }, [isVisible]);
 
   return (
     <section
@@ -43,6 +56,18 @@ export default function CalendarSection() {
             <p className="mt-4 text-base opacity-70 text-white">
               {t<string>("bookCall.body")}
             </p>
+            {/* Ball pit — desktop only, starts 2s after section in view */}
+            {showBallpit && (
+              <div className="mt-6 hidden md:block">
+                <div className="min-h-[360px] w-full overflow-hidden rounded-lg">
+                  <BallPit
+                    className="h-full w-full"
+                    colors={[0x9b8bc6, 0x3b82f6, 0xffffff]}
+                    followCursor
+                  />
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right column: notice + calendar */}
