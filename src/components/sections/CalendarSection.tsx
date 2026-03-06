@@ -40,32 +40,27 @@ export default function CalendarSection() {
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-12 lg:gap-16">
-          {/* Left column: marketing + ball pit background */}
-          <div className="relative min-h-[360px] min-w-0 md:w-[40%] lg:w-[38%] shrink-0">
-            {/* Ball pit background — desktop only, transparent, behind text */}
+          {/* Left column: marketing + ball pit */}
+          <div className="min-w-0 md:w-[40%] lg:w-[38%] shrink-0">
+            <h2 className="text-[36px] font-semibold text-white">
+              {t<string>("bookCall.headline")}
+            </h2>
+            <p className="mt-2 text-[20px] italic text-white/90">
+              {t<string>("bookCall.italicSubline")}
+            </p>
+            <p className="mt-4 text-base opacity-70 text-white">
+              {t<string>("bookCall.body")}
+            </p>
+            {/* Ball pit — explicit fixed-size block, visible on all viewports for debugging */}
             {isVisible && (
-              <div
-                className="pointer-events-none absolute inset-0 hidden md:block"
-                aria-hidden
-              >
+              <div className="mt-6 block w-full" style={{ height: 360 }}>
                 <BallPit
-                  className="absolute inset-0 h-full w-full"
+                  className="h-full w-full"
                   colors={[0x9b8bc6, 0x3b82f6, 0xffffff]}
-                  followCursor={false}
+                  followCursor
                 />
               </div>
             )}
-            <div className="relative z-10">
-              <h2 className="text-[36px] font-semibold text-white">
-                {t<string>("bookCall.headline")}
-              </h2>
-              <p className="mt-2 text-[20px] italic text-white/90">
-                {t<string>("bookCall.italicSubline")}
-              </p>
-              <p className="mt-4 text-base opacity-70 text-white">
-                {t<string>("bookCall.body")}
-              </p>
-            </div>
           </div>
 
           {/* Right column: notice + calendar */}
