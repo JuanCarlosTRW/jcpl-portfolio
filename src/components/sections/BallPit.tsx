@@ -491,8 +491,13 @@ class ThreeApp {
 
   resize() {
     const parent = this.canvas.parentElement;
-    const w = parent?.offsetWidth ?? window.innerWidth;
-    const h = parent?.offsetHeight ?? window.innerHeight;
+    let w = parent?.offsetWidth ?? 0;
+    let h = parent?.offsetHeight ?? 0;
+    if (w <= 0 || h <= 0) {
+      w = w <= 0 ? 300 : w;
+      h = h <= 0 ? 360 : h;
+      console.log("[BallPit debug] resize: parent had zero dims, using fallback", w, "x", h);
+    }
     // #region agent log
     if (typeof fetch !== 'undefined') fetch('http://127.0.0.1:7602/ingest/39ee1650-fa20-4c38-ad63-9025a4005506',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ce91c5'},body:JSON.stringify({sessionId:'ce91c5',location:'BallPit.tsx:resize',message:'BallPit resize',data:{parentOffsetW:parent?.offsetWidth,parentOffsetH:parent?.offsetHeight,w,h,visible:this.visible},hypothesisId:'H1 H3',timestamp:Date.now()})}).catch(()=>{});
     // #endregion
@@ -749,13 +754,21 @@ export default function BallPit({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    instanceRef.current = createBallpit(canvas, {
-      followCursor,
-      colors,
-      ...props,
-    });
+    if (!canvas) {
+      console.log("[BallPit debug] No canvas ref");
+      return;
+    }
+    console.log("[BallPit debug] Mounting, parent:", canvas.parentElement?.offsetWidth, "x", canvas.parentElement?.offsetHeight);
+    try {
+      instanceRef.current = createBallpit(canvas, {
+        followCursor,
+        colors,
+        ...props,
+      });
+      console.log("[BallPit debug] createBallpit OK");
+    } catch (err) {
+      console.error("[BallPit debug] createBallpit failed:", err);
+    }
 
     return () => {
       instanceRef.current?.dispose();
