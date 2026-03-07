@@ -70,15 +70,15 @@ export default function BenefitsRail() {
                 className="flex-shrink-0 w-[280px] sm:w-[300px] py-6 px-4"
                 style={{ scrollSnapAlign: "start" }}
               >
+                <h3 className="text-[18px] font-semibold text-slate-900 leading-snug mb-2">
+                  {t<string>(keys.title)}
+                </h3>
                 <p
-                  className="text-[13px] font-semibold leading-snug mb-2"
+                  className="text-[13px] font-semibold leading-snug"
                   style={{ color: "#f97316", letterSpacing: "0.03em" }}
                 >
                   {t<string>(keys.stat)}
                 </p>
-                <h3 className="text-[18px] font-semibold text-slate-900 leading-snug">
-                  {t<string>(keys.title)}
-                </h3>
               </div>
             ))}
           </div>
