@@ -76,12 +76,17 @@ export default function PricingStatement() {
               className="relative rounded-2xl overflow-hidden pricing-left-card lift-card"
               style={{ minHeight: 520 }}
             >
-              <div className="founder-photo-wrapper pricing-photo-wrapper absolute inset-0">
+              <div
+                className="founder-photo-wrapper pricing-photo-wrapper absolute inset-0 z-0"
+                style={{ position: "absolute" }}
+              >
                 <img
                   src={JUAN_IMG_SRC}
                   alt="Juan Carlos Portillo-Laflamme"
-                  className="absolute inset-0 w-full h-full object-cover object-top"
-                  style={{ borderRadius: 16 }}
+                  className="block w-full h-full object-cover object-top"
+                  style={{ width: "100%", height: "100%", borderRadius: 16 }}
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
               <div
