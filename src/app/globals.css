@@ -680,8 +680,57 @@ body::before {
   animation: pricing-gradient-shift 6s ease-in-out infinite;
 }
 
+/* Left card premium membership styling */
+.pricing-left-card {
+  transition: 0.4s ease;
+}
+.pricing-left-card:hover {
+  --pricing-left-overlay-opacity: 0.85;
+}
+.pricing-left-card:hover .pricing-left-bg-image {
+  transform: scale(1.02);
+}
+.pricing-left-card .pricing-left-gradient-overlay {
+  transition: 0.4s ease;
+}
+.pricing-left-card:hover .pricing-left-gradient-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 15, 30, 0.06) 0%,
+    rgba(10, 15, 30, 0.1) 40%,
+    rgba(10, 15, 30, 0.78) 75%,
+    rgba(10, 15, 30, 0.94) 100%
+  );
+}
+
+.pricing-left-cta-shine {
+  position: relative;
+  overflow: hidden;
+}
+.pricing-left-cta-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+.pricing-left-cta-shine:hover::after {
+  left: 140%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pricing-float-photo { animation: none; }
   .pricing-cta-shine:hover::after { animation: none; }
   .pricing-gradient-mesh { animation: none; }
+  .pricing-left-card:hover .pricing-left-bg-image { transform: none; }
+  .pricing-left-cta-shine:hover::after { transition: none; left: 140%; }
 }
