@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, User } from "lucide-react";
+import { DemoCallButton } from "@/components/DemoCallButton";
 
 const KNIGHT_AVATAR =
   "https://static.wixstatic.com/media/62f926_750bab7cd7e5447c99453f33115c7146~mv2.png";
@@ -68,23 +68,15 @@ export default function BookCallCard({
         <p className="text-[0.9rem] leading-[1.6] mb-6 max-w-[280px]" style={{ color: "#D2C9B8" }}>
           {body}
         </p>
-        <Link
-          href={buttonHref}
-          className="flex items-center justify-center w-full py-4 px-6 rounded-lg font-semibold text-[#0A0E1A] text-[15px] cta-primary cta-button"
-          style={{ background: "#D4A853" }}
-          onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}
-          onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#D4A853"; }}
-        >
-          {buttonText}
-        </Link>
-        {riskReversalText && (
-          <p
-            className="mt-2 text-center"
-            style={{ fontSize: "0.75rem", color: "#756D63" }}
-          >
-            {riskReversalText}
-          </p>
-        )}
+        <div className="flex flex-col items-center w-full">
+          <DemoCallButton
+            label={buttonText}
+            href={buttonHref}
+          />
+          {riskReversalText && (
+            <span className="demo-cta-risk">{riskReversalText}</span>
+          )}
+        </div>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
           <p className="text-[13px]" style={{ color: "#A69D8D" }}>
             {emailLabel}{" "}

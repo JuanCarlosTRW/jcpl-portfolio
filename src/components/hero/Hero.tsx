@@ -3,6 +3,7 @@
 import { useRef, useEffect, useCallback } from "react";
 import gsap from "gsap";
 import HeroWebGLBackground from "./HeroWebGLBackground";
+import { DemoCallButton } from "@/components/DemoCallButton";
 import { prefersReducedMotion } from "@/lib/motion";
 import styles from "./HeroAvatarFrame.module.css";
 import "./hero.css";
@@ -163,24 +164,14 @@ export default function Hero() {
 							booked calls. One person. One pipeline.
 						</p>
 
-						<div ref={ctaRef} className="cb-cta-wrap hero-cta-wrapper">
-							<a href="#book-call" className="cb-cta cb-cta--primary cta-primary cta-button">
-								Book a 20-Minute Diagnostic Call
-								<span className="cb-cta-arrow" aria-hidden="true">→</span>
-							</a>
-							<p
-								className="cb-microtrust hero-risk-reversal"
-								style={{
-									fontSize: "0.875rem",
-									color: "#756D63",
-									textAlign: "center",
-									marginTop: 8,
-									marginBottom: 0,
-								}}
-							>
-								If I cannot move the needle, I will tell you on the call. Before
-								you pay anything.
-							</p>
+						<div ref={ctaRef} className="cb-cta-wrap hero-cta-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+							<DemoCallButton
+								label="Book a 20-Minute Diagnostic Call"
+								href="#book-call"
+							/>
+							<span className="demo-cta-risk">
+								If I cannot move the needle, I will tell you on the call. Before you pay anything.
+							</span>
 						</div>
 					</div>
 				</div>
