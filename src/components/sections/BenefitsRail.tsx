@@ -67,18 +67,20 @@ function EliteExecutionIcon() {
   );
 }
 
-function BenefitCardArt({
+function BenefitCard({
   index,
   icon,
+  title,
 }: {
   index: number;
   icon: string | "custom";
+  title: string;
 }) {
   const palette = GRAINIENT_PALETTES[index % GRAINIENT_PALETTES.length];
   return (
     <div
-      className="relative h-[140px] min-h-[140px] w-full rounded-t-xl flex items-center justify-center overflow-hidden"
-      aria-hidden
+      className="relative w-full flex flex-col overflow-hidden rounded-xl"
+      style={{ minHeight: 320, height: 320 }}
     >
       <Grainient
         className="absolute inset-0 w-full h-full"
@@ -86,19 +88,27 @@ function BenefitCardArt({
         color2={palette.color2}
         color3={palette.color3}
       />
-      <div className="relative z-10 flex items-center justify-center w-[112px] h-[112px]">
-        {icon === "custom" ? (
-          <EliteExecutionIcon />
-        ) : (
-          <Image
-            src={icon}
-            alt=""
-            width={112}
-            height={112}
-            className="w-[112px] h-[112px] object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
-            unoptimized
-          />
-        )}
+      <div className="relative z-10 flex-1 flex items-center justify-center">
+        <div className="flex items-center justify-center w-[112px] h-[112px]">
+          {icon === "custom" ? (
+            <EliteExecutionIcon />
+          ) : (
+            <Image
+              src={icon}
+              alt=""
+              width={112}
+              height={112}
+              className="w-[112px] h-[112px] object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
+              unoptimized
+            />
+          )}
+        </div>
+      </div>
+      <div
+        className="relative z-10 px-5 pb-6 pt-2"
+        style={{ color: "#ffffff", fontWeight: 600 }}
+      >
+        <h3 className="text-[18px] leading-snug">{title}</h3>
       </div>
     </div>
   );
@@ -172,15 +182,14 @@ export default function BenefitsRail() {
             {CARD_TITLE_KEYS.map((titleKey, i) => (
               <article
                 key={i}
-                className="flex-shrink-0 w-[280px] sm:w-[300px] rounded-xl border border-slate-200 bg-white overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:border-slate-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-sv-primary/50"
+                className="flex-shrink-0 w-[280px] sm:w-[300px] rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-sv-primary/50"
                 style={{ scrollSnapAlign: "start" }}
               >
-                <BenefitCardArt index={i} icon={CARD_ICONS[i]} />
-                <div className="p-5">
-                  <h3 className="text-[18px] font-semibold text-slate-900 leading-snug">
-                    {t<string>(titleKey)}
-                  </h3>
-                </div>
+                <BenefitCard
+                  index={i}
+                  icon={CARD_ICONS[i]}
+                  title={t<string>(titleKey)}
+                />
               </article>
             ))}
           </div>
