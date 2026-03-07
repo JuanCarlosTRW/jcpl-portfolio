@@ -627,3 +627,12 @@ body::before {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* ── Availability pulse indicator ── */
+@keyframes availability-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+.availability-pulse-dot {
+  animation: availability-pulse 2s ease-in-out infinite;
+}
