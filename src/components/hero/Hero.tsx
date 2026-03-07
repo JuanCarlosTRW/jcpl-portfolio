@@ -99,6 +99,10 @@ export default function Hero() {
 				<div ref={bgLayerRef} className="cb-layer cb-layer--bg" aria-hidden="true">
 					<HeroWebGLBackground />
 				</div>
+				{/* Solid overlay to mask WebGL blue — flat #0D0B09 */}
+				<div className="cb-layer" style={{ background: "#0D0B09", zIndex: 2 }} aria-hidden="true" />
+				{/* Subtle warm glow behind headline */}
+				<div className="cb-layer" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(212, 168, 83, 0.03) 0%, transparent 50%)", zIndex: 2.5, pointerEvents: "none" }} aria-hidden="true" />
 				<div className="cb-layer cb-overlay-top" aria-hidden="true" />
 				<div className="cb-layer cb-overlay-vignette" aria-hidden="true" />
 				<div className="cb-layer cb-grain" aria-hidden="true" />
@@ -114,6 +118,7 @@ export default function Hero() {
 								color: "#D4A853",
 								margin: 0,
 								marginBottom: 12,
+								marginTop: -24,
 							}}
 						>
 							GROWTH INFRASTRUCTURE FOR LOCAL SERVICE BUSINESSES
@@ -125,7 +130,7 @@ export default function Hero() {
 								fontSize: "0.95rem",
 								color: "#756D63",
 								fontStyle: "italic",
-								margin: "0 0 16px",
+								margin: "0 0 28px",
 							}}
 						>
 							You got my email. Here is the proof behind it.
@@ -138,7 +143,7 @@ export default function Hero() {
 								fontSize: "clamp(2rem, 5vw, 3rem)",
 								color: "#F5F0E8",
 								lineHeight: 1.2,
-								marginBottom: 16,
+								marginBottom: 8,
 							}}
 						>
 							{["$41,085", "in", "revenue", "from", "$900", "in", "ad", "spend."].map((word, i) => (
@@ -157,7 +162,7 @@ export default function Hero() {
 								fontSize: "1.125rem",
 								color: "#A69D8D",
 								maxWidth: 640,
-								margin: "0 auto 24px",
+								margin: "0 auto 40px",
 								textAlign: "center",
 								lineHeight: 1.6,
 							}}

@@ -16,7 +16,11 @@ function CountUpRevenue({ to, prefix = "" }: { to: number; prefix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (prefersReducedMotion() || !ref.current) return;
+    if (!ref.current) return;
+    if (prefersReducedMotion()) {
+      ref.current.textContent = prefix + to.toLocaleString("en-US");
+      return;
+    }
 
     const obj = { val: 0 };
     const ctx = gsap.context(() => {
@@ -29,7 +33,7 @@ function CountUpRevenue({ to, prefix = "" }: { to: number; prefix?: string }) {
             duration: 1.5,
             ease: "power2.out",
             onUpdate: () => {
-              if (ref.current) ref.current.textContent = prefix + Math.round(obj.val).toLocaleString();
+              if (ref.current) ref.current.textContent = prefix + Math.round(obj.val).toLocaleString("en-US");
             },
           });
         },

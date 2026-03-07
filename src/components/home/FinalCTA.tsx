@@ -13,7 +13,7 @@ export default function FinalCTA() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.06) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,168,83,0.04) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -21,7 +21,7 @@ export default function FinalCTA() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, var(--bg-base) 0%, rgba(10,16,32,0.6) 50%, var(--bg-base) 100%)",
+            "linear-gradient(180deg, var(--bg-base) 0%, rgba(13,11,9,0.6) 50%, var(--bg-base) 100%)",
         }}
         aria-hidden="true"
       />

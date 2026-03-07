@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { prefersReducedMotion } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,13 @@ export function countUp(
 
   const { prefix = "", suffix = "", duration = 1.5, decimals = 0 } = options;
 
+  if (prefersReducedMotion()) {
+    const formatted =
+      decimals > 0 ? target.toFixed(decimals) : target.toLocaleString("en-US");
+    element.textContent = prefix + formatted + suffix;
+    return;
+  }
+
   const obj = { val: 0 };
   gsap.fromTo(
     obj,
@@ -24,7 +32,7 @@ export function countUp(
     {
       val: target,
       duration,
-      ease: "power2.out",
+      ease: "expo.out",
       onUpdate: () => {
         const v = obj.val;
         const formatted =
