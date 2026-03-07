@@ -10,8 +10,8 @@
   --color-sv-surface:     #0E1F35;
   --color-sv-elevated:    #122845;
   --color-sv-soft:        #1A2A3D;
-  --color-sv-primary:     #2B5A8C;
-  --color-sv-primary-hov: #1E4A75;
+  --color-sv-primary:     #f97316;
+  --color-sv-primary-hov: #ea6c0a;
   --color-sv-muted:       #6B8DB8;
   --color-sv-light:       #D9E4EF;
   --color-sv-text:        #E8EDF3;
@@ -74,13 +74,13 @@
   --text-muted: #7A92AB;
   --text-dim: #56708A;
 
-  /* ─── BRAND ACCENTS (Sapphire Veil) ─── */
-  --brand-accent: #2B5A8C;
-  --brand-deep: #1E4A75;
-  --brand-alt: #2B5A8C;
-  --brand-subtle: rgba(43, 90, 140, 0.15);
-  --brand-heritage: #2B5A8C;
-  --brand-strong: #2B5A8C;
+  /* ─── BRAND ACCENTS (Client Growth Orange) ─── */
+  --brand-accent: #f97316;
+  --brand-deep: #ea6c0a;
+  --brand-alt: #f97316;
+  --brand-subtle: rgba(249, 115, 22, 0.15);
+  --brand-heritage: #f97316;
+  --brand-strong: #f97316;
 
   /* ─── SEMANTIC ─── */
   --color-success: #2D6B4F;
@@ -95,7 +95,7 @@
   /* ─── EFFECTS ─── */
   --shadow-premium: 0 16px 60px rgba(0,0,0,0.45);
   --shadow-soft: 0 4px 24px rgba(0,0,0,.25);
-  --glow-accent: 0 0 0 1px rgba(43, 90, 140, 0.35), 0 10px 40px rgba(43, 90, 140, 0.18);
+  --glow-accent: 0 0 0 1px rgba(249, 115, 22, 0.35), 0 10px 40px rgba(249, 115, 22, 0.12);
 
   /* ─── RADIUS (sharper — consulting, not SaaS) ─── */
   --radius-sm: 6px;
