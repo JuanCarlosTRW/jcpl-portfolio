@@ -117,8 +117,8 @@ function BenefitCard({
         </h3>
         {description && (
           <p
-            className="text-[13px] leading-snug mt-1 opacity-90"
-            style={{ color: "#ffffff" }}
+            className="leading-snug mt-1"
+            style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.8rem" }}
           >
             {description}
           </p>
@@ -127,6 +127,16 @@ function BenefitCard({
     </div>
   );
 }
+
+const CARD_DESCRIPTIONS: (string | null)[] = [
+  "No vendors to coordinate. No handoffs. One person owns the full pipeline from day one.",
+  "Every page built to answer why you, why now within 10 seconds and move visitors toward a booked call.",
+  "Every call traced back to its source. Cost per call updated weekly. No vanity metrics.",
+  "Median 11 days from signed agreement to live system. Not 8 weeks of onboarding.",
+  null,
+  null,
+  null,
+];
 
 const CARD_KEYS = [
   { title: "benefits.card1Title", desc: "benefits.card1Desc" },
@@ -203,7 +213,7 @@ export default function BenefitsRail() {
                   index={i}
                   icon={CARD_ICONS[i]}
                   title={t<string>(keys.title)}
-                  description={t<string>(keys.desc)}
+                  description={CARD_DESCRIPTIONS[i] ?? t<string>(keys.desc)}
                 />
               </article>
             ))}
