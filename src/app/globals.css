@@ -636,3 +636,52 @@ body::before {
 .availability-pulse-dot {
   animation: availability-pulse 2s ease-in-out infinite;
 }
+
+/* ── Pricing section animations ── */
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(-6px); }
+  50% { transform: translateY(0); }
+}
+
+@keyframes pricing-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes cta-shine-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.pricing-float-photo {
+  animation: float-up-down 3s ease-in-out infinite;
+}
+
+.pricing-cta-shine {
+  position: relative;
+  overflow: hidden;
+}
+.pricing-cta-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  width: 50%;
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+.pricing-cta-shine:hover::after {
+  animation: cta-shine-sweep 0.6s ease-out forwards;
+}
+
+.pricing-gradient-mesh {
+  background: linear-gradient(135deg, #0f1729 0%, #1a2744 50%, #0f1729 100%);
+  background-size: 200% 200%;
+  animation: pricing-gradient-shift 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-float-photo { animation: none; }
+  .pricing-cta-shine:hover::after { animation: none; }
+  .pricing-gradient-mesh { animation: none; }
+}
