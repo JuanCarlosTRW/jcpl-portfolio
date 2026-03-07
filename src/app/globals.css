@@ -6,10 +6,10 @@
    bg-sv-base, text-sv-text, bg-sv-primary, etc.
    ═══════════════════════════════════════════════════ */
 @theme {
-  --color-sv-base:        #090E1C;
-  --color-sv-surface:     #0F1628;
-  --color-sv-elevated:    #141C2E;
-  --color-sv-soft:        #182438;
+  --color-sv-base:        #0D0B09;
+  --color-sv-surface:     #131009;
+  --color-sv-elevated:    #181410;
+  --color-sv-soft:        #1A1510;
   --color-sv-primary:     #D4A853;
   --color-sv-primary-hov: #C49A2A;
   --color-sv-muted:       #A69D8D;
@@ -21,12 +21,14 @@
   --color-sv-danger:      #C0392B;
   --color-sv-warn:        #C9A84C;
   --color-sv-success:     #2D6B4F;
-  /* Client Growth palette */
-  --color-navy-950: #090E1C;
-  --color-navy-900: #0F1628;
-  --color-navy-800: #141C2E;
-  --color-navy-700: #182438;
-  --color-navy-600: #1C2640;
+  /* Client Growth palette — warm charcoal */
+  --color-charcoal-950: #0D0B09;
+  --color-charcoal-900: #131009;
+  --color-charcoal-800: #181410;
+  --color-charcoal-700: #1A1510;
+  --color-charcoal-600: #1E1A14;
+  --color-charcoal-500: #2A241C;
+  --color-charcoal-400: #2A2318;
   --color-cream-100: #F5F0E8;
   --color-cream-200: #D2C9B8;
   --color-cream-300: #A69D8D;
@@ -74,16 +76,20 @@
   --beam-duration: 4s;          /* Laser animation cycle */
   --hit-delay: 0.18s;           /* Panel hit reaction delay */
 
-  /* ─── BACKGROUND SYSTEM (Client Growth — Warm Navy) ─── */
-  --bg-main: #090E1C;
-  --bg-base: #090E1C;
-  --bg-raised: #0F1628;
-  --bg-surface: #0F1628;
-  --bg-card: #141C2E;
-  --bg-elevated: #141C2E;
-  --bg-card-hover: #182438;
-  --bg-soft: #1C2640;
-  --bg-footer: #040A12;
+  /* ─── BACKGROUND SYSTEM (Client Growth — Warm Charcoal) ─── */
+  --bg-deepest: #0D0B09;
+  --bg-mid: #131009;
+  --bg-raised: #181410;
+  --bg-warmest: #1A1510;
+  --bg-main: #0D0B09;
+  --bg-base: #0D0B09;
+  --bg-surface: #131009;
+  --bg-elevated: #181410;
+  --bg-card: #1E1A14;
+  --bg-card-warm: #221D17;
+  --bg-card-hover: #2A241C;
+  --bg-soft: #2A2318;
+  --bg-footer: #0D0B09;
 
   /* ─── TEXT (warm cream system) ─── */
   --text-headline: #F5F0E8;
@@ -95,8 +101,8 @@
   --text-dim: #756D63;
 
   /* ─── STRUCTURE ─── */
-  --border: #1C2640;
-  --border-muted: #263050;
+  --border: #2A2318;
+  --border-muted: #221D17;
 
   /* ─── BRAND ACCENTS (Champagne Gold) ─── */
   --brand-accent: #D4A853;
@@ -122,9 +128,8 @@
   --color-warning: #C9A84C;
 
   /* ─── UI LINES ─── */
-  --border-soft: rgba(43, 90, 140, 0.15);
-  --border-strong: rgba(43, 90, 140, 0.30);
-  --border: var(--border-soft);
+  --border-soft: rgba(42, 35, 24, 0.6);
+  --border-strong: #2A2318;
 
   /* ─── EFFECTS ─── */
   --shadow-premium: 0 16px 60px rgba(0,0,0,0.45);
@@ -154,7 +159,7 @@ html {
 }
 
 body {
-  background: var(--bg-base);
+  background: var(--bg-deepest);
   color: var(--text-primary);
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -709,7 +714,7 @@ body::before {
 }
 
 .pricing-gradient-mesh {
-  background: linear-gradient(135deg, #0F1628 0%, #1a2744 50%, #0F1628 100%);
+  background: linear-gradient(135deg, #131009 0%, #1a2744 50%, #131009 100%);
   background-size: 200% 200%;
   animation: pricing-gradient-shift 6s ease-in-out infinite;
 }
@@ -773,7 +778,7 @@ body::before {
 .depth-card,
 .lift-card {
   transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
   will-change: transform;
   cursor: default;
 }
@@ -782,28 +787,29 @@ body::before {
 .lift-card:hover {
   transform: translateY(-5px);
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.6),
+    0 16px 48px rgba(0, 0, 0, 0.65),
     0 0 0 1px rgba(212, 168, 83, 0.14),
     0 0 32px rgba(212, 168, 83, 0.04);
 }
 
 /* Diagnostic Card 03 — force full opacity (fix broken scroll animation) */
-.diagnostic-card-3 {
+.diagnostic-card-3,
+.diagnostic-card-3 * {
   opacity: 1 !important;
 }
 .diagnostic-card-3 .step-number {
   color: #D4A853 !important;
-  opacity: 1;
+  font-size: 2rem !important;
+  font-weight: 800 !important;
 }
 .diagnostic-card-3 .card-title,
 .diagnostic-card-3 h3 {
   color: #F5F0E8 !important;
-  opacity: 1;
+  font-weight: 700 !important;
 }
 .diagnostic-card-3 .card-body,
 .diagnostic-card-3 p {
   color: #D2C9B8 !important;
-  opacity: 1;
 }
 
 /* Cal.com embed */
@@ -824,13 +830,14 @@ body::before {
 .ticker-logo {
   height: 36px;
   width: auto;
-  opacity: 0.6;
+  opacity: 0.55;
   filter: brightness(0) invert(1);
   transition: opacity 300ms ease;
 }
 
+.ticker-container:hover .ticker-logo,
 .logoloop__track:hover .ticker-logo {
-  opacity: 1;
+  opacity: 0.85;
 }
 
 /* ── CTA primary shine sweep ── */
@@ -846,13 +853,13 @@ body::before {
   left: -100%;
   width: 55%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.20), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
   transition: left 0.5s ease;
   pointer-events: none;
 }
 
 .cta-primary:hover::after {
-  left: 140%;
+  left: 150%;
 }
 
 .cta-primary:hover,
@@ -894,8 +901,8 @@ body::before {
 }
 
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(212,168,83,0.05); }
-  50% { box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 80px rgba(212,168,83,0.10); }
+  0%, 100% { box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(212,168,83,0.04); }
+  50% { box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 80px rgba(212,168,83,0.09); }
 }
 
 .founder-photo-wrapper {
