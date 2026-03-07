@@ -53,9 +53,8 @@ function BenefitCardArt({
       />
       <div className="relative z-10 flex items-center justify-center w-[72px] h-[72px]">
         <Icon
-          className="drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
+          className="drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] text-[rgba(255,255,255,0.95)]"
           size={56}
-          style={{ color: "rgba(255,255,255,0.95)" }}
         />
       </div>
     </div>
