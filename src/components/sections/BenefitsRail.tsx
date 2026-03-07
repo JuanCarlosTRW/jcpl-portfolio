@@ -10,8 +10,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
-const CARD_WIDTH = 300;
-const GAP = 24;
+const CARD_WIDTH = 260;
+const GAP = 20;
 
 const Grainient = dynamic(
   () => import("@/components/ui/Grainient").then((m) => m.default),
@@ -71,16 +71,18 @@ function BenefitCard({
   index,
   icon,
   title,
+  description,
 }: {
   index: number;
   icon: string | "custom";
   title: string;
+  description: string;
 }) {
   const palette = GRAINIENT_PALETTES[index % GRAINIENT_PALETTES.length];
   return (
     <div
       className="relative w-full flex flex-col overflow-hidden rounded-xl"
-      style={{ minHeight: 320, height: 320 }}
+      style={{ minHeight: 260, height: 260 }}
     >
       <Grainient
         className="absolute inset-0 w-full h-full"
@@ -88,40 +90,52 @@ function BenefitCard({
         color2={palette.color2}
         color3={palette.color3}
       />
-      <div className="relative z-10 flex-1 flex items-center justify-center">
-        <div className="flex items-center justify-center w-[112px] h-[112px]">
+      <div className="relative z-10 flex-1 flex items-center justify-center min-h-0">
+        <div className="flex items-center justify-center w-[88px] h-[88px] shrink-0 [&>svg]:w-[88px] [&>svg]:h-[88px]">
           {icon === "custom" ? (
-            <EliteExecutionIcon />
+            <div className="scale-[0.79]">
+              <EliteExecutionIcon />
+            </div>
           ) : (
             <Image
               src={icon}
               alt=""
-              width={112}
-              height={112}
-              className="w-[112px] h-[112px] object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
+              width={88}
+              height={88}
+              className="w-[88px] h-[88px] object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
               unoptimized
             />
           )}
         </div>
       </div>
-      <div
-        className="relative z-10 px-5 pb-6 pt-2"
-        style={{ color: "#ffffff", fontWeight: 600 }}
-      >
-        <h3 className="text-[18px] leading-snug">{title}</h3>
+      <div className="relative z-10 px-4 pb-4 pt-1">
+        <h3
+          className="text-[16px] leading-snug"
+          style={{ color: "#ffffff", fontWeight: 600 }}
+        >
+          {title}
+        </h3>
+        {description && (
+          <p
+            className="text-[13px] leading-snug mt-1 opacity-90"
+            style={{ color: "#ffffff" }}
+          >
+            {description}
+          </p>
+        )}
       </div>
     </div>
   );
 }
 
-const CARD_TITLE_KEYS = [
-  "benefits.card1Title",
-  "benefits.card2Title",
-  "benefits.card3Title",
-  "benefits.card4Title",
-  "benefits.card5Title",
-  "benefits.card6Title",
-  "benefits.card7Title",
+const CARD_KEYS = [
+  { title: "benefits.card1Title", desc: "benefits.card1Desc" },
+  { title: "benefits.card2Title", desc: "benefits.card2Desc" },
+  { title: "benefits.card3Title", desc: "benefits.card3Desc" },
+  { title: "benefits.card4Title", desc: "benefits.card4Desc" },
+  { title: "benefits.card5Title", desc: "benefits.card5Desc" },
+  { title: "benefits.card6Title", desc: "benefits.card6Desc" },
+  { title: "benefits.card7Title", desc: "benefits.card7Desc" },
 ] as const;
 
 export default function BenefitsRail() {
@@ -179,16 +193,17 @@ export default function BenefitsRail() {
               scrollPaddingInline: "var(--container-px, 24px)",
             }}
           >
-            {CARD_TITLE_KEYS.map((titleKey, i) => (
+            {CARD_KEYS.map((keys, i) => (
               <article
                 key={i}
-                className="flex-shrink-0 w-[280px] sm:w-[300px] rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-sv-primary/50"
+                className="flex-shrink-0 w-[240px] sm:w-[260px] rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-sv-primary/50"
                 style={{ scrollSnapAlign: "start" }}
               >
                 <BenefitCard
                   index={i}
                   icon={CARD_ICONS[i]}
-                  title={t<string>(titleKey)}
+                  title={t<string>(keys.title)}
+                  description={t<string>(keys.desc)}
                 />
               </article>
             ))}
