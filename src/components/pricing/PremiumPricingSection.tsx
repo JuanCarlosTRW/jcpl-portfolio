@@ -303,7 +303,7 @@ export default function PremiumPricingSection({
             <div className="mt-12 pt-12 border-t border-white/[0.06] text-center">
               <p
                 className="text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto italic"
-                style={{ color: "#cbd5e1" }}
+                style={{ color: "#D2C9B8" }}
               >
                 Triple W Rentals went from 0 inbound calls to 14 qualified
                 bookings in 30 days on $900 in ad spend.

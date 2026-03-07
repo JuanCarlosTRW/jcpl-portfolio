@@ -8,7 +8,7 @@ export default function ClientLogoTicker() {
     <div
       className="group/logo py-6"
       style={{
-        background: "#0a0f1e",
+        background: "#090E1C",
         paddingTop: 80,
         borderTop: "1px solid rgba(30,41,59,0.5)",
       }}
@@ -18,7 +18,7 @@ export default function ClientLogoTicker() {
         style={{
           fontSize: "0.7rem",
           letterSpacing: "0.15em",
-          color: "#f97316",
+          color: "#D4A853",
           marginBottom: 24,
         }}
       >
@@ -29,7 +29,7 @@ export default function ClientLogoTicker() {
         speed={55}
         pauseOnHover
         fadeOut
-        fadeOutColor="#0a0f1e"
+        fadeOutColor="#090E1C"
         logoHeight={36}
         gap={64}
         ariaLabel="Client logos"
@@ -55,7 +55,7 @@ export default function ClientLogoTicker() {
                 <span
                   style={{
                     fontSize: "0.65rem",
-                    color: "#64748b",
+                    color: "#756D63",
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                   }}
@@ -69,7 +69,7 @@ export default function ClientLogoTicker() {
       />
       <p
         className="text-center"
-        style={{ fontSize: "0.9rem", color: "#94a3b8", marginTop: 24 }}
+        style={{ fontSize: "0.9rem", color: "#A69D8D", marginTop: 24 }}
       >
         Five industries. One growth system.
       </p>

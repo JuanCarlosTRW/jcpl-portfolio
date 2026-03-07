@@ -1,12 +1,16 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Reveal from "@/components/motion/Reveal";
 import { ChevronLeft, ChevronRight, Users, Zap, BarChart3, Clock, FileCheck } from "lucide-react";
 import dynamic from "next/dynamic";
 import { prefersReducedMotion } from "@/lib/motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CARD_WIDTH = 300;
 const GAP = 24;
@@ -53,7 +57,7 @@ function BenefitCardArt({
       />
       <div className="relative z-10 flex items-center justify-center w-[72px] h-[72px]">
         <Icon
-          className="drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] text-[rgba(255,255,255,0.95)]"
+          className="benefit-icon drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] text-[rgba(255,255,255,0.95)]"
           size={56}
         />
       </div>
@@ -63,6 +67,26 @@ function BenefitCardArt({
 
 export default function BenefitsRail() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    const ctx = gsap.context(() => {
+      gsap.from(".benefit-icon", {
+        scale: 0,
+        rotation: -15,
+        stagger: 0.07,
+        duration: 0.5,
+        ease: "back.out(2.2)",
+        scrollTrigger: {
+          trigger: ".benefits-grid",
+          start: "top 76%",
+          once: true,
+        },
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
 
   const scroll = useCallback((dir: "left" | "right") => {
     const el = scrollRef.current;
@@ -77,22 +101,23 @@ export default function BenefitsRail() {
 
   return (
     <SectionWrapper
+      ref={sectionRef}
       id="benefits"
       variant="default"
-      className="!bg-[#0a0f1e] py-16 md:py-24"
+      className="!bg-[#090E1C] py-16 md:py-24"
     >
       <Reveal className="text-center mb-12">
-        <SectionLabel label="SYSTEM BENEFITS" className="mb-4 !text-[#f97316]" />
+        <SectionLabel label="SYSTEM BENEFITS" className="mb-4 !text-[#D4A853]" />
         <h2 className="text-[clamp(28px,4vw,40px)] leading-[1.2] tracking-[-0.02em] max-w-2xl mx-auto">
           <span className="font-bold text-white">One person builds the full pipeline. </span>
           <span
             className="italic font-normal"
-            style={{ fontFamily: "var(--font-playfair), Georgia, serif", color: "#ffffff" }}
+            style={{ fontFamily: "var(--font-playfair), Georgia, serif", color: "#F5F0E8" }}
           >
             Here is what is inside.
           </span>
         </h2>
-        <p className="mt-4 text-[#94a3b8] text-base md:text-lg max-w-xl mx-auto">
+        <p className="mt-4 text-[#A69D8D] text-base md:text-lg max-w-xl mx-auto">
           No scattered vendors. No disconnected tools. One system built by one person, tracked to one metric: qualified calls booked.
         </p>
       </Reveal>
@@ -101,7 +126,7 @@ export default function BenefitsRail() {
         <div className="relative -mx-4 md:-mx-6">
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide py-2 px-4 md:px-6"
+            className="benefits-grid flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide py-2 px-4 md:px-6"
             style={{
               scrollSnapType: "x mandatory",
               scrollPaddingInline: "var(--container-px, 24px)",
@@ -110,10 +135,10 @@ export default function BenefitsRail() {
             {CARDS.map((card, i) => (
               <article
                 key={card.title}
-                className="flex-shrink-0 w-[280px] sm:w-[300px] rounded-xl border border-[rgba(255,255,255,0.08)] overflow-hidden transition-all duration-300 hover:border-[rgba(249,115,22,0.35)] hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-[#f97316]/50 lift-card"
+                className="flex-shrink-0 w-[280px] sm:w-[300px] rounded-xl border border-[rgba(255,255,255,0.08)] overflow-hidden transition-all duration-300 hover:border-[rgba(212,168,83,0.35)] hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-[#D4A853]/50 lift-card"
                 style={{
                   scrollSnapAlign: "start",
-                  background: "#0f1729",
+                  background: "#0F1628",
                 }}
               >
                 <BenefitCardArt index={i} icon={card.icon} />
@@ -121,7 +146,7 @@ export default function BenefitsRail() {
                   <h3 className="text-[1.125rem] font-bold text-white mb-2">
                     {card.title}
                   </h3>
-                  <p style={{ fontSize: "0.9rem", color: "#cbd5e1", lineHeight: 1.6 }}>
+                  <p style={{ fontSize: "0.9rem", color: "#D2C9B8", lineHeight: 1.6 }}>
                     {card.desc}
                   </p>
                 </div>
@@ -134,8 +159,8 @@ export default function BenefitsRail() {
               type="button"
               onClick={() => scroll("left")}
               aria-label="Previous cards"
-              className="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#94a3b8] hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f97316] lift-card"
-              style={{ background: "#0f1729" }}
+              className="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#A69D8D] hover:text-[#F5F0E8] hover:border-[rgba(255,255,255,0.3)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A853] lift-card"
+              style={{ background: "#0F1628" }}
             >
               <ChevronLeft className="w-5 h-5" strokeWidth={2} />
             </button>
@@ -143,8 +168,8 @@ export default function BenefitsRail() {
               type="button"
               onClick={() => scroll("right")}
               aria-label="Next cards"
-              className="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#94a3b8] hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f97316] lift-card"
-              style={{ background: "#0f1729" }}
+              className="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#A69D8D] hover:text-[#F5F0E8] hover:border-[rgba(255,255,255,0.3)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A853] lift-card"
+              style={{ background: "#0F1628" }}
             >
               <ChevronRight className="w-5 h-5" strokeWidth={2} />
             </button>

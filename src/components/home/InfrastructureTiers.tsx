@@ -124,7 +124,7 @@ export default function InfrastructureTiers() {
                 <span style={{ fontSize: "46px", fontWeight: 900, color: "#CBD5E1", letterSpacing: "-0.02em" }}>$2,500</span>
                 <span style={{ fontSize: "13px", color: "#475569" }}>one-time build</span>
               </div>
-              <p style={{ fontSize: "12px", color: "#334155" }}>+ $1,200/month to maintain</p>
+              <p style={{ fontSize: "12px", color: "#263050" }}>+ $1,200/month to maintain</p>
             </div>
             <span
               className="block rounded-lg px-4 py-3 mb-4 leading-relaxed"
@@ -153,7 +153,7 @@ export default function InfrastructureTiers() {
             />
             <p
               className="text-[10px] font-semibold tracking-[0.2em] uppercase mb-4"
-              style={{ color: "#334155" }}
+              style={{ color: "#263050" }}
             >
               INCLUDES
             </p>
@@ -177,7 +177,7 @@ export default function InfrastructureTiers() {
             >
               <p
                 className="text-xs mb-5 leading-relaxed"
-                style={{ color: "#334155" }}
+                style={{ color: "#263050" }}
               >
                 Most clients graduate to Performance Engine within 60 days.
               </p>
@@ -317,7 +317,7 @@ export default function InfrastructureTiers() {
             </ul>
             <p
               className="text-xs mt-6 mb-5 leading-relaxed"
-              style={{ color: "#334155" }}
+              style={{ color: "#263050" }}
             >
               Ad spend is separate from the partnership fee. Minimum $500/month. 90-day initial term.
             </p>

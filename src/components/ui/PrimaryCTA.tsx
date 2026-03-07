@@ -18,8 +18,8 @@ export default function PrimaryCTA({
   className = "",
 }: PrimaryCTAProps) {
   const buttonClasses =
-    "inline-flex items-center justify-center gap-2 font-semibold text-white transition-all duration-200 rounded-lg hover:-translate-y-0.5 " +
-    "bg-[#f97316] hover:bg-[#ea6c0a] py-4 px-8 text-base " +
+    "inline-flex items-center justify-center gap-2 font-semibold text-[#0A0E1A] transition-all duration-200 rounded-lg hover:-translate-y-0.5 " +
+    "bg-[#D4A853] hover:bg-[#C49A2A] py-4 px-8 text-base " +
     className;
 
   const content = (
@@ -43,7 +43,7 @@ export default function PrimaryCTA({
       {showRiskReversal && (
         <p
           className="text-center mt-2"
-          style={{ fontSize: "0.875rem", color: "#64748b" }}
+          style={{ fontSize: "0.875rem", color: "#756D63" }}
         >
           {RISK_REVERSAL}
         </p>

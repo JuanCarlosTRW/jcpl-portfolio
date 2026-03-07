@@ -109,14 +109,14 @@ export default function FeaturedCaseStudy() {
   }, []);
 
   return (
-    <SectionWrapper ref={sectionRef} id="proof" className="bg-[#0a0f1e]">
+    <SectionWrapper ref={sectionRef} id="proof" className="bg-[#090E1C]">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-        <SectionLabel label="PROOF" className="mb-5 !text-[#f97316]" />
+        <SectionLabel label="PROOF" className="mb-5 !text-[#D4A853]" />
         <h2 className="text-[clamp(32px,5vw,48px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto">
           <span className="text-white font-bold">
             $41,085 from $900 in ad spend.
           </span>{" "}
-          <span className="italic" style={{ fontFamily: "var(--font-playfair), Georgia, serif", color: "#94a3b8" }}>
+          <span className="italic" style={{ fontFamily: "var(--font-playfair), Georgia, serif", color: "#A69D8D" }}>
             Page 1 in under 60 days.
           </span>
         </h2>
@@ -128,12 +128,12 @@ export default function FeaturedCaseStudy() {
           <div
             className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card case-study-card-primary"
             style={{
-              background: "#0f1729",
-              border: "1px solid #1e293b",
-              borderTop: "3px solid #f97316",
+              background: "#0F1628",
+              border: "1px solid #1C2640",
+              borderTop: "3px solid #D4A853",
             }}
           >
-            <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#64748b", textTransform: "uppercase", marginBottom: 16 }}>
+            <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#756D63", textTransform: "uppercase", marginBottom: 16 }}>
               RV RENTAL · TEXAS · GOOGLE ADS
             </p>
             <div style={{ position: "relative" }}>
@@ -145,39 +145,39 @@ export default function FeaturedCaseStudy() {
                   transform: "translate(-50%, -50%)",
                   width: 300,
                   height: 300,
-                  background: "radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 65%)",
+                  background: "radial-gradient(circle, rgba(212,168,83,0.07) 0%, transparent 65%)",
                   pointerEvents: "none",
                   zIndex: 0,
                 }}
               />
-              <div className="text-white font-extrabold mb-2 stat-41085" style={{ fontSize: "5rem", lineHeight: 1, position: "relative", zIndex: 1 }}>
+              <div className="text-[#F5F0E8] font-extrabold mb-2 stat-41085-proof stat-41085" style={{ fontSize: "5rem", lineHeight: 1, position: "relative", zIndex: 1 }}>
                 <CountUpRevenue to={41085} prefix="$" />
               </div>
             </div>
-            <p style={{ fontSize: "1rem", color: "#94a3b8", marginBottom: 24 }}>
+            <p style={{ fontSize: "1rem", color: "#A69D8D", marginBottom: 24 }}>
               in revenue. First 30 days.
             </p>
             <div className="flex gap-8 mb-6">
               <div className="text-center">
                 <span className="stat-900 text-white font-bold" style={{ fontSize: "1.25rem" }}>$0</span>
-                <p style={{ fontSize: "0.7rem", color: "#64748b", textTransform: "uppercase", marginTop: 4 }}>AD SPEND</p>
+                <p style={{ fontSize: "0.7rem", color: "#756D63", textTransform: "uppercase", marginTop: 4 }}>AD SPEND</p>
               </div>
               <div className="text-center">
                 <span className="stat-46 text-white font-bold" style={{ fontSize: "1.25rem" }}>0x</span>
-                <p style={{ fontSize: "0.7rem", color: "#64748b", textTransform: "uppercase", marginTop: 4 }}>RETURN</p>
+                <p style={{ fontSize: "0.7rem", color: "#756D63", textTransform: "uppercase", marginTop: 4 }}>RETURN</p>
               </div>
               <div className="text-center">
                 <span className="stat-30days text-white font-bold" style={{ fontSize: "1.25rem" }}>0</span>
-                <p style={{ fontSize: "0.7rem", color: "#64748b", textTransform: "uppercase", marginTop: 4 }}>DAYS</p>
+                <p style={{ fontSize: "0.7rem", color: "#756D63", textTransform: "uppercase", marginTop: 4 }}>DAYS</p>
               </div>
             </div>
             <div
               className="rounded-lg p-4 mt-4"
               style={{
-                background: "#131d35",
-                border: "1px solid #1e293b",
+                background: "#141C2E",
+                border: "1px solid #1C2640",
                 fontSize: "0.8rem",
-                color: "#64748b",
+                color: "#756D63",
                 fontStyle: "italic",
               }}
             >
@@ -193,24 +193,24 @@ export default function FeaturedCaseStudy() {
           <div
             className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card case-study-card-secondary"
             style={{
-              background: "#0f1729",
-              border: "1px solid #1e293b",
-              borderTop: "3px solid rgba(249, 115, 22, 0.42)",
+              background: "#0F1628",
+              border: "1px solid #1C2640",
+              borderTop: "3px solid rgba(212, 168, 83, 0.42)",
             }}
           >
-            <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#64748b", textTransform: "uppercase", marginBottom: 16 }}>
+            <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#756D63", textTransform: "uppercase", marginBottom: 16 }}>
               PAINTING CONTRACTOR · TEXAS · GOOGLE ADS + SEO
             </p>
             <div className="text-white font-extrabold mb-1" style={{ fontSize: "5rem", lineHeight: 1 }}>
               Page 1
             </div>
-            <p style={{ fontSize: "1rem", color: "#94a3b8", marginBottom: 24 }}>
+            <p style={{ fontSize: "1rem", color: "#A69D8D", marginBottom: 24 }}>
               in under 60 days.
             </p>
-            <p style={{ fontSize: "1.25rem", color: "#ffffff", fontWeight: 600, marginBottom: 24 }}>
+            <p style={{ fontSize: "1.25rem", color: "#F5F0E8", fontWeight: 600, marginBottom: 24 }}>
               <CountUpValue to={27} prefix="$" durationMs={1400} /> per qualified inbound call
             </p>
-            <p style={{ fontSize: "0.85rem", color: "#94a3b8", fontStyle: "italic" }}>
+            <p style={{ fontSize: "0.85rem", color: "#A69D8D", fontStyle: "italic" }}>
               Competitive DFW painting market. Ranking above national lead gen sites. Last verified Q4 2025.
             </p>
           </div>
@@ -222,7 +222,7 @@ export default function FeaturedCaseStudy() {
           <Link
             href="/results"
             className="inline-block hover:underline"
-            style={{ color: "#94a3b8", fontSize: "0.9rem" }}
+            style={{ color: "#A69D8D", fontSize: "0.9rem" }}
           >
             See all case studies →
           </Link>
@@ -234,27 +234,27 @@ export default function FeaturedCaseStudy() {
         <div ref={statCardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto stat-cards">
           <div
             className="rounded-xl p-6 lift-card stat-card"
-            style={{ background: "#0f1729", border: "1px solid #1e293b" }}
+            style={{ background: "#0F1628", border: "1px solid #1C2640" }}
           >
-            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#f97316", textTransform: "uppercase", marginBottom: 8 }}>LOCAL SEO</p>
+            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase", marginBottom: 8 }}>LOCAL SEO</p>
             <p className="text-3xl font-bold text-white">Page 1</p>
-            <p style={{ fontSize: "0.875rem", color: "#94a3b8", marginTop: 8 }}>Under 60 days. Competitive TX market. Painting contractor.</p>
+            <p style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}>Under 60 days. Competitive TX market. Painting contractor.</p>
           </div>
           <div
             className="rounded-xl p-6 lift-card stat-card"
-            style={{ background: "#0f1729", border: "1px solid #1e293b" }}
+            style={{ background: "#0F1628", border: "1px solid #1C2640" }}
           >
-            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#f97316", textTransform: "uppercase", marginBottom: 8 }}>COST PER LEAD</p>
+            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase", marginBottom: 8 }}>COST PER LEAD</p>
             <p className="text-3xl font-bold text-white"><span className="stat-27-card">0</span></p>
-            <p style={{ fontSize: "0.875rem", color: "#94a3b8", marginTop: 8 }}>Avg cost per qualified inbound call. All active accounts. Q4 2025.</p>
+            <p style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}>Avg cost per qualified inbound call. All active accounts. Q4 2025.</p>
           </div>
           <div
             className="rounded-xl p-6 lift-card stat-card"
-            style={{ background: "#0f1729", border: "1px solid #1e293b" }}
+            style={{ background: "#0F1628", border: "1px solid #1C2640" }}
           >
-            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#f97316", textTransform: "uppercase", marginBottom: 8 }}>TIME TO FIRST CALL</p>
+            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase", marginBottom: 8 }}>TIME TO FIRST CALL</p>
             <p className="text-3xl font-bold text-white"><span className="stat-11-card">0</span> days</p>
-            <p style={{ fontSize: "0.875rem", color: "#94a3b8", marginTop: 8 }}>Median across all clients and niches.</p>
+            <p style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}>Median across all clients and niches.</p>
           </div>
         </div>
       </Reveal>

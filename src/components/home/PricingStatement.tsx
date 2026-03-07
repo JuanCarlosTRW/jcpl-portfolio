@@ -23,7 +23,7 @@ export default function PricingStatement() {
     <section
       className="px-4"
       style={{
-        background: "#0a0f1e",
+        background: "#090E1C",
         paddingTop: "clamp(80px, 10vw, 140px)",
         paddingBottom: "clamp(80px, 10vw, 140px)",
       }}
@@ -34,7 +34,7 @@ export default function PricingStatement() {
           style={{
             fontSize: "0.7rem",
             letterSpacing: "0.15em",
-            color: "#f97316",
+            color: "#D4A853",
           }}
         >
           PRICING
@@ -90,7 +90,7 @@ export default function PricingStatement() {
                     style={{
                       fontSize: "0.7rem",
                       letterSpacing: "0.15em",
-                      color: "#f97316",
+                      color: "#D4A853",
                     }}
                   >
                     BY APPLICATION ONLY
@@ -108,7 +108,7 @@ export default function PricingStatement() {
                     className="mb-4"
                     style={{
                       fontSize: "0.9rem",
-                      color: "#cbd5e1",
+                      color: "#D2C9B8",
                       lineHeight: 1.5,
                     }}
                   >
@@ -123,16 +123,16 @@ export default function PricingStatement() {
                         backgroundColor: "#22c55e",
                       }}
                     />
-                    <span style={{ fontSize: "0.85rem", color: "#94a3b8" }}>
+                    <span style={{ fontSize: "0.85rem", color: "#A69D8D" }}>
                       1 partnership spot open
                     </span>
                   </div>
                   <Link
                     href="#book-call"
-                    className="flex items-center justify-center w-full rounded-lg font-semibold text-white cta-primary cta-button py-4"
-                    style={{ backgroundColor: "#f97316" }}
-                    onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#ea6c0a"; }}
-                    onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#f97316"; }}
+                    className="flex items-center justify-center w-full rounded-lg font-semibold text-[#0A0E1A] cta-primary cta-button py-4"
+                    style={{ backgroundColor: "#D4A853" }}
+                    onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}
+                    onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#D4A853"; }}
                   >
                     Book a 20-Minute Diagnostic Call →
                   </Link>
@@ -152,7 +152,7 @@ export default function PricingStatement() {
               style={{
                 minHeight: 480,
                 background: "#070c18",
-                border: "1px solid #1e293b",
+                border: "1px solid #1C2640",
               }}
             >
               <p
@@ -160,7 +160,7 @@ export default function PricingStatement() {
                 style={{
                   fontSize: "0.7rem",
                   letterSpacing: "0.1em",
-                  color: "#f97316",
+                  color: "#D4A853",
                 }}
               >
                 BY APPLICATION ONLY
@@ -178,7 +178,7 @@ export default function PricingStatement() {
 
               <div
                 className="mb-6"
-                style={{ borderTop: "1px dashed #1e293b" }}
+                style={{ borderTop: "1px dashed #1C2640" }}
               />
 
               <div className="mb-2">
@@ -192,7 +192,7 @@ export default function PricingStatement() {
                   className="align-middle ml-1"
                   style={{
                     fontSize: "1rem",
-                    color: "#64748b",
+                    color: "#756D63",
                     fontWeight: 400,
                   }}
                 >
@@ -202,7 +202,7 @@ export default function PricingStatement() {
 
               <p
                 className="mb-5 italic"
-                style={{ fontSize: "0.75rem", color: "#64748b" }}
+                style={{ fontSize: "0.75rem", color: "#756D63" }}
               >
                 Most partnerships scale to $6,000/month based on scope.
               </p>
@@ -212,8 +212,8 @@ export default function PricingStatement() {
                 style={{
                   fontSize: "0.7rem",
                   letterSpacing: "0.08em",
-                  background: "#131d35",
-                  color: "#f97316",
+                  background: "#141C2E",
+                  color: "#D4A853",
                   width: "fit-content",
                 }}
               >
@@ -226,12 +226,12 @@ export default function PricingStatement() {
                     <Check
                       className="shrink-0 mt-0.5"
                       size={18}
-                      style={{ color: "#f97316" }}
+                      style={{ color: "#D4A853" }}
                     />
                     <span
                       style={{
                         fontSize: "0.85rem",
-                        color: "#cbd5e1",
+                        color: "#D2C9B8",
                       }}
                     >
                       {feature}
@@ -243,16 +243,16 @@ export default function PricingStatement() {
               <div className="mt-auto space-y-2">
                 <Link
                   href="/apply"
-                  className="flex items-center justify-center w-full py-4 rounded-lg font-semibold text-white text-base cta-primary cta-button"
-                  style={{ backgroundColor: "#f97316" }}
-                  onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#ea6c0a"; }}
-                  onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#f97316"; }}
+                  className="flex items-center justify-center w-full py-4 rounded-lg font-semibold text-[#0A0E1A] text-base cta-primary cta-button"
+                  style={{ backgroundColor: "#D4A853" }}
+                  onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}
+                  onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#D4A853"; }}
                 >
                   Apply for Growth Partnership →
                 </Link>
                 <p
                   className="text-center"
-                  style={{ fontSize: "0.72rem", color: "#64748b" }}
+                  style={{ fontSize: "0.72rem", color: "#756D63" }}
                 >
                   Short application. I respond within one business day.
                 </p>
@@ -267,7 +267,7 @@ export default function PricingStatement() {
             className="flex flex-col items-center text-center max-w-[280px]"
             style={{ gap: 8 }}
           >
-            <Calendar size={20} style={{ color: "#f97316" }} />
+            <Calendar size={20} style={{ color: "#D4A853" }} />
             <p
               className="font-semibold text-white"
               style={{ fontSize: "0.9rem" }}
@@ -275,7 +275,7 @@ export default function PricingStatement() {
               No long-term contracts
             </p>
             <p
-              style={{ fontSize: "0.8rem", color: "#64748b" }}
+              style={{ fontSize: "0.8rem", color: "#756D63" }}
             >
               90-day initial term. Month-to-month after that.
             </p>
@@ -284,7 +284,7 @@ export default function PricingStatement() {
             className="flex flex-col items-center text-center max-w-[280px]"
             style={{ gap: 8 }}
           >
-            <ShieldCheck size={20} style={{ color: "#f97316" }} />
+            <ShieldCheck size={20} style={{ color: "#D4A853" }} />
             <p
               className="font-semibold text-white"
               style={{ fontSize: "0.9rem" }}
@@ -292,7 +292,7 @@ export default function PricingStatement() {
               No payment before clarity
             </p>
             <p
-              style={{ fontSize: "0.8rem", color: "#64748b" }}
+              style={{ fontSize: "0.8rem", color: "#756D63" }}
             >
               I will tell you on the call if I cannot move the needle. Before you pay anything.
             </p>

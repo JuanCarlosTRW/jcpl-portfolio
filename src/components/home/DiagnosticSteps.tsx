@@ -76,10 +76,10 @@ export default function DiagnosticSteps() {
     <SectionWrapper
       ref={sectionRef}
       id="diagnostic"
-      className="py-16 md:py-24 !bg-[#0a0f1e]"
+      className="py-16 md:py-24 !bg-[#090E1C]"
     >
       <div className="max-w-4xl mx-auto text-center mb-12">
-        <SectionLabel label="THE DIAGNOSTIC" className="mb-4 !text-[#f97316]" />
+        <SectionLabel label="THE DIAGNOSTIC" className="mb-4 !text-[#D4A853]" />
         <h2
           className="text-[clamp(28px,4vw,40px)] font-bold text-white leading-tight mb-6"
           style={{ maxWidth: 640, margin: "0 auto 24px" }}
@@ -96,27 +96,28 @@ export default function DiagnosticSteps() {
             className={`rounded-xl p-8 lift-card diagnostic-card-${i + 1}`}
             style={{
               opacity: 1,
-              background: "#0f1729",
-              border: "1px solid #1e293b",
-              ...(i === 2 && { borderTop: "3px solid #f97316" }),
+              background: "#0F1628",
+              border: "1px solid #1C2640",
+              ...(i === 2 && { borderTop: "3px solid #D4A853" }),
             }}
           >
             <div
-              className="mb-4"
-              style={{ fontSize: "2rem", color: "#f97316", fontWeight: 800 }}
+              className="step-number mb-4"
+              style={{ fontSize: "2rem", color: "#D4A853", fontWeight: 800 }}
             >
               {step.num}
             </div>
             <h3
-              className="mb-3"
-              style={{ fontSize: "1.25rem", color: "#ffffff", fontWeight: 700 }}
+              className="card-title mb-3"
+              style={{ fontSize: "1.25rem", color: "#F5F0E8", fontWeight: 700 }}
             >
               {step.title}
             </h3>
             <p
+              className="card-body"
               style={{
                 fontSize: "0.9rem",
-                color: "#cbd5e1",
+                color: "#D2C9B8",
                 lineHeight: 1.6,
               }}
             >
@@ -129,16 +130,16 @@ export default function DiagnosticSteps() {
       <div className="flex flex-col items-center">
         <Link
           href="#book-call"
-          className="inline-flex items-center justify-center gap-2 font-semibold text-white rounded-lg cta-primary cta-button"
+          className="inline-flex items-center justify-center gap-2 font-semibold text-[#0A0E1A] rounded-lg cta-primary cta-button"
           style={{
-            background: "#f97316",
+            background: "#D4A853",
             padding: "16px 32px",
           }}
           onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = "#ea6c0a";
+            e.currentTarget.style.backgroundColor = "#C49A2A";
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = "#f97316";
+            e.currentTarget.style.backgroundColor = "#D4A853";
           }}
         >
           Book a 20-Minute Diagnostic Call
@@ -146,7 +147,7 @@ export default function DiagnosticSteps() {
         </Link>
         <p
           className="mt-2 text-center"
-          style={{ fontSize: "0.875rem", color: "#64748b" }}
+          style={{ fontSize: "0.875rem", color: "#756D63" }}
         >
           If I cannot move the needle, I will tell you on the call. Before you pay anything.
         </p>

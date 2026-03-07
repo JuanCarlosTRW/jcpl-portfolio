@@ -22,7 +22,7 @@ function XIcon() {
 function CheckIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0">
-      <path d="M4 8.5l3 3 5-5.5" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 8.5l3 3 5-5.5" stroke="#D4A853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -71,7 +71,7 @@ function ElevenDaysStat() {
           fontSize: "0.75rem",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
-          color: "#f97316",
+          color: "#D4A853",
           marginTop: 8,
         }}
       >
@@ -110,19 +110,19 @@ export default function Differentiation() {
   }, []);
 
   return (
-    <SectionWrapper id="difference" className="bg-[#0a0f1e]">
+    <SectionWrapper id="difference" className="bg-[#090E1C]">
       <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-12">
-        <SectionLabel label={differentiation.label} className="mb-5 !text-[#f97316]" />
+        <SectionLabel label={differentiation.label} className="mb-5 !text-[#D4A853]" />
         <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em] max-w-xl mx-auto">
           {differentiation.headline}
         </h2>
       </Reveal>
 
       <Reveal className="max-w-2xl mx-auto mb-12">
-        <p className="text-[15px] font-[400] leading-[1.8] mb-5" style={{ color: "#94a3b8" }}>
+        <p className="text-[15px] font-[400] leading-[1.8] mb-5" style={{ color: "#A69D8D" }}>
           An agency will take your $3,000, spend 6 weeks onboarding you, send you a report full of impressions and clicks, and invoice you again while you still wait for the phone to ring.
         </p>
-        <p className="text-[15px] font-[400] leading-[1.8]" style={{ color: "#94a3b8" }}>
+        <p className="text-[15px] font-[400] leading-[1.8]" style={{ color: "#A69D8D" }}>
           I have one metric: qualified calls on your calendar. If that number is not growing, I have not done my job. That is it. Nothing else counts.
         </p>
       </Reveal>
@@ -132,17 +132,17 @@ export default function Differentiation() {
           <div
             className="rounded-[14px] overflow-hidden"
             style={{
-              background: "#0f1729",
-              border: "1px solid #1e293b",
+              background: "#0F1628",
+              border: "1px solid #1C2640",
             }}
           >
             <div
               className="grid grid-cols-[1fr_1fr_1fr] border-b"
-              style={{ borderColor: "#1e293b" }}
+              style={{ borderColor: "#1C2640" }}
             >
               <div
                 className="p-5 text-xs font-semibold uppercase tracking-[0.15em]"
-                style={{ color: "#94a3b8" }}
+                style={{ color: "#A69D8D" }}
               >
                 Dimension
               </div>
@@ -154,7 +154,7 @@ export default function Differentiation() {
               </div>
               <div
                 className="p-5 text-xs font-semibold uppercase tracking-[0.15em] text-center"
-                style={{ color: "#f97316" }}
+                style={{ color: "#D4A853" }}
               >
                 CLIENT GROWTH
               </div>
@@ -166,19 +166,19 @@ export default function Differentiation() {
                 ref={(el) => { rowRefs.current[i] = el; }}
                 className="grid grid-cols-[1fr_1fr_1fr] comparison-row"
                 style={{
-                  borderBottom: i < differentiation.comparisons.length - 1 ? "1px solid #1e293b" : undefined,
+                  borderBottom: i < differentiation.comparisons.length - 1 ? "1px solid #1C2640" : undefined,
                 }}
               >
                 <div className="p-5 text-sm font-semibold text-white">{row.dimension}</div>
                 <div className="p-5 flex items-start gap-2.5 justify-center">
                   <XIcon />
-                  <span className="text-sm table-typical-agency-value" style={{ color: "#94a3b8", fontWeight: 400 }}>
+                  <span className="text-sm table-typical-agency-value" style={{ color: "#A69D8D", fontWeight: 400 }}>
                     {row.them}
                   </span>
                 </div>
                 <div className="p-5 flex items-start gap-2.5 justify-center">
                   <CheckIcon />
-                  <span className="text-sm table-client-growth-value" style={{ color: "#ffffff", fontWeight: 600 }}>
+                  <span className="text-sm table-client-growth-value" style={{ color: "#F5F0E8", fontWeight: 600 }}>
                     {row.us}
                   </span>
                 </div>
@@ -193,18 +193,18 @@ export default function Differentiation() {
           <Reveal key={i} delay={0.06 * i}>
             <div
               className="rounded-xl p-5 depth-card"
-              style={{ border: "1px solid #1e293b", background: "#0f1729" }}
+              style={{ border: "1px solid #1C2640", background: "#0F1628" }}
             >
               <p
                 className="text-xs font-semibold uppercase tracking-[0.15em] mb-3"
-                style={{ color: "#94a3b8" }}
+                style={{ color: "#A69D8D" }}
               >
                 {row.dimension}
               </p>
               <div className="space-y-2.5">
                 <div className="flex items-start gap-2">
                   <XIcon />
-                  <span className="text-sm" style={{ color: "#94a3b8" }}>
+                  <span className="text-sm" style={{ color: "#A69D8D" }}>
                     {row.them}
                   </span>
                 </div>

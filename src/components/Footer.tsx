@@ -16,8 +16,8 @@ export default function Footer() {
     <footer
       className="border-t"
       style={{
-        background: "#0a0f1e",
-        borderColor: "#1e293b",
+        background: "#090E1C",
+        borderColor: "#1C2640",
       }}
     >
       <div
@@ -29,18 +29,18 @@ export default function Footer() {
           marginBottom: "48px",
         }}
       >
-        <div style={{ flex: 1, height: "1px", background: "#1e293b" }} />
+        <div style={{ flex: 1, height: "1px", background: "#1C2640" }} />
         <div
           style={{
             width: "7px",
             height: "7px",
-            background: "#f97316",
+            background: "#D4A853",
             transform: "rotate(45deg)",
+            boxShadow: "0 0 8px rgba(212,168,83,0.4)",
             flexShrink: 0,
-            boxShadow: "0 0 8px rgba(249,115,22,0.4)",
           }}
         />
-        <div style={{ flex: 1, height: "1px", background: "#1e293b" }} />
+        <div style={{ flex: 1, height: "1px", background: "#1C2640" }} />
       </div>
       <div className="container py-10 md:py-14">
         <div className="grid gap-8 md:gap-10 md:grid-cols-4">
@@ -49,14 +49,14 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold text-white">
               Client Growth
             </Link>
-            <p className="text-[0.8rem]" style={{ color: "#64748b" }}>
+            <p className="text-[0.8rem]" style={{ color: "#756D63" }}>
               Growth infrastructure for local service businesses.
             </p>
           </div>
 
           {/* Navigation */}
           <div className="space-y-3">
-            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium mb-4" style={{ color: "#64748b" }}>
+            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium mb-4" style={{ color: "#756D63" }}>
               {t<string>("footer.navigation")}
             </h4>
             <ul className="space-y-2.5">
@@ -65,7 +65,7 @@ export default function Footer() {
                   <Link
                     href={item.href}
                     className="text-[15px] transition-colors duration-150 hover:text-white"
-                    style={{ color: "#94a3b8" }}
+                    style={{ color: "#A69D8D" }}
                   >
                     {item.label}
                   </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="space-y-3">
-            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium mb-4" style={{ color: "#64748b" }}>
+            <h4 className="text-[12px] uppercase tracking-[0.14em] font-medium mb-4" style={{ color: "#756D63" }}>
               {t<string>("footer.legal")}
             </h4>
             <ul className="space-y-2.5">
@@ -84,7 +84,7 @@ export default function Footer() {
                 <Link
                   href="/privacy"
                   className="text-[15px] transition-colors duration-150 hover:text-white"
-                  style={{ color: "#94a3b8" }}
+                  style={{ color: "#A69D8D" }}
                 >
                   {t<string>("footer.privacy")}
                 </Link>
@@ -93,7 +93,7 @@ export default function Footer() {
                 <Link
                   href="/terms"
                   className="text-[15px] transition-colors duration-150 hover:text-white"
-                  style={{ color: "#94a3b8" }}
+                  style={{ color: "#A69D8D" }}
                 >
                   {t<string>("footer.terms")}
                 </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <a
                   href="mailto:juan@clientgrowth.ca"
                   className="text-[15px] transition-colors duration-150"
-                  style={{ color: "#f97316" }}
+                  style={{ color: "#D4A853" }}
                 >
                   juan@clientgrowth.ca
                 </a>
@@ -113,7 +113,7 @@ export default function Footer() {
 
         <div
           className="mt-8 pt-6 border-t text-center text-[13px]"
-          style={{ borderColor: "#1e293b", color: "#334155" }}
+          style={{ borderColor: "#1C2640", color: "#263050" }}
         >
           © {new Date().getFullYear()} Client Growth. {t<string>("footer.rights")}.
         </div>

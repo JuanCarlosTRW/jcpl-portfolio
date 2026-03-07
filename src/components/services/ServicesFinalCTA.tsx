@@ -210,7 +210,7 @@ export default function ServicesFinalCTA() {
               <div className="mb-6">
                 <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
                   What are you trying to solve?{" "}
-                  <span style={{ color: "#334155" }}>(optional)</span>
+                  <span style={{ color: "#263050" }}>(optional)</span>
                 </label>
                 <textarea
                   name="message"
@@ -238,7 +238,7 @@ export default function ServicesFinalCTA() {
                 Submit Application →
               </button>
 
-              <p className="text-xs text-center mt-4" style={{ color: "#334155" }}>
+              <p className="text-xs text-center mt-4" style={{ color: "#263050" }}>
                 Response within 24 hours. No retainer until I confirm fit.
               </p>
             </form>

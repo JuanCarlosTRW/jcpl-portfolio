@@ -12,7 +12,7 @@ export default function FounderBlock() {
   return (
     <section
       className="py-16 md:py-24"
-      style={{ background: "#0a0f1e" }}
+      style={{ background: "#090E1C" }}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 md:items-center">
@@ -27,7 +27,7 @@ export default function FounderBlock() {
             </div>
             <div
               className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none"
-              style={{ background: "linear-gradient(to top, #0a0f1e, transparent)" }}
+              style={{ background: "linear-gradient(to top, #090E1C, transparent)" }}
             />
           </div>
 
@@ -37,7 +37,7 @@ export default function FounderBlock() {
               style={{
                 fontSize: "0.7rem",
                 letterSpacing: "0.15em",
-                color: "#f97316",
+                color: "#D4A853",
               }}
             >
               WHO BUILDS THIS
@@ -54,7 +54,7 @@ export default function FounderBlock() {
               className="mb-6"
               style={{
                 fontSize: "1rem",
-                color: "#cbd5e1",
+                color: "#D2C9B8",
                 lineHeight: 1.75,
               }}
             >
@@ -65,7 +65,7 @@ export default function FounderBlock() {
               className="mb-8"
               style={{
                 fontSize: "1rem",
-                color: "#cbd5e1",
+                color: "#D2C9B8",
                 lineHeight: 1.75,
               }}
             >
@@ -76,7 +76,7 @@ export default function FounderBlock() {
               className="mb-8"
               style={{
                 fontSize: "1rem",
-                color: "#cbd5e1",
+                color: "#D2C9B8",
                 lineHeight: 1.75,
               }}
             >
@@ -89,10 +89,10 @@ export default function FounderBlock() {
                   key={badge}
                   className="inline-block rounded-md"
                   style={{
-                    background: "#131d35",
-                    border: "1px solid #1e293b",
-                    borderLeft: "3px solid #f97316",
-                    color: "#cbd5e1",
+                    background: "#141C2E",
+                    border: "1px solid #1C2640",
+                    borderLeft: "3px solid #D4A853",
+                    color: "#D2C9B8",
                     fontSize: "0.8rem",
                     padding: "8px 16px",
                   }}

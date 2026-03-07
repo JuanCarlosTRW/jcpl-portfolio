@@ -110,7 +110,7 @@ export default function Hero() {
 								fontSize: "0.7rem",
 								letterSpacing: "0.15em",
 								textTransform: "uppercase",
-								color: "#f97316",
+								color: "#D4A853",
 								margin: 0,
 								marginBottom: 12,
 							}}
@@ -122,7 +122,7 @@ export default function Hero() {
 							className="hero-bridge"
 							style={{
 								fontSize: "0.9rem",
-								color: "#64748b",
+								color: "#756D63",
 								margin: "0 0 16px",
 							}}
 						>
@@ -135,7 +135,7 @@ export default function Hero() {
 							style={{
 								fontSize: "clamp(2rem, 5vw, 3rem)",
 								fontWeight: 700,
-								color: "#ffffff",
+								color: "#F5F0E8",
 								lineHeight: 1.2,
 								marginBottom: 16,
 							}}
@@ -151,7 +151,7 @@ export default function Hero() {
 							className="hero-subheadline"
 							style={{
 								fontSize: "1.125rem",
-								color: "#94a3b8",
+								color: "#A69D8D",
 								maxWidth: 640,
 								margin: "0 auto 24px",
 								textAlign: "center",
@@ -172,7 +172,7 @@ export default function Hero() {
 								className="cb-microtrust hero-risk-reversal"
 								style={{
 									fontSize: "0.875rem",
-									color: "#64748b",
+									color: "#756D63",
 									textAlign: "center",
 									marginTop: 8,
 									marginBottom: 0,

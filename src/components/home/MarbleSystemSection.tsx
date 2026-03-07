@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const MARKERS = [0.18, 0.52, 0.86] as const;
 
-const PARTICLE_COLORS = ["#ffffff", "#fb923c", "#f97316", "#fef3c7"];
+const PARTICLE_COLORS = ["#ffffff", "#fb923c", "#D4A853", "#fef3c7"];
 const PARTICLE_COUNT = 14;
 
 interface MarbleSystemSectionProps {
@@ -281,7 +281,7 @@ export default function MarbleSystemSection({
       <section
         ref={sectionRef}
         id="marble-system"
-        className="section bg-[#0a0f1e] py-16 md:py-20 !pt-8 md:!pt-12"
+        className="section bg-[#090E1C] py-16 md:py-20 !pt-8 md:!pt-12"
       >
         <div className="container">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-12 lg:gap-16">
@@ -298,7 +298,7 @@ export default function MarbleSystemSection({
               </p>
               <div className="mt-8 md:mt-10 space-y-3 md:space-y-4 min-h-[180px] md:min-h-[200px]">
                 {steps.map((step, i) => (
-                  <div key={i} className="border-l-2 border-[#f97316] pl-4 md:pl-6">
+                  <div key={i} className="border-l-2 border-[#D4A853] pl-4 md:pl-6">
                     <h3 className="text-lg md:text-xl font-semibold text-white">{step.title}</h3>
                     <p className="mt-1.5 md:mt-2 text-sv-text-sub leading-relaxed text-[15px] md:text-base">{step.copy}</p>
                   </div>
@@ -328,7 +328,7 @@ export default function MarbleSystemSection({
                     y2="100%"
                   >
                     <stop offset="0%" stopColor="#fb923c" />
-                    <stop offset="50%" stopColor="#f97316" />
+                    <stop offset="50%" stopColor="#D4A853" />
                     <stop offset="100%" stopColor="#ea580c" />
                   </linearGradient>
                   <radialGradient id="tubeMarbleGloss" cx="32%" cy="32%" r="50%">
@@ -386,7 +386,7 @@ export default function MarbleSystemSection({
     <section
       ref={sectionRef}
       id="marble-system"
-      className="section bg-[#0a0f1e] !pt-8 md:!pt-12 lg:!pt-16"
+      className="section bg-[#090E1C] !pt-8 md:!pt-12 lg:!pt-16"
     >
       <div
         ref={pinRef}
@@ -414,7 +414,7 @@ export default function MarbleSystemSection({
                     key={i}
                     className="border-l-2 pl-4 md:pl-6 transition-all duration-300"
                     style={{
-                      borderLeftColor: isActive ? "#f97316" : "rgba(148,163,184,0.3)",
+                      borderLeftColor: isActive ? "#D4A853" : "rgba(166,157,141,0.3)",
                       opacity: isRevealed ? (isActive ? 1 : 0.5) : 0.4,
                     }}
                   >
@@ -490,7 +490,7 @@ export default function MarbleSystemSection({
                   y2="100%"
                 >
                   <stop offset="0%" stopColor="#fb923c" />
-                  <stop offset="50%" stopColor="#f97316" />
+                  <stop offset="50%" stopColor="#D4A853" />
                   <stop offset="100%" stopColor="#ea580c" />
                 </linearGradient>
                 <radialGradient id="tubeMarbleGloss" cx="32%" cy="32%" r="50%">

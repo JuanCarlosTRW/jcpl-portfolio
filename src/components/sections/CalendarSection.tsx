@@ -37,7 +37,7 @@ export default function CalendarSection() {
       ref={sectionRef}
       id="book-call"
       className="pt-20 pb-20 md:pt-[120px] md:pb-[120px]"
-      style={{ background: "#0a0f1e" }}
+      style={{ background: "#090E1C" }}
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-12 lg:gap-16">
@@ -78,11 +78,11 @@ export default function CalendarSection() {
               className="rounded-lg"
               role="status"
               style={{
-                background: "rgba(249,115,22,0.08)",
-                border: "1px solid rgba(249,115,22,0.22)",
+                background: "rgba(212,168,83,0.08)",
+                border: "1px solid rgba(212,168,83,0.22)",
                 borderRadius: 8,
                 padding: "12px 20px",
-                color: "#fed7aa",
+                color: "#D2C9B8",
                 fontSize: "0.875rem",
                 lineHeight: 1.5,
               }}
@@ -93,23 +93,17 @@ export default function CalendarSection() {
             <div
               className="relative min-h-[560px] overflow-hidden rounded-xl p-4 md:min-h-[640px] cal-embed-wrapper"
               style={{
-                background: "#0f1729",
-                border: "1px solid #1e293b",
+                background: "#0F1628",
+                border: "1px solid #1C2640",
+                borderRadius: 12,
+                padding: 6,
+                overflow: "hidden",
               }}
             >
-              <div
-                style={{
-                  background: "#0f1729",
-                  borderRadius: 12,
-                  padding: 6,
-                  overflow: "hidden",
-                  height: "100%",
-                }}
-              >
               {!isVisible ? (
                 <div
                   className="flex h-full min-h-[520px] items-center justify-center text-[15px] md:min-h-[600px]"
-                  style={{ color: "#94a3b8" }}
+                  style={{ color: "#A69D8D" }}
                   aria-live="polite"
                 >
                   Loading calendar…
@@ -122,7 +116,6 @@ export default function CalendarSection() {
                   style={{ width: "100%", height: "100%" }}
                 />
               )}
-              </div>
             </div>
           </div>
         </div>
