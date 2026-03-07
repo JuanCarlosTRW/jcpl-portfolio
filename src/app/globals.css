@@ -840,10 +840,46 @@ body::before {
   opacity: 0.85;
 }
 
-/* ── CTA primary shine sweep ── */
+/* ─── PRIMARY CTA BUTTON — FULL ANIMATION SYSTEM ─── */
 .cta-primary {
   position: relative;
   overflow: hidden;
+  background: #D4A853;
+  color: #0A0E1A;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 16px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
+  animation: ctaPulse 3s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0px 0px rgba(212, 168, 83, 0),
+      0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 22px 6px rgba(212, 168, 83, 0.28),
+      0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.cta-primary:hover {
+  background: #C49A2A;
+  transform: translateY(-2px);
+  animation-play-state: paused;
+  box-shadow:
+    0 0 32px 8px rgba(212, 168, 83, 0.35),
+    0 8px 28px rgba(0, 0, 0, 0.5);
 }
 
 .cta-primary::after {
@@ -853,8 +889,13 @@ body::before {
   left: -100%;
   width: 55%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.20),
+    transparent
+  );
+  transition: left 0.55s ease;
   pointer-events: none;
 }
 
@@ -862,17 +903,20 @@ body::before {
   left: 150%;
 }
 
-.cta-primary:hover,
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(212,168,83,0.3);
+.cta-primary:active {
+  transform: translateY(0px);
+  animation-play-state: paused;
+  box-shadow:
+    0 0 10px 3px rgba(212, 168, 83, 0.20),
+    0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
+/* Legacy alias — same as cta-primary for buttons that use both */
 .cta-button {
   position: relative;
   overflow: hidden;
 }
-
+.cta-button:hover { transform: translateY(-2px); }
 .cta-button::after {
   content: '';
   position: absolute;
@@ -880,18 +924,39 @@ body::before {
   left: -100%;
   width: 55%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.20), transparent);
   transition: left 0.55s ease;
   pointer-events: none;
 }
+.cta-button:hover::after { left: 150%; }
 
-.cta-button:hover::after {
-  left: 150%;
+/* Secondary ghost buttons */
+.cta-secondary {
+  background: transparent;
+  color: #D4A853;
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+.cta-secondary:hover {
+  border-color: rgba(212, 168, 83, 0.7);
+  background: rgba(212, 168, 83, 0.06);
+  transform: translateX(3px);
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cta-primary { animation: none; }
   .cta-primary:hover::after,
   .cta-button:hover::after { transition: none; }
+}
+
+@media (max-width: 768px) {
+  .cta-primary { animation: ctaPulse 3s ease-in-out infinite; }
 }
 
 /* ── Founder photo float ── */

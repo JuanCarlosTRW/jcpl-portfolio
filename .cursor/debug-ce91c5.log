@@ -18,3 +18,7 @@
 {"sessionId":"ce91c5","location":"BallPit.tsx:resize","message":"BallPit resize","data":{"parentOffsetW":468,"parentOffsetH":400,"w":468,"h":400,"visible":false},"hypothesisId":"H1 H3","timestamp":1772906490860}
 {"sessionId":"ce91c5","location":"BallPit.tsx:createBallpit","message":"createBallpit initialized","data":{"canvasW":936,"canvasH":800,"parentW":468,"parentH":400},"hypothesisId":"H1 H3 H5","timestamp":1772906490903}
 {"sessionId":"ce91c5","location":"BallPit.tsx:resize","message":"BallPit resize","data":{"parentOffsetW":468,"parentOffsetH":400,"w":468,"h":400,"visible":true},"hypothesisId":"H1 H3","timestamp":1772906491007}
+{"sessionId":"ce91c5","location":"BallPit.tsx:resize","message":"BallPit resize","data":{"parentOffsetW":468,"parentOffsetH":400,"w":468,"h":400,"visible":false},"hypothesisId":"H1 H3","timestamp":1772908102884}
+{"sessionId":"ce91c5","location":"BallPit.tsx:resize","message":"BallPit resize","data":{"parentOffsetW":468,"parentOffsetH":400,"w":468,"h":400,"visible":false},"hypothesisId":"H1 H3","timestamp":1772908102891}
+{"sessionId":"ce91c5","location":"BallPit.tsx:createBallpit","message":"createBallpit initialized","data":{"canvasW":936,"canvasH":800,"parentW":468,"parentH":400},"hypothesisId":"H1 H3 H5","timestamp":1772908102951}
+{"sessionId":"ce91c5","location":"BallPit.tsx:resize","message":"BallPit resize","data":{"parentOffsetW":468,"parentOffsetH":400,"w":468,"h":400,"visible":true},"hypothesisId":"H1 H3","timestamp":1772908103054}
