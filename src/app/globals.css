@@ -826,35 +826,70 @@ body::before {
   border-top: 3px solid rgba(212, 168, 83, 0.42);
 }
 
+/* Stat radial glow (key numbers: $27, $41,085, 11 days) */
+.stat-glow {
+  position: relative;
+}
+
+.stat-glow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  background: radial-gradient(
+    ellipse 300px 200px at 50% 50%,
+    rgba(212, 168, 83, 0.08) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stat-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Logo ticker */
 .ticker-logo {
   height: 36px;
   width: auto;
-  opacity: 0.55;
+  opacity: 0.7;
   filter: brightness(0) invert(1);
-  transition: opacity 300ms ease;
+  transition: opacity 300ms;
 }
 
 .ticker-container:hover .ticker-logo,
 .logoloop__track:hover .ticker-logo {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .ticker-container {
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 10%,
-    black 90%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 10%,
-    black 90%,
-    transparent 100%
-  );
+  position: relative;
+}
+
+.ticker-container::before,
+.ticker-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ticker-container::before {
+  left: 0;
+  background: linear-gradient(to right, #181410 0%, transparent 100%);
+}
+
+.ticker-container::after {
+  right: 0;
+  background: linear-gradient(to left, #181410 0%, transparent 100%);
 }
 
 /* ─── PRIMARY CTA BUTTON — FULL ANIMATION SYSTEM ─── */
@@ -1125,7 +1160,7 @@ body::before {
   display: block;
   margin-top: 10px;
   font-size: 0.875rem;
-  color: #A69D8D;
+  color: #D2C9B8;
   text-align: center;
   font-style: italic;
 }
@@ -1163,11 +1198,24 @@ body::before {
 }
 
 .founder-photo-wrapper {
+  position: relative;
   animation: floatPhoto 5s ease-in-out infinite, glowPulse 5s ease-in-out infinite;
+}
+
+.founder-photo-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #1A1510);
+  pointer-events: none;
 }
 
 .pricing-photo-wrapper {
   animation: floatPhoto 5s ease-in-out infinite, glowPulse 5s ease-in-out infinite;
+  animation-delay: 0.5s;
 }
 
 @media (max-width: 768px) {
@@ -1189,7 +1237,7 @@ body::after {
   height: 200%;
   pointer-events: none;
   z-index: 9998;
-  opacity: 0.028;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
