@@ -840,6 +840,23 @@ body::before {
   opacity: 0.85;
 }
 
+.ticker-container {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
 /* ─── PRIMARY CTA BUTTON — FULL ANIMATION SYSTEM ─── */
 .cta-primary {
   position: relative;
@@ -1103,12 +1120,14 @@ body::before {
   background-image: linear-gradient(90deg, #0A0E1A 0%, #0A0E1A 120%);
 }
 
-.demo-cta-risk {
+.demo-cta-risk,
+.hero-risk-reversal {
   display: block;
   margin-top: 10px;
-  font-size: 0.8rem;
-  color: #756D63;
+  font-size: 0.875rem;
+  color: #A69D8D;
   text-align: center;
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -1147,8 +1166,13 @@ body::before {
   animation: floatPhoto 5s ease-in-out infinite, glowPulse 5s ease-in-out infinite;
 }
 
+.pricing-photo-wrapper {
+  animation: floatPhoto 5s ease-in-out infinite, glowPulse 5s ease-in-out infinite;
+}
+
 @media (max-width: 768px) {
-  .founder-photo-wrapper { animation: none; }
+  .founder-photo-wrapper,
+  .pricing-photo-wrapper { animation: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
