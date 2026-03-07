@@ -97,7 +97,7 @@ export default function ServicesSection() {
       ref={sectionRef}
       id="services"
       className="py-16 md:py-24"
-      style={{ background: "#181410" }}
+      style={{ background: "#F8F4ED" }}
     >
       <Reveal className="max-w-2xl mx-auto text-center mb-12">
         <p
@@ -112,14 +112,14 @@ export default function ServicesSection() {
           WHAT I BUILD
         </p>
         <h2
-          className="text-[clamp(28px,4vw,40px)] font-bold text-white leading-tight mb-4"
-          style={{ maxWidth: 640, margin: "0 auto 16px" }}
+          className="text-[clamp(28px,4vw,40px)] font-bold leading-tight mb-4"
+          style={{ maxWidth: 640, margin: "0 auto 16px", color: "#1A1510" }}
         >
           One person builds every piece of the system.
         </h2>
         <p
           className="text-base md:text-lg max-w-xl mx-auto"
-          style={{ color: "#A69D8D", lineHeight: 1.6 }}
+          style={{ color: "#5A5248", lineHeight: 1.6 }}
         >
           No scattered vendors. No disconnected tools. Every service below is built and owned by me.
         </p>
