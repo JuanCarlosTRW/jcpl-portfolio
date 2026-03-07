@@ -209,18 +209,13 @@
     transform 0.2s ease;
 }
 
+/* Base primary CTA — animation/glow from .cta-primary in globals */
 .cb-cta--primary {
   background: #D4A853;
   color: #0A0E1A;
-  border: 1px solid transparent;
+  border: none;
   padding: 16px 32px;
   border-radius: 8px;
-  transition: background-color 200ms ease;
-}
-
-.cb-cta--primary:hover {
-  background: #C49A2A;
-  transform: translateY(-1px);
 }
 
 .cb-cta-arrow {
