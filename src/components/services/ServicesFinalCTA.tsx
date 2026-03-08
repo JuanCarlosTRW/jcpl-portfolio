@@ -25,7 +25,7 @@ export default function ServicesFinalCTA() {
   return (
     <section
       id="apply"
-      style={{ background: "linear-gradient(180deg, #0A0F1E 0%, #070B14 100%)" }}
+      style={{ background: "#1A1510" }}
     >
       <SectionWrapper className="relative z-10">
 
@@ -34,14 +34,14 @@ export default function ServicesFinalCTA() {
           <Reveal>
             <div className="text-center mb-8">
               <p
-                className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-center"
-                style={{ color: "#1E3A5F" }}
+                className="section-label mb-4 text-center"
+                style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
               >
                 HOW I WORK
               </p>
               <h2
                 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center"
-                style={{ color: "#FFFFFF" }}
+                style={{ color: "#F5F0E8" }}
               >
                 What You Know Before Signing Anything.
               </h2>
@@ -54,7 +54,7 @@ export default function ServicesFinalCTA() {
         <div className="flex justify-center mb-16" aria-hidden="true">
           <div
             className="w-16 h-px"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.30), transparent)" }}
+            style={{ background: "rgba(212, 168, 83, 0.4)" }}
           />
         </div>
 
@@ -63,20 +63,20 @@ export default function ServicesFinalCTA() {
           <Reveal>
             <div className="text-center mb-10">
               <p
-                className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
-                style={{ color: "#1E3A5F" }}
+                className="section-label mb-4"
+                style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
               >
                 APPLY
               </p>
               <h2
                 className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
-                style={{ color: "#FFFFFF" }}
+                style={{ color: "#F5F0E8" }}
               >
                 I Run 3 Partnerships at a Time.
               </h2>
               <p
                 className="text-base leading-relaxed"
-                style={{ color: "#64748B" }}
+                style={{ color: "#D2C9B8" }}
               >
                 Short application. If I think I can help, you will get a call link within 24 hours. If not, I will tell you directly.
               </p>
@@ -84,27 +84,17 @@ export default function ServicesFinalCTA() {
           </Reveal>
 
           <Reveal delay={0.05}>
-            <form
-              className="rounded-2xl p-8"
-              style={{ background: "#0F1A2E", border: "1px solid rgba(59, 130, 246, 0.15)" }}
-            >
+            <form className="services-apply-form rounded-2xl p-8">
               {/* Tier selection */}
               <div className="mb-7">
-                <p
-                  className="text-xs font-semibold tracking-[0.15em] uppercase mb-3"
-                  style={{ color: "#475569" }}
-                >
+                <p className="services-form-label block mb-3">
                   Which tier are you applying for?
                 </p>
                 <div className="flex flex-col gap-2">
                   {tiers.map((tier) => (
                     <label
                       key={tier.id}
-                      className="flex items-start gap-3 rounded-xl px-4 py-3 cursor-pointer transition-colors"
-                      style={{
-                        background: selectedTier === tier.id ? "rgba(43, 90, 140, 0.12)" : "rgba(148, 163, 184, 0.04)",
-                        border: selectedTier === tier.id ? "1px solid rgba(59, 130, 246, 0.35)" : "1px solid rgba(148, 163, 184, 0.10)",
-                      }}
+                      className={`services-radio-option flex items-start gap-3 ${selectedTier === tier.id ? "selected" : ""}`}
                     >
                       <input
                         type="radio"
@@ -112,16 +102,16 @@ export default function ServicesFinalCTA() {
                         value={tier.id}
                         checked={selectedTier === tier.id}
                         onChange={() => setSelectedTier(tier.id)}
-                        className="mt-0.5 accent-blue-500"
+                        className="mt-0.5"
                       />
                       <div>
                         <p
                           className="text-sm font-semibold"
-                          style={{ color: selectedTier === tier.id ? "#FFFFFF" : "#94A3B8" }}
+                          style={{ color: selectedTier === tier.id ? "#F5F0E8" : "#A69D8D" }}
                         >
                           {tier.label}
                         </p>
-                        <p className="text-xs mt-0.5" style={{ color: "#475569" }}>
+                        <p className="text-xs mt-0.5" style={{ color: "#756D63" }}>
                           {tier.desc}
                         </p>
                       </div>
@@ -133,35 +123,25 @@ export default function ServicesFinalCTA() {
               {/* Name + Business */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                  <label className="services-form-label block mb-1.5">
                     Your name
                   </label>
                   <input
                     type="text"
                     name="name"
                     placeholder="First and last"
-                    className="w-full rounded-lg px-4 py-2.5 text-sm outline-none"
-                    style={{
-                      background: "rgba(148, 163, 184, 0.05)",
-                      border: "1px solid rgba(148, 163, 184, 0.12)",
-                      color: "#F1F5F9",
-                    }}
+                    className="services-form-input w-full"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                  <label className="services-form-label block mb-1.5">
                     Business name
                   </label>
                   <input
                     type="text"
                     name="business"
                     placeholder="Your business"
-                    className="w-full rounded-lg px-4 py-2.5 text-sm outline-none"
-                    style={{
-                      background: "rgba(148, 163, 184, 0.05)",
-                      border: "1px solid rgba(148, 163, 184, 0.12)",
-                      color: "#F1F5F9",
-                    }}
+                    className="services-form-input w-full"
                   />
                 </div>
               </div>
@@ -169,18 +149,13 @@ export default function ServicesFinalCTA() {
               {/* Revenue + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                  <label className="services-form-label block mb-1.5">
                     Monthly revenue
                   </label>
                   <select
                     name="revenue"
                     defaultValue=""
-                    className="w-full rounded-lg px-4 py-2.5 text-sm outline-none"
-                    style={{
-                      background: "rgba(148, 163, 184, 0.05)",
-                      border: "1px solid rgba(148, 163, 184, 0.12)",
-                      color: "#94A3B8",
-                    }}
+                    className="services-form-select w-full"
                   >
                     <option value="" disabled>Select range</option>
                     {revenueOptions.map((opt) => (
@@ -189,56 +164,41 @@ export default function ServicesFinalCTA() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                  <label className="services-form-label block mb-1.5">
                     Email
                   </label>
                   <input
                     type="email"
                     name="email"
                     placeholder="you@business.com"
-                    className="w-full rounded-lg px-4 py-2.5 text-sm outline-none"
-                    style={{
-                      background: "rgba(148, 163, 184, 0.05)",
-                      border: "1px solid rgba(148, 163, 184, 0.12)",
-                      color: "#F1F5F9",
-                    }}
+                    className="services-form-input w-full"
                   />
                 </div>
               </div>
 
               {/* Message */}
               <div className="mb-6">
-                <label className="block text-xs font-medium mb-1.5" style={{ color: "#475569" }}>
+                <label className="services-form-label block mb-1.5">
                   What are you trying to solve?{" "}
-                  <span style={{ color: "#263050" }}>(optional)</span>
+                  <span style={{ color: "#756D63" }}>(optional)</span>
                 </label>
                 <textarea
                   name="message"
                   rows={3}
                   placeholder="Briefly describe your current situation and goal."
-                  className="w-full rounded-lg px-4 py-2.5 text-sm outline-none resize-none"
-                  style={{
-                    background: "rgba(148, 163, 184, 0.05)",
-                    border: "1px solid rgba(148, 163, 184, 0.12)",
-                    color: "#F1F5F9",
-                  }}
+                  className="services-form-textarea w-full resize-none"
                 />
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-150 hover:brightness-110"
-                style={{
-                  background: "linear-gradient(90deg, var(--brand-accent), #3B82F6)",
-                  color: "#FFFFFF",
-                  boxShadow: "0 4px 24px rgba(43, 90, 140, 0.35)",
-                }}
+                className="cta-primary w-full py-3.5 rounded-xl text-sm font-bold tracking-wide"
               >
                 Submit Application →
               </button>
 
-              <p className="text-xs text-center mt-4" style={{ color: "#263050" }}>
+              <p className="text-xs text-center mt-4" style={{ color: "#756D63" }}>
                 Response within 24 hours. No retainer until I confirm fit.
               </p>
             </form>

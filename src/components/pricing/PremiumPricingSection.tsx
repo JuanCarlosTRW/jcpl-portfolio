@@ -32,13 +32,11 @@ function Card({ tier, index }: { tier: TierConfig; index: number }) {
   return (
     <article
       className={cn(
-        "relative flex flex-col rounded-[14px] p-8 transition-all duration-300 ease-out",
+        "relative flex flex-col rounded-xl p-8 transition-all duration-300 ease-out",
         "hover:-translate-y-[2px]",
-        "focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[rgba(120,160,255,0.5)]",
+        "focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#D4A853]",
         index === 1 && "order-first lg:order-none",
-        isHighlighted
-          ? "border border-[rgba(120,160,255,0.5)] bg-[#111111] shadow-[0_0_40px_rgba(120,160,255,0.12),0_0_80px_rgba(120,160,255,0.06)]"
-          : "border border-white/[0.08] bg-[#111111] hover:border-white/[0.12] hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)]"
+        "bg-[#1E1A14] border border-[#2A2318] border-t-2 border-t-[#D4A853] hover:shadow-[0_12px_48px_rgba(0,0,0,0.35)]"
       )}
       style={{ minHeight: "100%" }}
     >
@@ -48,9 +46,7 @@ function Card({ tier, index }: { tier: TierConfig; index: number }) {
           className={cn(
             "absolute -top-4 left-1/2 -translate-x-1/2 z-10",
             "text-[11px] font-bold tracking-[0.18em] uppercase px-5 py-1.5 rounded-full whitespace-nowrap",
-            isHighlighted
-              ? "bg-white/10 text-white border border-white/20"
-              : "bg-white/5 text-white/80 border border-white/10"
+            "bg-[#D4A853] text-[#0A0E1A]"
           )}
         >
           {tier.badge}
@@ -59,10 +55,7 @@ function Card({ tier, index }: { tier: TierConfig; index: number }) {
 
       {/* Tier label */}
       <p
-        className={cn(
-          "text-[10px] font-semibold tracking-[0.22em] uppercase mb-2",
-          isHighlighted ? "text-[rgba(120,160,255,0.8)]" : "text-white/50"
-        )}
+        className="text-[10px] font-semibold tracking-[0.22em] uppercase mb-2 text-[#A69D8D]"
       >
         {tier.tierLabel}
       </p>
@@ -89,7 +82,7 @@ function Card({ tier, index }: { tier: TierConfig; index: number }) {
 
       {/* For section */}
       <div
-        className="rounded-lg px-4 py-3 mb-4 border border-white/[0.08] bg-white/[0.04]"
+        className="rounded-lg px-4 py-3 mb-4 bg-[#221D17] border-l-[3px] border-l-[#D4A853]"
         style={{ fontStyle: "italic" }}
       >
         <p className="text-[13px] text-white/70 leading-relaxed">
@@ -105,18 +98,10 @@ function Card({ tier, index }: { tier: TierConfig; index: number }) {
       )}
       {tier.proofBlock && (
         <div
-          className={cn(
-            "rounded-xl px-5 py-4 mb-5 border",
-            isHighlighted
-              ? "bg-[rgba(120,160,255,0.06)] border-[rgba(120,160,255,0.2)]"
-              : "bg-white/[0.03] border-white/[0.08]"
-          )}
+          className="rounded-xl px-5 py-4 mb-5 bg-[#221D17] border-l-[3px] border-l-[#D4A853]"
         >
           <p
-            className={cn(
-              "text-[11px] font-semibold tracking-[0.15em] uppercase mb-2",
-              isHighlighted ? "text-[rgba(120,160,255,0.9)]" : "text-white/50"
-            )}
+            className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-2 text-[#D4A853]"
           >
             {tier.proofBlock.label}
           </p>
@@ -131,7 +116,7 @@ function Card({ tier, index }: { tier: TierConfig; index: number }) {
       <ul className="flex flex-col gap-3 flex-1 mb-6" role="list">
         {tier.features.map((item) => (
           <li key={item} className="flex items-start gap-3">
-            <CheckIcon className="text-white/70" />
+            <CheckIcon className="text-[#D4A853]" />
             <span className="text-[15px] text-white/80 leading-relaxed">
               {item}
             </span>
@@ -161,8 +146,8 @@ function Card({ tier, index }: { tier: TierConfig; index: number }) {
           className={cn(
             "block w-full text-center font-semibold py-3.5 rounded-xl transition-all duration-300",
             isHighlighted
-              ? "bg-[rgba(120,160,255,0.25)] text-white border border-[rgba(120,160,255,0.4)] shadow-[0_0_24px_rgba(120,160,255,0.25)] hover:bg-[rgba(120,160,255,0.35)] hover:shadow-[0_0_32px_rgba(120,160,255,0.3)]"
-              : "bg-transparent text-white border border-white/20 hover:border-white/35 hover:bg-white/[0.06]"
+              ? "cta-primary"
+              : "cta-secondary"
           )}
         >
           {tier.ctaLabel}
@@ -189,7 +174,8 @@ export default function PremiumPricingSection({
   return (
     <section
       id="pricing"
-      className="w-full py-20 md:py-28 bg-[#0A0A0A]"
+      className="w-full py-20 md:py-28"
+      style={{ background: "#131009" }}
       aria-labelledby="pricing-heading"
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
@@ -197,7 +183,8 @@ export default function PremiumPricingSection({
         <header className="text-center mb-16 md:mb-20">
           <p
             id="pricing-eyebrow"
-            className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/50 mb-4"
+            className="section-label mb-4"
+            style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
           >
             PRICING
           </p>
@@ -221,43 +208,48 @@ export default function PremiumPricingSection({
 
         {/* Proof / comparison block */}
         <div
-          className="mt-16 md:mt-20 rounded-[14px] border border-white/[0.08] bg-[#111111] overflow-hidden"
+          className="mt-16 md:mt-20 rounded-xl border border-[#2A2318] overflow-hidden"
+          style={{ background: "#131009" }}
           role="region"
           aria-label="Feature comparison and social proof"
         >
           {/* Top accent line */}
           <div
-            className="h-px w-full"
-            style={{ background: "rgba(120,160,255,0.4)" }}
+            className="h-0.5 w-full"
+            style={{ background: "#D4A853" }}
           />
 
           <div className="p-6 md:p-8 lg:p-10">
             {/* Comparison table */}
             <div className="overflow-x-auto -mx-2">
-              <table className="w-full min-w-[480px] border-collapse">
+              <table className="w-full min-w-[480px] border-collapse [&_tr]:transition-colors [&_tr:hover]:bg-[rgba(212,168,83,0.03)]">
                 <thead>
                   <tr>
                     <th
                       scope="col"
-                      className="text-left py-4 px-4 text-sm font-semibold text-white/60"
+                      className="text-left py-4 px-4 text-sm font-semibold"
+                      style={{ color: "#F5F0E8", borderColor: "#2A2318" }}
                     >
                       Features
                     </th>
                     <th
                       scope="col"
-                      className="py-4 px-4 text-center text-sm font-semibold text-white"
+                      className="py-4 px-4 text-center text-sm font-semibold"
+                      style={{ color: "#F5F0E8", borderColor: "#2A2318" }}
                     >
                       Foundation Architecture
                     </th>
                     <th
                       scope="col"
-                      className="py-4 px-4 text-center text-sm font-semibold text-white"
+                      className="py-4 px-4 text-center text-sm font-semibold"
+                      style={{ color: "#F5F0E8", borderColor: "#2A2318" }}
                     >
                       Performance Engine
                     </th>
                     <th
                       scope="col"
-                      className="py-4 px-4 text-center text-sm font-semibold text-white"
+                      className="py-4 px-4 text-center text-sm font-semibold"
+                      style={{ color: "#F5F0E8", borderColor: "#2A2318" }}
                     >
                       Market Ownership
                     </th>
@@ -267,30 +259,31 @@ export default function PremiumPricingSection({
                   {comparisonRows.map((row, i) => (
                     <tr
                       key={row.feature}
-                      className={i > 0 ? "border-t border-white/[0.06]" : ""}
+                      className={i > 0 ? "border-t" : ""}
+                      style={{ borderColor: "#2A2318" }}
                     >
-                      <td className="py-4 px-4 text-[15px] text-white/80">
+                      <td className="py-4 px-4 text-[15px]" style={{ color: "#D2C9B8" }}>
                         {row.feature}
                       </td>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-4 px-4 text-center" style={{ borderColor: "#2A2318" }}>
                         {row.foundation ? (
-                          <CheckIcon className="inline-block text-white/70" />
+                          <CheckIcon className="inline-block text-[#D4A853]" />
                         ) : (
-                          <span className="text-white/20">—</span>
+                          <span style={{ color: "#756D63" }}>—</span>
                         )}
                       </td>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-4 px-4 text-center" style={{ borderColor: "#2A2318" }}>
                         {row.growth ? (
-                          <CheckIcon className="inline-block text-white/70" />
+                          <CheckIcon className="inline-block text-[#D4A853]" />
                         ) : (
-                          <span className="text-white/20">—</span>
+                          <span style={{ color: "#756D63" }}>—</span>
                         )}
                       </td>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-4 px-4 text-center" style={{ borderColor: "#2A2318" }}>
                         {row.domination ? (
-                          <CheckIcon className="inline-block text-white/70" />
+                          <CheckIcon className="inline-block text-[#D4A853]" />
                         ) : (
-                          <span className="text-white/20">—</span>
+                          <span style={{ color: "#756D63" }}>—</span>
                         )}
                       </td>
                     </tr>
@@ -300,7 +293,7 @@ export default function PremiumPricingSection({
             </div>
 
             {/* Proof block */}
-            <div className="mt-12 pt-12 border-t border-white/[0.06] text-center">
+            <div className="mt-12 pt-12 border-t text-center" style={{ borderColor: "#2A2318" }}>
               <p
                 className="text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto italic"
                 style={{ color: "#D2C9B8" }}
@@ -311,7 +304,7 @@ export default function PremiumPricingSection({
             </div>
 
             {/* Optional logo row */}
-            <div className="mt-12 pt-12 border-t border-white/[0.06]">
+            <div className="mt-12 pt-12 border-t" style={{ borderColor: "#2A2318" }}>
               <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-25">
                 {caseStudyLogos.slice(0, 5).map((logo) => (
                   <span
@@ -325,14 +318,14 @@ export default function PremiumPricingSection({
             </div>
 
             {/* Final CTA */}
-            <div className="mt-12 pt-12 border-t border-white/[0.06] text-center">
+            <div className="mt-12 pt-12 border-t text-center" style={{ borderColor: "#2A2318" }}>
               <h3 className="text-xl font-semibold text-white mb-6">
                 Questions I get every time.
               </h3>
               <Link
                 href="/apply"
                 onClick={() => trackEvent("services_final_cta_primary_click")}
-                className="inline-flex items-center justify-center font-semibold px-8 py-3.5 rounded-xl text-white bg-[rgba(120,160,255,0.25)] border border-[rgba(120,160,255,0.4)] shadow-[0_0_24px_rgba(120,160,255,0.25)] hover:bg-[rgba(120,160,255,0.35)] hover:shadow-[0_0_32px_rgba(120,160,255,0.3)] transition-all duration-300"
+                className="cta-primary inline-flex items-center justify-center font-semibold px-8 py-3.5 rounded-xl"
               >
                 Book a Strategy Call
               </Link>

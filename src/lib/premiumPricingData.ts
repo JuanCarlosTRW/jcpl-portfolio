@@ -59,7 +59,7 @@ export const tiers: TierConfig[] = [
       "Strong work. Still waiting on the phone. No predictable way to get new clients this week.",
     proofBlock: {
       label: "VERIFIED RESULT",
-      headline: "$900 spent → $41,084.85 returned",
+      headline: "$900 spent → $41,085 returned",
       subtext:
         "Triple W Rentals, Texas. 30 days. They now own the RV rental market in their region.",
     },

@@ -330,6 +330,70 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* ─── SERVICES APPLY FORM (Fix 6) ─── */
+.services-apply-form {
+  background: #1E1A14;
+  border: 1px solid #2A2318;
+  border-radius: 12px;
+}
+
+.services-form-input,
+.services-form-textarea,
+.services-form-select {
+  background: #1E1A14;
+  border: 1px solid #2A2318;
+  border-radius: 8px;
+  color: #F5F0E8;
+  padding: 12px 16px;
+  font-size: 16px;
+  transition: border-color 200ms ease;
+}
+
+.services-form-input:focus,
+.services-form-textarea:focus,
+.services-form-select:focus {
+  border-color: #D4A853;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(212, 168, 83, 0.15);
+}
+
+.services-form-input::placeholder,
+.services-form-textarea::placeholder {
+  color: #756D63;
+}
+
+.services-radio-option {
+  background: #1E1A14;
+  border: 1px solid #2A2318;
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.services-radio-option:hover {
+  border-color: #D4A853;
+}
+
+.services-radio-option.selected {
+  border-color: #D4A853;
+  background: rgba(212, 168, 83, 0.08);
+}
+
+.services-form-label {
+  color: #A69D8D;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+/* Custom radio - hide native, use gold accent */
+.services-radio-option input[type="radio"] {
+  accent-color: #D4A853;
+}
+
 /* ─── SERVICES FINAL CTA ─── */
 .services-cta-section {
   position: relative;

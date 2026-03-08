@@ -4,17 +4,17 @@ export default function ServicesHero() {
   return (
     <section
       className="relative w-full min-h-[75vh] flex items-center px-6 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #060912 0%, #070B14 100%)" }}
+      style={{ background: "#0D0B09" }}
     >
       <div className="relative z-10 max-w-4xl mx-auto pt-28 pb-24">
         <p
-          className="mb-6"
+          className="mb-6 section-label"
           style={{
-            fontSize: "11px",
-            fontWeight: 500,
-            letterSpacing: "0.22em",
+            fontSize: "14px",
+            fontWeight: 600,
+            letterSpacing: "0.1em",
             textTransform: "uppercase",
-            color: "#1E3A5F",
+            color: "#D4A853",
           }}
         >
           CLIENT GROWTH / SERVICES
@@ -27,12 +27,12 @@ export default function ServicesHero() {
             fontWeight: 600,
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
-            color: "#FFFFFF",
+            color: "#F5F0E8",
             maxWidth: "800px",
           }}
         >
-          The Growth Infrastructure<br />
-          Built for Service Businesses.
+          I Build the Growth Infrastructure<br />
+          for Service Businesses.
         </h1>
 
         <p
@@ -41,7 +41,7 @@ export default function ServicesHero() {
             fontSize: "17px",
             fontWeight: 400,
             lineHeight: 1.7,
-            color: "#475569",
+            color: "#D2C9B8",
             maxWidth: "520px",
           }}
         >
@@ -51,23 +51,13 @@ export default function ServicesHero() {
         <div className="flex flex-col sm:flex-row gap-3">
           <a
             href="#apply"
-            className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-150"
-            style={{
-              background: "linear-gradient(90deg, var(--brand-accent), #3B82F6)",
-              color: "#FFFFFF",
-              boxShadow: "0 4px 24px rgba(43, 90, 140, 0.35)",
-            }}
+            className="cta-primary inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-semibold"
           >
             Apply for a Partnership →
           </a>
           <a
-            href="#tiers"
-            className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-medium transition-colors"
-            style={{
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "#94A3B8",
-            }}
+            href="#pricing"
+            className="cta-secondary inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-medium"
           >
             See the three tiers
           </a>
@@ -82,9 +72,9 @@ export default function ServicesHero() {
             <span
               key={item}
               className="text-xs flex items-center gap-2"
-              style={{ color: "#3D5875" }}
+              style={{ color: "#A69D8D" }}
             >
-              <span style={{ color: "#1E3A5F" }}>✓</span>
+              <span style={{ color: "#D4A853" }}>✓</span>
               {item}
             </span>
           ))}

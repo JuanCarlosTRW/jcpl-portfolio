@@ -289,7 +289,7 @@ export default function MarbleSystemSection({
             <div className="flex-1 max-w-xl">
               <SectionLabel
                 label={marbleSystemSection.label}
-                className="mb-4 text-sv-text-muted"
+                className="mb-4 !text-[#D4A853]"
               />
               <h2 className="text-[clamp(34px,4.5vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em]">
                 {marbleSystemSection.headline}
@@ -328,9 +328,9 @@ export default function MarbleSystemSection({
                     x2="0%"
                     y2="100%"
                   >
-                    <stop offset="0%" stopColor="#fb923c" />
-                    <stop offset="50%" stopColor="#D4A853" />
-                    <stop offset="100%" stopColor="#ea580c" />
+                    <stop offset="0%" stopColor="#D4A853" />
+                    <stop offset="50%" stopColor="#C49A2A" />
+                    <stop offset="100%" stopColor="#D4A853" />
                   </linearGradient>
                   <radialGradient id="tubeMarbleGloss" cx="32%" cy="32%" r="50%">
                     <stop offset="0%" stopColor="rgba(255,255,255,0.98)" stopOpacity="1" />
@@ -359,22 +359,11 @@ export default function MarbleSystemSection({
                      Q 580 920, 580 1020 
                      L 580 1320"
                   stroke="url(#tubeGradient)"
-                  strokeWidth="65"
+                  strokeWidth="24"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   fill="none"
                 />
-
-                <g transform="translate(580,1020)">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="30"
-                    fill="url(#tubeMarbleGloss)"
-                    filter="url(#tubeMarbleGlow)"
-                    opacity="0.9"
-                  />
-                </g>
               </svg>
             </div>
           </div>
@@ -398,7 +387,7 @@ export default function MarbleSystemSection({
           <div className="flex-1 max-w-xl">
             <SectionLabel
               label={marbleSystemSection.label}
-              className="mb-4 text-sv-text-muted"
+              className="mb-4 !text-[#D4A853]"
             />
             <h2 className="text-[clamp(32px,4vw,52px)] font-[800] text-white leading-[1.15] tracking-[-0.025em]">
               {marbleSystemSection.headline}
@@ -417,7 +406,7 @@ export default function MarbleSystemSection({
                     className="border-l-2 pl-4 md:pl-6 transition-all duration-300"
                     style={{
                       borderLeftColor: isActive ? "#D4A853" : "rgba(166,157,141,0.3)",
-                      opacity: isRevealed ? (isActive ? 1 : 0.5) : 0.4,
+                      opacity: isRevealed ? 1 : 0.4,
                     }}
                   >
                     <h3 className="text-lg md:text-xl font-semibold text-white">
@@ -491,9 +480,9 @@ export default function MarbleSystemSection({
                   x2="0%"
                   y2="100%"
                 >
-                  <stop offset="0%" stopColor="#fb923c" />
-                  <stop offset="50%" stopColor="#D4A853" />
-                  <stop offset="100%" stopColor="#ea580c" />
+                  <stop offset="0%" stopColor="#D4A853" />
+                  <stop offset="50%" stopColor="#C49A2A" />
+                  <stop offset="100%" stopColor="#D4A853" />
                 </linearGradient>
                 <radialGradient id="tubeMarbleGloss" cx="32%" cy="32%" r="50%">
                   <stop offset="0%" stopColor="rgba(255,255,255,0.98)" stopOpacity="1" />
@@ -522,7 +511,7 @@ export default function MarbleSystemSection({
                    Q 580 920, 580 1020 
                    L 580 1320"
                 stroke="url(#tubeGradient)"
-                strokeWidth="65"
+                strokeWidth="24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 fill="none"
@@ -551,17 +540,17 @@ export default function MarbleSystemSection({
                 markerPositions.map((pos, i) => (
                   <g key={i} transform={`translate(${pos.x}, ${pos.y})`}>
                     <circle
-                      r="14"
-                      fill="white"
-                      stroke="#ea580c"
+                      r="12"
+                      fill="#D4A853"
+                      stroke="#0D0B09"
                       strokeWidth="2"
                       opacity="0.95"
                     />
                     <text
                       textAnchor="middle"
                       dominantBaseline="central"
-                      fill="#ea580c"
-                      fontSize="12"
+                      fill="#0A0E1A"
+                      fontSize="10"
                       fontWeight="700"
                       fontFamily="system-ui, sans-serif"
                     >

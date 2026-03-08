@@ -19,6 +19,7 @@ interface PillItemProps {
   onClick: () => void;
   onKeyDown: (e: React.KeyboardEvent) => void;
   reducedMotion: boolean;
+  goldTheme?: boolean;
 }
 
 function hexToRgb(hex: string): string {
@@ -42,6 +43,7 @@ export default function PillItem({
   onClick,
   onKeyDown,
   reducedMotion,
+  goldTheme = false,
 }: PillItemProps) {
   const rgb = hexToRgb(accentColor);
   const hoverRgb = hexToRgb(hoverAccentColor);
@@ -117,11 +119,10 @@ export default function PillItem({
         {includedBadge && (
           <span
             className="inline-flex w-fit mb-1.5 rounded px-2 py-0.5 text-[10px] font-medium"
-            style={{
-              backgroundColor: "#1e3a5f",
-              color: "#93c5fd",
-              fontSize: "0.65rem",
-            }}
+            style={goldTheme
+              ? { backgroundColor: "rgba(212, 168, 83, 0.15)", color: "#D4A853", fontSize: "0.65rem" }
+              : { backgroundColor: "#1e3a5f", color: "#93c5fd", fontSize: "0.65rem" }
+            }
           >
             Included in all plans
           </span>

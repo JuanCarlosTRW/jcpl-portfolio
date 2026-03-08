@@ -9,41 +9,30 @@ export default function GuaranteesStrip() {
 
         {/* Left: Featured standard */}
         <div
-          className="relative rounded-2xl p-8 flex flex-col justify-between overflow-hidden"
+          className="relative rounded-xl p-8 flex flex-col justify-between overflow-hidden"
           style={{
-            background: "#0F1A2E",
-            border: "1px solid rgba(59, 130, 246, 0.22)",
+            background: "#1E1A14",
+            border: "1px solid #2A2318",
+            borderTop: "2px solid #D4A853",
             minHeight: "420px",
-            boxShadow: "0 0 40px rgba(59, 130, 246, 0.06)",
           }}
         >
-          {/* Top accent line */}
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: "2rem",
-              right: "2rem",
-              height: "1px",
-              background: "linear-gradient(90deg, transparent, rgba(99, 179, 237, 0.50), transparent)",
-            }}
-          />
           <div>
             <p
               className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
-              style={{ color: "#3B82F6" }}
+              style={{ color: "#D4A853" }}
             >
               THE STANDARD
             </p>
             <h3
               className="text-2xl font-semibold leading-snug mb-5"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "#F5F0E8" }}
             >
               Every number is real or it does not get published.
             </h3>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#94A3B8" }}
+              style={{ color: "#D2C9B8" }}
             >
               Every result on this site comes from a live client account. No projections. No hypotheticals. If I cannot point to a real campaign with real numbers, I do not publish it. Before you sign anything, I can walk you through exactly where each result came from.
             </p>
@@ -51,13 +40,13 @@ export default function GuaranteesStrip() {
           <div>
             <p
               className="text-5xl font-bold mt-auto pt-8 leading-none"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "#F5F0E8" }}
             >
-              $41,084.85
+              $41,085
             </p>
             <p
               className="text-xs mt-2"
-              style={{ color: "#475569" }}
+              style={{ color: "#756D63" }}
             >
               Most recent verifiable result. 30 days.
             </p>
@@ -67,52 +56,52 @@ export default function GuaranteesStrip() {
         {/* Right: Three stacked smaller standards */}
         <div className="flex flex-col gap-4">
           <div
-            className="rounded-2xl p-6"
-            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.12)" }}
+            className="rounded-xl p-6"
+            style={{ background: "#1E1A14", border: "1px solid #2A2318", borderTop: "2px solid #D4A853" }}
           >
             <p
               className="text-base font-semibold mb-2"
-              style={{ color: "#E2E8F0" }}
+              style={{ color: "#F5F0E8" }}
             >
               Milestone Delivery
             </p>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#94A3B8" }}
+              style={{ color: "#D2C9B8" }}
             >
               Phase 1 delivers your Market Gap Report, Funnel Audit, and 90-day roadmap. Phase 2 delivers a live website, active ad campaigns, and a booking system. You see every deliverable before the next phase starts.
             </p>
           </div>
           <div
-            className="rounded-2xl p-6"
-            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.12)" }}
+            className="rounded-xl p-6"
+            style={{ background: "#1E1A14", border: "1px solid #2A2318", borderTop: "2px solid #D4A853" }}
           >
             <p
               className="text-base font-semibold mb-2"
-              style={{ color: "#E2E8F0" }}
+              style={{ color: "#F5F0E8" }}
             >
               No Lock-In
             </p>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#94A3B8" }}
+              style={{ color: "#D2C9B8" }}
             >
               The website is yours. The ad accounts are yours. The tracking setup is yours. Month-to-month after the initial build. If you leave tomorrow, you take everything I built with you.
             </p>
           </div>
           <div
-            className="rounded-2xl p-6"
-            style={{ background: "#0F1A2E", border: "1px solid rgba(148, 163, 184, 0.12)" }}
+            className="rounded-xl p-6"
+            style={{ background: "#1E1A14", border: "1px solid #2A2318", borderTop: "2px solid #D4A853" }}
           >
             <p
               className="text-base font-semibold mb-2"
-              style={{ color: "#E2E8F0" }}
+              style={{ color: "#F5F0E8" }}
             >
               Honest Fit Assessment
             </p>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "#94A3B8" }}
+              style={{ color: "#D2C9B8" }}
             >
               Before any agreement, I review your market, your current revenue, and your operation. If I do not think I can produce a return, I tell you on the call. I have turned down clients. I will do it again.
             </p>

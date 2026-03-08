@@ -21,23 +21,28 @@ const SHADER_CONFIGS: Record<
   googleAds: { color1: "#050B1A", color2: "#1E3A8A", color3: "#3B82F6" },
 };
 
+const GOLD_SHADER = { color1: "#131009", color2: "#1A1510", color3: "rgba(212, 168, 83, 0.06)" };
+
 const TRANSITION = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
 
 interface Props {
   bgKey: ServiceBgKey;
+  goldTheme?: boolean;
 }
 
-export default function ServicesShaderBackground({ bgKey }: Props) {
+export default function ServicesShaderBackground({ bgKey, goldTheme = false }: Props) {
   const reducedMotion = usePrefersReducedMotionSafe();
-  const colors = SHADER_CONFIGS[bgKey];
+  const colors = goldTheme ? GOLD_SHADER : SHADER_CONFIGS[bgKey];
 
   if (reducedMotion) {
     return (
       <div
         className="absolute inset-0 pointer-events-none z-0"
         style={{
-          background: `linear-gradient(180deg, ${colors.color1} 0%, ${colors.color2} 50%, ${colors.color3} 100%)`,
-          opacity: 0.3,
+          background: goldTheme
+            ? "linear-gradient(180deg, #131009 0%, #1A1510 50%, rgba(212, 168, 83, 0.04) 100%)"
+            : `linear-gradient(180deg, ${colors.color1} 0%, ${colors.color2} 50%, ${colors.color3} 100%)`,
+          opacity: goldTheme ? 1 : 0.3,
         }}
         aria-hidden
       />
@@ -49,6 +54,7 @@ export default function ServicesShaderBackground({ bgKey }: Props) {
       className="absolute inset-0 overflow-hidden pointer-events-none z-0"
       aria-hidden
     >
+      {!goldTheme && (
       <AnimatePresence mode="wait">
         <motion.div
           key={bgKey}
@@ -61,8 +67,18 @@ export default function ServicesShaderBackground({ bgKey }: Props) {
           <ServicesShaderInner bgKey={bgKey} />
         </motion.div>
       </AnimatePresence>
+      )}
+      {goldTheme && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(180deg, #131009 0%, #1A1510 50%, rgba(212, 168, 83, 0.04) 100%)",
+          }}
+          aria-hidden
+        />
+      )}
       {/* Subtle overlay for text readability */}
-      <div className="absolute inset-0 bg-black/40" aria-hidden />
+      <div className={`absolute inset-0 ${goldTheme ? "bg-black/20" : "bg-black/40"}`} aria-hidden />
     </div>
   );
 }

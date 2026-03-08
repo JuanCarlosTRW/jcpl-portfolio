@@ -62,15 +62,18 @@ const cardVariants = {
 
 interface ServicesShowcaseProps {
   impactRevealed?: boolean;
+  goldTheme?: boolean;
 }
 
-export default function ServicesShowcase({ impactRevealed = false }: ServicesShowcaseProps) {
+const GOLD_ACCENT = "#D4A853";
+
+export default function ServicesShowcase({ impactRevealed = false, goldTheme = false }: ServicesShowcaseProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const reducedMotion = usePrefersReducedMotionSafe();
   const { services } = servicesShowcaseContent;
   const activeService = services[activeIndex] as ServiceItem;
-  const sectionTintColor = hexToRgba(activeService.accentColor, 0.08);
-  const panelGlow = hexToRgba(activeService.accentColor, 0.1);
+  const accentColor = goldTheme ? GOLD_ACCENT : activeService.accentColor;
+  const sectionTintColor = hexToRgba(accentColor, 0.08);
 
   const imageVariants = reducedMotion
     ? {
@@ -121,14 +124,14 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
   return (
     <SectionWrapper
       id="services"
-      variant="alt"
+      variant="elevated"
       className={cn(
         "[&>.container]:!max-w-[1400px]",
         "relative overflow-hidden"
       )}
     >
       {/* Shader background layer */}
-      <ServicesShaderBackground bgKey={activeService.bgKey} />
+      <ServicesShaderBackground bgKey={activeService.bgKey} goldTheme={goldTheme} />
 
       {/* Subtle section tint overlay */}
       <motion.div
@@ -148,14 +151,16 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
         custom={reducedMotion}
         transition={{ duration: 0.8, ease: EASE }}
       >
-        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-sv-text-muted mb-4">
+        <p className="section-label mb-4" style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}>
           WHAT I BUILD
         </p>
 
         <motion.div
           className={cn(
             "flex flex-col gap-12 items-start",
-            "lg:grid lg:grid-cols-[minmax(340px,460px)_minmax(520px,680px)_minmax(280px,360px)] lg:gap-x-10 lg:gap-y-0"
+            goldTheme
+              ? "lg:grid lg:grid-cols-[1fr_minmax(320px,400px)] lg:gap-x-12 lg:gap-y-0 lg:items-center"
+              : "lg:grid lg:grid-cols-[minmax(340px,460px)_minmax(520px,680px)_minmax(280px,360px)] lg:gap-x-10 lg:gap-y-0"
           )}
           variants={{
             hidden: {},
@@ -167,14 +172,17 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
             },
           }}
         >
-          {/* Left column */}
+          {/* Left column - headline (and optional image when not goldTheme) */}
           <motion.div
-            className="w-full shrink-0 flex items-center lg:h-[calc(100vh-120px)]"
+            className={cn(
+              "w-full shrink-0 flex items-center",
+              goldTheme ? "lg:h-auto" : "lg:h-[calc(100vh-120px)]"
+            )}
             variants={leftCopyVariants}
             custom={reducedMotion}
             transition={{ duration: 0.55, ease: EASE }}
           >
-            <div className="relative min-h-[140px] md:min-h-[180px] flex items-center lg:h-full">
+            <div className="relative min-h-[140px] md:min-h-[180px] flex flex-col justify-center lg:h-full">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeService.id}
@@ -182,25 +190,43 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
                   animate={imageVariants.animate}
                   exit={imageVariants.exit}
                   transition={IMAGE_TRANSITION}
-                  className="absolute inset-0 flex flex-col justify-center h-full px-0 lg:px-0 gap-8"
+                  className="flex flex-col justify-center"
                 >
-                  <h2 className="text-[clamp(40px,6vw,64px)] font-extrabold text-white leading-[1.05] tracking-[-0.035em] mb-3 lg:mb-6 drop-shadow-lg text-left pl-0 lg:pl-0">
+                  <h2 className="text-[clamp(40px,6vw,64px)] font-extrabold text-white leading-[1.05] tracking-[-0.035em] drop-shadow-lg text-left">
                     {activeService.title}
                   </h2>
-                  {/* BY APPLICATION ONLY section image */}
-                  <div className="mt-4 flex justify-center">
-                    <img
-                      src="https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg"
-                      alt="BY APPLICATION ONLY"
-                      style={{ width: "120px", height: "120px", borderRadius: "16px", objectFit: "cover", boxShadow: "0 4px 24px rgba(0,0,0,0.18)" }}
-                    />
-                  </div>
+                  {activeService.subtitle && (
+                    <p className="mt-4 text-[17px] text-[#D2C9B8] leading-relaxed max-w-lg">
+                      {activeService.subtitle}
+                    </p>
+                  )}
+                  {!goldTheme && (
+                    <>
+                      <div className="mt-4 flex justify-center">
+                        <img
+                          src="https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg"
+                          alt="BY APPLICATION ONLY"
+                          style={{ width: "120px", height: "120px", borderRadius: "16px", objectFit: "cover", boxShadow: "0 4px 24px rgba(0,0,0,0.18)" }}
+                        />
+                      </div>
+                    </>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>
           </motion.div>
 
-          {/* Image panel */}
+          {/* Image panel - hidden when goldTheme (Option A: remove device mockup) */}
+          {goldTheme ? (
+          <div
+            role="tabpanel"
+            id={`services-panel-${activeIndex}`}
+            aria-labelledby={`services-tab-${activeIndex}`}
+            className="sr-only"
+          >
+            {activeService.title} {activeService.subtitle}
+          </div>
+          ) : (
           <motion.div
             className="relative w-full overflow-visible flex items-end pt-0"
             role="tabpanel"
@@ -210,14 +236,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
             custom={reducedMotion}
             transition={{ duration: 0.9, ease: EASE }}
           >
-            {/* Removed ambient service-colored glow behind image */}
-
-            {/* Inner stage - positioned left and lower */}
             <div className="absolute inset-0 flex items-center justify-center">
-              {/* Media glow - only for transparent-logo */}
-              {/* Removed media glow for transparent-logo */}
-
-              {/* Image wrapper - fills stage, centers content, subtle downward nudge */}
               <div className="relative w-full h-full min-h-0 flex items-center justify-center">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -231,7 +250,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
                       transform: isTransparentLogo ? "scale(1)" : `scale(${imageScale})`,
                     }}
                   >
-                    <div className={`relative w-full h-full flex items-center justify-center ${activeService.id === 'seo' ? 'min-h-[400px] translate-y-[80%] left-1/2 -translate-x-1/2' : 'min-h-[1000px] translate-y-1/3 left-[45%] -translate-x-1/2'}`}> 
+                    <div className={`relative w-full h-full flex items-center justify-center ${activeService.id === 'seo' ? 'min-h-[400px] translate-y-[80%] left-1/2 -translate-x-1/2' : 'min-h-[1000px] translate-y-1/3 left-[45%] -translate-x-1/2'}`}>
                       <Image
                         src={activeService.imageUrl}
                         alt={activeService.imageAlt}
@@ -247,6 +266,7 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
               </div>
             </div>
           </motion.div>
+          )}
 
           {/* Vertical stack of service tab cards */}
           <motion.div
@@ -279,14 +299,15 @@ export default function ServicesShowcase({ impactRevealed = false }: ServicesSho
                   subtitle={service.subtitle}
                   imageUrl={service.imageUrl}
                   imageAlt={service.imageAlt}
-                  accentColor={service.accentColor}
-                  hoverAccentColor={service.hoverAccentColor}
+                  accentColor={goldTheme ? GOLD_ACCENT : service.accentColor}
+                  hoverAccentColor={goldTheme ? "#C49A2A" : service.hoverAccentColor}
                   isActive={activeIndex === index}
                   index={index}
                   onClick={() => setActiveIndex(index)}
                   onKeyDown={handleKeyDown(index)}
                   reducedMotion={reducedMotion}
                   includedBadge={service.id === "website"}
+                  goldTheme={goldTheme}
                 />
               </motion.div>
             ))}

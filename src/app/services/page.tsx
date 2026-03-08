@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <ServicesHero />
       <FitCheck />
       <MarbleSystemSection />
-      <ServicesShowcase impactRevealed />
+      <ServicesShowcase impactRevealed goldTheme />
       <PremiumPricingSection
         heading="Full Pricing Breakdown"
         subheadline="Every engagement is scoped on the diagnostic call. Here is what each level of partnership includes."
