@@ -7,6 +7,7 @@ import {
   useState,
   Suspense,
 } from "react";
+import Image from "next/image";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Billboard, Environment } from "@react-three/drei";
 import * as THREE from "three";
@@ -322,9 +323,13 @@ function MobileFallback({ logos }: { logos: ProofLogoItem[] }) {
           className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-white/[0.07] bg-[var(--bg-surface)] p-5"
           style={{ minHeight: 100 }}
         >
-          <img
+          <Image
             src={logo.logo}
             alt={logo.name}
+            width={110}
+            height={36}
+            quality={75}
+            sizes="110px"
             draggable={false}
             className="max-h-9 w-auto max-w-[110px] object-contain brightness-0 invert opacity-60"
           />

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { caseStudyLogos } from "@/components/hero/LogoLoopData";
 import LogoLoop from "@/components/home/LogoLoop";
 
@@ -37,17 +38,19 @@ export default function ClientLogoTicker() {
           const logoItem = item as { src: string; alt?: string; industryLabel?: string };
           return (
             <div key={key} className="flex flex-col items-center gap-2">
-              <img
+              <Image
                 src={logoItem.src}
                 alt={logoItem.alt ?? ""}
+                width={120}
+                height={36}
+                quality={75}
+                sizes="80px"
                 loading="lazy"
-                decoding="async"
                 draggable={false}
-                className="ticker-logo"
+                className="ticker-logo object-contain"
                 style={{
                   height: 36,
                   width: "auto",
-                  objectFit: "contain",
                 }}
               />
               {logoItem.industryLabel && (

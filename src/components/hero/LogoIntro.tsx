@@ -98,7 +98,7 @@ const LogoIntro = forwardRef<LogoIntroHandle>((_, ref) => {
         {/* Glow halo behind logo */}
         <div ref={glowRef} className="logo-glow" aria-hidden="true" />
 
-        {/* Logo image */}
+        {/* Logo image - use img for GSAP ref compatibility */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           ref={imgRef}

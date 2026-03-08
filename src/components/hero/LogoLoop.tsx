@@ -10,6 +10,7 @@ import {
   type ReactNode,
   type CSSProperties,
 } from "react";
+import NextImage from "next/image";
 import "./LogoLoop.css";
 
 /* ─── Types ─── */
@@ -217,9 +218,13 @@ const LogoLoop = memo(function LogoLoop({
   const renderItem = (item: LogoItem, idx: number) => {
     const hasLabels = !isNodeItem(item) && (item.name || item.city || item.service);
     const imgEl = isNodeItem(item) ? null : (
-      <img
+      <NextImage
         src={item.src}
-        alt={item.alt || ""}
+        alt={item.alt ?? ""}
+        width={140}
+        height={40}
+        quality={75}
+        sizes="140px"
         draggable={false}
         loading="eager"
         className="h-10 w-auto object-contain opacity-60 filter brightness-0 invert"

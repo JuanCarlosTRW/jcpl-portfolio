@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
+import Image from "next/image";
 import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReducedMotionSafe";
 import "./LogoLoop.css";
 
@@ -315,16 +316,15 @@ export const LogoLoop = memo(function LogoLoop({
           {item.node}
         </span>
       ) : (
-        <img
+        <Image
           src={item.src}
-          srcSet={item.srcSet}
-          sizes={item.sizes}
-          width={item.width}
-          height={item.height}
+          width={item.width ?? 120}
+          height={item.height ?? 36}
+          quality={75}
+          sizes={item.sizes ?? "80px"}
           alt={item.alt ?? ""}
           title={item.title}
           loading="lazy"
-          decoding="async"
           draggable={false}
         />
       );

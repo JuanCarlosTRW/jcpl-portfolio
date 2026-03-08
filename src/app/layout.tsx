@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ClientAppShell from "@/components/ClientAppShell";
@@ -54,12 +56,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link rel="preconnect" href="https://app.cal.com" />
+        <link rel="dns-prefetch" href="https://app.cal.com" />
         {/* Google Analytics GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FXE32B1KDT"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -88,6 +92,8 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} ${playfair.variable} antialiased bg-[var(--bg-base)] text-[var(--text-primary)]`}>
         <ClientAppShell>{children}</ClientAppShell>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

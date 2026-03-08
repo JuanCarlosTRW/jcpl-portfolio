@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { growthArchitecture } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -76,9 +77,13 @@ export default function GrowthArchitecture() {
                 marginTop: "16px", marginBottom: "16px",
                 border: "1px solid rgba(255,255,255,0.06)",
               }}>
-                <img
+                <Image
                   src={tile.screenshotSrc}
                   alt={tile.headline}
+                  width={600}
+                  height={400}
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   style={{ width: "100%", display: "block", opacity: 0.82 }}
                   onError={(e) => { (e.currentTarget.parentElement as HTMLDivElement).style.display = "none"; }}
                 />

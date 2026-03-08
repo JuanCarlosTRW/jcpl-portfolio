@@ -7,15 +7,24 @@ export default function ScrollProgressBar() {
     const bar = document.getElementById("scroll-progress-bar");
     if (!bar) return;
 
+    let ticking = false;
     const update = () => {
       const scrolled = window.scrollY;
       const total = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = `${total > 0 ? (scrolled / total) * 100 : 0}%`;
+      ticking = false;
     };
 
-    window.addEventListener("scroll", update, { passive: true });
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
     update();
-    return () => window.removeEventListener("scroll", update);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (

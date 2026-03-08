@@ -11,19 +11,23 @@ export default function SectionLabelAnimator() {
   useEffect(() => {
     if (prefersReducedMotion()) return;
 
-    document.querySelectorAll(".section-label").forEach((label) => {
-      gsap.from(label, {
-        opacity: 0,
-        letterSpacing: "0.04em",
-        duration: 0.7,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: label,
-          start: "top 88%",
-          once: true,
-        },
+    const ctx = gsap.context(() => {
+      document.querySelectorAll(".section-label").forEach((label) => {
+        gsap.from(label, {
+          opacity: 0,
+          letterSpacing: "0.04em",
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: label,
+            start: "top 88%",
+            once: true,
+          },
+        });
       });
     });
+
+    return () => ctx.revert();
   }, []);
 
   return null;

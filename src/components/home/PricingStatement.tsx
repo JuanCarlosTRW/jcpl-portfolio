@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { countUp } from "@/lib/animations";
 import { prefersReducedMotion } from "@/lib/motion";
@@ -80,13 +81,15 @@ export default function PricingStatement() {
                 className="founder-photo-wrapper pricing-photo-wrapper absolute inset-0 z-0"
                 style={{ position: "absolute" }}
               >
-                <img
+                <Image
                   src={JUAN_IMG_SRC}
                   alt="Juan Carlos Portillo-Laflamme"
+                  fill
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="block w-full h-full object-cover object-top"
-                  style={{ width: "100%", height: "100%", borderRadius: 16 }}
-                  loading="eager"
-                  fetchPriority="high"
+                  style={{ borderRadius: 16 }}
+                  priority
                 />
               </div>
               <div

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CTAButton from "@/components/ui/CTAButton";
 import { Reveal } from "@/components/motion";
@@ -198,9 +199,13 @@ export default function PortfolioShowcase() {
               >
                 {/* Screenshot area */}
                 <div style={{ width: "100%", aspectRatio: "16/9", overflow: "hidden", position: "relative", background: "rgba(255,255,255,0.04)" }}>
-                  <img
+                  <Image
                     src={p.heroScreenshot}
                     alt={`${p.businessName} website`}
+                    width={800}
+                    height={450}
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="card-img"
                     style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", transition: "transform 500ms ease", display: "block" }}
                     onError={hideImg}
@@ -214,7 +219,7 @@ export default function PortfolioShowcase() {
                 {/* Footer — row layout */}
                 <div style={{ padding: "20px 24px 22px", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "16px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                    <img src={p.logo} alt={p.businessName} style={{ height: "30px", width: "auto", objectFit: "contain", opacity: 0.88 }} onError={hideImg} />
+                    <Image src={p.logo} alt={p.businessName} width={120} height={30} quality={75} sizes="30px" style={{ height: "30px", width: "auto", objectFit: "contain", opacity: 0.88 }} onError={hideImg} />
                     <div>
                       <p style={{ fontSize: "14px", fontWeight: 700, margin: 0, color: "white" }}>{p.businessName}</p>
                       <p style={{ fontSize: "11px", fontWeight: 500, opacity: 0.42, letterSpacing: "0.09em", textTransform: "uppercase", margin: "2px 0 0", color: "white" }}>{p.niche} · {p.city}</p>
@@ -272,9 +277,13 @@ export default function PortfolioShowcase() {
               >
                 {/* Screenshot area */}
                 <div style={{ width: "100%", aspectRatio: "4/3", overflow: "hidden", position: "relative", background: "rgba(255,255,255,0.04)" }}>
-                  <img
+                  <Image
                     src={p.heroScreenshot}
                     alt={`${p.businessName} website`}
+                    width={600}
+                    height={450}
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="card-img"
                     style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", transition: "transform 500ms ease", display: "block" }}
                     onError={hideImg}
@@ -288,7 +297,7 @@ export default function PortfolioShowcase() {
                 {/* Footer — stacked layout */}
                 <div style={{ padding: "20px 24px 22px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
-                    <img src={p.logo} alt={p.businessName} style={{ height: "28px", width: "auto", objectFit: "contain", opacity: 0.88 }} onError={hideImg} />
+                    <Image src={p.logo} alt={p.businessName} width={120} height={28} quality={75} sizes="28px" style={{ height: "28px", width: "auto", objectFit: "contain", opacity: 0.88 }} onError={hideImg} />
                     <div>
                       <p style={{ fontSize: "14px", fontWeight: 700, margin: 0, color: "white" }}>{p.businessName}</p>
                       <p style={{ fontSize: "11px", fontWeight: 500, opacity: 0.42, letterSpacing: "0.09em", textTransform: "uppercase", margin: "2px 0 0", color: "white" }}>{p.niche} · {p.city}</p>
@@ -374,9 +383,13 @@ export default function PortfolioShowcase() {
             {/* Top bar */}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <img
+                <Image
                   src={currentProject.logo}
                   alt={currentProject.businessName}
+                  width={120}
+                  height={26}
+                  quality={75}
+                  sizes="26px"
                   style={{ height: "26px", opacity: 0.82 }}
                   onError={hideImg}
                 />
@@ -401,10 +414,14 @@ export default function PortfolioShowcase() {
 
             {/* Main image */}
             <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", aspectRatio: "16/9", background: "rgba(255,255,255,0.03)" }}>
-              <img
+              <Image
                 key={`${activeProject}-${activeSlide}`}
                 src={currentProject.slides[activeSlide].image}
                 alt={currentProject.slides[activeSlide].caption}
+                width={1080}
+                height={608}
+                quality={85}
+                sizes="100vw"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block", animation: "slideFadeIn 180ms ease forwards" }}
                 onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
               />

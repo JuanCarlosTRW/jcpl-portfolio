@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Image from "next/image";
 import { gsap } from 'gsap';
 import './StaggeredMenu.css';
 
@@ -441,13 +442,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         <div className="sm-logo" aria-label="Logo">
           {logoUrl ? (
             <a href="/" tabIndex={0} aria-label="Home" style={{ display: 'inline-block' }}>
-              <img
+              <Image
                 src={logoUrl}
                 alt="Logo"
-                className="sm-logo-img"
-                draggable={false}
                 width={400}
                 height={120}
+                priority
+                className="sm-logo-img"
+                draggable={false}
                 style={{ cursor: 'pointer', maxHeight: 120, maxWidth: 400, width: '100%', height: 'auto', display: 'block' }}
               />
             </a>

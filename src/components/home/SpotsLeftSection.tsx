@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
 import { useTranslations } from "@/context/LocaleContext";
 
@@ -10,9 +11,13 @@ export default function SpotsLeftSection() {
     <section className="bg-sv-base py-16 md:py-24 text-center">
       <div className="max-w-xl mx-auto px-4">
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px" }}>
-          <img
+          <Image
             src="/images/juan.jpg"
             alt="Juan — Client Growth"
+            width={68}
+            height={68}
+            quality={80}
+            sizes="68px"
             style={{
               width: "68px", height: "68px",
               borderRadius: "50%", objectFit: "cover",

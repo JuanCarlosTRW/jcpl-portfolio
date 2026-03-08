@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const JUAN_IMG_SRC = "https://static.wixstatic.com/media/62f926_557272f0fa6547d9b0c8d0518959c14b~mv2.jpeg";
 
 const BADGES = [
@@ -18,9 +20,13 @@ export default function FounderBlock() {
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 md:items-center">
           <div className="relative max-w-[520px] mx-auto md:mx-0 overflow-hidden">
             <div className="founder-photo-wrapper rounded-xl overflow-hidden" style={{ border: "1px solid #2A2318" }}>
-              <img
+              <Image
                 src={JUAN_IMG_SRC}
                 alt="Juan Carlos Portillo-Laflamme, founder of Client Growth"
+                width={520}
+                height={693}
+                quality={80}
+                sizes="(max-width: 768px) 100vw, 520px"
                 className="w-full h-auto object-cover object-top"
                 style={{ borderRadius: 12 }}
               />
