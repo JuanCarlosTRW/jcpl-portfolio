@@ -19,7 +19,6 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
-    /* Connect ScrollTrigger to Lenis virtual scroll so pin/scrub use correct position */
     ScrollTrigger.scrollerProxy(document.documentElement, {
       scrollTop(value: number | undefined) {
         if (value !== undefined) {
