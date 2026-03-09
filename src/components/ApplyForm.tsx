@@ -101,8 +101,30 @@ export default function ApplyForm() {
   }
 
   return (
-    <SectionWrapper className="pt-32 md:pt-40">
-      <div className="max-w-2xl mx-auto">
+    <SectionWrapper className="pt-12 md:pt-16">
+      <div
+        className="max-w-2xl mx-auto rounded-xl overflow-hidden"
+        style={{
+          background: "#1E1A14",
+          border: "1px solid #2A2318",
+        }}
+      >
+        {/* Gold progress bar at top */}
+        {status === "idle" && (
+          <div
+            className="h-1 w-full"
+            style={{ background: "rgba(212,168,83,0.2)" }}
+          >
+            <motion.div
+              className="h-full rounded-r-full"
+              style={{ background: "#D4A853" }}
+              initial={false}
+              animate={{ width: `${progress}%` }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            />
+          </div>
+        )}
+      <div className="p-6 md:p-8">
         <SectionLabel label="Apply" className="mb-6" />
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
           Let&apos;s Build Your{" "}
@@ -131,7 +153,7 @@ export default function ApplyForm() {
 
         {/* Disqualifier note removed as requested */}
 
-        {/* Progress bar */}
+        {/* Step indicator */}
         {status === "idle" && (
           <div className="mb-10">
             <div className="flex justify-between text-xs text-[var(--text-3)] mb-2">
@@ -139,14 +161,6 @@ export default function ApplyForm() {
                 Step {currentStep + 1} of {totalSteps}
               </span>
               <span>{Math.round(progress)}%</span>
-            </div>
-            <div className="h-1 w-full rounded-full bg-white/5">
-              <motion.div
-                className="h-1 rounded-full bg-[var(--brand-accent)]"
-                initial={false}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              />
             </div>
           </div>
         )}
@@ -185,7 +199,19 @@ export default function ApplyForm() {
                       onChange={(e) =>
                         updateField(field.name, e.target.value)
                       }
-                      className="w-full rounded-xl bg-[var(--bg-surface)] border border-[var(--border-soft)] px-4 py-3 text-[var(--text-primary)] focus:border-[var(--brand-accent)] focus:ring-1 focus:ring-[var(--brand-accent)]/30 focus:outline-none transition-all appearance-none"
+                      className="w-full rounded-xl px-4 py-3 text-white focus:outline-none transition-all appearance-none"
+                    style={{
+                      background: "#181410",
+                      border: "1px solid #2A2318",
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = "#D4A853";
+                      e.currentTarget.style.boxShadow = "0 0 0 1px #D4A853";
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = "#2A2318";
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
                     >
                       <option value="">Select an option</option>
                       {field.options?.map((opt) => (
@@ -202,8 +228,20 @@ export default function ApplyForm() {
                       onChange={(e) =>
                         updateField(field.name, e.target.value)
                       }
-                      className="w-full rounded-xl bg-[var(--bg-surface)] border border-[var(--border-soft)] px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--brand-accent)] focus:ring-1 focus:ring-[var(--brand-accent)]/30 focus:outline-none transition-all"
+                      className="w-full rounded-xl px-4 py-3 text-white placeholder-[#6B6358] focus:outline-none transition-all"
+                      style={{
+                        background: "#181410",
+                        border: "1px solid #2A2318",
+                      }}
                       placeholder={`Enter your ${field.label.toLowerCase()}`}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = "#D4A853";
+                        e.currentTarget.style.boxShadow = "0 0 0 1px #D4A853";
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = "#2A2318";
+                        e.currentTarget.style.boxShadow = "none";
+                      }}
                     />
                   )}
 
@@ -227,8 +265,8 @@ export default function ApplyForm() {
                 )}
                 <button
                   type="submit"
-                  className="flex-1 rounded-xl bg-[var(--brand-accent)] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[var(--brand-deep)] hover:scale-[1.02]"
-                  style={{ boxShadow: 'var(--glow-accent)' }}
+                  className="flex-1 rounded-xl px-6 py-3 text-sm font-semibold transition-all hover:opacity-90"
+                  style={{ background: "#D4A853", color: "#0A0E1A" }}
                 >
                   {currentStep < totalSteps - 1
                     ? "Continue →"
@@ -286,6 +324,7 @@ export default function ApplyForm() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
       </div>
     </SectionWrapper>
   );

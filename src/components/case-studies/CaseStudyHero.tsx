@@ -29,7 +29,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
       className="relative min-h-[70vh] flex flex-col justify-end pb-16 md:pb-24 px-6 overflow-hidden"
       style={{
         background:
-          "radial-gradient(ellipse at 60% 0%, rgba(37,99,235,0.13) 0%, transparent 60%), radial-gradient(ellipse at 0% 100%, rgba(37,99,235,0.08) 0%, transparent 60%), #0E0E0F",
+          "radial-gradient(ellipse at 60% 0%, rgba(212,168,83,0.08) 0%, transparent 60%), radial-gradient(ellipse at 0% 100%, rgba(212,168,83,0.05) 0%, transparent 60%), #0D0B09",
       }}
     >
       {/* Back link - updated style and link */}
@@ -57,7 +57,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
       <div
         className="absolute top-[-80px] right-[-80px] w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(212,168,83,0.08) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />

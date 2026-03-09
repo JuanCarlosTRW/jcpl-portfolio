@@ -11,9 +11,41 @@ export type CaseStudy = {
   situation: string;
   deliverables: string[];
   inProgress?: boolean;
+  /** Extended narrative for flagship case study display */
+  narrative?: string;
 };
 
 export const caseStudies: CaseStudy[] = [
+  {
+    id: "triple-w-rentals",
+    title: "Triple W Rentals",
+    industry: "RV RENTAL, TEXAS",
+    outcome:
+      "$41,084.85 in revenue generated in month one. $900 in total ad spend.",
+    metrics: [
+      { label: "Revenue", value: "$41,084.85" },
+      { label: "Ad spend", value: "$900" },
+      { label: "ROAS", value: "33x" },
+      { label: "Timeline", value: "30 days" },
+    ],
+    websiteUrl: null,
+    logoUrl:
+      "https://static.wixstatic.com/media/62f926_5c14016a71f74c77a7eedfa86309eadd~mv2.jpg",
+    metricsImageUrl:
+      "https://static.wixstatic.com/media/62f926_5c7a609ac5c143e48028810fda21af82~mv2.png",
+    caseStudySlug: "triple-w-rentals",
+    inProgress: false,
+    situation:
+      "Triple W Rentals had vehicles available but zero online acquisition. Revenue was entirely referral-dependent and unpredictable. The Texas RV rental market had strong search demand that was completely untapped. A full Google Ads funnel was built from scratch and deployed within weeks.",
+    narrative:
+      "Triple W Rentals was a new RV rental company in Texas with no online presence and no inbound lead flow. I built their conversion website, launched a Google Ads campaign, and deployed tracking in 11 days. In the first 30 days on $900 in ad spend, the system generated $41,084.85 in tracked revenue. They now dominate the RV rental market in their region.",
+    deliverables: [
+      "Google Ads funnel with RV rental intent keywords",
+      "Conversion landing pages optimized for bookings",
+      "Automated booking qualification flow",
+      "GA4 + Google Ads conversion tracking",
+    ],
+  },
   {
     id: "elite-barbershop",
     title: "Elite Barbershop",
@@ -41,7 +73,7 @@ export const caseStudies: CaseStudy[] = [
     id: "absolute-painting",
     title: "Absolute Painting",
     industry: "HOME SERVICES",
-    outcome: "Full growth system live. Google Ads and conversion website deployed. Performance data compounding.",
+    outcome: "Growth system delivered and live. Revenue tracking in progress.",
     metrics: [],
     websiteUrl: "https://absolutepainting.vercel.app/quote",
     logoUrl:
@@ -61,7 +93,7 @@ export const caseStudies: CaseStudy[] = [
     id: "culture-barbershop",
     title: "Culture Barbershop",
     industry: "BARBERSHOP, MONTREAL",
-    outcome: "Premium conversion website built. Online presence established in a competitive market.",
+    outcome: "Conversion website and booking funnel delivered. Revenue data pending verification.",
     metrics: [
       { label: "Deliverable", value: "Website" },
       { label: "Market", value: "Montreal" },
@@ -81,38 +113,10 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    id: "triple-w-rentals",
-    title: "Triple W Rentals",
-    industry: "RV RENTAL, TEXAS",
-    outcome:
-  "$41,084.85 in revenue generated in month one. $900 in total ad spend.",
-    metrics: [
-  { label: "Revenue", value: "$41,084.85" },
-      { label: "Ad spend", value: "$900" },
-      { label: "ROAS", value: "33x" },
-      { label: "Timeline", value: "30 days" },
-    ],
-    websiteUrl: null,
-    logoUrl:
-      "https://static.wixstatic.com/media/62f926_5c14016a71f74c77a7eedfa86309eadd~mv2.jpg",
-    metricsImageUrl:
-      "https://static.wixstatic.com/media/62f926_5c7a609ac5c143e48028810fda21af82~mv2.png",
-    caseStudySlug: "triple-w-rentals",
-    inProgress: false,
-    situation:
-      "Triple W Rentals had vehicles available but zero online acquisition. Revenue was entirely referral-dependent and unpredictable. The Texas RV rental market had strong search demand that was completely untapped. A full Google Ads funnel was built from scratch and deployed within weeks.",
-    deliverables: [
-      "Google Ads funnel with RV rental intent keywords",
-      "Conversion landing pages optimized for bookings",
-      "Automated booking qualification flow",
-      "GA4 + Google Ads conversion tracking",
-    ],
-  },
-  {
     id: "centre-dentaire-saint-elzear",
     title: "Centre Dentaire Saint-Élzéar",
     industry: "DENTAL CLINIC",
-    outcome: "Custom conversion website built. Patient acquisition funnel live and running.",
+    outcome: "Conversion website and patient acquisition funnel delivered. Revenue data pending verification.",
     metrics: [
       { label: "Deliverable", value: "Website" },
       { label: "Funnel", value: "Ads to Booking Funnel" },

@@ -621,20 +621,20 @@ export const servicesDecisionAssist = {
 
 export const servicesFAQ = [
   {
-    question: "How fast will I see a first win?",
-    answer: "Foundation clients go live in 2\u20133 weeks. Growth clients typically see first qualified leads within 30 days. Timeline depends on your market and readiness.",
+    question: "How fast can this go live?",
+    answer: "Median 11 days from signed agreement to live system.",
   },
   {
-    question: "What do you need from me?",
-    answer: "Clear goals, timely feedback, and access to existing assets (if any). I handle the heavy lifting. You stay focused on running your business.",
+    question: "What do I need to provide?",
+    answer: "Access to your Google Business Profile and domain registrar. I handle everything else.",
+  },
+  {
+    question: "What if it doesn't work?",
+    answer: "If I don't see a path to ROI, I tell you on the diagnostic call. Before you pay anything.",
   },
   {
     question: "Any contracts or lock-in?",
     answer: "No long-term contracts. Engagements are milestone-based and transparent. You stay because it works, not because you're locked in.",
-  },
-  {
-    question: "What if it's not a fit?",
-    answer: "If I'm not the right fit, you'll get honest feedback and recommendations. No hard sell. I'd rather pass than deliver subpar work.",
   },
   {
     question: "How do you measure success?",
@@ -791,8 +791,7 @@ export const aboutHowIBuiltThis = {
   heading: "Why I Operate Differently\nThan Everyone Else in This Space.",
   paragraphs: [
     "I got into this because I saw a pattern. Business owners who do incredible work, losing clients every week to competitors who simply show up first online. Not because the competition was better. Because they had a better system.",
-    "I built Client Growth around one belief: the businesses that win locally in the next five years will not be the ones who worked the hardest. They will be the ones who combined SEO, GEO, paid ads, and AI automation into one compounding system while everyone else was still figuring out which freelancer to hire next.",
-    "GEO optimization, AI-assisted lead qualification, and predictive ad targeting are not the future. They are happening right now. The businesses partnering with me get access to this infrastructure before their competitors even know it exists."
+    "I built Client Growth around one belief: the businesses that win locally will be the ones who combine SEO, paid ads, and AI automation into one compounding system while everyone else is still figuring out which freelancer to hire next."
   ]
 };
 

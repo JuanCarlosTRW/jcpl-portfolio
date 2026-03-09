@@ -64,7 +64,7 @@ export default function CaseStudyDetail({
   return (
     <main className="bg-sv-base">
       {/* ═══ BACK LINK BAR ═══ */}
-      <div className="w-full bg-[rgba(37,99,235,0.04)] border-b border-[rgba(37,99,235,0.08)] py-[14px]">
+      <div className="w-full bg-[rgba(212,168,83,0.04)] border-b border-[rgba(212,168,83,0.08)] py-[14px]">
         <div className="max-w-[1120px] mx-auto px-6">
           <Link
             href="/results"
@@ -74,12 +74,12 @@ export default function CaseStudyDetail({
           </Link>
         </div>
       </div>
-      <div className="relative pt-20 pb-16" style={{ backgroundColor: "#060D1F" }}>
+      <div className="relative pt-20 pb-16" style={{ backgroundColor: "#131009" }}>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 70% 60% at 60% 0%, rgba(37,99,235,0.1) 0%, transparent 65%)",
+              "radial-gradient(ellipse 70% 60% at 60% 0%, rgba(212,168,83,0.08) 0%, transparent 65%)",
           }}
         />
         <div className="relative max-w-[1120px] mx-auto px-6">
@@ -101,7 +101,7 @@ export default function CaseStudyDetail({
               {/* Metrics pills OR In-Progress badge */}
               {cs.inProgress ? (
                 <div className="mb-9">
-                  <span className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] rounded-full px-5 py-[6px]">
+                  <span className="inline-flex items-center gap-2 bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.2)] rounded-full px-5 py-[6px]">
                     <PulseDot size={6} />
                     <span className="text-[13px] text-sv-text-sub font-medium">
                       Results loading — system just launched
@@ -114,7 +114,7 @@ export default function CaseStudyDetail({
                     {cs.metrics.map((m) => (
                       <span
                         key={m.label}
-                        className="bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.25)] rounded-full px-4 py-1.5 flex items-center"
+                        className="bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.25)] rounded-full px-4 py-1.5 flex items-center"
                       >
                         <span className="text-[14px] font-extrabold text-white">
                           {m.value}
@@ -287,14 +287,14 @@ export default function CaseStudyDetail({
 
       {/* ═══ SECTION E — FINAL CTA ═══ */}
       <section
-        className="relative py-28 border-t border-[rgba(37,99,235,0.06)] overflow-hidden"
-        style={{ backgroundColor: "#060D1F" }}
+        className="relative py-28 border-t border-[rgba(212,168,83,0.06)] overflow-hidden"
+        style={{ backgroundColor: "#131009" }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 60% 70% at 50% 100%, rgba(37,99,235,0.08) 0%, transparent 65%)",
+              "radial-gradient(ellipse 60% 70% at 50% 100%, rgba(212,168,83,0.06) 0%, transparent 65%)",
           }}
         />
         <div className="relative max-w-[600px] mx-auto text-center px-6">
@@ -310,7 +310,7 @@ export default function CaseStudyDetail({
           </p>
           <Link
             href="/apply"
-            className="inline-block bg-sv-primary text-white px-9 py-4 rounded-[10px] font-bold text-[16px] tracking-[-0.01em] hover:bg-sv-primary-hov hover:-translate-y-[1px] transition-all duration-200 shadow-[0_4px_24px_rgba(37,99,235,0.25)] hover:shadow-[0_8px_32px_rgba(37,99,235,0.35)]"
+            className="inline-block bg-sv-primary text-white px-9 py-4 rounded-[10px] font-bold text-[16px] tracking-[-0.01em] hover:bg-sv-primary-hov hover:-translate-y-[1px] transition-all duration-200 shadow-[0_4px_24px_rgba(212,168,83,0.25)] hover:shadow-[0_8px_32px_rgba(212,168,83,0.35)]"
           >
             Apply for Growth Partnership →
           </Link>

@@ -38,7 +38,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
             className="absolute inset-x-0 top-0 h-px rounded-t-2xl"
             style={{
               background:
-                "linear-gradient(90deg, transparent, rgba(37,99,235,0.5), rgba(37,99,235,0.3), transparent)",
+                "linear-gradient(90deg, transparent, rgba(212,168,83,0.5), rgba(212,168,83,0.3), transparent)",
             }}
             aria-hidden="true"
           />
@@ -46,7 +46,7 @@ export default function PlanCard({ plan, billing, index }: Props) {
 
         {/* Recommended badge */}
         {isFeatured && (
-          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sv-primary text-white text-[0.65rem] font-semibold uppercase tracking-[0.08em] px-4 py-1 rounded-full whitespace-nowrap shadow-[0_4px_20px_rgba(37,99,235,0.35)]">
+          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sv-primary text-white text-[0.65rem] font-semibold uppercase tracking-[0.08em] px-4 py-1 rounded-full whitespace-nowrap shadow-[0_4px_20px_rgba(212,168,83,0.35)]">
             Recommended
           </span>
         )}

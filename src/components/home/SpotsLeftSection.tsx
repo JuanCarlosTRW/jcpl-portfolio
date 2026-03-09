@@ -4,11 +4,50 @@ import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
 import { useTranslations } from "@/context/LocaleContext";
 
-export default function SpotsLeftSection() {
+type SpotsLeftSectionProps = { background?: string; variant?: "default" | "compact" };
+
+export default function SpotsLeftSection({ background, variant = "default" }: SpotsLeftSectionProps) {
   const t = useTranslations();
   const microcopy = [t<string>("spots.reply24"), t<string>("spots.noContracts"), t<string>("spots.threeSpots")];
+
+  if (variant === "compact") {
+    return (
+      <section className="py-6 md:py-8" style={{ background: background ?? "var(--sv-base, #0D0B09)" }}>
+        <div className="max-w-xl mx-auto px-4">
+          <div className="flex items-center justify-center gap-5 flex-wrap">
+            <Image
+              src="/images/juan.jpg"
+              alt="Juan — Client Growth"
+              width={80}
+              height={80}
+              quality={80}
+              sizes="80px"
+              style={{
+                width: 80, height: 80,
+                borderRadius: "50%", objectFit: "cover",
+                border: "2px solid rgba(255,255,255,0.14)",
+              }}
+              onError={(e) => { (e.currentTarget.parentElement as HTMLDivElement).style.display = "none"; }}
+            />
+            <div className="text-center sm:text-left flex-1 min-w-0">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-0.5">
+                {t<string>("spots.compactHeading")}
+              </h2>
+              <p className="text-xs text-[#D2C9B8] mb-2">
+                {t<string>("spots.compactSubline")}
+              </p>
+              <div className="text-[11px] text-[#D2C9B8]">
+                {[t<string>("spots.reply24"), t<string>("spots.confidential"), t<string>("spots.noCommitment")].join(" · ")}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="bg-sv-base py-16 md:py-24 text-center">
+    <section className="py-16 md:py-24 text-center" style={{ background: background ?? "var(--sv-base, #0D0B09)" }}>
       <div className="max-w-xl mx-auto px-4">
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px" }}>
           <Image

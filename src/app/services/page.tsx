@@ -4,7 +4,6 @@ import { buildMetadata } from "@/lib/metadata";
 import ServicesHero from "@/components/services/ServicesHero";
 import FitCheck from "@/components/services/FitCheck";
 import MarbleSystemSection from "@/components/home/MarbleSystemSection";
-import ServicesShowcase from "@/components/home/ServicesShowcase";
 import PremiumPricingSection from "@/components/pricing/PremiumPricingSection";
 import ServicesFinalCTA from "@/components/services/ServicesFinalCTA";
 import "@/styles/services.css";
@@ -22,7 +21,6 @@ export default function ServicesPage() {
       <ServicesHero />
       <FitCheck />
       <MarbleSystemSection />
-      <ServicesShowcase impactRevealed goldTheme />
       <PremiumPricingSection
         heading="Full Pricing Breakdown"
         subheadline="Every engagement is scoped on the diagnostic call. Here is what each level of partnership includes."

@@ -45,10 +45,10 @@ export default function FrozenWebsitePreview({
       type="button"
       aria-label={websiteUrl ? `View ${title} website` : `View ${title} metrics`}
       onClick={handleClick}
-      className={`group relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.08)] bg-[#080F1F] focus:outline-none focus-visible:outline-2 focus-visible:outline-sv-primary focus-visible:outline-offset-2 transition ${isClickable ? "cursor-pointer" : "cursor-default"}`}
+      className={`group relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.08)] bg-[#0D0B09] focus:outline-none focus-visible:outline-2 focus-visible:outline-sv-primary focus-visible:outline-offset-2 transition ${isClickable ? "cursor-pointer" : "cursor-default"}`}
     >
       {/* Browser chrome bar */}
-      <div className="absolute top-0 left-0 right-0 h-9 flex items-center px-3 bg-[#0D1526] border-b border-[rgba(255,255,255,0.06)] z-10">
+      <div className="absolute top-0 left-0 right-0 h-9 flex items-center px-3 bg-[#131009] border-b border-[rgba(255,255,255,0.06)] z-10">
         <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E] ml-1.5" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#28C840] ml-1.5" />
@@ -65,9 +65,9 @@ export default function FrozenWebsitePreview({
       <div
         className="absolute inset-0 top-9 flex items-center justify-center"
         style={{
-          background: "linear-gradient(135deg, #060D1F 0%, #0A1628 100%)",
+          background: "linear-gradient(135deg, #0D0B09 0%, #131009 100%)",
           backgroundImage:
-            "linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px)",
+            "linear-gradient(rgba(212,168,83,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,83,0.04) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       >
@@ -82,7 +82,7 @@ export default function FrozenWebsitePreview({
                 : `${title} logo`
             }
             fill
-            className="object-contain drop-shadow-[0_0_20px_rgba(37,99,235,0.15)] brightness-105"
+            className="object-contain drop-shadow-[0_0_20px_rgba(212,168,83,0.15)] brightness-105"
             sizes="280px"
             priority={false}
           />
@@ -92,7 +92,7 @@ export default function FrozenWebsitePreview({
       {/* Hover overlay */}
       {isClickable && (
         <>
-          <div className="absolute inset-0 bg-[rgba(6,13,31,0.75)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
+          <div className="absolute inset-0 bg-[rgba(13,11,9,0.75)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
           <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-sv-primary text-white px-5 py-2.5 rounded-full text-[13px] font-semibold opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-300 pointer-events-none">
             {websiteUrl ? "View Live →" : "View Metrics →"}
           </span>

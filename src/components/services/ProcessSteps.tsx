@@ -21,7 +21,7 @@ export default function ProcessSteps() {
           <div
             className="hidden md:block absolute left-[39px] top-6 bottom-6 w-px"
             style={{
-              background: "linear-gradient(180deg, rgba(37,99,235,0.4) 0%, rgba(37,99,235,0.25) 50%, rgba(37,99,235,0.1) 100%)",
+              background: "linear-gradient(180deg, rgba(212,168,83,0.4) 0%, rgba(212,168,83,0.25) 50%, rgba(212,168,83,0.1) 100%)",
             }}
             aria-hidden="true"
           />
@@ -32,7 +32,7 @@ export default function ProcessSteps() {
                 <div className="group flex gap-6 md:gap-8">
                   {/* Number badge */}
                   <div className="relative shrink-0">
-                    <div className="flex h-[78px] w-[78px] items-center justify-center rounded-2xl border border-[rgba(255,255,255,0.08)] transition-all duration-400 group-hover:border-[rgba(37,99,235,0.35)]" style={{ background: "linear-gradient(135deg, #0A1628, #0D1A2D)" }}>
+                    <div className="flex h-[78px] w-[78px] items-center justify-center rounded-2xl border border-[rgba(255,255,255,0.08)] transition-all duration-400 group-hover:border-[rgba(212,168,83,0.35)]" style={{ background: "linear-gradient(135deg, #1E1A14, #131009)" }}>
                       <span className="text-2xl font-bold text-sv-primary tabular-nums">
                         {step.number}
                       </span>

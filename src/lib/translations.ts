@@ -142,6 +142,10 @@ export type TranslationsShape = {
     reply24: string;
     noContracts: string;
     threeSpots: string;
+    compactHeading: string;
+    compactSubline: string;
+    confidential: string;
+    noCommitment: string;
   };
   finalCta: {
     button: string;
@@ -238,6 +242,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       reply24: "Reply within 24 hours",
       noContracts: "No long-term contracts",
       threeSpots: "3 spots per quarter",
+      compactHeading: "I run 3 partnerships at a time. One slot currently open.",
+      compactSubline: "If I can help, you'll hear back within 24 hours.",
+      confidential: "100% confidential",
+      noCommitment: "No commitment",
     },
     finalCta: {
       button: "Now Or Never",
@@ -345,6 +353,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       reply24: "Réponse sous 24 heures",
       noContracts: "Pas de contrats à long terme",
       threeSpots: "3 places par trimestre",
+      compactHeading: "Je gère 3 partenariats à la fois. Une place actuellement ouverte.",
+      compactSubline: "Si je peux vous aider, vous aurez une réponse sous 24 heures.",
+      confidential: "100% confidentiel",
+      noCommitment: "Sans engagement",
     },
     finalCta: {
       button: "Maintenant ou jamais",

@@ -62,7 +62,7 @@ export default function ServicesFAQSection() {
                 role="listitem"
                 className={`rounded-xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "border-[rgba(37,99,235,0.25)] bg-[#0D1A2D] shadow-[0_4px_24px_rgba(37,99,235,0.04)]"
+                    ? "border-[rgba(212,168,83,0.25)] bg-[#1E1A14] shadow-[0_4px_24px_rgba(212,168,83,0.04)]"
                     : "border-[rgba(255,255,255,0.06)] bg-sv-surface hover:border-[rgba(255,255,255,0.1)]"
                 }`}
               >

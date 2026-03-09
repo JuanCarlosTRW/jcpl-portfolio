@@ -95,7 +95,7 @@ export const tiers: TierConfig[] = [
     ],
     scarcityNote:
       "Two slots per niche per city. If your competitor applies first, this tier closes for your market.",
-    ctaLabel: "Apply for this tier →",
+    ctaLabel: "Apply for Market Ownership →",
     ctaHref: "/apply?tier=MarketOwnership",
     badge: "BY APPLICATION ONLY",
   },

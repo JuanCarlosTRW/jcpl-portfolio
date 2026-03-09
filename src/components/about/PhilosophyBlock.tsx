@@ -17,11 +17,11 @@ const philosophyBullets = [
 export default function PhilosophyBlock() {
   return (
     <AnimatedSection className="max-w-2xl mx-auto">
-      <div className="relative rounded-2xl border border-[rgba(37,99,235,0.15)] bg-sv-surface py-10 px-7 md:py-14 md:px-12 overflow-hidden text-center">
+      <div className="relative rounded-2xl border border-[rgba(212,168,83,0.15)] bg-sv-surface py-10 px-7 md:py-14 md:px-12 overflow-hidden text-center">
         {/* Quote ornament */}
         <span
           className="absolute top-4 left-6 select-none font-serif leading-none text-[80px] md:text-[110px] pointer-events-none"
-          style={{ color: "rgba(37,99,235,0.2)" }}
+          style={{ color: "rgba(212,168,83,0.2)" }}
           aria-hidden="true"
         >
           &ldquo;
@@ -56,13 +56,13 @@ export default function PhilosophyBlock() {
         </p>
 
         {/* Thin bottom rule */}
-        <div className="w-10 h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.3)] to-transparent mx-auto mt-6" aria-hidden="true" />
+        <div className="w-10 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.3)] to-transparent mx-auto mt-6" aria-hidden="true" />
 
         {/* Subtle glow */}
         <div
           className="absolute inset-0 pointer-events-none rounded-2xl"
           style={{
-            background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(37,99,235,0.05) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(212,168,83,0.05) 0%, transparent 70%)",
           }}
           aria-hidden="true"
         />

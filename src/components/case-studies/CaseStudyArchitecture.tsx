@@ -33,14 +33,14 @@ export default function CaseStudyArchitecture({ study }: { study: CaseStudy }) {
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
-                  background: "radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.12) 0%, transparent 70%)",
+                  background: "radial-gradient(ellipse at 50% 0%, rgba(212,168,83,0.08) 0%, transparent 70%)",
                 }}
               />
               <div className="relative z-10">
                 <div
                   className="text-2xl font-bold mb-4"
                   style={{
-                    background: "linear-gradient(135deg, rgba(37,99,235,0.8), rgba(37,99,235,0.6))",
+                    background: "linear-gradient(135deg, rgba(212,168,83,0.8), rgba(212,168,83,0.6))",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}

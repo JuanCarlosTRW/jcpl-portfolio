@@ -25,7 +25,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
 
   return (
     <div
-      className="bg-sv-surface border border-[rgba(37,99,235,0.1)] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-[rgba(37,99,235,0.35)] hover:-translate-y-[2px]"
+      className="bg-sv-surface border border-[rgba(212,168,83,0.12)] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-[rgba(212,168,83,0.35)] hover:-translate-y-[2px]"
       onClick={handleCardClick}
       role="link"
       tabIndex={0}
@@ -34,7 +34,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
       }}
     >
       {/* Preview */}
-      <div className="border-b border-[rgba(37,99,235,0.08)]">
+      <div className="border-b border-[rgba(212,168,83,0.08)]">
         <FrozenWebsitePreview
           logoUrl={cs.logoUrl}
           websiteUrl={cs.websiteUrl}
@@ -67,7 +67,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
         {/* Absolute Painting: System live tag */}
         {cs.inProgress && cs.id === "absolute-painting" && (
           <div className="mb-5">
-            <span className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] rounded-full px-[14px] py-[5px]">
+            <span className="inline-flex items-center gap-2 bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.2)] rounded-full px-[14px] py-[5px]">
               <PulseDot />
               <span className="text-[12px] text-sv-primary font-medium">
                 System live
@@ -81,7 +81,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
             {cs.metrics.map((m) => (
               <span
                 key={m.label}
-                className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.18)] rounded-full px-3 py-[3px] flex items-center"
+                className="bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.18)] rounded-full px-3 py-[3px] flex items-center"
               >
                 <span className="text-[12px] font-bold text-white">
                   {m.value}
@@ -112,7 +112,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
             <button
               type="button"
               disabled
-              className="border border-[rgba(255,255,255,0.15)] text-[#6B8CAE] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium cursor-default"
+              className="border border-[rgba(255,255,255,0.15)] text-[#D2C9B8] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium cursor-default"
               style={{ opacity: 1 }}
             >
               Project is still going
@@ -123,7 +123,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
             <button
               type="button"
               disabled
-              className="border border-[rgba(255,255,255,0.15)] text-[#6B8CAE] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium cursor-default"
+              className="border border-[rgba(255,255,255,0.15)] text-[#D2C9B8] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium cursor-default"
               style={{ opacity: 1 }}
             >
               Case study coming
@@ -131,7 +131,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           ) : (
             <button
               type="button"
-              className="border border-[rgba(255,255,255,0.12)] text-[rgba(255,255,255,0.6)] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium hover:border-[rgba(37,99,235,0.4)] hover:text-white transition-all duration-200"
+              className="border border-[rgba(255,255,255,0.12)] text-[rgba(255,255,255,0.6)] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium hover:border-[rgba(212,168,83,0.4)] hover:text-white transition-all duration-200"
               onClick={(e) => {
                 e.stopPropagation();
                 router.push(`/results/${cs.caseStudySlug}`);

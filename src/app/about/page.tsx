@@ -3,11 +3,8 @@ import { buildMetadata } from "@/lib/metadata";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AboutHero from "@/components/about/AboutHero";
 import MetricsRow from "@/components/about/MetricsRow";
-import Principles from "@/components/about/Principles";
 import AboutHowIBuiltThis from "@/components/about/AboutHowIBuiltThis";
-import WorkTimeline from "@/components/about/WorkTimeline";
 import PhilosophyBlock from "@/components/about/PhilosophyBlock";
-import AdvantageCompare from "@/components/about/AdvantageCompare";
 import AboutCTA from "@/components/about/AboutCTA";
 import SpotsLeftSection from "@/components/home/SpotsLeftSection";
 
@@ -21,47 +18,31 @@ export const metadata: Metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
-      {/* ── Hero: Copy + Portrait (animation untouched) ── */}
-      <SectionWrapper className="pt-28 md:pt-36 !pb-10 md:!pb-14">
+      {/* 1. Hero: Copy + Portrait */}
+      <SectionWrapper className="pt-28 md:pt-36 !pb-10 md:!pb-14" style={{ background: "#0D0B09" }}>
         <AboutHero />
       </SectionWrapper>
 
-      {/* ── Philosophy Statement (MOVED UP) ── */}
-      <SectionWrapper>
+      {/* 2. Philosophy */}
+      <SectionWrapper style={{ background: "#131009" }}>
         <PhilosophyBlock />
       </SectionWrapper>
 
-      {/* ── I Run 3 Partnerships at a Time ── */}
-      <SpotsLeftSection />
-
-      {/* ── Credibility / Metrics — tight to hero ── */}
-      <SectionWrapper className="!py-6 md:!py-8">
-        <MetricsRow />
-      </SectionWrapper>
-
-      {/* ── How I Built This (NEW) ── */}
+      {/* 3. Why I Operate Differently (shortened) */}
       <AboutHowIBuiltThis />
 
-      {/* Divider between Why I Operate Differently and How I Operate */}
-      <hr className="border-t border-slate-700/50 my-2 mx-auto max-w-xs" />
+      {/* 4. 3 Partnerships + Stats */}
+      <div style={{ background: "#1A1510" }}>
+        <SpotsLeftSection background="#1A1510" />
+        <div className="max-w-7xl mx-auto px-4 pb-12">
+          <MetricsRow />
+        </div>
+      </div>
 
-      {/* ── Operating Principles (3 cards) ── */}
-      <SectionWrapper>
-        <Principles />
+      {/* 5. Final CTA */}
+      <SectionWrapper style={{ background: "#0D0B09" }}>
+        <AboutCTA />
       </SectionWrapper>
-
-      {/* ── Working Model Timeline ── */}
-      <SectionWrapper variant="surface">
-        <WorkTimeline />
-      </SectionWrapper>
-
-      {/* ── Integrated vs Fragmented ── */}
-      <SectionWrapper variant="surface">
-        <AdvantageCompare />
-      </SectionWrapper>
-
-      {/* ── Final CTA ── */}
-      <AboutCTA />
     </>
   );
 }

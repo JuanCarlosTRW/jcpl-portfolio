@@ -51,7 +51,7 @@ export default function CaseStudySituation({ study }: { study: CaseStudy }) {
               {/* Glow */}
               <div
                 className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)", filter: "blur(30px)" }}
+                style={{ background: "radial-gradient(circle, rgba(212,168,83,0.1) 0%, transparent 70%)", filter: "blur(30px)" }}
               />
               <div className="relative z-10 space-y-4">
                 <div className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-6">

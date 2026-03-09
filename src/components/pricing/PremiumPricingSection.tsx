@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
+import ServicesFAQSection from "@/components/services/ServicesFAQ";
 import { tiers, comparisonRows } from "@/lib/premiumPricingData";
 import { caseStudyLogos } from "@/components/hero/LogoLoopData";
 import type { TierConfig } from "@/lib/premiumPricingData";
@@ -317,18 +318,18 @@ export default function PremiumPricingSection({
               </div>
             </div>
 
-            {/* Final CTA */}
-            <div className="mt-12 pt-12 border-t text-center" style={{ borderColor: "#2A2318" }}>
-              <h3 className="text-xl font-semibold text-white mb-6">
-                Questions I get every time.
-              </h3>
-              <Link
-                href="/apply"
-                onClick={() => trackEvent("services_final_cta_primary_click")}
-                className="cta-primary inline-flex items-center justify-center font-semibold px-8 py-3.5 rounded-xl"
-              >
-                Book a Strategy Call
-              </Link>
+            {/* FAQ + CTA */}
+            <div className="mt-12 pt-12 border-t" style={{ borderColor: "#2A2318" }}>
+              <ServicesFAQSection />
+              <div className="text-center mt-8">
+                <Link
+                  href="/apply"
+                  onClick={() => trackEvent("services_final_cta_primary_click")}
+                  className="cta-primary inline-flex items-center justify-center font-semibold px-8 py-3.5 rounded-xl"
+                >
+                  Book a Strategy Call
+                </Link>
+              </div>
             </div>
           </div>
         </div>

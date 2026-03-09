@@ -61,12 +61,12 @@ export default function AdvantageCompare() {
 
         {/* Right: Integrated */}
         <AnimatedSection direction="right" delay={0.15}>
-          <div className="rounded-xl border border-[rgba(37,99,235,0.25)] bg-sv-surface p-6 h-full relative overflow-hidden">
+          <div className="rounded-xl border border-[rgba(212,168,83,0.25)] bg-sv-surface p-6 h-full relative overflow-hidden">
             {/* Subtle glow */}
             <div
               className="absolute inset-0 pointer-events-none rounded-xl"
               style={{
-                background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.06) 0%, transparent 70%)",
+                background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,168,83,0.06) 0%, transparent 70%)",
               }}
               aria-hidden="true"
             />
@@ -75,7 +75,7 @@ export default function AdvantageCompare() {
                 <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-sv-primary">
                   Integrated System
                 </h3>
-                <span className="inline-flex items-center rounded-full bg-[rgba(37,99,235,0.12)] border border-sv-primary/30 px-2.5 py-0.5 text-[0.62rem] font-bold text-sv-primary uppercase tracking-wider leading-none">
+                <span className="inline-flex items-center rounded-full bg-[rgba(212,168,83,0.12)] border border-sv-primary/30 px-2.5 py-0.5 text-[0.62rem] font-bold text-sv-primary uppercase tracking-wider leading-none">
                   Recommended
                 </span>
               </div>

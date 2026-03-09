@@ -13,7 +13,7 @@ export default function CaseStudyFinalCTA({ study }: { study: CaseStudy }) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 100%, rgba(37,99,235,0.12) 0%, transparent 65%)",
+            "radial-gradient(ellipse at 50% 100%, rgba(212,168,83,0.08) 0%, transparent 65%)",
         }}
       />
 

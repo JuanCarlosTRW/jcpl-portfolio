@@ -12,9 +12,9 @@ export default function MetricsRow() {
   return (
     <AnimatedSection className="max-w-2xl mx-auto">
       {/* Thin top baseline */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.15)] to-transparent mb-1" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent mb-1" aria-hidden="true" />
 
-      <div className="grid grid-cols-3 divide-x divide-[rgba(37,99,235,0.15)] rounded-xl bg-sv-surface border border-[rgba(37,99,235,0.15)]">
+      <div className="grid grid-cols-3 divide-x divide-[rgba(212,168,83,0.15)] rounded-xl bg-sv-surface border border-[rgba(212,168,83,0.15)]">
         <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
           <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums text-[var(--brand-accent)] leading-none mb-1.5">
             $41,084.85
@@ -42,7 +42,7 @@ export default function MetricsRow() {
       </div>
 
       {/* Thin bottom baseline */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.15)] to-transparent mt-1" aria-hidden="true" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent mt-1" aria-hidden="true" />
 
       <p className="text-center text-[0.7rem] text-sv-text-sub mt-3 tracking-wider uppercase">
         UPDATED AS RESULTS COME IN.
