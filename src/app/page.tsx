@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
-import SocialProofBar from "@/components/home/SocialProofBar";
 import FounderBlock from "@/components/home/FounderBlock";
 import PricingStatement from "@/components/home/PricingStatement";
 
@@ -21,10 +20,7 @@ export default function HomePage() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Active client systems */}
-      <SocialProofBar />
-
-      {/* 3. Pain (8:47 AM + cards) */}
+      {/* 2. Pain (8:47 AM + cards) */}
       <ClientReality />
 
       {/* 4. ROI Calculator */}
