@@ -63,8 +63,65 @@ const METRICS = [
   { value: 10,  prefix: "",  unit: "days",  label: "Median time to first booked call" },
 ];
 
+// ─── Beam presets — tuned per breakpoint ────────────────────────────────────
+// glowAmount is the primary inner-light lever: it drives the tanh remapping
+// scale in the shader (col = tanh(col * glowAmount / widthNorm)). Higher values
+// push the core into tanh's steep zone → brighter highlights, richer centre.
+// Outer haze stays in the linear zone and remains restrained.
+const BEAM_PRESETS = {
+  desktop: {
+    topColor: "#C8A858",   // richer luminous gold
+    intensity: 0.62,
+    glowAmount: 0.0024,    // key inner-light lever — was 0.0013
+    pillarWidth: 2.9,
+    pillarHeight: 0.27,
+    noiseIntensity: 0.07,
+    containerWidth: "65%",
+  },
+  tablet: {
+    topColor: "#C0A040",
+    intensity: 0.52,
+    glowAmount: 0.0018,
+    pillarWidth: 2.4,
+    pillarHeight: 0.27,
+    noiseIntensity: 0.07,
+    containerWidth: "65%",
+  },
+  mobile: {
+    topColor: "#B8A040",
+    intensity: 0.38,
+    glowAmount: 0.0011,
+    pillarWidth: 1.9,
+    pillarHeight: 0.28,
+    noiseIntensity: 0.06,
+    containerWidth: "100%",
+  },
+};
+
+type BeamPreset = {
+  topColor: string;
+  intensity: number;
+  glowAmount: number;
+  pillarWidth: number;
+  pillarHeight: number;
+  noiseIntensity: number;
+  containerWidth: string;
+};
+
 // ═══════════════════════════════════════════════════════════════════════════
 export default function HeroSection() {
+  const [beam, setBeam] = useState<BeamPreset>(BEAM_PRESETS.desktop);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setBeam(w < 640 ? BEAM_PRESETS.mobile : w < 1024 ? BEAM_PRESETS.tablet : BEAM_PRESETS.desktop);
+    };
+    update();
+    window.addEventListener("resize", update, { passive: true });
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   return (
     <section
       className="relative flex flex-col bg-[#0D0B09] overflow-hidden"
@@ -80,20 +137,20 @@ export default function HeroSection() {
           top: 0,
           right: 0,
           bottom: 0,
-          width: "65%",
+          width: beam.containerWidth,
           pointerEvents: "none",
           zIndex: 1,
         }}
       >
         <LightPillar
-          topColor="#B8A070"
+          topColor={beam.topColor}
           bottomColor="#1C2535"
-          intensity={0.50}
+          intensity={beam.intensity}
           rotationSpeed={0.16}
-          glowAmount={0.0013}
-          pillarWidth={2.6}
-          pillarHeight={0.27}
-          noiseIntensity={0.08}
+          glowAmount={beam.glowAmount}
+          pillarWidth={beam.pillarWidth}
+          pillarHeight={beam.pillarHeight}
+          noiseIntensity={beam.noiseIntensity}
           pillarRotation={9}
           interactive={false}
           mixBlendMode="screen"
