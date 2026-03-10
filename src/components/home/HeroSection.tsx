@@ -72,20 +72,20 @@ const BEAM_PRESETS = {
   desktop: {
     topColor: "#D4AC50",
     intensity: 0.78,
-    glowAmount: 0.0038,
-    pillarWidth: 3.1,
+    glowAmount: 0.0032,
+    pillarWidth: 2.7,
     pillarHeight: 0.27,
     noiseIntensity: 0.07,
-    containerWidth: "65%",
+    containerWidth: "58%",
   },
   tablet: {
     topColor: "#CCA840",
     intensity: 0.68,
-    glowAmount: 0.0030,
-    pillarWidth: 2.6,
+    glowAmount: 0.0028,
+    pillarWidth: 2.4,
     pillarHeight: 0.27,
     noiseIntensity: 0.07,
-    containerWidth: "65%",
+    containerWidth: "60%",
   },
   mobile: {
     topColor: "#D4A840",
@@ -167,7 +167,7 @@ export default function HeroSection() {
           zIndex: 2,
           pointerEvents: "none",
           background:
-            "linear-gradient(to right, #0D0B09 0%, #0D0B09 34%, rgba(13,11,9,0.82) 48%, rgba(13,11,9,0.28) 63%, transparent 76%)",
+            "linear-gradient(to right, #0D0B09 0%, #0D0B09 36%, rgba(13,11,9,0.90) 50%, rgba(13,11,9,0.22) 65%, transparent 73%)",
         }}
       />
 
@@ -313,7 +313,7 @@ export default function HeroSection() {
         }}
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0" style={{ padding: "1.375rem 0 1.5rem" }}>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0" style={{ padding: "1.5rem 0 1.625rem" }}>
 
             {/* Metrics */}
             <div className="flex items-center">
@@ -376,8 +376,8 @@ export default function HeroSection() {
               className="hidden sm:block flex-shrink-0"
               style={{
                 width: 1,
-                height: 34,
-                background: "rgba(255,255,255,0.06)",
+                height: 40,
+                background: "rgba(255,255,255,0.08)",
                 margin: "0 1.75rem",
               }}
             />
@@ -428,7 +428,7 @@ export default function HeroSection() {
               <span
                 style={{
                   fontSize: "0.65rem",
-                  color: "#5A5248",
+                  color: "#706660",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   fontWeight: 500,

@@ -33,11 +33,11 @@ export default function SocialProofBar() {
     >
       <div
         className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20"
-        style={{ paddingTop: "2.75rem", paddingBottom: "4.5rem" }}
+        style={{ paddingTop: "2.75rem", paddingBottom: "3.75rem" }}
       >
 
         {/* Section label row — mirrors confidence rail label style */}
-        <div className="flex items-center gap-4" style={{ marginBottom: "2rem" }}>
+        <div className="flex items-center gap-4" style={{ marginBottom: "1.75rem" }}>
           <span
             style={{
               fontSize: "0.62rem",
@@ -63,7 +63,7 @@ export default function SocialProofBar() {
               fontWeight: 500,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
-              color: "#5A5248",
+              color: "#706660",
               flexShrink: 0,
             }}
           >
@@ -80,7 +80,7 @@ export default function SocialProofBar() {
                   background: "#181410",
                   border: "1px solid rgba(255,255,255,0.07)",
                   borderRadius: "0.75rem",
-                  padding: "1.25rem 1.375rem",
+                  padding: "1.375rem 1.5rem",
                   height: "100%",
                 }}
               >
