@@ -5,13 +5,19 @@ import UnicornScene from "unicornstudio-react/next";
 export default function HeroBackground() {
   // For now, render a premium dark gradient background
   return (
-    <div
-      aria-hidden
-      className="absolute inset-0 z-0 pointer-events-none"
-      style={{
-        background: "radial-gradient(circle at 55% 35%, #1a2233 60%, #09090b 100%)",
-        opacity: 0.95,
-      }}
-    />
+    <div className="absolute inset-0 z-0">
+      <UnicornScene
+        projectId="UykNLkYklTyqyIZODvIi"
+        sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.3/dist/unicornStudio.umd.js"
+        width="100%"
+        height="100vh"
+        style={{ position: "absolute", inset: 0, zIndex: 0 }}
+        production
+        scale={1}
+        dpi={1.5}
+        fps={60}
+        lazyLoad={true}
+      />
+    </div>
   );
 }
