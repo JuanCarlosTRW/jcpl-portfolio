@@ -52,8 +52,6 @@ export default function HeroSection() {
           backgroundSize: "64px 64px",
         }}
       />
-      {/* Subtle emerald glow for animation area */}
-      <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[520px] h-[520px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="relative z-10 max-w-[1200px] mx-auto w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-0">
         {/* Left: Content */}
         <div className="flex-1 min-w-0">
@@ -98,15 +96,6 @@ export default function HeroSection() {
             <span className="text-sm text-zinc-600">
               If I cannot move the needle, I will tell you before you pay anything.
             </span>
-          </div>
-        </div>
-        {/* Right: Animation placeholder (desktop only) */}
-        <div className="hidden lg:flex flex-1 items-center justify-center min-w-[320px] max-w-[480px] relative">
-          <div className="relative w-full aspect-square max-w-[480px] flex items-center justify-center">
-            {/* Placeholder for future animation */}
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-zinc-900 via-zinc-800 to-emerald-900/30 border border-zinc-800/60 flex items-center justify-center">
-              <div className="w-2/3 h-2/3 rounded-full bg-emerald-400/10 blur-2xl" />
-            </div>
           </div>
         </div>
       </div>
