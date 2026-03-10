@@ -88,13 +88,13 @@ export default function HeroSection() {
         <LightPillar
           topColor="#C4A35A"
           bottomColor="#1C2535"
-          intensity={0.72}
+          intensity={0.66}
           rotationSpeed={0.18}
           glowAmount={0.0018}
-          pillarWidth={3}
-          pillarHeight={0.4}
-          noiseIntensity={0.32}
-          pillarRotation={16}
+          pillarWidth={3.4}
+          pillarHeight={0.26}
+          noiseIntensity={0.15}
+          pillarRotation={9}
           interactive={false}
           mixBlendMode="screen"
           quality="high"
@@ -149,7 +149,7 @@ export default function HeroSection() {
                   fontWeight: 600,
                   letterSpacing: "0.26em",
                   textTransform: "uppercase",
-                  color: "#756D63",
+                  color: "#8A7E74",
                 }}
               >
                 Growth Infrastructure · Service Businesses
@@ -187,7 +187,7 @@ export default function HeroSection() {
             </p>
 
             {/* CTA cluster */}
-            <div className="flex flex-col items-start gap-3">
+            <div className="flex flex-col items-start gap-2.5">
               <a
                 href="#book-call"
                 className="group inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold transition-colors duration-150 bg-[#F0EBE0] hover:bg-[#E7E1D5] text-[#0D0B09]"
@@ -214,7 +214,7 @@ export default function HeroSection() {
               <span
                 style={{
                   fontSize: "0.84rem",
-                  color: "#756D63",
+                  color: "#8A7E74",
                   letterSpacing: "-0.008em",
                 }}
               >
@@ -253,7 +253,7 @@ export default function HeroSection() {
         style={{
           zIndex: 10,
           background: "#0D0B09",
-          borderTop: "1px solid rgba(255,255,255,0.055)",
+          borderTop: "1px solid rgba(255,255,255,0.065)",
         }}
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
@@ -291,7 +291,7 @@ export default function HeroSection() {
                     <div
                       style={{
                         fontSize: "0.68rem",
-                        color: "#756D63",
+                        color: "#8A7E74",
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         marginTop: "0.375rem",
@@ -320,7 +320,7 @@ export default function HeroSection() {
               <span
                 style={{
                   fontSize: "0.62rem",
-                  color: "#756D63",
+                  color: "#8A7E74",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   flexShrink: 0,
@@ -351,7 +351,7 @@ export default function HeroSection() {
                         width: 15,
                         height: 15,
                         objectFit: "contain",
-                        opacity: 0.7,
+                        opacity: 0.76,
                       }}
                     />
                   </div>
@@ -361,7 +361,7 @@ export default function HeroSection() {
               <span
                 style={{
                   fontSize: "0.72rem",
-                  color: "#756D63",
+                  color: "#8A7E74",
                   letterSpacing: "-0.005em",
                 }}
               >
