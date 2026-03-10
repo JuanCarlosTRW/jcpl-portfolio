@@ -2,6 +2,22 @@ import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 
 
+interface LightPillarProps {
+  topColor?: string;
+  bottomColor?: string;
+  intensity?: number;
+  rotationSpeed?: number;
+  interactive?: boolean;
+  className?: string;
+  glowAmount?: number;
+  pillarWidth?: number;
+  pillarHeight?: number;
+  noiseIntensity?: number;
+  mixBlendMode?: React.CSSProperties['mixBlendMode'];
+  pillarRotation?: number;
+  quality?: 'low' | 'medium' | 'high';
+}
+
 const LightPillar = ({
   topColor = '#2EE6A6',
   bottomColor = '#1D4ED8',
@@ -15,16 +31,16 @@ const LightPillar = ({
   noiseIntensity = 0.12,
   mixBlendMode = 'screen',
   pillarRotation = -18,
-  quality = 'medium'
-}) => {
+  quality = 'medium',
+}: LightPillarProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const rafRef = useRef(null);
-  const rendererRef = useRef(null);
-  const materialRef = useRef(null);
-  const sceneRef = useRef(null);
-  const cameraRef = useRef(null);
-  const geometryRef = useRef(null);
-  const mouseRef = useRef(new THREE.Vector2(0, 0));
+  const rafRef = useRef<number | null>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const materialRef = useRef<THREE.ShaderMaterial | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.OrthographicCamera | null>(null);
+  const geometryRef = useRef<THREE.PlaneGeometry | null>(null);
+  const mouseRef = useRef<THREE.Vector2>(new THREE.Vector2(0, 0));
   const timeRef = useRef(0);
   const [webGLSupported, setWebGLSupported] = useState(true);
 
@@ -52,7 +68,7 @@ const LightPillar = ({
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const isLowEndDevice = isMobile || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
 
-    let effectiveQuality = quality;
+    let effectiveQuality: 'low' | 'medium' | 'high' = quality;
     if (isLowEndDevice && quality === 'high') effectiveQuality = 'medium';
     if (isMobile && quality !== 'low') effectiveQuality = 'low';
 
@@ -70,7 +86,7 @@ const LightPillar = ({
 
     const settings = qualitySettings[effectiveQuality] || qualitySettings.medium;
 
-    let renderer;
+    let renderer: THREE.WebGLRenderer;
     try {
       renderer = new THREE.WebGLRenderer({
         antialias: false,
@@ -90,7 +106,7 @@ const LightPillar = ({
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    const parseColor = hex => {
+    const parseColor = (hex: string) => {
       const color = new THREE.Color(hex);
       return new THREE.Vector3(color.r, color.g, color.b);
     };
@@ -223,8 +239,8 @@ const LightPillar = ({
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    let mouseMoveTimeout = null;
-    const handleMouseMove = event => {
+    let mouseMoveTimeout: number | null = null;
+    const handleMouseMove = (event: MouseEvent) => {
       if (!interactive) return;
 
       if (mouseMoveTimeout) return;
@@ -247,7 +263,7 @@ const LightPillar = ({
     const targetFPS = effectiveQuality === 'low' ? 30 : 60;
     const frameTime = 1000 / targetFPS;
 
-    const animate = currentTime => {
+    const animate = (currentTime: number) => {
       if (!materialRef.current || !rendererRef.current || !sceneRef.current || !cameraRef.current) return;
 
       const deltaTime = currentTime - lastTime;
@@ -266,7 +282,7 @@ const LightPillar = ({
     };
     rafRef.current = requestAnimationFrame(animate);
 
-    let resizeTimeout = null;
+    let resizeTimeout: number | null = null;
     const handleResize = () => {
       if (resizeTimeout) {
         clearTimeout(resizeTimeout);
@@ -329,13 +345,13 @@ const LightPillar = ({
 
   if (!webGLSupported) {
     return (
-      <div className={`light-pillar-fallback ${className}`} style={{ mixBlendMode }}>
+      <div className={`light-pillar-fallback ${className}`} style={{ mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode'] }}>
         WebGL not supported
       </div>
     );
   }
 
-  return <div ref={containerRef} className={`light-pillar-container ${className}`} style={{ mixBlendMode }} />;
+  return <div ref={containerRef} className={`light-pillar-container ${className}`} style={{ mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode'] }} />;
 };
 
 export default LightPillar;
