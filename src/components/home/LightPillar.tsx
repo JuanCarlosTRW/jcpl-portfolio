@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
-import './LightPillar.css';
+
 
 const LightPillar = ({
   topColor = '#2EE6A6',
