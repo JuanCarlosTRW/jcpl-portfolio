@@ -130,8 +130,7 @@ export default function HeroSection() {
       {/* ─── MAIN CONTENT ──────────────────────────────────────────────── */}
       <div
         className="relative flex-1 flex flex-col justify-center"
-        style={{ zIndex: 10 }}
-        style={{ paddingTop: "var(--nav-h, 72px)" }}
+        style={{ zIndex: 10, paddingTop: "var(--nav-h, 72px)" }}
       >
         <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row lg:items-center">
 
