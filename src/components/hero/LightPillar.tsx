@@ -71,12 +71,14 @@ const LightPillar: React.FC<LightPillarProps> = ({
     const isLowEndDevice = isMobile || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
 
     let effectiveQuality: 'low' | 'medium' | 'high' = quality;
-    if (isLowEndDevice && quality === 'high') effectiveQuality = 'medium';
-    if (isMobile && quality !== 'low') effectiveQuality = 'low';
+    // Cap high→medium on low-end/mobile for performance, but never force below medium
+    // when the caller explicitly requests high quality (removes the old hard mobile→low override
+    // that was starving the shader of iterations and killing visible light on mobile).
+    if ((isLowEndDevice || isMobile) && quality === 'high') effectiveQuality = 'medium';
 
     const qualitySettings = {
       low: { iterations: 24, waveIterations: 1, pixelRatio: 0.5, precision: 'mediump', stepMultiplier: 1.5 },
-      medium: { iterations: 40, waveIterations: 2, pixelRatio: 0.65, precision: 'mediump', stepMultiplier: 1.2 },
+      medium: { iterations: 52, waveIterations: 3, pixelRatio: 0.75, precision: 'mediump', stepMultiplier: 1.1 },
       high: {
         iterations: 80,
         waveIterations: 4,
