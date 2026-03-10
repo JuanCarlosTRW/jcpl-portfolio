@@ -1,47 +1,33 @@
+// @ts-nocheck
+"use client";
+
 import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import './LightPillar.css';
 
-
-interface LightPillarProps {
-  topColor?: string;
-  bottomColor?: string;
-  intensity?: number;
-  rotationSpeed?: number;
-  interactive?: boolean;
-  className?: string;
-  glowAmount?: number;
-  pillarWidth?: number;
-  pillarHeight?: number;
-  noiseIntensity?: number;
-  mixBlendMode?: React.CSSProperties['mixBlendMode'];
-  pillarRotation?: number;
-  quality?: 'low' | 'medium' | 'high';
-}
-
 const LightPillar = ({
-  topColor = '#2EE6A6',
-  bottomColor = '#1D4ED8',
-  intensity = 0.32,
-  rotationSpeed = 0.12,
+  topColor = '#5227FF',
+  bottomColor = '#FF9FFC',
+  intensity = 1.0,
+  rotationSpeed = 0.3,
   interactive = false,
   className = '',
-  glowAmount = 0.0025,
-  pillarWidth = 2.2,
-  pillarHeight = 0.32,
-  noiseIntensity = 0.12,
+  glowAmount = 0.005,
+  pillarWidth = 3.0,
+  pillarHeight = 0.4,
+  noiseIntensity = 0.5,
   mixBlendMode = 'screen',
-  pillarRotation = -18,
-  quality = 'medium',
-}: LightPillarProps) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const rafRef = useRef<number | null>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const materialRef = useRef<THREE.ShaderMaterial | null>(null);
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const cameraRef = useRef<THREE.OrthographicCamera | null>(null);
-  const geometryRef = useRef<THREE.PlaneGeometry | null>(null);
-  const mouseRef = useRef<THREE.Vector2>(new THREE.Vector2(0, 0));
+  pillarRotation = 0,
+  quality = 'high'
+}) => {
+  const containerRef = useRef(null);
+  const rafRef = useRef(null);
+  const rendererRef = useRef(null);
+  const materialRef = useRef(null);
+  const sceneRef = useRef(null);
+  const cameraRef = useRef(null);
+  const geometryRef = useRef(null);
+  const mouseRef = useRef(new THREE.Vector2(0, 0));
   const timeRef = useRef(0);
   const [webGLSupported, setWebGLSupported] = useState(true);
 
@@ -57,7 +43,6 @@ const LightPillar = ({
     if (!containerRef.current || !webGLSupported) return;
 
     const container = containerRef.current;
-    if (!container) return;
     const width = container.clientWidth;
     const height = container.clientHeight;
 
@@ -69,7 +54,7 @@ const LightPillar = ({
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const isLowEndDevice = isMobile || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
 
-    let effectiveQuality: 'low' | 'medium' | 'high' = quality;
+    let effectiveQuality = quality;
     if (isLowEndDevice && quality === 'high') effectiveQuality = 'medium';
     if (isMobile && quality !== 'low') effectiveQuality = 'low';
 
@@ -87,7 +72,7 @@ const LightPillar = ({
 
     const settings = qualitySettings[effectiveQuality] || qualitySettings.medium;
 
-    let renderer: THREE.WebGLRenderer;
+    let renderer;
     try {
       renderer = new THREE.WebGLRenderer({
         antialias: false,
@@ -107,7 +92,7 @@ const LightPillar = ({
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    const parseColor = (hex: string) => {
+    const parseColor = hex => {
       const color = new THREE.Color(hex);
       return new THREE.Vector3(color.r, color.g, color.b);
     };
@@ -163,14 +148,14 @@ const LightPillar = ({
 
         vec3 col = vec3(0.0);
         float t = 0.1;
-        
+
         for(int i = 0; i < MAX_ITER; i++) {
           vec3 p = ro + rd * t;
           p.xz = vec2(rotC * p.x - rotS * p.z, rotS * p.x + rotC * p.z);
 
           vec3 q = p;
           q.y = p.y * uPillarHeight + uTime;
-          
+
           float freq = 1.0;
           float amp = 1.0;
           for(int j = 0; j < WAVE_ITER; j++) {
@@ -179,7 +164,7 @@ const LightPillar = ({
             freq *= 2.0;
             amp *= 0.5;
           }
-          
+
           float d = length(cos(q.xz)) - 0.2;
           float bound = length(p.xz) - uPillarWidth;
           float k = 4.0;
@@ -196,9 +181,9 @@ const LightPillar = ({
 
         float widthNorm = uPillarWidth / 3.0;
         col = tanh(col * uGlowAmount / widthNorm);
-        
+
         col -= fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453) / 15.0 * uNoiseIntensity;
-        
+
         gl_FragColor = vec4(col * uIntensity, 1.0);
       }
     `;
@@ -240,8 +225,8 @@ const LightPillar = ({
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    let mouseMoveTimeout: number | null = null;
-    const handleMouseMove = (event: MouseEvent) => {
+    let mouseMoveTimeout = null;
+    const handleMouseMove = event => {
       if (!interactive) return;
 
       if (mouseMoveTimeout) return;
@@ -264,7 +249,7 @@ const LightPillar = ({
     const targetFPS = effectiveQuality === 'low' ? 30 : 60;
     const frameTime = 1000 / targetFPS;
 
-    const animate = (currentTime: number) => {
+    const animate = currentTime => {
       if (!materialRef.current || !rendererRef.current || !sceneRef.current || !cameraRef.current) return;
 
       const deltaTime = currentTime - lastTime;
@@ -283,7 +268,7 @@ const LightPillar = ({
     };
     rafRef.current = requestAnimationFrame(animate);
 
-    let resizeTimeout: number | null = null;
+    let resizeTimeout = null;
     const handleResize = () => {
       if (resizeTimeout) {
         clearTimeout(resizeTimeout);
@@ -346,13 +331,13 @@ const LightPillar = ({
 
   if (!webGLSupported) {
     return (
-      <div className={`light-pillar-fallback ${className}`} style={{ mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode'] }}>
+      <div className={`light-pillar-fallback ${className}`} style={{ mixBlendMode }}>
         WebGL not supported
       </div>
     );
   }
 
-  return <div ref={containerRef} className={`light-pillar-container ${className}`} style={{ mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode'] }} />;
+  return <div ref={containerRef} className={`light-pillar-container ${className}`} style={{ mixBlendMode }} />;
 };
 
 export default LightPillar;
