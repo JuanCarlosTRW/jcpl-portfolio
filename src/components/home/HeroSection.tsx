@@ -58,9 +58,9 @@ const ACTIVE_CLIENTS = [
 ];
 
 const METRICS = [
-  { value: 32,  prefix: "$", suffix: "",      label: "Avg cost per qualified call"      },
-  { value: 4,   prefix: "",  suffix: "",      label: "Active client systems"            },
-  { value: 10,  prefix: "",  suffix: " days", label: "Median time to first booked call" },
+  { value: 32,  prefix: "$", unit: "",      label: "Avg cost per qualified call"      },
+  { value: 4,   prefix: "",  unit: "",      label: "Active client systems"            },
+  { value: 10,  prefix: "",  unit: "days",  label: "Median time to first booked call" },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -92,8 +92,8 @@ export default function HeroSection() {
           rotationSpeed={0.18}
           glowAmount={0.0018}
           pillarWidth={3.4}
-          pillarHeight={0.26}
-          noiseIntensity={0.15}
+          pillarHeight={0.22}
+          noiseIntensity={0.10}
           pillarRotation={9}
           interactive={false}
           mixBlendMode="screen"
@@ -161,9 +161,8 @@ export default function HeroSection() {
               className="font-bold text-[#F5F0E8]"
               style={{
                 fontSize: "clamp(2.65rem, 4.6vw, 4.35rem)",
-                lineHeight: 1.045,
+                lineHeight: 1.05,
                 letterSpacing: "-0.038em",
-                maxWidth: "14ch",
                 marginBottom: "1.65rem",
               }}
             >
@@ -180,9 +179,9 @@ export default function HeroSection() {
                 marginBottom: "2.5rem",
               }}
             >
-              <span style={{ color: "#D4A853", fontWeight: 600 }}>$41,085</span>
+              <span style={{ color: "#D4A853", fontWeight: 700 }}>$41,085</span>
               {" "}generated from{" "}
-              <span style={{ color: "#D4A853", fontWeight: 600 }}>$900</span>
+              <span style={{ color: "#C8A05A", fontWeight: 500 }}>$900</span>
               {" "}in ad spend — within 30 days.
             </p>
 
@@ -276,7 +275,7 @@ export default function HeroSection() {
                   )}
                   <div>
                     <div
-                      className="font-semibold text-[#F5F0E8] leading-none"
+                      className="font-semibold text-[#F5F0E8] leading-none flex items-baseline gap-1.5"
                       style={{
                         fontSize: "clamp(1.38rem, 2.1vw, 1.72rem)",
                         letterSpacing: "-0.03em",
@@ -285,8 +284,19 @@ export default function HeroSection() {
                       <AnimatedNumber
                         target={m.value}
                         prefix={m.prefix}
-                        suffix={m.suffix}
+                        suffix=""
                       />
+                      {m.unit && (
+                        <span style={{
+                          fontSize: "0.55em",
+                          fontWeight: 400,
+                          color: "#8A7E74",
+                          letterSpacing: "0.04em",
+                          textTransform: "uppercase",
+                        }}>
+                          {m.unit}
+                        </span>
+                      )}
                     </div>
                     <div
                       style={{
