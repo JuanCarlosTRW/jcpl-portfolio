@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import UnicornScene from "unicornstudio-react/next";
 
 // Placeholder for WebGL/GLSL canvas effect
 export default function HeroBackground() {

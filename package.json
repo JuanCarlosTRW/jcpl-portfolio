@@ -25,7 +25,7 @@
     "react-dom": "19.2.3",
     "resend": "^6.9.2",
     "three": "^0.182.0",
-    "unicornstudio-react": "^2.0.1-1"
+    "unicornstudio-react": "^2.1.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^16.1.6",
