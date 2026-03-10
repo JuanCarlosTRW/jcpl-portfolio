@@ -17,7 +17,7 @@ const LightPillar = ({
   pillarRotation = -18,
   quality = 'medium'
 }) => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef(null);
   const rendererRef = useRef(null);
   const materialRef = useRef(null);
@@ -40,6 +40,7 @@ const LightPillar = ({
     if (!containerRef.current || !webGLSupported) return;
 
     const container = containerRef.current;
+    if (!container) return;
     const width = container.clientWidth;
     const height = container.clientHeight;
 
