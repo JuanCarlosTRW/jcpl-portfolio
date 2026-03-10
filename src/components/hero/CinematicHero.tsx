@@ -12,6 +12,10 @@ import IntroBackground from "./IntroBackground";
 import LogoIntro from "./LogoIntro";
 import Icon from "@/components/ui/Icon";
 import type { LogoIntroHandle } from "./LogoIntro";
+import LightPillar from "./LightPillar";
+import SignalRoutingSVG from "@/components/home/SignalRoutingSVG";
+import LogoLoop from "./LogoLoop";
+import { caseStudyLogos } from "./LogoLoopData";
 import "./hero.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -67,29 +71,23 @@ const SCRUB_SMOOTHING = 0.6;
 
 function StaticHero() {
   return (
-    <section
-      className="scroll-hero"
-      style={{ height: "auto", minHeight: "100vh" }}
-    >
-      <div
-        className="scroll-hero-viewport"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "6rem 1.5rem",
-        }}
-      >
-        <div className="hero-bg-layer" style={{ opacity: 1 }}>
+    <section className="scroll-hero" style={{ height: "auto", minHeight: "100vh" }}>
+      <div className="scroll-hero-viewport" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "6rem 1.5rem" }}>
+        <div className="hero-bg-layer" style={{ opacity: 1, position: "absolute", inset: 0, zIndex: 0 }}>
           <HeroBackground />
+          <LightPillar className="hidden lg:block" />
+          <div style={{ position: "absolute", top: 0, right: 0, height: "100%", width: "44vw", display: "flex", alignItems: "center", justifyContent: "flex-end", pointerEvents: "none", zIndex: 3 }}>
+            <div style={{ opacity: 0.32, width: "340px", maxWidth: "44vw" }}>
+              <SignalRoutingSVG />
+            </div>
+          </div>
         </div>
         <div className="hero-overlay bg-[linear-gradient(180deg,rgba(6,10,8,0.28)_0%,rgba(6,10,8,0.42)_52%,rgba(6,10,8,0.58)_100%)]" />
-        <div
-          className="scroll-layer content-layer"
-          style={{ opacity: 1, pointerEvents: "auto", position: "relative" }}
-        >
+        <div className="scroll-layer content-layer" style={{ opacity: 1, pointerEvents: "auto", position: "relative" }}>
           <ServicesLayer />
+        </div>
+        <div className="w-full mt-12">
+          <ConfidenceRail />
         </div>
       </div>
     </section>
@@ -126,74 +124,77 @@ function HookLayer() {
    LAYER 3 — Services Universe
    ══════════════════════════════════════════════════════════ */
 
-function ProofCard() {
+function ProofLine() {
   return (
-    <div className="w-full max-w-sm bg-slate-800/60 backdrop-blur-sm border border-slate-700 border-l-4 border-l-blue-500 rounded-2xl p-8">
-      <p className="text-xs font-semibold tracking-widest text-blue-400 uppercase mb-4">
-        LIVE RESULT
-      </p>
-  <p className="text-5xl font-black text-white mb-1">$41,085</p>
-      <p className="text-[13px] font-[400] opacity-[0.50] mb-6">
-        Revenue generated. 30 days. $900 ad spend.
-      </p>
-      <div className="grid grid-cols-3 gap-2 border-t border-slate-700 pt-6">
-        {[
-          { value: "46x", label: "Return on ad spend" },
-          { value: "11 days", label: "To first booked call" },
-          { value: "Texas", label: "RV rental market" },
-        ].map(({ value, label }) => (
-          <div key={label} className="text-center">
-            <p className="text-xl font-bold text-white">{value}</p>
-            <p className="text-xs text-slate-400 mt-1">{label}</p>
-          </div>
-        ))}
-      </div>
-      <p className="text-xs text-slate-500 mt-6 pt-4 border-t border-slate-700">
-        Triple W Rentals. Google Ads funnel.
-      </p>
+    <div className="cb-proof-line mt-4 mb-2 text-[15px] font-medium tracking-wide text-[rgba(220,230,240,0.82)] flex items-center gap-3 justify-center" style={{ letterSpacing: "0.01em" }}>
+      <span className="inline-block text-[13px] font-semibold uppercase tracking-widest text-[rgba(80,200,120,0.38)]">Live Result</span>
+      <span className="font-bold text-[18px] text-[rgba(255,255,255,0.92)]">$41,085</span>
+      <span className="opacity-60 text-[13px]">Revenue, 30 days, $900 ad spend</span>
+      <span className="hidden md:inline-block opacity-40 text-[13px]">· 46x ROAS · 11 days to first call · Texas RV market</span>
     </div>
   );
 }
 
 function ServicesLayer() {
   return (
-    <div className="max-w-5xl mx-auto px-6">
-      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
-        {/* Left column: headline + CTAs */}
-        <div className="lg:w-[55%] text-center lg:text-left">
-          <p className="services-title text-xs font-medium tracking-[0.3em] uppercase text-[rgba(255,255,255,0.35)] mb-6">
+    <div className="max-w-6xl mx-auto px-6">
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-16 lg:gap-20">
+        {/* Left column: headline + CTA + proof line */}
+        <div className="lg:w-[56%] text-center lg:text-left flex flex-col items-center lg:items-start">
+          <p className="services-title text-xs font-medium tracking-[0.3em] uppercase text-[rgba(255,255,255,0.32)] mb-5 lg:mb-7">
             {hero.overline}
           </p>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] text-white mb-6 whitespace-pre-line">
+          <h1 className="cb-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] text-white mb-4 max-w-2xl lg:max-w-3xl" style={{ letterSpacing: "-0.01em" }}>
             {hero.headline}
           </h1>
-          <p className="text-[18px] font-[400] opacity-[0.75] leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
+          <ProofLine />
+          <p className="text-[18px] font-[400] opacity-[0.75] leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
             {hero.subheadline}
           </p>
-          <div className="services-cta flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <div className="cb-cta-wrap flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-2">
             <Link
               href={ctaCopy.href}
               onClick={() => trackEvent("hero_cta_click")}
-              className="group inline-flex items-center gap-2 rounded-xl bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold text-white transition-all duration-400 hover:bg-[var(--brand-deep)] shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]"
+              className="cb-cta cb-cta--primary group shadow-[0_2px_24px_rgba(212,168,83,0.10)] border border-[rgba(212,168,83,0.22)] px-10 py-4 text-base font-semibold text-[#18181b] hover:bg-[#e9e4d8] hover:shadow-[0_2px_32px_rgba(212,168,83,0.18)] transition-all duration-300"
+              style={{ background: "#f6f1e6", color: "#18181b", borderRadius: 10, boxShadow: "0 2px 24px rgba(212,168,83,0.10)" }}
             >
               {ctaCopy.primary}
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
+              <span className="cb-cta-arrow transition-transform duration-300 group-hover:translate-x-1">
                 <Icon name="arrow-right" size={16} />
               </span>
             </Link>
             <Link
               href="/results"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[rgba(255,255,255,0.4)] transition-colors duration-300 hover:text-[rgba(255,255,255,0.7)]"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[rgba(255,255,255,0.38)] hover:text-[rgba(255,255,255,0.7)] transition-colors duration-300"
             >
               View Results
             </Link>
           </div>
         </div>
-
-        {/* Right column: proof card */}
-        <div className="lg:w-[45%] flex items-center justify-center mt-10 lg:mt-0">
-          <ProofCard />
+        {/* Right column: subtle visuals */}
+        <div className="lg:w-[44%] flex items-center justify-center mt-12 lg:mt-0 relative min-h-[340px]">
+          <div className="absolute inset-0 flex items-center justify-end pointer-events-none z-10">
+            <div className="hidden lg:block" style={{ width: "100%", maxWidth: 420, opacity: 0.38 }}>
+              <SignalRoutingSVG />
+            </div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-end pointer-events-none z-0">
+            <LightPillar />
+          </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function ConfidenceRail() {
+  return (
+    <div className="w-full flex flex-col items-center justify-center gap-2 px-2">
+      <div className="flex flex-row items-center justify-center gap-4 md:gap-7 lg:gap-10">
+        <LogoLoop logos={caseStudyLogos} logoHeight={38} gap={36} fadeEdges scaleOnHover speed={38} />
+        <span className="ml-2 text-[13px] font-medium text-[rgba(220,230,240,0.62)] px-3 py-1 rounded-full bg-[rgba(24,24,32,0.38)] border border-[rgba(220,230,240,0.10)] shadow-sm">
+          +2 active builds
+        </span>
       </div>
     </div>
   );

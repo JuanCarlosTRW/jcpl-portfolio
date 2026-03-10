@@ -1,0 +1,38 @@
+/* LightPillar.css — for subtle, premium WebGL pillar effect in hero background */
+
+.light-pillar-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 44vw;
+  min-width: 340px;
+  max-width: 700px;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+  opacity: 0.82;
+  transition: opacity 0.5s cubic-bezier(.4,0,.2,1);
+}
+
+@media (max-width: 900px) {
+  .light-pillar-container {
+    width: 100vw;
+    min-width: 0;
+    left: 0;
+    right: 0;
+    max-width: none;
+    opacity: 0.5;
+  }
+}
+
+.light-pillar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bfc9d1;
+  background: rgba(20,24,32,0.7);
+  font-size: 1rem;
+  border-radius: 8px;
+  min-height: 120px;
+}
