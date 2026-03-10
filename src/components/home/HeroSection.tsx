@@ -70,30 +70,30 @@ const METRICS = [
 // Outer haze stays in the linear zone and remains restrained.
 const BEAM_PRESETS = {
   desktop: {
-    topColor: "#C8A858",   // richer luminous gold
-    intensity: 0.62,
-    glowAmount: 0.0024,    // key inner-light lever — was 0.0013
-    pillarWidth: 2.9,
+    topColor: "#D4AC50",
+    intensity: 0.78,
+    glowAmount: 0.0038,
+    pillarWidth: 3.1,
     pillarHeight: 0.27,
     noiseIntensity: 0.07,
     containerWidth: "65%",
   },
   tablet: {
-    topColor: "#C0A040",
-    intensity: 0.52,
-    glowAmount: 0.0018,
-    pillarWidth: 2.4,
+    topColor: "#CCA840",
+    intensity: 0.68,
+    glowAmount: 0.0030,
+    pillarWidth: 2.6,
     pillarHeight: 0.27,
     noiseIntensity: 0.07,
     containerWidth: "65%",
   },
   mobile: {
-    topColor: "#B8A040",
-    intensity: 0.38,
-    glowAmount: 0.0011,
-    pillarWidth: 1.9,
+    topColor: "#C8A440",
+    intensity: 0.70,
+    glowAmount: 0.0030,
+    pillarWidth: 2.4,
     pillarHeight: 0.28,
-    noiseIntensity: 0.06,
+    noiseIntensity: 0.07,
     containerWidth: "100%",
   },
 };
@@ -171,7 +171,7 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Mobile overlay — text always on dark */}
+      {/* Mobile overlay — text always on dark, lowered to let beam glow through */}
       <div
         aria-hidden="true"
         className="lg:hidden"
@@ -180,7 +180,7 @@ export default function HeroSection() {
           inset: 0,
           zIndex: 3,
           pointerEvents: "none",
-          background: "rgba(13,11,9,0.82)",
+          background: "rgba(13,11,9,0.60)",
         }}
       />
 
