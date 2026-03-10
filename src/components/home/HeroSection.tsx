@@ -49,7 +49,6 @@ function AnimatedNumber({
   );
 }
 
-// ─── Client logo data ──────────────────────────────────────────────────────
 const ACTIVE_CLIENTS = [
   { alt: "Triple W Rentals",   src: "/images/logos/triplew.png" },
   { alt: "Culture Barbershop", src: "/images/logos/culture.png" },
@@ -58,11 +57,10 @@ const ACTIVE_CLIENTS = [
   { alt: "Centre Dentaire",    src: "/images/logos/dentaire.png" },
 ];
 
-// ─── Confidence metrics ────────────────────────────────────────────────────
 const METRICS = [
-  { value: 32,  prefix: "$",  suffix: "",     label: "Avg cost per qualified call" },
-  { value: 4,   prefix: "",   suffix: "",     label: "Active client systems"       },
-  { value: 10,  prefix: "",   suffix: " days", label: "Median time to first booked call" },
+  { value: 32,  prefix: "$", suffix: "",      label: "Avg cost per qualified call"      },
+  { value: 4,   prefix: "",  suffix: "",      label: "Active client systems"            },
+  { value: 10,  prefix: "",  suffix: " days", label: "Median time to first booked call" },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -75,64 +73,104 @@ export default function HeroSection() {
     >
 
       {/*
-       * ══════════════════════════════════════════════════════
-       * BACKGROUND ZONE — INSERT YOUR BACKGROUND CODE HERE
+       * ─────────────────────────────────────────────────────────────────
+       * LAYER 1 — Atmospheric depth (CSS only, always renders)
        *
-       * This container is anchored to the right side of the hero.
-       * On desktop (lg+) it covers ~68% width, right-aligned.
-       * On mobile it is full-width with a dark top overlay.
-       *
-       * The CSS mask-image creates a hard-to-soft left edge so
-       * the visual fades into the pure-dark left text column.
-       * No gradient bleed reaches the text.
-       *
-       * To swap the background:
-       *   1. Replace <LightPillar … /> below with your component
-       *   2. Adjust maskImage stop percentages if needed
-       * ══════════════════════════════════════════════════════
+       * A barely-visible warm/neutral vignette in the right half of the
+       * hero. This ensures the dark base never reads as dead-flat black,
+       * even before WebGL loads. Keep contrast extremely low.
+       * ─────────────────────────────────────────────────────────────────
        */}
       <div
-        className="absolute inset-y-0 right-0 z-0 pointer-events-none w-full lg:w-[68%]"
+        aria-hidden="true"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          maskImage:
-            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 18%, black 38%, black 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 18%, black 38%, black 100%)",
+          background: `
+            radial-gradient(ellipse 65% 70% at 82% 42%, rgba(46,200,160,0.055) 0%, transparent 68%),
+            radial-gradient(ellipse 40% 50% at 95% 15%, rgba(29,78,216,0.04)  0%, transparent 60%),
+            radial-gradient(ellipse 55% 45% at 70% 80%, rgba(29,78,216,0.03)  0%, transparent 65%)
+          `,
         }}
-      >
-        <LightPillar
-          topColor="#2EE6A6"
-          bottomColor="#1D4ED8"
-          intensity={0.18}
-          rotationSpeed={0.09}
-          interactive={false}
-          glowAmount={0.0018}
-          pillarWidth={2.6}
-          pillarHeight={0.36}
-          noiseIntensity={0.09}
-          mixBlendMode="screen"
-          pillarRotation={-18}
-          quality="medium"
-        />
-      </div>
-
-      {/* Mobile dark overlay — text stays readable on small screens */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none lg:hidden"
-        style={{ background: "rgba(13,11,9,0.72)" }}
       />
 
       {/*
-       * ══════════════════════════════════════════════════════
-       * CONTENT SAFE ZONE — left column always on pure dark
-       * This soft reinforcer prevents any visual bleed into text.
-       * ══════════════════════════════════════════════════════
+       * ─────────────────────────────────────────────────────────────────
+       * LAYER 2 — WebGL background zone
+       *
+       * Right-biased container: desktop covers right ~65%, mobile full.
+       * LightPillar receives className="absolute inset-0" so its inner
+       * container div fills this element — fixing the clientHeight=0 bug
+       * that prevented WebGL from rendering at the correct size.
+       *
+       * The gradient overlay div (below) is stacked ABOVE the canvas
+       * within this container. It uses #0D0B09 → transparent to cleanly
+       * kill the visual before it enters the text column, with no
+       * mask-image vendor prefix issues.
+       *
+       * ┌─────────────────────────────────────────────────────────────┐
+       * │  TO INSERT YOUR BACKGROUND:                                 │
+       * │  Replace <LightPillar … /> below with your component.       │
+       * │  Your component must accept className and fill 100% of this │
+       * │  container. The gradient overlay above it handles masking.  │
+       * └─────────────────────────────────────────────────────────────┘
+       * ─────────────────────────────────────────────────────────────────
        */}
       <div
+        aria-hidden="true"
+        className="absolute inset-y-0 right-0 z-[1] w-full lg:w-[65%] pointer-events-none"
+      >
+        {/* ── BACKGROUND COMPONENT — swap this ── */}
+        <LightPillar
+          className="absolute inset-0"
+          topColor="#2EE6A6"
+          bottomColor="#1D4ED8"
+          intensity={0.15}
+          rotationSpeed={0.07}
+          interactive={false}
+          glowAmount={0.0015}
+          pillarWidth={3.0}
+          pillarHeight={0.30}
+          noiseIntensity={0.07}
+          mixBlendMode="screen"
+          pillarRotation={-10}
+          quality="medium"
+        />
+
+        {/*
+         * Left-edge fade overlay — cuts the visual before the text zone.
+         * Uses solid #0D0B09 (matching section bg) fading to transparent.
+         * Positioned above the canvas (z-[1] within this container).
+         * On mobile: full coverage so text always reads on dark.
+         */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            background:
+              "linear-gradient(to right, #0D0B09 0%, #0D0B09 8%, rgba(13,11,9,0.85) 22%, rgba(13,11,9,0.35) 42%, transparent 64%)",
+          }}
+        />
+
+        {/* Mobile: fully darken so text on top is readable */}
+        <div
+          className="absolute inset-0 z-[2] lg:hidden"
+          style={{ background: "rgba(13,11,9,0.78)" }}
+        />
+      </div>
+
+      {/*
+       * ─────────────────────────────────────────────────────────────────
+       * LAYER 3 — Left text-safe reinforcer (desktop only)
+       *
+       * A belt-and-suspenders guard: even if the WebGL bleeds further
+       * than expected, this ensures the left column is always on pure dark.
+       * ─────────────────────────────────────────────────────────────────
+       */}
+      <div
+        aria-hidden="true"
         className="absolute inset-y-0 left-0 z-[2] pointer-events-none hidden lg:block"
         style={{
-          width: "42%",
-          background: "linear-gradient(to right, #0D0B09 82%, transparent 100%)",
+          width: "40%",
+          background: "linear-gradient(to right, #0D0B09 78%, transparent 100%)",
         }}
       />
 
@@ -143,47 +181,50 @@ export default function HeroSection() {
       >
         <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row lg:items-center">
 
-          {/* LEFT: All text content */}
+          {/* LEFT: All text content — max 560px, sits on pure dark */}
           <div className="flex flex-col w-full lg:max-w-[560px] xl:max-w-[580px] py-16 lg:py-24">
 
             {/* Eyebrow */}
             <div className="flex items-center gap-3 mb-8">
               <div
                 className="h-px w-5 flex-shrink-0"
-                style={{ background: "rgba(212,168,83,0.55)" }}
+                style={{ background: "rgba(212,168,83,0.5)" }}
               />
               <span
-                className="text-[10px] font-semibold uppercase"
                 style={{
-                  color: "#756D63",
+                  fontSize: "10px",
+                  fontWeight: 600,
                   letterSpacing: "0.26em",
+                  textTransform: "uppercase",
+                  color: "#756D63",
                 }}
               >
                 Growth Infrastructure · Service Businesses
               </span>
             </div>
 
-            {/* H1 — dominant, no subheadline on desktop */}
+            {/* H1 */}
             <h1
-              className="font-bold text-[#F5F0E8] mb-6"
+              className="font-bold text-[#F5F0E8]"
               style={{
                 fontSize: "clamp(2.65rem, 4.6vw, 4.35rem)",
                 lineHeight: 1.045,
                 letterSpacing: "-0.038em",
                 maxWidth: "14ch",
+                marginBottom: "1.4rem",
               }}
             >
               Growth Infrastructure Behind More Qualified Calls
             </h1>
 
-            {/* Proof line — editorial, grounded, no glow */}
+            {/* Proof line */}
             <p
-              className="mb-10"
               style={{
-                fontSize: "1.0rem",
+                fontSize: "1rem",
                 lineHeight: 1.6,
                 letterSpacing: "-0.012em",
                 color: "#A69D8D",
+                marginBottom: "2.5rem",
               }}
             >
               <span style={{ color: "#D4A853", fontWeight: 600 }}>$41,085</span>
@@ -201,28 +242,22 @@ export default function HeroSection() {
                   fontSize: "0.975rem",
                   padding: "0.85rem 1.75rem",
                   letterSpacing: "-0.012em",
-                  boxShadow:
-                    "0 1px 2px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05)",
+                  boxShadow: "0 1px 2px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05)",
                 }}
               >
                 See If Your Business Qualifies
                 <svg
                   className="w-[15px] h-[15px] transition-transform duration-150 group-hover:translate-x-[2px]"
-                  style={{ opacity: 0.5 }}
+                  style={{ opacity: 0.45 }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2.5}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
 
-              {/* Reassurance */}
               <span
                 style={{
                   fontSize: "0.84rem",
@@ -236,50 +271,60 @@ export default function HeroSection() {
           </div>
 
           {/*
-           * RIGHT: Visual area placeholder
-           * ─────────────────────────────────────────────────────
-           * This flex-1 column is intentionally empty on the DOM.
-           * The LightPillar (above in z-0) provides all visual
-           * energy in this zone. Any foreground elements you want
-           * overlaid on the right — a floating card, a badge, a
-           * metric callout — can go here inside this div.
-           * ─────────────────────────────────────────────────────
+           * RIGHT: Visual receiving zone (flex-1)
+           * ─────────────────────────────────────────────────────────────
+           * This column holds no DOM content — the LightPillar in LAYER 2
+           * provides all visual energy here. Its absolute positioning
+           * means it renders behind this flex row, in the right zone.
+           *
+           * If you want to add foreground elements on the right (a floating
+           * card, a data readout, a badge), place them inside this div.
+           * They will appear above the WebGL background (z-10 context).
+           * ─────────────────────────────────────────────────────────────
            */}
-          <div
-            className="hidden lg:block flex-1 min-w-0"
-            aria-hidden="true"
-          />
+          <div className="hidden lg:block flex-1 min-w-0" aria-hidden="true" />
         </div>
       </div>
 
-      {/* ─── CONFIDENCE RAIL ───────────────────────────────────────────── */}
       {/*
-       * Anchored to the bottom of the hero.
-       * bg-[#0D0B09] ensures it always reads on pure dark — no pillar bleed.
-       * border-t provides the hairline separation from hero content.
+       * ─────────────────────────────────────────────────────────────────
+       * CONFIDENCE RAIL
+       *
+       * Solid bg-[#0D0B09] with hairline border-t.
+       * Anchored to the bottom of the flex column.
+       * Sits above the WebGL layer (z-10) — no background bleed possible.
+       * ─────────────────────────────────────────────────────────────────
        */}
       <div
-        className="relative z-10 w-full bg-[#0D0B09]"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.055)" }}
+        className="relative z-10 w-full"
+        style={{
+          background: "#0D0B09",
+          borderTop: "1px solid rgba(255,255,255,0.055)",
+        }}
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0 py-5">
 
-            {/* Metrics row */}
-            <div className="flex items-center gap-0">
+            {/* Metrics */}
+            <div className="flex items-center">
               {METRICS.map((m, i) => (
                 <div key={i} className="flex items-center">
                   {i > 0 && (
                     <div
-                      className="hidden sm:block w-px h-8 mx-7 lg:mx-9 flex-shrink-0"
-                      style={{ background: "rgba(255,255,255,0.07)" }}
+                      className="hidden sm:block flex-shrink-0"
+                      style={{
+                        width: 1,
+                        height: 32,
+                        background: "rgba(255,255,255,0.07)",
+                        margin: "0 2rem",
+                      }}
                     />
                   )}
                   <div>
                     <div
                       className="font-semibold text-[#F5F0E8] leading-none"
                       style={{
-                        fontSize: "clamp(1.35rem, 2vw, 1.65rem)",
+                        fontSize: "clamp(1.3rem, 2vw, 1.6rem)",
                         letterSpacing: "-0.03em",
                       }}
                     >
@@ -290,12 +335,12 @@ export default function HeroSection() {
                       />
                     </div>
                     <div
-                      className="mt-1.5"
                       style={{
-                        fontSize: "0.69rem",
+                        fontSize: "0.68rem",
                         color: "#756D63",
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
+                        marginTop: "0.375rem",
                       }}
                     >
                       {m.label}
@@ -305,13 +350,18 @@ export default function HeroSection() {
               ))}
             </div>
 
-            {/* Vertical divider (desktop) */}
+            {/* Rail divider */}
             <div
-              className="hidden sm:block w-px h-9 flex-shrink-0 mx-8 lg:mx-10"
-              style={{ background: "rgba(255,255,255,0.06)" }}
+              className="hidden sm:block flex-shrink-0"
+              style={{
+                width: 1,
+                height: 36,
+                background: "rgba(255,255,255,0.06)",
+                margin: "0 2rem 0 1rem",
+              }}
             />
 
-            {/* Active clients row */}
+            {/* Active clients */}
             <div className="flex items-center gap-3">
               <span
                 style={{
@@ -325,19 +375,18 @@ export default function HeroSection() {
                 Active clients
               </span>
 
-              {/* Avatar stack */}
-              <div className="flex items-center" style={{ gap: "-1px" }}>
+              <div className="flex items-center">
                 {ACTIVE_CLIENTS.map((logo, i) => (
                   <div
                     key={i}
-                    className="relative rounded-full overflow-hidden flex items-center justify-center"
+                    className="relative rounded-full overflow-hidden flex items-center justify-center flex-shrink-0"
                     title={logo.alt}
                     style={{
                       width: 26,
                       height: 26,
                       background: "#181410",
                       border: "1.5px solid rgba(255,255,255,0.08)",
-                      marginLeft: i > 0 ? -7 : 0,
+                      marginLeft: i > 0 ? -8 : 0,
                       zIndex: ACTIVE_CLIENTS.length - i,
                     }}
                   >
@@ -345,10 +394,10 @@ export default function HeroSection() {
                       src={logo.src}
                       alt={logo.alt}
                       style={{
-                        width: 16,
-                        height: 16,
+                        width: 15,
+                        height: 15,
                         objectFit: "contain",
-                        opacity: 0.72,
+                        opacity: 0.7,
                       }}
                     />
                   </div>
