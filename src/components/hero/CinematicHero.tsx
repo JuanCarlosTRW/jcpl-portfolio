@@ -337,45 +337,88 @@ export default function CinematicHero() {
   if (reduced) return <StaticHero />;
 
   return (
-    <section ref={sectionRef} className="scroll-hero">
-      <div ref={viewportRef} className="scroll-hero-viewport">
-        {/* Layer 0: Backgrounds */}
-        <IntroBackground ref={introRef} />
-        <div ref={auroraBgRef} className="hero-bg-layer">
-          <HeroBackground />
+    <>
+      <section ref={sectionRef} className="scroll-hero">
+        <div ref={viewportRef} className="scroll-hero-viewport">
+          {/* Layer 0: Backgrounds */}
+          <IntroBackground ref={introRef} />
+          <div ref={auroraBgRef} className="hero-bg-layer">
+            <HeroBackground />
+          </div>
+          <div className="hero-overlay bg-[linear-gradient(180deg,rgba(6,10,8,0.28)_0%,rgba(6,10,8,0.42)_52%,rgba(6,10,8,0.58)_100%)]" />
+
+          {/* Persistent logo — starts centered, scrolls to top-left */}
+          <LogoIntro ref={logoRef} />
+
+          {/* Scroll indicator */}
+          <div ref={scrollIndicatorRef} className="scroll-indicator">
+            <span className="scroll-indicator-text">Scroll</span>
+            <div className="scroll-indicator-line" />
+            <div className="scroll-indicator-chevron" />
+          </div>
+
+          {/* Layer 2: Hook statement */}
+          <div
+            ref={hookRef}
+            className="scroll-layer hook-layer"
+            style={{ opacity: 0 }}
+          >
+            <HookLayer />
+          </div>
+
+          {/* Layer 3: Services universe */}
+          <div
+            ref={contentRef}
+            className="scroll-layer content-layer"
+            style={{ opacity: 0 }}
+          >
+            <ServicesLayer />
+          </div>
+
+          {/* Bottom vignette */}
+          <div className="hero-bottom-fade bg-[linear-gradient(180deg,rgba(8,14,12,0)_0%,rgba(8,14,12,0.26)_60%,rgba(8,14,12,0.40)_100%)]" />
         </div>
-        <div className="hero-overlay bg-[linear-gradient(180deg,rgba(6,10,8,0.28)_0%,rgba(6,10,8,0.42)_52%,rgba(6,10,8,0.58)_100%)]" />
+      </section>
+      <ActiveSystemsSection />
+    </>
+  );
+}
 
-        {/* Persistent logo — starts centered, scrolls to top-left */}
-        <LogoIntro ref={logoRef} />
-
-        {/* Scroll indicator */}
-        <div ref={scrollIndicatorRef} className="scroll-indicator">
-          <span className="scroll-indicator-text">Scroll</span>
-          <div className="scroll-indicator-line" />
-          <div className="scroll-indicator-chevron" />
+function ActiveSystemsSection() {
+  return (
+    <section className="active-systems-section max-w-6xl mx-auto px-6 mt-16 mb-12">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white tracking-tight">Active Systems</h2>
+      <div className="flex items-center gap-4 mb-8">
+        <span className="text-[13px] font-medium text-[rgba(220,230,240,0.62)] px-3 py-1 rounded-full bg-[rgba(24,24,32,0.38)] border border-[rgba(220,230,240,0.10)] shadow-sm">+2 in build</span>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Triple W Rentals */}
+        <div className="bg-[rgba(20,24,32,0.82)] rounded-xl p-6 flex flex-col items-start shadow-lg">
+          <div className="flex items-center gap-2 mb-2">
+            <img src="/images/logos/triplew.png" alt="Triple W Rentals" className="h-8 w-auto" />
+            <span className="font-semibold text-white text-lg">Triple W Rentals</span>
+          </div>
+          <div className="text-[13px] text-[rgba(220,230,240,0.62)] mb-2">RV Rental · Texas</div>
+          <div className="text-[15px] font-bold text-[rgba(80,200,120,0.82)] mb-1">$41K revenue in 30 days</div>
         </div>
-
-        {/* Layer 2: Hook statement */}
-        <div
-          ref={hookRef}
-          className="scroll-layer hook-layer"
-          style={{ opacity: 0 }}
-        >
-          <HookLayer />
+        {/* Elite Barbershop */}
+        <div className="bg-[rgba(20,24,32,0.82)] rounded-xl p-6 flex flex-col items-start shadow-lg">
+          <div className="flex items-center gap-2 mb-2">
+            <img src="/images/logos/elite.png" alt="Elite Barbershop" className="h-8 w-auto" />
+            <span className="font-semibold text-white text-lg">Elite Barbershop</span>
+          </div>
+          <div className="text-[13px] text-[rgba(220,230,240,0.62)] mb-2">Premium Barbershop · Montreal</div>
+          <div className="text-[15px] font-bold text-[rgba(80,200,120,0.82)] mb-1">90 new clients in 90 days</div>
         </div>
-
-        {/* Layer 3: Services universe */}
-        <div
-          ref={contentRef}
-          className="scroll-layer content-layer"
-          style={{ opacity: 0 }}
-        >
-          <ServicesLayer />
+        {/* Culture Barbershop */}
+        <div className="bg-[rgba(20,24,32,0.82)] rounded-xl p-6 flex flex-col items-start shadow-lg">
+          <div className="flex items-center gap-2 mb-2">
+            <img src="/images/logos/culture.png" alt="Culture Barbershop" className="h-8 w-auto" />
+            <span className="font-semibold text-white text-lg">Culture Barbershop</span>
+          </div>
+          <div className="text-[13px] text-[rgba(220,230,240,0.62)] mb-2">Barbershop · Montreal</div>
+          <div className="text-[15px] font-bold text-[rgba(80,200,120,0.82)] mb-1">Page 1 SEO in 60 days</div>
         </div>
-
-        {/* Bottom vignette */}
-        <div className="hero-bottom-fade bg-[linear-gradient(180deg,rgba(8,14,12,0)_0%,rgba(8,14,12,0.26)_60%,rgba(8,14,12,0.40)_100%)]" />
       </div>
     </section>
   );
