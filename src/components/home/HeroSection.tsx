@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import HeroWebGLBackground from "@/components/hero/HeroWebGLBackground";
+import "@/components/hero/hero.css";
 
 function AnimatedNumber({ target, prefix = "", suffix = "", duration = 2000 }: { target: number; prefix?: string; suffix?: string; duration?: number }) {
   const [current, setCurrent] = useState(0);
@@ -40,10 +42,17 @@ function AnimatedNumber({ target, prefix = "", suffix = "", duration = 2000 }: {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-32 pb-20 bg-[#09090b] overflow-hidden">
+    <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-32 pb-20 overflow-hidden" style={{ background: "#0D0B09" }}>
+      {/* WebGL background layer */}
+      <div className="cb-layer cb-layer--bg absolute" aria-hidden="true">
+        <HeroWebGLBackground />
+      </div>
+      {/* Readability overlays */}
+      <div className="absolute inset-0 z-[1] pointer-events-none [background:linear-gradient(to_bottom,rgba(13,11,9,0.75)_0%,rgba(13,11,9,0.55)_30%,rgba(13,11,9,0.25)_55%,transparent_75%)]" aria-hidden="true" />
+      <div className="absolute inset-0 z-[2] pointer-events-none [background:radial-gradient(ellipse_100%_100%_at_50%_50%,transparent_25%,rgba(13,11,9,0.45)_70%,rgba(13,11,9,0.75)_100%)]" aria-hidden="true" />
       {/* Subtle grid background */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] z-[3]"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
                             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -52,7 +61,7 @@ export default function HeroSection() {
       />
 
       {/* Gradient glow behind metrics */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none z-[3]" />
 
       <div className="relative z-10 max-w-[1200px] mx-auto w-full">
         {/* Eyebrow */}
