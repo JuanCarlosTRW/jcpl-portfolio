@@ -121,7 +121,6 @@ export default function HeroSection() {
       >
         {/* ── BACKGROUND COMPONENT — swap this ── */}
         <LightPillar
-          className="absolute inset-0"
           topColor="#2EE6A6"
           bottomColor="#1D4ED8"
           intensity={0.15}
