@@ -256,7 +256,7 @@ export default function HeroSection() {
         }}
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0" style={{ padding: "20px 0" }}>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0" style={{ padding: "1.375rem 0 1.5rem" }}>
 
             {/* Metrics */}
             <div className="flex items-center">
@@ -370,12 +370,14 @@ export default function HeroSection() {
 
               <span
                 style={{
-                  fontSize: "0.72rem",
-                  color: "#8A7E74",
-                  letterSpacing: "-0.005em",
+                  fontSize: "0.65rem",
+                  color: "#5A5248",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  fontWeight: 500,
                 }}
               >
-                +2 active builds
+                +2 in build
               </span>
             </div>
 

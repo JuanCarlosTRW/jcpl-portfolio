@@ -5,70 +5,167 @@ import { FadeIn } from "@/components/motion/FadeIn";
 const clients = [
   {
     name: "Triple W Rentals",
-    industry: "RV Rental",
-    location: "Texas",
-    result: "$41K revenue, 30 days",
+    industry: "RV Rental · Texas",
+    result: "$41K revenue in 30 days",
     logo: "/images/logos/triplew.png",
   },
   {
     name: "Elite Barbershop",
-    industry: "Premium Barbershop",
-    location: "Montreal",
-    result: "90 new clients, 90 days",
+    industry: "Premium Barbershop · Montreal",
+    result: "90 new clients in 90 days",
     logo: "/images/logos/elite.png",
   },
   {
     name: "Culture Barbershop",
-    industry: "Barbershop",
-    location: "Montreal",
-    result: "Page 1 SEO, 60 days",
+    industry: "Barbershop · Montreal",
+    result: "Page 1 SEO in 60 days",
     logo: "/images/logos/culture.png",
   },
 ];
 
 export default function SocialProofBar() {
   return (
-    <section className="px-6 md:px-12 lg:px-20 py-16 bg-[#09090b] border-y border-zinc-800/40">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="flex items-center gap-3 mb-10">
-          <span className="text-xs tracking-[0.2em] uppercase text-zinc-600 font-medium">
+    <section
+      style={{
+        background: "#0D0B09",
+        borderTop: "1px solid rgba(255,255,255,0.065)",
+      }}
+    >
+      <div
+        className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20"
+        style={{ paddingTop: "2.75rem", paddingBottom: "4.5rem" }}
+      >
+
+        {/* Section label row — mirrors confidence rail label style */}
+        <div className="flex items-center gap-4" style={{ marginBottom: "2rem" }}>
+          <span
+            style={{
+              fontSize: "0.62rem",
+              fontWeight: 600,
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "#8A7E74",
+              flexShrink: 0,
+            }}
+          >
             Active Systems
           </span>
-          <div className="h-px flex-1 bg-zinc-800/60" />
+          <div
+            style={{
+              flex: 1,
+              height: 1,
+              background: "rgba(255,255,255,0.055)",
+            }}
+          />
+          <span
+            style={{
+              fontSize: "0.62rem",
+              fontWeight: 500,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#5A5248",
+              flexShrink: 0,
+            }}
+          >
+            +2 in build
+          </span>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-6 items-start">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 flex-1">
-            {clients.map((client, i) => (
-              <FadeIn key={i} delay={i * 100}>
+        {/* Client cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+          {clients.map((client, i) => (
+            <FadeIn key={i} delay={i * 90}>
               <div
-                className="group relative p-4 rounded-xl border border-zinc-800/40 hover:border-zinc-700/60 transition-colors duration-300 bg-zinc-900/30"
+                style={{
+                  background: "#181410",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  borderRadius: "0.75rem",
+                  padding: "1.25rem 1.375rem",
+                  height: "100%",
+                }}
               >
-                <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center mb-4 overflow-hidden">
+                {/* Logo mark */}
+                <div
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: "0.5rem",
+                    background: "#0D0B09",
+                    border: "1px solid rgba(255,255,255,0.065)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "0.9rem",
+                  }}
+                >
                   <img
                     src={client.logo}
                     alt={client.name}
-                    className="w-7 h-7 object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ width: 20, height: 20, objectFit: "contain", opacity: 0.65 }}
                   />
                 </div>
-                <p className="text-sm font-medium text-zinc-300">{client.name}</p>
-                <p className="text-xs text-zinc-600 mt-0.5">
-                  {client.industry} · {client.location}
+
+                {/* Name */}
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    color: "#F5F0E8",
+                    letterSpacing: "-0.01em",
+                    marginBottom: "0.2rem",
+                  }}
+                >
+                  {client.name}
                 </p>
-                <div className="mt-3 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-                  <span className="text-[11px] text-zinc-400">{client.result}</span>
+
+                {/* Meta */}
+                <p
+                  style={{
+                    fontSize: "0.7rem",
+                    color: "#8A7E74",
+                    letterSpacing: "0.01em",
+                    marginBottom: "0.9rem",
+                  }}
+                >
+                  {client.industry}
+                </p>
+
+                {/* Result pill — gold instead of emerald */}
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.375rem",
+                    padding: "0.28rem 0.6rem",
+                    borderRadius: "0.375rem",
+                    background: "rgba(212,168,83,0.08)",
+                    border: "1px solid rgba(212,168,83,0.16)",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 5,
+                      height: 5,
+                      borderRadius: "50%",
+                      background: "#D4A853",
+                      opacity: 0.9,
+                      flexShrink: 0,
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontSize: "0.7rem",
+                      color: "#C4A05A",
+                      letterSpacing: "0.015em",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {client.result}
+                  </span>
                 </div>
               </div>
-              </FadeIn>
-            ))}
-          </div>
-
-          <div className="sm:self-center sm:w-44 shrink-0 text-left sm:text-right">
-            <p className="text-xs text-zinc-600 leading-relaxed">
-              +2 client systems<br />currently in build phase
-            </p>
-          </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>
