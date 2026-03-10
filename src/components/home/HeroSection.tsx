@@ -72,20 +72,22 @@ export default function HeroSection() {
             </span>
           </div>
           {/* Headline */}
-          <h1 className="text-[clamp(2.8rem,5vw,4.6rem)] font-bold leading-[1.08] tracking-[-0.035em] text-white max-w-[700px] mb-5">
+          <h1 className="text-[clamp(2.8rem,5vw,4.6rem)] font-bold leading-[1.08] tracking-[-0.035em] text-white max-w-[700px] mb-4">
             Growth Infrastructure Behind More Qualified Calls
           </h1>
           {/* Proof line */}
-          <div className="text-[1.18rem] font-semibold text-emerald-300 mb-5 tracking-tight leading-snug" style={{letterSpacing: '-0.01em'}}>
-            <span className="block opacity-90">$41,085 generated from $900 in ad spend</span>
-            <span className="block text-zinc-400 font-normal text-[1.05rem] mt-0.5">within 30 days.</span>
+          <div className="mb-4">
+            <div className="text-[1.22rem] font-semibold text-emerald-200 tracking-tight leading-snug" style={{letterSpacing: '-0.012em', textShadow: '0 1px 8px rgba(30,255,200,0.08)'}}>
+              $41,085 <span className="font-normal text-zinc-300">generated from</span> $900 <span className="font-normal text-zinc-300">in ad spend</span>
+            </div>
+            <div className="text-[1.05rem] text-zinc-400 font-medium mt-1 ml-0.5 tracking-tight" style={{letterSpacing: '-0.01em'}}>within 30 days.</div>
           </div>
           {/* CTA cluster */}
-          <div className="flex flex-col items-start gap-2 mb-7">
+          <div className="flex flex-col items-start gap-1.5 mb-5">
             <a
               href="#book-call"
-              className="group inline-flex items-center gap-2 px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold rounded-lg text-lg shadow-lg transition-colors duration-200 border border-emerald-800"
-              style={{ minWidth: 260, fontWeight: 600, fontSize: '1.13rem', letterSpacing: '-0.01em' }}
+              className="group inline-flex items-center gap-2 px-7 py-2.5 bg-[#12795a] hover:bg-[#0e5e47] text-white font-semibold rounded-[0.7rem] text-[1.11rem] shadow-[0_2px_16px_0_rgba(18,121,90,0.13)] transition-colors duration-200 border border-[#0e5e47] tracking-tight"
+              style={{ minWidth: 260, fontWeight: 600, fontFamily: 'Inter, ui-sans-serif', letterSpacing: '-0.01em', boxShadow: '0 2px 16px 0 rgba(18,121,90,0.13)' }}
             >
               See If Your Business Qualifies
               <svg
@@ -107,29 +109,23 @@ export default function HeroSection() {
         <div className="hidden lg:block flex-1 min-w-[320px] max-w-[520px]" />
       </div>
       {/* Integrated confidence rail */}
-      <div className="relative z-20 max-w-[1200px] mx-auto w-full mt-10 pt-6">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 text-center lg:text-left">
-          <div>
-            <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-              $<AnimatedNumber target={32} />
-            </div>
-            <p className="mt-1.5 text-sm text-zinc-500 leading-snug">Avg cost per qualified call</p>
+      <div className="relative z-20 max-w-[1200px] mx-auto w-full mt-5 pt-1.5">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0 text-center lg:text-left">
+          <div className="flex-1">
+            <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight">$<AnimatedNumber target={32} /></div>
+            <div className="text-xs text-zinc-500 mt-1.5">Avg cost per qualified call</div>
           </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-              <AnimatedNumber target={4} />
-            </div>
-            <p className="mt-1.5 text-sm text-zinc-500 leading-snug">Active client systems</p>
+          <div className="flex-1">
+            <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight"><AnimatedNumber target={4} /></div>
+            <div className="text-xs text-zinc-500 mt-1.5">Active client systems</div>
           </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-              <AnimatedNumber target={10} /> days
-            </div>
-            <p className="mt-1.5 text-sm text-zinc-500 leading-snug">Median to first booked call</p>
+          <div className="flex-1">
+            <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight"><AnimatedNumber target={10} /> days</div>
+            <div className="text-xs text-zinc-500 mt-1.5">Median to first booked call</div>
           </div>
         </div>
         {/* Client logos row */}
-        <div className="mt-7 flex items-center gap-3 justify-center lg:justify-start">
+        <div className="mt-5 flex items-center gap-3 justify-center lg:justify-start">
           <span className="text-xs text-zinc-600 uppercase tracking-widest mr-4 shrink-0">Active clients</span>
           <div className="flex -space-x-1">
             {[
