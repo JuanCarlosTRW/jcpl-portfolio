@@ -88,11 +88,11 @@ const BEAM_PRESETS = {
     containerWidth: "65%",
   },
   mobile: {
-    topColor: "#C8A440",
-    intensity: 0.70,
-    glowAmount: 0.0030,
-    pillarWidth: 2.4,
-    pillarHeight: 0.28,
+    topColor: "#D4A840",
+    intensity: 0.92,
+    glowAmount: 0.0046,
+    pillarWidth: 3.2,
+    pillarHeight: 0.26,
     noiseIntensity: 0.07,
     containerWidth: "100%",
   },
@@ -180,7 +180,7 @@ export default function HeroSection() {
           inset: 0,
           zIndex: 3,
           pointerEvents: "none",
-          background: "rgba(13,11,9,0.60)",
+          background: "rgba(13,11,9,0.22)",
         }}
       />
 
