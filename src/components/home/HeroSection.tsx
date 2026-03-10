@@ -72,110 +72,65 @@ export default function HeroSection() {
       aria-label="Hero"
     >
 
-      {/*
-       * ─────────────────────────────────────────────────────────────────
-       * LAYER 1 — Atmospheric depth (CSS only, always renders)
-       *
-       * A barely-visible warm/neutral vignette in the right half of the
-       * hero. This ensures the dark base never reads as dead-flat black,
-       * even before WebGL loads. Keep contrast extremely low.
-       * ─────────────────────────────────────────────────────────────────
-       */}
+      {/* ── LightPillar background — right-side visual zone ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          background: `
-            radial-gradient(ellipse 65% 70% at 82% 42%, rgba(46,200,160,0.055) 0%, transparent 68%),
-            radial-gradient(ellipse 40% 50% at 95% 15%, rgba(29,78,216,0.04)  0%, transparent 60%),
-            radial-gradient(ellipse 55% 45% at 70% 80%, rgba(29,78,216,0.03)  0%, transparent 65%)
-          `,
+          position: "absolute",
+          top: 0,
+          right: 0,
+          bottom: 0,
+          width: "65%",
+          pointerEvents: "none",
+          zIndex: 1,
         }}
-      />
-
-      {/*
-       * ─────────────────────────────────────────────────────────────────
-       * LAYER 2 — WebGL background zone
-       *
-       * Right-biased container: desktop covers right ~65%, mobile full.
-       * LightPillar receives className="absolute inset-0" so its inner
-       * container div fills this element — fixing the clientHeight=0 bug
-       * that prevented WebGL from rendering at the correct size.
-       *
-       * The gradient overlay div (below) is stacked ABOVE the canvas
-       * within this container. It uses #0D0B09 → transparent to cleanly
-       * kill the visual before it enters the text column, with no
-       * mask-image vendor prefix issues.
-       *
-       * ┌─────────────────────────────────────────────────────────────┐
-       * │  TO INSERT YOUR BACKGROUND:                                 │
-       * │  Replace <LightPillar … /> below with your component.       │
-       * │  Your component must accept className and fill 100% of this │
-       * │  container. The gradient overlay above it handles masking.  │
-       * └─────────────────────────────────────────────────────────────┘
-       * ─────────────────────────────────────────────────────────────────
-       */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 z-[1] w-full lg:w-[65%] pointer-events-none"
       >
-        {/* ── BACKGROUND COMPONENT — swap this ── */}
         <LightPillar
-          topColor="#2EE6A6"
-          bottomColor="#1D4ED8"
-          intensity={0.15}
-          rotationSpeed={0.07}
+          topColor="#ffe229"
+          bottomColor="#2d3443"
+          intensity={1}
+          rotationSpeed={0.3}
+          glowAmount={0.002}
+          pillarWidth={3}
+          pillarHeight={0.4}
+          noiseIntensity={0.5}
+          pillarRotation={25}
           interactive={false}
-          glowAmount={0.0015}
-          pillarWidth={3.0}
-          pillarHeight={0.30}
-          noiseIntensity={0.07}
           mixBlendMode="screen"
-          pillarRotation={-10}
-          quality="medium"
-        />
-
-        {/*
-         * Left-edge fade overlay — cuts the visual before the text zone.
-         * Uses solid #0D0B09 (matching section bg) fading to transparent.
-         * Positioned above the canvas (z-[1] within this container).
-         * On mobile: full coverage so text always reads on dark.
-         */}
-        <div
-          className="absolute inset-0 z-[1]"
-          style={{
-            background:
-              "linear-gradient(to right, #0D0B09 0%, #0D0B09 8%, rgba(13,11,9,0.85) 22%, rgba(13,11,9,0.35) 42%, transparent 64%)",
-          }}
-        />
-
-        {/* Mobile: fully darken so text on top is readable */}
-        <div
-          className="absolute inset-0 z-[2] lg:hidden"
-          style={{ background: "rgba(13,11,9,0.78)" }}
+          quality="high"
         />
       </div>
 
-      {/*
-       * ─────────────────────────────────────────────────────────────────
-       * LAYER 3 — Left text-safe reinforcer (desktop only)
-       *
-       * A belt-and-suspenders guard: even if the WebGL bleeds further
-       * than expected, this ensures the left column is always on pure dark.
-       * ─────────────────────────────────────────────────────────────────
-       */}
+      {/* Left fade — kills WebGL before reaching text column */}
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 left-0 z-[2] pointer-events-none hidden lg:block"
         style={{
-          width: "40%",
-          background: "linear-gradient(to right, #0D0B09 78%, transparent 100%)",
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
+          pointerEvents: "none",
+          background:
+            "linear-gradient(to right, #0D0B09 0%, #0D0B09 30%, rgba(13,11,9,0.7) 50%, transparent 70%)",
+        }}
+      />
+
+      {/* Mobile overlay — text always on dark */}
+      <div
+        aria-hidden="true"
+        className="lg:hidden"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 3,
+          pointerEvents: "none",
+          background: "rgba(13,11,9,0.82)",
         }}
       />
 
       {/* ─── MAIN CONTENT ──────────────────────────────────────────────── */}
       <div
-        className="relative z-10 flex-1 flex flex-col justify-center"
+        className="relative flex-1 flex flex-col justify-center"
+        style={{ zIndex: 10 }}
         style={{ paddingTop: "var(--nav-h, 72px)" }}
       >
         <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row lg:items-center">
@@ -295,8 +250,9 @@ export default function HeroSection() {
        * ─────────────────────────────────────────────────────────────────
        */}
       <div
-        className="relative z-10 w-full"
+        className="relative w-full"
         style={{
+          zIndex: 10,
           background: "#0D0B09",
           borderTop: "1px solid rgba(255,255,255,0.055)",
         }}
