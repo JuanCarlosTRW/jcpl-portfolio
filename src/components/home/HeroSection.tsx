@@ -41,26 +41,27 @@ function AnimatedNumber({ target, prefix = "", suffix = "", duration = 2000 }: {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-32 pb-16 bg-[#09090b] overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none z-0 flex justify-end items-stretch">
-        <div className="hidden lg:block w-[48vw] max-w-[700px] h-full relative">
-          <LightPillar
-            topColor="#2EE6A6"
-            bottomColor="#1D4ED8"
-            intensity={0.18}
-            rotationSpeed={0.09}
-            interactive={false}
-            glowAmount={0.0018}
-            pillarWidth={2.6}
-            pillarHeight={0.36}
-            noiseIntensity={0.09}
-            mixBlendMode="screen"
-            pillarRotation={-18}
-            quality="medium"
-          />
-        </div>
+    <section className="relative min-h-[92vh] flex flex-col justify-center px-6 md:px-16 lg:px-32 pt-32 pb-16 overflow-hidden">
+      {/* Ethereal LightPillar fills the background */}
+      <div className="absolute inset-0 z-0">
+        <LightPillar
+          topColor="#2EE6A6"
+          bottomColor="#1D4ED8"
+          intensity={0.18}
+          rotationSpeed={0.09}
+          interactive={false}
+          glowAmount={0.0018}
+          pillarWidth={2.6}
+          pillarHeight={0.36}
+          noiseIntensity={0.09}
+          mixBlendMode="screen"
+          pillarRotation={-18}
+          quality="medium"
+        />
       </div>
-      <div className="relative z-10 max-w-[1200px] mx-auto w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-0">
+      {/* Text protection overlay only behind content */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#09090b] via-[#09090bcc] to-transparent pointer-events-none" />
+      <div className="relative z-20 max-w-[1200px] mx-auto w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-0">
         {/* Left: Content */}
         <div className="flex-1 min-w-0 max-w-[620px] lg:pr-8">
           {/* Eyebrow */}
@@ -106,7 +107,7 @@ export default function HeroSection() {
         <div className="hidden lg:block flex-1 min-w-[320px] max-w-[520px]" />
       </div>
       {/* Integrated confidence rail */}
-      <div className="relative z-10 max-w-[1200px] mx-auto w-full mt-10 pt-6">
+      <div className="relative z-20 max-w-[1200px] mx-auto w-full mt-10 pt-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 text-center lg:text-left">
           <div>
             <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
