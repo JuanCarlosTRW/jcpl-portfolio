@@ -86,15 +86,15 @@ export default function HeroSection() {
         }}
       >
         <LightPillar
-          topColor="#ffe229"
-          bottomColor="#2d3443"
-          intensity={1}
-          rotationSpeed={0.3}
-          glowAmount={0.002}
+          topColor="#C4A35A"
+          bottomColor="#1C2535"
+          intensity={0.72}
+          rotationSpeed={0.18}
+          glowAmount={0.0018}
           pillarWidth={3}
           pillarHeight={0.4}
-          noiseIntensity={0.5}
-          pillarRotation={25}
+          noiseIntensity={0.32}
+          pillarRotation={16}
           interactive={false}
           mixBlendMode="screen"
           quality="high"
@@ -110,7 +110,7 @@ export default function HeroSection() {
           zIndex: 2,
           pointerEvents: "none",
           background:
-            "linear-gradient(to right, #0D0B09 0%, #0D0B09 30%, rgba(13,11,9,0.7) 50%, transparent 70%)",
+            "linear-gradient(to right, #0D0B09 0%, #0D0B09 34%, rgba(13,11,9,0.82) 48%, rgba(13,11,9,0.28) 63%, transparent 76%)",
         }}
       />
 
@@ -164,7 +164,7 @@ export default function HeroSection() {
                 lineHeight: 1.045,
                 letterSpacing: "-0.038em",
                 maxWidth: "14ch",
-                marginBottom: "1.4rem",
+                marginBottom: "1.65rem",
               }}
             >
               Growth Infrastructure Behind More Qualified Calls
@@ -195,7 +195,7 @@ export default function HeroSection() {
                   fontSize: "0.975rem",
                   padding: "0.85rem 1.75rem",
                   letterSpacing: "-0.012em",
-                  boxShadow: "0 1px 2px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05)",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09)",
                 }}
               >
                 See If Your Business Qualifies
@@ -257,7 +257,7 @@ export default function HeroSection() {
         }}
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0 py-5">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0" style={{ padding: "20px 0" }}>
 
             {/* Metrics */}
             <div className="flex items-center">
@@ -268,9 +268,9 @@ export default function HeroSection() {
                       className="hidden sm:block flex-shrink-0"
                       style={{
                         width: 1,
-                        height: 32,
+                        height: 30,
                         background: "rgba(255,255,255,0.07)",
-                        margin: "0 2rem",
+                        margin: "0 1.75rem",
                       }}
                     />
                   )}
@@ -278,7 +278,7 @@ export default function HeroSection() {
                     <div
                       className="font-semibold text-[#F5F0E8] leading-none"
                       style={{
-                        fontSize: "clamp(1.3rem, 2vw, 1.6rem)",
+                        fontSize: "clamp(1.38rem, 2.1vw, 1.72rem)",
                         letterSpacing: "-0.03em",
                       }}
                     >
@@ -309,9 +309,9 @@ export default function HeroSection() {
               className="hidden sm:block flex-shrink-0"
               style={{
                 width: 1,
-                height: 36,
+                height: 34,
                 background: "rgba(255,255,255,0.06)",
-                margin: "0 2rem 0 1rem",
+                margin: "0 1.75rem",
               }}
             />
 
