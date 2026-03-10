@@ -5,7 +5,7 @@ import { useState } from "react";
 function sliderStyle(value: number, min: number, max: number): React.CSSProperties {
   const pct = ((value - min) / (max - min)) * 100;
   return {
-    background: `linear-gradient(to right, rgba(212,168,83,0.7) ${pct}%, rgb(39,39,42) ${pct}%)`,
+    background: `linear-gradient(to right, rgba(212,168,83,0.7) ${pct}%, rgb(63,63,70) ${pct}%)`,
   };
 }
 

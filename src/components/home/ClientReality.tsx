@@ -75,7 +75,7 @@ export default function ClientReality() {
           </p>
         </Reveal>
 
-        <Reveal className="mx-auto mb-12 max-w-[900px] md:mb-14">
+        <Reveal className="mx-auto my-14 md:my-18 max-w-[900px]">
           <div
             className="relative mx-auto max-w-[900px] rounded-[14px] px-8 py-8 text-center sm:px-8 sm:py-10 lift-card"
             style={{

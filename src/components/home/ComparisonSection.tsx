@@ -1,5 +1,7 @@
 "use client";
 
+import { FadeIn } from "@/components/motion/FadeIn";
+
 export default function ComparisonSection() {
   const comparisons = [
     {
@@ -57,20 +59,19 @@ export default function ComparisonSection() {
 
         <div className="space-y-0">
           {comparisons.map((item, i) => (
-            <div
-              key={i}
-              className="grid grid-cols-1 md:grid-cols-[180px_1fr_1fr] gap-4 md:gap-8 py-6 border-b border-zinc-800/60"
-            >
-              <div className="text-xs uppercase tracking-widest text-zinc-500 font-medium pt-1">
-                {item.dimension}
+            <FadeIn key={i} delay={i * 60}>
+              <div className="grid grid-cols-1 md:grid-cols-[180px_1fr_1fr] gap-4 md:gap-8 py-6 border-b border-zinc-800/60">
+                <div className="text-xs uppercase tracking-widest text-zinc-500 font-medium pt-1">
+                  {item.dimension}
+                </div>
+                <div>
+                  <p className="text-sm text-zinc-600 leading-relaxed">{item.agency}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-zinc-200 leading-relaxed">{item.you}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-zinc-600 leading-relaxed">{item.agency}</p>
-              </div>
-              <div>
-                <p className="text-sm text-zinc-200 leading-relaxed">{item.you}</p>
-              </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
 

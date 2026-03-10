@@ -16,15 +16,14 @@ export default function TestimonialBlock() {
 
         <div className="mt-6 flex items-center justify-center gap-4">
           <div
-            className="w-12 h-12 rounded-full overflow-hidden border-2 flex items-center justify-center shrink-0"
-            style={{ borderColor: "#2A2318", background: "#1E1A14" }}
+            className="w-12 h-12 rounded-full overflow-hidden border-2 flex items-center justify-center shrink-0 bg-zinc-800"
+            style={{ borderColor: "#2A2318" }}
           >
-            <span
-              className="text-lg font-bold"
-              style={{ color: "#D4A853" }}
-            >
-              M
-            </span>
+            <img
+              src="/images/logos/culture.png"
+              alt="Culture Barbershop"
+              className="w-8 h-8 object-contain"
+            />
           </div>
           <div className="text-left">
             <p className="text-sm font-medium" style={{ color: "#F5F0E8" }}>

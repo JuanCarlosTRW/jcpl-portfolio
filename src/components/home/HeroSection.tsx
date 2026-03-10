@@ -64,7 +64,7 @@ export default function HeroSection() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-white max-w-[900px]">
+        <h1 className="text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-white max-w-[1000px]">
           <span className="text-zinc-400">$900 in ads.</span>
           <br />
           $41,085 in revenue.
@@ -73,7 +73,7 @@ export default function HeroSection() {
         </h1>
 
         {/* Subhead */}
-        <p className="mt-6 text-lg md:text-xl text-zinc-400 max-w-[600px] leading-relaxed">
+        <p className="mt-6 text-lg md:text-xl text-zinc-400 max-w-[680px] leading-relaxed">
           I build the conversion site, run Google Ads to ready-to-hire buyers,
           and deploy AI that qualifies leads before your phone rings. One system.
           One person. Fully tracked.
