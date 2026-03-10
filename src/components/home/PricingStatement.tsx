@@ -220,10 +220,16 @@ style={{
               </div>
 
               <p
-                className="mb-5 italic"
+                className="mb-1"
                 style={{ fontSize: "0.75rem", color: "#756D63" }}
               >
-                Most partnerships scale to $6,000/month based on scope.
+                Core system: conversion site + SEO + Google Ads + tracking.
+              </p>
+              <p
+                className="mb-5 italic"
+                style={{ fontSize: "0.75rem", color: "#4A4540" }}
+              >
+                Scales to $6,000/month when adding multi-city campaigns, AI voice agent, and bi-weekly strategy calls.
               </p>
 
               <span
@@ -261,13 +267,13 @@ style={{
 
               <div className="mt-auto space-y-2">
                 <Link
-                  href="/apply"
+                  href="#book-call"
                   className="flex items-center justify-center w-full py-4 rounded-lg font-semibold text-[#0A0E1A] text-base cta-primary cta-button"
                   style={{ backgroundColor: "#D4A853" }}
                   onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}
                   onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#D4A853"; }}
                 >
-                  Apply for Growth Partnership →
+                  Book a 20-Minute Diagnostic Call →
                 </Link>
                 <p
                   className="text-center"

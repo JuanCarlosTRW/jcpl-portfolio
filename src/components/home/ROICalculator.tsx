@@ -2,6 +2,13 @@
 
 import { useState } from "react";
 
+function sliderStyle(value: number, min: number, max: number): React.CSSProperties {
+  const pct = ((value - min) / (max - min)) * 100;
+  return {
+    background: `linear-gradient(to right, rgba(212,168,83,0.7) ${pct}%, rgb(39,39,42) ${pct}%)`,
+  };
+}
+
 export default function ROICalculator() {
   const [jobValue, setJobValue] = useState(1500);
   const [callsNeeded, setCallsNeeded] = useState(10);
@@ -46,7 +53,8 @@ export default function ROICalculator() {
                 step={100}
                 value={jobValue}
                 onChange={(e) => setJobValue(Number(e.target.value))}
-                className="w-full h-1.5 rounded-full appearance-none cursor-pointer bg-zinc-800
+                style={sliderStyle(jobValue, 200, 10000)}
+                className="w-full h-1.5 rounded-full appearance-none cursor-pointer
                   [&::-webkit-slider-thumb]:appearance-none
                   [&::-webkit-slider-thumb]:w-5
                   [&::-webkit-slider-thumb]:h-5
@@ -81,7 +89,8 @@ export default function ROICalculator() {
                 step={1}
                 value={callsNeeded}
                 onChange={(e) => setCallsNeeded(Number(e.target.value))}
-                className="w-full h-1.5 rounded-full appearance-none cursor-pointer bg-zinc-800
+                style={sliderStyle(callsNeeded, 3, 30)}
+                className="w-full h-1.5 rounded-full appearance-none cursor-pointer
                   [&::-webkit-slider-thumb]:appearance-none
                   [&::-webkit-slider-thumb]:w-5
                   [&::-webkit-slider-thumb]:h-5
@@ -145,10 +154,10 @@ export default function ROICalculator() {
             </div>
 
             <a
-              href="/apply"
+              href="#book-call"
               className="block w-full text-center px-6 py-3.5 bg-white text-zinc-900 font-medium rounded-lg text-sm hover:bg-zinc-100 transition-colors duration-200"
             >
-              Apply with these numbers in mind →
+              Book a 20-Minute Diagnostic Call →
             </a>
           </div>
         </div>

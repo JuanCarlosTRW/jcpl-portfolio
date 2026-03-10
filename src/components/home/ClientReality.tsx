@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
-import Link from "next/link";
 import { prefersReducedMotion } from "@/lib/motion";
 import { clientReality } from "@/lib/content";
 
@@ -17,64 +16,6 @@ const CARDS = clientReality.pains.map((p, i) => ({
   title: p.title,
   body: p.detail,
 }));
-
-function CostPerCallStat() {
-  const statRef = useRef<HTMLDivElement>(null);
-  const [display, setDisplay] = React.useState(33);
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-
-    const obj = { val: 0 };
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: statRef.current,
-        start: "top 80%",
-        onEnter: () => {
-          gsap.to(obj, {
-            val: 33,
-            duration: 1.5,
-            ease: "power2.out",
-            onUpdate: () => {
-              const v = Math.round(obj.val);
-              setDisplay(v >= 1 ? v : 33);
-            },
-          });
-        },
-        once: true,
-      });
-    }, statRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <div ref={statRef} style={{ position: "relative", textAlign: "center", padding: "40px 0" }}>
-      <div
-        className="stat-glow stat-33-reality"
-        style={{
-          fontSize: "clamp(3.5rem, 8vw, 5.5rem)",
-          fontWeight: 800,
-          color: "#F5F0E8",
-          letterSpacing: "-0.02em",
-        }}
-      >
-        $<span>{display}</span>
-      </div>
-      <p
-        style={{
-          color: "#D4A853",
-          fontSize: "0.75rem",
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          marginTop: 8,
-        }}
-      >
-        AVG COST PER QUALIFIED CALL · ALL ACTIVE ACCOUNTS
-      </p>
-    </div>
-  );
-}
 
 export default function ClientReality() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -203,42 +144,6 @@ export default function ClientReality() {
           })}
         </div>
 
-        <Reveal delay={0.1}>
-          <CostPerCallStat />
-        </Reveal>
-
-        <Reveal delay={0.15} className="mx-auto mb-10 max-w-[900px]">
-          <p
-            className="text-center"
-            style={{ fontSize: "1rem", color: "#A69D8D", lineHeight: 1.6 }}
-          >
-            Every week this system stays offline costs you booked calls you will never recover.
-            It does not pause while you think about it. It runs for you, or it runs for them.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.2} className="mx-auto text-center">
-          <Link
-            href="#book-call"
-            className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-[16px] font-[600] text-[#0A0E1A] cta-primary cta-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A853] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B09]"
-            style={{ background: "#D4A853" }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = "#C49A2A";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = "#D4A853";
-            }}
-          >
-            Book a 20-Minute Diagnostic Call
-            <span aria-hidden="true">→</span>
-          </Link>
-          <p
-            className="mt-2 text-center"
-            style={{ fontSize: "0.875rem", color: "#756D63" }}
-          >
-            If I cannot move the needle, I will tell you on the call. Before you pay anything.
-          </p>
-        </Reveal>
       </div>
     </SectionWrapper>
   );

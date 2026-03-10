@@ -95,12 +95,15 @@ export default function QualificationCTA() {
             >
               <p
                 className="text-center font-bold"
-                style={{
-                  fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
-                  color: "#F5F0E8",
-                }}
+                style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", color: "#F5F0E8" }}
               >
-                Serious operators build infrastructure. Everyone else waits for the phone to ring.
+                Serious operators build infrastructure.
+              </p>
+              <p
+                className="text-center mt-1"
+                style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", color: "#756D63" }}
+              >
+                Everyone else waits for the phone to ring.
               </p>
               <div className="flex flex-col items-center mt-8">
                 <Link

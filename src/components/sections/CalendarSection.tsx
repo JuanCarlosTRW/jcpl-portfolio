@@ -12,6 +12,21 @@ const BallPit = dynamic(() => import("./BallPit"), {
   loading: () => <div className="min-h-[360px] bg-transparent" aria-hidden />,
 });
 
+const DIAGNOSTIC_STEPS = [
+  {
+    num: "01",
+    body: "I audit your pipeline, your competitors, and your current traffic sources.",
+  },
+  {
+    num: "02",
+    body: "I show you where you are losing calls and what fixing it is worth.",
+  },
+  {
+    num: "03",
+    body: "I tell you if I can help. No pitch. No pressure.",
+  },
+];
+
 export default function CalendarSection() {
   const t = useTranslations();
   const sectionRef = useRef<HTMLElement>(null);
@@ -41,9 +56,9 @@ export default function CalendarSection() {
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-12 lg:gap-16">
-          {/* Left column: marketing + ball pit background (transparent) */}
+          {/* Left column: eyebrow + headline + steps + notice */}
           <div className="relative min-h-[400px] min-w-0 md:w-[40%] lg:w-[38%] shrink-0">
-            {/* Ball pit as background layer — transparent, behind text */}
+            {/* Ball pit as background layer */}
             {isVisible && (
               <div
                 className="absolute inset-0 hidden md:block"
@@ -58,40 +73,63 @@ export default function CalendarSection() {
               </div>
             )}
             <div className="relative z-10">
-              <h2 className="text-[36px] font-semibold text-white">
+              <span
+                className="uppercase block mb-3"
+                style={{
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.15em",
+                  color: "#D4A853",
+                  fontWeight: 500,
+                }}
+              >
+                THE DIAGNOSTIC
+              </span>
+
+              <h2 className="text-[clamp(1.75rem,3.5vw,2.25rem)] font-bold leading-tight text-white">
                 {t<string>("bookCall.headline")}
               </h2>
-              {t<string>("bookCall.italicSubline") && (
-                <p className="mt-2 text-[20px] italic text-white/90">
-                  {t<string>("bookCall.italicSubline")}
-                </p>
-              )}
-              <p className="mt-4 text-base opacity-70 text-white">
+
+              <p className="mt-4 text-sm text-white/70 leading-relaxed">
                 {t<string>("bookCall.body")}
               </p>
+
+              {/* What happens on the call */}
+              <div className="mt-8 space-y-5">
+                {DIAGNOSTIC_STEPS.map((step) => (
+                  <div key={step.num} className="flex items-start gap-3">
+                    <span
+                      className="shrink-0 font-mono text-xs mt-0.5"
+                      style={{ color: "rgba(212,168,83,0.6)" }}
+                    >
+                      {step.num}
+                    </span>
+                    <p className="text-sm leading-relaxed" style={{ color: "#D2C9B8" }}>
+                      {step.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Notice */}
+              <div
+                className="mt-8 rounded-lg p-4"
+                role="status"
+                style={{
+                  background: "rgba(212,168,83,0.08)",
+                  border: "1px solid rgba(212,168,83,0.22)",
+                }}
+              >
+                <p className="text-xs leading-relaxed" style={{ color: "#A69D8D" }}>
+                  {t<string>("bookCall.notice")}
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Right column: notice + calendar */}
-          <div className="flex flex-1 flex-col gap-4">
+          {/* Right column: calendar */}
+          <div className="flex flex-1 flex-col">
             <div
-              className="rounded-lg"
-              role="status"
-              style={{
-                background: "rgba(212,168,83,0.08)",
-                border: "1px solid rgba(212,168,83,0.22)",
-                borderRadius: 8,
-                padding: "12px 20px",
-                color: "#D2C9B8",
-                fontSize: "0.875rem",
-                lineHeight: 1.5,
-              }}
-            >
-              {t<string>("bookCall.notice")}
-            </div>
-
-            <div
-              className="relative min-h-[560px] overflow-hidden rounded-xl p-4 md:min-h-[640px] cal-embed-wrapper"
+              className="relative min-h-[560px] overflow-hidden rounded-xl md:min-h-[640px] cal-embed-wrapper"
               style={{
                 background: "#1A1510",
                 border: "1px solid #2A2318",

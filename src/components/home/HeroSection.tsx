@@ -82,10 +82,10 @@ export default function HeroSection() {
         {/* CTA row */}
         <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
           <a
-            href="/apply"
+            href="#book-call"
             className="group inline-flex items-center gap-2 px-7 py-3.5 bg-white text-zinc-900 font-medium rounded-lg text-sm hover:bg-zinc-100 transition-colors duration-200"
           >
-            Apply for Growth Partnership
+            Book a 20-Minute Diagnostic Call
             <svg
               className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
               fill="none"
@@ -97,7 +97,7 @@ export default function HeroSection() {
             </svg>
           </a>
           <span className="text-sm text-zinc-600">
-            I review every application within 24 hours.
+            If I cannot move the needle, I will tell you before you pay anything.
           </span>
         </div>
 
@@ -106,18 +106,18 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
             <div>
               <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-                <AnimatedNumber target={41085} prefix="$" />
+                $<AnimatedNumber target={33} />
               </div>
               <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
-                Revenue generated for one client.<br />First 30 days. $900 ad spend.
+                Avg cost per qualified call.<br />All active accounts.
               </p>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-                <AnimatedNumber target={46} suffix="x" />
+                <AnimatedNumber target={5} />
               </div>
               <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
-                Return on ad spend.<br />Verified. Live Google Ads account.
+                Active client systems running.<br />Right now.
               </p>
             </div>
             <div>
@@ -125,7 +125,7 @@ export default function HeroSection() {
                 <AnimatedNumber target={11} /> days
               </div>
               <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
-                Median time to first booked call.<br />Across all client accounts.
+                Median time to first booked call.<br />Across all accounts.
               </p>
             </div>
           </div>

@@ -3,16 +3,15 @@ import HeroSection from "@/components/home/HeroSection";
 import SocialProofBar from "@/components/home/SocialProofBar";
 import FounderBlock from "@/components/home/FounderBlock";
 import PricingStatement from "@/components/home/PricingStatement";
-import DiagnosticSteps from "@/components/home/DiagnosticSteps";
 
 /* Dynamic imports for below-the-fold sections */
 const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
 const ROICalculator = dynamic(() => import("@/components/home/ROICalculator"));
 const ComparisonSection = dynamic(() => import("@/components/home/ComparisonSection"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
+const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
-const BenefitsRail = dynamic(() => import("@/components/sections/BenefitsRail"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const CalendarSection = dynamic(() => import("@/components/sections/CalendarSection"));
 
@@ -22,41 +21,40 @@ export default function HomePage() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Client proof cards */}
+      {/* 2. Active client systems */}
       <SocialProofBar />
 
-      {/* 3. The Reality */}
+      {/* 3. Pain (8:47 AM + cards) */}
       <ClientReality />
 
-      {/* 3b. ROI Calculator */}
+      {/* 4. ROI Calculator */}
       <ROICalculator />
 
-      {/* 4. The Difference */}
+      {/* 5. One Partner vs. Five Vendors */}
       <ComparisonSection />
 
-      {/* 5. Founder block */}
+      {/* 6. Who Builds This */}
       <FounderBlock />
 
-      {/* 6. Proof */}
+      {/* 7. Proof */}
       <FeaturedCaseStudy />
 
-      {/* 7. Services (icons) */}
+      {/* 8. Testimonial */}
+      <TestimonialBlock />
+
+      {/* 9. Services (compact pills) */}
       <ServicesSection />
 
-      {/* 8. The Diagnostic */}
-      <DiagnosticSteps />
-
-      {/* 9. Pricing */}
+      {/* 10. Pricing */}
       <PricingStatement />
-
-      {/* 10. System Benefits */}
-      <BenefitsRail />
 
       {/* 11. Who This Is For */}
       <QualificationCTA />
 
-      {/* 12. FAQ + Booking */}
+      {/* 12. FAQ */}
       <FAQ />
+
+      {/* 13. Booking (diagnostic + calendar) */}
       <CalendarSection />
     </>
   );
