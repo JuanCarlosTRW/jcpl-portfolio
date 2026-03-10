@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import HeroBackground from "./HeroBackground";
 
 function AnimatedNumber({ target, prefix = "", suffix = "", duration = 2000 }: { target: number; prefix?: string; suffix?: string; duration?: number }) {
   const [current, setCurrent] = useState(0);
@@ -41,6 +42,7 @@ function AnimatedNumber({ target, prefix = "", suffix = "", duration = 2000 }: {
 export default function HeroSection() {
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-32 pb-20 bg-[#09090b] overflow-hidden">
+      <HeroBackground />
       {/* Subtle grid background */}
       <div
         className="absolute inset-0 opacity-[0.03]"
