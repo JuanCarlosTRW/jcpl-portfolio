@@ -12,15 +12,6 @@ const SERVICES = [
   "Conversion Copy",
 ];
 
-const SERVICES = [
-  "Conversion Website",
-  "Google Ads",
-  "Local SEO",
-  "GEO / AI Search",
-  "AI Voice Agent",
-  "Conversion Copy",
-];
-
 export default function ServicesSection() {
   return (
     <SectionWrapper
