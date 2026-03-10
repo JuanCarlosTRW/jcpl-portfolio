@@ -86,14 +86,14 @@ export default function HeroSection() {
         }}
       >
         <LightPillar
-          topColor="#C4A35A"
+          topColor="#B8A070"
           bottomColor="#1C2535"
-          intensity={0.66}
-          rotationSpeed={0.18}
-          glowAmount={0.0018}
-          pillarWidth={3.4}
-          pillarHeight={0.22}
-          noiseIntensity={0.10}
+          intensity={0.50}
+          rotationSpeed={0.16}
+          glowAmount={0.0013}
+          pillarWidth={2.6}
+          pillarHeight={0.27}
+          noiseIntensity={0.08}
           pillarRotation={9}
           interactive={false}
           mixBlendMode="screen"
