@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import HeroBackground from "./HeroBackground";
-import SignalRoutingSVG from "./SignalRoutingSVG";
+import LightPillar from "./LightPillar";
 
 function AnimatedNumber({ target, prefix = "", suffix = "", duration = 2000 }: { target: number; prefix?: string; suffix?: string; duration?: number }) {
   const [current, setCurrent] = useState(0);
@@ -43,42 +42,45 @@ function AnimatedNumber({ target, prefix = "", suffix = "", duration = 2000 }: {
 export default function HeroSection() {
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-32 pb-20 bg-[#09090b] overflow-hidden">
-      <HeroBackground />
-      {/* Text protection overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#18181b] via-[#09090b] to-[#18181b] opacity-80 pointer-events-none z-10" />
-      <div className="absolute inset-0 bg-black/40 pointer-events-none z-10" />
-      {/* Subtle grid background */}
-      <div
-        className="absolute inset-0 opacity-[0.03] z-10"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: "64px 64px",
-        }}
-      />
+      {/* Full background LightPillar */}
+      <div className="absolute inset-0 z-0">
+        <LightPillar
+          topColor="#2EE6A6"
+          bottomColor="#1D4ED8"
+          intensity={0.32}
+          rotationSpeed={0.12}
+          interactive={false}
+          glowAmount={0.0025}
+          pillarWidth={2.2}
+          pillarHeight={0.32}
+          noiseIntensity={0.12}
+          mixBlendMode="screen"
+          pillarRotation={-18}
+          quality="medium"
+        />
+      </div>
+      {/* Text protection overlay */}
+      <div className="absolute inset-0 bg-[#09090b]/90 z-10" />
       <div className="relative z-20 max-w-[1200px] mx-auto w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-0">
         {/* Left: Content */}
         <div className="flex-1 min-w-0">
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-7">
+          <div className="flex items-center gap-3 mb-8">
             <div className="h-px w-8 bg-emerald-500/60" />
             <span className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium">
               Growth Infrastructure for Service Businesses
             </span>
           </div>
           {/* Headline */}
-          <h1 className="text-[clamp(2.6rem,5vw,4.8rem)] font-bold leading-[1.07] tracking-[-0.03em] text-white max-w-[900px] mb-3">
-            The Growth Infrastructure Behind More Qualified Calls
+          <h1 className="text-[clamp(2.6rem,5vw,4.8rem)] font-bold leading-[1.07] tracking-[-0.03em] text-white max-w-[900px] mb-4">
+            Growth Infrastructure Behind More Qualified Calls
           </h1>
           {/* Proof line */}
-          <div className="text-lg font-medium text-emerald-400 mb-4">
+          <div className="text-lg font-medium text-emerald-400 mb-7">
             $41,085 generated from $900 in ad spend — within 30 days.
           </div>
-          {/* Subheadline */}
-          <p className="text-lg md:text-xl text-zinc-300 max-w-[680px] leading-relaxed mb-7">
-            I build the site, ads engine, and lead-qualification layer that helps service businesses compete harder, convert better, and book more qualified calls.
-          </p>
           {/* CTA cluster */}
-          <div className="flex flex-col items-start gap-3 mb-7">
+          <div className="flex flex-col items-start gap-3 mb-10">
             <a
               href="#book-call"
               className="group inline-flex items-center gap-2 px-7 py-3.5 bg-emerald-500 text-white font-semibold rounded-lg text-lg shadow-lg hover:bg-emerald-400 transition-colors duration-200"
@@ -100,13 +102,30 @@ export default function HeroSection() {
             </span>
           </div>
         </div>
-        {/* Right: Proprietary signal-routing visual */}
-        <div className="hidden lg:flex flex-1 items-center justify-center min-w-[320px] max-w-[480px] relative">
-          <SignalRoutingSVG />
+        {/* Right: LightPillar visual, masked and contained */}
+        <div className="hidden lg:flex flex-1 items-center justify-end min-w-[320px] max-w-[520px] relative">
+          <div className="w-full h-[420px] relative overflow-visible pointer-events-none">
+            <LightPillar
+              topColor="#2EE6A6"
+              bottomColor="#1D4ED8"
+              intensity={0.32}
+              rotationSpeed={0.12}
+              interactive={false}
+              glowAmount={0.0025}
+              pillarWidth={2.2}
+              pillarHeight={0.32}
+              noiseIntensity={0.12}
+              mixBlendMode="screen"
+              pillarRotation={-18}
+              quality="medium"
+            />
+            {/* Mask: fade out left edge for text protection */}
+            <div className="absolute inset-0 left-[-40%] bg-gradient-to-l from-transparent to-[#09090b] pointer-events-none" style={{ zIndex: 2 }} />
+          </div>
         </div>
       </div>
       {/* Integrated confidence rail */}
-      <div className="relative z-20 max-w-[1200px] mx-auto w-full mt-14 pt-8 border-t border-zinc-800/60">
+      <div className="relative z-20 max-w-[1200px] mx-auto w-full mt-16 pt-8 border-t border-zinc-800/60">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
           <div>
             <div className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
@@ -129,7 +148,7 @@ export default function HeroSection() {
               <AnimatedNumber target={11} /> days
             </div>
             <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
-              Median time to first booked call.<br />Across all accounts.
+              Median to first booked call.<br />All accounts.
             </p>
           </div>
         </div>
@@ -155,7 +174,7 @@ export default function HeroSection() {
               </div>
             ))}
           </div>
-          <span className="text-xs text-zinc-600 ml-3">+2 systems in build</span>
+          <span className="text-xs text-zinc-600 ml-3">+2 active builds</span>
         </div>
       </div>
     </section>
