@@ -8,7 +8,7 @@ export default function InvestmentSection() {
         <div className="uppercase text-sv-text-sub tracking-[0.1em] text-[0.75rem] font-semibold mb-3">INVESTMENT</div>
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">What Does $2,500 Buy You?</h2>
         <p className="text-sv-text-sub max-w-xl mx-auto mb-6 text-base sm:text-lg font-medium">
-          Triple W Rentals put in $900 and got $41,084.85 back in 30 days. The question is never what it costs. It is what it costs you to keep doing nothing.
+          Triple W Rentals put in $900 and got $41,085 back in 30 days. The question is never what it costs. It is what it costs you to keep doing nothing.
         </p>
       </div>
       <div className="max-w-lg w-full bg-sv-surface border border-[rgba(37,99,235,0.15)] rounded-2xl p-6 sm:p-10 flex flex-col items-center mx-auto">

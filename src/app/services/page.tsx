@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { buildMetadata } from "@/lib/metadata";
 import ServicesHero from "@/components/services/ServicesHero";
+import ProofBanner from "@/components/services/ProofBanner";
 import FitCheck from "@/components/services/FitCheck";
 import SystemTimelineSection from "@/components/services/SystemTimelineSection";
+import CaseStudySwitcher from "@/components/services/CaseStudySwitcher";
+import TechStack from "@/components/services/TechStack";
 import PremiumPricingSection from "@/components/pricing/PremiumPricingSection";
 import ServicesFinalCTA from "@/components/services/ServicesFinalCTA";
 import "@/styles/services.css";
@@ -19,8 +22,11 @@ export default function ServicesPage() {
   return (
     <>
       <ServicesHero />
+      <ProofBanner />
       <FitCheck />
       <SystemTimelineSection />
+      <CaseStudySwitcher />
+      <TechStack />
       <PremiumPricingSection
         heading="Full Pricing Breakdown"
         subheadline="Every engagement is scoped on the diagnostic call. Here is what each level of partnership includes."

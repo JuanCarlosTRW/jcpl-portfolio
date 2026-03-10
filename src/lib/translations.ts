@@ -24,7 +24,19 @@ const faqEn: FAQItem[] = [
   {
     question: "How fast will I see results?",
     answer:
-      "Most clients receive their first booked call within 11 days of going live. The full system reaches peak efficiency at 60 to 90 days as the SEO compounds and the ad campaigns optimize. The tracking dashboard shows you every call, every cost, and every source from day one. You see exactly what is working before the first monthly review.",
+      "Median 11 days from signed agreement to live system. That includes the diagnostic audit, full website build, and campaign setup. Most clients see their first inbound call within 2 weeks of going live. The full system reaches peak efficiency at 60 to 90 days as the SEO compounds and the ad campaigns optimize. The tracking dashboard shows you every call, every cost, and every source from day one.",
+    featured: false,
+  },
+  {
+    question: "What happens if I already have a website?",
+    answer:
+      "If it converts, I keep it. If it does not, I rebuild it around one goal: booking calls.",
+    featured: false,
+  },
+  {
+    question: "What is the minimum I need to invest in ads?",
+    answer:
+      "I recommend starting at $500 per month. At $33 per qualified call, that is roughly 15 calls. One closed job usually covers the entire system cost.",
     featured: false,
   },
   {
@@ -75,7 +87,19 @@ const faqFr: FAQItem[] = [
   {
     question: "En combien de temps verrai-je des résultats?",
     answer:
-      "La plupart des clients reçoivent leur premier appel réservé dans les 11 jours suivant le lancement. Le système atteint son efficacité maximale en 60 à 90 jours, au fur et à mesure que le SEO se développe et que les campagnes s'optimisent. Le tableau de bord vous montre chaque appel, chaque coût et chaque source dès le premier jour. Vous voyez exactement ce qui fonctionne avant la première revue mensuelle.",
+      "Médiane de 11 jours entre la signature et le système en ligne. Cela inclut l'audit diagnostique, la construction complète du site et la configuration des campagnes. La plupart des clients reçoivent leur premier appel dans les 2 semaines suivant le lancement. Le système atteint son efficacité maximale en 60 à 90 jours.",
+    featured: false,
+  },
+  {
+    question: "Et si j'ai déjà un site web?",
+    answer:
+      "S'il convertit, je le garde. Sinon, je le reconstruis autour d'un seul objectif: réserver des appels.",
+    featured: false,
+  },
+  {
+    question: "Quel est le minimum à investir en annonces?",
+    answer:
+      "Je recommande de commencer à 500 $ par mois. À 33 $ par appel qualifié, cela fait environ 15 appels. Un seul contrat conclu couvre généralement le coût du système.",
     featured: false,
   },
   {

@@ -17,7 +17,7 @@ export default function MetricsRow() {
       <div className="grid grid-cols-3 divide-x divide-[rgba(212,168,83,0.15)] rounded-xl bg-sv-surface border border-[rgba(212,168,83,0.15)]">
         <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
           <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums text-[var(--brand-accent)] leading-none mb-1.5">
-            $41,084.85
+            $41,085
           </span>
           <span className="text-[0.8rem] text-sv-text-sub leading-snug">
             Revenue generated in first 30 days
@@ -25,7 +25,7 @@ export default function MetricsRow() {
         </div>
         <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
           <span className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums text-[var(--brand-accent)] leading-none mb-1.5">
-            33x
+            46x
           </span>
           <span className="text-[0.8rem] text-sv-text-sub leading-snug">
             Return on ad spend, Triple W Rentals

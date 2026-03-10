@@ -1,13 +1,14 @@
 import dynamic from "next/dynamic";
-import Hero from "@/components/hero/Hero";
-import ClientLogoTicker from "@/components/home/ClientLogoTicker";
+import HeroSection from "@/components/home/HeroSection";
+import SocialProofBar from "@/components/home/SocialProofBar";
 import FounderBlock from "@/components/home/FounderBlock";
 import PricingStatement from "@/components/home/PricingStatement";
 import DiagnosticSteps from "@/components/home/DiagnosticSteps";
 
 /* Dynamic imports for below-the-fold sections */
 const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
-const Differentiation = dynamic(() => import("@/components/home/Differentiation"));
+const ROICalculator = dynamic(() => import("@/components/home/ROICalculator"));
+const ComparisonSection = dynamic(() => import("@/components/home/ComparisonSection"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
@@ -19,16 +20,19 @@ export default function HomePage() {
   return (
     <>
       {/* 1. Hero */}
-      <Hero />
+      <HeroSection />
 
-      {/* 2. Client logo ticker */}
-      <ClientLogoTicker />
+      {/* 2. Client proof cards */}
+      <SocialProofBar />
 
       {/* 3. The Reality */}
       <ClientReality />
 
+      {/* 3b. ROI Calculator */}
+      <ROICalculator />
+
       {/* 4. The Difference */}
-      <Differentiation />
+      <ComparisonSection />
 
       {/* 5. Founder block */}
       <FounderBlock />

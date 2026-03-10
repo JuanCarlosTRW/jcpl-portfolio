@@ -211,12 +211,21 @@ export default function ServicesFinalCTA() {
                 />
               </div>
 
+              {/* Proof callout above submit */}
+              <div className="mb-4 p-3 rounded-lg bg-zinc-800/20 border border-zinc-800/30">
+                <p className="text-xs text-zinc-500 leading-relaxed">
+                  Last 3 applicants: one went live in 9 days. One booked their
+                  first qualified call on day 7. One hit $2,716 in revenue in
+                  month one.
+                </p>
+              </div>
+
               {/* Submit */}
               <button
                 type="submit"
                 className="cta-primary w-full py-3.5 rounded-xl text-sm font-bold tracking-wide"
               >
-                Submit Application →
+                Send My Application →
               </button>
 
               <p className="text-xs text-center mt-4" style={{ color: "#756D63" }}>

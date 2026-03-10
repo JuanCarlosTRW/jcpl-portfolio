@@ -4,7 +4,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import ServicesFAQSection from "@/components/services/ServicesFAQ";
-import { tiers, comparisonRows } from "@/lib/premiumPricingData";
+import { tiers } from "@/lib/premiumPricingData";
 import { caseStudyLogos } from "@/components/hero/LogoLoopData";
 import type { TierConfig } from "@/lib/premiumPricingData";
 
@@ -232,78 +232,6 @@ export default function PremiumPricingSection({
           />
 
           <div className="p-6 md:p-8 lg:p-10">
-            {/* Comparison table */}
-            <div className="overflow-x-auto -mx-2">
-              <table className="w-full min-w-[480px] border-collapse [&_tr]:transition-colors [&_tr:hover]:bg-[rgba(212,168,83,0.03)]">
-                <thead>
-                  <tr>
-                    <th
-                      scope="col"
-                      className="text-left py-4 px-4 text-sm font-semibold"
-                      style={{ color: "#F5F0E8", borderColor: "#2A2318" }}
-                    >
-                      Features
-                    </th>
-                    <th
-                      scope="col"
-                      className="py-4 px-4 text-center text-sm font-semibold"
-                      style={{ color: "#F5F0E8", borderColor: "#2A2318" }}
-                    >
-                      Foundation Architecture
-                    </th>
-                    <th
-                      scope="col"
-                      className="py-4 px-4 text-center text-sm font-semibold"
-                      style={{ color: "#F5F0E8", borderColor: "#2A2318" }}
-                    >
-                      Performance Engine
-                    </th>
-                    <th
-                      scope="col"
-                      className="py-4 px-4 text-center text-sm font-semibold"
-                      style={{ color: "#F5F0E8", borderColor: "#2A2318" }}
-                    >
-                      Market Ownership
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonRows.map((row, i) => (
-                    <tr
-                      key={row.feature}
-                      className={i > 0 ? "border-t" : ""}
-                      style={{ borderColor: "#2A2318" }}
-                    >
-                      <td className="py-4 px-4 text-[15px]" style={{ color: "#D2C9B8" }}>
-                        {row.feature}
-                      </td>
-                      <td className="py-4 px-4 text-center" style={{ borderColor: "#2A2318" }}>
-                        {row.foundation ? (
-                          <CheckIcon className="inline-block text-[#D4A853]" />
-                        ) : (
-                          <span style={{ color: "#756D63" }}>—</span>
-                        )}
-                      </td>
-                      <td className="py-4 px-4 text-center" style={{ borderColor: "#2A2318" }}>
-                        {row.growth ? (
-                          <CheckIcon className="inline-block text-[#D4A853]" />
-                        ) : (
-                          <span style={{ color: "#756D63" }}>—</span>
-                        )}
-                      </td>
-                      <td className="py-4 px-4 text-center" style={{ borderColor: "#2A2318" }}>
-                        {row.domination ? (
-                          <CheckIcon className="inline-block text-[#D4A853]" />
-                        ) : (
-                          <span style={{ color: "#756D63" }}>—</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
             {/* Proof block */}
             <div className="mt-12 pt-12 border-t text-center" style={{ borderColor: "#2A2318" }}>
               <p

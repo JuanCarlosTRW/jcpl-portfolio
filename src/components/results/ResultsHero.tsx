@@ -2,9 +2,9 @@
 
 const aggregateStats = [
   { label: "Revenue", value: "$41,085" },
-  { label: "Per call", value: "$27" },
+  { label: "Per call", value: "$33" },
   { label: "Days to live", value: "11" },
-  { label: "ROAS", value: "33x" },
+  { label: "ROAS", value: "46x" },
 ];
 
 export default function ResultsHero() {

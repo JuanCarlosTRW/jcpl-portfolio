@@ -92,6 +92,9 @@ export const tiers: TierConfig[] = [
       "Competitor gap analysis",
       "SEO buildout targeting high-intent keywords",
       "Bi-weekly strategy call",
+      "Dedicated growth strategist",
+      "Priority response",
+      "Quarterly market report",
     ],
     scarcityNote:
       "Two slots per niche per city. If your competitor applies first, this tier closes for your market.",

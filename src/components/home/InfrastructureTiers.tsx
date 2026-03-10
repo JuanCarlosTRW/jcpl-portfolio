@@ -6,7 +6,7 @@ import Link from "next/link";
 const campaignMetrics = [
   { number: "46x", label: "Return on ad spend" },
   { number: "$900", label: "Total ad spend" },
-  { number: "30 days", label: "Time to $41,084.85 revenue" },
+  { number: "30 days", label: "Time to $41,085 revenue" },
 ];
 
 /* ─── Bullets ─── */
@@ -75,11 +75,11 @@ export default function InfrastructureTiers() {
             }}
           >
             <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
-              $41,084.85 revenue
+              $41,085 revenue
             </span>
             <span style={{ color: "#1E3A5F" }}>|</span>
             <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
-              $27 cost per call
+              $33 cost per call
             </span>
             <span style={{ color: "#1E3A5F" }}>|</span>
             <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
@@ -281,7 +281,7 @@ export default function InfrastructureTiers() {
                 className="font-semibold text-base leading-snug mb-1"
                 style={{ color: "#FFFFFF" }}
               >
-                $900 spent. $41,084.85 returned.
+                $900 spent. $41,085 returned.
               </p>
               <p
                 className="text-sm"
@@ -523,17 +523,28 @@ export default function InfrastructureTiers() {
               borderLeftColor: "rgba(52,211,153,0.6)",
             }}
           >
-            {/* Headshot placeholder */}
             <div className="flex items-center gap-3 mb-4">
               <div
-                className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+                className="w-12 h-12 rounded-full overflow-hidden shrink-0 flex items-center justify-center relative"
                 style={{
                   background: "rgba(52,211,153,0.12)",
-                  border: "1px dashed rgba(52,211,153,0.35)",
+                  border: "1px solid rgba(52,211,153,0.35)",
                 }}
-                title="Headshot placeholder — Mike S., Culture Barbershop"
               >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <img
+                  src="/images/testimonials/mike-s.png"
+                  alt="Mike S., Culture Barbershop"
+                  className="w-full h-full object-cover"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
+                />
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  className="absolute inset-0 m-auto opacity-70"
+                  aria-hidden
+                >
                   <circle cx="10" cy="7" r="4" stroke="#34D399" strokeWidth="1.3" />
                   <path d="M3 18c0-4 3.13-7 7-7s7 3 7 7" stroke="#34D399" strokeWidth="1.3" strokeLinecap="round" />
                 </svg>
@@ -552,7 +563,46 @@ export default function InfrastructureTiers() {
               className="text-[12px] font-semibold"
               style={{ color: "#34D399" }}
             >
-              Result: First new Google-sourced booking within 18 days of going live.
+              Result: Page 1 SEO, 60 days.
+            </p>
+          </div>
+
+          {/* Block 2b: Triple W Rentals testimonial */}
+          <div
+            className="relative rounded-2xl p-6 overflow-hidden"
+            style={{
+              background: "#0F1A2E",
+              borderLeft: "4px solid rgba(52,211,153,0.6)",
+              border: "1px solid rgba(52,211,153,0.15)",
+              borderLeftWidth: "4px",
+              borderLeftColor: "rgba(52,211,153,0.6)",
+            }}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
+                style={{
+                  background: "rgba(52,211,153,0.12)",
+                  border: "1px solid rgba(52,211,153,0.35)",
+                }}
+              >
+                <img src="/images/logos/triplew.png" alt="Triple W Rentals" className="w-8 h-8 object-contain" />
+              </div>
+              <div>
+                <p className="text-[14px] font-[700] text-white opacity-[1.0]">Triple W Rentals</p>
+                <p className="text-[13px] font-[400] opacity-[0.50]">RV Rental, Texas</p>
+              </div>
+            </div>
+
+            <blockquote className="text-[17px] italic font-[400] leading-[1.75] opacity-[0.90] mb-4">
+              &ldquo;First booking came in 11 days. Best money I have spent on the business.&rdquo;
+            </blockquote>
+
+            <p
+              className="text-[12px] font-semibold"
+              style={{ color: "#34D399" }}
+            >
+              Result: $41K revenue, 30 days.
             </p>
           </div>
 

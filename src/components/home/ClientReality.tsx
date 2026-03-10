@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper from "@/components/ui/SectionWrapper";
@@ -8,36 +8,22 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 import Link from "next/link";
 import { prefersReducedMotion } from "@/lib/motion";
+import { clientReality } from "@/lib/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CARDS = [
-  {
-    num: "01",
-    title: "Leads hit your site. Then leave.",
-    body: "Website that doesn't answer \"why you, why now\" is a leaky bucket. Visitors leave. Most agency sites convert under 1%.",
-    sting: "That click paid your competitor.",
-  },
-  {
-    num: "02",
-    title: "Your marketing lives on your to-do list.",
-    body: "Every hour on ads is an hour not doing billable work. DIY marketing doesn't compound.",
-    sting: "Your best competitor grows while you stay busy.",
-  },
-  {
-    num: "03",
-    title: "Referrals keep you alive. They won't scale.",
-    body: "Good months, quiet months. Referrals don't run at 2am or rank on Google.",
-    sting: "Referral-only growth is luck wearing a good month.",
-  },
-] as const;
+const CARDS = clientReality.pains.map((p, i) => ({
+  num: String(i + 1).padStart(2, "0"),
+  title: p.title,
+  body: p.detail,
+}));
 
 function CostPerCallStat() {
   const statRef = useRef<HTMLDivElement>(null);
-  const numRef = useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = React.useState(33);
 
   useEffect(() => {
-    if (prefersReducedMotion() || !numRef.current) return;
+    if (prefersReducedMotion()) return;
 
     const obj = { val: 0 };
     const ctx = gsap.context(() => {
@@ -46,11 +32,12 @@ function CostPerCallStat() {
         start: "top 80%",
         onEnter: () => {
           gsap.to(obj, {
-            val: 27,
+            val: 33,
             duration: 1.5,
             ease: "power2.out",
             onUpdate: () => {
-              if (numRef.current) numRef.current.textContent = String(Math.round(obj.val));
+              const v = Math.round(obj.val);
+              setDisplay(v >= 1 ? v : 33);
             },
           });
         },
@@ -64,7 +51,7 @@ function CostPerCallStat() {
   return (
     <div ref={statRef} style={{ position: "relative", textAlign: "center", padding: "40px 0" }}>
       <div
-        className="stat-glow stat-27-reality stat-27"
+        className="stat-glow stat-33-reality"
         style={{
           fontSize: "clamp(3.5rem, 8vw, 5.5rem)",
           fontWeight: 800,
@@ -72,7 +59,7 @@ function CostPerCallStat() {
           letterSpacing: "-0.02em",
         }}
       >
-        $<span ref={numRef}>0</span>
+        $<span>{display}</span>
       </div>
       <p
         style={{
@@ -175,40 +162,45 @@ export default function ClientReality() {
           </div>
         </Reveal>
 
-        <div className="mb-12 grid gap-5 sm:grid-cols-2 lg:mb-14 lg:grid-cols-3 reality-cards">
-          {CARDS.map((card, i) => (
-            <Reveal key={card.num} delay={0.08 * (i + 1)}>
-              <div
-                className="group relative flex h-full flex-col rounded-[14px] border p-7 lift-card card md:p-8"
-                style={{
-                  border: "1px solid #2A2318",
-                  background: "#1E1A14",
-                }}
-              >
-                <span
-                  className="mb-4 inline-flex w-fit rounded-md px-2 py-1 text-[11px] font-[600] uppercase tracking-wider text-[#F5F0E8]"
-                  style={{ background: "#D4A853" }}
+        <div className="mb-12 grid gap-5 lg:mb-14 lg:grid-cols-2 reality-cards">
+          {CARDS.map((card, i) => {
+            const isFullWidth = i === 0 || i === 3;
+            return (
+              <Reveal key={card.num} delay={0.08 * (i + 1)} className={isFullWidth ? "lg:col-span-2" : ""}>
+                <div
+                  className={`group relative flex h-full flex-col rounded-[14px] border lift-card card ${
+                    isFullWidth ? "p-8 md:p-10" : "p-7 md:p-8"
+                  }`}
+                  style={{
+                    border: "1px solid #2A2318",
+                    background: "#1E1A14",
+                  }}
                 >
-                  {card.num}
-                </span>
-                <h3 className="mb-3 text-[22px] font-[700] leading-snug text-[#F5F0E8]">
-                  {card.title}
-                </h3>
-                <p
-                  className="mb-4 flex-1 leading-[1.75]"
-                  style={{ fontSize: "0.875rem", color: "#D2C9B8" }}
-                >
-                  {card.body}
-                </p>
-                <p
-                  className="mt-auto text-[15px] font-[600] leading-snug"
-                  style={{ color: "#D2C9B8" }}
-                >
-                  {card.sting}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+                  <span
+                    className="mb-4 inline-flex w-fit rounded-md px-2 py-1 text-[11px] font-[600] uppercase tracking-wider text-[#F5F0E8]"
+                    style={{ background: "#D4A853" }}
+                  >
+                    {card.num}
+                  </span>
+                  <h3
+                    className={`mb-3 font-[700] leading-snug text-[#F5F0E8] ${
+                      isFullWidth ? "text-[26px] md:text-[28px]" : "text-[22px]"
+                    }`}
+                  >
+                    {card.title}
+                  </h3>
+                  <p
+                    className={`flex-1 leading-[1.75] ${
+                      isFullWidth ? "text-base md:text-[17px]" : "text-[0.875rem]"
+                    }`}
+                    style={{ color: "#D2C9B8" }}
+                  >
+                    {card.body}
+                  </p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal delay={0.1}>

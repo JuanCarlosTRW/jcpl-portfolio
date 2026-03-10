@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper from "@/components/ui/SectionWrapper";
@@ -14,11 +14,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 function CountUpRevenue({ to, prefix = "" }: { to: number; prefix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = useState(to);
 
   useEffect(() => {
     if (!ref.current) return;
     if (prefersReducedMotion()) {
-      ref.current.textContent = prefix + to.toLocaleString("en-US");
+      setDisplay(to);
       return;
     }
 
@@ -33,7 +34,8 @@ function CountUpRevenue({ to, prefix = "" }: { to: number; prefix?: string }) {
             duration: 1.5,
             ease: "power2.out",
             onUpdate: () => {
-              if (ref.current) ref.current.textContent = prefix + Math.round(obj.val).toLocaleString("en-US");
+              const v = Math.round(obj.val);
+              setDisplay(v >= 1 ? v : to);
             },
           });
         },
@@ -44,12 +46,12 @@ function CountUpRevenue({ to, prefix = "" }: { to: number; prefix?: string }) {
     return () => ctx.revert();
   }, [to, prefix]);
 
-  return <span ref={ref}>{prefix}0</span>;
+  return <span ref={ref}>{prefix}{display.toLocaleString("en-US")}</span>;
 }
 
 const stats2 = [
   { label: "LOCAL SEO", value: "Page 1", sub: "Under 60 days. Competitive TX market. Painting contractor." },
-  { label: "COST PER LEAD", value: "$27", sub: "Avg cost per qualified inbound call. All active accounts. Q4 2025." },
+  { label: "COST PER LEAD", value: "$33", sub: "Avg cost per qualified inbound call. All active accounts. Q4 2025." },
   { label: "TIME TO FIRST CALL", value: "11 days", sub: "Median across all clients and niches." },
 ];
 
@@ -63,9 +65,9 @@ export default function FeaturedCaseStudy() {
     if (prefersReducedMotion()) return;
     const statCards = statCardsRef.current;
     if (statCards) {
-      const el27 = statCards.querySelector(".stat-27-card");
+      const el33 = statCards.querySelector(".stat-33-card");
       const el11 = statCards.querySelector(".stat-11-card");
-      if (el27) countUp(el27 as HTMLElement, 27, { prefix: "$" });
+      if (el33) countUp(el33 as HTMLElement, 33, { prefix: "$" });
       if (el11) countUp(el11 as HTMLElement, 11);
     }
   }, []);
@@ -150,6 +152,10 @@ export default function FeaturedCaseStudy() {
             >
               Every $1 in ad spend returned $46 in revenue. Live account. Last verified February 2026.
             </div>
+            <div className="mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[11px] text-zinc-400">$41K revenue, 30 days</span>
+            </div>
           </div>
         </div>
       </Reveal>
@@ -180,7 +186,7 @@ export default function FeaturedCaseStudy() {
                 fontWeight: 800,
                 color: "#F5F0E8",
               }}>
-                $27
+                $33
               </div>
             </div>
             <p style={{ color: "#D2C9B8", fontSize: "0.9rem", marginBottom: 8 }}>
@@ -189,6 +195,10 @@ export default function FeaturedCaseStudy() {
             <p style={{ fontSize: "0.85rem", color: "#A69D8D", fontStyle: "italic" }}>
               Competitive DFW painting market. Ranking above national lead gen sites. Last verified Q4 2025.
             </p>
+            <div className="mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[11px] text-zinc-400">Page 1 SEO, 60 days</span>
+            </div>
           </div>
         </div>
       </Reveal>
@@ -221,7 +231,7 @@ export default function FeaturedCaseStudy() {
             style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
           >
             <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase", marginBottom: 8 }}>COST PER LEAD</p>
-            <p className="text-3xl font-bold text-white stat-glow"><span className="stat-27-card">0</span></p>
+            <p className="text-3xl font-bold text-white stat-glow"><span className="stat-33-card">33</span></p>
             <p style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}>Avg cost per qualified inbound call. All active accounts. Q4 2025.</p>
           </div>
           <div
@@ -229,7 +239,7 @@ export default function FeaturedCaseStudy() {
             style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
           >
             <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase", marginBottom: 8 }}>TIME TO FIRST CALL</p>
-            <p className="text-3xl font-bold text-white stat-glow"><span className="stat-11-card">0</span> days</p>
+            <p className="text-3xl font-bold text-white stat-glow"><span className="stat-11-card">11</span> days</p>
             <p style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}>Median across all clients and niches.</p>
           </div>
         </div>

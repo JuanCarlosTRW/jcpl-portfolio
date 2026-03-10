@@ -5,6 +5,7 @@ import AboutHero from "@/components/about/AboutHero";
 import MetricsRow from "@/components/about/MetricsRow";
 import AboutHowIBuiltThis from "@/components/about/AboutHowIBuiltThis";
 import PhilosophyBlock from "@/components/about/PhilosophyBlock";
+import WorkingWithMe from "@/components/about/WorkingWithMe";
 import AboutCTA from "@/components/about/AboutCTA";
 import SpotsLeftSection from "@/components/home/SpotsLeftSection";
 
@@ -28,10 +29,13 @@ export default function AboutPage() {
         <PhilosophyBlock />
       </SectionWrapper>
 
-      {/* 3. Why I Operate Differently (shortened) */}
+      {/* 3. Working with me (first 30 days) */}
+      <WorkingWithMe />
+
+      {/* 4. Why I Operate Differently (shortened) */}
       <AboutHowIBuiltThis />
 
-      {/* 4. 3 Partnerships + Stats */}
+      {/* 5. 3 Partnerships + Stats */}
       <div style={{ background: "#1A1510" }}>
         <SpotsLeftSection background="#1A1510" />
         <div className="max-w-7xl mx-auto px-4 pb-12">
@@ -39,7 +43,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* 5. Final CTA */}
+      {/* 6. Final CTA */}
       <SectionWrapper style={{ background: "#0D0B09" }}>
         <AboutCTA />
       </SectionWrapper>

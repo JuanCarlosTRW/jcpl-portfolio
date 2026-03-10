@@ -28,7 +28,7 @@ function CheckIcon() {
 function DashIcon() {
   return (
     <span className="text-sv-text-sub/60" aria-label="Not included">
-      —
+      −
     </span>
   );
 }

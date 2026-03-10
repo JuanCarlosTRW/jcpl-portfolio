@@ -1,14 +1,37 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
 import { useTranslations } from "@/context/LocaleContext";
+import { prefersReducedMotion } from "@/lib/motion";
 
 type SpotsLeftSectionProps = { background?: string; variant?: "default" | "compact" };
 
 export default function SpotsLeftSection({ background, variant = "default" }: SpotsLeftSectionProps) {
   const t = useTranslations();
   const microcopy = [t<string>("spots.reply24"), t<string>("spots.noContracts"), t<string>("spots.threeSpots")];
+  const proofRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (variant !== "default" || prefersReducedMotion() || !proofRef.current) return;
+    const els = proofRef.current.querySelectorAll(".proof-line");
+    if (els.length === 0) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        els.forEach((el, i) => {
+          (el as HTMLElement).style.animation = `proofFadeIn 0.4s ease forwards`;
+          (el as HTMLElement).style.animationDelay = `${i * 200}ms`;
+          (el as HTMLElement).style.opacity = "0";
+          (el as HTMLElement).style.animationFillMode = "forwards";
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(proofRef.current);
+    return () => observer.disconnect();
+  }, [variant]);
 
   if (variant === "compact") {
     return (
@@ -17,7 +40,7 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
           <div className="flex items-center justify-center gap-5 flex-wrap">
             <Image
               src="/images/juan.jpg"
-              alt="Juan — Client Growth"
+              alt="Juan, Client Growth"
               width={80}
               height={80}
               quality={80}
@@ -48,17 +71,22 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
 
   return (
     <section className="py-16 md:py-24 text-center" style={{ background: background ?? "var(--sv-base, #0D0B09)" }}>
+      <style>{`
+        @keyframes proofFadeIn {
+          to { opacity: 1; }
+        }
+      `}</style>
       <div className="max-w-xl mx-auto px-4">
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px" }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "28px", gap: 24 }}>
           <Image
             src="/images/juan.jpg"
-            alt="Juan — Client Growth"
-            width={68}
-            height={68}
-            quality={80}
-            sizes="68px"
+            alt="Juan, Client Growth"
+            width={120}
+            height={120}
+            quality={90}
+            sizes="120px"
             style={{
-              width: "68px", height: "68px",
+              width: 120, height: 120,
               borderRadius: "50%", objectFit: "cover",
               border: "2px solid rgba(255,255,255,0.14)",
               display: "block",
@@ -76,6 +104,7 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
 
         {/* Social proof strip */}
         <div
+          ref={proofRef}
           className="rounded-[12px] px-6 py-5 mb-7 text-left"
           style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
         >
@@ -83,9 +112,26 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
             {t<string>("spots.lastThree")}
           </p>
           <div className="flex flex-col gap-2.5">
-            <p className="text-[15px] font-bold text-emerald-400">{t<string>("spots.proof1")}</p>
-            <p className="text-[15px] font-bold text-emerald-400">{t<string>("spots.proof2")}</p>
-            <p className="text-[15px] font-bold text-emerald-400">{t<string>("spots.proof3")}</p>
+            <p className="proof-line text-[15px] font-bold text-emerald-400" style={{ opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof1")}</p>
+            <p className="proof-line text-[15px] font-bold text-emerald-400" style={{ opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof2")}</p>
+            <p className="proof-line text-[15px] font-bold text-emerald-400" style={{ opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof3")}</p>
+          </div>
+        </div>
+
+        {/* Video thumbnail placeholder (Loom) */}
+        <div
+          className="mb-7 mx-auto rounded-xl overflow-hidden border border-zinc-800/40 bg-zinc-900/30 cursor-pointer max-w-[280px] aspect-video flex items-center justify-center"
+          onClick={() => window.open("#", "_blank")}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === "Enter" && window.open("#", "_blank")}
+          aria-label="Watch intro video"
+        >
+          <div className="flex flex-col items-center gap-2 text-zinc-500">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span className="text-xs">Intro video (coming soon)</span>
           </div>
         </div>
 

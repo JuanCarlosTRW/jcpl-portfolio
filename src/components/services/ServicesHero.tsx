@@ -45,7 +45,7 @@ export default function ServicesHero() {
         </h1>
 
         <p
-          className="mb-10"
+          className="mb-4"
           style={{
             fontSize: "17px",
             fontWeight: 400,
@@ -54,7 +54,14 @@ export default function ServicesHero() {
             maxWidth: "520px",
           }}
         >
-          A conversion website. Local SEO. Google Ads with a tracked cost per call. AI lead capture that works after hours. One system. One person. Built in 2 to 4 weeks.
+          Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. One system. One person. Live in 11 days.
+        </p>
+
+        <p
+          className="mb-10 text-sm font-medium"
+          style={{ color: "#22c55e" }}
+        >
+          Most recent result: $41,085 in revenue from $900 in ad spend. 30 days.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -73,20 +80,30 @@ export default function ServicesHero() {
         </div>
 
         <div className="flex flex-wrap gap-6 mt-8">
-          {[
-            "Response within 24 hours",
-            "No retainer until I confirm fit",
-            "One spot currently open",
-          ].map((item, i) => (
-            <span
-              key={item}
-              className="text-xs flex items-center gap-2 animate-fade-in"
-              style={{ color: "#A69D8D", animationDelay: `${i * 100}ms` }}
-            >
-              <span style={{ color: "#D4A853" }}>✓</span>
-              {item}
+          <span
+            className="text-xs flex items-center gap-2 animate-fade-in"
+            style={{ color: "#A69D8D", animationDelay: "0ms" }}
+          >
+            <span style={{ color: "#D4A853" }}>✓</span>
+            Response within 24 hours
+          </span>
+          <span
+            className="text-xs flex items-center gap-2 animate-fade-in"
+            style={{ color: "#A69D8D", animationDelay: "100ms" }}
+          >
+            <span style={{ color: "#D4A853" }}>✓</span>
+            No retainer until I confirm fit
+          </span>
+          <span
+            className="flex items-center gap-2 text-emerald-400/80 animate-fade-in"
+            style={{ animationDelay: "200ms" }}
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-          ))}
+            <span className="text-xs">One spot currently open</span>
+          </span>
         </div>
       </div>
     </section>

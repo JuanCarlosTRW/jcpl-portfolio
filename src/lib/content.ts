@@ -100,14 +100,14 @@ export const systemSteps = [
 export const resultsPreview = {
   label: "REAL RESULTS",
   featured: {
-  stat: "$41,084.85",
+  stat: "$41,085",
     context: "generated in month one",
     client: "RV Rental Company",
     method: "Google Ads Funnel",
   },
   highlights: [
     { metric: "$900", label: "Total ad spend" },
-    { metric: "33x", label: "Return on ad spend" },
+    { metric: "46x", label: "Return on ad spend" },
     { metric: "30", label: "Days to results" },
   ],
 };
@@ -218,7 +218,7 @@ export const featuredCase = {
   headline: "$41,085 from $900 in ad spend. Page 1 in under 60 days.",
   slug: "rv-rental-texas",
   client: "RV RENTAL COMPANY, TEXAS",
-  result: "$41,084.85",
+  result: "$41,085",
   resultLabel: "in revenue. First 30 days.",
   timeframe: "$900 IN AD SPEND · GOOGLE ADS FUNNEL · 30 DAYS",
   supporting: [
@@ -237,20 +237,20 @@ export const howWeWork = {
   steps: [
     {
       number: "01",
-      title: "Diagnose",
-      description: "I run a full acquisition audit: where your traffic is leaking, what your competitors rank for that you do not, what your current site converts at, and what a realistic cost per lead looks like in your market. You receive a written growth map before I touch a single file.",
-      duration: "Week 1"
+      title: "Market Gap Report",
+      description: "Before I write a line of code, you know exactly where your competitors are exposed.",
+      duration: "72 hours"
     },
     {
       number: "02",
-      title: "Build",
-      description: "Website rebuild or conversion overhaul, Google Ads campaign architecture, GEO content for AI search visibility, booking flow, and AI lead qualification. Built as connected infrastructure. You review and approve. I run the build.",
-      duration: "Weeks 2 to 4"
+      title: "System Launch",
+      description: "Site, ads, tracking, automation. All live. All connected.",
+      duration: "11 days median"
     },
     {
       number: "03",
-      title: "Scale",
-      description: "Every week I review conversion data, ad performance, and search position. I cut what is not working and double what is. The system compounds. Your cost per lead goes down every month it runs.",
+      title: "Compound Loop",
+      description: "Every week I cut waste and double what converts. Cost per call drops monthly.",
       duration: "Ongoing"
     }
   ],
@@ -259,20 +259,26 @@ export const howWeWork = {
 /* ─── Marble System Animation (3-step visualization) ─── */
 export const marbleSystemSection = {
   label: "THE SYSTEM",
-  headline: "Diagnose. Build. Scale.",
+  headline: "Market Gap Report. System Launch. Compound Loop.",
   subheadline: "A clear path from where you are to where you need to be.",
   steps: [
     {
-      title: "Diagnose",
-      copy: "A full audit of your lead flow, site conversion rate, ad account performance, and search visibility. You will know exactly what is broken and what fixing it is worth. Delivered within 72 hours of signing.",
+      title: "Market Gap Report",
+      copy: "Before I write a line of code, you know exactly where your competitors are exposed.",
+      timeline: "72 hours",
+      deliverables: ["Market Gap Report", "Funnel Audit", "90-Day Roadmap"],
     },
     {
-      title: "Build",
-      copy: "Your full growth infrastructure, built from scratch. Conversion website, Google Ads funnel, SEO foundation, AI search presence, and copy engineered to close. Live in a median of 11 days from signed agreement.",
+      title: "System Launch",
+      copy: "Site, ads, tracking, automation. All live. All connected.",
+      timeline: "11 days median",
+      deliverables: ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
     },
     {
-      title: "Scale",
-      copy: "Weekly optimization loops. Monthly revenue reporting tied to calls booked, not impressions. Your cost per call goes down every month. Your market share compounds. That is the only metric that matters.",
+      title: "Compound Loop",
+      copy: "Every week I cut waste and double what converts. Cost per call drops monthly.",
+      timeline: "Ongoing",
+      deliverables: ["Weekly Performance Report", "Monthly Review Call", "Conversion Improvements"],
     },
   ],
 };
@@ -621,8 +627,17 @@ export const servicesDecisionAssist = {
 
 export const servicesFAQ = [
   {
+    question: "I ran Google Ads before and lost money. Why would this be different?",
+    answer: "Because ads without a conversion system are just expensive traffic. You got clicks. The site that received them was not built to close. The targeting was not built around purchase intent. The landing page was probably your homepage. I have seen this exact story more times than I can count. The clicks were real. Everything behind them was not built. I build the infrastructure first. Then the ads run. The difference between losing money on ads and 46x return on ad spend is the system that receives the traffic.",
+    featured: true,
+  },
+  {
+    question: "What is the minimum I should spend on ads?",
+    answer: "I recommend starting at $500 per month. At $33 per qualified call, that is roughly 15 calls. One closed job usually covers the entire system cost for the month. Most clients scale ad spend once they see the math.",
+  },
+  {
     question: "How fast can this go live?",
-    answer: "Median 11 days from signed agreement to live system.",
+    answer: "Median 11 days from signed agreement to live system. That includes the diagnostic audit, full website build, and campaign setup. Most clients see their first inbound call within 2 weeks of going live.",
   },
   {
     question: "What do I need to provide?",
@@ -653,10 +668,10 @@ export const caseStudies = [
     title: "Triple W Rentals",
     client: "RV RENTALS",
     industry: "RV Rentals",
-  heroStat: "$41,084.85",
+  heroStat: "$41,085",
     heroLabel: "Revenue in first 30 days",
     context:
-  "From zero online presence to $41,084.85 in revenue in the first 30 days. $900 in ad spend.",
+  "From zero online presence to $41,085 in revenue in the first 30 days. $900 in ad spend.",
     problem:
       "No online presence beyond a basic listing. No paid advertising. No way to capture or qualify leads digitally. Competitors were running Google Ads and dominating search results.",
     strategy:
@@ -669,9 +684,9 @@ export const caseStudies = [
       "Implemented automated follow-up sequences for unconverted leads",
     ],
     outcome:
-  "$41,084.85 in confirmed bookings within the first 30 days. $900 in ad spend.",
+  "$41,085 in confirmed bookings within the first 30 days. $900 in ad spend.",
     takeaway:
-  "From zero online presence to $41,084.85 in revenue in the first 30 days. $900 in ad spend.",
+  "From zero online presence to $41,085 in revenue in the first 30 days. $900 in ad spend.",
     tags: ["Google Ads", "Landing Pages", "Conversion Funnel", "Lead Generation"],
   },
   {
@@ -785,6 +800,26 @@ export const aboutContent = {
     tableLine: "Fragmentation costs: handoffs, delays, and lost leads.",
   },
 };
+// About: Working with me (first 30 days)
+export const workingWithMe = {
+  overline: "WORKING WITH ME",
+  headline: "The First 30 Days",
+  phases: [
+    {
+      title: "Days 1–3",
+      desc: "Discovery call, market gap audit, and 90-day roadmap. We define what success looks like and lock the offer.",
+    },
+    {
+      title: "Days 4–11",
+      desc: "System build. Website, funnel, tracking, and ads architecture. Median launch: 11 days from kickoff.",
+    },
+    {
+      title: "Days 12–30",
+      desc: "Optimization and first calls. I iterate on conversion and cost per call. You start seeing booked appointments.",
+    },
+  ],
+};
+
 // About: How I Built This (NEW SECTION)
 export const aboutHowIBuiltThis = {
   overline: "THE APPROACH",

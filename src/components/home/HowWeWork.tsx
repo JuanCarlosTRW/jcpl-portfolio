@@ -6,9 +6,9 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 
 const PHASE_CHIPS: Record<string, string[]> = {
-  Diagnose: ["Market Gap Report", "Funnel Audit Doc", "90-Day Roadmap"],
-  Build: ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
-  Scale: ["Weekly Performance Report", "Monthly Review Call", "Ongoing Optimization"],
+  "Market Gap Report": ["Market Gap Report", "Funnel Audit", "90-Day Roadmap"],
+  "System Launch": ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
+  "Compound Loop": ["Weekly Performance Report", "Monthly Review Call", "Conversion Improvements"],
 };
 
 export default function HowWeWork() {
@@ -66,8 +66,8 @@ export default function HowWeWork() {
                       </span>
                     ))}
                   </div>
-                  {/* Kicker line for Build phase */}
-                  {step.title === "Build" && (
+                  {/* Kicker line for System Launch phase */}
+                  {step.title === "System Launch" && (
                     <p className="mt-4 text-[14px] font-bold text-emerald-400 leading-snug">
                       Most clients see their first booked call within 11 days of going live.
                     </p>

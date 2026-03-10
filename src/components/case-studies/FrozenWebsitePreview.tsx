@@ -76,9 +76,9 @@ export default function FrozenWebsitePreview({
             src={logoUrl}
             alt={
               title === "Centre Dentaire Saint-Élzéar"
-                ? "Client Growth — Centre Dentaire logo"
+                ? "Client Growth, Centre Dentaire logo"
                 : title === "Culture Barbershop"
-                ? "Client Growth — Culture Barbershop logo"
+                ? "Client Growth, Culture Barbershop logo"
                 : `${title} logo`
             }
             fill

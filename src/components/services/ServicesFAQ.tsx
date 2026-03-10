@@ -46,10 +46,10 @@ export default function ServicesFAQSection() {
       <Reveal className="text-center mb-10">
         <SectionLabel label="FAQ" className="mb-4" />
         <h2 className="text-2xl md:text-3xl font-bold text-white">
-          Common Questions
+          Questions Buyers Ask Before Committing.
         </h2>
         <p className="mt-3 text-sm text-sv-text-sub max-w-lg mx-auto">
-          Straight answers before you commit.
+          Straight answers. No fluff.
         </p>
       </Reveal>
 
@@ -64,7 +64,7 @@ export default function ServicesFAQSection() {
                   isOpen
                     ? "border-[rgba(212,168,83,0.25)] bg-[#1E1A14] shadow-[0_4px_24px_rgba(212,168,83,0.04)]"
                     : "border-[rgba(255,255,255,0.06)] bg-sv-surface hover:border-[rgba(255,255,255,0.1)]"
-                }`}
+                } ${"featured" in faq && faq.featured ? "ring-1 ring-emerald-500/20" : ""}`}
               >
                 <button
                   type="button"

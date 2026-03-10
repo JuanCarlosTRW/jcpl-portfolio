@@ -41,7 +41,7 @@ export const caseStudies: CaseStudy[] = [
     location: "Texas, USA",
     headline: "From Empty Calendar to $20,000 in 30 Days",
     subtext:
-      "How I engineered a full Google Ads funnel for a Texas RV rental company — delivering $20K in new revenue in the first month of deployment.",
+      "How I engineered a full Google Ads funnel for a Texas RV rental company. Delivering $20K in new revenue in the first month of deployment.",
     situation: {
       who: "Family-owned RV rental business in Texas with 8 vehicles and no reliable online acquisition channel.",
       problem: "Bookings were entirely referral-based. No paid traffic. No conversion system. Revenue was unpredictable month-to-month.",
@@ -51,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
     diagnosis: {
       title: "The Hidden Bottleneck",
       paragraphs: [
-        "The problem wasn't demand. The RV rental market in Texas is highly active — especially spring through fall. People were searching. The business simply didn't exist online.",
+        "The problem wasn't demand. The RV rental market in Texas is highly active, especially spring through fall. People were searching. The business simply didn't exist online.",
         "The real issue was architecture. No Google Ads presence, no optimized landing page, no follow-up system. Competitors were capturing every search query this owner should have owned.",
         "Throwing budget at ads without a conversion-ready funnel would have burned cash. I had to build the full system before spending a dollar.",
       ],
@@ -62,7 +62,7 @@ export const caseStudies: CaseStudy[] = [
         {
           title: "Authority Layer",
           icon: "01",
-          description: "Rebuilt the online presence with a conversion-first landing page — clear offer, trust signals, and premium visual design.",
+          description: "Rebuilt the online presence with a conversion-first landing page. Clear offer, trust signals, and premium visual design.",
         },
         {
           title: "Conversion Layer",
@@ -91,7 +91,7 @@ export const caseStudies: CaseStudy[] = [
     },
     insight: {
       quote: "Most businesses don't have a traffic problem. They have a conversion architecture problem.",
-      body: "Running ads to a weak page is burning money. The funnel — page, offer, intent, follow-up — has to be engineered before any dollar is spent on traffic. That's the difference between a campaign that breaks even and one that pays for itself 4x over.",
+      body: "Running ads to a weak page is burning money. The funnel (page, offer, intent, follow-up) has to be engineered before any dollar is spent on traffic. That's the difference between a campaign that breaks even and one that pays for itself 4x over.",
     },
     beforeAfter: { before: "$5–8K/mo referral-only", after: "$20K+ Month 1 with paid traffic" },
     whatChanged: [
@@ -112,7 +112,7 @@ export const caseStudies: CaseStudy[] = [
     location: "Canada",
     headline: "From Walk-Ins Only to 90 New Clients in 3 Months",
     subtext:
-      "How a premium website funnel transformed a barbershop's client acquisition — generating 90 booked appointments in 90 days without referrals.",
+      "How a premium website funnel transformed a barbershop's client acquisition. Generating 90 booked appointments in 90 days without referrals.",
     situation: {
       who: "Single-location premium barbershop with a strong product but zero digital infrastructure.",
       problem: "Growth was 100% word-of-mouth. No website, no online booking, no way for new clients to discover or convert online.",
@@ -122,9 +122,9 @@ export const caseStudies: CaseStudy[] = [
     diagnosis: {
       title: "The Hidden Bottleneck",
       paragraphs: [
-        "The barbershop had a real competitive advantage — premium service, loyal clients, great atmosphere. But none of that was visible online. A Google search returned nothing.",
+        "The barbershop had a real competitive advantage: premium service, loyal clients, great atmosphere. But none of that was visible online. A Google search returned nothing.",
         "The bottleneck wasn't service quality. It was discoverability and conversion. Potential clients searched, found competitors, and booked elsewhere.",
-        "The fix wasn't just a website. It was a full acquisition funnel — designed to convert strangers into booked appointments without any manual effort from the owner.",
+        "The fix wasn't just a website. It was a full acquisition funnel, designed to convert strangers into booked appointments without any manual effort from the owner.",
       ],
       highlighted: "Great service is invisible without a system to surface it.",
     },
@@ -133,7 +133,7 @@ export const caseStudies: CaseStudy[] = [
         {
           title: "Authority Layer",
           icon: "01",
-          description: "Built a premium website that matched the brand's real quality — strong imagery, clear positioning, and trust signals.",
+          description: "Built a premium website that matched the brand's real quality. Strong imagery, clear positioning, and trust signals.",
         },
         {
           title: "Conversion Layer",
@@ -162,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
     },
     insight: {
       quote: "A referral-only business has a ceiling. A system-driven business has a runway.",
-      body: "Word of mouth is powerful — but it's not scalable. The moment you build a digital acquisition system, you decouple your growth from your personal network. That's when the business becomes an asset, not just a job.",
+      body: "Word of mouth is powerful, but it's not scalable. The moment you build a digital acquisition system, you decouple your growth from your personal network. That's when the business becomes an asset, not just a job.",
     },
     beforeAfter: { before: "100% referral, no digital presence", after: "90 new clients via website funnel in 90 days" },
     whatChanged: [
@@ -178,7 +178,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "barbershop-premium-website",
     label: "Case Study #03",
-    client: "Barbershop — Brand Rebuild",
+    client: "Barbershop, Brand Rebuild",
     industry: "Beauty / Personal Care",
     location: "Canada",
     headline: "A Premium Brand Identity for a Modern Barbershop",
@@ -188,14 +188,14 @@ export const caseStudies: CaseStudy[] = [
       who: "Established barbershop with a loyal base but outdated digital presence that undercut their real quality.",
       problem: "The existing website and branding didn't match the in-person experience. Premium clients were being lost to competitors with better-looking digital presence.",
       revenueStage: "Stable revenue, but premium positioning not reflected online.",
-      bottleneck: "Brand perception gap — the digital presence was communicating average when the service was exceptional.",
+      bottleneck: "Brand perception gap. The digital presence was communicating average when the service was exceptional.",
     },
     diagnosis: {
       title: "The Hidden Bottleneck",
       paragraphs: [
-        "First impressions are made online before the client ever walks in. An outdated website doesn't just look bad — it actively repels the high-value clients you want.",
+        "First impressions are made online before the client ever walks in. An outdated website doesn't just look bad. It actively repels the high-value clients you want.",
         "The issue wasn't the service. It was the signal. Potential premium clients were evaluating the website and choosing competitors who looked more established.",
-        "I needed to build a digital presence that matched — and elevated — the real quality of the in-person experience.",
+        "I needed to build a digital presence that matched, and elevated, the real quality of the in-person experience.",
       ],
       highlighted: "Your website is your first handshake. Make it premium.",
     },
@@ -204,17 +204,17 @@ export const caseStudies: CaseStudy[] = [
         {
           title: "Authority Layer",
           icon: "01",
-          description: "Designed a fully custom, personalized brand identity — logo direction, color palette, typography — aligned with premium positioning.",
+          description: "Designed a fully custom, personalized brand identity (logo direction, color palette, typography) aligned with premium positioning.",
         },
         {
           title: "Conversion Layer",
           icon: "02",
-          description: "Built a website that converts visitors into booked clients — with clear service presentation, pricing, and direct booking CTAs.",
+          description: "Built a website that converts visitors into booked clients, with clear service presentation, pricing, and direct booking CTAs.",
         },
         {
           title: "Acquisition Layer",
           icon: "03",
-          description: "Structured the site for Google discoverability — local SEO foundations baked into every page from launch.",
+          description: "Structured the site for Google discoverability. Local SEO foundations baked into every page from launch.",
         },
         {
           title: "Optimization Loop",
@@ -233,7 +233,7 @@ export const caseStudies: CaseStudy[] = [
     },
     insight: {
       quote: "You cannot charge premium prices with an average digital presence.",
-      body: "Price resistance almost always comes from a perception gap. When your brand looks as good as your service actually is, premium pricing becomes natural — not a negotiation.",
+      body: "Price resistance almost always comes from a perception gap. When your brand looks as good as your service actually is, premium pricing becomes natural, not a negotiation.",
     },
     beforeAfter: { before: "Outdated site, average brand perception", after: "Premium website, elevated market position" },
     whatChanged: [
@@ -248,22 +248,22 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "rv-rental-ai-voice-agent",
     label: "Case Study #04",
-    client: "RV Rental Company — AI Upgrade",
+    client: "RV Rental Company, AI Upgrade",
     industry: "Tourism / Rental",
     location: "Texas, USA",
     headline: "24/7 Lead Qualification with Zero Human Overhead",
     subtext:
       "How I deployed an AI voice agent for the same Texas RV rental company, handling every inbound inquiry automatically, qualifying leads, and booking calls without lifting a finger.",
     situation: {
-      who: "The same RV rental company from Case #01 — now generating inbound leads via Google Ads, but owner overwhelmed by volume of inquiries.",
+      who: "The same RV rental company from Case #01. Now generating inbound leads via Google Ads, but owner overwhelmed by volume of inquiries.",
       problem: "More leads than the owner could manually respond to. Slow follow-up was costing bookings. Revenue was being left unrealized.",
-      revenueStage: "Post-growth phase — revenue up, but operational bottleneck emerging.",
+      revenueStage: "Post-growth phase. Revenue up, but operational bottleneck emerging.",
       bottleneck: "The acquisition system worked too well. Manual lead handling became the new constraint.",
     },
     diagnosis: {
       title: "The Hidden Bottleneck",
       paragraphs: [
-        "This is the second-stage problem most growth agencies never talk about. You fix acquisition — then operations breaks. The business couldn't scale without either hiring or automating.",
+        "This is the second-stage problem most growth agencies never talk about. You fix acquisition, then operations breaks. The business couldn't scale without either hiring or automating.",
         "Hiring was premature and expensive at this stage. The answer was an AI voice agent that could handle inbound inquiries 24/7, qualify leads based on trip dates and vehicle fit, and route serious prospects to a booking confirmation.",
         "The system needed to feel human, respond instantly, and never let a lead go cold.",
       ],
@@ -274,17 +274,17 @@ export const caseStudies: CaseStudy[] = [
         {
           title: "Authority Layer",
           icon: "01",
-          description: "Trained the AI agent on the business's tone, offer, and FAQ — so every interaction felt personal and on-brand.",
+          description: "Trained the AI agent on the business's tone, offer, and FAQ, so every interaction felt personal and on-brand.",
         },
         {
           title: "Conversion Layer",
           icon: "02",
-          description: "Built qualification logic into the conversation flow — the agent identified high-intent leads and moved them to booking without human input.",
+          description: "Built qualification logic into the conversation flow. The agent identified high-intent leads and moved them to booking without human input.",
         },
         {
           title: "Acquisition Layer",
           icon: "03",
-          description: "Connected the agent to the existing inbound funnel — every new lead from Google Ads was automatically contacted within 60 seconds.",
+          description: "Connected the agent to the existing inbound funnel. Every new lead from Google Ads was automatically contacted within 60 seconds.",
         },
         {
           title: "Optimization Loop",
@@ -351,7 +351,7 @@ export const caseStudiesContent = {
       ],
     },
     {
-      client: "RV Rental — AI Voice Agent",
+      client: "RV Rental, AI Voice Agent",
       metric: "<60s Response Time / 0 Leads Lost",
       summary: "AI voice agent deployed for automated 24/7 lead qualification.",
       bullets: [

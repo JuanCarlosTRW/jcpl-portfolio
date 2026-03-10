@@ -52,12 +52,31 @@ export default function SystemTimelineSection() {
                 className="border-l-2 pl-6"
                 style={{ borderLeftColor: "#D4A853" }}
               >
-                <h3 className="text-lg md:text-xl font-semibold text-white">
-                  {step.title}
-                </h3>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className="text-lg md:text-xl font-semibold text-white">
+                    {step.title}
+                  </h3>
+                  {"timeline" in step && step.timeline && (
+                    <span className="text-xs text-zinc-500 font-medium">
+                      {step.timeline}
+                    </span>
+                  )}
+                </div>
                 <p className="mt-1.5 md:mt-2 leading-relaxed text-[#D2C9B8] text-[15px] md:text-base">
                   {step.copy}
                 </p>
+                {"deliverables" in step && step.deliverables && step.deliverables.length > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {step.deliverables.map((d) => (
+                      <span
+                        key={d}
+                        className="px-3 py-1 rounded-full text-xs text-zinc-400 bg-zinc-800/60 border border-zinc-700/30"
+                      >
+                        {d}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -83,12 +102,31 @@ export default function SystemTimelineSection() {
             <div key={i} className="flex gap-4">
               <TimelineNode num={i + 1} />
               <div>
-                <h3 className="text-lg font-semibold text-white">
-                  {step.title}
-                </h3>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className="text-lg font-semibold text-white">
+                    {step.title}
+                  </h3>
+                  {"timeline" in step && step.timeline && (
+                    <span className="text-xs text-zinc-500 font-medium">
+                      {step.timeline}
+                    </span>
+                  )}
+                </div>
                 <p className="mt-1.5 leading-relaxed text-[#D2C9B8] text-[15px]">
                   {step.copy}
                 </p>
+                {"deliverables" in step && step.deliverables && step.deliverables.length > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {step.deliverables.map((d) => (
+                      <span
+                        key={d}
+                        className="px-3 py-1 rounded-full text-xs text-zinc-400 bg-zinc-800/60 border border-zinc-700/30"
+                      >
+                        {d}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}

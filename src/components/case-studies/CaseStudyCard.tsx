@@ -57,11 +57,19 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
         </div>
 
         {/* Outcome */}
-        <div className="text-[14px] text-[rgba(255,255,255,0.55)] leading-[1.55] mb-5">
+        <div className="text-[14px] text-[rgba(255,255,255,0.55)] leading-[1.55] mb-3">
           {cs.inProgress
             ? "System live. Performance data being collected."
             : cs.outcome}
         </div>
+
+        {/* Result tag pill */}
+        {cs.resultTag && (
+          <div className="mb-5 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30 w-fit">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
+            <span className="text-[11px] text-zinc-400">{cs.resultTag}</span>
+          </div>
+        )}
 
         {/* Metrics pills or In-Progress badge */}
         {/* Absolute Painting: System live tag */}

@@ -53,7 +53,7 @@ const SERVICES = [
     icon: FileText,
     title: "Copy Engineered to Convert",
     desc: "Messaging, offers, and landing-page copy built to convert cold traffic into revenue.",
-    proof: "Avg $27 cost per qualified inbound call",
+    proof: "Avg $33 cost per qualified inbound call",
   },
 ];
 

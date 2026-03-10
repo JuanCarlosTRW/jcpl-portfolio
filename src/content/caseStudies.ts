@@ -3,6 +3,7 @@ export type CaseStudy = {
   title: string;
   industry: string;
   outcome: string;
+  resultTag?: string;
   metrics: { label: string; value: string }[];
   websiteUrl: string | null;
   logoUrl: string;
@@ -21,16 +22,16 @@ export const caseStudies: CaseStudy[] = [
     title: "Triple W Rentals",
     industry: "RV RENTAL, TEXAS",
     outcome:
-      "$41,084.85 in revenue generated in month one. $900 in total ad spend.",
+      "$41,085 in revenue generated in month one. $900 in total ad spend.",
+    resultTag: "$41K revenue, 30 days",
     metrics: [
-      { label: "Revenue", value: "$41,084.85" },
+      { label: "Revenue", value: "$41,085" },
       { label: "Ad spend", value: "$900" },
-      { label: "ROAS", value: "33x" },
+      { label: "ROAS", value: "46x" },
       { label: "Timeline", value: "30 days" },
     ],
     websiteUrl: null,
-    logoUrl:
-      "https://static.wixstatic.com/media/62f926_5c14016a71f74c77a7eedfa86309eadd~mv2.jpg",
+    logoUrl: "/images/logos/triplew.png",
     metricsImageUrl:
       "https://static.wixstatic.com/media/62f926_5c7a609ac5c143e48028810fda21af82~mv2.png",
     caseStudySlug: "triple-w-rentals",
@@ -38,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
     situation:
       "Triple W Rentals had vehicles available but zero online acquisition. Revenue was entirely referral-dependent and unpredictable. The Texas RV rental market had strong search demand that was completely untapped. A full Google Ads funnel was built from scratch and deployed within weeks.",
     narrative:
-      "Triple W Rentals was a new RV rental company in Texas with no online presence and no inbound lead flow. I built their conversion website, launched a Google Ads campaign, and deployed tracking in 11 days. In the first 30 days on $900 in ad spend, the system generated $41,084.85 in tracked revenue. They now dominate the RV rental market in their region.",
+      "Triple W Rentals was a new RV rental company in Texas with no online presence and no inbound lead flow. I built their conversion website, launched a Google Ads campaign, and deployed tracking in 11 days. In the first 30 days on $900 in ad spend, the system generated $41,085 in tracked revenue. They now dominate the RV rental market in their region.",
     deliverables: [
       "Google Ads funnel with RV rental intent keywords",
       "Conversion landing pages optimized for bookings",
@@ -51,13 +52,13 @@ export const caseStudies: CaseStudy[] = [
     title: "Elite Barbershop",
     industry: "PREMIUM BARBERSHOP",
     outcome: "90 new clients acquired in the first 90 days. Full acquisition system built from scratch.",
+    resultTag: "90 new clients, 90 days",
     metrics: [
       { label: "New clients", value: "90" },
       { label: "Timeframe", value: "90 days" },
     ],
     websiteUrl: "https://elitebyhadi.com/fr/",
-    logoUrl:
-      "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/ChatGPT_Image_6_janv._2026_17_33_55.png?v=1767738915",
+    logoUrl: "/images/logos/elite.png",
     caseStudySlug: "elite-barbershop",
     inProgress: false,
     situation:
@@ -73,11 +74,11 @@ export const caseStudies: CaseStudy[] = [
     id: "absolute-painting",
     title: "Absolute Painting",
     industry: "HOME SERVICES",
-    outcome: "Growth system delivered and live. Revenue tracking in progress.",
+    outcome: "Custom conversion site. Google Ads funnel. Tracking live.",
+    resultTag: "System live",
     metrics: [],
     websiteUrl: "https://absolutepainting.vercel.app/quote",
-    logoUrl:
-      "https://static.wixstatic.com/media/62f926_58438d6814374c1b81421512d6762ad0~mv2.png",
+    logoUrl: "/images/logos/absolute.png",
     caseStudySlug: "absolute-painting",
     inProgress: true,
     situation:
@@ -94,13 +95,13 @@ export const caseStudies: CaseStudy[] = [
     title: "Culture Barbershop",
     industry: "BARBERSHOP, MONTREAL",
     outcome: "Conversion website and booking funnel delivered. Revenue data pending verification.",
+    resultTag: "Page 1 SEO, <60 days",
     metrics: [
       { label: "Deliverable", value: "Website" },
       { label: "Market", value: "Montreal" },
     ],
     websiteUrl: "https://culturemtl.ca",
-    logoUrl:
-  "https://static.wixstatic.com/media/62f926_26ca6fb6d443456c94fab653adce03cc~mv2.png",
+    logoUrl: "/images/logos/culture.png",
     caseStudySlug: "culture-barbershop",
     inProgress: false,
     situation:
@@ -116,14 +117,14 @@ export const caseStudies: CaseStudy[] = [
     id: "centre-dentaire-saint-elzear",
     title: "Centre Dentaire Saint-Élzéar",
     industry: "DENTAL CLINIC",
-    outcome: "Conversion website and patient acquisition funnel delivered. Revenue data pending verification.",
+    outcome: "Custom conversion site. Google Ads funnel. Tracking live.",
+    resultTag: "Funnel live",
     metrics: [
       { label: "Deliverable", value: "Website" },
       { label: "Funnel", value: "Ads to Booking Funnel" },
     ],
     websiteUrl: "https://as.centredentairese.com",
-    logoUrl:
-  "https://static.wixstatic.com/media/62f926_b2db4e8f4d74470fb8848ee6183aecde~mv2.png",
+    logoUrl: "/images/logos/dentaire.png",
     caseStudySlug: "centre-dentaire-saint-elzear",
     inProgress: false,
     situation:

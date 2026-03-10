@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { translations } from "@/lib/translations";
+import { useLocale } from "@/context/LocaleContext";
 
 export default function Footer() {
-  const { nav, footer } = translations.en;
+  const { locale } = useLocale();
+  const { nav, footer } = translations[locale];
   const navItems = [
     { href: "/", label: nav.home },
     { href: "/services", label: nav.services },

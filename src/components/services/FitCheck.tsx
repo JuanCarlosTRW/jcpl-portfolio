@@ -19,7 +19,7 @@ function XIcon() {
 }
 
 const bestFor = [
-  "You run a service business and your revenue is inconsistent. You know you should have more clients than you do.",
+  "Revenue is inconsistent. You know there is more demand than you are capturing.",
   "You are tired of being invisible online while competitors who do worse work rank above you.",
   "You want one person who owns the full system, not a web designer, an ad guy, and an SEO freelancer who all point at each other when nothing works.",
   "You are ready to invest in infrastructure that produces returns. Not a one-time project. A system.",
@@ -52,7 +52,7 @@ export default function FitCheck() {
         <Reveal delay={0.05}>
           <div
             className="rounded-xl p-8 h-full"
-            style={{ background: "#1E1A14", border: "1px solid #2A2318", borderTop: "2px solid #D4A853" }}
+            style={{ background: "#1E1A14", border: "1px solid rgba(255,255,255,0.08)", borderLeft: "3px solid #D4A853" }}
           >
             <h3 className="text-[17px] font-bold mb-5 flex items-center gap-2" style={{ color: "#F5F0E8" }}>
               <CheckIcon /> This Is for You If...
@@ -69,7 +69,7 @@ export default function FitCheck() {
         <Reveal delay={0.1}>
           <div
             className="rounded-xl p-8 h-full"
-            style={{ background: "#1E1A14", border: "1px solid #2A2318", borderTop: "2px solid #D4A853" }}
+            style={{ background: "rgba(30,26,20,0.6)", border: "1px solid rgba(255,255,255,0.06)", borderLeft: "3px solid rgba(255,255,255,0.2)" }}
           >
             <h3 className="text-[17px] font-bold mb-5 flex items-center gap-2" style={{ color: "#F5F0E8" }}>
               <XIcon /> This Is Not for You If...
@@ -84,6 +84,9 @@ export default function FitCheck() {
           </div>
         </Reveal>
       </div>
+      <p className="text-center text-sm mt-8 max-w-xl mx-auto" style={{ color: "#756D63" }}>
+        If three or more on the left sound familiar, keep scrolling.
+      </p>
     </SectionWrapper>
   </div>
   );

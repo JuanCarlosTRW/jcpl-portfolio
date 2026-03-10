@@ -132,13 +132,13 @@ function ProofCard() {
       <p className="text-xs font-semibold tracking-widest text-blue-400 uppercase mb-4">
         LIVE RESULT
       </p>
-  <p className="text-5xl font-black text-white mb-1">$41,084.85</p>
+  <p className="text-5xl font-black text-white mb-1">$41,085</p>
       <p className="text-[13px] font-[400] opacity-[0.50] mb-6">
         Revenue generated. 30 days. $900 ad spend.
       </p>
       <div className="grid grid-cols-3 gap-2 border-t border-slate-700 pt-6">
         {[
-          { value: "33x", label: "Return on ad spend" },
+          { value: "46x", label: "Return on ad spend" },
           { value: "11 days", label: "To first booked call" },
           { value: "Texas", label: "RV rental market" },
         ].map(({ value, label }) => (
