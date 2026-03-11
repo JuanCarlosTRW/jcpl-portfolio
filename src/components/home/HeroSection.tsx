@@ -30,6 +30,7 @@ function AnimatedNumber({
             const eased = 1 - Math.pow(1 - p, 3);
             setCurrent(Math.floor(eased * target));
             if (p < 1) requestAnimationFrame(tick);
+            else setCurrent(target);
           };
           requestAnimationFrame(tick);
         }
@@ -158,7 +159,7 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Left fade — kills WebGL before reaching text column */}
+      {/* Left fade — softened multi-stop curve for organic beam integration */}
       <div
         aria-hidden="true"
         style={{
@@ -167,7 +168,7 @@ export default function HeroSection() {
           zIndex: 2,
           pointerEvents: "none",
           background:
-            "linear-gradient(to right, #0D0B09 0%, #0D0B09 36%, rgba(13,11,9,0.90) 50%, rgba(13,11,9,0.22) 65%, transparent 73%)",
+            "linear-gradient(to right, #0D0B09 0%, #0D0B09 32%, rgba(13,11,9,0.93) 46%, rgba(13,11,9,0.30) 60%, rgba(13,11,9,0.08) 70%, transparent 78%)",
         }}
       />
 
@@ -180,7 +181,7 @@ export default function HeroSection() {
           inset: 0,
           zIndex: 3,
           pointerEvents: "none",
-          background: "rgba(13,11,9,0.22)",
+          background: "rgba(13,11,9,0.28)",
         }}
       />
 
@@ -195,7 +196,10 @@ export default function HeroSection() {
           <div className="flex flex-col w-full lg:max-w-[560px] xl:max-w-[580px] py-16 lg:py-24">
 
             {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-8">
+            <div
+              className="hero-enter flex items-center gap-3"
+              style={{ marginBottom: "1.5rem", animationDelay: "0.1s" }}
+            >
               <div
                 className="h-px w-5 flex-shrink-0"
                 style={{ background: "rgba(212,168,83,0.5)" }}
@@ -209,31 +213,36 @@ export default function HeroSection() {
                   color: "#8A7E74",
                 }}
               >
-                Growth Infrastructure · Service Businesses
+                Growth Infrastructure&nbsp;•&nbsp;Service Businesses
               </span>
             </div>
 
             {/* H1 */}
             <h1
-              className="font-bold text-[#F5F0E8]"
+              className="hero-enter font-bold text-[#F5F0E8]"
               style={{
                 fontSize: "clamp(2.65rem, 4.6vw, 4.35rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.038em",
-                marginBottom: "1.65rem",
+                marginBottom: "1.5rem",
+                animationDelay: "0.22s",
               }}
             >
               Growth Infrastructure Behind More Qualified Calls
             </h1>
 
-            {/* Proof line */}
+            {/* Proof line — left bar frames it as an evidence moment */}
             <p
+              className="hero-enter"
               style={{
                 fontSize: "1rem",
                 lineHeight: 1.6,
                 letterSpacing: "-0.012em",
                 color: "#A69D8D",
-                marginBottom: "2.5rem",
+                marginBottom: "1rem",
+                paddingLeft: "0.875rem",
+                borderLeft: "2px solid rgba(212,168,83,0.28)",
+                animationDelay: "0.36s",
               }}
             >
               <span style={{ color: "#D4A853", fontWeight: 700 }}>$41,085</span>
@@ -242,22 +251,40 @@ export default function HeroSection() {
               {" "}in ad spend — within 30 days.
             </p>
 
+            {/* Mechanism line — closes the conceptual gap between headline and proof */}
+            <p
+              className="hero-enter"
+              style={{
+                fontSize: "0.9375rem",
+                lineHeight: 1.58,
+                letterSpacing: "-0.01em",
+                color: "#756D63",
+                marginBottom: "2.5rem",
+                animationDelay: "0.46s",
+              }}
+            >
+              Web, search, ads, and follow-up — built into one client acquisition system.
+            </p>
+
             {/* CTA cluster */}
-            <div className="flex flex-col items-start gap-2.5">
+            <div
+              className="hero-enter flex flex-col items-start gap-2.5"
+              style={{ animationDelay: "0.56s" }}
+            >
               <a
                 href="#book-call"
-                className="group inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold transition-colors duration-150 bg-[#F0EBE0] hover:bg-[#E7E1D5] text-[#0D0B09]"
+                className="group inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold transition-colors duration-150 bg-[#F0EBE0] hover:bg-[#EAE4D8] text-[#0D0B09]"
                 style={{
                   fontSize: "0.975rem",
                   padding: "0.85rem 1.75rem",
                   letterSpacing: "-0.012em",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09)",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.10)",
                 }}
               >
                 See If Your Business Qualifies
                 <svg
                   className="w-[15px] h-[15px] transition-transform duration-150 group-hover:translate-x-[2px]"
-                  style={{ opacity: 0.45 }}
+                  style={{ opacity: 0.52 }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -313,10 +340,13 @@ export default function HeroSection() {
         }}
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0" style={{ padding: "1.5rem 0 1.625rem" }}>
+          <div
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0"
+            style={{ padding: "1.625rem 0" }}
+          >
 
-            {/* Metrics */}
-            <div className="flex items-center">
+            {/* Metrics — gap-5 provides mobile spacing; sm:gap-0 lets dividers take over */}
+            <div className="flex items-center gap-5 sm:gap-0">
               {METRICS.map((m, i) => (
                 <div key={i} className="flex items-center">
                   {i > 0 && (
@@ -358,8 +388,8 @@ export default function HeroSection() {
                     <div
                       style={{
                         fontSize: "0.68rem",
-                        color: "#8A7E74",
-                        letterSpacing: "0.06em",
+                        color: "#756D63",
+                        letterSpacing: "0.055em",
                         textTransform: "uppercase",
                         marginTop: "0.375rem",
                       }}
@@ -377,7 +407,7 @@ export default function HeroSection() {
               style={{
                 width: 1,
                 height: 40,
-                background: "rgba(255,255,255,0.08)",
+                background: "rgba(255,255,255,0.07)",
                 margin: "0 1.75rem",
               }}
             />
@@ -387,13 +417,13 @@ export default function HeroSection() {
               <span
                 style={{
                   fontSize: "0.62rem",
-                  color: "#8A7E74",
+                  color: "#756D63",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   flexShrink: 0,
                 }}
               >
-                Active clients
+                Active Clients
               </span>
 
               <div className="flex items-center">
@@ -428,7 +458,7 @@ export default function HeroSection() {
               <span
                 style={{
                   fontSize: "0.65rem",
-                  color: "#706660",
+                  color: "#5A5452",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   fontWeight: 500,
