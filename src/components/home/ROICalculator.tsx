@@ -115,6 +115,8 @@ export default function ROICalculator() {
               <input
                 id="roi-job-value"
                 type="range"
+                min={200}
+                max={10000}
                 step={100}
                 value={jobValue}
                 onChange={(e) => setJobValue(Number(e.target.value))}
