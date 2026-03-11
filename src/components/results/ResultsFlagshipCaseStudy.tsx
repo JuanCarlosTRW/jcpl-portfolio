@@ -1,15 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { CaseStudy } from "@/content/caseStudies";
-import FrozenWebsitePreview from "@/components/case-studies/FrozenWebsitePreview";
 
 export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
-  const router = useRouter();
   const narrative = cs.narrative ?? cs.situation;
-
-  const handleCardClick = () => router.push(`/results/${cs.caseStudySlug}`);
 
   // Split metrics: primary (revenue) gets dominant display, rest are supporting
   const primaryMetric = cs.metrics[0];
@@ -130,18 +125,38 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
                 </div>
               </div>
 
-              {/* Preview */}
-              <div
-                onClick={handleCardClick}
-                className="cursor-pointer transition-opacity hover:opacity-95"
-              >
-                <FrozenWebsitePreview
-                  logoUrl={cs.logoUrl}
-                  websiteUrl={cs.websiteUrl}
-                  title={cs.title}
-                  metricsImageUrl={cs.metricsImageUrl}
-                  onClickOverride={handleCardClick}
-                />
+              {/* Verification context — authored evidence, not a browser mock */}
+              <div className="p-6 pt-5">
+                <p className="text-[10px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.25)] mb-4">
+                  Verification context
+                </p>
+                <div className="space-y-3 mb-5">
+                  {[
+                    "Full Google Ads account access provided",
+                    "Revenue figures owner-reported and verified",
+                    "Booking tracking confirmed via GA4 events",
+                  ].map((line) => (
+                    <div key={line} className="flex items-start gap-3">
+                      <span
+                        className="flex-shrink-0 mt-[7px] w-3 h-px"
+                        style={{ background: "rgba(212,168,83,0.4)" }}
+                      />
+                      <span className="text-[13px] text-[rgba(255,255,255,0.45)] leading-[1.55]">
+                        {line}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                {cs.metricsImageUrl && (
+                  <a
+                    href={cs.metricsImageUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[12px] text-[rgba(212,168,83,0.55)] hover:text-[#D4A853] transition-colors"
+                  >
+                    View campaign metrics report ↗
+                  </a>
+                )}
               </div>
             </div>
           </div>

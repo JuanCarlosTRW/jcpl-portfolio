@@ -34,7 +34,7 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               90 new clients in 90 days.
               <br className="hidden md:block" /> Built from zero online presence.
             </h2>
-            <p className="text-[16px] text-[#D2C9B8] leading-[1.75] mb-8 max-w-[520px]">
+            <p className="text-[15px] text-[#D2C9B8] leading-[1.75] mb-8 max-w-[480px]">
               {cs.situation}
             </p>
 
@@ -43,7 +43,7 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.3)] mb-4">
                 Infrastructure built
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {cs.deliverables.map((d) => (
                   <li
                     key={d}
@@ -78,7 +78,7 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               </div>
               <Link
                 href={`/results/${cs.caseStudySlug}`}
-                className="text-[14px] font-semibold text-[rgba(255,255,255,0.55)] hover:text-white transition-colors"
+                className="text-[14px] font-semibold text-[rgba(255,255,255,0.55)] hover:text-[#D4A853] transition-colors"
               >
                 View full case study →
               </Link>

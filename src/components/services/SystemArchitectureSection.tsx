@@ -34,13 +34,12 @@ const expansionLayers = [
     num: "01",
     label: "PAID ACQUISITION LAYER",
     title: "When organic capture alone is not enough.",
-    copy: "Deployed when you need booked calls faster than search alone delivers. Google Ads targeting buyers with active purchase intent — tracked to cost per qualified call, not impressions or clicks.",
+    copy: "For when you need booked calls faster than search alone delivers. Google Ads targeting active purchase intent — tracked to cost per qualified call, not impressions or clicks.",
     items: [
       "Google Ads targeting high-intent service buyers in your market",
       "Per-service and per-city landing pages built for conversion",
-      "AI voice agent for after-hours call capture — no lead goes to voicemail",
-      "Weekly optimization loop reducing cost per call over time",
-      "Monthly revenue attribution: calls and revenue traced back to the system",
+      "AI voice agent for after-hours call capture — no lead lost to voicemail",
+      "Weekly optimization against cost per qualified call",
     ],
     investment: "$2,500 / month + ad spend",
     investmentDetail: "Ad spend separate. Minimum $500/month. 90-day initial term.",
@@ -49,13 +48,12 @@ const expansionLayers = [
     num: "02",
     label: "MARKET SCALE LAYER",
     title: "When the objective is structural dominance.",
-    copy: "Deployed when you have proven demand and are ready to own your market before a competitor does. Multi-city architecture and search displacement — not ranking in a market, owning it.",
+    copy: "For when you have proven demand and need to own the market before a competitor does first. Multi-city architecture and search displacement — not ranking in a market, owning it.",
     items: [
       "Multi-city campaign architecture across target regions",
       "Competitor displacement via search positioning and paid targeting",
       "Expanded SEO buildout targeting high-value commercial keywords",
       "Bi-weekly strategy calls with direct founder involvement",
-      "Quarterly market analysis and expansion roadmap",
     ],
     investment: "$6,000 / month + ad spend",
     investmentDetail: "Ad spend minimum $1,500/month. Two slots per niche per city.",
@@ -147,7 +145,7 @@ export default function SystemArchitectureSection() {
             The Core Acquisition System
           </h3>
           <p className="text-sm mb-10" style={{ color: "#756D63" }}>
-            These components are always included. They are the foundation everything else is built on.
+            Always included. The foundation every expansion layer builds on.
           </p>
         </Reveal>
 
@@ -192,8 +190,8 @@ export default function SystemArchitectureSection() {
           >
             Expansion Layers
           </h3>
-          <p className="text-sm mb-12" style={{ color: "#756D63" }}>
-            These layers add to the core system. They are not separate packages. They are the next layer of the same machine.
+          <p className="text-sm mb-8" style={{ color: "#756D63" }}>
+            Not separate packages. The next layer of the same machine, activated based on your stage and how fast you need pipeline.
           </p>
         </Reveal>
 

@@ -1,79 +1,74 @@
 "use client";
 
-import { useState } from "react";
-
 const caseStudies = [
   {
     id: "triplew",
+    index: "01",
     name: "Triple W Rentals",
     tag: "RV Rental · Texas",
     metric: "$41,085",
     metricLabel: "revenue in 30 days on $900 ad spend",
     description:
-      "Full Growth Architecture build. Conversion website, Google Ads funnel targeting purchase-intent buyers, and AI voice agent for after-hours calls. Went from zero online presence to owning the RV rental market in their region.",
+      "Zero online presence to owning the RV rental market in their region. Conversion site, Google Ads funnel, and AI voice agent for after-hours calls — built and live in under two weeks.",
     deliverables: ["Website", "Google Ads", "AI Voice Agent", "SEO"],
     status: "active" as const,
     link: "/results#triplew",
-    image: "/images/logos/triplew.png",
   },
   {
     id: "elite",
+    index: "02",
     name: "Elite Barbershop",
     tag: "Premium Barbershop · Montreal",
     metric: "90",
     metricLabel: "new clients acquired in 90 days",
     description:
-      "Full acquisition system built from scratch. Premium website, local SEO, and booking flow redesign. Positioned as the top-tier barbershop in a competitive Montreal market.",
+      "Positioned as top-tier in a competitive Montreal market. Premium site, local SEO, and booking flow built as one connected acquisition system.",
     deliverables: ["Website", "Local SEO", "Booking Flow"],
     status: "active" as const,
     link: "/results#elite",
-    image: "/images/logos/elite.png",
   },
   {
     id: "culture",
+    index: "03",
     name: "Culture Barbershop",
     tag: "Barbershop · Montreal, QC",
     metric: "Page 1",
     metricLabel: "local SEO ranking in under 60 days",
     description:
-      "Conversion website rebuild and local SEO buildout. Went from invisible online to ranking on page 1 for competitive Montreal barbershop searches. Calendar fully booked within 3 weeks of launch.",
+      "Invisible online to page 1 for competitive Montreal searches. Calendar fully booked within 3 weeks of launch.",
     deliverables: ["Website", "Local SEO", "Booking System"],
     status: "active" as const,
     link: "/results#culture",
-    image: "/images/logos/culture.png",
   },
   {
     id: "absolute",
+    index: "04",
     name: "Absolute Painting",
     tag: "Painting Contractor · DFW, Texas",
     metric: "Live",
-    metricLabel: "system running, performance data being collected",
+    metricLabel: "performance data being collected",
     description:
-      "Google Ads campaign with tight budget constraints. Conversion tracking setup on a custom Vercel-hosted site. Targeting high-intent searches in the Highland Park and DFW area.",
+      "Google Ads targeting high-intent searches in Highland Park and DFW. Custom site with full conversion tracking. Results compiling.",
     deliverables: ["Website", "Google Ads", "Conversion Tracking"],
     status: "building" as const,
     link: "/results#absolute",
-    image: "/images/logos/absolute.png",
   },
   {
     id: "dentaire",
+    index: "05",
     name: "Centre Dentaire",
     tag: "Dental Clinic · Quebec",
     metric: "Live",
     metricLabel: "patient acquisition funnel running",
     description:
-      "Custom conversion website built for patient acquisition. Ads-to-booking funnel designed around high-value dental services. Built as a connected system with tracked cost per lead.",
+      "Ads-to-booking funnel built around high-value dental services. Custom site with tracked cost per lead. Patient acquisition system fully operational.",
     deliverables: ["Website", "Ads Funnel", "Booking Flow"],
     status: "building" as const,
     link: "/results#dentaire",
-    image: "/images/logos/dentaire.png",
   },
 ];
 
 export default function CaseStudySwitcher() {
-  const [active, setActive] = useState(0);
-  const study = caseStudies[active];
-
   return (
     <section className="px-6 md:px-12 lg:px-20 py-20 bg-[#09090b]">
       <div className="max-w-[1200px] mx-auto">
@@ -84,90 +79,81 @@ export default function CaseStudySwitcher() {
           </span>
         </div>
 
-        <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-10">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-3">
           Every System I Have Built.
         </h2>
+        <p className="text-sm text-zinc-600 mb-10 max-w-[480px]">
+          Every engagement documented. Every result verifiable. The complete record is below.
+        </p>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {caseStudies.map((cs, i) => (
-            <button
+        {/* Roster */}
+        <div className="flex flex-col divide-y" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+          {caseStudies.map((cs) => (
+            <div
               key={cs.id}
-              onClick={() => setActive(i)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
-                ${active === i
-                  ? "bg-white text-zinc-900"
-                  : "bg-zinc-800/50 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-300"
-                }`}
+              className="grid grid-cols-1 md:grid-cols-[48px_1fr_160px] gap-4 md:gap-8 py-6 group"
             >
-              {cs.name}
-            </button>
-          ))}
-        </div>
-
-        {/* Active card */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 p-6 md:p-8 rounded-2xl border border-zinc-800/60 bg-zinc-900/30">
-          <div className="flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <p className="text-lg font-semibold text-white">{study.name}</p>
-                {study.status === "active" && (
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span className="text-[11px] text-emerald-400 font-medium">Active</span>
-                  </span>
-                )}
-                {study.status === "building" && (
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                    <span className="text-[11px] text-amber-400 font-medium">Building</span>
-                  </span>
-                )}
+              {/* Index */}
+              <div className="hidden md:flex items-start pt-0.5">
+                <span className="text-xs font-mono" style={{ color: "#4A4540" }}>{cs.index}</span>
               </div>
-              <p className="text-sm text-zinc-500 mb-6">{study.tag}</p>
 
-              <div className="mb-6">
-                <p className="text-4xl md:text-5xl font-semibold text-white tracking-tight">
-                  {study.metric}
+              {/* Main content */}
+              <div>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
+                  <span className="text-[15px] font-semibold text-white">{cs.name}</span>
+                  <span className="text-xs" style={{ color: "#4A4540" }}>{cs.tag}</span>
+                  {cs.status === "active" ? (
+                    <span className="inline-flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      <span className="text-[11px] text-emerald-400/70">Active</span>
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500/50" />
+                      <span className="text-[11px] text-amber-400/50">Building</span>
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm leading-relaxed mb-3 max-w-[520px]" style={{ color: "#756D63" }}>
+                  {cs.description}
                 </p>
-                <p className="mt-1 text-sm text-zinc-400">{study.metricLabel}</p>
+                <div className="flex flex-wrap gap-2">
+                  {cs.deliverables.map((d) => (
+                    <span
+                      key={d}
+                      className="px-2.5 py-0.5 text-[11px] rounded"
+                      style={{ color: "#4A4540", border: "1px solid #2A2318" }}
+                    >
+                      {d}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <p className="text-sm text-zinc-400 leading-relaxed mb-6">{study.description}</p>
-
-              <div className="flex flex-wrap gap-2">
-                {study.deliverables.map((d) => (
-                  <span
-                    key={d}
-                    className="px-3 py-1 rounded-full text-xs text-zinc-400 bg-zinc-800/60 border border-zinc-700/30"
+              {/* Metric + link */}
+              <div className="flex md:flex-col items-start md:items-end justify-between gap-2">
+                <div className="md:text-right">
+                  <p className="text-xl font-semibold text-white">{cs.metric}</p>
+                  <p
+                    className="text-xs mt-0.5 leading-snug md:text-right"
+                    style={{ color: "#4A4540", maxWidth: "140px" }}
                   >
-                    {d}
-                  </span>
-                ))}
+                    {cs.metricLabel}
+                  </p>
+                </div>
+                <a
+                  href={cs.link}
+                  className="text-xs transition-colors duration-200"
+                  style={{ color: "#4A4540" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#A69D8D")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#4A4540")}
+                >
+                  Full case →
+                </a>
               </div>
             </div>
-
-            <a
-              href={study.link}
-              className="inline-flex items-center gap-2 mt-8 text-sm font-medium text-zinc-300 hover:text-white transition-colors duration-200 group"
-            >
-              View full case study
-              <svg
-                className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
-
-          <div className="relative rounded-xl overflow-hidden bg-zinc-800/30 border border-zinc-700/20 aspect-[16/10] flex items-center justify-center">
-            <img
-              src={study.image}
-              alt={`${study.name} logo`}
-              className="w-1/2 h-1/2 object-contain opacity-80"
-            />
-          </div>
+          ))}
         </div>
       </div>
     </section>

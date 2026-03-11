@@ -31,15 +31,20 @@ export default function CaseStudiesSection() {
       {/* CTA */}
       <ResultsCTA />
 
-      {/* Disclaimer */}
-      <p
-        className="py-10 text-center text-[12px] text-[rgba(255,255,255,0.25)] max-w-[560px] mx-auto leading-relaxed"
-        style={{ background: "#1A1510" }}
+      {/* Disclaimer — page-close, authored */}
+      <div
+        className="py-10"
+        style={{
+          background: "#1A1510",
+          borderTop: "1px solid rgba(255,255,255,0.04)",
+        }}
       >
-        Results shown are from real client engagements. Revenue figures are
-        client-reported. Your results will vary based on market, offer, and
-        execution.
-      </p>
+        <p className="text-center text-[12px] text-[rgba(255,255,255,0.2)] max-w-[480px] mx-auto px-6 leading-[1.7]">
+          Results shown are from real client engagements. Revenue figures are
+          client-reported. Your results will vary based on market, offer, and
+          execution.
+        </p>
+      </div>
     </>
   );
 }

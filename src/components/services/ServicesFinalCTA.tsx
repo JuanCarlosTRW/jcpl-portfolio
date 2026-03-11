@@ -23,7 +23,7 @@ export default function ServicesFinalCTA() {
         {/* HOW I WORK */}
         <div className="mb-16">
           <Reveal>
-            <div className="text-center mb-8">
+            <div className="text-center mb-10">
               <p
                 className="section-label mb-4 text-center"
                 style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
@@ -31,11 +31,14 @@ export default function ServicesFinalCTA() {
                 HOW I WORK
               </p>
               <h2
-                className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center"
+                className="text-3xl md:text-4xl font-semibold tracking-tight mb-2 text-center"
                 style={{ color: "#F5F0E8" }}
               >
                 What You Know Before Signing Anything.
               </h2>
+              <p className="text-sm max-w-[420px] mx-auto" style={{ color: "#756D63" }}>
+                The terms, the standards, and the protections are set before any retainer is signed.
+              </p>
             </div>
           </Reveal>
           <GuaranteesStrip />

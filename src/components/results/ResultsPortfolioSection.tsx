@@ -9,9 +9,9 @@ interface Props {
 }
 
 export default function ResultsPortfolioSection({ recent, building }: Props) {
-  const all = [...recent, ...building];
+  const totalCount = recent.length + building.length;
 
-  if (all.length === 0) return null;
+  if (totalCount === 0) return null;
 
   return (
     <section
@@ -32,7 +32,7 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
             style={{ background: "rgba(212,168,83,0.1)" }}
           />
           <span className="text-[11px] text-[rgba(255,255,255,0.2)] tabular-nums">
-            {all.length} partnerships
+            {totalCount} partnerships
           </span>
         </div>
         <p className="text-[14px] text-[rgba(255,255,255,0.35)] mb-10 max-w-[520px] leading-[1.65]">
@@ -41,8 +41,15 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
         </p>
 
         <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
-          {all.map((cs) => (
+          {/* Completed — full weight */}
+          {recent.map((cs) => (
             <CaseStudyCard key={cs.id} cs={cs} />
+          ))}
+          {/* In-build — de-emphasised; systems live, data pending */}
+          {building.map((cs) => (
+            <div key={cs.id} className="opacity-[0.72]">
+              <CaseStudyCard cs={cs} />
+            </div>
           ))}
         </div>
       </div>
