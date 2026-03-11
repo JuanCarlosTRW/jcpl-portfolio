@@ -9,7 +9,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function PrivacyPage() {
   return (
-    <main className="bg-[#030812] min-h-screen">
+    <main className="bg-[#0D0B09] min-h-screen">
       <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-sv-primary mb-4">Legal</p>
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">3. Analytics</h2>
             <p className="text-sm text-sv-text-sub leading-relaxed">
-              This site does not currently use third-party analytics. No tracking pixels or advertising cookies are set.
+              This site uses Google Analytics (GA4) to collect anonymized data about site usage, such as pages visited and session duration. This data is used solely to improve the site. No advertising pixels or retargeting cookies are set. You can opt out of Google Analytics by using the <a href="https://tools.google.com/dlpage/gaoptout" className="text-sv-primary hover:underline" target="_blank" rel="noopener noreferrer">Google Analytics opt-out browser add-on</a>.
             </p>
           </section>
 

@@ -155,23 +155,6 @@ export default function SystemArchitectureSection() {
               <CoreItem key={item.title} title={item.title} copy={item.copy} />
             ))}
           </div>
-          <div
-            className="mt-4 rounded-xl px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
-            style={{ background: "#1A1510", border: "1px solid #2A2318" }}
-          >
-            <p className="text-sm font-medium" style={{ color: "#F5F0E8" }}>
-              Core system investment
-            </p>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-              <span className="text-lg font-semibold" style={{ color: "#D4A853" }}>
-                $2,500 one-time build
-              </span>
-              <span className="text-sm" style={{ color: "#756D63" }}>+</span>
-              <span className="text-base font-medium" style={{ color: "#F5F0E8" }}>
-                $1,200 / month management
-              </span>
-            </div>
-          </div>
         </Reveal>
 
         {/* ── Divider ── */}

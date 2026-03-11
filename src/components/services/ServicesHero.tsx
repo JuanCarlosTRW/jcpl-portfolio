@@ -59,7 +59,7 @@ export default function ServicesHero() {
 
         <p
           className="mb-10 text-sm font-medium"
-          style={{ color: "#22c55e" }}
+          style={{ color: "#C8A05A" }}
         >
           Most recent result: $41,085 in revenue from $900 in ad spend. 30 days.
         </p>

@@ -39,7 +39,7 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
         <div className="max-w-xl mx-auto px-4">
           <div className="flex items-center justify-center gap-5 flex-wrap">
             <Image
-              src="/images/juan.jpg"
+              src="https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg"
               alt="Juan, Client Growth"
               width={80}
               height={80}
@@ -79,7 +79,7 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
       <div className="max-w-xl mx-auto px-4">
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "28px", gap: 24 }}>
           <Image
-            src="/images/juan.jpg"
+            src="https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg"
             alt="Juan, Client Growth"
             width={120}
             height={120}
@@ -112,9 +112,9 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
             {t<string>("spots.lastThree")}
           </p>
           <div className="flex flex-col gap-2.5">
-            <p className="proof-line text-[15px] font-bold text-emerald-400" style={{ opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof1")}</p>
-            <p className="proof-line text-[15px] font-bold text-emerald-400" style={{ opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof2")}</p>
-            <p className="proof-line text-[15px] font-bold text-emerald-400" style={{ opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof3")}</p>
+            <p className="proof-line text-[15px] font-bold" style={{ color: "#D4A853", opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof1")}</p>
+            <p className="proof-line text-[15px] font-bold" style={{ color: "#D4A853", opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof2")}</p>
+            <p className="proof-line text-[15px] font-bold" style={{ color: "#D4A853", opacity: prefersReducedMotion() ? 1 : 0 }}>{t<string>("spots.proof3")}</p>
           </div>
         </div>
 
@@ -122,7 +122,7 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
           className="flex items-center justify-center gap-2 mb-3"
           style={{
             fontSize: "0.9rem",
-            color: "#86efac",
+            color: "#C8A05A",
             fontWeight: 600,
           }}
         >

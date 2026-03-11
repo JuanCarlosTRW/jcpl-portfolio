@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!study) return {};
   const title = `${study.headline} | Case Study`;
   const description = study.subtext;
-  const ogImage = "https://clientgrowth.ca/og.png";
+  const ogImage = "https://clientgrowth.ca/opengraph-image";
   return {
     title,
     description,

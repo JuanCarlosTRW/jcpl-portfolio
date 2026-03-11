@@ -351,7 +351,7 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Book a 20-Minute Diagnostic Call →
+                  Book a 15-Minute Diagnostic Call →
                 </Link>
                 <p
                   className="text-center"

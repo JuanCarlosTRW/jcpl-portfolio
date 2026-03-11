@@ -996,8 +996,3 @@
   z-index: 0;
   background: transparent;
 }
-.hero-laser-debug {
-  border: 2px dashed var(--brand-accent) !important;
-  pointer-events: auto !important;
-  overflow: visible !important;
-}

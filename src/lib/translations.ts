@@ -54,7 +54,7 @@ const faqEn: FAQItem[] = [
   {
     question: "What does this cost?",
     answer:
-      "Foundation Architecture is $2,500 to build, then $1,200 per month to maintain and optimize. Performance Engine is $2,500 per month plus ad spend minimum $500. Market Ownership is $6,000 per month plus ad spend minimum $1,500. Ad spend goes directly to Google, not to me. No long-term contracts. No hidden fees. No retainers for work not done.",
+      "A Growth Partnership starts at $2,500/month. That covers the full acquisition system: conversion website, local SEO, Google Ads, and weekly optimization. Ad spend goes directly to Google, not to me. The initial term is 90 days, then month-to-month. No hidden fees.",
     featured: false,
   },
   {
@@ -117,7 +117,7 @@ const faqFr: FAQItem[] = [
   {
     question: "Combien ça coûte?",
     answer:
-      "Foundation Architecture: 2 500 $ pour construire, puis 1 200 $ par mois pour maintenir et optimiser. Performance Engine: 2 500 $ par mois plus un budget pub minimum de 500 $. Market Ownership: 6 000 $ par mois plus un budget pub minimum de 1 500 $. Le budget pub va directement à Google, pas à moi. Pas de contrats à long terme. Pas de frais cachés. Pas de honoraires pour du travail non fait.",
+      "Un Partenariat de Croissance commence à 2 500 $/mois. Cela couvre l'ensemble du système d'acquisition : site optimisé pour la conversion, SEO local, Google Ads et optimisation hebdomadaire. Le budget pub va directement à Google, pas à moi. Durée initiale de 90 jours, puis mois par mois. Aucun frais caché.",
     featured: false,
   },
   {
@@ -321,12 +321,12 @@ export const translations: Record<Locale, TranslationsShape> = {
         { question: "Do I own the website and assets?", answer: "Yes. The site, data, and infrastructure are yours. No lock-in." },
         { question: "What happens after launch?", answer: "Weekly optimization, monthly review calls, and ongoing improvements. The system compounds over time." },
         { question: "How do you track results?", answer: "Calls, cost per call, and source attribution. You get a clear dashboard, not vanity metrics." },
-        { question: "What's the minimum ad spend?", answer: "$500/month for Performance Engine, $1,500 for Market Ownership. Ad spend goes to Google, not to me." },
+        { question: "What's the minimum ad spend?", answer: "I recommend starting at $500/month in ad spend. Ad spend goes directly to Google, not to me. The right budget is discussed during the fit process." },
         { question: "Who is this best for?", answer: "Service businesses doing $5K+/month that want predictable leads from the internet instead of relying on referrals." },
       ],
-      ctaTitle: "Book a 20-Minute Diagnostic Call",
+      ctaTitle: "Book a 15-Minute Diagnostic Call",
       ctaBody: "I will review your market in 24 hours and tell you directly whether this system can move the needle for you.",
-      ctaButton: "Book a 20-Minute Diagnostic Call",
+      ctaButton: "Book a 15-Minute Diagnostic Call",
       ctaEmail: "juan@clientgrowth.ca",
       ctaEmailLabel: "Prefer email?",
     },
@@ -335,10 +335,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       headline: "Book your diagnostic. I will tell you if I can help.",
       italicSubline: "",
       body: "I will review your market, your current pipeline, and the fastest path to qualified calls. If I cannot move the needle, I will tell you that directly before you pay anything.",
-      bullet1: "20 minutes",
+      bullet1: "15 minutes",
       bullet2: "Clear next steps",
       bullet3: "No bloated sales process",
-      cta: "Book a 20-Minute Diagnostic Call",
+      cta: "Book a 15-Minute Diagnostic Call",
       notice: "I run a limited number of diagnostic calls per week. For a faster response, email juan@clientgrowth.ca for a same-day reply.",
     },
   },
@@ -432,7 +432,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         { question: "Est-ce que je possède le site et les actifs?", answer: "Oui. Le site, les données et l'infrastructure sont à vous. Pas de verrouillage." },
         { question: "Que se passe-t-il après le lancement?", answer: "Optimisation hebdomadaire, appels de revue mensuels, améliorations continues. Le système progresse." },
         { question: "Comment suivez-vous les résultats?", answer: "Appels, coût par appel, attribution des sources. Tableau de bord clair, pas de métriques vaines." },
-        { question: "Quel est le budget pub minimum?", answer: "500 $/mois pour Performance Engine, 1 500 $ pour Market Ownership. Le budget pub va à Google." },
+        { question: "Quel est le budget pub minimum?", answer: "Je recommande de commencer à 500 $/mois en budget pub. Le budget va directement à Google, pas à moi. Le bon montant est discuté pendant le processus de sélection." },
         { question: "Pour qui est-ce le mieux?", answer: "Entreprises de services à 5 000 $+/mois qui veulent des leads prévisibles sur Internet plutôt que les références." },
       ],
       ctaTitle: "Réservez un appel stratégie de 15 min",
@@ -443,7 +443,7 @@ export const translations: Record<Locale, TranslationsShape> = {
     },
     bookCall: {
       eyebrow: "RÉSERVER UN APPEL",
-      headline: "Postulez pour un appel diagnostique de 20 minutes.",
+      headline: "Postulez pour un appel diagnostique de 15 minutes.",
       italicSubline: "",
       body: "J'examinerai votre marché, votre pipeline actuel et la voie la plus rapide vers des appels qualifiés. Si je ne peux pas faire la différence, je vous le dirai directement avant que vous ne payiez quoi que ce soit.",
       bullet1: "15 minutes",

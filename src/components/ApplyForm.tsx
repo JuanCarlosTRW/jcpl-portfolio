@@ -114,7 +114,7 @@ export default function ApplyForm() {
           Apply for a Private{" "}
           <span className="gradient-text">Growth Partnership</span>
         </h1>
-        <p className="text-lg text-[var(--text-3)] mb-4">
+        <p className="text-lg text-[var(--text-secondary)] mb-4">
           Every application is reviewed personally. Not every business moves
           forward — that&apos;s what makes this process worth your time. If
           there&apos;s a clear fit, you&apos;ll hear within 24 hours. If not,
@@ -173,7 +173,7 @@ export default function ApplyForm() {
               onSubmit={handleNext}
               className="space-y-6"
             >
-              <h2 className="text-xl font-bold text-[var(--text)] mb-6">
+              <h2 className="text-xl font-bold text-[var(--text-primary)] mb-6">
                 {step.title}
               </h2>
 
@@ -181,7 +181,7 @@ export default function ApplyForm() {
                 <div key={field.name}>
                   <label
                     htmlFor={field.name}
-                    className="block text-sm font-medium text-[var(--text-3)] mb-2"
+                    className="block text-sm font-medium text-[var(--text-secondary)] mb-2"
                   >
                     {field.label}
                     {field.required && (

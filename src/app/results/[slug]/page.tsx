@@ -17,7 +17,7 @@ export async function generateMetadata({
   if (!cs) return {};
   const title = `${cs.title} | Client Growth Results`;
   const description = cs.outcome;
-  const ogImage = "https://clientgrowth.ca/og.png";
+  const ogImage = "https://clientgrowth.ca/opengraph-image";
   return {
     title,
     description,

@@ -59,8 +59,8 @@ const ACTIVE_CLIENTS = [
 ];
 
 const METRICS = [
-  { value: 32,  prefix: "$", unit: "",      label: "Avg cost per qualified call"      },
-  { value: 4,   prefix: "",  unit: "",      label: "Active client systems"            },
+  { value: 33,  prefix: "$", unit: "",      label: "Avg cost per qualified call"      },
+  { value: 5,   prefix: "",  unit: "",      label: "Active partnerships"              },
   { value: 10,  prefix: "",  unit: "days",  label: "Median time to first booked call" },
 ];
 

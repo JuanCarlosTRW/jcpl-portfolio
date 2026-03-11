@@ -6,7 +6,7 @@ export const siteConfig = {
   url: "https://clientgrowth.ca",
   description:
     "Client Growth builds complete acquisition systems for service businesses. Conversion websites, Google Ads, and AI automation that generate predictable booked calls.",
-  ogImage: "/og.png",
+  ogImage: "/opengraph-image",
   twitterHandle: "@clientgrowthca",
 };
 
@@ -825,7 +825,7 @@ export const aboutHowIBuiltThis = {
   overline: "OPERATING MODEL",
   heading: "Why Fragmented Execution\nCosts More Than Its Rate Card.",
   paragraphs: [
-    "Most service businesses do not have a marketing problem. They have a coordination problem. Separate vendors building separate pieces, none of them accountable for the whole. The website person blames the ads person. The ads person blames the offer. Nobody owns the result.",
+    "The fragmentation is structural, not accidental. SEO specialists sell SEO. Web designers sell websites. Ad agencies sell impressions. Each vendor optimizes for the deliverable they invoice — not for your pipeline. You end up paying four separate invoices for a system that was never designed to work as one, while you manage the handoffs between them.",
     "Client Growth is structured around single-operator ownership. One person designs the acquisition system, builds the website, runs the ads, manages the SEO, and reads the numbers every week. There is no handoff chain. There is no account manager between you and the work. When something needs to change, it changes.",
     "This structure limits how many partnerships are active at any given time. That is intentional. Running three systems well produces better outcomes than running twelve at partial attention. Each client gets the full involvement of the operator — not a share of a team's bandwidth."
   ]

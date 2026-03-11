@@ -1,6 +1,9 @@
 "use client";
 import { useEffect } from "react";
 
+const FALLBACK_SRC =
+  "https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg";
+
 export default function FounderUnicornProfile() {
   useEffect(() => {
     const initUS = () => {
@@ -39,7 +42,10 @@ export default function FounderUnicornProfile() {
         height: "100%",
         borderRadius: "16px",
         overflow: "hidden",
-        background: "transparent",
+        background: "#181410",
+        backgroundImage: `url(${FALLBACK_SRC})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
       }}
     />
   );
