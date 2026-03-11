@@ -7,7 +7,6 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 import { countUp } from "@/lib/animations";
-import Link from "next/link";
 import { prefersReducedMotion } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -106,8 +105,8 @@ export default function FeaturedCaseStudy() {
     <SectionWrapper ref={sectionRef} id="proof" style={{ background: "#131009" }}>
       {/* Section header */}
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-        <SectionLabel label="PROOF" className="mb-5 !text-[#D4A853]" />
-        <h2 className="text-[clamp(32px,5vw,48px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto">
+        <SectionLabel label="PROVEN OUTCOMES" className="mb-5 !text-[#D4A853]" />
+        <h2 className="text-[clamp(30px,4.5vw,46px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto">
           <span className="text-white font-bold">
             $41,085 from $900 in ad spend.
           </span>{" "}
@@ -121,6 +120,12 @@ export default function FeaturedCaseStudy() {
             Page 1 in under 60 days.
           </span>
         </h2>
+        <p
+          className="mt-5 max-w-md mx-auto"
+          style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "#756D63", lineHeight: 1.6 }}
+        >
+          Revenue, qualified calls, and search visibility. Not separate wins — the same connected system.
+        </p>
       </Reveal>
 
       {/* — FLAGSHIP: Triple W Rentals — */}
@@ -160,16 +165,25 @@ export default function FeaturedCaseStudy() {
               in revenue. First 30 days.
             </p>
 
-            {/* Commercial meaning — visible, not buried */}
-            <p
+            {/* ROAS — elevated; enough weight to register as a second stat */}
+            <div
               style={{
-                fontSize: "0.9rem",
-                color: "#D2C9B8",
-                marginBottom: 8,
+                borderTop: "1px solid #2A2318",
+                paddingTop: 16,
+                marginBottom: 16,
               }}
             >
-              $46 returned per dollar of ad spend.
-            </p>
+              <div
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: 700,
+                  color: "#D2C9B8",
+                  lineHeight: 1.3,
+                }}
+              >
+                $46 returned per $1 of ad spend.
+              </div>
+            </div>
 
             {/* Verification */}
             <p
@@ -177,19 +191,10 @@ export default function FeaturedCaseStudy() {
                 fontSize: "0.72rem",
                 color: "#756D63",
                 fontStyle: "italic",
-                marginBottom: 16,
               }}
             >
               Live account. Last verified February 2026.
             </p>
-
-            {/* Support chip */}
-            <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md border" style={{ background: "rgba(42,35,24,0.5)", borderColor: "#2A2318" }}>
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-              <span className="text-[11px]" style={{ color: "#8A7E74" }}>
-                $41K revenue, 30 days
-              </span>
-            </div>
           </div>
         </div>
       </Reveal>
@@ -283,12 +288,6 @@ export default function FeaturedCaseStudy() {
               Competitive DFW market. Ranking above national lead gen sites.
               Last verified Q4 2025.
             </p>
-            <div className="mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md border" style={{ background: "rgba(42,35,24,0.5)", borderColor: "#2A2318" }}>
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-              <span className="text-[11px]" style={{ color: "#8A7E74" }}>
-                Page 1 SEO, 60 days
-              </span>
-            </div>
           </div>
         </div>
       </Reveal>
@@ -348,7 +347,7 @@ export default function FeaturedCaseStudy() {
                   marginBottom: 8,
                 }}
               >
-                COST PER LEAD
+                COST PER QUALIFIED CALL
               </p>
               <p className="text-3xl font-bold text-white stat-glow">
                 <span className="stat-33-card">$33</span>
@@ -356,7 +355,7 @@ export default function FeaturedCaseStudy() {
               <p
                 style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
-                Avg cost per qualified call. All active accounts.
+                Avg per qualified inbound call. All active accounts.
               </p>
             </div>
             <div
@@ -373,7 +372,7 @@ export default function FeaturedCaseStudy() {
                   marginBottom: 8,
                 }}
               >
-                TIME TO FIRST CALL
+                SPEED TO FIRST BOOKED CALL
               </p>
               <p className="text-3xl font-bold text-white stat-glow">
                 <span className="stat-11-card">11</span> days
@@ -385,25 +384,6 @@ export default function FeaturedCaseStudy() {
               </p>
             </div>
           </div>
-        </div>
-      </Reveal>
-
-      {/* Overflow — after consuming all evidence */}
-      <Reveal delay={0.25}>
-        <div className="text-center" style={{ marginTop: 32 }}>
-          <Link
-            href="/results"
-            className="inline-block hover:underline"
-            style={{ color: "#756D63", fontSize: "0.875rem" }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.color = "#A69D8D";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.color = "#756D63";
-            }}
-          >
-            See all case studies →
-          </Link>
         </div>
       </Reveal>
     </SectionWrapper>

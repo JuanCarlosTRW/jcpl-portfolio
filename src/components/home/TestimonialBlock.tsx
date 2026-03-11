@@ -1,9 +1,11 @@
 "use client";
 
+import CTAButton from "@/components/ui/CTAButton";
+
 export default function TestimonialBlock() {
   return (
     <section
-      className="px-6 md:px-12 lg:px-20 py-10"
+      className="px-6 md:px-12 lg:px-20 py-10 pb-14"
       style={{
         background: "#131009",
         borderTop: "1px solid rgba(212, 168, 83, 0.12)",
@@ -46,6 +48,17 @@ export default function TestimonialBlock() {
         <p className="mt-6" style={{ fontSize: "0.78rem", color: "#756D63" }}>
           Every result on this page came from the same acquisition system.
         </p>
+
+        <div className="mt-8">
+          <CTAButton
+            href="/results"
+            variant="secondary"
+            size="sm"
+            eventName="case_card_click"
+          >
+            View full case studies
+          </CTAButton>
+        </div>
       </div>
     </section>
   );

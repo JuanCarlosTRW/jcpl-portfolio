@@ -1,84 +1,101 @@
-"use client";
-
 import Image from "next/image";
 
-const JUAN_IMG_SRC = "https://static.wixstatic.com/media/62f926_557272f0fa6547d9b0c8d0518959c14b~mv2.jpeg";
+const JUAN_IMG_SRC =
+  "https://static.wixstatic.com/media/62f926_557272f0fa6547d9b0c8d0518959c14b~mv2.jpeg";
 
-const BADGES = [
+const CHIPS = [
   "3 active partnerships max",
   "Every system built personally",
-  "Direct access, no middlemen",
+  "Direct access. No middlemen.",
 ];
 
 export default function FounderBlock() {
   return (
-    <section
-      className="py-16 md:py-24"
-      style={{ background: "#1A1510" }}
-    >
+    <section className="py-16 md:py-24" style={{ background: "#1A1510" }}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 md:gap-16 md:items-center">
-          <div className="relative max-w-[520px] mx-auto md:mx-0 overflow-hidden">
-            <div className="founder-photo-wrapper rounded-xl overflow-hidden" style={{ border: "1px solid #2A2318" }}>
-              <Image
-                src={JUAN_IMG_SRC}
-                alt="Juan Carlos Portillo-Laflamme, founder of Client Growth"
-                width={520}
-                height={693}
-                quality={80}
-                sizes="(max-width: 768px) 100vw, 520px"
-                className="w-full h-auto object-cover object-top"
-                style={{ borderRadius: 12 }}
-              />
-            </div>
+        <div className="grid gap-10 md:grid-cols-2 md:gap-16 md:items-center">
+
+          {/* Portrait */}
+          <div className="max-w-[480px] mx-auto md:mx-0">
+            <Image
+              src={JUAN_IMG_SRC}
+              alt="Juan Carlos Portillo-Laflamme — founder and sole operator of Client Growth"
+              width={480}
+              height={640}
+              quality={80}
+              sizes="(max-width: 768px) 100vw, 480px"
+              className="w-full h-auto object-cover object-top"
+              style={{
+                borderRadius: 10,
+                border: "1px solid #2A2318",
+              }}
+            />
           </div>
 
-          <div>
+          {/* Copy */}
+          <div className="flex flex-col gap-5">
             <p
-              className="uppercase mb-3"
               style={{
-                fontSize: "0.7rem",
+                fontSize: "0.6875rem",
                 letterSpacing: "0.15em",
                 color: "#D4A853",
+                textTransform: "uppercase",
               }}
             >
-              WHO BUILDS THIS
+              WHO RUNS THE SYSTEM
             </p>
 
-            <p
-              className="text-white font-bold mb-4"
-              style={{ fontSize: "1.5rem", lineHeight: 1.4 }}
+            <h2
+              className="text-white font-bold"
+              style={{ fontSize: "1.875rem", lineHeight: 1.2, margin: 0 }}
             >
-              I run Client Growth solo. Three clients at a time.
-            </p>
+              One operator. Full accountability.
+            </h2>
 
             <p
-              className="mb-6"
               style={{
-                fontSize: "1rem",
+                fontSize: "1.0625rem",
                 color: "#D2C9B8",
-                lineHeight: 1.75,
+                lineHeight: 1.65,
+                margin: 0,
               }}
             >
-              Every system I build gets my direct attention, every week. When something breaks, I fix it — not an account manager.
+              Client Growth was built to avoid the biggest failure point in
+              agency work: fragmented execution across too many people.
             </p>
 
-            <p
-              className="mb-8"
-              style={{
-                fontSize: "1rem",
-                color: "#D2C9B8",
-                lineHeight: 1.75,
-              }}
-            >
-              I own every system — from diagnostic to first booked call. No handoffs. That is not a limitation of this model. It is the point.
-            </p>
+            <div>
+              <p
+                style={{
+                  fontSize: "0.9375rem",
+                  color: "#A8998A",
+                  lineHeight: 1.75,
+                  marginBottom: "0.875rem",
+                }}
+              >
+                Most service businesses do not need more vendors. They need one
+                system built and managed by someone who sees the full picture.
+              </p>
+              <p
+                style={{
+                  fontSize: "0.9375rem",
+                  color: "#A8998A",
+                  lineHeight: 1.75,
+                  margin: 0,
+                }}
+              >
+                I keep the model intentionally small so strategy, conversion,
+                acquisition, and optimization stay connected. No account manager
+                in the middle. No junior team learning on your budget. No
+                handoffs between people who only own one piece of the result.
+              </p>
+            </div>
 
-            <div className="flex flex-wrap gap-2" style={{ gap: 8 }}>
-              {BADGES.map((badge) => (
+            {/* Trust chips */}
+            <div className="flex flex-wrap" style={{ gap: 8 }}>
+              {CHIPS.map((chip) => (
                 <span
-                  key={badge}
-                  className="inline-block rounded-md"
+                  key={chip}
                   style={{
                     background: "#221D17",
                     border: "1px solid #2A2318",
@@ -86,13 +103,30 @@ export default function FounderBlock() {
                     color: "#D2C9B8",
                     fontSize: "0.8rem",
                     padding: "8px 16px",
+                    borderRadius: 6,
                   }}
                 >
-                  {badge}
+                  {chip}
                 </span>
               ))}
             </div>
+
+            {/* Closing line */}
+            <p
+              style={{
+                fontSize: "0.875rem",
+                color: "#7A6E62",
+                lineHeight: 1.65,
+                borderTop: "1px solid #2A2318",
+                paddingTop: 20,
+                margin: 0,
+              }}
+            >
+              If performance improves, you know why. If something is
+              underperforming, you know who owns it.
+            </p>
           </div>
+
         </div>
       </div>
     </section>
