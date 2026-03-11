@@ -75,7 +75,7 @@ export default function PricingStatement() {
         <AnimatedSection direction="up" className="text-center mb-4">
           <h2
             className="font-bold text-white"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+            style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.4rem)" }}
           >
             One person.{" "}
             <span
@@ -91,9 +91,9 @@ export default function PricingStatement() {
         <AnimatedSection direction="up" delay={0.05} className="text-center mb-12">
           <p
             style={{
-              fontSize: "1rem",
+              fontSize: "0.9375rem",
               color: "#A69D8D",
-              maxWidth: 500,
+              maxWidth: 420,
               margin: "0 auto",
               lineHeight: 1.65,
             }}
@@ -106,7 +106,7 @@ export default function PricingStatement() {
         {/* Two-column core zone */}
         <div className="flex flex-col md:flex-row gap-6">
           {/* Left — Founder trust panel */}
-          <AnimatedSection direction="left" delay={0} className="flex-1 min-w-0">
+          <AnimatedSection direction="left" delay={0} className="flex-1 min-w-0 md:flex-none md:w-[43%]">
             <div
               className="relative rounded-2xl overflow-hidden pricing-left-card"
               style={{ minHeight: 520 }}
@@ -123,7 +123,7 @@ export default function PricingStatement() {
                   quality={80}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="block w-full h-full object-cover object-top"
-                  style={{ borderRadius: 16 }}
+                  style={{ borderRadius: 16, filter: "brightness(0.87)" }}
                   priority
                 />
               </div>
@@ -236,7 +236,7 @@ export default function PricingStatement() {
               </p>
 
               {/* Price */}
-              <div className="mb-1 stat-glow" style={{ position: "relative" }}>
+              <div className="mb-2 stat-glow" style={{ position: "relative" }}>
                 <span
                   ref={priceRef}
                   className="font-extrabold text-white"
@@ -269,7 +269,7 @@ export default function PricingStatement() {
                 weekly optimization.
               </p>
               <p
-                className="mb-6"
+                className="mb-5"
                 style={{
                   fontSize: "0.75rem",
                   color: "#4A4540",
@@ -287,7 +287,7 @@ export default function PricingStatement() {
               />
 
               {/* Grouped features */}
-              <div className="mb-8 space-y-5">
+              <div className="mb-6 space-y-4">
                 {/* Acquisition System */}
                 <div>
                   <p
@@ -368,7 +368,7 @@ export default function PricingStatement() {
                   className="text-center"
                   style={{ fontSize: "0.72rem", color: "#756D63" }}
                 >
-                  Short application. I respond within one business day.
+                  Short application. I review every fit personally.
                 </p>
               </div>
             </div>
@@ -390,17 +390,17 @@ export default function PricingStatement() {
                 direction="up"
                 delay={0.1 + i * 0.07}
               >
-                <div className="flex flex-col" style={{ gap: 6 }}>
+                <div className="flex flex-col" style={{ gap: 4 }}>
                   <p
                     className="font-semibold text-white"
-                    style={{ fontSize: "0.875rem" }}
+                    style={{ fontSize: "0.9rem" }}
                   >
                     {item.title}
                   </p>
                   <p
                     style={{
                       fontSize: "0.8rem",
-                      color: "#756D63",
+                      color: "#A69D8D",
                       lineHeight: 1.6,
                     }}
                   >
