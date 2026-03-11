@@ -3,26 +3,34 @@
 export default function TestimonialBlock() {
   return (
     <section
-      className="px-6 md:px-12 lg:px-20 py-16 border-t border-[#2A2318]"
-      style={{ background: "#131009" }}
+      className="px-6 md:px-12 lg:px-20 py-12"
+      style={{
+        background: "#131009",
+        borderTop: "1px solid rgba(212, 168, 83, 0.12)",
+      }}
     >
-      <div className="max-w-[800px] mx-auto text-center">
+      <div className="max-w-[600px] mx-auto text-center">
         <blockquote
-          className="text-lg md:text-xl leading-relaxed font-medium"
-          style={{ color: "#D2C9B8" }}
+          className="font-medium leading-relaxed"
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            color: "#F5F0E8",
+          }}
         >
-          &ldquo;Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.&rdquo;
+          <span style={{ color: "#D4A853" }}>&ldquo;</span>Juan rebuilt our
+          entire online presence from scratch. First booking came in 11 days.
+          Calendar has not had a gap since.&rdquo;
         </blockquote>
 
-        <div className="mt-6 flex items-center justify-center gap-4">
+        <div className="mt-7 flex items-center justify-center gap-4">
           <div
-            className="w-12 h-12 rounded-full overflow-hidden border-2 flex items-center justify-center shrink-0 bg-zinc-800"
-            style={{ borderColor: "#2A2318" }}
+            className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center shrink-0 bg-zinc-800"
+            style={{ border: "1px solid #2A2318" }}
           >
             <img
               src="/images/logos/culture.png"
               alt="Culture Barbershop"
-              className="w-8 h-8 object-contain"
+              className="w-7 h-7 object-contain"
             />
           </div>
           <div className="text-left">
@@ -35,8 +43,8 @@ export default function TestimonialBlock() {
           </div>
         </div>
 
-        <p className="mt-4 text-xs" style={{ color: "#4A4540" }}>
-          Result: First Google-sourced booking within 18 days of going live.
+        <p className="mt-8" style={{ fontSize: "0.78rem", color: "#4A4540" }}>
+          Every result on this page came from the same acquisition system.
         </p>
       </div>
     </section>

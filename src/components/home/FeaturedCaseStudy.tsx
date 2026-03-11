@@ -46,18 +46,16 @@ function CountUpRevenue({ to, prefix = "" }: { to: number; prefix?: string }) {
     return () => ctx.revert();
   }, [to, prefix]);
 
-  return <span ref={ref}>{prefix}{display.toLocaleString("en-US")}</span>;
+  return (
+    <span ref={ref}>
+      {prefix}
+      {display.toLocaleString("en-US")}
+    </span>
+  );
 }
-
-const stats2 = [
-  { label: "LOCAL SEO", value: "Page 1", sub: "Under 60 days. Competitive TX market. Painting contractor." },
-  { label: "COST PER LEAD", value: "$33", sub: "Avg cost per qualified inbound call. All active accounts. Q4 2025." },
-  { label: "TIME TO FIRST CALL", value: "11 days", sub: "Median across all clients and niches." },
-];
 
 export default function FeaturedCaseStudy() {
   const tripleWRef = useRef<HTMLDivElement>(null);
-
   const statCardsRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -106,19 +104,26 @@ export default function FeaturedCaseStudy() {
 
   return (
     <SectionWrapper ref={sectionRef} id="proof" style={{ background: "#131009" }}>
+      {/* Section header */}
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
         <SectionLabel label="PROOF" className="mb-5 !text-[#D4A853]" />
         <h2 className="text-[clamp(32px,5vw,48px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto">
           <span className="text-white font-bold">
             $41,085 from $900 in ad spend.
           </span>{" "}
-          <span className="italic" style={{ fontFamily: "var(--font-playfair), Georgia, serif", color: "#A69D8D" }}>
+          <span
+            className="italic"
+            style={{
+              fontFamily: "var(--font-playfair), Georgia, serif",
+              color: "#A69D8D",
+            }}
+          >
             Page 1 in under 60 days.
           </span>
         </h2>
       </Reveal>
 
-      {/* Triple W Rentals - revenue story */}
+      {/* — FLAGSHIP: Triple W Rentals — */}
       <Reveal delay={0.1}>
         <div ref={tripleWRef} className="max-w-3xl mx-auto mb-8 proof-cards">
           <div
@@ -129,11 +134,22 @@ export default function FeaturedCaseStudy() {
               borderTop: "3px solid #D4A853",
             }}
           >
-            <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#756D63", textTransform: "uppercase", marginBottom: 16 }}>
+            <p
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "#756D63",
+                textTransform: "uppercase",
+                marginBottom: 16,
+              }}
+            >
               RV RENTAL · TEXAS · GOOGLE ADS
             </p>
             <div className="stat-glow" style={{ position: "relative" }}>
-              <div className="text-[#F5F0E8] font-extrabold mb-2 stat-41085-proof stat-41085" style={{ fontSize: "5rem", lineHeight: 1 }}>
+              <div
+                className="text-[#F5F0E8] font-extrabold mb-2 stat-41085-proof stat-41085"
+                style={{ fontSize: "5rem", lineHeight: 1 }}
+              >
                 <CountUpRevenue to={41085} prefix="$" />
               </div>
             </div>
@@ -143,105 +159,235 @@ export default function FeaturedCaseStudy() {
             <div
               className="rounded-lg p-4 mt-4"
               style={{
-                background: "#1E1A14",
+                background: "#181410",
                 border: "1px solid #2A2318",
                 fontSize: "0.8rem",
                 color: "#756D63",
                 fontStyle: "italic",
               }}
             >
-              Every $1 in ad spend returned $46 in revenue. Live account. Last verified February 2026.
+              Every $1 in ad spend returned $46 in revenue. Live account. Last
+              verified February 2026.
             </div>
             <div className="mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-              <span className="text-[11px] text-zinc-400">$41K revenue, 30 days</span>
+              <span className="text-[11px] text-zinc-400">
+                $41K revenue, 30 days
+              </span>
             </div>
           </div>
         </div>
       </Reveal>
 
-      {/* Absolute Painting - ranking story */}
+      {/* — SUPPORTING: Absolute Painting — */}
       <Reveal delay={0.15}>
         <div className="max-w-3xl mx-auto">
           <div
-            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card case-study-card-secondary"
+            className="rounded-[14px] px-8 sm:px-10 py-8 sm:py-10 overflow-hidden lift-card case-study-card case-study-card-secondary"
             style={{
               background: "#1E1A14",
               border: "1px solid #2A2318",
-              borderTop: "3px solid rgba(212, 168, 83, 0.42)",
+              borderTop: "2px solid rgba(212, 168, 83, 0.2)",
             }}
           >
-            <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "#756D63", textTransform: "uppercase", marginBottom: 16 }}>
+            <p
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "#756D63",
+                textTransform: "uppercase",
+                marginBottom: 14,
+              }}
+            >
               PAINTING CONTRACTOR · TEXAS · GOOGLE ADS + SEO
             </p>
-            <div className="text-white font-extrabold mb-1" style={{ fontSize: "5rem", lineHeight: 1 }}>
-              Page 1
-            </div>
-            <p style={{ fontSize: "1rem", color: "#A69D8D", marginBottom: 24 }}>
-              in under 60 days.
-            </p>
-            <div className="stat-glow" style={{ position: "relative", marginBottom: 8 }}>
-              <div style={{
-                fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-                fontWeight: 800,
-                color: "#F5F0E8",
-              }}>
-                $33
+
+            {/* Two-stat compact row */}
+            <div className="flex flex-wrap items-end gap-x-10 gap-y-4 mb-5">
+              <div>
+                <div
+                  className="text-white font-extrabold"
+                  style={{ fontSize: "2.75rem", lineHeight: 1 }}
+                >
+                  Page 1
+                </div>
+                <p
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#A69D8D",
+                    marginTop: 5,
+                  }}
+                >
+                  in under 60 days
+                </p>
+              </div>
+              <div>
+                <div
+                  style={{
+                    fontSize: "2.75rem",
+                    fontWeight: 800,
+                    color: "#F5F0E8",
+                    lineHeight: 1,
+                  }}
+                >
+                  $33
+                </div>
+                <p
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#A69D8D",
+                    marginTop: 5,
+                  }}
+                >
+                  avg cost per qualified call
+                </p>
               </div>
             </div>
-            <p style={{ color: "#D2C9B8", fontSize: "0.9rem", marginBottom: 8 }}>
-              avg cost per qualified inbound call
-            </p>
-            <p style={{ fontSize: "0.85rem", color: "#A69D8D", fontStyle: "italic" }}>
-              Competitive DFW painting market. Ranking above national lead gen sites. Last verified Q4 2025.
+
+            <p
+              style={{
+                fontSize: "0.8rem",
+                color: "#756D63",
+                fontStyle: "italic",
+              }}
+            >
+              Competitive DFW market. Ranking above national lead gen sites.
+              Last verified Q4 2025.
             </p>
             <div className="mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-              <span className="text-[11px] text-zinc-400">Page 1 SEO, 60 days</span>
+              <span className="text-[11px] text-zinc-400">
+                Page 1 SEO, 60 days
+              </span>
             </div>
           </div>
         </div>
       </Reveal>
 
+      {/* — AGGREGATE EVIDENCE — */}
       <Reveal delay={0.2}>
-        <div className="text-center" style={{ marginTop: 24, marginBottom: 40 }}>
-          <Link
-            href="/results"
-            className="inline-block hover:underline"
-            style={{ color: "#A69D8D", fontSize: "0.9rem" }}
+        <div
+          ref={statCardsRef}
+          className="max-w-4xl mx-auto"
+          style={{ marginTop: 48 }}
+        >
+          <p
+            className="uppercase text-center mb-6"
+            style={{
+              fontSize: "0.65rem",
+              letterSpacing: "0.14em",
+              color: "#756D63",
+            }}
           >
-            See all case studies →
-          </Link>
+            ACROSS ALL ACTIVE PARTNERSHIPS
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 stat-cards">
+            <div
+              className="rounded-xl p-6 lift-card stat-card"
+              style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
+            >
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  color: "#D4A853",
+                  textTransform: "uppercase",
+                  marginBottom: 8,
+                }}
+              >
+                LOCAL SEO
+              </p>
+              <p className="text-3xl font-bold text-white">Page 1</p>
+              <p
+                style={{
+                  fontSize: "0.875rem",
+                  color: "#A69D8D",
+                  marginTop: 8,
+                }}
+              >
+                Under 60 days. Competitive TX market. Painting contractor.
+              </p>
+            </div>
+            <div
+              className="rounded-xl p-6 lift-card stat-card"
+              style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
+            >
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  color: "#D4A853",
+                  textTransform: "uppercase",
+                  marginBottom: 8,
+                }}
+              >
+                COST PER LEAD
+              </p>
+              <p className="text-3xl font-bold text-white stat-glow">
+                <span className="stat-33-card">33</span>
+              </p>
+              <p
+                style={{
+                  fontSize: "0.875rem",
+                  color: "#A69D8D",
+                  marginTop: 8,
+                }}
+              >
+                Avg cost per qualified inbound call. All active accounts.
+                Q4 2025.
+              </p>
+            </div>
+            <div
+              className="rounded-xl p-6 lift-card stat-card"
+              style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
+            >
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  color: "#D4A853",
+                  textTransform: "uppercase",
+                  marginBottom: 8,
+                }}
+              >
+                TIME TO FIRST CALL
+              </p>
+              <p className="text-3xl font-bold text-white stat-glow">
+                <span className="stat-11-card">11</span> days
+              </p>
+              <p
+                style={{
+                  fontSize: "0.875rem",
+                  color: "#A69D8D",
+                  marginTop: 8,
+                }}
+              >
+                Median across all clients and niches.
+              </p>
+            </div>
+          </div>
         </div>
       </Reveal>
 
-      {/* Aggregate stats */}
+      {/* See all case studies — after consuming all proof */}
       <Reveal delay={0.25}>
-        <div ref={statCardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto stat-cards">
-          <div
-            className="rounded-xl p-6 lift-card stat-card"
-            style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
+        <div className="text-center" style={{ marginTop: 32 }}>
+          <Link
+            href="/results"
+            className="inline-block hover:underline"
+            style={{ color: "#756D63", fontSize: "0.875rem" }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = "#A69D8D";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = "#756D63";
+            }}
           >
-            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase", marginBottom: 8 }}>LOCAL SEO</p>
-            <p className="text-3xl font-bold text-white">Page 1</p>
-            <p style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}>Under 60 days. Competitive TX market. Painting contractor.</p>
-          </div>
-          <div
-            className="rounded-xl p-6 lift-card stat-card"
-            style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
-          >
-            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase", marginBottom: 8 }}>COST PER LEAD</p>
-            <p className="text-3xl font-bold text-white stat-glow"><span className="stat-33-card">33</span></p>
-            <p style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}>Avg cost per qualified inbound call. All active accounts. Q4 2025.</p>
-          </div>
-          <div
-            className="rounded-xl p-6 lift-card stat-card"
-            style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
-          >
-            <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase", marginBottom: 8 }}>TIME TO FIRST CALL</p>
-            <p className="text-3xl font-bold text-white stat-glow"><span className="stat-11-card">11</span> days</p>
-            <p style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}>Median across all clients and niches.</p>
-          </div>
+            See all case studies →
+          </Link>
         </div>
       </Reveal>
     </SectionWrapper>
