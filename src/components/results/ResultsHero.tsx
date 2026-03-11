@@ -1,5 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
+const GridScan = dynamic(() => import("./GridScan"), { ssr: false });
+
 const evidenceStats = [
   { value: "$41,085", label: "Revenue generated", note: "Google Ads · 30 days" },
   { value: "90", label: "New clients acquired", note: "Full acquisition system" },
@@ -13,23 +17,21 @@ export default function ResultsHero() {
       className="relative pt-36 pb-20 md:pb-28"
       style={{ backgroundColor: "#0D0B09" }}
     >
-      {/* Radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212,168,83,0.08) 0%, transparent 70%)",
-        }}
-      />
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(212,168,83,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,83,0.03) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
+      {/* GridScan background */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#392e4e"
+          gridScale={0.1}
+          scanColor="#FF9FFC"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
+        />
+      </div>
 
       <div className="relative max-w-[760px] mx-auto text-center px-6">
         {/* Eyebrow */}
