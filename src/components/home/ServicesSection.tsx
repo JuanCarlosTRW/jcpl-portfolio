@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import { trackEvent } from "@/lib/analytics";
 
 const SYSTEM_GROUPS = [
   {
@@ -167,6 +168,7 @@ export default function ServicesSection() {
             href="/services"
             className="inline-block transition-colors"
             style={{ fontSize: "0.8rem", color: "#8A7E74" }}
+            onClick={() => trackEvent("services_link_clicked")}
             onMouseOver={(e) => {
               e.currentTarget.style.color = "#D2C9B8";
             }}
