@@ -3,7 +3,7 @@
 export default function TestimonialBlock() {
   return (
     <section
-      className="px-6 md:px-12 lg:px-20 py-12"
+      className="px-6 md:px-12 lg:px-20 py-10"
       style={{
         background: "#131009",
         borderTop: "1px solid rgba(212, 168, 83, 0.12)",
@@ -43,7 +43,7 @@ export default function TestimonialBlock() {
           </div>
         </div>
 
-        <p className="mt-8" style={{ fontSize: "0.78rem", color: "#4A4540" }}>
+        <p className="mt-6" style={{ fontSize: "0.78rem", color: "#756D63" }}>
           Every result on this page came from the same acquisition system.
         </p>
       </div>

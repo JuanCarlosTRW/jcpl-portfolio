@@ -5,20 +5,40 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 
 const SYSTEM_GROUPS = [
   {
+    seq: "01",
     label: "ATTRACT",
-    items: ["Google Ads", "Local SEO", "GEO / AI Search"],
+    items: [
+      { name: "Google Ads", desc: "Buyers with intent" },
+      { name: "Local SEO", desc: "Ranking where they search" },
+      { name: "GEO / AI Search", desc: "AI search visibility" },
+    ],
     borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
+    bg: "#181410",
+    highlighted: false,
   },
   {
+    seq: "02",
     label: "CONVERT",
-    items: ["Conversion Website", "Conversion Copy", "AI Voice Agent"],
+    items: [
+      { name: "Conversion Website", desc: "Built to close" },
+      { name: "Conversion Copy", desc: "Language that converts" },
+      { name: "AI Voice Agent", desc: "No missed calls" },
+    ],
     borderStyle: "2px solid #D4A853",
+    bg: "#1E1A14",
     highlighted: true,
   },
   {
+    seq: "03",
     label: "COMPOUND",
-    items: ["Weekly Optimization", "Monthly Reporting", "Expansion Layers"],
+    items: [
+      { name: "Weekly Optimization", desc: "Continuous improvement" },
+      { name: "Monthly Reporting", desc: "Full revenue clarity" },
+      { name: "Expansion Layers", desc: "Scale when ready" },
+    ],
     borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
+    bg: "#181410",
+    highlighted: false,
   },
 ];
 
@@ -35,7 +55,7 @@ export default function ServicesSection() {
     >
       <div className="max-w-[900px] mx-auto px-4 sm:px-6">
         {/* Section label + heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <p
             className="uppercase mb-4"
             style={{
@@ -77,33 +97,63 @@ export default function ServicesSection() {
               key={group.label}
               className="rounded-[14px] p-7"
               style={{
-                background: "#181410",
+                background: group.bg,
                 border: "1px solid #2A2318",
                 borderTop: group.borderStyle,
               }}
             >
+              {/* Sequence + label */}
               <p
-                className="uppercase mb-5"
+                className="uppercase mb-6"
                 style={{
                   fontSize: "0.65rem",
                   letterSpacing: "0.14em",
-                  color: group.highlighted ? "#D4A853" : "#756D63",
                   fontWeight: 600,
                 }}
               >
-                {group.label}
+                <span style={{ color: "#4A4540", marginRight: 7 }}>
+                  {group.seq}
+                </span>
+                <span
+                  style={{
+                    color: group.highlighted ? "#D4A853" : "#756D63",
+                  }}
+                >
+                  {group.label}
+                </span>
               </p>
-              <ul className="space-y-3">
-                {group.items.map((item) => (
+
+              {/* Items with micro-descriptors */}
+              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                {group.items.map((item, idx) => (
                   <li
-                    key={item}
+                    key={item.name}
                     style={{
-                      fontSize: "0.9rem",
-                      color: group.highlighted ? "#D2C9B8" : "#A69D8D",
-                      lineHeight: 1.4,
+                      marginBottom:
+                        idx < group.items.length - 1 ? 14 : 0,
                     }}
                   >
-                    {item}
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: "0.9rem",
+                        color: group.highlighted ? "#D2C9B8" : "#A69D8D",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {item.name}
+                    </span>
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: "0.72rem",
+                        color: "#4A4540",
+                        marginTop: 2,
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {item.desc}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -116,12 +166,12 @@ export default function ServicesSection() {
           <Link
             href="/services"
             className="inline-block transition-colors"
-            style={{ fontSize: "0.8rem", color: "#4A4540" }}
+            style={{ fontSize: "0.8rem", color: "#756D63" }}
             onMouseOver={(e) => {
-              e.currentTarget.style.color = "#756D63";
+              e.currentTarget.style.color = "#A69D8D";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.color = "#4A4540";
+              e.currentTarget.style.color = "#756D63";
             }}
           >
             Full system architecture → /services

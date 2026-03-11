@@ -125,7 +125,7 @@ export default function FeaturedCaseStudy() {
 
       {/* — FLAGSHIP: Triple W Rentals — */}
       <Reveal delay={0.1}>
-        <div ref={tripleWRef} className="max-w-3xl mx-auto mb-8 proof-cards">
+        <div ref={tripleWRef} className="max-w-3xl mx-auto mb-6 proof-cards">
           <div
             className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card case-study-card-primary"
             style={{
@@ -134,6 +134,7 @@ export default function FeaturedCaseStudy() {
               borderTop: "3px solid #D4A853",
             }}
           >
+            {/* Niche / location / channel */}
             <p
               style={{
                 fontSize: "0.7rem",
@@ -145,6 +146,8 @@ export default function FeaturedCaseStudy() {
             >
               RV RENTAL · TEXAS · GOOGLE ADS
             </p>
+
+            {/* Core result */}
             <div className="stat-glow" style={{ position: "relative" }}>
               <div
                 className="text-[#F5F0E8] font-extrabold mb-2 stat-41085-proof stat-41085"
@@ -153,23 +156,35 @@ export default function FeaturedCaseStudy() {
                 <CountUpRevenue to={41085} prefix="$" />
               </div>
             </div>
-            <p style={{ fontSize: "1rem", color: "#A69D8D", marginBottom: 24 }}>
+            <p style={{ fontSize: "1rem", color: "#A69D8D", marginBottom: 20 }}>
               in revenue. First 30 days.
             </p>
-            <div
-              className="rounded-lg p-4 mt-4"
+
+            {/* Commercial meaning — visible, not buried */}
+            <p
               style={{
-                background: "#181410",
-                border: "1px solid #2A2318",
-                fontSize: "0.8rem",
-                color: "#756D63",
-                fontStyle: "italic",
+                fontSize: "0.9rem",
+                color: "#D2C9B8",
+                marginBottom: 8,
               }}
             >
-              Every $1 in ad spend returned $46 in revenue. Live account. Last
-              verified February 2026.
-            </div>
-            <div className="mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
+              $46 returned per dollar of ad spend.
+            </p>
+
+            {/* Verification */}
+            <p
+              style={{
+                fontSize: "0.72rem",
+                color: "#756D63",
+                fontStyle: "italic",
+                marginBottom: 16,
+              }}
+            >
+              Live account. Last verified February 2026.
+            </p>
+
+            {/* Support chip */}
+            <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
               <span className="text-[11px] text-zinc-400">
                 $41K revenue, 30 days
@@ -177,6 +192,20 @@ export default function FeaturedCaseStudy() {
             </div>
           </div>
         </div>
+      </Reveal>
+
+      {/* Repeatability bridge */}
+      <Reveal delay={0.13}>
+        <p
+          className="text-center uppercase max-w-3xl mx-auto mb-6"
+          style={{
+            fontSize: "0.62rem",
+            letterSpacing: "0.14em",
+            color: "#756D63",
+          }}
+        >
+          Confirming the pattern
+        </p>
       </Reveal>
 
       {/* — SUPPORTING: Absolute Painting — */}
@@ -276,7 +305,7 @@ export default function FeaturedCaseStudy() {
             style={{
               fontSize: "0.65rem",
               letterSpacing: "0.14em",
-              color: "#756D63",
+              color: "#A69D8D",
             }}
           >
             ACROSS ALL ACTIVE PARTNERSHIPS
@@ -300,11 +329,7 @@ export default function FeaturedCaseStudy() {
               </p>
               <p className="text-3xl font-bold text-white">Page 1</p>
               <p
-                style={{
-                  fontSize: "0.875rem",
-                  color: "#A69D8D",
-                  marginTop: 8,
-                }}
+                style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
                 Under 60 days. Competitive TX market. Painting contractor.
               </p>
@@ -329,11 +354,7 @@ export default function FeaturedCaseStudy() {
                 <span className="stat-33-card">33</span>
               </p>
               <p
-                style={{
-                  fontSize: "0.875rem",
-                  color: "#A69D8D",
-                  marginTop: 8,
-                }}
+                style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
                 Avg cost per qualified inbound call. All active accounts.
                 Q4 2025.
@@ -359,11 +380,7 @@ export default function FeaturedCaseStudy() {
                 <span className="stat-11-card">11</span> days
               </p>
               <p
-                style={{
-                  fontSize: "0.875rem",
-                  color: "#A69D8D",
-                  marginTop: 8,
-                }}
+                style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
                 Median across all clients and niches.
               </p>
@@ -372,7 +389,7 @@ export default function FeaturedCaseStudy() {
         </div>
       </Reveal>
 
-      {/* See all case studies — after consuming all proof */}
+      {/* Overflow — after consuming all evidence */}
       <Reveal delay={0.25}>
         <div className="text-center" style={{ marginTop: 32 }}>
           <Link
