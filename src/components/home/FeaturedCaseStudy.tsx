@@ -331,7 +331,7 @@ export default function FeaturedCaseStudy() {
               <p
                 style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
-                Under 60 days. Competitive TX market. Painting contractor.
+                Under 60 days. Competitive TX market.
               </p>
             </div>
             <div
@@ -351,13 +351,12 @@ export default function FeaturedCaseStudy() {
                 COST PER LEAD
               </p>
               <p className="text-3xl font-bold text-white stat-glow">
-                <span className="stat-33-card">33</span>
+                <span className="stat-33-card">$33</span>
               </p>
               <p
                 style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
-                Avg cost per qualified inbound call. All active accounts.
-                Q4 2025.
+                Avg cost per qualified call. All active accounts.
               </p>
             </div>
             <div
@@ -382,7 +381,7 @@ export default function FeaturedCaseStudy() {
               <p
                 style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
-                Median across all clients and niches.
+                Median across all active accounts.
               </p>
             </div>
           </div>

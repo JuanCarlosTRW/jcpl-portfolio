@@ -26,11 +26,11 @@ const FEATURES_OWNERSHIP = [
 const ASSURANCES = [
   {
     title: "90-day initial term",
-    body: "Month-to-month after that. No lock-in once the system is proven.",
+    body: "Month-to-month after that.",
   },
   {
     title: "No payment before fit",
-    body: "I confirm strategic fit on the call. If I can't move the needle, I'll say so before you pay anything.",
+    body: "I confirm strategic fit on the call before you pay anything.",
   },
   {
     title: "You own everything",
@@ -114,7 +114,6 @@ export default function PricingStatement() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="block w-full h-full object-cover object-top"
                   style={{ borderRadius: 16, filter: "brightness(0.87)" }}
-                  priority
                 />
               </div>
 
@@ -247,7 +246,7 @@ export default function PricingStatement() {
 
               {/* Subcopy */}
               <p
-                className="mb-1"
+                className="mb-5"
                 style={{
                   fontSize: "0.8rem",
                   color: "#A69D8D",
@@ -256,17 +255,6 @@ export default function PricingStatement() {
               >
                 Core growth system: conversion site, local SEO, Google Ads, and
                 weekly optimization.
-              </p>
-              <p
-                className="mb-5"
-                style={{
-                  fontSize: "0.75rem",
-                  color: "#4A4540",
-                  lineHeight: 1.55,
-                }}
-              >
-                Expands with multi-city campaigns, AI voice agent, and deeper
-                strategic scope.
               </p>
 
               {/* Divider */}

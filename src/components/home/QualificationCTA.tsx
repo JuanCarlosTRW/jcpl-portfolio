@@ -39,7 +39,7 @@ export default function QualificationCTA() {
               </span>
             </h2>
             <p className="text-[#A69D8D] text-base md:text-lg text-center">
-              I only work with businesses I know I can move the needle for. Read both sides before applying.
+              I only work with businesses I can move the needle for.
             </p>
           </div>
 

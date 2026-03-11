@@ -57,19 +57,8 @@ export default function ClientReality() {
               Your Pipeline Shouldn&apos;t Be This Fragile.
             </span>
           </h2>
-          <p className="mx-auto mb-2 max-w-[580px] text-[clamp(15.5px,1.7vw,17.5px)] font-[400] leading-[1.7] text-[#8A7E74]">
+          <p className="mx-auto mb-6 max-w-[580px] text-[clamp(15.5px,1.7vw,17.5px)] font-[400] leading-[1.7] text-[#8A7E74]">
             Untracked demand. A site that doesn&apos;t convert. No follow-up.
-          </p>
-          <p
-            className="mx-auto mb-6 max-w-[580px]"
-            style={{
-              fontSize: "clamp(15px,1.6vw,17px)",
-              fontWeight: 500,
-              lineHeight: 1.6,
-              color: "#A09080",
-            }}
-          >
-            Small gaps. Expensive outcome.
           </p>
           <p
             className="mx-auto"

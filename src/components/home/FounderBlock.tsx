@@ -60,7 +60,7 @@ export default function FounderBlock() {
                 lineHeight: 1.75,
               }}
             >
-              Every system I build gets my direct attention, every week. No junior staff on your account. No account manager between us. When something breaks at 9 PM, I fix it that night.
+              Every system I build gets my direct attention, every week. When something breaks, I fix it — not an account manager.
             </p>
 
             <p
@@ -71,7 +71,7 @@ export default function FounderBlock() {
                 lineHeight: 1.75,
               }}
             >
-              I own every system from diagnostic to first booked call. No handoffs. Direct access. That is not a limitation of this model — it is the point.
+              I own every system — from diagnostic to first booked call. No handoffs. That is not a limitation of this model. It is the point.
             </p>
 
             <div className="flex flex-wrap gap-2" style={{ gap: 8 }}>

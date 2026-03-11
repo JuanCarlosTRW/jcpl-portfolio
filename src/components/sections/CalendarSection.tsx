@@ -89,12 +89,8 @@ export default function CalendarSection() {
                 {t<string>("bookCall.headline")}
               </h2>
 
-              <p className="mt-4 text-sm text-white/70 leading-relaxed">
-                {t<string>("bookCall.body")}
-              </p>
-
               {/* What happens on the call */}
-              <div className="mt-8 space-y-5">
+              <div className="mt-6 space-y-5">
                 {DIAGNOSTIC_STEPS.map((step) => (
                   <div key={step.num} className="flex items-start gap-3">
                     <span
