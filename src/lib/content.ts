@@ -119,7 +119,7 @@ export const clientReality = {
   pains: [
     {
       icon: "ghost",
-      title: "Right Now, People in Your City Are Searching for Exactly What You Do.",
+      title: "People in Your City Are Searching. You're Easy to Miss.",
       detail: "If you don't show up where they look — Google, Maps, AI search — that call goes somewhere else. Before you knew it existed."
     },
     {

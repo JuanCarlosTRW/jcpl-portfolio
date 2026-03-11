@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function sliderStyle(value: number, min: number, max: number): React.CSSProperties {
   const pct = ((value - min) / (max - min)) * 100;
@@ -8,6 +8,25 @@ function sliderStyle(value: number, min: number, max: number): React.CSSProperti
     background: `linear-gradient(to right, rgba(212,168,83,0.90) ${pct}%, rgba(255,255,255,0.08) ${pct}%)`,
   };
 }
+
+const SLIDER_CLASS = `
+  w-full h-[3px] rounded-full appearance-none cursor-pointer
+  [&::-webkit-slider-thumb]:appearance-none
+  [&::-webkit-slider-thumb]:w-[22px]
+  [&::-webkit-slider-thumb]:h-[22px]
+  [&::-webkit-slider-thumb]:rounded-full
+  [&::-webkit-slider-thumb]:bg-[#F0EBE0]
+  [&::-webkit-slider-thumb]:shadow-[0_1px_4px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.12)]
+  [&::-webkit-slider-thumb]:cursor-pointer
+  [&::-webkit-slider-thumb]:transition-transform
+  [&::-webkit-slider-thumb:active]:scale-110
+  [&::-moz-range-thumb]:w-[22px]
+  [&::-moz-range-thumb]:h-[22px]
+  [&::-moz-range-thumb]:rounded-full
+  [&::-moz-range-thumb]:bg-[#F0EBE0]
+  [&::-moz-range-thumb]:border-0
+  [&::-moz-range-thumb]:cursor-pointer
+`.trim();
 
 export default function ROICalculator() {
   const [jobValue, setJobValue] = useState(1500);
@@ -17,6 +36,18 @@ export default function ROICalculator() {
   const monthlyCost = callsNeeded * costPerCall;
   const monthlyRevenue = callsNeeded * jobValue;
   const roi = monthlyRevenue / monthlyCost;
+
+  // Micro-feedback: briefly brighten the revenue number on slider change
+  const [revenueHighlight, setRevenueHighlight] = useState(false);
+  const prevRevenue = useRef(monthlyRevenue);
+  useEffect(() => {
+    if (prevRevenue.current !== monthlyRevenue) {
+      prevRevenue.current = monthlyRevenue;
+      setRevenueHighlight(true);
+      const t = setTimeout(() => setRevenueHighlight(false), 220);
+      return () => clearTimeout(t);
+    }
+  }, [monthlyRevenue]);
 
   return (
     <section
@@ -30,11 +61,7 @@ export default function ROICalculator() {
           <div className="h-px w-8" style={{ background: "rgba(212,168,83,0.55)" }} />
           <span
             className="uppercase font-semibold"
-            style={{
-              fontSize: "10px",
-              letterSpacing: "0.22em",
-              color: "#8A7E74",
-            }}
+            style={{ fontSize: "10px", letterSpacing: "0.22em", color: "#8A7E74" }}
           >
             Unit Economics
           </span>
@@ -52,29 +79,28 @@ export default function ROICalculator() {
           Run the Math.
         </h2>
         <p
-          className="mt-3 max-w-[520px]"
+          className="mt-3 max-w-[500px]"
           style={{
             fontSize: "clamp(0.9375rem, 1.4vw, 1.0625rem)",
             lineHeight: 1.65,
             color: "#8A7E74",
           }}
         >
-          At $33 per qualified call, this is what the economics look like with your
-          numbers. Not projections. Just math.
+          At $33 per qualified call, this is what the numbers look like for
+          your business. Not projections. Just math.
         </p>
 
-        {/* Grid */}
+        {/* Two-column grid */}
         <div className="mt-12 md:mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* ── Inputs ── */}
-          <div className="space-y-10">
+          <div className="space-y-12">
 
             {/* Slider 1 — Job Value */}
             <div>
-              <div className="flex justify-between items-baseline mb-3.5">
+              <div className="flex justify-between items-baseline mb-4">
                 <label
-                  className="leading-snug"
-                  style={{ fontSize: "0.8125rem", color: "#8A7E74" }}
+                  style={{ fontSize: "0.8125rem", color: "#8A7E74", lineHeight: 1.4 }}
                 >
                   Average job value
                 </label>
@@ -93,26 +119,11 @@ export default function ROICalculator() {
                 value={jobValue}
                 onChange={(e) => setJobValue(Number(e.target.value))}
                 style={sliderStyle(jobValue, 200, 10000)}
-                className="w-full h-[3px] rounded-full appearance-none cursor-pointer
-                  [&::-webkit-slider-thumb]:appearance-none
-                  [&::-webkit-slider-thumb]:w-[22px]
-                  [&::-webkit-slider-thumb]:h-[22px]
-                  [&::-webkit-slider-thumb]:rounded-full
-                  [&::-webkit-slider-thumb]:bg-[#F0EBE0]
-                  [&::-webkit-slider-thumb]:shadow-[0_1px_4px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.12)]
-                  [&::-webkit-slider-thumb]:cursor-pointer
-                  [&::-webkit-slider-thumb]:transition-transform
-                  [&::-webkit-slider-thumb:active]:scale-110
-                  [&::-moz-range-thumb]:w-[22px]
-                  [&::-moz-range-thumb]:h-[22px]
-                  [&::-moz-range-thumb]:rounded-full
-                  [&::-moz-range-thumb]:bg-[#F0EBE0]
-                  [&::-moz-range-thumb]:border-0
-                  [&::-moz-range-thumb]:cursor-pointer"
+                className={SLIDER_CLASS}
               />
               <div
-                className="flex justify-between mt-2"
-                style={{ fontSize: "0.75rem", color: "#5A5248" }}
+                className="flex justify-between mt-2.5"
+                style={{ fontSize: "0.75rem", color: "#7A7068" }}
               >
                 <span>$200</span>
                 <span>$10,000</span>
@@ -121,9 +132,9 @@ export default function ROICalculator() {
 
             {/* Slider 2 — Calls per month */}
             <div>
-              <div className="flex justify-between items-baseline mb-3.5">
+              <div className="flex justify-between items-baseline mb-4">
                 <label
-                  className="leading-snug max-w-[220px]"
+                  className="max-w-[200px] leading-snug"
                   style={{ fontSize: "0.8125rem", color: "#8A7E74" }}
                 >
                   Qualified calls needed per month
@@ -143,26 +154,11 @@ export default function ROICalculator() {
                 value={callsNeeded}
                 onChange={(e) => setCallsNeeded(Number(e.target.value))}
                 style={sliderStyle(callsNeeded, 3, 30)}
-                className="w-full h-[3px] rounded-full appearance-none cursor-pointer
-                  [&::-webkit-slider-thumb]:appearance-none
-                  [&::-webkit-slider-thumb]:w-[22px]
-                  [&::-webkit-slider-thumb]:h-[22px]
-                  [&::-webkit-slider-thumb]:rounded-full
-                  [&::-webkit-slider-thumb]:bg-[#F0EBE0]
-                  [&::-webkit-slider-thumb]:shadow-[0_1px_4px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.12)]
-                  [&::-webkit-slider-thumb]:cursor-pointer
-                  [&::-webkit-slider-thumb]:transition-transform
-                  [&::-webkit-slider-thumb:active]:scale-110
-                  [&::-moz-range-thumb]:w-[22px]
-                  [&::-moz-range-thumb]:h-[22px]
-                  [&::-moz-range-thumb]:rounded-full
-                  [&::-moz-range-thumb]:bg-[#F0EBE0]
-                  [&::-moz-range-thumb]:border-0
-                  [&::-moz-range-thumb]:cursor-pointer"
+                className={SLIDER_CLASS}
               />
               <div
-                className="flex justify-between mt-2"
-                style={{ fontSize: "0.75rem", color: "#5A5248" }}
+                className="flex justify-between mt-2.5"
+                style={{ fontSize: "0.75rem", color: "#7A7068" }}
               >
                 <span>3 calls</span>
                 <span>30 calls</span>
@@ -181,38 +177,38 @@ export default function ROICalculator() {
 
           {/* ── Results Card ── */}
           <div
-            className="rounded-[16px] p-8 md:p-9 flex flex-col gap-0"
+            className="rounded-[16px] p-8 md:p-9 flex flex-col"
             style={{
               background: "#1A1610",
               border: "1px solid #2A2318",
               borderLeft: "3px solid rgba(212,168,83,0.45)",
-              boxShadow: "0 0 60px rgba(212,168,83,0.04)",
+              boxShadow: "0 4px 40px rgba(0,0,0,0.30), 0 0 60px rgba(212,168,83,0.04)",
             }}
           >
 
             {/* Monthly Investment */}
-            <div className="pb-7">
+            <div className="pb-6">
               <p
-                className="mb-1.5 uppercase tracking-[0.14em]"
+                className="mb-1 uppercase tracking-[0.14em]"
                 style={{ fontSize: "0.6875rem", color: "#5A5248", fontWeight: 600 }}
               >
                 Monthly Investment
               </p>
               <p
                 className="tabular-nums font-semibold text-[#F5F0E8]"
-                style={{ fontSize: "1.875rem", letterSpacing: "-0.024em" }}
+                style={{ fontSize: "1.375rem", letterSpacing: "-0.02em" }}
               >
                 ${monthlyCost.toLocaleString()}
               </p>
-              <p style={{ fontSize: "0.75rem", color: "#5A5248", marginTop: "0.25rem" }}>
+              <p style={{ fontSize: "0.75rem", color: "#4A4440", marginTop: "0.2rem" }}>
                 {callsNeeded} calls × $33 per call
               </p>
             </div>
 
-            <div style={{ height: 1, background: "#2A2318", marginBottom: "1.75rem" }} />
+            <div style={{ height: 1, background: "#2A2318", marginBottom: "1.625rem" }} />
 
             {/* Projected Revenue — emotional anchor */}
-            <div className="pb-7">
+            <div className="pb-6">
               <p
                 className="mb-2 uppercase tracking-[0.14em]"
                 style={{ fontSize: "0.6875rem", color: "#8A7E74", fontWeight: 600 }}
@@ -225,20 +221,21 @@ export default function ROICalculator() {
                   fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
                   letterSpacing: "-0.032em",
                   lineHeight: 1,
-                  color: "#D4A853",
+                  color: revenueHighlight ? "#E8C06A" : "#D4A853",
+                  transition: "color 220ms ease",
                 }}
               >
                 ${monthlyRevenue.toLocaleString()}
               </p>
-              <p style={{ fontSize: "0.75rem", color: "#5A5248", marginTop: "0.5rem" }}>
+              <p style={{ fontSize: "0.75rem", color: "#4A4440", marginTop: "0.5rem" }}>
                 {callsNeeded} calls × ${jobValue.toLocaleString()} avg job
               </p>
             </div>
 
-            <div style={{ height: 1, background: "#2A2318", marginBottom: "1.75rem" }} />
+            <div style={{ height: 1, background: "#2A2318", marginBottom: "1.625rem" }} />
 
             {/* Return Multiple */}
-            <div className="pb-8">
+            <div className="pb-7">
               <p
                 className="mb-1.5 uppercase tracking-[0.14em]"
                 style={{ fontSize: "0.6875rem", color: "#5A5248", fontWeight: 600 }}
@@ -264,28 +261,41 @@ export default function ROICalculator() {
               </p>
             </div>
 
-            {/* CTA */}
-            <a
-              href="#book-call"
-              className="block w-full text-center rounded-[0.6rem] font-semibold text-[#0D0B09]"
+            {/* CTA — separated with amber line, the natural conclusion of the math */}
+            <div
               style={{
-                fontSize: "0.9375rem",
-                padding: "0.925rem 1.5rem",
-                letterSpacing: "-0.01em",
-                backgroundColor: "#F0EBE0",
-                boxShadow:
-                  "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.12)",
-                transition: "background-color 180ms ease, box-shadow 220ms ease",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#EBE5D9";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#F0EBE0";
+                borderTop: "1px solid rgba(212,168,83,0.18)",
+                paddingTop: "1.625rem",
               }}
             >
-              See If Your Business Qualifies
-            </a>
+              <a
+                href="#book-call"
+                className="block w-full text-center rounded-[0.6rem] font-semibold text-[#0D0B09]"
+                style={{
+                  fontSize: "0.9375rem",
+                  padding: "0.925rem 1.5rem",
+                  letterSpacing: "-0.01em",
+                  backgroundColor: "#F0EBE0",
+                  boxShadow:
+                    "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.12)",
+                  transition: "background-color 180ms ease, box-shadow 220ms ease",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.backgroundColor = "#EBE5D9";
+                  el.style.boxShadow =
+                    "0 2px 10px rgba(0,0,0,0.52), 0 0 0 1px rgba(255,255,255,0.12), 0 1px 0 0 rgba(212,168,83,0.14), 0 6px 20px rgba(0,0,0,0.18)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.backgroundColor = "#F0EBE0";
+                  el.style.boxShadow =
+                    "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.12)";
+                }}
+              >
+                See If Your Business Qualifies
+              </a>
+            </div>
           </div>
         </div>
       </div>
