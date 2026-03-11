@@ -7,9 +7,9 @@ const caseStudies = [
     name: "Triple W Rentals",
     tag: "RV Rental · Texas",
     metric: "$41,085",
-    metricLabel: "revenue in 30 days on $900 ad spend",
+    metricLabel: "revenue. 30 days. $900 ad spend.",
     description:
-      "Zero online presence to regional market leader. Conversion site, Google Ads, and AI voice agent — live in under two weeks.",
+      "Zero presence to regional leader. Site, ads, and AI voice — live in 11 days.",
     deliverables: ["Website", "Google Ads", "AI Voice Agent", "SEO"],
     status: "active" as const,
     link: "/results#triplew",
@@ -22,7 +22,7 @@ const caseStudies = [
     metric: "90",
     metricLabel: "new clients acquired in 90 days",
     description:
-      "Positioned as top-tier in a competitive Montreal market. Premium site, local SEO, and booking flow — one connected system.",
+      "Top-tier positioning in Montreal. Site, local SEO, and booking flow.",
     deliverables: ["Website", "Local SEO", "Booking Flow"],
     status: "active" as const,
     link: "/results#elite",
@@ -33,9 +33,9 @@ const caseStudies = [
     name: "Culture Barbershop",
     tag: "Barbershop · Montreal, QC",
     metric: "Page 1",
-    metricLabel: "local SEO ranking in under 60 days",
+    metricLabel: "local SEO. Under 60 days.",
     description:
-      "Invisible online to page 1 for competitive Montreal searches. Calendar fully booked within 3 weeks of launch.",
+      "Page 1 for competitive Montreal searches. Calendar fully booked in 3 weeks.",
     deliverables: ["Website", "Local SEO", "Booking System"],
     status: "active" as const,
     link: "/results#culture",

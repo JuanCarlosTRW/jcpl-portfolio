@@ -44,7 +44,7 @@ export default function GuaranteesStrip() {
                 className="text-sm leading-relaxed"
                 style={{ color: "#D2C9B8" }}
               >
-                Every result comes from a live client account. No projections. No hypotheticals. If I can't point to a real campaign with real numbers, I don't publish it.
+                All results are from live client accounts. No projections. No hypotheticals.
               </p>
             </div>
             <div>
@@ -84,7 +84,7 @@ export default function GuaranteesStrip() {
               className="text-sm leading-relaxed"
               style={{ color: "#A69D8D" }}
             >
-              Phase 1: Market Gap Report, Funnel Audit, 90-day roadmap. Phase 2: live site, active campaigns, booking system. You approve each phase before the next starts.
+              Phase 1: market analysis and 90-day roadmap. Phase 2: live site, campaigns, and booking system. You approve before each phase starts.
             </p>
           </div>
           <div
@@ -105,7 +105,7 @@ export default function GuaranteesStrip() {
               className="text-sm leading-relaxed"
               style={{ color: "#A69D8D" }}
             >
-              The website is yours. The ad accounts are yours. The tracking is yours. Month-to-month after the initial build. If you leave tomorrow, you take everything with you.
+              Website, ad accounts, and tracking are yours. Month-to-month after build. Leave with everything.
             </p>
           </div>
           <div

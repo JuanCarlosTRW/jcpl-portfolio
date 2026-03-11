@@ -54,7 +54,7 @@ export default function TechStack() {
           Built With Infrastructure. Not Page Builders.
         </h2>
         <p className="mt-3 text-sm text-zinc-400 max-w-[520px]">
-          Your infrastructure determines load speed, search ranking, and what you own when the engagement ends. Production-grade stack. No vendor lock-in.
+          Page speed, search ranking, and full asset ownership don&apos;t happen by accident. They follow from what the infrastructure is built on.
         </p>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
