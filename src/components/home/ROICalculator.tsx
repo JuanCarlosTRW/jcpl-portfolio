@@ -100,6 +100,7 @@ export default function ROICalculator() {
             <div>
               <div className="flex justify-between items-baseline mb-4">
                 <label
+                  htmlFor="roi-job-value"
                   style={{ fontSize: "0.8125rem", color: "#8A7E74", lineHeight: 1.4 }}
                 >
                   Average job value
@@ -112,9 +113,8 @@ export default function ROICalculator() {
                 </span>
               </div>
               <input
+                id="roi-job-value"
                 type="range"
-                min={200}
-                max={10000}
                 step={100}
                 value={jobValue}
                 onChange={(e) => setJobValue(Number(e.target.value))}
@@ -134,6 +134,7 @@ export default function ROICalculator() {
             <div>
               <div className="flex justify-between items-baseline mb-4">
                 <label
+                  htmlFor="roi-calls-needed"
                   className="max-w-[200px] leading-snug"
                   style={{ fontSize: "0.8125rem", color: "#8A7E74" }}
                 >
@@ -147,6 +148,7 @@ export default function ROICalculator() {
                 </span>
               </div>
               <input
+                id="roi-calls-needed"
                 type="range"
                 min={3}
                 max={30}

@@ -166,12 +166,12 @@ export default function ServicesSection() {
           <Link
             href="/services"
             className="inline-block transition-colors"
-            style={{ fontSize: "0.8rem", color: "#756D63" }}
+            style={{ fontSize: "0.8rem", color: "#8A7E74" }}
             onMouseOver={(e) => {
-              e.currentTarget.style.color = "#A69D8D";
+              e.currentTarget.style.color = "#D2C9B8";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.color = "#756D63";
+              e.currentTarget.style.color = "#8A7E74";
             }}
           >
             Full system architecture →

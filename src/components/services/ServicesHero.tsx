@@ -26,7 +26,7 @@ export default function ServicesHero() {
             color: "#D4A853",
           }}
         >
-          CLIENT GROWTH / SERVICES
+          SERVICES
         </p>
 
         <h1

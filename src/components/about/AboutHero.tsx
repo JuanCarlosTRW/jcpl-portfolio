@@ -59,7 +59,7 @@ export default function AboutHero() {
               letterSpacing: "-0.02em",
             }}
           >
-            Juan Carlos. Growth Infrastructure<br />for Service Businesses.
+            Juan Carlos — Growth Infrastructure<br />for Service Businesses.
           </h1>
 
           {/* Sub-head */}

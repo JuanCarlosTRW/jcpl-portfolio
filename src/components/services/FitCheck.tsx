@@ -54,8 +54,8 @@ export default function FitCheck() {
             className="rounded-xl p-8 h-full"
             style={{ background: "#1E1A14", border: "1px solid rgba(255,255,255,0.08)", borderLeft: "3px solid #D4A853" }}
           >
-            <h3 className="text-[17px] font-bold mb-5 flex items-center gap-2" style={{ color: "#F5F0E8" }}>
-              <CheckIcon /> This Is for You If...
+            <h3 className="text-[17px] font-bold mb-5" style={{ color: "#F5F0E8" }}>
+              This Is for You If...
             </h3>
             <ul className="space-y-4">
               {bestFor.map((item, i) => (
@@ -71,8 +71,8 @@ export default function FitCheck() {
             className="rounded-xl p-8 h-full"
             style={{ background: "rgba(30,26,20,0.6)", border: "1px solid rgba(255,255,255,0.06)", borderLeft: "3px solid rgba(255,255,255,0.2)" }}
           >
-            <h3 className="text-[17px] font-bold mb-5 flex items-center gap-2" style={{ color: "#F5F0E8" }}>
-              <XIcon /> This Is Not for You If...
+            <h3 className="text-[17px] font-bold mb-5" style={{ color: "#F5F0E8" }}>
+              This Is Not for You If...
             </h3>
             <ul className="space-y-4">
               {notFor.map((item, i) => (
