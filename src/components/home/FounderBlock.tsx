@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const JUAN_IMG_SRC =
   "https://static.wixstatic.com/media/62f926_557272f0fa6547d9b0c8d0518959c14b~mv2.jpeg";
@@ -125,6 +126,22 @@ export default function FounderBlock() {
               If performance improves, you know why. If something is
               underperforming, you know who owns it.
             </p>
+
+            {/* Trust-deepening path */}
+            <Link
+              href="/about"
+              style={{
+                fontSize: "0.78rem",
+                color: "#5E5650",
+                letterSpacing: "-0.006em",
+                textDecoration: "none",
+                transition: "color 180ms ease",
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.color = "#A69D8D"; }}
+              onMouseOut={(e) => { e.currentTarget.style.color = "#5E5650"; }}
+            >
+              Why this model works →
+            </Link>
           </div>
 
         </div>

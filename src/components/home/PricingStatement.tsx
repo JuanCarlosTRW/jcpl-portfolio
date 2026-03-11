@@ -347,6 +347,22 @@ export default function PricingStatement() {
                 >
                   Short application. I review every fit personally.
                 </p>
+                <p className="text-center" style={{ paddingTop: 4 }}>
+                  <Link
+                    href="/services"
+                    style={{
+                      fontSize: "0.72rem",
+                      color: "#4E4845",
+                      letterSpacing: "-0.004em",
+                      textDecoration: "none",
+                      transition: "color 180ms ease",
+                    }}
+                    onMouseOver={(e) => { e.currentTarget.style.color = "#A69D8D"; }}
+                    onMouseOut={(e) => { e.currentTarget.style.color = "#4E4845"; }}
+                  >
+                    See what changes the monthly investment →
+                  </Link>
+                </p>
               </div>
             </div>
           </AnimatedSection>

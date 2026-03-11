@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import LightPillar from "./LightPillar";
 
 const ACTIVE_CLIENTS = [
@@ -276,6 +277,21 @@ export default function HeroSection() {
               >
                 Fast diagnosis. Clear next step. No pressure.
               </span>
+
+              <Link
+                href="/results"
+                style={{
+                  fontSize: "0.78rem",
+                  color: "#5E5650",
+                  letterSpacing: "-0.006em",
+                  textDecoration: "none",
+                  transition: "color 180ms ease",
+                }}
+                onMouseOver={(e) => { e.currentTarget.style.color = "#A69D8D"; }}
+                onMouseOut={(e) => { e.currentTarget.style.color = "#5E5650"; }}
+              >
+                See recent results →
+              </Link>
             </div>
           </div>
 

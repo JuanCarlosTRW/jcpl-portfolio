@@ -174,7 +174,7 @@ export default function ServicesSection() {
               e.currentTarget.style.color = "#8A7E74";
             }}
           >
-            Full system architecture →
+            See the full system →
           </Link>
         </div>
       </div>

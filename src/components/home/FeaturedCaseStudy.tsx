@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper from "@/components/ui/SectionWrapper";
@@ -384,6 +385,38 @@ export default function FeaturedCaseStudy() {
               </p>
             </div>
           </div>
+        </div>
+      </Reveal>
+
+      {/* See all results — proof continuation path */}
+      <Reveal delay={0.25}>
+        <div className="text-center mt-10">
+          <Link
+            href="/results"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              fontSize: "0.8rem",
+              letterSpacing: "-0.006em",
+              color: "#A69D8D",
+              border: "1px solid rgba(255,255,255,0.06)",
+              borderRadius: "0.5rem",
+              padding: "0.625rem 1.25rem",
+              textDecoration: "none",
+              transition: "color 180ms ease, border-color 180ms ease",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = "#D2C9B8";
+              e.currentTarget.style.borderColor = "rgba(212,168,83,0.25)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = "#A69D8D";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+            }}
+          >
+            See all results →
+          </Link>
         </div>
       </Reveal>
     </SectionWrapper>
