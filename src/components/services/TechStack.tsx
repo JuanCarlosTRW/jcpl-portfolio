@@ -5,37 +5,37 @@ const stack = [
     name: "Next.js",
     role: "Page speed",
     detail:
-      "Sub-second load times globally. Faster than anything running on WordPress or Squarespace. Load speed directly drives booking rate.",
+      "Sub-second load times globally. Faster pages book more calls.",
   },
   {
     name: "Vercel",
     role: "Reliability",
     detail:
-      "99.99% uptime on a global CDN. Your acquisition system stays live during your busiest season. No shared hosting failures.",
+      "99.99% uptime on a global CDN. No downtime during your busiest season.",
   },
   {
     name: "Google Ads",
     role: "Paid acquisition",
     detail:
-      "Purchase-intent targeting measured to cost per qualified call. Spend optimized weekly against outcomes — not impressions.",
+      "Purchase-intent targeting tracked to cost per qualified call. Optimized weekly against outcomes.",
   },
   {
     name: "Retell AI",
     role: "Lead capture",
     detail:
-      "Every inbound call captured and qualified after hours. No lead goes to voicemail. The system works while you are on a job.",
+      "Calls captured and qualified after hours. No lead goes to voicemail.",
   },
   {
     name: "Google Analytics",
     role: "Revenue attribution",
     detail:
-      "Every booking, call, and form traced back to its source. You see exactly what the system is producing and where each dollar went.",
+      "Every call and form traced to its source. You see exactly where each dollar went.",
   },
   {
     name: "Custom code",
     role: "Full ownership",
     detail:
-      "Every site hand-coded. No WordPress, no proprietary CMS, no templates. Everything built is yours — permanently — from day one.",
+      "Hand-coded. No WordPress. No templates. Everything built is yours from day one.",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function TechStack() {
           Built With Infrastructure. Not Page Builders.
         </h2>
         <p className="mt-3 text-sm text-zinc-400 max-w-[520px]">
-          Your infrastructure determines your load speed, your search ranking, and what you own when the engagement ends. This system runs on the same production-grade stack used by companies that cannot afford slow pages or vendor lock-in.
+          Your infrastructure determines load speed, search ranking, and what you own when the engagement ends. Production-grade stack. No vendor lock-in.
         </p>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -79,7 +79,7 @@ export default function TechStack() {
         </div>
 
         <p className="mt-8 text-xs max-w-[560px]" style={{ color: "#4A4540" }}>
-          Faster load reduces bounce. Custom code converts above template baseline. Full asset ownership removes platform risk. Each layer compounds the next.
+          Each layer compounds the next.
         </p>
       </div>
     </section>

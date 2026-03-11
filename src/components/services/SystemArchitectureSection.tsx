@@ -5,7 +5,7 @@ import { Reveal } from "@/components/motion";
 const coreIncludes = [
   {
     title: "Market Gap Report",
-    copy: "Before a single asset is built, you get a documented analysis of where competitors are exposed in your market. Every build decision follows from this.",
+    copy: "A documented analysis of competitor exposure in your market. Every build decision follows from this.",
   },
   {
     title: "Conversion Site",
@@ -13,7 +13,7 @@ const coreIncludes = [
   },
   {
     title: "Local Search Capture",
-    copy: "SEO infrastructure targeting buyers in your city with intent to book. Organic capture running from day one, compounding over time.",
+    copy: "Local SEO targeting buyers with intent to book. Compounds from day one.",
   },
   {
     title: "Booking Flow",
@@ -21,7 +21,7 @@ const coreIncludes = [
   },
   {
     title: "Analytics Layer",
-    copy: "Every call, form submission, and booking attributed to its source. You see exactly what the system is producing and where it came from.",
+    copy: "Every call, form, and booking attributed to its source. You see exactly what the system produces.",
   },
   {
     title: "Full Asset Ownership",
@@ -34,11 +34,11 @@ const expansionLayers = [
     num: "01",
     label: "PAID ACQUISITION LAYER",
     title: "When organic capture alone is not enough.",
-    copy: "For when you need booked calls faster than search alone delivers. Google Ads targeting active purchase intent — tracked to cost per qualified call, not impressions or clicks.",
+    copy: "Need booked calls faster than search alone delivers. Google Ads targeting active purchase intent — tracked to cost per qualified call.",
     items: [
       "Google Ads targeting high-intent service buyers in your market",
-      "Per-service and per-city landing pages built for conversion",
-      "AI voice agent for after-hours call capture — no lead lost to voicemail",
+      "Landing pages per service and city",
+      "AI voice agent for after-hours capture — no lead to voicemail",
       "Weekly optimization against cost per qualified call",
     ],
     investment: "$2,500 / month + ad spend",
@@ -48,11 +48,11 @@ const expansionLayers = [
     num: "02",
     label: "MARKET SCALE LAYER",
     title: "When the objective is structural dominance.",
-    copy: "For when you have proven demand and need to own the market before a competitor does first. Multi-city architecture and search displacement — not ranking in a market, owning it.",
+    copy: "Proven demand and a competitor about to move. Multi-city architecture and search displacement — not ranking in a market, owning it.",
     items: [
       "Multi-city campaign architecture across target regions",
-      "Competitor displacement via search positioning and paid targeting",
-      "Expanded SEO buildout targeting high-value commercial keywords",
+      "Competitor displacement across search and paid",
+      "Expanded SEO targeting high-value commercial terms",
       "Bi-weekly strategy calls with direct founder involvement",
     ],
     investment: "$6,000 / month + ad spend",
@@ -118,13 +118,13 @@ export default function SystemArchitectureSection() {
             className="text-[17px] leading-[1.75] mb-4"
             style={{ color: "#D2C9B8", maxWidth: "600px" }}
           >
-            This is not a bundle of services. It is an acquisition infrastructure — positioning site, search capture, paid conversion, AI qualification, and optimization running as one connected machine.
+            Not a bundle of services. One acquisition infrastructure — site, search, paid, AI qualification, and optimization running as one connected machine.
           </p>
           <p
             className="text-[15px] leading-relaxed"
             style={{ color: "#756D63", maxWidth: "580px" }}
           >
-            The core system is built in every partnership. What activates on top of it depends on your stage, your market complexity, and how fast you need pipeline.
+            The core system ships with every partnership. What activates on top follows your stage, market, and growth speed.
           </p>
         </Reveal>
 
@@ -191,7 +191,7 @@ export default function SystemArchitectureSection() {
             Expansion Layers
           </h3>
           <p className="text-sm mb-8" style={{ color: "#756D63" }}>
-            Not separate packages. The next layer of the same machine, activated based on your stage and how fast you need pipeline.
+            Not separate packages. The next layer of the same machine, activated based on your stage and pipeline speed.
           </p>
         </Reveal>
 
@@ -329,13 +329,13 @@ export default function SystemArchitectureSection() {
                 className="text-[16px] leading-relaxed mb-5"
                 style={{ color: "#D2C9B8" }}
               >
-                Most agencies split execution across a web designer, an ad buyer, an SEO contractor, and an account manager who did not build any of it. When nothing works, everyone points at someone else.
+                Most agencies split execution across a web designer, an ad buyer, an SEO contractor, and an account manager who didn't build any of it. When results don't come, everyone points at someone else.
               </p>
               <p
                 className="text-[16px] leading-relaxed"
                 style={{ color: "#D2C9B8" }}
               >
-                In this model, every layer of the system — the site, the search infrastructure, the paid campaigns, the tracking, the optimization — is built and managed by one person. The accountability is not distributed. The logic of the system is not lost in translation between vendors.
+                In this model, every layer — site, search, paid campaigns, tracking, optimization — is built and managed by one person. Accountability is not distributed. Logic is not lost in handoffs.
               </p>
             </div>
             <div className="flex flex-col gap-4">
@@ -350,7 +350,7 @@ export default function SystemArchitectureSection() {
                 },
                 {
                   title: "The system is built on assets you own.",
-                  body: "I don't use proprietary platforms. No lock-in. The infrastructure is yours on day one and stays yours permanently.",
+                  body: "No proprietary platforms. No lock-in. The infrastructure is yours from day one.",
                 },
               ].map((item) => (
                 <div

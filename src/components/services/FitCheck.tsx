@@ -20,15 +20,15 @@ function XIcon() {
 
 const bestFor = [
   "Revenue is inconsistent. You know there is more demand than you are capturing.",
-  "You are tired of being invisible online while competitors who do worse work rank above you.",
-  "You want one person who owns the full system, not a web designer, an ad guy, and an SEO freelancer who all point at each other when nothing works.",
-  "You are ready to invest in infrastructure that produces returns. Not a one-time project. A system.",
+  "Competitors doing worse work rank above you. You're invisible online.",
+  "You want one person who owns the full system — not a web designer, an ad guy, and an SEO freelancer pointing at each other.",
+  "You're ready to invest in infrastructure that produces returns.",
 ];
 const notFor = [
-  "You want the cheapest option and will shop around until you find someone who charges less.",
-  "You want a website with no plan behind it and no intention to run it as an acquisition asset.",
-  "You are not ready to commit to a real system. You want to test the waters with no skin in the game.",
-  "Your business is under $5K per month in revenue. This system requires a baseline to build on.",
+  "You'll shop until you find someone who charges less.",
+  "You want a website with no plan behind it.",
+  "You want to test the waters with no real commitment.",
+  "Your business is under $5K per month in revenue.",
 ];
 
 export default function FitCheck() {

@@ -260,7 +260,7 @@ export const howWeWork = {
 export const marbleSystemSection = {
   label: "THE SYSTEM",
   headline: "Market Gap Report. System Launch. Compound Loop.",
-  subheadline: "A clear path from where you are to where you need to be.",
+  subheadline: "Three steps. Live in 11 days.",
   steps: [
     {
       title: "Market Gap Report",

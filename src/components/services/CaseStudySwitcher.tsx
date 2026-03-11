@@ -9,7 +9,7 @@ const caseStudies = [
     metric: "$41,085",
     metricLabel: "revenue in 30 days on $900 ad spend",
     description:
-      "Zero online presence to owning the RV rental market in their region. Conversion site, Google Ads funnel, and AI voice agent for after-hours calls — built and live in under two weeks.",
+      "Zero online presence to regional market leader. Conversion site, Google Ads, and AI voice agent — live in under two weeks.",
     deliverables: ["Website", "Google Ads", "AI Voice Agent", "SEO"],
     status: "active" as const,
     link: "/results#triplew",
@@ -22,7 +22,7 @@ const caseStudies = [
     metric: "90",
     metricLabel: "new clients acquired in 90 days",
     description:
-      "Positioned as top-tier in a competitive Montreal market. Premium site, local SEO, and booking flow built as one connected acquisition system.",
+      "Positioned as top-tier in a competitive Montreal market. Premium site, local SEO, and booking flow — one connected system.",
     deliverables: ["Website", "Local SEO", "Booking Flow"],
     status: "active" as const,
     link: "/results#elite",
@@ -48,7 +48,7 @@ const caseStudies = [
     metric: "Live",
     metricLabel: "performance data being collected",
     description:
-      "Google Ads targeting high-intent searches in Highland Park and DFW. Custom site with full conversion tracking. Results compiling.",
+      "Google Ads targeting high-intent buyers in DFW. Conversion tracking live. Results compiling.",
     deliverables: ["Website", "Google Ads", "Conversion Tracking"],
     status: "building" as const,
     link: "/results#absolute",
@@ -61,7 +61,7 @@ const caseStudies = [
     metric: "Live",
     metricLabel: "patient acquisition funnel running",
     description:
-      "Ads-to-booking funnel built around high-value dental services. Custom site with tracked cost per lead. Patient acquisition system fully operational.",
+      "Ads-to-booking funnel for high-value dental services. Tracked cost per lead. Patient acquisition live.",
     deliverables: ["Website", "Ads Funnel", "Booking Flow"],
     status: "building" as const,
     link: "/results#dentaire",
@@ -83,7 +83,7 @@ export default function CaseStudySwitcher() {
           Every System I Have Built.
         </h2>
         <p className="text-sm text-zinc-600 mb-10 max-w-[480px]">
-          Every engagement documented. Every result verifiable. The complete record is below.
+          Every engagement documented. Every result verifiable.
         </p>
 
         {/* Roster */}

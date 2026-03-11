@@ -44,7 +44,7 @@ export default function GuaranteesStrip() {
                 className="text-sm leading-relaxed"
                 style={{ color: "#D2C9B8" }}
               >
-                Every result on this site comes from a live client account. No projections. No hypotheticals. If I cannot point to a real campaign with real numbers, I do not publish it. Before you sign anything, I can walk you through exactly where each result came from.
+                Every result comes from a live client account. No projections. No hypotheticals. If I can't point to a real campaign with real numbers, I don't publish it.
               </p>
             </div>
             <div>
@@ -84,7 +84,7 @@ export default function GuaranteesStrip() {
               className="text-sm leading-relaxed"
               style={{ color: "#A69D8D" }}
             >
-              Phase 1 delivers your Market Gap Report, Funnel Audit, and 90-day roadmap. Phase 2 delivers a live site, active campaigns, and a booking system. You see every deliverable before the next phase starts.
+              Phase 1: Market Gap Report, Funnel Audit, 90-day roadmap. Phase 2: live site, active campaigns, booking system. You approve each phase before the next starts.
             </p>
           </div>
           <div
@@ -126,7 +126,7 @@ export default function GuaranteesStrip() {
               className="text-sm leading-relaxed"
               style={{ color: "#A69D8D" }}
             >
-              Before any agreement, I review your market, your current revenue, and your operation. If I do not think I can produce a return, I tell you directly. I have turned down clients. I will do it again.
+              I review your market and operation before any agreement. If I can't produce a return, I tell you directly. I've turned clients down before.
             </p>
           </div>
         </div>
