@@ -119,23 +119,23 @@ export const clientReality = {
   pains: [
     {
       icon: "ghost",
-      title: "Right Now, 3 to 8 People in Your City Are Searching Your Exact Service.",
-      detail: "None of them will find you. Not because your work is worse. Because your digital infrastructure does not exist where they are looking. Google, AI search, maps. Your competitor is there. You are not. That call is gone before you knew it existed."
+      title: "Right Now, People in Your City Are Searching for Exactly What You Do.",
+      detail: "If you don't show up where they look — Google, Maps, AI search — that call goes somewhere else. Before you knew it existed."
     },
     {
       icon: "leak",
-      title: "Your Website Looks Fine. It Doesn't Close.",
-      detail: "A website that doesn't immediately answer 'why you, why now' isn't an asset. It's a leaky bucket. Visitors come, feel nothing, and leave."
+      title: "Your Website Looks Fine. It Doesn't Convert.",
+      detail: "A site that doesn't answer 'why you, why now' immediately is not an asset. It is leakage. Visitors arrive, feel nothing, and call whoever was clearer."
     },
     {
       icon: "clock",
       title: "You're Doing Marketing on Top of Everything Else.",
-      detail: "Every hour you spend on marketing is an hour you are not doing the work you charge for. DIY marketing costs more than it saves. And it still does not compound."
+      detail: "That makes it inconsistent, reactive, and easy to abandon when work gets busy. A system that depends on your available hours cannot compound."
     },
     {
       icon: "scatter",
-      title: "Referrals Keep You Alive. They Won't Help You Grow.",
-      detail: "Good months, quiet months. No way to predict the next one. If your pipeline depends on who someone happens to mention you to, you're not running a business. You're waiting on luck."
+      title: "Referrals Keep You Alive. They Don't Build Predictability.",
+      detail: "Good months. Quiet months. No control over what comes next. If your pipeline depends on who someone happens to mention you to, you're waiting — not growing."
     }
   ],
 };

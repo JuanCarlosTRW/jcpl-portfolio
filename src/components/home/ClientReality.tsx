@@ -51,55 +51,60 @@ export default function ClientReality() {
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto mb-12 max-w-[980px] text-center md:mb-14">
           <SectionLabel label="THE REALITY" className="mb-5 !text-[#D4A853]" />
-          <h2 className="mx-auto mb-5 max-w-[900px] text-[clamp(34px,4.5vw,52px)] font-[800] leading-[1.15] tracking-[-0.025em] text-[#F5F0E8]">
+          <h2 className="mx-auto mb-5 max-w-[860px] text-[clamp(32px,4.2vw,50px)] font-[800] leading-[1.12] tracking-[-0.026em] text-[#F5F0E8]">
             Your Work Is Good.{" "}
-            <span
-              className="italic font-normal"
-              style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
-            >
-              Your Pipeline Shouldn&apos;t Be This Uncertain.
+            <span style={{ color: "#EDE5D0", fontWeight: 700 }}>
+              Your Pipeline Shouldn&apos;t Be This Fragile.
             </span>
           </h2>
-          <p className="mx-auto mb-4 max-w-[900px] text-[clamp(17px,2vw,19px)] font-[500] leading-[1.5] text-[#A69D8D]">
-            Untracked demand, a leaky website, and no follow-up turn good work into quiet weeks.
+          <p className="mx-auto mb-4 max-w-[720px] text-[clamp(16px,1.8vw,18px)] font-[400] leading-[1.6] text-[#8A7E74]">
+            Untracked demand. A site that doesn&apos;t close. No follow-up. Each gap is small. Together, they are the reason good work doesn&apos;t become full books.
           </p>
           <p
             className="mx-auto"
             style={{
-              fontSize: "clamp(1rem, 1.3vw, 1.1rem)",
+              fontSize: "clamp(0.9375rem, 1.2vw, 1.0625rem)",
               fontWeight: 600,
-              color: "#F5F0E8",
+              color: "#C8A05A",
             }}
           >
             Most competitors don&apos;t work harder. They run a system.
           </p>
         </Reveal>
 
-        <Reveal className="mx-auto my-14 md:my-18 max-w-[900px]">
+        <Reveal className="mx-auto my-14 md:my-16 max-w-[640px]">
           <div
-            className="relative mx-auto max-w-[900px] rounded-[14px] px-8 py-8 text-center sm:px-8 sm:py-10 lift-card"
+            className="relative mx-auto max-w-[640px] rounded-[14px] px-7 py-8 sm:px-10 sm:py-9 lift-card"
             style={{
-              background: "#1E1A14",
+              background: "#1A1610",
               border: "1px solid #2A2318",
-              borderLeft: "3px solid #D4A853",
-              boxShadow: "0 0 40px rgba(212,168,83,0.05)",
+              borderLeft: "3px solid rgba(212,168,83,0.55)",
+              boxShadow: "0 0 60px rgba(212,168,83,0.04)",
             }}
           >
             <p
-              className="mb-6 uppercase tracking-[0.15em]"
-              style={{ fontSize: "0.75rem", color: "#D4A853" }}
+              className="mb-6 uppercase tracking-[0.18em]"
+              style={{ fontSize: "0.6875rem", color: "#D4A853", fontWeight: 600 }}
             >
               8:47 AM · TODAY
             </p>
-            <p
-              className="mx-auto max-w-[820px] leading-[1.85] sm:text-[17px]"
-              style={{ fontSize: "1.05rem", color: "#D2C9B8" }}
+            <div
+              style={{
+                fontSize: "clamp(1rem, 1.5vw, 1.0625rem)",
+                color: "#D2C9B8",
+                lineHeight: 1.8,
+              }}
             >
-              Someone in your city searched &ldquo;painting contractor near me&rdquo; this
-              morning. They clicked the first result. That company&apos;s phone rang at 8:47
-              AM. They booked a $1,400 job before breakfast. Not because your work is
-              worse. Because that company had the system.
-            </p>
+              <p>Someone in your city searched for your service.</p>
+              <p>They found a competitor first.</p>
+              <p>That phone rang. Yours didn&apos;t.</p>
+              <p className="mt-5" style={{ color: "#A69D8D" }}>
+                Not because your work is worse.
+              </p>
+              <p style={{ color: "#A69D8D" }}>
+                Because their system was there. Yours wasn&apos;t.
+              </p>
+            </div>
           </div>
         </Reveal>
 
@@ -109,32 +114,40 @@ export default function ClientReality() {
             return (
               <Reveal key={card.num} delay={0.08 * (i + 1)} className={isFullWidth ? "lg:col-span-2" : ""}>
                 <div
-                  className={`group relative flex h-full flex-col rounded-[14px] border lift-card card ${
-                    isFullWidth ? "p-8 md:p-10" : "p-7 md:p-8"
+                  className={`group relative flex h-full flex-col rounded-[14px] lift-card card ${
+                    isFullWidth ? "p-8 md:p-10" : "p-7 md:p-9"
                   }`}
                   style={{
                     border: "1px solid #2A2318",
-                    background: "#1E1A14",
+                    background: "#1A1610",
                   }}
                 >
                   <span
-                    className="mb-4 inline-flex w-fit rounded-md px-2 py-1 text-[11px] font-[600] uppercase tracking-wider text-[#F5F0E8]"
-                    style={{ background: "#D4A853" }}
+                    className="mb-5 inline-flex w-fit items-center rounded-md px-2.5 py-1"
+                    style={{
+                      fontSize: "10px",
+                      fontWeight: 700,
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "#D4A853",
+                      background: "rgba(212,168,83,0.08)",
+                      border: "1px solid rgba(212,168,83,0.22)",
+                    }}
                   >
                     {card.num}
                   </span>
                   <h3
-                    className={`mb-3 font-[700] leading-snug text-[#F5F0E8] ${
-                      isFullWidth ? "text-[26px] md:text-[28px]" : "text-[22px]"
+                    className={`mb-3.5 font-[700] leading-[1.28] text-[#F5F0E8] ${
+                      isFullWidth ? "text-[clamp(22px,2.2vw,26px)]" : "text-[20px]"
                     }`}
                   >
                     {card.title}
                   </h3>
                   <p
-                    className={`flex-1 leading-[1.75] ${
-                      isFullWidth ? "text-base md:text-[17px]" : "text-[0.875rem]"
+                    className={`flex-1 leading-[1.72] ${
+                      isFullWidth ? "text-[0.9375rem] md:text-[1rem]" : "text-[0.875rem]"
                     }`}
-                    style={{ color: "#D2C9B8" }}
+                    style={{ color: "#9A9080" }}
                   >
                     {card.body}
                   </p>

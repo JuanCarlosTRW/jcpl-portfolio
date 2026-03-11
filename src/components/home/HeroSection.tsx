@@ -112,6 +112,8 @@ type BeamPreset = {
 // ═══════════════════════════════════════════════════════════════════════════
 export default function HeroSection() {
   const [beam, setBeam] = useState<BeamPreset>(BEAM_PRESETS.desktop);
+  const [ctaHover, setCtaHover] = useState(false);
+  const [ctaPressed, setCtaPressed] = useState(false);
 
   useEffect(() => {
     const update = () => {
@@ -239,7 +241,7 @@ export default function HeroSection() {
                 lineHeight: 1.6,
                 letterSpacing: "-0.012em",
                 color: "#A69D8D",
-                marginBottom: "1rem",
+                marginBottom: "1.25rem",
                 paddingLeft: "0.875rem",
                 borderLeft: "2px solid rgba(212,168,83,0.28)",
                 animationDelay: "0.36s",
@@ -251,7 +253,7 @@ export default function HeroSection() {
               {" "}in ad spend — within 30 days.
             </p>
 
-            {/* Mechanism line — closes the conceptual gap between headline and proof */}
+            {/* Mechanism line — differentiation signal, not a feature list */}
             <p
               className="hero-enter"
               style={{
@@ -260,11 +262,11 @@ export default function HeroSection() {
                 letterSpacing: "-0.01em",
                 color: "#8A7E74",
                 paddingLeft: "0.875rem",
-                marginBottom: "2.5rem",
+                marginBottom: "2.75rem",
                 animationDelay: "0.46s",
               }}
             >
-              Web, search, ads, and follow-up — built into one client acquisition system.
+              Built to bring in better calls, not just more traffic.
             </p>
 
             {/* CTA cluster */}
@@ -274,18 +276,33 @@ export default function HeroSection() {
             >
               <a
                 href="#book-call"
-                className="group inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold transition-all duration-150 bg-[#F0EBE0] hover:bg-[#EAE4D8] active:translate-y-px text-[#0D0B09] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(212,168,83,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B09]"
+                className="inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold text-[#0D0B09] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(212,168,83,0.50)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B09]"
+                onMouseEnter={() => setCtaHover(true)}
+                onMouseLeave={() => { setCtaHover(false); setCtaPressed(false); }}
+                onMouseDown={() => setCtaPressed(true)}
+                onMouseUp={() => setCtaPressed(false)}
                 style={{
                   fontSize: "0.975rem",
                   padding: "0.85rem 1.75rem",
                   letterSpacing: "-0.012em",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.10)",
+                  backgroundColor: ctaPressed ? "#E4DED2" : ctaHover ? "#EBE5D9" : "#F0EBE0",
+                  boxShadow: ctaPressed
+                    ? "0 1px 1px rgba(0,0,0,0.60), 0 0 0 1px rgba(255,255,255,0.07), inset 0 1px 3px rgba(0,0,0,0.07)"
+                    : ctaHover
+                    ? "0 2px 10px rgba(0,0,0,0.52), 0 0 0 1px rgba(255,255,255,0.12), 0 1px 0 0 rgba(212,168,83,0.14), 0 6px 20px rgba(0,0,0,0.18)"
+                    : "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.10)",
+                  transform: ctaPressed ? "translateY(1px)" : "translateY(0)",
+                  transition: "background-color 180ms ease, box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 120ms ease",
                 }}
               >
                 See If Your Business Qualifies
                 <svg
-                  className="w-[15px] h-[15px] transition-transform duration-150 group-hover:translate-x-[2px]"
-                  style={{ opacity: 0.52 }}
+                  className="w-[15px] h-[15px]"
+                  style={{
+                    opacity: ctaHover ? 0.65 : 0.50,
+                    transform: ctaHover ? "translateX(3px)" : "translateX(0)",
+                    transition: "transform 220ms ease, opacity 180ms ease",
+                  }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -435,8 +452,8 @@ export default function HeroSection() {
                     className="relative rounded-full overflow-hidden flex items-center justify-center flex-shrink-0"
                     title={logo.alt}
                     style={{
-                      width: 26,
-                      height: 26,
+                      width: 28,
+                      height: 28,
                       background: "#181410",
                       border: "1.5px solid rgba(255,255,255,0.08)",
                       marginLeft: i > 0 ? -8 : 0,
@@ -447,10 +464,10 @@ export default function HeroSection() {
                       src={logo.src}
                       alt={logo.alt}
                       style={{
-                        width: 15,
-                        height: 15,
+                        width: 16,
+                        height: 16,
                         objectFit: "contain",
-                        opacity: 0.76,
+                        opacity: 0.70,
                       }}
                     />
                   </div>
@@ -460,7 +477,7 @@ export default function HeroSection() {
               <span
                 style={{
                   fontSize: "0.65rem",
-                  color: "#5A5452",
+                  color: "#6B6360",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   fontWeight: 500,
