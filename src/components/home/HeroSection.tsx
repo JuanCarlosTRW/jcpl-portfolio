@@ -219,7 +219,7 @@ export default function HeroSection() {
 
             {/* H1 */}
             <h1
-              className="hero-enter font-bold text-[#F5F0E8]"
+              className="hero-enter font-bold text-[#F5F0E8] text-pretty"
               style={{
                 fontSize: "clamp(2.65rem, 4.6vw, 4.35rem)",
                 lineHeight: 1.05,
@@ -258,7 +258,8 @@ export default function HeroSection() {
                 fontSize: "0.9375rem",
                 lineHeight: 1.58,
                 letterSpacing: "-0.01em",
-                color: "#756D63",
+                color: "#8A7E74",
+                paddingLeft: "0.875rem",
                 marginBottom: "2.5rem",
                 animationDelay: "0.46s",
               }}
@@ -268,12 +269,12 @@ export default function HeroSection() {
 
             {/* CTA cluster */}
             <div
-              className="hero-enter flex flex-col items-start gap-2.5"
+              className="hero-enter flex flex-col items-start gap-3"
               style={{ animationDelay: "0.56s" }}
             >
               <a
                 href="#book-call"
-                className="group inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold transition-colors duration-150 bg-[#F0EBE0] hover:bg-[#EAE4D8] text-[#0D0B09]"
+                className="group inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold transition-all duration-150 bg-[#F0EBE0] hover:bg-[#EAE4D8] active:translate-y-px text-[#0D0B09] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(212,168,83,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B09]"
                 style={{
                   fontSize: "0.975rem",
                   padding: "0.85rem 1.75rem",
@@ -366,6 +367,7 @@ export default function HeroSection() {
                       style={{
                         fontSize: "clamp(1.38rem, 2.1vw, 1.72rem)",
                         letterSpacing: "-0.03em",
+                        fontVariantNumeric: "tabular-nums",
                       }}
                     >
                       <AnimatedNumber
