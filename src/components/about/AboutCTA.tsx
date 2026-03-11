@@ -8,7 +8,7 @@ import { Reveal } from "@/components/motion";
 const nextSteps = [
   { step: "1", label: "Apply", description: "Short intake form. Takes 2 minutes." },
   { step: "2", label: "I review fit", description: "Personally reviewed within 24 hours." },
-  { step: "3", label: "Growth plan call", description: "Focused strategy session. No fluff." },
+  { step: "3", label: "Strategy call", description: "Direct conversation. No sales pitch." },
 ];
 
 function LightningIcon() {
@@ -69,9 +69,7 @@ export default function AboutCTA() {
               </span>
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto text-[0.92rem]">
-              Apply for a strategy call. I&apos;ll review your business,
-              identify the highest-leverage opportunities, and decide if
-              I&apos;m a fit.
+              Apply for a strategy call. I will review your current positioning, identify where the system is weak, and tell you directly whether there is a clear path to better pipeline.
             </p>
             <p className="text-sm text-sv-primary font-medium mt-3 mb-8">
               If I don&apos;t see a clear path to ROI, I&apos;ll tell you.

@@ -5,9 +5,9 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 const philosophyBullets = [
-  "Every deliverable is measured by calls booked and revenue moved",
-  "If the system is not compounding, I iterate until it is",
-  "No vanity metrics. Only outcomes that hit your calendar."
+  "Accountable for the whole system, not individual deliverables",
+  "If the system is not producing qualified calls, I iterate until it does",
+  "No vanity metrics. Only outcomes that change your pipeline.",
 ];
 
 /**
@@ -30,7 +30,7 @@ export default function PhilosophyBlock() {
         {/* Thin top rule */}
         <div className="w-10 h-px bg-gradient-to-r from-transparent via-[var(--brand-accent)]/40 to-transparent mx-auto mb-6" aria-hidden="true" />
 
-        <SectionLabel label="Philosophy" className="mb-4" />
+        <SectionLabel label="OPERATING RATIONALE" className="mb-4" />
 
         <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4 leading-tight">
           {aboutContent.philosophy.headline}

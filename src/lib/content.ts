@@ -745,20 +745,20 @@ export const caseStudies = [
 
 /* ─── About ─── */
 export const aboutContent = {
-  headline: "Juan Carlos. Growth Partner\nfor Service Businesses.",
-  subhead: "I build systems that turn attention into booked calls.",
+  headline: "Juan Carlos. Growth Infrastructure\nfor Service Businesses.",
+  subhead: "One operator. Every layer. Full accountability.",
   mechanism: [
-    "Most business owners I talk to are great at what they do. They just never built the infrastructure to let people find them. That is the gap I close. Website, ads, SEO, GEO, automation, designed as one system so the right clients reach you first, already convinced you are the right choice."
+    "Most growth infrastructure fails at the handoff. A vendor builds the website. A different vendor runs the ads. A third handles SEO. Nobody owns the outcome — you manage the coordination while results leak between the gaps. This is structured differently."
   ],
   mechanismBullets: [
-    "Built around your market and your offer",
-    "Every component measured by one outcome: calls booked",
-    "I stay in it with you after launch",
+    "Strategy, build, and optimization owned by one person",
+    "No account managers between you and the work",
+    "Measured by qualified calls and revenue — nothing else",
   ],
   story: [], // Not used on page
   philosophy: {
-    headline: "I Win When You Win",
-    body: "I do not measure success in deliverables. I measure it in revenue generated, calls booked, and markets dominated. If your business is not growing, the system is not done.",
+    headline: "Why One Owner Changes Everything",
+    body: "When the strategist, the builder, and the optimizer are the same person, there are no handoffs to lose context in. Strategy and execution stay aligned. Every layer reinforces the others. That is not a workflow preference — it is a structural advantage.",
   },
   advantage: {
     headline: "Why Integrated Systems\nBeat Fragmented Freelancers",
@@ -820,13 +820,14 @@ export const workingWithMe = {
   ],
 };
 
-// About: How I Built This (NEW SECTION)
+// About: Operating Model
 export const aboutHowIBuiltThis = {
-  overline: "THE APPROACH",
-  heading: "Why I Operate Differently\nThan Everyone Else in This Space.",
+  overline: "OPERATING MODEL",
+  heading: "Why Fragmented Execution\nCosts More Than Its Rate Card.",
   paragraphs: [
-    "I got into this because I saw a pattern. Business owners who do incredible work, losing clients every week to competitors who simply show up first online. Not because the competition was better. Because they had a better system.",
-    "I built Client Growth around one belief: the businesses that win locally will be the ones who combine SEO, paid ads, and AI automation into one compounding system while everyone else is still figuring out which freelancer to hire next."
+    "Most service businesses do not have a marketing problem. They have a coordination problem. Separate vendors building separate pieces, none of them accountable for the whole. The website person blames the ads person. The ads person blames the offer. Nobody owns the result.",
+    "Client Growth is structured around single-operator ownership. One person designs the acquisition system, builds the website, runs the ads, manages the SEO, and reads the numbers every week. There is no handoff chain. There is no account manager between you and the work. When something needs to change, it changes.",
+    "This structure limits how many partnerships are active at any given time. That is intentional. Running three systems well produces better outcomes than running twelve at partial attention. Each client gets the full involvement of the operator — not a share of a team's bandwidth."
   ]
 };
 

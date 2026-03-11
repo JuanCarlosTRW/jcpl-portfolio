@@ -59,18 +59,18 @@ export default function AboutHero() {
               letterSpacing: "-0.02em",
             }}
           >
-            Juan Carlos. Growth Partner<br />for Service Businesses.
+            Juan Carlos. Growth Infrastructure<br />for Service Businesses.
           </h1>
 
           {/* Sub-head */}
           <p className="text-sv-primary font-medium text-base md:text-lg mb-4 leading-snug">
-            I build systems that turn attention into booked calls.
+            One operator. Every layer. Full accountability.
           </p>
 
           {/* Mechanism lines */}
           <div className="space-y-1 mb-6 max-w-[52ch]">
             <p className="text-sv-text-sub text-[0.9rem] md:text-[0.95rem] leading-relaxed">
-              Most business owners I talk to are great at what they do. They just never built the infrastructure to let people find them. That is the gap I close. Website, ads, SEO, GEO, automation. All of it designed as one system so the right clients reach you first, already convinced you are the right choice.
+              Most growth infrastructure fails at the handoff. A vendor builds the website. A different vendor runs the ads. A third handles SEO. Nobody owns the outcome — you manage the coordination while results leak between the gaps. This is structured differently.
             </p>
           </div>
 
@@ -78,15 +78,15 @@ export default function AboutHero() {
           <ul className="space-y-2.5 mb-8" aria-label="What I build">
             <li className="flex items-start gap-2 text-sv-text-sub text-[0.97rem]">
               <span className="mt-1.5 h-1 w-1 rounded-full bg-sv-primary shrink-0" aria-hidden="true" />
-              Built around your market and your offer
+              Strategy, build, and optimization owned by one person
             </li>
             <li className="flex items-start gap-2 text-sv-text-sub text-[0.97rem]">
               <span className="mt-1.5 h-1 w-1 rounded-full bg-sv-primary shrink-0" aria-hidden="true" />
-              Every component measured by one outcome: calls booked
+              No account managers between you and the work
             </li>
             <li className="flex items-start gap-2 text-sv-text-sub text-[0.97rem]">
               <span className="mt-1.5 h-1 w-1 rounded-full bg-sv-primary shrink-0" aria-hidden="true" />
-              I stay in it with you after launch
+              Measured by qualified calls and revenue — nothing else
             </li>
           </ul>
 

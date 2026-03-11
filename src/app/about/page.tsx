@@ -10,9 +10,9 @@ import AboutCTA from "@/components/about/AboutCTA";
 import SpotsLeftSection from "@/components/home/SpotsLeftSection";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About: Growth Partner for Service Businesses",
+  title: "About: Growth Infrastructure & Operating Model",
   description:
-    "I build complete growth systems, not isolated deliverables. Learn why integrated execution beats fragmented freelancers every time.",
+    "One operator. One system. Full accountability. Why single-operator ownership produces better outcomes than fragmented agency execution — and why selectivity protects results.",
   path: "/about",
 });
 
@@ -24,18 +24,18 @@ export default function AboutPage() {
         <AboutHero />
       </SectionWrapper>
 
-      {/* 2. Philosophy */}
+      {/* 2. Why This Model Exists */}
+      <AboutHowIBuiltThis />
+
+      {/* 3. Operating Rationale */}
       <SectionWrapper style={{ background: "#131009" }}>
         <PhilosophyBlock />
       </SectionWrapper>
 
-      {/* 3. Working with me (first 30 days) */}
+      {/* 4. Working with me (first 30 days) */}
       <WorkingWithMe />
 
-      {/* 4. Why I Operate Differently (shortened) */}
-      <AboutHowIBuiltThis />
-
-      {/* 5. 3 Partnerships + Stats */}
+      {/* 5. Selectivity + proof */}
       <div style={{ background: "#1A1510" }}>
         <SpotsLeftSection background="#1A1510" />
         <div className="max-w-7xl mx-auto px-4 pb-12">
