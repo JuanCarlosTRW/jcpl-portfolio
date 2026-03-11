@@ -6,7 +6,6 @@ import PricingStatement from "@/components/home/PricingStatement";
 /* Dynamic imports for below-the-fold sections */
 const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
 const ROICalculator = dynamic(() => import("@/components/home/ROICalculator"));
-const ComparisonSection = dynamic(() => import("@/components/home/ComparisonSection"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"));
@@ -26,10 +25,7 @@ export default function HomePage() {
       {/* 4. ROI Calculator */}
       <ROICalculator />
 
-      {/* 5. One Partner vs. Five Vendors */}
-      <ComparisonSection />
-
-      {/* 6. Who Builds This */}
+      {/* 5. Who Builds This */}
       <FounderBlock />
 
       {/* 7. Proof */}
