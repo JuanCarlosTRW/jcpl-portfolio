@@ -22,9 +22,9 @@ export default function ResultsHero() {
         <GridScan
           sensitivity={0.55}
           lineThickness={1}
-          linesColor="#392e4e"
+          linesColor="#2d1a00"
           gridScale={0.1}
-          scanColor="#FF9FFC"
+          scanColor="#D4A853"
           scanOpacity={0.4}
           enablePost
           bloomIntensity={0.6}
