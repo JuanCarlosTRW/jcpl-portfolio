@@ -2,9 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
-  ssr: false,
-});
+const GridScan = dynamic(() => import("./GridScan"), { ssr: false });
 
 const evidenceStats = [
   { value: "$41,085", label: "Revenue generated", note: "Google Ads · 30 days" },
@@ -19,18 +17,19 @@ export default function ResultsHero() {
       className="relative pt-36 pb-20 md:pb-28"
       style={{ backgroundColor: "#0D0B09" }}
     >
-      {/* WebGL background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <UnicornScene
-          projectId="b84EmKQXVeBLgLd1z0Yn"
-          sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.3/dist/unicornStudio.umd.js"
-          width="100%"
-          height="100%"
-          production={true}
-          scale={1}
-          dpi={1.5}
-          fps={60}
-          lazyLoad={true}
+      {/* GridScan background */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#2d1a00"
+          gridScale={0.1}
+          scanColor="#D4A853"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
         />
       </div>
 

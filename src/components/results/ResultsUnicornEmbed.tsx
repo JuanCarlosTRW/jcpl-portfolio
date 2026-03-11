@@ -14,7 +14,7 @@ export default function ResultsUnicornEmbed() {
         sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.3/dist/unicornStudio.umd.js"
         width="100%"
         height="400px"
-        production={true}
+        production={false}
         scale={1}
         dpi={1.5}
         fps={60}
