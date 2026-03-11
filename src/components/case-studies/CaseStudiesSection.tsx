@@ -5,6 +5,7 @@ import ResultsFlagshipCaseStudy from "@/components/results/ResultsFlagshipCaseSt
 import ResultsSecondaryCase from "@/components/results/ResultsSecondaryCase";
 import ResultsPortfolioSection from "@/components/results/ResultsPortfolioSection";
 import ResultsCTA from "@/components/results/ResultsCTA";
+import ResultsUnicornEmbed from "@/components/results/ResultsUnicornEmbed";
 
 const TRIPLE_W_ID = "triple-w-rentals";
 const ELITE_ID = "elite-barbershop";
@@ -24,6 +25,9 @@ export default function CaseStudiesSection() {
 
       {/* Secondary featured — Elite Barbershop */}
       {secondary && <ResultsSecondaryCase cs={secondary} />}
+
+      {/* Unicorn Studio scene */}
+      <ResultsUnicornEmbed />
 
       {/* Active portfolio — recent + in-progress */}
       <ResultsPortfolioSection recent={recent} building={building} />
