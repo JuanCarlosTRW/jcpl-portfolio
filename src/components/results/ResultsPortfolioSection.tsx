@@ -31,8 +31,11 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
             className="flex-1 h-px"
             style={{ background: "rgba(212,168,83,0.1)" }}
           />
+          <span className="text-[11px] text-[rgba(255,255,255,0.2)] tabular-nums">
+            {all.length} partnerships
+          </span>
         </div>
-        <p className="text-[14px] text-[rgba(255,255,255,0.35)] mb-10 max-w-[480px]">
+        <p className="text-[14px] text-[rgba(255,255,255,0.35)] mb-10 max-w-[520px] leading-[1.65]">
           Recently delivered and active partnerships. Systems live. Revenue data
           being verified or collected where noted.
         </p>

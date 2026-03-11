@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { CaseStudy } from "@/content/caseStudies";
 import FrozenWebsitePreview from "./FrozenWebsitePreview";
 
@@ -57,24 +58,23 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
         </div>
 
         {/* Outcome */}
-        <div className="text-[14px] text-[rgba(255,255,255,0.55)] leading-[1.55] mb-3">
+        <div className="text-[14px] text-[rgba(255,255,255,0.55)] leading-[1.55] mb-4">
           {cs.inProgress
             ? "System live. Performance data being collected."
             : cs.outcome}
         </div>
 
-        {/* Result tag pill */}
+        {/* Result tag — brand colors */}
         {cs.resultTag && (
-          <div className="mb-5 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30 w-fit">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-            <span className="text-[11px] text-zinc-400">{cs.resultTag}</span>
+          <div className="mb-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(212,168,83,0.07)] border border-[rgba(212,168,83,0.18)] w-fit">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#D4A853]/70" />
+            <span className="text-[11px] text-[rgba(212,168,83,0.8)]">{cs.resultTag}</span>
           </div>
         )}
 
-        {/* Metrics pills or In-Progress badge */}
-        {/* Absolute Painting: System live tag */}
+        {/* Live status badge — Absolute Painting */}
         {cs.inProgress && cs.id === "absolute-painting" && (
-          <div className="mb-5">
+          <div className="mb-4">
             <span className="inline-flex items-center gap-2 bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.2)] rounded-full px-[14px] py-[5px]">
               <PulseDot />
               <span className="text-[12px] text-sv-primary font-medium">
@@ -83,6 +83,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
             </span>
           </div>
         )}
+
         {/* Metrics pills */}
         {!cs.inProgress && cs.metrics.length > 0 && (
           <div className="flex gap-2 flex-wrap mb-5">
@@ -102,52 +103,40 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           </div>
         )}
 
-        {/* CTA row */}
-        <div className="flex gap-2.5 flex-wrap items-center">
-          {cs.websiteUrl && cs.title !== "Triple W Rentals" && (
-            <button
-              type="button"
-              className="bg-sv-primary text-white px-4 py-2 rounded-md text-[13px] font-semibold hover:bg-sv-primary-hov transition-all duration-200"
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open(cs.websiteUrl!, "_blank", "noopener,noreferrer");
-              }}
-            >
-              View Live Website →
-            </button>
-          )}
-          {cs.id === "triple-w-rentals" && (
-            <button
-              type="button"
-              disabled
-              className="border border-[rgba(255,255,255,0.15)] text-[#D2C9B8] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium cursor-default"
-              style={{ opacity: 1 }}
-            >
-              Project is still going
-            </button>
-          )}
-          {/* Absolute Painting: Case study coming button */}
+        {/* CTA row — clean hierarchy, no button stacking */}
+        <div
+          className="flex items-center gap-4 pt-4 mt-auto"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+        >
           {cs.id === "absolute-painting" ? (
-            <button
-              type="button"
-              disabled
-              className="border border-[rgba(255,255,255,0.15)] text-[#D2C9B8] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium cursor-default"
-              style={{ opacity: 1 }}
-            >
+            <span className="text-[13px] text-[rgba(255,255,255,0.3)]">
               Case study coming
-            </button>
+            </span>
           ) : (
-            <button
-              type="button"
-              className="border border-[rgba(255,255,255,0.12)] text-[rgba(255,255,255,0.6)] bg-transparent px-4 py-2 rounded-md text-[13px] font-medium hover:border-[rgba(212,168,83,0.4)] hover:text-white transition-all duration-200"
-              onClick={(e) => {
-                e.stopPropagation();
-                router.push(`/results/${cs.caseStudySlug}`);
-              }}
+            <Link
+              href={`/results/${cs.caseStudySlug}`}
+              className="text-[13px] font-semibold text-[#D4A853] hover:text-[#C49A2A] transition-colors"
+              onClick={(e) => e.stopPropagation()}
             >
-              View Case Study
-            </button>
+              View case study →
+            </Link>
           )}
+
+          {cs.id === "triple-w-rentals" ? (
+            <span className="text-[13px] text-[rgba(255,255,255,0.25)] ml-auto">
+              In progress
+            </span>
+          ) : cs.websiteUrl ? (
+            <a
+              href={cs.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[13px] text-[rgba(255,255,255,0.3)] hover:text-[rgba(255,255,255,0.6)] transition-colors ml-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Live site ↗
+            </a>
+          ) : null}
         </div>
       </div>
     </div>

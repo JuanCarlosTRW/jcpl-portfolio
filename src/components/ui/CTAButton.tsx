@@ -14,11 +14,11 @@ interface Props {
 }
 
 const base =
-  "relative inline-flex items-center justify-center font-semibold rounded-[8px] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1e3a5f]";
+  "relative inline-flex items-center justify-center font-semibold rounded-[8px] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A853]";
 
 const variants = {
   primary:
-    "bg-[#1e3a5f] text-white border border-[#2d5a8e] hover:bg-[#264d7a] hover:-translate-y-[1px] shadow-[0_4px_24px_rgba(30,58,95,0.3)]",
+    "bg-[#D4A853] text-[#0D0B09] border border-[#D4A853] hover:bg-[#C49A2A] hover:-translate-y-[1px] shadow-[0_4px_24px_rgba(212,168,83,0.18)]",
   secondary:
     "bg-transparent text-white border border-[rgba(255,255,255,0.2)] hover:border-[rgba(255,255,255,0.35)] hover:bg-[rgba(255,255,255,0.06)]",
   ghost: "text-sv-muted hover:text-sv-primary hover:bg-white/5",
