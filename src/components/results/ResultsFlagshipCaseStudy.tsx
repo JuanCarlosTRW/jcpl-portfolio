@@ -11,13 +11,28 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
 
   const handleCardClick = () => router.push(`/results/${cs.caseStudySlug}`);
 
+  // Split metrics: primary (revenue) gets dominant display, rest are supporting
+  const primaryMetric = cs.metrics[0];
+  const supportingMetrics = cs.metrics.slice(1);
+
   return (
     <section
       className="py-16 md:py-24"
       style={{ background: "#131009" }}
     >
       <div className="max-w-[1120px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Section marker */}
+        <div className="flex items-center gap-3 mb-10">
+          <span className="text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.3)]">
+            Lead partnership
+          </span>
+          <span
+            className="flex-1 h-px"
+            style={{ background: "rgba(212,168,83,0.1)" }}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: Narrative */}
           <div>
             <span className="text-[11px] uppercase tracking-[0.14em] text-[#D4A853] block mb-4">
@@ -26,14 +41,14 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
             <h2 className="text-[clamp(28px,3.5vw,40px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
               {cs.title}
             </h2>
-            <p className="text-[17px] text-[#D2C9B8] leading-[1.75] mb-8">
+            <p className="text-[17px] text-[#D2C9B8] leading-[1.75] mb-8 max-w-[480px]">
               {narrative}
             </p>
 
             {/* VERIFIED badge */}
             <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-8 border border-[rgba(212,168,83,0.3)] bg-[rgba(212,168,83,0.06)]">
               <svg
-                className="w-4 h-4 text-[#D4A853]"
+                className="w-3.5 h-3.5 text-[#D4A853]"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -43,13 +58,19 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="text-[13px] font-semibold text-[#D4A853]">
-                VERIFIED
+              <span className="text-[12px] font-semibold text-[#D4A853]">
+                Verified
               </span>
             </div>
 
-            {/* CTA links */}
-            <div className="flex flex-wrap gap-4">
+            {/* CTA links — clear hierarchy */}
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href={`/results/${cs.caseStudySlug}`}
+                className="inline-flex items-center gap-2 bg-[#D4A853] text-[#0D0B09] px-5 py-2.5 rounded-lg text-[14px] font-bold hover:bg-[#C9983E] transition-colors"
+              >
+                View full case study →
+              </Link>
               {cs.metricsImageUrl && (
                 <button
                   type="button"
@@ -57,21 +78,15 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
                     const el = document.getElementById("metrics-preview");
                     el?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="border border-[rgba(212,168,83,0.4)] text-[#D4A853] px-5 py-2.5 rounded-lg text-[14px] font-semibold hover:bg-[rgba(212,168,83,0.1)] transition-colors"
+                  className="border border-[rgba(212,168,83,0.3)] text-[rgba(255,255,255,0.6)] px-5 py-2.5 rounded-lg text-[14px] font-medium hover:border-[rgba(212,168,83,0.5)] hover:text-white transition-colors"
                 >
-                  View proof
+                  Scroll to proof
                 </button>
               )}
-              <Link
-                href={`/results/${cs.caseStudySlug}`}
-                className="border border-[rgba(212,168,83,0.4)] text-[#D4A853] px-5 py-2.5 rounded-lg text-[14px] font-semibold hover:bg-[rgba(212,168,83,0.1)] transition-colors"
-              >
-                View Case Study →
-              </Link>
             </div>
           </div>
 
-          {/* Right: Stat grid + preview */}
+          {/* Right: Metric panel + preview */}
           <div id="metrics-preview">
             <div
               className="rounded-2xl overflow-hidden border"
@@ -80,21 +95,42 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
                 background: "#0D0B09",
               }}
             >
+              {/* Metric panel — primary dominant */}
               <div
                 className="border-b p-6"
                 style={{ borderColor: "rgba(212,168,83,0.1)" }}
               >
-                <div className="grid grid-cols-2 gap-4">
-                  {cs.metrics.map((m) => (
+                {/* Primary metric */}
+                {primaryMetric && (
+                  <div
+                    className="pb-4 mb-4 border-b"
+                    style={{ borderColor: "rgba(255,255,255,0.06)" }}
+                  >
+                    <div className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.35)] mb-1.5">
+                      {primaryMetric.label}
+                    </div>
+                    <div className="text-[36px] font-extrabold text-white tracking-[-0.03em] leading-none">
+                      {primaryMetric.value}
+                    </div>
+                  </div>
+                )}
+
+                {/* Supporting metrics */}
+                <div className="grid grid-cols-3 gap-3">
+                  {supportingMetrics.map((m) => (
                     <div key={m.label}>
-                      <div className="text-[12px] text-[#D2C9B8] uppercase tracking-wider mb-0.5">
+                      <div className="text-[11px] text-[rgba(255,255,255,0.35)] uppercase tracking-wider mb-1">
                         {m.label}
                       </div>
-                      <div className="text-xl font-bold text-white">{m.value}</div>
+                      <div className="text-[18px] font-bold text-white">
+                        {m.value}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
+
+              {/* Preview */}
               <div
                 onClick={handleCardClick}
                 className="cursor-pointer transition-opacity hover:opacity-95"
