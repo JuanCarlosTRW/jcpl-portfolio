@@ -1,54 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import LightPillar from "./LightPillar";
-
-// ─── Animated counter (intersection-triggered) ─────────────────────────────
-function AnimatedNumber({
-  target,
-  prefix = "",
-  suffix = "",
-  duration = 2000,
-}: {
-  target: number;
-  prefix?: string;
-  suffix?: string;
-  duration?: number;
-}) {
-  const [current, setCurrent] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          const start = performance.now();
-          const tick = (now: number) => {
-            const p = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            setCurrent(Math.floor(eased * target));
-            if (p < 1) requestAnimationFrame(tick);
-            else setCurrent(target);
-          };
-          requestAnimationFrame(tick);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target, duration]);
-
-  return (
-    <span ref={ref}>
-      {prefix}
-      {current.toLocaleString()}
-      {suffix}
-    </span>
-  );
-}
 
 const ACTIVE_CLIENTS = [
   { alt: "Triple W Rentals",   src: "/images/logos/triplew.png" },
@@ -58,10 +11,11 @@ const ACTIVE_CLIENTS = [
   { alt: "Centre Dentaire",    src: "/images/logos/dentaire.png" },
 ];
 
+// ─── Static proof blocks — verified, no zero-state, no animation ────────────
 const METRICS = [
-  { value: 33,  prefix: "$", unit: "",      label: "Avg cost per qualified call"      },
-  { value: 5,   prefix: "",  unit: "",      label: "Active partnerships"              },
-  { value: 10,  prefix: "",  unit: "days",  label: "Median time to first booked call" },
+  { display: "$41,085", sublabel: "from $900 ad spend"          },
+  { display: "$33",     sublabel: "avg cost per qualified call"  },
+  { display: "11 days", sublabel: "median to first booked call" },
 ];
 
 // ─── Beam presets — tuned per breakpoint ────────────────────────────────────
@@ -69,29 +23,30 @@ const METRICS = [
 // scale in the shader (col = tanh(col * glowAmount / widthNorm)). Higher values
 // push the core into tanh's steep zone → brighter highlights, richer centre.
 // Outer haze stays in the linear zone and remains restrained.
+// ─── Beam intensity reduced ~30% from original — more restrained, less glow ─
 const BEAM_PRESETS = {
   desktop: {
-    topColor: "#D4AC50",
-    intensity: 0.78,
-    glowAmount: 0.0032,
+    topColor: "#C8A040",
+    intensity: 0.54,
+    glowAmount: 0.0022,
     pillarWidth: 2.7,
     pillarHeight: 0.27,
     noiseIntensity: 0.07,
     containerWidth: "58%",
   },
   tablet: {
-    topColor: "#CCA840",
-    intensity: 0.68,
-    glowAmount: 0.0028,
+    topColor: "#C0A038",
+    intensity: 0.47,
+    glowAmount: 0.0019,
     pillarWidth: 2.4,
     pillarHeight: 0.27,
     noiseIntensity: 0.07,
     containerWidth: "60%",
   },
   mobile: {
-    topColor: "#D4A840",
-    intensity: 0.92,
-    glowAmount: 0.0046,
+    topColor: "#C8A030",
+    intensity: 0.64,
+    glowAmount: 0.0032,
     pillarWidth: 3.2,
     pillarHeight: 0.26,
     noiseIntensity: 0.07,
@@ -363,7 +318,7 @@ export default function HeroSection() {
             style={{ padding: "1.625rem 0" }}
           >
 
-            {/* Metrics — gap-5 provides mobile spacing; sm:gap-0 lets dividers take over */}
+            {/* Metrics — static verified proof blocks */}
             <div className="flex items-center gap-5 sm:gap-0">
               {METRICS.map((m, i) => (
                 <div key={i} className="flex items-center">
@@ -380,29 +335,14 @@ export default function HeroSection() {
                   )}
                   <div>
                     <div
-                      className="font-semibold text-[#F5F0E8] leading-none flex items-baseline gap-1.5"
+                      className="font-semibold text-[#F5F0E8] leading-none"
                       style={{
                         fontSize: "clamp(1.38rem, 2.1vw, 1.72rem)",
                         letterSpacing: "-0.03em",
                         fontVariantNumeric: "tabular-nums",
                       }}
                     >
-                      <AnimatedNumber
-                        target={m.value}
-                        prefix={m.prefix}
-                        suffix=""
-                      />
-                      {m.unit && (
-                        <span style={{
-                          fontSize: "0.55em",
-                          fontWeight: 400,
-                          color: "#8A7E74",
-                          letterSpacing: "0.04em",
-                          textTransform: "uppercase",
-                        }}>
-                          {m.unit}
-                        </span>
-                      )}
+                      {m.display}
                     </div>
                     <div
                       style={{
@@ -413,7 +353,7 @@ export default function HeroSection() {
                         marginTop: "0.375rem",
                       }}
                     >
-                      {m.label}
+                      {m.sublabel}
                     </div>
                   </div>
                 </div>

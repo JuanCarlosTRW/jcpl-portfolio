@@ -140,12 +140,9 @@ export default function CalendarSection() {
             >
               {!isVisible ? (
                 <div
-                  className="flex h-full min-h-[520px] items-center justify-center text-[15px] md:min-h-[600px]"
-                  style={{ color: "#A69D8D" }}
-                  aria-live="polite"
-                >
-                  Loading calendar…
-                </div>
+                  className="min-h-[520px] md:min-h-[600px]"
+                  aria-hidden="true"
+                />
               ) : (
                 <iframe
                   src={CAL_BOOKING_URL}

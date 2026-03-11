@@ -165,13 +165,12 @@ export default function ROICalculator() {
               </div>
             </div>
 
-            {/* Footnote */}
+            {/* Disclaimer */}
             <p
               className="leading-relaxed"
               style={{ fontSize: "0.75rem", color: "#4A4440" }}
             >
-              Based on $33 average cost per qualified call across active client
-              accounts. Q4 2025 verified.
+              Directional planning logic based on current benchmark averages. Not a guarantee. $33/call average verified Q4 2025.
             </p>
           </div>
 

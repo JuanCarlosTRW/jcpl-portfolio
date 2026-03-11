@@ -60,7 +60,7 @@ export default function FounderBlock() {
                 lineHeight: 1.75,
               }}
             >
-              Not because of artificial scarcity, but because every system I build gets my direct attention every single week. No junior staff touches your account. No account manager sits between you and me. When something breaks at 9 PM on a Tuesday, I fix it that night.
+              Every system I build gets my direct attention, every week. No junior staff on your account. No account manager between us. When something breaks at 9 PM, I fix it that night.
             </p>
 
             <p
@@ -71,7 +71,7 @@ export default function FounderBlock() {
                 lineHeight: 1.75,
               }}
             >
-              Every system I build, I own from the diagnostic call to the first booked call. No handoffs. You work directly with me. That is not a limitation of my size. It is the entire point.
+              I own every system from diagnostic to first booked call. No handoffs. Direct access. That is not a limitation of this model — it is the point.
             </p>
 
             <div className="flex flex-wrap gap-2" style={{ gap: 8 }}>

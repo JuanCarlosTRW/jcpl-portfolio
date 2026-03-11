@@ -120,22 +120,22 @@ export const clientReality = {
     {
       icon: "ghost",
       title: "People in Your City Are Searching. You're Easy to Miss.",
-      detail: "If you don't show up where they look — Google, Maps, AI search — that call goes somewhere else. Before you knew it existed."
+      detail: "If you're not on Google, Maps, or AI search, that call goes elsewhere — before you knew it existed."
     },
     {
       icon: "leak",
       title: "Your Website Looks Fine. It Doesn't Convert.",
-      detail: "A site that doesn't answer 'why you, why now' immediately is not an asset. It is leakage. Visitors arrive, feel nothing, and call whoever was clearer."
+      detail: "A site that can't answer 'why you, why now' is leakage. Visitors feel nothing and call whoever was clearer."
     },
     {
       icon: "clock",
       title: "You're Doing Marketing on Top of Everything Else.",
-      detail: "That makes it inconsistent, reactive, and easy to abandon when work gets busy. A system that depends on your available hours cannot compound."
+      detail: "Inconsistent, reactive, and easy to drop when things get busy. A system tied to your hours cannot compound."
     },
     {
       icon: "scatter",
       title: "Referrals Keep You Alive. They Don't Build Predictability.",
-      detail: "Good months. Quiet months. No control over what comes next. If your pipeline depends on who someone happens to mention you to, you're waiting — not growing."
+      detail: "Good months. Quiet months. No control. If your pipeline depends on word of mouth, you're waiting — not growing."
     }
   ],
 };
@@ -409,18 +409,18 @@ export const servicesShowcaseContent = {
 /* ─── Section H: Qualification + Final CTA ─── */
 export const qualification = {
   forYouIf: [
-    "You lie awake knowing the work is out there. You just can't find it online.",
-    "You're generating consistent revenue and ready to invest in infrastructure that compounds month over month.",
-    "Your pipeline leans too heavily on referrals and word of mouth.",
+    "You know the work is out there. You just can't find it online.",
+    "You're generating consistent revenue and ready to invest in infrastructure that compounds.",
+    "Your pipeline leans too heavily on referrals.",
     "You're tired of watching competitors rank above you for work you do better.",
-    "You want one person who owns the full picture, not five vendors you have to coordinate."
+    "You want one person who owns the full picture — not five vendors."
   ],
   notForYouIf: [
     "You want a logo, a brochure site, or a one-off project.",
     "Your business is under $5K per month in revenue.",
-    "You want to test the waters with no real commitment behind it.",
+    "You want to test the waters with no real commitment.",
     "You are not prepared for a 90-day initial run.",
-    "You expect results without showing up for a one-hour onboarding call."
+    "You expect results without committing to the onboarding process."
   ],
 };
 export const whySection = {
