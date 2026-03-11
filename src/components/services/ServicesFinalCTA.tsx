@@ -1,15 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { Reveal } from "@/components/motion";
 import GuaranteesStrip from "./GuaranteesStrip";
-
-const tiers = [
-  { id: "foundation", label: "Foundation Architecture", desc: "Website + SEO. The base layer." },
-  { id: "performance", label: "Performance Engine", desc: "Full system + Google Ads." },
-  { id: "ownership", label: "Market Ownership", desc: "Multi-city. Dominate the niche." },
-];
 
 const revenueOptions = [
   "Under $5,000/month",
@@ -20,8 +13,6 @@ const revenueOptions = [
 ];
 
 export default function ServicesFinalCTA() {
-  const [selectedTier, setSelectedTier] = useState("performance");
-
   return (
     <section
       id="apply"
@@ -88,7 +79,7 @@ export default function ServicesFinalCTA() {
                 className="text-base leading-relaxed"
                 style={{ color: "#D2C9B8" }}
               >
-                Short application. If I think I can help, you will get a call link within 24 hours. If not, I will tell you directly.
+                Short application. I review your market before we speak. If I think I can produce a return, you will get a call link within 24 hours. If not, I will tell you directly.
               </p>
             </div>
           </Reveal>
@@ -103,44 +94,6 @@ export default function ServicesFinalCTA() {
                 borderRadius: 12,
               }}
             >
-              {/* Tier selection */}
-              <div className="mb-7">
-                <p
-                  className="services-form-label block mb-3"
-                  style={{ color: "#D4A853" }}
-                >
-                  WHICH TIER ARE YOU APPLYING FOR?
-                </p>
-                <div className="flex flex-col gap-2">
-                  {tiers.map((tier) => (
-                    <label
-                      key={tier.id}
-                      className={`services-radio-option flex items-start gap-3 ${selectedTier === tier.id ? "selected" : ""}`}
-                    >
-                      <input
-                        type="radio"
-                        name="tier"
-                        value={tier.id}
-                        checked={selectedTier === tier.id}
-                        onChange={() => setSelectedTier(tier.id)}
-                        className="mt-0.5"
-                      />
-                      <div>
-                        <p
-                          className="text-sm font-semibold"
-                          style={{ color: selectedTier === tier.id ? "#F5F0E8" : "#A69D8D" }}
-                        >
-                          {tier.label}
-                        </p>
-                        <p className="text-xs mt-0.5" style={{ color: "#756D63" }}>
-                          {tier.desc}
-                        </p>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
               {/* Name + Business */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>

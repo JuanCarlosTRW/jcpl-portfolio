@@ -72,10 +72,10 @@ export default function ServicesHero() {
             Apply for a Partnership →
           </a>
           <a
-            href="#pricing"
+            href="#system"
             className="cta-secondary inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-medium"
           >
-            See the three tiers
+            See how the system works
           </a>
         </div>
 

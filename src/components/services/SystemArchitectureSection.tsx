@@ -1,0 +1,382 @@
+"use client";
+
+import { Reveal } from "@/components/motion";
+
+const coreIncludes = [
+  {
+    title: "Market Gap Report",
+    copy: "Before a single asset is built, you get a documented analysis of where competitors are exposed in your market. Every build decision follows from this.",
+  },
+  {
+    title: "Conversion Site",
+    copy: "Hand-coded. Sub-second load. Structured around local intent and service queries. Built to book calls — not to look presentable.",
+  },
+  {
+    title: "Local Search Capture",
+    copy: "SEO infrastructure targeting buyers in your city with intent to book. Organic capture running from day one, compounding over time.",
+  },
+  {
+    title: "Booking Flow",
+    copy: "Inbound calls and forms captured 24/7. Leads are not lost when you are on a job or unavailable after hours.",
+  },
+  {
+    title: "Analytics Layer",
+    copy: "Every call, form submission, and booking attributed to its source. You see exactly what the system is producing and where it came from.",
+  },
+  {
+    title: "Full Asset Ownership",
+    copy: "The website, ad accounts, analytics, and all tracking infrastructure belong to you. If you leave, you take everything built.",
+  },
+];
+
+const expansionLayers = [
+  {
+    num: "01",
+    label: "PAID ACQUISITION LAYER",
+    title: "When organic capture alone is not enough.",
+    copy: "Deployed when you need booked calls faster than search alone delivers. Google Ads targeting buyers with active purchase intent — tracked to cost per qualified call, not impressions or clicks.",
+    items: [
+      "Google Ads targeting high-intent service buyers in your market",
+      "Per-service and per-city landing pages built for conversion",
+      "AI voice agent for after-hours call capture — no lead goes to voicemail",
+      "Weekly optimization loop reducing cost per call over time",
+      "Monthly revenue attribution: calls and revenue traced back to the system",
+    ],
+    investment: "$2,500 / month + ad spend",
+    investmentDetail: "Ad spend separate. Minimum $500/month. 90-day initial term.",
+  },
+  {
+    num: "02",
+    label: "MARKET SCALE LAYER",
+    title: "When the objective is structural dominance.",
+    copy: "Deployed when you have proven demand and are ready to own your market before a competitor does. Multi-city architecture and search displacement — not ranking in a market, owning it.",
+    items: [
+      "Multi-city campaign architecture across target regions",
+      "Competitor displacement via search positioning and paid targeting",
+      "Expanded SEO buildout targeting high-value commercial keywords",
+      "Bi-weekly strategy calls with direct founder involvement",
+      "Quarterly market analysis and expansion roadmap",
+    ],
+    investment: "$6,000 / month + ad spend",
+    investmentDetail: "Ad spend minimum $1,500/month. Two slots per niche per city.",
+    scarcity: "If a competitor in your market applies first, this layer closes for your area.",
+  },
+];
+
+function CoreItem({ title, copy }: { title: string; copy: string }) {
+  return (
+    <div
+      className="p-6 rounded-xl"
+      style={{
+        background: "#1E1A14",
+        border: "1px solid #2A2318",
+        borderLeft: "3px solid #D4A853",
+      }}
+    >
+      <p className="text-sm font-semibold mb-2" style={{ color: "#F5F0E8" }}>
+        {title}
+      </p>
+      <p className="text-sm leading-relaxed" style={{ color: "#A69D8D" }}>
+        {copy}
+      </p>
+    </div>
+  );
+}
+
+export default function SystemArchitectureSection() {
+  return (
+    <section
+      id="system"
+      className="w-full py-20 md:py-28 relative overflow-hidden"
+      style={{ background: "#131009" }}
+    >
+      {/* Background orb */}
+      <div
+        className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(circle, rgba(212,168,83,0.03) 0%, transparent 70%)",
+          filter: "blur(120px)",
+        }}
+        aria-hidden
+      />
+
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 relative z-10">
+
+        {/* ── Section header ── */}
+        <Reveal>
+          <p
+            className="section-label mb-5"
+            style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
+          >
+            THE ACQUISITION ENGINE
+          </p>
+          <h2
+            className="text-[clamp(2rem,4.5vw,3.25rem)] font-semibold text-white leading-[1.1] tracking-tight mb-6"
+            style={{ maxWidth: "700px" }}
+          >
+            One System. Every Layer Connected.
+          </h2>
+          <p
+            className="text-[17px] leading-[1.75] mb-4"
+            style={{ color: "#D2C9B8", maxWidth: "600px" }}
+          >
+            This is not a bundle of services. It is an acquisition infrastructure — positioning site, search capture, paid conversion, AI qualification, and optimization running as one connected machine.
+          </p>
+          <p
+            className="text-[15px] leading-relaxed"
+            style={{ color: "#756D63", maxWidth: "580px" }}
+          >
+            The core system is built in every partnership. What activates on top of it depends on your stage, your market complexity, and how fast you need pipeline.
+          </p>
+        </Reveal>
+
+        {/* ── Divider ── */}
+        <div className="my-14 md:my-16 h-px w-full" style={{ background: "rgba(212,168,83,0.15)" }} aria-hidden />
+
+        {/* ── Core system ── */}
+        <Reveal>
+          <p
+            className="text-xs font-semibold tracking-[0.2em] uppercase mb-3"
+            style={{ color: "#D4A853" }}
+          >
+            BUILT INTO EVERY PARTNERSHIP
+          </p>
+          <h3
+            className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-2"
+          >
+            The Core Acquisition System
+          </h3>
+          <p className="text-sm mb-10" style={{ color: "#756D63" }}>
+            These components are always included. They are the foundation everything else is built on.
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.05}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+            {coreIncludes.map((item) => (
+              <CoreItem key={item.title} title={item.title} copy={item.copy} />
+            ))}
+          </div>
+          <div
+            className="mt-4 rounded-xl px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+            style={{ background: "#1A1510", border: "1px solid #2A2318" }}
+          >
+            <p className="text-sm font-medium" style={{ color: "#F5F0E8" }}>
+              Core system investment
+            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+              <span className="text-lg font-semibold" style={{ color: "#D4A853" }}>
+                $2,500 one-time build
+              </span>
+              <span className="text-sm" style={{ color: "#756D63" }}>+</span>
+              <span className="text-base font-medium" style={{ color: "#F5F0E8" }}>
+                $1,200 / month management
+              </span>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* ── Divider ── */}
+        <div className="my-14 md:my-16 h-px w-full" style={{ background: "rgba(212,168,83,0.15)" }} aria-hidden />
+
+        {/* ── Expansion layers ── */}
+        <Reveal>
+          <p
+            className="text-xs font-semibold tracking-[0.2em] uppercase mb-3"
+            style={{ color: "#D4A853" }}
+          >
+            WHAT ACTIVATES BASED ON STAGE
+          </p>
+          <h3
+            className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-2"
+          >
+            Expansion Layers
+          </h3>
+          <p className="text-sm mb-12" style={{ color: "#756D63" }}>
+            These layers add to the core system. They are not separate packages. They are the next layer of the same machine.
+          </p>
+        </Reveal>
+
+        <div className="flex flex-col gap-6">
+          {expansionLayers.map((layer, i) => (
+            <Reveal key={layer.label} delay={i * 0.06}>
+              <div
+                className="rounded-xl overflow-hidden"
+                style={{
+                  background: "#1E1A14",
+                  border: "1px solid #2A2318",
+                  borderTop: "2px solid #D4A853",
+                }}
+              >
+                <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-8">
+
+                  {/* Left: label + title + copy */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+                        style={{
+                          background: "#221D17",
+                          border: "1.5px solid #D4A853",
+                          color: "#D4A853",
+                        }}
+                      >
+                        {layer.num}
+                      </div>
+                      <p
+                        className="text-[11px] font-semibold tracking-[0.18em] uppercase"
+                        style={{ color: "#D4A853" }}
+                      >
+                        {layer.label}
+                      </p>
+                    </div>
+                    <h4
+                      className="text-xl font-semibold mb-3 leading-snug"
+                      style={{ color: "#F5F0E8" }}
+                    >
+                      {layer.title}
+                    </h4>
+                    <p
+                      className="text-[15px] leading-relaxed mb-6"
+                      style={{ color: "#D2C9B8" }}
+                    >
+                      {layer.copy}
+                    </p>
+
+                    {/* Investment */}
+                    <div
+                      className="inline-flex flex-col gap-1 rounded-lg px-4 py-3"
+                      style={{ background: "#131009", border: "1px solid #2A2318" }}
+                    >
+                      <span className="text-lg font-semibold" style={{ color: "#D4A853" }}>
+                        {layer.investment}
+                      </span>
+                      <span className="text-xs" style={{ color: "#756D63" }}>
+                        {layer.investmentDetail}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Vertical divider */}
+                  <div
+                    className="hidden lg:block w-px self-stretch"
+                    style={{ background: "#2A2318" }}
+                    aria-hidden
+                  />
+
+                  {/* Right: items + scarcity */}
+                  <div className="flex flex-col justify-between">
+                    <ul className="space-y-3 mb-6">
+                      {layer.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-3 text-sm leading-relaxed"
+                          style={{ color: "#D2C9B8" }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            className="shrink-0 mt-0.5"
+                            aria-hidden
+                          >
+                            <path
+                              d="M4 8.5l3 3 5-5.5"
+                              stroke="#D4A853"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {layer.scarcity && (
+                      <p
+                        className="text-xs leading-relaxed pt-4 border-t"
+                        style={{ color: "#756D63", borderColor: "#2A2318" }}
+                      >
+                        {layer.scarcity}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* ── Divider ── */}
+        <div className="my-14 md:my-16 h-px w-full" style={{ background: "rgba(212,168,83,0.15)" }} aria-hidden />
+
+        {/* ── Why one person / founder model ── */}
+        <Reveal>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <p
+                className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+                style={{ color: "#D4A853" }}
+              >
+                THE OPERATING MODEL
+              </p>
+              <h3
+                className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-5 leading-snug"
+              >
+                One person owns the full system. No handoffs.
+              </h3>
+              <p
+                className="text-[16px] leading-relaxed mb-5"
+                style={{ color: "#D2C9B8" }}
+              >
+                Most agencies split execution across a web designer, an ad buyer, an SEO contractor, and an account manager who did not build any of it. When nothing works, everyone points at someone else.
+              </p>
+              <p
+                className="text-[16px] leading-relaxed"
+                style={{ color: "#D2C9B8" }}
+              >
+                In this model, every layer of the system — the site, the search infrastructure, the paid campaigns, the tracking, the optimization — is built and managed by one person. The accountability is not distributed. The logic of the system is not lost in translation between vendors.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4">
+              {[
+                {
+                  title: "The site is designed to close, not to win awards.",
+                  body: "Every copy decision, layout choice, and CTA placement is made with one goal: qualified calls on your calendar.",
+                },
+                {
+                  title: "The ads are optimized against call outcomes, not impressions.",
+                  body: "Cost per qualified call — tracked and reviewed weekly. Spend is cut if it doesn't produce. Budget moves to what converts.",
+                },
+                {
+                  title: "The system is built on assets you own.",
+                  body: "I don't use proprietary platforms. No lock-in. The infrastructure is yours on day one and stays yours permanently.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-xl p-5"
+                  style={{
+                    background: "#1A1510",
+                    border: "1px solid #2A2318",
+                    borderLeft: "3px solid rgba(212,168,83,0.4)",
+                  }}
+                >
+                  <p className="text-sm font-semibold mb-1.5" style={{ color: "#F5F0E8" }}>
+                    {item.title}
+                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: "#A69D8D" }}>
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+      </div>
+    </section>
+  );
+}
