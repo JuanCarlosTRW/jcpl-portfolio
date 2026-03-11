@@ -118,23 +118,6 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
           </div>
         </div>
 
-        {/* Video thumbnail placeholder (Loom) */}
-        <div
-          className="mb-7 mx-auto rounded-xl overflow-hidden border border-zinc-800/40 bg-zinc-900/30 cursor-pointer max-w-[280px] aspect-video flex items-center justify-center"
-          onClick={() => window.open("#", "_blank")}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === "Enter" && window.open("#", "_blank")}
-          aria-label="Watch intro video"
-        >
-          <div className="flex flex-col items-center gap-2 text-zinc-500">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            <span className="text-xs">Intro video (coming soon)</span>
-          </div>
-        </div>
-
         <div
           className="flex items-center justify-center gap-2 mb-3"
           style={{

@@ -59,7 +59,7 @@ export default function FitCheck() {
             </h3>
             <ul className="space-y-4">
               {bestFor.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[16px] leading-[1.7]" style={{ color: "#D2C9B8" }}>
+                <li key={i} className="flex items-start gap-3 text-[14px] leading-[1.65]" style={{ color: "#D2C9B8" }}>
                   <CheckIcon /> {item}
                 </li>
               ))}
@@ -76,7 +76,7 @@ export default function FitCheck() {
             </h3>
             <ul className="space-y-4">
               {notFor.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[16px] leading-[1.7]" style={{ color: "#D2C9B8" }}>
+                <li key={i} className="flex items-start gap-3 text-[14px] leading-[1.65]" style={{ color: "#D2C9B8" }}>
                   <XIcon /> {item}
                 </li>
               ))}

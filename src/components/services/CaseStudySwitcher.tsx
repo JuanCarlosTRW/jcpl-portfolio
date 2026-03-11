@@ -70,11 +70,11 @@ const caseStudies = [
 
 export default function CaseStudySwitcher() {
   return (
-    <section className="px-6 md:px-12 lg:px-20 py-20 bg-[#09090b]">
+    <section className="px-6 md:px-12 lg:px-20 py-20" style={{ background: "#131009" }}>
       <div className="max-w-[1200px] mx-auto">
         <div className="flex items-center gap-3 mb-4">
-          <div className="h-px w-8 bg-amber-500/60" />
-          <span className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium">
+          <div className="h-px w-8" style={{ background: "rgba(212,168,83,0.6)" }} />
+          <span className="text-xs tracking-[0.2em] uppercase font-medium" style={{ color: "#756D63" }}>
             Client Systems
           </span>
         </div>
@@ -82,7 +82,7 @@ export default function CaseStudySwitcher() {
         <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-3">
           Every System I Have Built.
         </h2>
-        <p className="text-sm text-zinc-600 mb-10 max-w-[480px]">
+        <p className="text-sm mb-10 max-w-[480px]" style={{ color: "#756D63" }}>
           Every engagement documented. Every result verifiable.
         </p>
 

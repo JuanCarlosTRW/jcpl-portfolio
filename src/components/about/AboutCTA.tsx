@@ -54,7 +54,7 @@ export default function AboutCTA() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.06) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,168,83,0.05) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -92,7 +92,7 @@ export default function AboutCTA() {
                       </span>
                       {/* Dashed connector */}
                       {i < nextSteps.length - 1 && (
-                        <span className="absolute left-[calc(50%+20px)] right-[calc(-50%+20px)] top-1/2 h-px border-t border-dashed border-[rgba(37,99,235,0.2)]" aria-hidden="true" />
+                        <span className="absolute left-[calc(50%+20px)] right-[calc(-50%+20px)] top-1/2 h-px border-t border-dashed border-[rgba(212,168,83,0.15)]" aria-hidden="true" />
                       )}
                     </div>
                     <p className="text-[0.82rem] font-semibold text-white mb-0.5">{item.label}</p>
@@ -110,7 +110,7 @@ export default function AboutCTA() {
                 href={ctaCopy.href}
                 size="lg"
                 eventName="final_cta_primary_click"
-                className="hover:shadow-[0_4px_20px_rgba(37,99,235,0.25)] hover:-translate-y-0.5 transition-all duration-300"
+                className="hover:-translate-y-0.5 transition-all duration-300"
               >
                 {ctaCopy.primary}
               </CTAButton>

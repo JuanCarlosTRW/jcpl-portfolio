@@ -57,7 +57,7 @@ export default function SystemTimelineSection() {
                     {step.title}
                   </h3>
                   {"timeline" in step && step.timeline && (
-                    <span className="text-xs text-zinc-500 font-medium">
+                    <span className="text-xs font-medium" style={{ color: "#8A7E74" }}>
                       {step.timeline}
                     </span>
                   )}
@@ -70,7 +70,8 @@ export default function SystemTimelineSection() {
                     {step.deliverables.map((d) => (
                       <span
                         key={d}
-                        className="px-3 py-1 rounded-full text-xs text-zinc-400 bg-zinc-800/60 border border-zinc-700/30"
+                        className="px-3 py-1 rounded-full text-xs"
+                        style={{ color: "#8A7E74", background: "rgba(42,35,24,0.5)", border: "1px solid #2A2318" }}
                       >
                         {d}
                       </span>
@@ -107,7 +108,7 @@ export default function SystemTimelineSection() {
                     {step.title}
                   </h3>
                   {"timeline" in step && step.timeline && (
-                    <span className="text-xs text-zinc-500 font-medium">
+                    <span className="text-xs font-medium" style={{ color: "#8A7E74" }}>
                       {step.timeline}
                     </span>
                   )}
@@ -120,7 +121,8 @@ export default function SystemTimelineSection() {
                     {step.deliverables.map((d) => (
                       <span
                         key={d}
-                        className="px-3 py-1 rounded-full text-xs text-zinc-400 bg-zinc-800/60 border border-zinc-700/30"
+                        className="px-3 py-1 rounded-full text-xs"
+                        style={{ color: "#8A7E74", background: "rgba(42,35,24,0.5)", border: "1px solid #2A2318" }}
                       >
                         {d}
                       </span>

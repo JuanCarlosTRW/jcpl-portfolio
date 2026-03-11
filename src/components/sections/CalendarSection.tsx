@@ -67,7 +67,7 @@ export default function CalendarSection() {
               >
                 <BallPit
                   className="absolute inset-0 h-full w-full"
-                  colors={[0x9b8bc6, 0x3b82f6, 0xffffff]}
+                  colors={[0xD4A853, 0xA08040, 0xF5F0E8]}
                   followCursor={false}
                 />
               </div>

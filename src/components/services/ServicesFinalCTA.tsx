@@ -1,16 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { Reveal } from "@/components/motion";
 import GuaranteesStrip from "./GuaranteesStrip";
-
-const revenueOptions = [
-  "Under $5,000/month",
-  "$5,000 – $10,000/month",
-  "$10,000 – $25,000/month",
-  "$25,000 – $50,000/month",
-  "$50,000+/month",
-];
 
 export default function ServicesFinalCTA() {
   return (
@@ -52,9 +45,9 @@ export default function ServicesFinalCTA() {
           />
         </div>
 
-        {/* Application form */}
-        <div className="max-w-2xl mx-auto relative">
-          {/* Apply section orb */}
+        {/* Apply CTA */}
+        <div className="max-w-xl mx-auto relative text-center">
+          {/* Orb */}
           <div
             className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 w-[500px] h-[400px] rounded-full pointer-events-none z-0 max-md:w-[300px] max-md:h-[240px]"
             style={{
@@ -63,9 +56,8 @@ export default function ServicesFinalCTA() {
             }}
             aria-hidden
           />
-          <div className="relative z-10 space-y-0">
-          <Reveal>
-            <div className="text-center mb-10">
+          <div className="relative z-10">
+            <Reveal>
               <p
                 className="section-label mb-4"
                 style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
@@ -79,117 +71,40 @@ export default function ServicesFinalCTA() {
                 I Run 3 Partnerships at a Time.
               </h2>
               <p
-                className="text-base leading-relaxed"
+                className="text-base leading-relaxed mb-8 max-w-md mx-auto"
                 style={{ color: "#D2C9B8" }}
               >
-                Short application. I review your market before we speak. If I think I can produce a return, you will get a call link within 24 hours. If not, I will tell you directly.
+                Short application. I review your market before we speak. If I can produce a return, you will get a call link within 24 hours. If not, I will tell you directly.
               </p>
-            </div>
-          </Reveal>
+            </Reveal>
 
-          <Reveal delay={0.05}>
-            <form
-              className="services-apply-form rounded-xl p-8 md:p-10"
-              style={{
-                background: "#1E1A14",
-                border: "1px solid #2A2318",
-                borderTop: "2px solid #D4A853",
-                borderRadius: 12,
-              }}
-            >
-              {/* Name + Business */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="services-form-label block mb-1.5">
-                    Your name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="First and last"
-                    className="services-form-input w-full"
-                  />
-                </div>
-                <div>
-                  <label className="services-form-label block mb-1.5">
-                    Business name
-                  </label>
-                  <input
-                    type="text"
-                    name="business"
-                    placeholder="Your business"
-                    className="services-form-input w-full"
-                  />
-                </div>
-              </div>
-
-              {/* Revenue + Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="services-form-label block mb-1.5">
-                    Monthly revenue
-                  </label>
-                  <select
-                    name="revenue"
-                    defaultValue=""
-                    className="services-form-select w-full"
-                  >
-                    <option value="" disabled>Select range</option>
-                    {revenueOptions.map((opt) => (
-                      <option key={opt} value={opt}>{opt}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="services-form-label block mb-1.5">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="you@business.com"
-                    className="services-form-input w-full"
-                  />
-                </div>
-              </div>
-
-              {/* Message */}
-              <div className="mb-6">
-                <label className="services-form-label block mb-1.5">
-                  What are you trying to solve?{" "}
-                  <span style={{ color: "#756D63" }}>(optional)</span>
-                </label>
-                <textarea
-                  name="message"
-                  rows={3}
-                  placeholder="Briefly describe your current situation and goal."
-                  className="services-form-textarea w-full resize-none"
-                />
-              </div>
-
-              {/* Proof callout above submit */}
-              <div className="mb-4 p-3 rounded-lg bg-zinc-800/20 border border-zinc-800/30">
-                <p className="text-xs text-zinc-500 leading-relaxed">
-                  Last 3 applicants: one went live in 9 days. One booked their
-                  first qualified call on day 7. One hit $2,716 in revenue in
-                  month one.
+            <Reveal delay={0.05}>
+              {/* Proof strip */}
+              <div
+                className="mb-8 p-4 rounded-lg text-left max-w-md mx-auto"
+                style={{
+                  background: "rgba(212,168,83,0.05)",
+                  border: "1px solid rgba(212,168,83,0.14)",
+                }}
+              >
+                <p className="text-xs leading-relaxed" style={{ color: "#A69D8D" }}>
+                  Last 3 partnerships: one went live in 9 days. One booked their
+                  first qualified call on day 7. One generated $2,716 in month one.
                 </p>
               </div>
 
-              {/* Submit */}
-              <button
-                type="submit"
-                className="cta-primary w-full py-3.5 rounded-xl text-sm font-bold tracking-wide"
+              <Link
+                href="/apply"
+                className="cta-primary inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-bold tracking-wide"
               >
-                Send My Application →
-              </button>
+                Apply for a Partnership →
+              </Link>
 
               <p className="text-xs text-center mt-4" style={{ color: "#756D63" }}>
                 Response within 24 hours. No retainer until I confirm fit.
               </p>
-            </form>
-          </Reveal>
-        </div>
+            </Reveal>
+          </div>
         </div>
 
         <div className="h-10 md:h-16" aria-hidden="true" />

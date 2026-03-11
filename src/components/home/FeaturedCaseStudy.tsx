@@ -184,9 +184,9 @@ export default function FeaturedCaseStudy() {
             </p>
 
             {/* Support chip */}
-            <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
+            <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md border" style={{ background: "rgba(42,35,24,0.5)", borderColor: "#2A2318" }}>
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-              <span className="text-[11px] text-zinc-400">
+              <span className="text-[11px]" style={{ color: "#8A7E74" }}>
                 $41K revenue, 30 days
               </span>
             </div>
@@ -283,9 +283,9 @@ export default function FeaturedCaseStudy() {
               Competitive DFW market. Ranking above national lead gen sites.
               Last verified Q4 2025.
             </p>
-            <div className="mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-800/50 border border-zinc-700/30">
+            <div className="mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md border" style={{ background: "rgba(42,35,24,0.5)", borderColor: "#2A2318" }}>
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-              <span className="text-[11px] text-zinc-400">
+              <span className="text-[11px]" style={{ color: "#8A7E74" }}>
                 Page 1 SEO, 60 days
               </span>
             </div>

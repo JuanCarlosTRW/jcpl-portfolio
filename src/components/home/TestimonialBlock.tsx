@@ -24,8 +24,8 @@ export default function TestimonialBlock() {
 
         <div className="mt-7 flex items-center justify-center gap-4">
           <div
-            className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center shrink-0 bg-zinc-800"
-            style={{ border: "1px solid #2A2318" }}
+            className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center shrink-0"
+            style={{ background: "#181410", border: "1px solid #2A2318" }}
           >
             <img
               src="/images/logos/culture.png"

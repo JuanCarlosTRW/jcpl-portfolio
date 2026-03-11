@@ -39,22 +39,22 @@ function CountUp({ target, prefix = "", suffix = "", duration = 1800 }: { target
 
 export default function ProofBanner() {
   return (
-    <section className="relative border-y border-zinc-800/40 bg-zinc-950/50">
+    <section className="relative border-y" style={{ borderColor: "#2A2318", background: "#131009" }}>
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 sm:divide-x sm:divide-zinc-800/60">
-          <div className="sm:pr-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0">
+          <div className="sm:pr-8 sm:border-r" style={{ borderColor: "#2A2318" }}>
             <p className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
               <CountUp target={41085} prefix="$" />
             </p>
-            <p className="mt-1.5 text-sm text-zinc-500">
+            <p className="mt-1.5 text-sm" style={{ color: "#756D63" }}>
               Revenue generated. One client. First 30 days.
             </p>
           </div>
-          <div className="sm:px-8">
+          <div className="sm:px-8 sm:border-r" style={{ borderColor: "#2A2318" }}>
             <p className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
               $<CountUp target={33} />
             </p>
-            <p className="mt-1.5 text-sm text-zinc-500">
+            <p className="mt-1.5 text-sm" style={{ color: "#756D63" }}>
               Average cost per qualified call. All active accounts.
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function ProofBanner() {
             <p className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
               <CountUp target={11} /> days
             </p>
-            <p className="mt-1.5 text-sm text-zinc-500">
+            <p className="mt-1.5 text-sm" style={{ color: "#756D63" }}>
               Median time from signed agreement to first booked call.
             </p>
           </div>

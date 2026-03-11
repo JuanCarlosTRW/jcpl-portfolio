@@ -71,18 +71,7 @@ export default function FounderBlock() {
                 lineHeight: 1.75,
               }}
             >
-              Every system I build, I own from the diagnostic call to the first booked call. No handoffs. You work directly with me, every week.
-            </p>
-
-            <p
-              className="mb-8"
-              style={{
-                fontSize: "1rem",
-                color: "#D2C9B8",
-                lineHeight: 1.75,
-              }}
-            >
-              That is not a limitation of my size. It is the entire point.
+              Every system I build, I own from the diagnostic call to the first booked call. No handoffs. You work directly with me. That is not a limitation of my size. It is the entire point.
             </p>
 
             <div className="flex flex-wrap gap-2" style={{ gap: 8 }}>

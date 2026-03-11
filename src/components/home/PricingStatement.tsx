@@ -1,10 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { countUp } from "@/lib/animations";
-import { prefersReducedMotion } from "@/lib/motion";
 
 const JUAN_IMG_SRC =
   "https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg";
@@ -42,13 +39,6 @@ const ASSURANCES = [
 ];
 
 export default function PricingStatement() {
-  const priceRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (prefersReducedMotion() || !priceRef.current) return;
-    countUp(priceRef.current, 2500, { prefix: "$", duration: 1.5 });
-  }, []);
-
   return (
     <section
       className="px-4"
@@ -185,7 +175,7 @@ export default function PricingStatement() {
                   </span>
                 </div>
                 <Link
-                  href="#book-call"
+                  href="/apply"
                   className="flex items-center justify-center w-full rounded-lg font-semibold py-4 transition-colors"
                   style={{
                     backgroundColor: "transparent",
@@ -238,11 +228,10 @@ export default function PricingStatement() {
               {/* Price */}
               <div className="mb-2 stat-glow" style={{ position: "relative" }}>
                 <span
-                  ref={priceRef}
                   className="font-extrabold text-white"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
                 >
-                  $0
+                  $2,500
                 </span>
                 <span
                   className="align-middle ml-1"

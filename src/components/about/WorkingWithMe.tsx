@@ -16,12 +16,12 @@ export default function WorkingWithMe() {
           {workingWithMe.phases.map((phase, i) => (
             <div
               key={phase.title}
-              className="flex gap-4 pb-6 border-b border-zinc-800/40 last:border-0 last:pb-0"
+              className="flex gap-4 pb-6 border-b border-[#2A2318] last:border-0 last:pb-0"
             >
               <span className="text-[13px] font-semibold text-[#D4A853] shrink-0 w-16">
                 {phase.title}
               </span>
-              <p className="text-[15px] text-zinc-400 leading-relaxed">
+              <p className="text-[15px] text-[#D2C9B8] leading-relaxed">
                 {phase.desc}
               </p>
             </div>
