@@ -25,12 +25,13 @@ export default function ThankYouPage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          Application Received!
+          Application Received
         </h1>
 
         <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-lg mx-auto">
-          Thanks for applying. I review every application personally and
-          will respond within <strong className="text-white">24 hours</strong>.
+          I review every application personally. If there&apos;s a clear fit,
+          you&apos;ll hear from me within{" "}
+          <strong className="text-white">24 hours</strong>.
         </p>
 
         {/* Next steps */}
@@ -46,7 +47,7 @@ export default function ThankYouPage() {
               {
                 step: "2",
                 title: "Fit Assessment",
-                desc: "If there's a fit, I'll send you a Google Meet link within 24 hours.",
+                desc: "If there's a clear fit, I'll reach out to schedule a strategy call within 24 hours. If not, I'll tell you directly.",
               },
               {
                 step: "3",

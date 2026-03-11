@@ -834,7 +834,7 @@ export const aboutHowIBuiltThis = {
 export const formSteps = [
   {
     id: "contact",
-    title: "Let's Start With You",
+    title: "About You",
     fields: [
       { name: "name", label: "Your Name", type: "text" as const, required: true },
       { name: "email", label: "Email Address", type: "email" as const, required: true },
@@ -842,19 +842,22 @@ export const formSteps = [
   },
   {
     id: "business",
-    title: "Tell Me About Your Business",
+    title: "Your Business",
     fields: [
       {
         name: "businessType",
-        label: "What type of business do you run?",
+        label: "What type of service business do you run?",
         type: "select" as const,
         required: true,
         options: [
-          "Barbershop",
-          "RV Rental",
-          "Dental Practice",
+          "Trades & Home Services",
+          "Health & Wellness",
+          "Medical / Dental",
+          "Professional Services",
           "Real Estate",
-          "Other Local Service",
+          "Hospitality & Events",
+          "Education & Coaching",
+          "Other Service Business",
         ],
       },
       {
@@ -874,18 +877,18 @@ export const formSteps = [
   },
   {
     id: "marketing",
-    title: "Your Current Marketing",
+    title: "Your Situation",
     fields: [
       {
         name: "leadSource",
-        label: "Where do most of your clients come from right now?",
+        label: "Where do most of your clients come from today?",
         type: "select" as const,
         required: true,
         options: [
           "Word of mouth only",
           "Social media",
           "Google / search",
-          "Paid ads",
+          "Paid advertising",
           "A mix of channels",
         ],
       },
@@ -895,7 +898,7 @@ export const formSteps = [
         type: "select" as const,
         required: true,
         options: [
-          "Not spending on ads yet",
+          "Not currently running ads",
           "Under $1,000/month",
           "$1,000 – $3,000/month",
           "$3,000 – $10,000/month",
@@ -906,19 +909,21 @@ export const formSteps = [
   },
   {
     id: "goals",
-    title: "Your Growth Goals",
+    title: "Goals & Readiness",
     fields: [
       { name: "businessName", label: "Business Name", type: "text" as const, required: true },
       { name: "businessWebsite", label: "Business Website (optional)", type: "text" as const, required: false },
       {
         name: "planType",
-        label: "Which plan are you interested in?",
+        label: "What does your acquisition system currently lack most?",
         type: "select" as const,
         required: true,
         options: [
-          "Foundation Architecture",
-          "Performance Engine",
-          "Market Ownership",
+          "A consistent online presence",
+          "A website that converts visitors",
+          "More qualified inbound leads",
+          "Scalable paid traffic",
+          "Automated follow-up and booking",
         ],
       },
       {
@@ -927,20 +932,20 @@ export const formSteps = [
         type: "select" as const,
         required: true,
         options: [
-          "Get a professional website",
-          "Start generating leads online",
-          "Scale an existing lead source",
-          "Automate booking / follow-up",
-          "Dominate my local market",
+          "Establish a strong online presence",
+          "Build a consistent lead pipeline",
+          "Scale an existing channel",
+          "Automate booking and follow-up",
+          "Own the top position in my market",
         ],
       },
       {
         name: "timeline",
-        label: "When do you want to get started?",
+        label: "When are you looking to get started?",
         type: "select" as const,
         required: true,
         options: [
-          "Immediately",
+          "Ready to move now",
           "Within 2 weeks",
           "Within a month",
           "Just exploring options",

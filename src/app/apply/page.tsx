@@ -4,9 +4,9 @@ import ApplyForm from "@/components/ApplyForm";
 import SpotsLeftSection from "@/components/home/SpotsLeftSection";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Apply: Start Your Growth Partnership",
+  title: "Apply — Client Growth",
   description:
-    "Apply to work with Client Growth. Answer a few quick questions and I'll personally review your application within 24 hours.",
+    "Apply for a growth partnership with Client Growth. Every application is reviewed personally. If there's a fit, you'll hear directly within 24 hours.",
   path: "/apply",
 });
 

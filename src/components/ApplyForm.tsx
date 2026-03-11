@@ -21,7 +21,6 @@ export default function ApplyForm() {
 
   const step = formSteps[currentStep];
   const totalSteps = formSteps.length;
-  const progress = ((currentStep + 1) / totalSteps) * 100;
 
   function updateField(name: string, value: string) {
     if (!formStarted) {
@@ -109,37 +108,24 @@ export default function ApplyForm() {
           border: "1px solid #2A2318",
         }}
       >
-        {/* Gold progress bar at top */}
-        {status === "idle" && (
-          <div
-            className="h-1 w-full"
-            style={{ background: "rgba(212,168,83,0.2)" }}
-          >
-            <motion.div
-              className="h-full rounded-r-full"
-              style={{ background: "#D4A853" }}
-              initial={false}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            />
-          </div>
-        )}
       <div className="p-6 md:p-8">
-        <SectionLabel label="Apply" className="mb-6" />
+        <SectionLabel label="Application" className="mb-6" />
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          Let&apos;s Build Your{" "}
-          <span className="gradient-text">Growth System</span>
+          Apply for a Private{" "}
+          <span className="gradient-text">Growth Partnership</span>
         </h1>
         <p className="text-lg text-[var(--text-3)] mb-4">
-          Answer a few quick questions so I can understand your business and
-          goals. If it&apos;s a fit, you&apos;ll hear from me within 24 hours.
+          Every application is reviewed personally. Not every business moves
+          forward — that&apos;s what makes this process worth your time. If
+          there&apos;s a clear fit, you&apos;ll hear within 24 hours. If not,
+          I&apos;ll tell you directly.
         </p>
 
         {/* Time + privacy + SLA strip */}
         <div className="flex flex-wrap items-center gap-4 text-xs text-[var(--text-muted)] mb-10">
           <span className="flex items-center gap-1.5">
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3"/><path d="M8 5v3.5l2 1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
-            ~2 minutes to complete
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><path d="M8 3C5 3 2.5 6.5 2.5 8S5 13 8 13s5.5-3.5 5.5-5S11 3 8 3z" stroke="currentColor" strokeWidth="1.3"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/></svg>
+            Reviewed by the founder
           </span>
           <span className="flex items-center gap-1.5">
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5"><rect x="3" y="7" width="10" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3"/><path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
@@ -153,15 +139,26 @@ export default function ApplyForm() {
 
         {/* Disqualifier note removed as requested */}
 
-        {/* Step indicator */}
+        {/* Step dot indicator */}
         {status === "idle" && (
-          <div className="mb-10">
-            <div className="flex justify-between text-xs text-[var(--text-3)] mb-2">
-              <span>
-                Step {currentStep + 1} of {totalSteps}
-              </span>
-              <span>{Math.round(progress)}%</span>
-            </div>
+          <div className="flex items-center gap-2 mb-10">
+            {Array.from({ length: totalSteps }).map((_, i) => (
+              <div
+                key={i}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  height: "5px",
+                  width: i === currentStep ? "20px" : "5px",
+                  background:
+                    i < currentStep
+                      ? "#D4A853"
+                      : i === currentStep
+                      ? "#D4A853"
+                      : "rgba(212,168,83,0.2)",
+                  opacity: i < currentStep ? 0.6 : 1,
+                }}
+              />
+            ))}
           </div>
         )}
 
@@ -269,7 +266,7 @@ export default function ApplyForm() {
                   style={{ background: "#D4A853", color: "#0A0E1A" }}
                 >
                   {currentStep < totalSteps - 1
-                    ? "Continue →"
+                    ? "Next →"
                     : "Submit Application"}
                 </button>
               </div>
