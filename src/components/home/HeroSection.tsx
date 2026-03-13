@@ -24,7 +24,13 @@ const METRICS = [
 // scale in the shader (col = tanh(col * glowAmount / widthNorm)). Higher values
 // push the core into tanh's steep zone → brighter highlights, richer centre.
 // Outer haze stays in the linear zone and remains restrained.
-// ─── Beam intensity kept atmospheric — content always stays primary focal point ─
+//
+// Composition strategy per breakpoint:
+//   desktop  — text left / ray right, horizontal gradient protects clean separation
+//   tablet   — same as desktop, lighter overlay, slightly richer params
+//   mobile   — text stacks vertically at top; ray recomposed as focused core in
+//              centre-right lower zone; vertical gradient overlay protects text zone
+//              from top while letting ray breathe toward centre-bottom
 const BEAM_PRESETS = {
   desktop: {
     topColor: "#D4A853",
@@ -33,25 +39,48 @@ const BEAM_PRESETS = {
     pillarWidth: 2.7,
     pillarHeight: 0.30,
     noiseIntensity: 0.045,
+    pillarRotation: 9,
     containerWidth: "58%",
+    fadeGradient:
+      "linear-gradient(to right, #0D0B09 0%, #0D0B09 35%, rgba(13,11,9,0.90) 46%, rgba(13,11,9,0.32) 57%, rgba(13,11,9,0.08) 68%, transparent 76%)",
+    // desktop overlay div is lg:hidden → not rendered; value unused but typed for consistency
+    overlayStyle: "rgba(13,11,9,0.00)",
   },
   tablet: {
     topColor: "#D4A853",
-    intensity: 0.45,
-    glowAmount: 0.0021,
+    intensity: 0.48,
+    glowAmount: 0.0024,
     pillarWidth: 2.4,
     pillarHeight: 0.30,
     noiseIntensity: 0.045,
+    pillarRotation: 9,
     containerWidth: "60%",
+    fadeGradient:
+      "linear-gradient(to right, #0D0B09 0%, #0D0B09 33%, rgba(13,11,9,0.88) 45%, rgba(13,11,9,0.28) 57%, rgba(13,11,9,0.07) 68%, transparent 76%)",
+    // flat, lighter than before — tablet text column is narrower so less suppression needed
+    overlayStyle: "rgba(13,11,9,0.28)",
   },
   mobile: {
     topColor: "#D4A853",
-    intensity: 0.32,
-    glowAmount: 0.0013,
-    pillarWidth: 2.6,
-    pillarHeight: 0.24,
-    noiseIntensity: 0.045,
+    intensity: 0.40,
+    glowAmount: 0.0022,
+    // Narrow pillar: tight luminous core reads as gold, not brown haze
+    pillarWidth: 1.8,
+    // Extra vertical stretch: core fills tall narrow viewport better
+    pillarHeight: 0.34,
+    // Cleaner edges on narrow mobile viewport
+    noiseIntensity: 0.025,
+    // Slightly more angled: keeps core in centre-right zone, away from text column
+    pillarRotation: 14,
     containerWidth: "100%",
+    // Mobile horizontal fade: solid through ~28% (text left padding zone),
+    // opens up quickly so core at ~55–65% of the viewport is visible
+    fadeGradient:
+      "linear-gradient(to right, #0D0B09 0%, #0D0B09 28%, rgba(13,11,9,0.82) 42%, rgba(13,11,9,0.22) 58%, rgba(13,11,9,0.05) 74%, transparent 85%)",
+    // Vertical gradient overlay: top 30% heavily dark (text/CTA live here),
+    // opens toward centre-bottom where ray core sits below the content stack
+    overlayStyle:
+      "linear-gradient(to bottom, rgba(13,11,9,0.72) 0%, rgba(13,11,9,0.48) 30%, rgba(13,11,9,0.16) 62%, rgba(13,11,9,0.05) 82%, transparent 100%)",
   },
 };
 
@@ -62,7 +91,10 @@ type BeamPreset = {
   pillarWidth: number;
   pillarHeight: number;
   noiseIntensity: number;
+  pillarRotation: number;
   containerWidth: string;
+  fadeGradient: string;
+  overlayStyle: string;
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -110,14 +142,14 @@ export default function HeroSection() {
           pillarWidth={beam.pillarWidth}
           pillarHeight={beam.pillarHeight}
           noiseIntensity={beam.noiseIntensity}
-          pillarRotation={9}
+          pillarRotation={beam.pillarRotation}
           interactive={false}
           mixBlendMode="screen"
           quality="high"
         />
       </div>
 
-      {/* Left fade — softened multi-stop curve for organic beam integration */}
+      {/* Left/top fade — per-breakpoint gradient from beam preset for organic integration */}
       <div
         aria-hidden="true"
         style={{
@@ -125,12 +157,11 @@ export default function HeroSection() {
           inset: 0,
           zIndex: 2,
           pointerEvents: "none",
-          background:
-            "linear-gradient(to right, #0D0B09 0%, #0D0B09 35%, rgba(13,11,9,0.90) 46%, rgba(13,11,9,0.32) 57%, rgba(13,11,9,0.08) 68%, transparent 76%)",
+          background: beam.fadeGradient,
         }}
       />
 
-      {/* Mobile overlay — text always on dark, lowered to let beam glow through */}
+      {/* Sub-desktop overlay — mobile: vertical gradient (protects text top, permits ray below); tablet: lighter flat */}
       <div
         aria-hidden="true"
         className="lg:hidden"
@@ -139,7 +170,7 @@ export default function HeroSection() {
           inset: 0,
           zIndex: 3,
           pointerEvents: "none",
-          background: "rgba(13,11,9,0.47)",
+          background: beam.overlayStyle,
         }}
       />
 
