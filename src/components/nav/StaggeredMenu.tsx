@@ -10,6 +10,7 @@ export interface StaggeredMenuItem {
   label: string;
   ariaLabel: string;
   link: string;
+  onClick?: () => void;
 }
 
 export interface StaggeredMenuProps {
@@ -410,7 +411,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
-                      onClick={closeMenu}
+                      onClick={() => { closeMenu(); it.onClick?.(); }}
                       style={isActive ? {
                         color: 'var(--brand-accent)',
                         borderBottom: '2px solid var(--brand-accent)',

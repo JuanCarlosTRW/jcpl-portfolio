@@ -2,54 +2,82 @@
 
 import CTAButton from "@/components/ui/CTAButton";
 
+function StarRow() {
+  return (
+    <div className="flex items-center justify-center gap-1 mb-5" aria-label="5 stars">
+      {[...Array(5)].map((_, i) => (
+        <svg key={i} width="15" height="15" viewBox="0 0 16 16" fill="#D4A853" aria-hidden="true">
+          <path d="M8 1.2l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.4l4-.6L8 1.2z"/>
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 export default function TestimonialBlock() {
   return (
     <section
-      className="px-6 md:px-12 lg:px-20 py-10 pb-14"
+      className="px-4 sm:px-6 py-16 md:py-20"
       style={{
-        background: "#131009",
-        borderTop: "1px solid rgba(212, 168, 83, 0.12)",
+        background: "#0D0B09",
+        borderTop: "1px solid #2A2318",
+        borderBottom: "1px solid #2A2318",
       }}
     >
-      <div className="max-w-[600px] mx-auto text-center">
-        <blockquote
-          className="font-medium leading-relaxed"
+      <div className="max-w-[560px] mx-auto">
+
+        {/* Quote card */}
+        <div
+          className="rounded-[14px] px-8 py-10 sm:px-10 sm:py-12 text-center"
           style={{
-            fontSize: "clamp(1rem, 2vw, 1.125rem)",
-            color: "#F5F0E8",
+            background: "#1A1510",
+            border: "1px solid #2A2318",
+            borderTop: "2px solid rgba(212,168,83,0.35)",
           }}
         >
-          <span style={{ color: "#D4A853" }}>&ldquo;</span>Juan rebuilt our
-          entire online presence from scratch. First booking came in 11 days.
-          Calendar has not had a gap since.&rdquo;
-        </blockquote>
+          <StarRow />
 
-        <div className="mt-7 flex items-center justify-center gap-4">
-          <div
-            className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center shrink-0"
-            style={{ background: "#181410", border: "1px solid #2A2318" }}
+          <blockquote
+            className="font-medium leading-relaxed mb-8"
+            style={{
+              fontSize: "clamp(1rem, 1.8vw, 1.125rem)",
+              color: "#EDE5D0",
+              lineHeight: 1.75,
+            }}
           >
-            <img
-              src="/images/logos/culture.png"
-              alt="Culture Barbershop"
-              className="w-7 h-7 object-contain"
-            />
-          </div>
-          <div className="text-left">
-            <p className="text-sm font-medium" style={{ color: "#F5F0E8" }}>
-              Mike S.
-            </p>
-            <p className="text-xs" style={{ color: "#756D63" }}>
-              Culture Barbershop, Montreal
-            </p>
+            &ldquo;Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.&rdquo;
+          </blockquote>
+
+          {/* Attribution */}
+          <div className="flex items-center justify-center gap-3.5">
+            <div
+              className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center shrink-0"
+              style={{ background: "#221D17", border: "1.5px solid rgba(212,168,83,0.2)" }}
+            >
+              <img
+                src="/images/logos/culture.png"
+                alt="Culture Barbershop"
+                className="w-7 h-7 object-contain"
+                style={{ opacity: 0.85 }}
+              />
+            </div>
+            <div className="text-left">
+              <p className="font-semibold text-sm" style={{ color: "#F5F0E8" }}>
+                Mike S.
+              </p>
+              <p className="text-xs mt-0.5" style={{ color: "#756D63" }}>
+                Culture Barbershop · Montreal, QC
+              </p>
+            </div>
           </div>
         </div>
 
-        <p className="mt-6" style={{ fontSize: "0.78rem", color: "#756D63" }}>
+        {/* Context note */}
+        <p className="mt-5 text-center" style={{ fontSize: "0.78rem", color: "#5E5650" }}>
           Every result on this page came from the same acquisition system.
         </p>
 
-        <div className="mt-8">
+        <div className="mt-6 flex justify-center">
           <CTAButton
             href="/results"
             variant="secondary"

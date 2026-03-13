@@ -90,22 +90,32 @@ export default function QualificationCTA() {
 
           <Reveal delay={0.1}>
             <div
-              className="border-t pt-10 pb-10"
+              className="border-t pt-12 pb-10"
               style={{ borderColor: "#2A2318" }}
             >
+              {/* Gold accent line */}
+              <div
+                aria-hidden="true"
+                style={{
+                  width: 32,
+                  height: 2,
+                  background: "linear-gradient(to right, #D4A853, transparent)",
+                  margin: "0 auto 24px",
+                }}
+              />
               <p
                 className="text-center font-bold"
-                style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", color: "#F5F0E8" }}
+                style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.375rem)", color: "#F5F0E8" }}
               >
                 Serious operators build infrastructure.
               </p>
               <p
-                className="text-center mt-1"
-                style={{ fontSize: "clamp(1rem, 1.4vw, 1.25rem)", color: "#756D63" }}
+                className="text-center mt-2"
+                style={{ fontSize: "clamp(1rem, 1.3vw, 1.125rem)", color: "#5E5650" }}
               >
                 Everyone else waits for the phone to ring.
               </p>
-              <div className="flex flex-col items-center mt-8">
+              <div className="flex flex-col items-center mt-10">
                 <Link
                   href="#book-call"
                   className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-base font-semibold text-[#0A0E1A] cta-primary cta-button"
@@ -117,8 +127,8 @@ export default function QualificationCTA() {
                   <span aria-hidden>→</span>
                 </Link>
                 <p
-                  className="mt-2 text-center"
-                  style={{ fontSize: "0.875rem", color: "#756D63" }}
+                  className="mt-3 text-center max-w-xs"
+                  style={{ fontSize: "0.875rem", color: "#5E5650", lineHeight: 1.65 }}
                 >
                   If I cannot move the needle, I will tell you on the call. Before you pay anything.
                 </p>

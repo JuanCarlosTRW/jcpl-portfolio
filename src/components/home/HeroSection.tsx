@@ -24,12 +24,12 @@ const METRICS = [
 // scale in the shader (col = tanh(col * glowAmount / widthNorm)). Higher values
 // push the core into tanh's steep zone → brighter highlights, richer centre.
 // Outer haze stays in the linear zone and remains restrained.
-// ─── Beam intensity reduced ~30% from original — more restrained, less glow ─
+// ─── Beam intensity kept atmospheric — content always stays primary focal point ─
 const BEAM_PRESETS = {
   desktop: {
     topColor: "#C8A040",
-    intensity: 0.54,
-    glowAmount: 0.0022,
+    intensity: 0.38,
+    glowAmount: 0.0014,
     pillarWidth: 2.7,
     pillarHeight: 0.27,
     noiseIntensity: 0.07,
@@ -37,20 +37,20 @@ const BEAM_PRESETS = {
   },
   tablet: {
     topColor: "#C0A038",
-    intensity: 0.47,
-    glowAmount: 0.0019,
+    intensity: 0.32,
+    glowAmount: 0.0013,
     pillarWidth: 2.4,
     pillarHeight: 0.27,
     noiseIntensity: 0.07,
     containerWidth: "60%",
   },
   mobile: {
-    topColor: "#C8A030",
-    intensity: 0.64,
-    glowAmount: 0.0032,
-    pillarWidth: 3.2,
-    pillarHeight: 0.26,
-    noiseIntensity: 0.07,
+    topColor: "#C4A030",
+    intensity: 0.26,
+    glowAmount: 0.0009,
+    pillarWidth: 2.6,
+    pillarHeight: 0.24,
+    noiseIntensity: 0.06,
     containerWidth: "100%",
   },
 };
@@ -126,7 +126,7 @@ export default function HeroSection() {
           zIndex: 2,
           pointerEvents: "none",
           background:
-            "linear-gradient(to right, #0D0B09 0%, #0D0B09 32%, rgba(13,11,9,0.93) 46%, rgba(13,11,9,0.30) 60%, rgba(13,11,9,0.08) 70%, transparent 78%)",
+            "linear-gradient(to right, #0D0B09 0%, #0D0B09 36%, rgba(13,11,9,0.96) 50%, rgba(13,11,9,0.42) 64%, rgba(13,11,9,0.12) 73%, transparent 82%)",
         }}
       />
 
@@ -139,7 +139,7 @@ export default function HeroSection() {
           inset: 0,
           zIndex: 3,
           pointerEvents: "none",
-          background: "rgba(13,11,9,0.28)",
+          background: "rgba(13,11,9,0.58)",
         }}
       />
 
@@ -151,12 +151,12 @@ export default function HeroSection() {
         <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row lg:items-center">
 
           {/* LEFT: All text content — max 560px, sits on pure dark */}
-          <div className="flex flex-col w-full lg:max-w-[560px] xl:max-w-[580px] py-16 lg:py-24">
+          <div className="flex flex-col w-full lg:max-w-[560px] xl:max-w-[580px] pt-10 pb-8 sm:pt-12 sm:pb-10 lg:py-24">
 
             {/* Eyebrow */}
             <div
               className="hero-enter flex items-center gap-3"
-              style={{ marginBottom: "1.5rem", animationDelay: "0.1s" }}
+              style={{ marginBottom: "1.25rem", animationDelay: "0.1s" }}
             >
               <div
                 className="h-px w-5 flex-shrink-0"
@@ -177,16 +177,16 @@ export default function HeroSection() {
 
             {/* H1 */}
             <h1
-              className="hero-enter font-bold text-[#F5F0E8] text-pretty"
+              className="hero-enter hero-h1-fluid font-bold text-[#F5F0E8] text-pretty"
               style={{
                 fontSize: "clamp(2.65rem, 4.6vw, 4.35rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.038em",
-                marginBottom: "1.5rem",
+                marginBottom: "1.25rem",
                 animationDelay: "0.22s",
               }}
             >
-              Growth Infrastructure Behind More Qualified Calls
+              More Qualified Calls. Built as a Growth System.
             </h1>
 
             {/* Proof line — left bar frames it as an evidence moment */}
@@ -197,7 +197,7 @@ export default function HeroSection() {
                 lineHeight: 1.6,
                 letterSpacing: "-0.012em",
                 color: "#A69D8D",
-                marginBottom: "1.25rem",
+                marginBottom: "1rem",
                 paddingLeft: "0.875rem",
                 borderLeft: "2px solid rgba(212,168,83,0.28)",
                 animationDelay: "0.36s",
@@ -218,11 +218,11 @@ export default function HeroSection() {
                 letterSpacing: "-0.01em",
                 color: "#8A7E74",
                 paddingLeft: "0.875rem",
-                marginBottom: "2.75rem",
+                marginBottom: "2rem",
                 animationDelay: "0.46s",
               }}
             >
-              Built to bring in better calls, not just more traffic.
+              Google Ads, local SEO, and conversion websites — one connected system, not six separate vendors.
             </p>
 
             {/* CTA cluster */}
@@ -335,7 +335,7 @@ export default function HeroSection() {
           >
 
             {/* Metrics — static verified proof blocks */}
-            <div className="flex items-center gap-5 sm:gap-0">
+            <div className="flex items-center gap-5 sm:gap-0 flex-wrap hero-rail-metrics">
               {METRICS.map((m, i) => (
                 <div key={i} className="flex items-center">
                   {i > 0 && (

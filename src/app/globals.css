@@ -1274,6 +1274,32 @@ body::after {
   }
 }
 
+/* ── Mobile responsive refinements ── */
+
+/* Very small screens: scale hero H1 down so it wraps cleanly */
+@media (max-width: 380px) {
+  .hero-h1-fluid {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* Confidence rail: prevent metrics from bleeding on small screens */
+@media (max-width: 480px) {
+  .hero-rail-metrics {
+    row-gap: 8px;
+  }
+  .hero-rail-metrics > div {
+    min-width: 0;
+  }
+}
+
+/* Section spacing normalization on mobile */
+@media (max-width: 640px) {
+  .section-header-mobile-tight {
+    margin-bottom: 2rem !important;
+  }
+}
+
 @media (max-width: 768px) {
   body::after { display: none; }
 }

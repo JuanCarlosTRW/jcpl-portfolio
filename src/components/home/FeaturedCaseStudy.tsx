@@ -105,7 +105,7 @@ export default function FeaturedCaseStudy() {
   return (
     <SectionWrapper ref={sectionRef} id="proof" style={{ background: "#131009" }}>
       {/* Section header */}
-      <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
+      <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
         <SectionLabel label="PROVEN OUTCOMES" className="mb-5 !text-[#D4A853]" />
         <h2 className="text-[clamp(30px,4.5vw,46px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto">
           <span className="text-white font-bold">
@@ -157,12 +157,12 @@ export default function FeaturedCaseStudy() {
             <div className="stat-glow" style={{ position: "relative" }}>
               <div
                 className="text-[#F5F0E8] font-extrabold mb-2 stat-41085-proof stat-41085"
-                style={{ fontSize: "5rem", lineHeight: 1 }}
+                style={{ fontSize: "clamp(3.5rem, 8vw, 5rem)", lineHeight: 1 }}
               >
                 <CountUpRevenue to={41085} prefix="$" />
               </div>
             </div>
-            <p style={{ fontSize: "1rem", color: "#A69D8D", marginBottom: 20 }}>
+            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
               in revenue. First 30 days.
             </p>
 
@@ -176,7 +176,7 @@ export default function FeaturedCaseStudy() {
             >
               <div
                 style={{
-                  fontSize: "1.25rem",
+                  fontSize: "1.3125rem",
                   fontWeight: 700,
                   color: "#D2C9B8",
                   lineHeight: 1.3,
@@ -298,7 +298,7 @@ export default function FeaturedCaseStudy() {
         <div
           ref={statCardsRef}
           className="max-w-4xl mx-auto"
-          style={{ marginTop: 48 }}
+          style={{ marginTop: 40 }}
         >
           <p
             className="uppercase text-center mb-6"
@@ -397,25 +397,27 @@ export default function FeaturedCaseStudy() {
               display: "inline-flex",
               alignItems: "center",
               gap: "0.5rem",
-              fontSize: "0.8rem",
+              fontSize: "0.85rem",
               letterSpacing: "-0.006em",
-              color: "#A69D8D",
-              border: "1px solid rgba(255,255,255,0.06)",
+              color: "#D2C9B8",
+              border: "1px solid rgba(212,168,83,0.2)",
               borderRadius: "0.5rem",
-              padding: "0.625rem 1.25rem",
+              padding: "0.75rem 1.5rem",
               textDecoration: "none",
-              transition: "color 180ms ease, border-color 180ms ease",
+              transition: "color 180ms ease, border-color 180ms ease, background-color 180ms ease",
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.color = "#D2C9B8";
-              e.currentTarget.style.borderColor = "rgba(212,168,83,0.25)";
+              e.currentTarget.style.color = "#F5F0E8";
+              e.currentTarget.style.borderColor = "rgba(212,168,83,0.45)";
+              e.currentTarget.style.backgroundColor = "rgba(212,168,83,0.04)";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.color = "#A69D8D";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+              e.currentTarget.style.color = "#D2C9B8";
+              e.currentTarget.style.borderColor = "rgba(212,168,83,0.2)";
+              e.currentTarget.style.backgroundColor = "transparent";
             }}
           >
-            See all results →
+            See all client results →
           </Link>
         </div>
       </Reveal>

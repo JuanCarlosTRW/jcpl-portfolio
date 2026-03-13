@@ -22,31 +22,31 @@ export default function HomePage() {
       {/* 2. Pain (8:47 AM + cards) */}
       <ClientReality />
 
-      {/* 4. ROI Calculator */}
-      <ROICalculator />
-
-      {/* 5. Who Builds This */}
-      <FounderBlock />
-
-      {/* 7. Proof */}
+      {/* 3. Proof — surfaces earlier for stronger trust before asking for engagement */}
       <FeaturedCaseStudy />
 
-      {/* 8. Testimonial */}
-      <TestimonialBlock />
-
-      {/* 9. Services (compact pills) */}
+      {/* 4. Services — explains HOW the proof was achieved */}
       <ServicesSection />
 
-      {/* 10. Pricing */}
+      {/* 5. ROI Calculator — now backed by visible proof */}
+      <ROICalculator />
+
+      {/* 6. Who Builds This */}
+      <FounderBlock />
+
+      {/* 7. Testimonial */}
+      <TestimonialBlock />
+
+      {/* 8. Pricing */}
       <PricingStatement />
 
-      {/* 11. Who This Is For */}
+      {/* 9. Who This Is For */}
       <QualificationCTA />
 
-      {/* 12. FAQ */}
+      {/* 10. FAQ */}
       <FAQ />
 
-      {/* 13. Booking (diagnostic + calendar) */}
+      {/* 11. Booking (diagnostic + calendar) */}
       <CalendarSection />
     </>
   );

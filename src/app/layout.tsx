@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ClientAppShell from "@/components/ClientAppShell";
+import ClarityScript from "@/components/analytics/ClarityScript";
 import { siteConfig } from "@/lib/content";
 import {
   generateOrganizationSchema,
@@ -94,6 +95,7 @@ export default function RootLayout({
         <ClientAppShell>{children}</ClientAppShell>
         <SpeedInsights />
         <Analytics />
+        <ClarityScript />
       </body>
     </html>
   );

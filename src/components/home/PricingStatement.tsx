@@ -44,8 +44,8 @@ export default function PricingStatement() {
       className="px-4"
       style={{
         background: "#131009",
-        paddingTop: "clamp(80px, 10vw, 140px)",
-        paddingBottom: "clamp(80px, 10vw, 140px)",
+        paddingTop: "clamp(64px, 10vw, 140px)",
+        paddingBottom: "clamp(64px, 10vw, 140px)",
       }}
     >
       <div className="mx-auto max-w-[960px]">

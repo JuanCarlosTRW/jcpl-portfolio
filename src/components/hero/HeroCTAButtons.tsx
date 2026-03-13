@@ -1,5 +1,7 @@
 "use client";
 
+import { trackEvent } from "@/lib/analytics";
+
 export default function HeroCTAButtons() {
   return (
     <div className="w-full mt-2 space-y-5">
@@ -19,6 +21,7 @@ export default function HeroCTAButtons() {
             transition-all duration-200
           "
           data-analytics="hero-cta"
+          onClick={() => trackEvent("hero_primary_cta_click")}
         >
           Apply for Growth Partnership&nbsp;&rarr;
         </a>
@@ -37,6 +40,7 @@ export default function HeroCTAButtons() {
             transition-all duration-200
           "
           data-analytics="hero-secondary-cta"
+          onClick={() => trackEvent("hero_secondary_cta_click")}
         >
           View Results
         </a>

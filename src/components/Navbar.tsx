@@ -2,6 +2,7 @@
 
 import { ctaCopy } from "@/lib/content";
 import { useTranslations } from "@/context/LocaleContext";
+import { trackEvent } from "@/lib/analytics";
 import StaggeredMenu from "@/components/nav/StaggeredMenu";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import type { StaggeredMenuItem } from "@/components/nav/StaggeredMenu";
@@ -17,6 +18,7 @@ export default function Navbar() {
       label: t<string>("nav.apply"),
       link: ctaCopy.href,
       ariaLabel: t<string>("nav.apply"),
+      onClick: () => trackEvent("nav_cta_clicked"),
     },
   ];
 

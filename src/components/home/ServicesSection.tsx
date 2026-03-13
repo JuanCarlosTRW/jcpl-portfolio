@@ -9,9 +9,9 @@ const SYSTEM_GROUPS = [
     seq: "01",
     label: "ATTRACT",
     items: [
-      { name: "Google Ads", desc: "Buyers with intent" },
-      { name: "Local SEO", desc: "Ranking where they search" },
-      { name: "GEO / AI Search", desc: "AI search visibility" },
+      { name: "Google Ads", desc: "High-intent buyers, captured first" },
+      { name: "Local SEO", desc: "Ranking where your market searches" },
+      { name: "GEO / AI Search", desc: "Visible in ChatGPT and AI answers" },
     ],
     borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
     bg: "#181410",
@@ -21,9 +21,9 @@ const SYSTEM_GROUPS = [
     seq: "02",
     label: "CONVERT",
     items: [
-      { name: "Conversion Website", desc: "Built to close" },
-      { name: "Conversion Copy", desc: "Language that converts" },
-      { name: "AI Voice Agent", desc: "No missed calls" },
+      { name: "Conversion Website", desc: "Pages that turn visits into calls" },
+      { name: "Conversion Copy", desc: "Language written to close" },
+      { name: "AI Voice Agent", desc: "Every call answered, 24/7" },
     ],
     borderStyle: "2px solid #D4A853",
     bg: "#1E1A14",
@@ -33,9 +33,9 @@ const SYSTEM_GROUPS = [
     seq: "03",
     label: "COMPOUND",
     items: [
-      { name: "Weekly Optimization", desc: "Continuous improvement" },
-      { name: "Monthly Reporting", desc: "Full revenue clarity" },
-      { name: "Expansion Layers", desc: "Scale when ready" },
+      { name: "Weekly Optimization", desc: "Continuous performance testing" },
+      { name: "Monthly Reporting", desc: "Clear revenue and ROI tracking" },
+      { name: "Expansion Layers", desc: "New channels as your market grows" },
     ],
     borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
     bg: "#181410",
@@ -92,7 +92,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Three-column system architecture */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {SYSTEM_GROUPS.map((group) => (
             <div
               key={group.label}
@@ -148,9 +148,9 @@ export default function ServicesSection() {
                       style={{
                         display: "block",
                         fontSize: "0.72rem",
-                        color: "#4A4540",
-                        marginTop: 2,
-                        lineHeight: 1.4,
+                        color: "#5E5650",
+                        marginTop: 3,
+                        lineHeight: 1.45,
                       }}
                     >
                       {item.desc}
@@ -163,20 +163,23 @@ export default function ServicesSection() {
         </div>
 
         {/* Footer link */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-9">
           <Link
             href="/services"
-            className="inline-block transition-colors"
-            style={{ fontSize: "0.8rem", color: "#8A7E74" }}
+            className="inline-flex items-center gap-1.5 transition-colors"
+            style={{ fontSize: "0.8125rem", color: "#A69D8D" }}
             onClick={() => trackEvent("services_link_clicked")}
             onMouseOver={(e) => {
               e.currentTarget.style.color = "#D2C9B8";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.color = "#8A7E74";
+              e.currentTarget.style.color = "#A69D8D";
             }}
           >
-            See the full system →
+            See the full system
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </Link>
         </div>
       </div>
