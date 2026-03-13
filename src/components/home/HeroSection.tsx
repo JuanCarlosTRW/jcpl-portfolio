@@ -27,7 +27,7 @@ const METRICS = [
 // ─── Beam intensity kept atmospheric — content always stays primary focal point ─
 const BEAM_PRESETS = {
   desktop: {
-    topColor: "#C8A040",
+    topColor: "#D4A853",
     intensity: 0.38,
     glowAmount: 0.0014,
     pillarWidth: 2.7,
@@ -36,7 +36,7 @@ const BEAM_PRESETS = {
     containerWidth: "58%",
   },
   tablet: {
-    topColor: "#C0A038",
+    topColor: "#D4A853",
     intensity: 0.32,
     glowAmount: 0.0013,
     pillarWidth: 2.4,
@@ -45,7 +45,7 @@ const BEAM_PRESETS = {
     containerWidth: "60%",
   },
   mobile: {
-    topColor: "#C4A030",
+    topColor: "#D4A853",
     intensity: 0.26,
     glowAmount: 0.0009,
     pillarWidth: 2.6,
@@ -103,7 +103,7 @@ export default function HeroSection() {
       >
         <LightPillar
           topColor={beam.topColor}
-          bottomColor="#1C2535"
+          bottomColor="#0D0B09"
           intensity={beam.intensity}
           rotationSpeed={0.16}
           glowAmount={beam.glowAmount}
