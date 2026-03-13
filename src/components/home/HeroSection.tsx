@@ -28,29 +28,29 @@ const METRICS = [
 const BEAM_PRESETS = {
   desktop: {
     topColor: "#D4A853",
-    intensity: 0.38,
-    glowAmount: 0.0014,
+    intensity: 0.54,
+    glowAmount: 0.0026,
     pillarWidth: 2.7,
-    pillarHeight: 0.27,
-    noiseIntensity: 0.07,
+    pillarHeight: 0.30,
+    noiseIntensity: 0.045,
     containerWidth: "58%",
   },
   tablet: {
     topColor: "#D4A853",
-    intensity: 0.32,
-    glowAmount: 0.0013,
+    intensity: 0.45,
+    glowAmount: 0.0021,
     pillarWidth: 2.4,
-    pillarHeight: 0.27,
-    noiseIntensity: 0.07,
+    pillarHeight: 0.30,
+    noiseIntensity: 0.045,
     containerWidth: "60%",
   },
   mobile: {
     topColor: "#D4A853",
-    intensity: 0.26,
-    glowAmount: 0.0009,
+    intensity: 0.32,
+    glowAmount: 0.0013,
     pillarWidth: 2.6,
     pillarHeight: 0.24,
-    noiseIntensity: 0.06,
+    noiseIntensity: 0.045,
     containerWidth: "100%",
   },
 };
@@ -126,7 +126,7 @@ export default function HeroSection() {
           zIndex: 2,
           pointerEvents: "none",
           background:
-            "linear-gradient(to right, #0D0B09 0%, #0D0B09 36%, rgba(13,11,9,0.96) 50%, rgba(13,11,9,0.42) 64%, rgba(13,11,9,0.12) 73%, transparent 82%)",
+            "linear-gradient(to right, #0D0B09 0%, #0D0B09 35%, rgba(13,11,9,0.90) 46%, rgba(13,11,9,0.32) 57%, rgba(13,11,9,0.08) 68%, transparent 76%)",
         }}
       />
 
@@ -139,7 +139,7 @@ export default function HeroSection() {
           inset: 0,
           zIndex: 3,
           pointerEvents: "none",
-          background: "rgba(13,11,9,0.58)",
+          background: "rgba(13,11,9,0.47)",
         }}
       />
 
