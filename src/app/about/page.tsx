@@ -3,7 +3,6 @@ import { buildMetadata } from "@/lib/metadata";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AboutHero from "@/components/about/AboutHero";
 import MetricsRow from "@/components/about/MetricsRow";
-import AboutHowIBuiltThis from "@/components/about/AboutHowIBuiltThis";
 import PhilosophyBlock from "@/components/about/PhilosophyBlock";
 import WorkingWithMe from "@/components/about/WorkingWithMe";
 import AboutCTA from "@/components/about/AboutCTA";
@@ -24,18 +23,15 @@ export default function AboutPage() {
         <AboutHero />
       </SectionWrapper>
 
-      {/* 2. Why This Model Exists */}
-      <AboutHowIBuiltThis />
-
-      {/* 3. Operating Rationale */}
+      {/* 2. Operating Rationale */}
       <SectionWrapper style={{ background: "#131009" }}>
         <PhilosophyBlock />
       </SectionWrapper>
 
-      {/* 4. Working with me (first 30 days) */}
+      {/* 3. Working with me (first 30 days) */}
       <WorkingWithMe />
 
-      {/* 5. Selectivity + proof */}
+      {/* 4. Selectivity + proof */}
       <div style={{ background: "#1A1510" }}>
         <SpotsLeftSection background="#1A1510" />
         <div className="max-w-7xl mx-auto px-4 pb-12">
@@ -43,7 +39,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* 6. Final CTA */}
+      {/* 5. Final CTA */}
       <SectionWrapper style={{ background: "#0D0B09" }}>
         <AboutCTA />
       </SectionWrapper>

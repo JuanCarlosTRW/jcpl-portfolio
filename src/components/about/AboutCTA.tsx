@@ -5,12 +5,6 @@ import CTAButton from "@/components/ui/CTAButton";
 import { ctaCopy } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 
-const nextSteps = [
-  { step: "1", label: "Apply", description: "Short intake form. Takes 2 minutes." },
-  { step: "2", label: "I review fit", description: "Personally reviewed within 24 hours." },
-  { step: "3", label: "Strategy call", description: "Direct conversation. No sales pitch." },
-];
-
 function LightningIcon() {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-sv-primary">
@@ -27,26 +21,12 @@ function LockIcon() {
     </svg>
   );
 }
-function ClipboardIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-3.5 h-3.5 text-sv-primary">
-      <rect x="3" y="3" width="10" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
-      <path d="M6 3V2h4v1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-      <path d="M5.5 8h5M5.5 11h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-    </svg>
-  );
-}
 
 const trustItems = [
   { Icon: LightningIcon, text: "Response within 24 hours" },
   { Icon: LockIcon, text: "100% confidential" },
-  { Icon: ClipboardIcon, text: "Limited spots per quarter" },
 ];
 
-/**
- * AboutCTA — Final CTA with 3-step "what happens next", refined hovers,
- * trust row with improved legibility, and subtle divider above footer.
- */
 export default function AboutCTA() {
   return (
     <section id="about-cta" className="relative overflow-hidden">
@@ -63,53 +43,28 @@ export default function AboutCTA() {
         <div className="max-w-2xl mx-auto text-center">
           <Reveal>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.12] tracking-tight mb-4">
-              Your Pipeline Won&apos;t{" "}
-              <span className="text-sv-primary">
-                Build Itself
+              One application.{" "}
+              <span
+                className="italic font-normal"
+                style={{ fontFamily: "var(--font-playfair), Georgia, serif", color: "var(--brand-accent)" }}
+              >
+                One honest answer.
               </span>
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto text-[0.92rem]">
-              Apply for a strategy call. I will review your current positioning, identify where the system is weak, and tell you directly whether there is a clear path to better pipeline.
+              I review your market and current positioning personally before we speak. If there is a clear path to more qualified calls, you will hear from me within 24 hours. If there is not, I will tell you that directly — before you spend anything.
             </p>
-            <p className="text-sm text-sv-primary font-medium mt-3 mb-8">
-              If I don&apos;t see a clear path to ROI, I&apos;ll tell you.
+            <p className="text-sm font-medium mt-3 mb-10" style={{ color: "var(--brand-accent)" }}>
+              No retainer until I confirm fit.
             </p>
           </Reveal>
 
-          {/* What happens next — tighter, scannable */}
           <Reveal delay={0.08}>
-            <div className="mb-8">
-              <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-5">
-                What happens next
-              </p>
-              <div className="flex items-start justify-center gap-0">
-                {nextSteps.map((item, i) => (
-                  <div key={item.step} className="flex flex-col items-center flex-1 max-w-[180px]">
-                    {/* Step badge + connector */}
-                    <div className="relative flex items-center w-full justify-center mb-3">
-                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-[1.5px] border-sv-primary bg-[var(--bg-base)] text-xs font-bold text-sv-primary tabular-nums">
-                        {item.step}
-                      </span>
-                      {/* Dashed connector */}
-                      {i < nextSteps.length - 1 && (
-                        <span className="absolute left-[calc(50%+20px)] right-[calc(-50%+20px)] top-1/2 h-px border-t border-dashed border-[rgba(212,168,83,0.15)]" aria-hidden="true" />
-                      )}
-                    </div>
-                    <p className="text-[0.82rem] font-semibold text-white mb-0.5">{item.label}</p>
-                    <p className="text-[0.72rem] text-sv-text-sub leading-snug px-2">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Buttons with refined hover */}
-          <Reveal delay={0.12}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-7">
               <CTAButton
                 href={ctaCopy.href}
                 size="lg"
-                eventName="final_cta_primary_click"
+                eventName="about_cta_primary_click"
                 className="hover:-translate-y-0.5 transition-all duration-300"
               >
                 {ctaCopy.primary}
@@ -118,7 +73,7 @@ export default function AboutCTA() {
                 href="/results"
                 variant="secondary"
                 size="md"
-                eventName="final_cta_secondary_click"
+                eventName="about_cta_secondary_click"
                 className="hover:-translate-y-0.5 transition-all duration-300"
               >
                 {ctaCopy.secondary}
@@ -126,8 +81,7 @@ export default function AboutCTA() {
             </div>
           </Reveal>
 
-          {/* Trust row — improved legibility */}
-          <Reveal delay={0.16}>
+          <Reveal delay={0.12}>
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-2">
               {trustItems.map(({ Icon, text }) => (
                 <span

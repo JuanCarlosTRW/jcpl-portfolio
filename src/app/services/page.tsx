@@ -5,7 +5,6 @@ import ProofBanner from "@/components/services/ProofBanner";
 import FitCheck from "@/components/services/FitCheck";
 import SystemTimelineSection from "@/components/services/SystemTimelineSection";
 import CaseStudySwitcher from "@/components/services/CaseStudySwitcher";
-import ServicesUnicornEmbed from "@/components/services/ServicesUnicornEmbed";
 import TechStack from "@/components/services/TechStack";
 import SystemArchitectureSection from "@/components/services/SystemArchitectureSection";
 import ServicesFinalCTA from "@/components/services/ServicesFinalCTA";
@@ -26,7 +25,6 @@ export default function ServicesPage() {
       <FitCheck />
       <SystemTimelineSection />
       <CaseStudySwitcher />
-      <ServicesUnicornEmbed />
       <TechStack />
       <SystemArchitectureSection />
       <ServicesFinalCTA />
