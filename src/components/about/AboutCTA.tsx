@@ -64,7 +64,7 @@ export default function AboutCTA() {
               <CTAButton
                 href={ctaCopy.href}
                 size="lg"
-                eventName="about_cta_primary_click"
+                eventName="final_cta_primary_click"
                 className="hover:-translate-y-0.5 transition-all duration-300"
               >
                 {ctaCopy.primary}
@@ -73,7 +73,7 @@ export default function AboutCTA() {
                 href="/results"
                 variant="secondary"
                 size="md"
-                eventName="about_cta_secondary_click"
+                eventName="final_cta_secondary_click"
                 className="hover:-translate-y-0.5 transition-all duration-300"
               >
                 {ctaCopy.secondary}
