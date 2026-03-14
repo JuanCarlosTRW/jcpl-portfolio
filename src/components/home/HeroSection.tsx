@@ -19,31 +19,26 @@ const METRICS = [
   { display: "11 days", sublabel: "median to first booked call" },
 ];
 
-// ─── Beam presets — tuned per breakpoint ────────────────────────────────────
-// glowAmount is the primary inner-light lever: it drives the tanh remapping
-// scale in the shader (col = tanh(col * glowAmount / widthNorm)). Higher values
-// push the core into tanh's steep zone → brighter highlights, richer centre.
-// Outer haze stays in the linear zone and remains restrained.
-//
-// Composition strategy per breakpoint:
-//   desktop  — text left / ray right, horizontal gradient protects clean separation
-//   tablet   — same as desktop, lighter overlay, slightly richer params
-//   mobile   — text stacks vertically at top; ray recomposed as focused core in
-//              centre-right lower zone; vertical gradient overlay protects text zone
-//              from top while letting ray breathe toward centre-bottom
+// ─── Beam presets — tuned per breakpoint ─────────────────────────────────────
+// glowAmount drives tanh remapping: higher = richer core, restrained outer haze.
+// desktop: text left / terminal right — gradient opened earlier to let pillar
+//          atmosphere bleed through the semi-transparent card stack on the right.
+// tablet:  same pattern, lighter overlay.
+// mobile:  text stacks top; ray recomposed as focused core in centre-right lower
+//          zone; vertical gradient protects text, permits ray in lower viewport.
 const BEAM_PRESETS = {
   desktop: {
     topColor: "#D4A853",
-    intensity: 0.54,
-    glowAmount: 0.0026,
+    intensity: 0.57,
+    glowAmount: 0.0028,
     pillarWidth: 2.7,
     pillarHeight: 0.30,
     noiseIntensity: 0.045,
     pillarRotation: 9,
-    containerWidth: "58%",
+    containerWidth: "60%",
+    // Opened ~3% earlier on the right to let atmosphere bleed through card stack
     fadeGradient:
-      "linear-gradient(to right, #0D0B09 0%, #0D0B09 35%, rgba(13,11,9,0.90) 46%, rgba(13,11,9,0.32) 57%, rgba(13,11,9,0.08) 68%, transparent 76%)",
-    // desktop overlay div is lg:hidden → not rendered; value unused but typed for consistency
+      "linear-gradient(to right, #0D0B09 0%, #0D0B09 30%, rgba(13,11,9,0.92) 41%, rgba(13,11,9,0.30) 53%, rgba(13,11,9,0.07) 64%, transparent 72%)",
     overlayStyle: "rgba(13,11,9,0.00)",
   },
   tablet: {
@@ -56,29 +51,20 @@ const BEAM_PRESETS = {
     pillarRotation: 9,
     containerWidth: "60%",
     fadeGradient:
-      "linear-gradient(to right, #0D0B09 0%, #0D0B09 33%, rgba(13,11,9,0.88) 45%, rgba(13,11,9,0.28) 57%, rgba(13,11,9,0.07) 68%, transparent 76%)",
-    // flat, lighter than before — tablet text column is narrower so less suppression needed
+      "linear-gradient(to right, #0D0B09 0%, #0D0B09 30%, rgba(13,11,9,0.88) 43%, rgba(13,11,9,0.26) 56%, rgba(13,11,9,0.07) 67%, transparent 76%)",
     overlayStyle: "rgba(13,11,9,0.28)",
   },
   mobile: {
     topColor: "#D4A853",
     intensity: 0.40,
     glowAmount: 0.0022,
-    // Narrow pillar: tight luminous core reads as gold, not brown haze
     pillarWidth: 1.8,
-    // Extra vertical stretch: core fills tall narrow viewport better
     pillarHeight: 0.34,
-    // Cleaner edges on narrow mobile viewport
     noiseIntensity: 0.025,
-    // Slightly more angled: keeps core in centre-right zone, away from text column
     pillarRotation: 14,
     containerWidth: "100%",
-    // Mobile horizontal fade: solid through ~28% (text left padding zone),
-    // opens up quickly so core at ~55–65% of the viewport is visible
     fadeGradient:
       "linear-gradient(to right, #0D0B09 0%, #0D0B09 28%, rgba(13,11,9,0.82) 42%, rgba(13,11,9,0.22) 58%, rgba(13,11,9,0.05) 74%, transparent 85%)",
-    // Vertical gradient overlay: top 30% heavily dark (text/CTA live here),
-    // opens toward centre-bottom where ray core sits below the content stack
     overlayStyle:
       "linear-gradient(to bottom, rgba(13,11,9,0.72) 0%, rgba(13,11,9,0.48) 30%, rgba(13,11,9,0.16) 62%, rgba(13,11,9,0.05) 82%, transparent 100%)",
   },
@@ -97,6 +83,281 @@ type BeamPreset = {
   overlayStyle: string;
 };
 
+// ─── Acquisition Terminal — right-side system visualization ──────────────────
+// Three elements: status pill → proof card → connector → system card.
+// All float in the LightPillar atmosphere. Semi-transparent glass backgrounds
+// let the ambient gold from the pillar bleed through without card clutter.
+// Desktop only — hidden on tablet/mobile where vertical layout takes over.
+
+function ConnectorLine() {
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "1px 0",
+      }}
+    >
+      <div
+        style={{
+          width: 5,
+          height: 5,
+          borderRadius: "50%",
+          background: "rgba(212,168,83,0.22)",
+          flexShrink: 0,
+        }}
+      />
+      <div
+        style={{
+          width: 1,
+          height: 22,
+          background:
+            "linear-gradient(to bottom, rgba(212,168,83,0.18), rgba(212,168,83,0.06))",
+        }}
+      />
+      <div
+        style={{
+          width: 5,
+          height: 5,
+          borderRadius: "50%",
+          background: "rgba(212,168,83,0.12)",
+          flexShrink: 0,
+        }}
+      />
+    </div>
+  );
+}
+
+function AcquisitionTerminal() {
+  const CARD_BASE = {
+    background: "rgba(13, 11, 9, 0.80)",
+    backdropFilter: "blur(10px)",
+    WebkitBackdropFilter: "blur(10px)",
+    border: "1px solid rgba(255,255,255,0.062)",
+    borderRadius: 10,
+    padding: "20px 24px",
+    width: "100%",
+  } as const;
+
+  const LABEL = {
+    fontSize: "9px",
+    fontWeight: 600,
+    letterSpacing: "0.22em",
+    textTransform: "uppercase" as const,
+    color: "rgba(212,168,83,0.50)",
+    display: "block",
+    marginBottom: "14px",
+  } as const;
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        width: 296,
+      }}
+    >
+      {/* Status pill — signals live, not hypothetical */}
+      <div
+        className="hero-enter"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 7,
+          marginBottom: 13,
+          alignSelf: "flex-start",
+          animationDelay: "0.62s",
+        }}
+      >
+        {/* Pulsing active indicator */}
+        <span
+          aria-hidden="true"
+          style={{
+            position: "relative",
+            display: "inline-flex",
+            width: 7,
+            height: 7,
+            flexShrink: 0,
+          }}
+        >
+          <span
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              background: "rgba(45,107,79,0.35)",
+              animation: "availability-pulse 2.4s cubic-bezier(0,0,0.2,1) infinite",
+            }}
+          />
+          <span
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              borderRadius: "50%",
+              background: "#2D6B4F",
+            }}
+          />
+        </span>
+        <span
+          style={{
+            fontSize: "9.5px",
+            letterSpacing: "0.20em",
+            textTransform: "uppercase",
+            color: "#756D63",
+            fontWeight: 500,
+          }}
+        >
+          Infrastructure Active
+        </span>
+      </div>
+
+      {/* Primary proof card — the commercial anchor */}
+      <div
+        className="hero-enter"
+        style={{
+          ...CARD_BASE,
+          borderColor: "rgba(212,168,83,0.13)",
+          boxShadow:
+            "0 0 32px rgba(212,168,83,0.045), 0 2px 14px rgba(0,0,0,0.55)",
+          animationDelay: "0.72s",
+        }}
+      >
+        <span style={LABEL}>Verified Result — 30 Days</span>
+
+        <div
+          style={{
+            fontSize: "2.55rem",
+            fontWeight: 700,
+            letterSpacing: "-0.048em",
+            color: "#F5F0E8",
+            lineHeight: 1,
+            fontVariantNumeric: "tabular-nums",
+            marginBottom: 3,
+          }}
+        >
+          $41,085
+        </div>
+
+        <div
+          style={{
+            fontSize: "0.73rem",
+            color: "#756D63",
+            letterSpacing: "-0.007em",
+            marginBottom: 15,
+          }}
+        >
+          generated
+        </div>
+
+        <div
+          style={{
+            height: 1,
+            background: "rgba(255,255,255,0.052)",
+            marginBottom: 13,
+          }}
+        />
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.78rem",
+              color: "#A69D8D",
+              letterSpacing: "-0.010em",
+            }}
+          >
+            from{" "}
+            <span style={{ color: "#D4A853", fontWeight: 600 }}>$900</span>{" "}
+            ad spend
+          </span>
+          <span
+            style={{
+              fontSize: "0.62rem",
+              color: "#5E5650",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+            }}
+          >
+            HVAC · Local
+          </span>
+        </div>
+      </div>
+
+      {/* Connector — signals these are sequential, not isolated cards */}
+      <div style={{ paddingLeft: 18 }}>
+        <ConnectorLine />
+      </div>
+
+      {/* System architecture card — the infrastructure claim made tangible */}
+      <div
+        className="hero-enter"
+        style={{
+          ...CARD_BASE,
+          animationDelay: "0.86s",
+        }}
+      >
+        <span style={LABEL}>Growth System</span>
+
+        <div
+          style={{
+            display: "flex",
+            gap: 5,
+            alignItems: "center",
+            flexWrap: "wrap",
+            marginBottom: 12,
+          }}
+        >
+          {["Google Ads", "Local SEO", "Conversion Web"].map((layer, i) => (
+            <span
+              key={i}
+              style={{
+                fontSize: "0.675rem",
+                color: "#8A7E74",
+                background: "rgba(255,255,255,0.040)",
+                border: "1px solid rgba(255,255,255,0.058)",
+                borderRadius: 4,
+                padding: "3px 8px",
+                letterSpacing: "-0.005em",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {layer}
+            </span>
+          ))}
+        </div>
+
+        <div
+          style={{
+            height: 1,
+            background: "rgba(255,255,255,0.042)",
+            marginBottom: 11,
+          }}
+        />
+
+        <div
+          style={{
+            fontSize: "0.725rem",
+            color: "#756D63",
+            letterSpacing: "-0.006em",
+          }}
+        >
+          One owner.{" "}
+          <span style={{ color: "#A69D8D" }}>No handoffs.</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ═══════════════════════════════════════════════════════════════════════════
 export default function HeroSection() {
   const [beam, setBeam] = useState<BeamPreset>(BEAM_PRESETS.desktop);
@@ -106,7 +367,13 @@ export default function HeroSection() {
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      setBeam(w < 640 ? BEAM_PRESETS.mobile : w < 1024 ? BEAM_PRESETS.tablet : BEAM_PRESETS.desktop);
+      setBeam(
+        w < 640
+          ? BEAM_PRESETS.mobile
+          : w < 1024
+          ? BEAM_PRESETS.tablet
+          : BEAM_PRESETS.desktop
+      );
     };
     update();
     window.addEventListener("resize", update, { passive: true });
@@ -120,7 +387,7 @@ export default function HeroSection() {
       aria-label="Hero"
     >
 
-      {/* ── LightPillar background — right-side visual zone ── */}
+      {/* ── LightPillar background — right-side atmosphere ── */}
       <div
         aria-hidden="true"
         style={{
@@ -149,7 +416,7 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Left/top fade — per-breakpoint gradient from beam preset for organic integration */}
+      {/* Horizontal fade — protects left text column, opens toward right card zone */}
       <div
         aria-hidden="true"
         style={{
@@ -161,7 +428,7 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Sub-desktop overlay — mobile: vertical gradient (protects text top, permits ray below); tablet: lighter flat */}
+      {/* Sub-desktop overlay — vertical (mobile) or flat (tablet) */}
       <div
         aria-hidden="true"
         className="lg:hidden"
@@ -181,54 +448,73 @@ export default function HeroSection() {
       >
         <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row lg:items-center">
 
-          {/* LEFT: All text content — max 560px, sits on pure dark */}
-          <div className="flex flex-col w-full lg:max-w-[560px] xl:max-w-[580px] pt-10 pb-8 sm:pt-12 sm:pb-10 lg:py-24">
+          {/* LEFT: All text content — max 520px, sits on pure dark */}
+          <div className="flex flex-col w-full lg:max-w-[520px] xl:max-w-[540px] pt-10 pb-8 sm:pt-12 sm:pb-10 lg:py-24">
 
             {/* Eyebrow */}
             <div
               className="hero-enter flex items-center gap-3"
-              style={{ marginBottom: "1.25rem", animationDelay: "0.1s" }}
+              style={{ marginBottom: "1.375rem", animationDelay: "0.1s" }}
             >
               <div
                 className="h-px w-5 flex-shrink-0"
-                style={{ background: "rgba(212,168,83,0.5)" }}
+                style={{ background: "rgba(212,168,83,0.42)" }}
               />
               <span
                 style={{
-                  fontSize: "10px",
+                  fontSize: "9.5px",
                   fontWeight: 600,
-                  letterSpacing: "0.26em",
+                  letterSpacing: "0.25em",
                   textTransform: "uppercase",
-                  color: "#8A7E74",
+                  color: "#7A7066",
                 }}
               >
                 Growth Infrastructure&nbsp;•&nbsp;Service Businesses
               </span>
             </div>
 
-            {/* H1 */}
+            {/* H1 — two visual beats: outcome (dominant) → mechanism (secondary) */}
             <h1
-              className="hero-enter hero-h1-fluid font-bold text-[#F5F0E8] text-pretty"
+              className="hero-enter font-bold"
               style={{
-                fontSize: "clamp(2.65rem, 4.6vw, 4.35rem)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.038em",
-                marginBottom: "1.25rem",
+                marginBottom: "1.375rem",
                 animationDelay: "0.22s",
               }}
             >
-              More Qualified Calls. Built as a Growth System.
+              <span
+                style={{
+                  display: "block",
+                  fontSize: "clamp(2.8rem, 4.8vw, 4.5rem)",
+                  lineHeight: 1.04,
+                  letterSpacing: "-0.040em",
+                  color: "#F5F0E8",
+                  marginBottom: "0.18em",
+                }}
+              >
+                More Qualified Calls.
+              </span>
+              <span
+                style={{
+                  display: "block",
+                  fontSize: "clamp(2.25rem, 3.8vw, 3.65rem)",
+                  lineHeight: 1.07,
+                  letterSpacing: "-0.036em",
+                  color: "rgba(245,240,232,0.68)",
+                }}
+              >
+                Built as Infrastructure.
+              </span>
             </h1>
 
             {/* Proof line — left bar frames it as an evidence moment */}
             <p
               className="hero-enter"
               style={{
-                fontSize: "1rem",
+                fontSize: "0.9375rem",
                 lineHeight: 1.6,
                 letterSpacing: "-0.012em",
                 color: "#A69D8D",
-                marginBottom: "1rem",
+                marginBottom: "0.875rem",
                 paddingLeft: "0.875rem",
                 borderLeft: "2px solid rgba(212,168,83,0.28)",
                 animationDelay: "0.36s",
@@ -240,20 +526,20 @@ export default function HeroSection() {
               {" "}in ad spend — within 30 days.
             </p>
 
-            {/* Mechanism line — differentiation signal, not a feature list */}
+            {/* Mechanism line — tightened: ownership signal replaces vendor-list framing */}
             <p
               className="hero-enter"
               style={{
                 fontSize: "0.9375rem",
                 lineHeight: 1.58,
                 letterSpacing: "-0.01em",
-                color: "#8A7E74",
+                color: "#756D63",
                 paddingLeft: "0.875rem",
-                marginBottom: "2rem",
+                marginBottom: "2.25rem",
                 animationDelay: "0.46s",
               }}
             >
-              Google Ads, local SEO, and conversion websites — one connected system, not six separate vendors.
+              Google Ads, SEO, and conversion websites — one system, one owner, zero handoffs.
             </p>
 
             {/* CTA cluster */}
@@ -261,84 +547,118 @@ export default function HeroSection() {
               className="hero-enter flex flex-col items-start gap-3"
               style={{ animationDelay: "0.56s" }}
             >
+              {/* Primary CTA — gold, confident, not cream */}
               <a
                 href="#book-call"
-                className="inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold text-[#0D0B09] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(212,168,83,0.50)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B09]"
+                className="inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(212,168,83,0.50)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B09]"
                 onMouseEnter={() => setCtaHover(true)}
-                onMouseLeave={() => { setCtaHover(false); setCtaPressed(false); }}
+                onMouseLeave={() => {
+                  setCtaHover(false);
+                  setCtaPressed(false);
+                }}
                 onMouseDown={() => setCtaPressed(true)}
                 onMouseUp={() => setCtaPressed(false)}
                 style={{
-                  fontSize: "0.975rem",
-                  padding: "0.85rem 1.75rem",
+                  fontSize: "0.9375rem",
+                  padding: "0.875rem 1.75rem",
                   letterSpacing: "-0.012em",
-                  backgroundColor: ctaPressed ? "#E4DED2" : ctaHover ? "#EBE5D9" : "#F0EBE0",
-                  boxShadow: ctaPressed
-                    ? "0 1px 1px rgba(0,0,0,0.60), 0 0 0 1px rgba(255,255,255,0.07), inset 0 1px 3px rgba(0,0,0,0.07)"
+                  backgroundColor: ctaPressed
+                    ? "#B08820"
                     : ctaHover
-                    ? "0 2px 10px rgba(0,0,0,0.52), 0 0 0 1px rgba(255,255,255,0.12), 0 1px 0 0 rgba(212,168,83,0.14), 0 6px 20px rgba(0,0,0,0.18)"
-                    : "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.10)",
+                    ? "#C49A2A"
+                    : "#D4A853",
+                  color: "#0D0B09",
+                  boxShadow: ctaPressed
+                    ? "0 1px 2px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,168,83,0.22), inset 0 1px 3px rgba(0,0,0,0.10)"
+                    : ctaHover
+                    ? "0 2px 18px rgba(212,168,83,0.30), 0 0 0 1px rgba(212,168,83,0.24), 0 6px 28px rgba(0,0,0,0.30)"
+                    : "0 1px 4px rgba(0,0,0,0.50), 0 0 0 1px rgba(212,168,83,0.16), 0 0 22px rgba(212,168,83,0.10)",
                   transform: ctaPressed ? "translateY(1px)" : "translateY(0)",
-                  transition: "background-color 180ms ease, box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 120ms ease",
+                  transition:
+                    "background-color 150ms ease, box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 100ms ease",
                 }}
               >
                 See If Your Business Qualifies
                 <svg
-                  className="w-[15px] h-[15px]"
+                  className="w-[14px] h-[14px]"
                   style={{
-                    opacity: ctaHover ? 0.65 : 0.50,
+                    opacity: 0.75,
                     transform: ctaHover ? "translateX(3px)" : "translateX(0)",
-                    transition: "transform 220ms ease, opacity 180ms ease",
+                    transition: "transform 220ms ease",
                   }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2.5}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </a>
 
-              <span
-                style={{
-                  fontSize: "0.84rem",
-                  color: "#8A7E74",
-                  letterSpacing: "-0.008em",
-                }}
-              >
-                Fast diagnosis. Clear next step. No pressure.
-              </span>
-
-              <Link
-                href="/results"
-                style={{
-                  fontSize: "0.78rem",
-                  color: "#5E5650",
-                  letterSpacing: "-0.006em",
-                  textDecoration: "none",
-                  transition: "color 180ms ease",
-                }}
-                onMouseOver={(e) => { e.currentTarget.style.color = "#A69D8D"; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = "#5E5650"; }}
-              >
-                See recent results →
-              </Link>
+              {/* Secondary row — confident, not apologetic */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
+                <span
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#6B6360",
+                    letterSpacing: "-0.008em",
+                  }}
+                >
+                  One call. Clear next step.
+                </span>
+                <span
+                  aria-hidden="true"
+                  style={{
+                    width: 1,
+                    height: 12,
+                    background: "rgba(255,255,255,0.08)",
+                    flexShrink: 0,
+                  }}
+                />
+                <Link
+                  href="/results"
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#6B6360",
+                    letterSpacing: "-0.006em",
+                    textDecoration: "none",
+                    transition: "color 180ms ease",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.color = "#A69D8D";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.color = "#6B6360";
+                  }}
+                >
+                  See results →
+                </Link>
+              </div>
             </div>
           </div>
 
           {/*
-           * RIGHT: Visual receiving zone (flex-1)
+           * RIGHT: Acquisition Terminal
            * ─────────────────────────────────────────────────────────────
-           * This column holds no DOM content — the LightPillar in LAYER 2
-           * provides all visual energy here. Its absolute positioning
-           * means it renders behind this flex row, in the right zone.
-           *
-           * If you want to add foreground elements on the right (a floating
-           * card, a data readout, a badge), place them inside this div.
-           * They will appear above the WebGL background (z-10 context).
+           * Desktop only. Floats in the LightPillar atmosphere zone.
+           * Three connected elements: status signal → proof card → system card.
+           * Semi-transparent glass backgrounds let the amber atmosphere from
+           * the WebGL pillar read through, softly grounding the cards in the
+           * same cinematic space rather than fighting for contrast against it.
            * ─────────────────────────────────────────────────────────────
            */}
-          <div className="hidden lg:block flex-1 min-w-0" aria-hidden="true" />
+          <div
+            className="hidden lg:flex flex-1 min-w-0 items-center justify-end"
+          >
+            <div style={{ paddingRight: "1.5rem" }}>
+              <AcquisitionTerminal />
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -356,13 +676,13 @@ export default function HeroSection() {
         style={{
           zIndex: 10,
           background: "#0D0B09",
-          borderTop: "1px solid rgba(255,255,255,0.065)",
+          borderTop: "1px solid rgba(255,255,255,0.062)",
         }}
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
           <div
-            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-0"
-            style={{ padding: "1.625rem 0" }}
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 sm:gap-0"
+            style={{ padding: "1.5rem 0" }}
           >
 
             {/* Metrics — static verified proof blocks */}
@@ -374,9 +694,9 @@ export default function HeroSection() {
                       className="hidden sm:block flex-shrink-0"
                       style={{
                         width: 1,
-                        height: 30,
+                        height: 28,
                         background: "rgba(255,255,255,0.07)",
-                        margin: "0 1.75rem",
+                        margin: "0 1.625rem",
                       }}
                     />
                   )}
@@ -384,8 +704,8 @@ export default function HeroSection() {
                     <div
                       className="font-semibold text-[#F5F0E8] leading-none"
                       style={{
-                        fontSize: "clamp(1.38rem, 2.1vw, 1.72rem)",
-                        letterSpacing: "-0.03em",
+                        fontSize: "clamp(1.35rem, 2.0vw, 1.68rem)",
+                        letterSpacing: "-0.032em",
                         fontVariantNumeric: "tabular-nums",
                       }}
                     >
@@ -393,11 +713,11 @@ export default function HeroSection() {
                     </div>
                     <div
                       style={{
-                        fontSize: "0.68rem",
+                        fontSize: "0.65rem",
                         color: "#756D63",
                         letterSpacing: "0.055em",
                         textTransform: "uppercase",
-                        marginTop: "0.375rem",
+                        marginTop: "0.35rem",
                       }}
                     >
                       {m.sublabel}
@@ -412,9 +732,9 @@ export default function HeroSection() {
               className="hidden sm:block flex-shrink-0"
               style={{
                 width: 1,
-                height: 40,
+                height: 36,
                 background: "rgba(255,255,255,0.07)",
-                margin: "0 1.75rem",
+                margin: "0 1.625rem",
               }}
             />
 

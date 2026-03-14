@@ -12,6 +12,7 @@ const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const CalendarSection = dynamic(() => import("@/components/sections/CalendarSection"));
+const UnicornEmbed = dynamic(() => import("@/components/home/UnicornEmbed"), { ssr: false });
 
 export default function HomePage() {
   return (
@@ -48,6 +49,9 @@ export default function HomePage() {
 
       {/* 11. Booking (diagnostic + calendar) */}
       <CalendarSection />
+
+      {/* 12. UnicornStudio interactive embed */}
+      <UnicornEmbed />
     </>
   );
 }
