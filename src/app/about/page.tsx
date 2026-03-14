@@ -3,7 +3,6 @@ import { buildMetadata } from "@/lib/metadata";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AboutHero from "@/components/about/AboutHero";
 import MetricsRow from "@/components/about/MetricsRow";
-import PhilosophyBlock from "@/components/about/PhilosophyBlock";
 import WorkingWithMe from "@/components/about/WorkingWithMe";
 import AboutCTA from "@/components/about/AboutCTA";
 import SpotsLeftSection from "@/components/home/SpotsLeftSection";
@@ -23,15 +22,10 @@ export default function AboutPage() {
         <AboutHero />
       </SectionWrapper>
 
-      {/* 2. Operating Rationale */}
-      <SectionWrapper style={{ background: "#131009" }}>
-        <PhilosophyBlock />
-      </SectionWrapper>
-
-      {/* 3. Working with me (first 30 days) */}
+      {/* 2. Working with me (first 30 days) */}
       <WorkingWithMe />
 
-      {/* 4. Selectivity + proof */}
+      {/* 3. Selectivity + proof */}
       <div style={{ background: "#1A1510" }}>
         <SpotsLeftSection background="#1A1510" />
         <div className="max-w-7xl mx-auto px-4 pb-12">

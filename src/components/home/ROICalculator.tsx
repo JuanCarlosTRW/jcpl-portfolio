@@ -278,25 +278,25 @@ export default function ROICalculator() {
                   fontSize: "0.9375rem",
                   padding: "0.925rem 1.5rem",
                   letterSpacing: "-0.01em",
-                  backgroundColor: "#F0EBE0",
+                  backgroundColor: "#D4A853",
                   boxShadow:
-                    "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.12)",
+                    "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,168,83,0.16), 0 0 22px rgba(212,168,83,0.10)",
                   transition: "background-color 180ms ease, box-shadow 220ms ease",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLAnchorElement;
-                  el.style.backgroundColor = "#EBE5D9";
+                  el.style.backgroundColor = "#C49A2A";
                   el.style.boxShadow =
-                    "0 2px 10px rgba(0,0,0,0.52), 0 0 0 1px rgba(255,255,255,0.12), 0 1px 0 0 rgba(212,168,83,0.14), 0 6px 20px rgba(0,0,0,0.18)";
+                    "0 2px 18px rgba(212,168,83,0.30), 0 0 0 1px rgba(212,168,83,0.24), 0 6px 28px rgba(0,0,0,0.30)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLAnchorElement;
-                  el.style.backgroundColor = "#F0EBE0";
+                  el.style.backgroundColor = "#D4A853";
                   el.style.boxShadow =
-                    "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.09), 0 1px 0 0 rgba(212,168,83,0.12)";
+                    "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,168,83,0.16), 0 0 22px rgba(212,168,83,0.10)";
                 }}
               >
-                See If Your Business Qualifies
+                Book a Diagnostic Call →
               </a>
             </div>
           </div>

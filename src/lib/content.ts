@@ -18,9 +18,9 @@ export const navigation = [
 ] as const;
 
 export const ctaCopy = {
-  primary: "Apply for Growth Partnership",
-  secondary: "See Results",
-  tertiary: "Apply for Growth Partnership",
+  primary: "Book a Diagnostic Call",
+  secondary: "See Results →",
+  tertiary: "Book a Diagnostic Call",
   href: "/apply",
 };
 

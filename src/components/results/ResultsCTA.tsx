@@ -58,7 +58,7 @@ export default function ResultsCTA() {
           >
             <div className="flex flex-col gap-4 w-full lg:w-auto">
               <CTAButton href="/apply" size="lg">
-                Apply for a strategy call
+                Book a Diagnostic Call
               </CTAButton>
               <Link
                 href="/services"

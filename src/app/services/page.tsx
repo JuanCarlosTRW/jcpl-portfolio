@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import ServicesHero from "@/components/services/ServicesHero";
 import ProofBanner from "@/components/services/ProofBanner";
-import FitCheck from "@/components/services/FitCheck";
 import SystemTimelineSection from "@/components/services/SystemTimelineSection";
 import SystemArchitectureSection from "@/components/services/SystemArchitectureSection";
-import CaseStudySwitcher from "@/components/services/CaseStudySwitcher";
 import TechStack from "@/components/services/TechStack";
 import ServicesFinalCTA from "@/components/services/ServicesFinalCTA";
 import "@/styles/services.css";
@@ -22,10 +20,8 @@ export default function ServicesPage() {
     <>
       <ServicesHero />
       <ProofBanner />
-      <FitCheck />
       <SystemTimelineSection />
       <SystemArchitectureSection />
-      <CaseStudySwitcher />
       <TechStack />
       <ServicesFinalCTA />
     </>

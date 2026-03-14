@@ -14,6 +14,65 @@ function StarRow() {
   );
 }
 
+interface TestimonialProps {
+  quote: string;
+  name: string;
+  business: string;
+  logoSrc?: string;
+  logoAlt?: string;
+}
+
+function TestimonialCard({ quote, name, business, logoSrc, logoAlt }: TestimonialProps) {
+  return (
+    <div
+      className="rounded-[14px] px-8 py-10 sm:px-10 sm:py-12 text-center h-full flex flex-col"
+      style={{
+        background: "#1A1510",
+        border: "1px solid #2A2318",
+        borderTop: "2px solid rgba(212,168,83,0.35)",
+      }}
+    >
+      <StarRow />
+
+      <blockquote
+        className="font-medium leading-relaxed mb-8 flex-1"
+        style={{
+          fontSize: "clamp(0.95rem, 1.7vw, 1.075rem)",
+          color: "#EDE5D0",
+          lineHeight: 1.75,
+        }}
+      >
+        &ldquo;{quote}&rdquo;
+      </blockquote>
+
+      {/* Attribution */}
+      <div className="flex items-center justify-center gap-3.5">
+        {logoSrc && (
+          <div
+            className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center shrink-0"
+            style={{ background: "#221D17", border: "1.5px solid rgba(212,168,83,0.2)" }}
+          >
+            <img
+              src={logoSrc}
+              alt={logoAlt ?? ""}
+              className="w-7 h-7 object-contain"
+              style={{ opacity: 0.85 }}
+            />
+          </div>
+        )}
+        <div className="text-left">
+          <p className="font-semibold text-sm" style={{ color: "#F5F0E8" }}>
+            {name}
+          </p>
+          <p className="text-xs mt-0.5" style={{ color: "#756D63" }}>
+            {business}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function TestimonialBlock() {
   return (
     <section
@@ -24,52 +83,26 @@ export default function TestimonialBlock() {
         borderBottom: "1px solid #2A2318",
       }}
     >
-      <div className="max-w-[560px] mx-auto">
+      <div className="max-w-[1120px] mx-auto">
 
-        {/* Quote card */}
-        <div
-          className="rounded-[14px] px-8 py-10 sm:px-10 sm:py-12 text-center"
-          style={{
-            background: "#1A1510",
-            border: "1px solid #2A2318",
-            borderTop: "2px solid rgba(212,168,83,0.35)",
-          }}
-        >
-          <StarRow />
+        {/* Two-column grid on desktop, stacked on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 
-          <blockquote
-            className="font-medium leading-relaxed mb-8"
-            style={{
-              fontSize: "clamp(1rem, 1.8vw, 1.125rem)",
-              color: "#EDE5D0",
-              lineHeight: 1.75,
-            }}
-          >
-            &ldquo;Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.&rdquo;
-          </blockquote>
+          {/* Testimonial 1 — Mike S., Culture Barbershop */}
+          <TestimonialCard
+            quote="Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since."
+            name="Mike S."
+            business="Culture Barbershop · Montreal, QC"
+            logoSrc="/images/logos/culture.png"
+            logoAlt="Culture Barbershop"
+          />
 
-          {/* Attribution */}
-          <div className="flex items-center justify-center gap-3.5">
-            <div
-              className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center shrink-0"
-              style={{ background: "#221D17", border: "1.5px solid rgba(212,168,83,0.2)" }}
-            >
-              <img
-                src="/images/logos/culture.png"
-                alt="Culture Barbershop"
-                className="w-7 h-7 object-contain"
-                style={{ opacity: 0.85 }}
-              />
-            </div>
-            <div className="text-left">
-              <p className="font-semibold text-sm" style={{ color: "#F5F0E8" }}>
-                Mike S.
-              </p>
-              <p className="text-xs mt-0.5" style={{ color: "#756D63" }}>
-                Culture Barbershop · Montreal, QC
-              </p>
-            </div>
-          </div>
+          {/* TODO: Replace with second real client testimonial when available */}
+          <TestimonialCard
+            quote="The system was live in under two weeks. First qualified call came on day 7. I didn't have to manage anything."
+            name="Client Name"
+            business="Business Name · Location"
+          />
         </div>
 
         {/* Context note */}
@@ -84,7 +117,7 @@ export default function TestimonialBlock() {
             size="sm"
             eventName="case_card_click"
           >
-            View full case studies
+            See Results →
           </CTAButton>
         </div>
       </div>

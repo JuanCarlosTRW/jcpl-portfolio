@@ -61,7 +61,7 @@ export default function ServicesHero() {
           className="mb-10 text-sm font-medium"
           style={{ color: "#C8A05A" }}
         >
-          Most recent result: $41,085 in revenue from $900 in ad spend. 30 days.
+          Most recent result: 90 new clients in 90 days. Page 1 in under 60 days.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -69,7 +69,7 @@ export default function ServicesHero() {
             href="#apply"
             className="cta-primary inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-semibold"
           >
-            Apply for a Partnership →
+            Book a Diagnostic Call →
           </a>
           <a
             href="#system"

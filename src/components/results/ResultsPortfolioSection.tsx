@@ -9,9 +9,7 @@ interface Props {
 }
 
 export default function ResultsPortfolioSection({ recent, building }: Props) {
-  const totalCount = recent.length + building.length;
-
-  if (totalCount === 0) return null;
+  if (recent.length === 0 && building.length === 0) return null;
 
   return (
     <section
@@ -22,36 +20,58 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
       }}
     >
       <div className="max-w-[1120px] mx-auto px-6">
-        {/* Section header */}
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.3)]">
-            Active portfolio
-          </span>
-          <span
-            className="flex-1 h-px"
-            style={{ background: "rgba(212,168,83,0.1)" }}
-          />
-          <span className="text-[11px] text-[rgba(255,255,255,0.2)] tabular-nums">
-            {totalCount} partnerships
-          </span>
-        </div>
-        <p className="text-[14px] text-[rgba(255,255,255,0.35)] mb-10 max-w-[520px] leading-[1.65]">
-          Recently delivered and active partnerships. Systems live. Revenue data
-          being verified or collected where noted.
-        </p>
 
-        <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
-          {/* Completed — full weight */}
-          {recent.map((cs) => (
-            <CaseStudyCard key={cs.id} cs={cs} />
-          ))}
-          {/* In-build — de-emphasised; systems live, data pending */}
-          {building.map((cs) => (
-            <div key={cs.id} className="opacity-[0.72]">
-              <CaseStudyCard cs={cs} />
+        {/* Recent Delivered — full weight */}
+        {recent.length > 0 && (
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[11px] uppercase tracking-[0.14em] text-[#D4A853]">
+                Recently Delivered
+              </span>
+              <span
+                className="flex-1 h-px"
+                style={{ background: "rgba(212,168,83,0.1)" }}
+              />
             </div>
-          ))}
-        </div>
+            <p className="text-[14px] text-[rgba(255,255,255,0.35)] mb-10 max-w-[520px] leading-[1.65]">
+              Systems live. Results tracked.
+            </p>
+            <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
+              {recent.map((cs) => (
+                <CaseStudyCard key={cs.id} cs={cs} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Active Builds — clearly secondary, in progress */}
+        {building.length > 0 && (
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.3)]">
+                Active Builds
+              </span>
+              <span
+                className="flex-1 h-px"
+                style={{ background: "rgba(255,255,255,0.05)" }}
+              />
+              <span className="text-[11px] text-[rgba(255,255,255,0.2)] tabular-nums">
+                {building.length} in progress
+              </span>
+            </div>
+            <p className="text-[14px] text-[rgba(255,255,255,0.25)] mb-10 max-w-[520px] leading-[1.65]">
+              Systems live. Results compiling.
+            </p>
+            <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
+              {building.map((cs) => (
+                <div key={cs.id} className="opacity-[0.60]">
+                  <CaseStudyCard cs={cs} />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
     </section>
   );

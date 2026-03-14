@@ -192,7 +192,7 @@ export default function PricingStatement() {
                     e.currentTarget.style.color = "#D4A853";
                   }}
                 >
-                  Start Your Application →
+                  Book a Diagnostic Call →
                 </Link>
               </div>
             </div>
@@ -339,7 +339,7 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Book a 15-Minute Diagnostic Call →
+                  Book a Diagnostic Call →
                 </Link>
                 <p
                   className="text-center"

@@ -24,14 +24,14 @@ export default function HomePage() {
       {/* 2. Pain (8:47 AM + cards) */}
       <ClientReality />
 
-      {/* 3. Proof — surfaces earlier for stronger trust before asking for engagement */}
+      {/* 3. Proof — surfaces earlier for stronger trust */}
       <FeaturedCaseStudy />
 
-      {/* 4. Services — explains HOW the proof was achieved */}
-      <ServicesSection />
-
-      {/* 5. ROI Calculator — now backed by visible proof */}
+      {/* 4. ROI Calculator — immediately after proof, numbers still fresh */}
       <ROICalculator />
+
+      {/* 5. Services — explains HOW the proof was achieved */}
+      <ServicesSection />
 
       {/* 6. Who Builds This */}
       <FounderBlock />

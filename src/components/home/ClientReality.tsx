@@ -76,8 +76,8 @@ export default function ClientReality() {
           <div
             className="relative mx-auto max-w-[620px] rounded-[14px] px-8 py-10 sm:px-10 sm:py-11 lift-card"
             style={{
-              background: "#1A1610",
-              border: "1px solid #2A2318",
+              background: "#1A1714",
+              border: "1px solid rgba(212,168,83,0.15)",
               borderLeft: "3px solid rgba(212,168,83,0.55)",
               boxShadow: "0 4px 40px rgba(0,0,0,0.35), 0 0 60px rgba(212,168,83,0.04)",
             }}
@@ -90,7 +90,7 @@ export default function ClientReality() {
             </p>
             <div
               style={{
-                fontSize: "clamp(1rem, 1.5vw, 1.0625rem)",
+                fontSize: "clamp(1.1rem, 1.65vw, 1.175rem)",
                 lineHeight: 1.85,
               }}
             >
@@ -110,7 +110,7 @@ export default function ClientReality() {
               <p style={{ color: "#A8A098", fontWeight: 400 }}>
                 Not because your work is worse.
               </p>
-              <p style={{ color: "#EDE5D0", fontWeight: 600 }}>
+              <p style={{ color: "#D4A853", fontWeight: 600 }}>
                 Because their system was there. Yours wasn&apos;t.
               </p>
             </div>
@@ -131,10 +131,11 @@ export default function ClientReality() {
                 <div
                   className={`group relative flex h-full flex-col rounded-[14px] lift-card card ${padding}`}
                   style={{
-                    background: "#1A1610",
-                    border: "1px solid #2A2318",
+                    background: "#1A1714",
+                    border: "1px solid rgba(212,168,83,0.12)",
+                    borderLeft: "3px solid rgba(212,168,83,0.30)",
                     ...(isConclusion
-                      ? { borderLeft: "3px solid rgba(212,168,83,0.30)" }
+                      ? { borderLeft: "3px solid rgba(212,168,83,0.50)" }
                       : {}),
                   }}
                 >

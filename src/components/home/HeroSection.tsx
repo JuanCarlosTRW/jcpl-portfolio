@@ -14,7 +14,7 @@ const ACTIVE_CLIENTS = [
 
 // ─── Static proof blocks — verified, no zero-state, no animation ────────────
 const METRICS = [
-  { display: "$41,085", sublabel: "from $900 ad spend"          },
+  { display: "$41,085", sublabel: "REVENUE GENERATED"                  },
   { display: "$33",     sublabel: "avg cost per qualified call"  },
   { display: "11 days", sublabel: "median to first booked call" },
 ];
@@ -83,277 +83,121 @@ type BeamPreset = {
   overlayStyle: string;
 };
 
-// ─── Acquisition Terminal — right-side system visualization ──────────────────
-// Three elements: status pill → proof card → connector → system card.
-// All float in the LightPillar atmosphere. Semi-transparent glass backgrounds
-// let the ambient gold from the pillar bleed through without card clutter.
-// Desktop only — hidden on tablet/mobile where vertical layout takes over.
-
-function ConnectorLine() {
+// ─── Clean Proof Badge — verified result, no dashboard UI clutter ──────────
+function ProofCard() {
   return (
     <div
-      aria-hidden="true"
+      className="hero-enter"
       style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "1px 0",
+        background: "#151210",
+        border: "1px solid rgba(212,168,83,0.20)",
+        borderRadius: 12,
+        padding: "28px 32px",
+        maxWidth: 360,
+        width: "100%",
+        animationDelay: "0.62s",
       }}
     >
-      <div
+      {/* Top label */}
+      <p
         style={{
-          width: 5,
-          height: 5,
-          borderRadius: "50%",
-          background: "rgba(212,168,83,0.22)",
-          flexShrink: 0,
-        }}
-      />
-      <div
-        style={{
-          width: 1,
-          height: 22,
-          background:
-            "linear-gradient(to bottom, rgba(212,168,83,0.18), rgba(212,168,83,0.06))",
-        }}
-      />
-      <div
-        style={{
-          width: 5,
-          height: 5,
-          borderRadius: "50%",
-          background: "rgba(212,168,83,0.12)",
-          flexShrink: 0,
-        }}
-      />
-    </div>
-  );
-}
-
-function AcquisitionTerminal() {
-  const CARD_BASE = {
-    background: "rgba(13, 11, 9, 0.80)",
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-    border: "1px solid rgba(255,255,255,0.062)",
-    borderRadius: 10,
-    padding: "20px 24px",
-    width: "100%",
-  } as const;
-
-  const LABEL = {
-    fontSize: "9px",
-    fontWeight: 600,
-    letterSpacing: "0.22em",
-    textTransform: "uppercase" as const,
-    color: "rgba(212,168,83,0.50)",
-    display: "block",
-    marginBottom: "14px",
-  } as const;
-
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "stretch",
-        width: 296,
-      }}
-    >
-      {/* Status pill — signals live, not hypothetical */}
-      <div
-        className="hero-enter"
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 7,
-          marginBottom: 13,
-          alignSelf: "flex-start",
-          animationDelay: "0.62s",
+          fontSize: "11px",
+          fontWeight: 600,
+          letterSpacing: "0.22em",
+          textTransform: "uppercase",
+          color: "#D4A853",
+          marginBottom: "16px",
         }}
       >
-        {/* Pulsing active indicator */}
-        <span
-          aria-hidden="true"
-          style={{
-            position: "relative",
-            display: "inline-flex",
-            width: 7,
-            height: 7,
-            flexShrink: 0,
-          }}
-        >
-          <span
-            style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: "50%",
-              background: "rgba(45,107,79,0.35)",
-              animation: "availability-pulse 2.4s cubic-bezier(0,0,0.2,1) infinite",
-            }}
-          />
-          <span
-            style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              borderRadius: "50%",
-              background: "#2D6B4F",
-            }}
-          />
-        </span>
-        <span
-          style={{
-            fontSize: "9.5px",
-            letterSpacing: "0.20em",
-            textTransform: "uppercase",
-            color: "#756D63",
-            fontWeight: 500,
-          }}
-        >
-          Infrastructure Active
-        </span>
+        Verified Client Result
+      </p>
+
+      {/* Main number */}
+      <div
+        style={{
+          fontSize: "clamp(2.2rem, 3.5vw, 2.75rem)",
+          fontWeight: 700,
+          letterSpacing: "-0.048em",
+          color: "#F5F0E8",
+          lineHeight: 1,
+          fontVariantNumeric: "tabular-nums",
+          marginBottom: "2px",
+        }}
+      >
+        $41,085
+      </div>
+      <div style={{ fontSize: "0.75rem", color: "#756D63", marginBottom: "10px" }}>
+        revenue
       </div>
 
-      {/* Primary proof card — the commercial anchor */}
+      {/* Context */}
+      <div style={{ fontSize: "0.8125rem", color: "#A69D8D", marginBottom: "4px" }}>
+        from{" "}
+        <span style={{ color: "#D4A853", fontWeight: 600 }}>$900</span>
+        {" "}ad spend
+        <span style={{ color: "#5E5650" }}> · 30 days</span>
+      </div>
+
+      {/* Industry tag */}
       <div
-        className="hero-enter"
         style={{
-          ...CARD_BASE,
-          borderColor: "rgba(212,168,83,0.13)",
-          boxShadow:
-            "0 0 32px rgba(212,168,83,0.045), 0 2px 14px rgba(0,0,0,0.55)",
-          animationDelay: "0.72s",
+          display: "inline-block",
+          fontSize: "0.675rem",
+          color: "#5E5650",
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
+          marginBottom: "18px",
         }}
       >
-        <span style={LABEL}>Verified Result — 30 Days</span>
+        RV Rental · Texas
+      </div>
 
-        <div
-          style={{
-            fontSize: "2.55rem",
-            fontWeight: 700,
-            letterSpacing: "-0.048em",
-            color: "#F5F0E8",
-            lineHeight: 1,
-            fontVariantNumeric: "tabular-nums",
-            marginBottom: 3,
-          }}
-        >
-          $41,085
-        </div>
+      {/* Divider */}
+      <div
+        style={{
+          height: 1,
+          background: "rgba(255,255,255,0.08)",
+          marginBottom: "16px",
+        }}
+      />
 
+      {/* Three stat rows */}
+      {[
+        { num: "46×", label: "return on ad spend" },
+        { num: "$33", label: "per qualified call" },
+        { num: "11 days", label: "to first booked call" },
+      ].map(({ num, label }) => (
         <div
-          style={{
-            fontSize: "0.73rem",
-            color: "#756D63",
-            letterSpacing: "-0.007em",
-            marginBottom: 15,
-          }}
-        >
-          generated
-        </div>
-
-        <div
-          style={{
-            height: 1,
-            background: "rgba(255,255,255,0.052)",
-            marginBottom: 13,
-          }}
-        />
-
-        <div
+          key={label}
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: "baseline",
+            marginBottom: "10px",
           }}
         >
           <span
             style={{
-              fontSize: "0.78rem",
-              color: "#A69D8D",
-              letterSpacing: "-0.010em",
+              fontSize: "0.925rem",
+              fontWeight: 600,
+              color: "#F5F0E8",
+              letterSpacing: "-0.018em",
+              fontVariantNumeric: "tabular-nums",
             }}
           >
-            from{" "}
-            <span style={{ color: "#D4A853", fontWeight: 600 }}>$900</span>{" "}
-            ad spend
+            {num}
           </span>
           <span
             style={{
-              fontSize: "0.62rem",
-              color: "#5E5650",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
+              fontSize: "0.725rem",
+              color: "#756D63",
+              letterSpacing: "-0.004em",
             }}
           >
-            HVAC · Local
+            {label}
           </span>
         </div>
-      </div>
-
-      {/* Connector — signals these are sequential, not isolated cards */}
-      <div style={{ paddingLeft: 18 }}>
-        <ConnectorLine />
-      </div>
-
-      {/* System architecture card — the infrastructure claim made tangible */}
-      <div
-        className="hero-enter"
-        style={{
-          ...CARD_BASE,
-          animationDelay: "0.86s",
-        }}
-      >
-        <span style={LABEL}>Growth System</span>
-
-        <div
-          style={{
-            display: "flex",
-            gap: 5,
-            alignItems: "center",
-            flexWrap: "wrap",
-            marginBottom: 12,
-          }}
-        >
-          {["Google Ads", "Local SEO", "Conversion Web"].map((layer, i) => (
-            <span
-              key={i}
-              style={{
-                fontSize: "0.675rem",
-                color: "#8A7E74",
-                background: "rgba(255,255,255,0.040)",
-                border: "1px solid rgba(255,255,255,0.058)",
-                borderRadius: 4,
-                padding: "3px 8px",
-                letterSpacing: "-0.005em",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {layer}
-            </span>
-          ))}
-        </div>
-
-        <div
-          style={{
-            height: 1,
-            background: "rgba(255,255,255,0.042)",
-            marginBottom: 11,
-          }}
-        />
-
-        <div
-          style={{
-            fontSize: "0.725rem",
-            color: "#756D63",
-            letterSpacing: "-0.006em",
-          }}
-        >
-          One owner.{" "}
-          <span style={{ color: "#A69D8D" }}>No handoffs.</span>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
@@ -484,49 +328,44 @@ export default function HeroSection() {
               <span
                 style={{
                   display: "block",
-                  fontSize: "clamp(2.8rem, 4.8vw, 4.5rem)",
+                  fontSize: "clamp(2.4rem, 4.2vw, 4rem)",
                   lineHeight: 1.04,
                   letterSpacing: "-0.040em",
                   color: "#F5F0E8",
                   marginBottom: "0.18em",
                 }}
               >
-                More Qualified Calls.
+                $41,085 from $900 in ad spend.
               </span>
               <span
                 style={{
                   display: "block",
-                  fontSize: "clamp(2.25rem, 3.8vw, 3.65rem)",
+                  fontSize: "clamp(2.0rem, 3.2vw, 3.2rem)",
                   lineHeight: 1.07,
                   letterSpacing: "-0.036em",
-                  color: "rgba(245,240,232,0.68)",
+                  color: "rgba(245,240,232,0.72)",
                 }}
               >
-                Built as Infrastructure.
+                30 days.
               </span>
             </h1>
 
-            {/* Proof line — left bar frames it as an evidence moment */}
+            {/* Sub-headline */}
             <p
               className="hero-enter"
               style={{
-                fontSize: "0.9375rem",
-                lineHeight: 1.6,
+                fontSize: "1.0625rem",
+                lineHeight: 1.55,
                 letterSpacing: "-0.012em",
-                color: "#A69D8D",
-                marginBottom: "0.875rem",
-                paddingLeft: "0.875rem",
-                borderLeft: "2px solid rgba(212,168,83,0.28)",
+                color: "#D2C9B8",
+                marginBottom: "0.75rem",
                 animationDelay: "0.36s",
               }}
             >
-              <span style={{ color: "#D4A853", fontWeight: 700 }}>$41,085</span>
-              {" "}generated from{" "}
-              <span style={{ color: "#C8A05A", fontWeight: 500 }}>$900</span>
-              {" "}in ad spend — within 30 days.
+              Growth infrastructure for service businesses.
             </p>
 
-            {/* Mechanism line — tightened: ownership signal replaces vendor-list framing */}
+            {/* Body text */}
             <p
               className="hero-enter"
               style={{
@@ -535,11 +374,12 @@ export default function HeroSection() {
                 letterSpacing: "-0.01em",
                 color: "#756D63",
                 paddingLeft: "0.875rem",
+                borderLeft: "2px solid rgba(212,168,83,0.18)",
                 marginBottom: "2.25rem",
                 animationDelay: "0.46s",
               }}
             >
-              Google Ads, SEO, and conversion websites — one system, one owner, zero handoffs.
+              Google Ads, SEO, and conversion websites. One system, one owner, zero handoffs.
             </p>
 
             {/* CTA cluster */}
@@ -578,7 +418,7 @@ export default function HeroSection() {
                     "background-color 150ms ease, box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 100ms ease",
                 }}
               >
-                See If Your Business Qualifies
+                Book a Diagnostic Call
                 <svg
                   className="w-[14px] h-[14px]"
                   style={{
@@ -655,7 +495,7 @@ export default function HeroSection() {
             className="hidden lg:flex flex-1 min-w-0 items-center justify-end"
           >
             <div style={{ paddingRight: "1.5rem" }}>
-              <AcquisitionTerminal />
+              <ProofCard />
             </div>
           </div>
 
