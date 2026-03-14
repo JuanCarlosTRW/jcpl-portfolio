@@ -12,7 +12,7 @@ const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const CalendarSection = dynamic(() => import("@/components/sections/CalendarSection"));
-const UnicornEmbedClientWrapper = dynamic(() => import("@/components/home/UnicornEmbedClientWrapper"), { ssr: false });
+
 
 export default function HomePage() {
   return (
