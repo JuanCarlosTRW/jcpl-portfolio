@@ -97,7 +97,7 @@ export default function ServicesFinalCTA() {
                 href="/apply"
                 className="cta-primary inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-bold tracking-wide"
               >
-                Apply for a Partnership →
+                Book a Diagnostic Call →
               </Link>
 
               <p className="text-xs text-center mt-4" style={{ color: "#756D63" }}>

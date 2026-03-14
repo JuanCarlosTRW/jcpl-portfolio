@@ -83,27 +83,16 @@ export default function TestimonialBlock() {
         borderBottom: "1px solid #2A2318",
       }}
     >
-      <div className="max-w-[1120px] mx-auto">
+      <div className="max-w-[640px] mx-auto">
 
-        {/* Two-column grid on desktop, stacked on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-
-          {/* Testimonial 1 — Mike S., Culture Barbershop */}
-          <TestimonialCard
-            quote="Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since."
-            name="Mike S."
-            business="Culture Barbershop · Montreal, QC"
-            logoSrc="/images/logos/culture.png"
-            logoAlt="Culture Barbershop"
-          />
-
-          {/* TODO: Replace with second real client testimonial when available */}
-          <TestimonialCard
-            quote="The system was live in under two weeks. First qualified call came on day 7. I didn't have to manage anything."
-            name="Client Name"
-            business="Business Name · Location"
-          />
-        </div>
+        {/* Single centered testimonial */}
+        <TestimonialCard
+          quote="Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since."
+          name="Mike S."
+          business="Culture Barbershop · Montreal, QC"
+          logoSrc="/images/logos/culture.png"
+          logoAlt="Culture Barbershop"
+        />
 
         {/* Context note */}
         <p className="mt-5 text-center" style={{ fontSize: "0.78rem", color: "#5E5650" }}>

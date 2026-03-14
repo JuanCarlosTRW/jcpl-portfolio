@@ -82,7 +82,7 @@ export const caseStudies: CaseStudy[] = [
     caseStudySlug: "absolute-painting",
     inProgress: true,
     situation:
-      "Absolute Painting was generating work through word of mouth only. No structured funnel, no way to capture intent from homeowners actively searching for painters. A conversion website and quote funnel were built and launched last week. Performance data is currently being collected.",
+      "Absolute Painting was generating work through word of mouth only. No structured funnel, no way to capture intent from homeowners actively searching for painters. A conversion website and quote funnel were built and launched. Google Ads targeting high-intent buyers in DFW. Conversion tracking live. Results compiling.",
     deliverables: [
       "Custom conversion website with quote funnel",
       "Google Ads campaign targeting homeowner search intent",
@@ -94,7 +94,7 @@ export const caseStudies: CaseStudy[] = [
     id: "culture-barbershop",
     title: "Culture Barbershop",
     industry: "BARBERSHOP, MONTREAL",
-    outcome: "Conversion website and booking funnel delivered. Revenue data pending verification.",
+    outcome: "Conversion website and booking funnel delivered. Page 1 for competitive Montreal searches in under 60 days.",
     resultTag: "Page 1 SEO, <60 days",
     metrics: [
       { label: "Deliverable", value: "Website" },
@@ -117,7 +117,7 @@ export const caseStudies: CaseStudy[] = [
     id: "centre-dentaire-saint-elzear",
     title: "Centre Dentaire Saint-Élzéar",
     industry: "DENTAL CLINIC",
-    outcome: "Custom conversion site. Google Ads funnel. Tracking live.",
+    outcome: "Custom conversion site and Google Ads funnel for high-value dental services. System live, tracking active.",
     resultTag: "Funnel live",
     metrics: [
       { label: "Deliverable", value: "Website" },
@@ -128,7 +128,7 @@ export const caseStudies: CaseStudy[] = [
     caseStudySlug: "centre-dentaire-saint-elzear",
     inProgress: false,
     situation:
-      "Centre Dentaire Saint-Élzéar needed a professional online presence that would attract new patients and convert search intent into booked appointments. The engagement focused on building a premium custom website with a patient acquisition funnel. Performance data to follow.",
+      "Centre Dentaire Saint-Élzéar needed a professional online presence that would attract new patients and convert search intent into booked appointments. The engagement focused on building a premium custom website with a patient acquisition funnel. Google Ads targeting high-intent dental queries. System live, tracking active.",
     deliverables: [
       "Custom patient acquisition website",
       "Google Ads targeting high-intent dental queries",

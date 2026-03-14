@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import LightPillar from "./LightPillar";
+import RotatingText from "@/components/ui/RotatingText";
 
 const ACTIVE_CLIENTS = [
   { alt: "Triple W Rentals",   src: "/images/logos/triplew.png" },
@@ -350,7 +351,7 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            {/* Sub-headline */}
+            {/* Sub-headline with rotating business type */}
             <p
               className="hero-enter"
               style={{
@@ -362,7 +363,16 @@ export default function HeroSection() {
                 animationDelay: "0.36s",
               }}
             >
-              Growth infrastructure for service businesses.
+              Growth infrastructure for{" "}
+              <RotatingText
+                texts={["service businesses", "barbershops", "dental clinics", "home services", "local businesses"]}
+                rotationInterval={2800}
+                staggerFrom="first"
+                staggerDuration={0.03}
+                splitBy="characters"
+                style={{ color: "#D4A853" }}
+              />
+              .
             </p>
 
             {/* Body text */}

@@ -31,6 +31,7 @@ export default function CalendarSection() {
   const t = useTranslations();
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -125,7 +126,7 @@ export default function CalendarSection() {
           {/* Right column: calendar */}
           <div className="flex flex-1 flex-col">
             <div
-              className="relative min-h-[560px] overflow-hidden rounded-xl md:min-h-[640px] cal-embed-wrapper"
+              className="relative min-h-[560px] overflow-hidden rounded-xl md:min-h-[640px]"
               style={{
                 background: "#1A1510",
                 border: "1px solid #2A2318",
@@ -134,6 +135,23 @@ export default function CalendarSection() {
                 overflow: "hidden",
               }}
             >
+              {/* Dark loading overlay — hides until Cal.com fully paints */}
+              {isVisible && !iframeLoaded && (
+                <div
+                  className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4"
+                  style={{ background: "#1A1510", borderRadius: 10 }}
+                  aria-hidden="true"
+                >
+                  <div
+                    className="w-8 h-8 rounded-full border-2 border-t-transparent animate-spin"
+                    style={{ borderColor: "rgba(212,168,83,0.3)", borderTopColor: "transparent" }}
+                  />
+                  <span style={{ fontSize: "0.75rem", color: "#756D63", letterSpacing: "0.08em" }}>
+                    Loading calendar...
+                  </span>
+                </div>
+              )}
+
               {!isVisible ? (
                 <div
                   className="min-h-[520px] md:min-h-[600px]"
@@ -144,7 +162,13 @@ export default function CalendarSection() {
                   src={CAL_BOOKING_URL}
                   title="Book a call"
                   className="h-full min-h-[520px] w-full border-0 rounded-lg md:min-h-[600px]"
-                  style={{ width: "100%", height: "100%" }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    opacity: iframeLoaded ? 1 : 0,
+                    transition: "opacity 0.3s ease",
+                  }}
+                  onLoad={() => setIframeLoaded(true)}
                 />
               )}
             </div>

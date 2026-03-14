@@ -36,9 +36,9 @@ export default function CaseStudyFinalCTA({ study }: { study: CaseStudy }) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/apply"
-            className="inline-flex items-center justify-center gap-2 bg-white text-[#0E0E0F] font-bold text-sm px-8 py-4 rounded-full hover:bg-white/90 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center justify-center gap-2 bg-[#D4A853] text-[#0D0B09] font-bold text-sm px-8 py-4 rounded-full hover:bg-[#C49A2A] transition-all hover:scale-[1.02]"
           >
-            Apply for Growth Strategy Call
+            Book a Diagnostic Call →
           </Link>
           <Link
             href="https://clientgrowth.ca/results"

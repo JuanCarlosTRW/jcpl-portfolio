@@ -272,7 +272,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       noCommitment: "No commitment",
     },
     finalCta: {
-      button: "Now Or Never",
+      button: "Book a Diagnostic Call →",
     },
     footer: {
       navigation: "Navigation",
@@ -378,7 +378,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       noCommitment: "Sans engagement",
     },
     finalCta: {
-      button: "Maintenant ou jamais",
+      button: "Réserver un appel diagnostic →",
     },
     footer: {
       navigation: "Navigation",

@@ -60,7 +60,7 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
               </span>
             </div>
             <p className="text-[14px] text-[rgba(255,255,255,0.25)] mb-10 max-w-[520px] leading-[1.65]">
-              Systems live. Results compiling.
+              System live. Performance tracking active.
             </p>
             <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
               {building.map((cs) => (

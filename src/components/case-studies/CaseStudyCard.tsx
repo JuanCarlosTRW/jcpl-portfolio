@@ -59,9 +59,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
 
         {/* Outcome */}
         <div className="text-[14px] text-[rgba(255,255,255,0.55)] leading-[1.55] mb-4">
-          {cs.inProgress
-            ? "System live. Performance data being collected."
-            : cs.outcome}
+          {cs.outcome}
         </div>
 
         {/* Result tag — brand colors */}
@@ -72,8 +70,8 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           </div>
         )}
 
-        {/* Live status badge — Absolute Painting */}
-        {cs.inProgress && cs.id === "absolute-painting" && (
+        {/* Live status badge — active builds */}
+        {cs.inProgress && (
           <div className="mb-4">
             <span className="inline-flex items-center gap-2 bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.2)] rounded-full px-[14px] py-[5px]">
               <PulseDot />
@@ -108,19 +106,13 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           className="flex items-center gap-4 pt-4 mt-auto"
           style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
         >
-          {cs.id === "absolute-painting" ? (
-            <span className="text-[13px] text-[rgba(255,255,255,0.3)]">
-              Case study coming
-            </span>
-          ) : (
-            <Link
-              href={`/results/${cs.caseStudySlug}`}
-              className="text-[13px] font-semibold text-[#D4A853] hover:text-[#C49A2A] transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              View case study →
-            </Link>
-          )}
+          <Link
+            href={`/results/${cs.caseStudySlug}`}
+            className="text-[13px] font-semibold text-[#D4A853] hover:text-[#C49A2A] transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            View case study →
+          </Link>
 
           {cs.id === "triple-w-rentals" ? (
             <span className="text-[13px] text-[rgba(255,255,255,0.25)] ml-auto">
