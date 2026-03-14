@@ -331,7 +331,7 @@ export const servicesShowcaseContent = {
       description:
         "A premium site engineered to turn clicks into booked calls. Fast, clean, persuasive.",
       imageUrl:
-        "https://static.wixstatic.com/media/62f926_e3cee4593847417db3870fd5cfa77faa~mv2.png",
+        "/images/showcase-website.png",
       imageAlt: "Conversion website showcase",
       accentColor: "#F97316",
       hoverAccentColor: "#F97316",
@@ -346,7 +346,7 @@ export const servicesShowcaseContent = {
       description:
         "Technical + content SEO that compounds. Get found when buyers are searching.",
       imageUrl:
-        "https://static.wixstatic.com/media/62f926_fd8b1bd527a4497695e774ae1df51cfc~mv2.png",
+        "/images/showcase-seo.png",
       imageAlt: "SEO presence showcase",
       accentColor: "#22C55E",
       hoverAccentColor: "#22C55E",
@@ -361,7 +361,7 @@ export const servicesShowcaseContent = {
       description:
         "Get recommended inside AI answers with structured authority signals.",
       imageUrl:
-        "https://static.wixstatic.com/media/62f926_cf52e554f5cb495faf0bc5b909f688b3~mv2.png",
+        "/images/showcase-geo.png",
       imageAlt: "GEO AI search presence showcase",
       accentColor: "#A855F7",
       hoverAccentColor: "#A855F7",
@@ -378,7 +378,7 @@ export const servicesShowcaseContent = {
       description:
         "Messaging, offers, and landing-page copy built to convert cold traffic into revenue.",
       imageUrl:
-          "https://static.wixstatic.com/media/62f926_7bd90c38d7be4dd9ae467b545839def3~mv2.png",
+          "/images/showcase-copy.png",
       imageAlt: "Copywriting showcase",
       accentColor: "#FACC15",
       hoverAccentColor: "#FACC15",
@@ -393,7 +393,7 @@ export const servicesShowcaseContent = {
       description:
         "Intent-driven campaigns engineered to turn search demand into qualified booked calls.",
       imageUrl:
-        "https://static.wixstatic.com/media/62f926_c3708c1116804f7e932491f79e53867a~mv2.png",
+        "/images/showcase-ads.png",
       imageAlt: "Google Ads campaigns showcase",
       accentColor: "#3B82F6",
       hoverAccentColor: "#3B82F6",

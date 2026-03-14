@@ -1,8 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
-const FALLBACK_SRC =
-  "https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg";
+const FALLBACK_SRC = "/images/juan-headshot.jpeg";
 
 export default function FounderUnicornProfile() {
   useEffect(() => {

@@ -32,7 +32,7 @@ export default function Navbar() {
       colors={["transparent", "transparent"]}
       isFixed={true}
       position="right"
-      logoUrl="https://static.wixstatic.com/media/62f926_5324879084e1438391f656f8121a391a~mv2.png"
+      logoUrl="/images/logo.png"
       languageSwitcher={<LanguageSwitcher />}
       languageSwitcherPanel={<LanguageSwitcher variant="dark" />}
       menuLabel={t<string>("common.menu")}

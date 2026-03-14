@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const JUAN_IMG_SRC =
-  "https://static.wixstatic.com/media/62f926_557272f0fa6547d9b0c8d0518959c14b~mv2.jpeg";
+const JUAN_IMG_SRC = "/images/juan-headshot-founder.jpeg";
 
 const CHIPS = [
   "3 active partnerships max",

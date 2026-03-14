@@ -272,7 +272,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       noCommitment: "No commitment",
     },
     finalCta: {
-      button: "Book a Diagnostic Call →",
+      button: "Book a Diagnostic Call",
     },
     footer: {
       navigation: "Navigation",
@@ -343,7 +343,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       services: "Services",
       results: "Résultats",
       about: "À propos",
-      apply: "Postuler pour un partenariat de croissance",
+      apply: "Réserver un appel diagnostique",
       seeResults: "Voir les résultats",
     },
     faq: {
@@ -353,7 +353,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         "Je préfère répondre aux questions difficiles ici plutôt que de vous faire perdre du temps en appel.",
       mostCommon: "Objection la plus courante",
       stillQuestion: "Une question sans réponse? Parlons-en.",
-      applyCta: "Postuler pour un partenariat de croissance →",
+      applyCta: "Réserver un appel diagnostique →",
       items: faqFr,
     },
     spots: {
@@ -367,7 +367,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       oneSpot: "Une place est ouverte en ce moment.",
       applyParagraph:
         "Postulez maintenant et j'examinerai votre entreprise sous 24 heures. Si je ne peux pas faire avancer les choses, je vous le dirai lors de l'appel de revue, pas après avoir payé.",
-      applyCta: "Postuler pour un partenariat de croissance →",
+      applyCta: "Réserver un appel diagnostique",
       seeResults: "Voir les résultats →",
       reply24: "Réponse sous 24 heures",
       noContracts: "Pas de contrats à long terme",
@@ -378,7 +378,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       noCommitment: "Sans engagement",
     },
     finalCta: {
-      button: "Réserver un appel diagnostic →",
+      button: "Réserver un appel diagnostic",
     },
     footer: {
       navigation: "Navigation",

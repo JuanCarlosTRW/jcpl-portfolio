@@ -59,6 +59,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://app.cal.com" />
         <link rel="dns-prefetch" href="https://app.cal.com" />
+        <link rel="preconnect" href="https://static.wixstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://static.wixstatic.com" />
         {/* Google Analytics GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FXE32B1KDT"

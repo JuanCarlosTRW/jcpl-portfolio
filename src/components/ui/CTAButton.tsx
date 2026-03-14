@@ -26,8 +26,8 @@ const variants = {
 
 const sizes = {
   sm: "px-6 py-3 text-sm min-h-[44px]",
-  md: "px-7 py-3.5 text-sm",
-  lg: "px-7 py-3.5 text-base",
+  md: "px-7 py-3.5 text-sm min-h-[44px]",
+  lg: "px-7 py-3.5 text-base min-h-[48px]",
 };
 
 export default function CTAButton({

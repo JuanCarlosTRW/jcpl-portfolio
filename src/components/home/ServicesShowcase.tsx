@@ -204,7 +204,7 @@ export default function ServicesShowcase({ impactRevealed = false, goldTheme = f
                     <>
                       <div className="mt-4 flex justify-center">
                         <Image
-                          src="https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg"
+                          src="/images/juan-headshot.jpeg"
                           alt="BY APPLICATION ONLY"
                           width={120}
                           height={120}

@@ -85,8 +85,8 @@ export default function FAQ() {
           </Reveal>
         </div>
 
-        {/* Block 2: CTA card */}
-        <Reveal delay={0.15} className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-24 lg:self-start">
+        {/* Block 2: CTA card — plain div so position:sticky works without framer-motion filter interference */}
+        <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-24 lg:self-start">
           <BookCallCard
             title={faqBooking.ctaTitle}
             body={faqBooking.ctaBody}
@@ -96,7 +96,7 @@ export default function FAQ() {
             email={faqBooking.ctaEmail}
             riskReversalText="If I cannot produce a return, I tell you on the call. Before you pay anything."
           />
-        </Reveal>
+        </div>
 
         {/* Block 3: Accordion */}
         <div className="order-3 lg:col-start-1 lg:row-start-2">

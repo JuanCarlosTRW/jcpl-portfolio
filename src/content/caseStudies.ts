@@ -33,7 +33,7 @@ export const caseStudies: CaseStudy[] = [
     websiteUrl: null,
     logoUrl: "/images/logos/triplew.png",
     metricsImageUrl:
-      "https://static.wixstatic.com/media/62f926_5c7a609ac5c143e48028810fda21af82~mv2.png",
+      "/images/case-study-screenshot.png",
     caseStudySlug: "triple-w-rentals",
     inProgress: false,
     situation:

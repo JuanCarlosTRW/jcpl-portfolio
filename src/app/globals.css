@@ -167,7 +167,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip; /* clip instead of hidden — prevents body from becoming the scroll container, preserving position:sticky and Lenis smooth scroll */
   min-height: 100dvh;
 }
 
@@ -185,6 +185,12 @@ body::before {
 ::selection {
   background: var(--brand-accent);
   color: var(--text-primary);
+}
+
+/* Prevent images from overflowing their containers on any screen size */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ═══════════════════════════════════════════════════

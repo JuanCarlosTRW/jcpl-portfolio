@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const JUAN_IMG_SRC =
-  "https://static.wixstatic.com/media/62f926_880aac26b23148b180643d3682eadd6b~mv2.jpeg";
+const JUAN_IMG_SRC = "/images/juan-headshot.jpeg";
 
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { Check } from "lucide-react";
