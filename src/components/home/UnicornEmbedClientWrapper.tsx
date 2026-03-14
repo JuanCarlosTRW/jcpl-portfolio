@@ -1,7 +1,7 @@
 "use client";
 
-import UnicornEmbed from "./UnicornEmbed";
+import UnicornEmbed from "../ui/UnicornEmbed";
 
-export default function UnicornEmbedClientWrapper() {
-  return <UnicornEmbed />;
+  return <UnicornEmbed projectId="dyHEFIsGA1gwshhB9NPf" />;
+}
 }
