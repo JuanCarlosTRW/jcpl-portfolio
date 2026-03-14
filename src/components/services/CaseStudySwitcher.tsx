@@ -9,7 +9,7 @@ const caseStudies = [
     metric: "$41,085",
     metricLabel: "revenue. 30 days. $900 ad spend.",
     description:
-      "Zero presence to regional leader. Site, ads, and AI voice — live in 11 days.",
+      "Zero presence to regional leader. Site, ads, and AI voice: live in 11 days.",
     deliverables: ["Website", "Google Ads", "AI Voice Agent", "SEO"],
     status: "active" as const,
     link: "/results#triplew",
@@ -46,7 +46,7 @@ const caseStudies = [
     name: "Absolute Painting",
     tag: "Painting Contractor · DFW, Texas",
     metric: "Live",
-    metricLabel: "performance data being collected",
+    metricLabel: "system live",
     description:
       "Google Ads targeting high-intent buyers in DFW. Conversion tracking live. Results compiling.",
     deliverables: ["Website", "Google Ads", "Conversion Tracking"],

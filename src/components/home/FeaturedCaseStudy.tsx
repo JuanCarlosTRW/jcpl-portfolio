@@ -234,7 +234,7 @@ export default function FeaturedCaseStudy() {
                 marginBottom: 14,
               }}
             >
-              PAINTING CONTRACTOR · TEXAS · GOOGLE ADS + SEO
+              BARBERSHOP · MONTREAL · LOCAL SEO
             </p>
 
             {/* Two-stat compact row */}
@@ -286,8 +286,8 @@ export default function FeaturedCaseStudy() {
                 fontStyle: "italic",
               }}
             >
-              Competitive DFW market. Ranking above national lead gen sites.
-              Last verified Q4 2025.
+              Competitive Montreal market. Custom site and booking funnel delivered.
+              Last verified Q1 2025.
             </p>
           </div>
         </div>

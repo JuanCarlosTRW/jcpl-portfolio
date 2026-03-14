@@ -10,7 +10,7 @@ import ResultsUnicornEmbed from "@/components/results/ResultsUnicornEmbed";
 const TRIPLE_W_ID = "triple-w-rentals";
 const ELITE_ID = "elite-barbershop";
 const RECENT_IDS = ["culture-barbershop"];
-const BUILDING_IDS = ["centre-dentaire-saint-elzear"];
+const BUILDING_IDS = ["absolute-painting", "centre-dentaire-saint-elzear"];
 
 export default function CaseStudiesSection() {
   const flagship = caseStudies.find((c) => c.id === TRIPLE_W_ID);

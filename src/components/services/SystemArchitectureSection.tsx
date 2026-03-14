@@ -9,7 +9,7 @@ const coreIncludes = [
   },
   {
     title: "Conversion Site",
-    copy: "Hand-coded. Sub-second load. Built to book calls — not to look presentable.",
+    copy: "Hand-coded. Sub-second load. Built to book calls, not to look presentable.",
   },
   {
     title: "Local Search Capture",
@@ -34,11 +34,11 @@ const expansionLayers = [
     num: "01",
     label: "PAID ACQUISITION LAYER",
     title: "When organic capture alone is not enough.",
-    copy: "When search alone isn't fast enough. Ads targeting active purchase intent — tracked to cost per call.",
+    copy: "When search alone isn't fast enough. Ads targeting active purchase intent, tracked to cost per call.",
     items: [
       "Google Ads targeting active buyers in your market",
       "Landing pages per service and city",
-      "AI voice agent — no lead to voicemail",
+      "AI voice agent: no lead to voicemail",
       "Weekly optimization against cost per qualified call",
     ],
     investment: "$2,500 / month + ad spend",
@@ -118,7 +118,7 @@ export default function SystemArchitectureSection() {
             className="text-[17px] leading-[1.75] mb-4"
             style={{ color: "#D2C9B8", maxWidth: "600px" }}
           >
-            Not a bundle of services. One acquisition infrastructure — site, search, paid, AI qualification, and optimization running as one connected machine.
+            Not a bundle of services. One acquisition infrastructure: site, search, paid, AI qualification, and optimization running as one connected machine.
           </p>
           <p
             className="text-[15px] leading-relaxed"
@@ -174,7 +174,7 @@ export default function SystemArchitectureSection() {
             Expansion Layers
           </h3>
           <p className="text-sm mb-8" style={{ color: "#756D63" }}>
-            Not separate packages. The next layer of the same machine — activated when your stage calls for it.
+            Not separate packages. The next layer of the same machine, activated when your stage calls for it.
           </p>
         </Reveal>
 

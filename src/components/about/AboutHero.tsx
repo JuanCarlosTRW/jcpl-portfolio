@@ -59,7 +59,7 @@ export default function AboutHero() {
               letterSpacing: "-0.02em",
             }}
           >
-            Juan Carlos — Growth Infrastructure<br />for Service Businesses.
+            Juan Carlos: Growth Infrastructure<br />for Service Businesses.
           </h1>
 
           {/* Sub-head */}
@@ -70,7 +70,7 @@ export default function AboutHero() {
           {/* Mechanism lines */}
           <div className="space-y-1 mb-6 max-w-[52ch]">
             <p className="text-sv-text-sub text-[0.9rem] md:text-[0.95rem] leading-relaxed">
-              Most growth infrastructure fails at the handoff. A vendor builds the website. A different vendor runs the ads. A third handles SEO. Nobody owns the outcome — you manage the coordination while results leak between the gaps. This is structured differently.
+              Most growth infrastructure fails at the handoff. A vendor builds the website. A different vendor runs the ads. A third handles SEO. Nobody owns the outcome. You manage the coordination while results leak between the gaps. This is structured differently.
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export default function AboutHero() {
             </li>
             <li className="flex items-start gap-2 text-sv-text-sub text-[0.97rem]">
               <span className="mt-1.5 h-1 w-1 rounded-full bg-sv-primary shrink-0" aria-hidden="true" />
-              Measured by qualified calls and revenue — nothing else
+              Measured by qualified calls and revenue, nothing else
             </li>
           </ul>
 

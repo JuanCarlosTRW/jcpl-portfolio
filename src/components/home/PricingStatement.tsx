@@ -34,7 +34,7 @@ const ASSURANCES = [
   },
   {
     title: "You own everything",
-    body: "Every asset, campaign, and page is built for your business — not held by an agency.",
+    body: "Every asset, campaign, and page is built for your business, not held by an agency.",
   },
 ];
 

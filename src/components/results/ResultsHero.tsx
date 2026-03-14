@@ -36,7 +36,7 @@ export default function ResultsHero() {
       <div className="relative max-w-[760px] mx-auto text-center px-6">
         {/* Eyebrow */}
         <p className="text-[11px] uppercase tracking-[0.16em] text-[#D4A853] mb-6">
-          Client Results — Verified Record
+          Client Results: Verified Record
         </p>
 
         {/* Headline */}

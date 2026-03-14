@@ -1,6 +1,5 @@
 "use client";
 
-import { aboutTrustStrip } from "@/lib/content";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { CountUpValue } from "@/components/motion";
 

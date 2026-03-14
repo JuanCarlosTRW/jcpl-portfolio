@@ -120,7 +120,7 @@ export const clientReality = {
     {
       icon: "ghost",
       title: "People in Your City Are Searching. You're Easy to Miss.",
-      detail: "If you're not on Google, Maps, or AI search, that call goes elsewhere — before you knew it existed."
+      detail: "If you're not on Google, Maps, or AI search, that call goes elsewhere, before you knew it existed."
     },
     {
       icon: "leak",
@@ -135,7 +135,7 @@ export const clientReality = {
     {
       icon: "scatter",
       title: "Referrals Keep You Alive. They Don't Build Predictability.",
-      detail: "Good months. Quiet months. No control. If your pipeline depends on word of mouth, you're waiting — not growing."
+      detail: "Good months. Quiet months. No control. If your pipeline depends on word of mouth, you're waiting, not growing."
     }
   ],
 };
@@ -413,7 +413,7 @@ export const qualification = {
     "You're generating consistent revenue and ready to invest in infrastructure that compounds.",
     "Your pipeline leans too heavily on referrals.",
     "You're tired of watching competitors rank above you for work you do better.",
-    "You want one person who owns the full picture — not five vendors."
+    "You want one person who owns the full picture, not five vendors."
   ],
   notForYouIf: [
     "You want a logo, a brochure site, or a one-off project.",
@@ -748,17 +748,17 @@ export const aboutContent = {
   headline: "Juan Carlos. Growth Infrastructure\nfor Service Businesses.",
   subhead: "One operator. Every layer. Full accountability.",
   mechanism: [
-    "Most growth infrastructure fails at the handoff. A vendor builds the website. A different vendor runs the ads. A third handles SEO. Nobody owns the outcome — you manage the coordination while results leak between the gaps. This is structured differently."
+    "Most growth infrastructure fails at the handoff. A vendor builds the website. A different vendor runs the ads. A third handles SEO. Nobody owns the outcome. You manage the coordination while results leak between the gaps. This is structured differently."
   ],
   mechanismBullets: [
     "Strategy, build, and optimization owned by one person",
     "No account managers between you and the work",
-    "Measured by qualified calls and revenue — nothing else",
+    "Measured by qualified calls and revenue, nothing else",
   ],
   story: [], // Not used on page
   philosophy: {
     headline: "Why One Owner Changes Everything",
-    body: "When the strategist, the builder, and the optimizer are the same person, there are no handoffs to lose context in. Strategy and execution stay aligned. Every layer reinforces the others. That is not a workflow preference — it is a structural advantage.",
+    body: "When the strategist, the builder, and the optimizer are the same person, there are no handoffs to lose context in. Strategy and execution stay aligned. Every layer reinforces the others. That is not a workflow preference: it is a structural advantage.",
   },
   advantage: {
     headline: "Why Integrated Systems\nBeat Fragmented Freelancers",
@@ -825,9 +825,9 @@ export const aboutHowIBuiltThis = {
   overline: "OPERATING MODEL",
   heading: "Why Fragmented Execution\nCosts More Than Its Rate Card.",
   paragraphs: [
-    "The fragmentation is structural, not accidental. SEO specialists sell SEO. Web designers sell websites. Ad agencies sell impressions. Each vendor optimizes for the deliverable they invoice — not for your pipeline. You end up paying four separate invoices for a system that was never designed to work as one, while you manage the handoffs between them.",
+    "The fragmentation is structural, not accidental. SEO specialists sell SEO. Web designers sell websites. Ad agencies sell impressions. Each vendor optimizes for the deliverable they invoice, not for your pipeline. You end up paying four separate invoices for a system that was never designed to work as one, while you manage the handoffs between them.",
     "Client Growth is structured around single-operator ownership. One person designs the acquisition system, builds the website, runs the ads, manages the SEO, and reads the numbers every week. There is no handoff chain. There is no account manager between you and the work. When something needs to change, it changes.",
-    "This structure limits how many partnerships are active at any given time. That is intentional. Running three systems well produces better outcomes than running twelve at partial attention. Each client gets the full involvement of the operator — not a share of a team's bandwidth."
+    "This structure limits how many partnerships are active at any given time. That is intentional. Running three systems well produces better outcomes than running twelve at partial attention. Each client gets the full involvement of the operator, not a share of a team's bandwidth."
   ]
 };
 

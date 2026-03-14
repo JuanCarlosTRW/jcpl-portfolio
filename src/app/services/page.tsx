@@ -11,7 +11,7 @@ import "@/styles/services.css";
 export const metadata: Metadata = buildMetadata({
   title: "Growth Systems for Service Businesses",
   description:
-    "One acquisition system — conversion site, local SEO, Google Ads, AI call qualification, and ongoing optimization. Built and managed by one person. Apply to see if you qualify.",
+    "One acquisition system: conversion site, local SEO, Google Ads, AI call qualification, and ongoing optimization. Built and managed by one person. Apply to see if you qualify.",
   path: "/services",
 });
 

@@ -52,7 +52,7 @@ export default function AboutCTA() {
               </span>
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto text-[0.92rem]">
-              I review your market and current positioning personally before we speak. If there is a clear path to more qualified calls, you will hear from me within 24 hours. If there is not, I will tell you that directly — before you spend anything.
+              I review your market and current positioning personally before we speak. If there is a clear path to more qualified calls, you will hear from me within 24 hours. If there is not, I will tell you that directly, before you spend anything.
             </p>
             <p className="text-sm font-medium mt-3 mb-10" style={{ color: "var(--brand-accent)" }}>
               No retainer until I confirm fit.

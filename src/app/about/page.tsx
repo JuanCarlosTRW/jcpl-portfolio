@@ -10,7 +10,7 @@ import SpotsLeftSection from "@/components/home/SpotsLeftSection";
 export const metadata: Metadata = buildMetadata({
   title: "About: Growth Infrastructure & Operating Model",
   description:
-    "One operator. One system. Full accountability. Why single-operator ownership produces better outcomes than fragmented agency execution — and why selectivity protects results.",
+    "One operator. One system. Full accountability. Why single-operator ownership produces better outcomes than fragmented agency execution, and why selectivity protects results.",
   path: "/about",
 });
 
