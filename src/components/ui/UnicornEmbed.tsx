@@ -29,7 +29,7 @@ export default function UnicornEmbed({ projectId, className = "" }: Props) {
     } else {
       window.UnicornStudio = { isInitialized: false } as never;
       const s = document.createElement("script");
-      s.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
+      s.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.4/dist/unicornStudio.umd.js";
       s.onload = () => setTimeout(init, 50);
       document.body.appendChild(s);
     }
