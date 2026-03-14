@@ -85,8 +85,8 @@ export default function FAQ() {
           </Reveal>
         </div>
 
-        {/* Block 2: CTA card — plain div so position:sticky works without framer-motion filter interference */}
-        <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-24 lg:self-start">
+        {/* Block 2: CTA card — static positioning; sticky + Lenis smooth scroll caused scroll lock */}
+        <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-start">
           <BookCallCard
             title={faqBooking.ctaTitle}
             body={faqBooking.ctaBody}

@@ -10,14 +10,14 @@ const KNIGHT_AVATAR = "/images/avatar-knight.png";
 function KnightAvatar() {
   const [imgError, setImgError] = useState(false);
   return imgError ? (
-    <User className="w-10 h-10 md:w-12 md:h-12" style={{ color: "#D4A853" }} aria-hidden />
+    <User className="w-8 h-8" style={{ color: "#D4A853" }} aria-hidden />
   ) : (
     <Image
       src={KNIGHT_AVATAR}
       alt=""
-      width={96}
-      height={96}
-      className="w-full h-full object-cover"
+      width={32}
+      height={32}
+      className="w-8 h-8 object-contain"
       onError={() => setImgError(true)}
     />
   );
@@ -60,8 +60,8 @@ export default function BookCallCard({
       <div className="flex flex-col h-full p-6 md:p-8">
         <div className="mb-5 flex justify-center">
           <div
-            className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center overflow-hidden ring-2 ring-white/10 shrink-0"
-            style={{ background: "#2A241C" }}
+            className="w-16 h-16 rounded-full flex items-center justify-center shrink-0"
+            style={{ background: "#1A1510", border: "1px solid rgba(212,168,83,0.3)" }}
           >
             <KnightAvatar />
           </div>
