@@ -99,7 +99,7 @@ export default function WhatYouGet() {
       </div>
       <div className="text-center mt-10">
         <p className="text-[14px] text-sv-text-sub max-w-[560px] mx-auto mt-4">
-          Not every engagement includes all six. During the strategy call, I scope exactly what your business needs to move the needle.
+          Not every engagement includes all six. During the strategy call, I scope exactly what your business needs to produce results.
         </p>
       </div>
     </SectionWrapper>

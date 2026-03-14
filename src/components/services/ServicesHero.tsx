@@ -40,8 +40,7 @@ export default function ServicesHero() {
             maxWidth: "800px",
           }}
         >
-          I Build the Growth Infrastructure<br />
-          for Service Businesses.
+          The System Behind $41,085 in 30 Days. Here Is Exactly How It Works.
         </h1>
 
         <p
@@ -55,6 +54,19 @@ export default function ServicesHero() {
           }}
         >
           Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. One system. One person. Live in 11 days.
+        </p>
+
+        <p
+          className="mb-4"
+          style={{
+            fontSize: "17px",
+            fontWeight: 400,
+            lineHeight: 1.7,
+            color: "#D2C9B8",
+            maxWidth: "520px",
+          }}
+        >
+          Every component is built to feed the next. The longer it runs, the less each call costs.
         </p>
 
         <p

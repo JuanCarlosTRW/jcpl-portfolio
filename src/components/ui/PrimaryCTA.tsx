@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const RISK_REVERSAL = "If I cannot move the needle, I will tell you on the call. Before you pay anything.";
+const RISK_REVERSAL = "If I cannot produce a return, I will tell you on the call. Before you pay anything.";
 
 export interface PrimaryCTAProps {
   href?: string;

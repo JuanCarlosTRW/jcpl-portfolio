@@ -174,7 +174,7 @@ export default function Hero() {
 								href="#book-call"
 							/>
 							<span className="demo-cta-risk">
-								If I cannot move the needle, I will tell you on the call. Before you pay anything.
+								If I cannot produce a return, I will tell you on the call. Before you pay anything.
 							</span>
 						</div>
 					</div>

@@ -49,16 +49,10 @@ export default function GuaranteesStrip() {
             </div>
             <div>
               <p
-                className="text-5xl font-bold leading-none"
-                style={{ color: "#F5F0E8" }}
-              >
-                $41,085
-              </p>
-              <p
-                className="text-xs mt-2"
+                className="text-xs"
                 style={{ color: "#756D63" }}
               >
-                Most recent verifiable result. 30 days.
+                Verified Q1 2026. All results from live accounts.
               </p>
             </div>
           </div>

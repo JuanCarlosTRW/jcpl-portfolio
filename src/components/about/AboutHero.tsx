@@ -59,7 +59,7 @@ export default function AboutHero() {
               letterSpacing: "-0.02em",
             }}
           >
-            Juan Carlos: Growth Infrastructure<br />for Service Businesses.
+            Juan Carlos. I build systems that turn search traffic into booked calls.
           </h1>
 
           {/* Sub-head */}
@@ -68,9 +68,12 @@ export default function AboutHero() {
           </p>
 
           {/* Mechanism lines */}
-          <div className="space-y-1 mb-6 max-w-[52ch]">
+          <div className="space-y-4 mb-6 max-w-[52ch]">
             <p className="text-sv-text-sub text-[0.9rem] md:text-[0.95rem] leading-relaxed">
-              Most growth infrastructure fails at the handoff. A vendor builds the website. A different vendor runs the ads. A third handles SEO. Nobody owns the outcome. You manage the coordination while results leak between the gaps. This is structured differently.
+              Most business owners I talk to are great at what they do. The work is there. The reputation is there. What is missing is the infrastructure that lets the right people find them before they find a competitor. That is the gap I close.
+            </p>
+            <p className="text-sv-text-sub text-[0.9rem] md:text-[0.95rem] leading-relaxed">
+              Website, ads, SEO, and AI automation. Built as one connected system so the right clients find you first, already convinced you are the right choice.
             </p>
           </div>
 

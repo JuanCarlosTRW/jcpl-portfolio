@@ -25,7 +25,7 @@ export default function ResultsCTA() {
               conversation.
             </h2>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.7] max-w-[480px] mb-8">
-              Partnerships are selective. The first call is diagnostic — it is
+              Partnerships are selective. The first call is diagnostic. It is
               about whether the fit is real, not a sales pitch. No commitment
               required, no deck.
             </p>

@@ -35,7 +35,7 @@ export default function FounderBlock() {
           <div className="max-w-[440px] mx-auto md:mx-0 relative">
             <Image
               src={JUAN_IMG_SRC}
-              alt="Juan Carlos Portillo-Laflamme — founder and sole operator of Client Growth"
+              alt="Juan Carlos Portillo-Laflamme, founder and sole operator of Client Growth"
               width={440}
               height={590}
               quality={85}
@@ -80,8 +80,7 @@ export default function FounderBlock() {
                 margin: 0,
               }}
             >
-              Client Growth was built to avoid the biggest failure point in
-              agency work: fragmented execution across too many people.
+              Most service businesses have tried the agency route. Multiple contacts. Handoffs between departments. A junior account manager running things six months in.
             </p>
 
             <div className="flex flex-col gap-4">
@@ -93,8 +92,7 @@ export default function FounderBlock() {
                   margin: 0,
                 }}
               >
-                Most service businesses do not need more vendors. They need one
-                system built and managed by someone who sees the full picture.
+                I built Client Growth around the opposite model. Three active partnerships maximum. Every system built and optimized personally. No account manager between us.
               </p>
               <p
                 style={{
@@ -104,9 +102,7 @@ export default function FounderBlock() {
                   margin: 0,
                 }}
               >
-                I keep the model intentionally small so strategy, conversion,
-                acquisition, and optimization stay connected. No account manager
-                in the middle. No junior team learning on your budget.
+                Strategy, conversion, paid acquisition, and optimization stay connected because the same person runs all of it. That person is me.
               </p>
             </div>
 

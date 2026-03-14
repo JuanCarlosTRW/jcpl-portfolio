@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import LightPillar from "./LightPillar";
-import RotatingText from "@/components/ui/RotatingText";
 
 const ACTIVE_CLIENTS = [
   { alt: "Triple W Rentals",   src: "/images/logos/triplew.png" },
@@ -351,7 +350,7 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            {/* Sub-headline with rotating business type */}
+            {/* Sub-headline */}
             <p
               className="hero-enter"
               style={{
@@ -359,20 +358,12 @@ export default function HeroSection() {
                 lineHeight: 1.55,
                 letterSpacing: "-0.012em",
                 color: "#D2C9B8",
+                fontWeight: 700,
                 marginBottom: "0.75rem",
                 animationDelay: "0.36s",
               }}
             >
-              Growth infrastructure for{" "}
-              <RotatingText
-                texts={["service businesses", "barbershops", "dental clinics", "home services", "local businesses"]}
-                rotationInterval={2800}
-                staggerFrom="first"
-                staggerDuration={0.03}
-                splitBy="characters"
-                style={{ color: "#D4A853" }}
-              />
-              .
+              I build the system. You answer the phone.
             </p>
 
             {/* Body text */}
@@ -458,7 +449,7 @@ export default function HeroSection() {
                     letterSpacing: "-0.008em",
                   }}
                 >
-                  One call. Clear next step.
+                  One call. I tell you if I can help.
                 </span>
                 <span
                   aria-hidden="true"

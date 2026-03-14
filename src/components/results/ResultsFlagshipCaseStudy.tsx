@@ -36,9 +36,13 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
             <h2 className="text-[clamp(28px,3.5vw,40px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
               {cs.title}
             </h2>
-            <p className="text-[17px] text-[#D2C9B8] leading-[1.75] mb-8 max-w-[480px]">
-              {narrative}
-            </p>
+            <div className="mb-8 max-w-[480px]">
+              {narrative.split("\n\n").map((para, i) => (
+                <p key={i} className="text-[17px] text-[#D2C9B8] leading-[1.75] mb-4 last:mb-0">
+                  {para}
+                </p>
+              ))}
+            </div>
 
             {/* VERIFIED badge */}
             <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-8 border border-[rgba(212,168,83,0.3)] bg-[rgba(212,168,83,0.06)]">

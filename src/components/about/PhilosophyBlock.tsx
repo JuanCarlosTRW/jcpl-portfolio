@@ -5,9 +5,9 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 const philosophyBullets = [
-  "Accountable for the whole system, not individual deliverables",
-  "If the system is not producing qualified calls, I iterate until it does",
-  "No vanity metrics. Only outcomes that change your pipeline.",
+  "Every deliverable is measured by one outcome: calls booked and revenue moved.",
+  "If the system is not compounding, I iterate until it is.",
+  "No vanity metrics. Open rates and impressions do not pay your rent. Booked calls do.",
 ];
 
 /**

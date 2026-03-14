@@ -24,7 +24,7 @@ const STEPS = [
   {
     num: "03",
     title: "I tell you if I can help.",
-    body: "If I cannot move the needle for your business, I will say so directly. No pitch. No pressure. You leave the call knowing exactly where you stand.",
+    body: "If I cannot produce a return for your business, I will say so directly. You leave the call knowing exactly where you stand.",
   },
 ];
 
@@ -144,7 +144,7 @@ export default function DiagnosticSteps() {
           className="mt-2 text-center"
           style={{ fontSize: "0.875rem", color: "#D2C9B8", fontStyle: "italic" }}
         >
-          If I cannot move the needle, I will tell you on the call. Before you pay anything.
+          If I cannot produce a return, I will tell you on the call. Before you pay anything.
         </p>
       </div>
     </SectionWrapper>

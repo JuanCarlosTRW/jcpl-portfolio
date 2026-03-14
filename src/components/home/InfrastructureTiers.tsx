@@ -55,7 +55,7 @@ export default function InfrastructureTiers() {
             className="text-base max-w-xl mx-auto leading-relaxed"
             style={{ color: "#475569" }}
           >
-            Read the qualifier on each tier before applying. I only take on businesses I know I can move the needle for.
+            Read the qualifier on each tier before applying. I only take on businesses where I know I can produce a return.
           </p>
         </div>
 

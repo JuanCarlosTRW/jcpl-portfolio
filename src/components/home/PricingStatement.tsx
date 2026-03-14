@@ -88,7 +88,7 @@ export default function PricingStatement() {
               lineHeight: 1.65,
             }}
           >
-            A focused growth engagement — not a package. One partner, full
+            A focused growth engagement: not a package. One partner, full
             scope, direct access.
           </p>
         </AnimatedSection>
@@ -157,7 +157,7 @@ export default function PricingStatement() {
                 >
                   No account managers. No handoffs.
                   <br />
-                  Every system built, owned, and optimized by me.
+                  Every system built, owned, and optimized by me. I take on three partnerships at a time. One spot is currently open.
                 </p>
                 <div className="flex items-center mb-5" style={{ gap: 8 }}>
                   <span
@@ -253,8 +253,7 @@ export default function PricingStatement() {
                   lineHeight: 1.55,
                 }}
               >
-                Core growth system: conversion site, local SEO, Google Ads, and
-                weekly optimization.
+                The full acquisition system: conversion site, local SEO, Google Ads, weekly optimization, and monthly revenue reporting. Everything you need to stop depending on referrals.
               </p>
 
               {/* Divider */}

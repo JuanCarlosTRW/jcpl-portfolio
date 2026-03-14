@@ -264,19 +264,19 @@ export const marbleSystemSection = {
   steps: [
     {
       title: "Market Gap Report",
-      copy: "Before I write a line of code, you know exactly where your competitors are exposed.",
+      copy: "Before I write a line of code, I map your market. Where your competitors are exposed. What your buyers are actually searching. What your current funnel is missing. You get a 90-day roadmap before anything gets built.",
       timeline: "72 hours",
       deliverables: ["Market Gap Report", "Funnel Audit", "90-Day Roadmap"],
     },
     {
       title: "System Launch",
-      copy: "Site, ads, tracking, automation. All live. All connected.",
+      copy: "Site, ads, tracking, booking flow, and AI qualification. All built, all connected, all live. You approve each component before it ships. Median time to first booked call: 11 days.",
       timeline: "11 days median",
       deliverables: ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
     },
     {
       title: "Compound Loop",
-      copy: "Every week I cut waste and double what converts. Cost per call drops monthly.",
+      copy: "Every week I review what is working and cut what is not. Every month I report revenue, attribution, and next steps. Cost per call drops as the system learns your market.",
       timeline: "Ongoing",
       deliverables: ["Weekly Performance Report", "Monthly Review Call", "Conversion Improvements"],
     },
@@ -585,7 +585,7 @@ export const servicesQuiz = {
 /* ─── Services: Proof Block ─── */
 export const servicesProof = {
   label: "Featured Transformation",
-  client: "RV Rental Company \u2014 Texas",
+  client: "RV Rental Company, Texas",
   situation: "Family-owned RV rental with 8 vehicles. Zero online acquisition. Revenue was entirely referral-based and unpredictable.",
   diagnosis: "The market was active. The business simply didn\u2019t exist online. No ads, no funnel, no follow-up.",
   build: "Full Google Ads funnel: keyword research, conversion-optimized landing pages, automated booking qualification flow.",
@@ -757,8 +757,8 @@ export const aboutContent = {
   ],
   story: [], // Not used on page
   philosophy: {
-    headline: "Why One Owner Changes Everything",
-    body: "When the strategist, the builder, and the optimizer are the same person, there are no handoffs to lose context in. Strategy and execution stay aligned. Every layer reinforces the others. That is not a workflow preference: it is a structural advantage.",
+    headline: "Deliverables Are Not Results.",
+    body: "I do not measure success in deliverables shipped. I measure it in calls booked, revenue generated, and markets held.\n\nA website that looks good and does not convert is not a deliverable. It is a failure. A Google Ads campaign that spends money without tracking calls is not marketing. It is waste. I do not ship either of those things.",
   },
   advantage: {
     headline: "Why Integrated Systems\nBeat Fragmented Freelancers",
@@ -977,7 +977,7 @@ export const aboutTrustStrip = [
 export const aboutPrinciples = [
   {
     title: "Revenue first",
-    description: "Measured in booked calls + revenue. Not vanity metrics.",
+    description: "Every build decision, every optimization call, and every system iteration runs through one filter: does this produce more qualified calls at a lower cost. Nothing else qualifies as progress.",
   },
   {
     title: "Full-stack ownership",
@@ -1048,7 +1048,7 @@ export const servicesComparison = {
     { label: "Core deliverables", values: ["Site, funnel, copy", "+ Ads, AI, reporting", "+ Multi-channel, automation"] },
     { label: "Acquisition layer", values: ["Organic / SEO", "Paid + organic", "Multi-channel"] },
     { label: "Tracking", values: ["GA4 / events", "GA4 + reporting", "Advanced + custom"] },
-    { label: "Automation / AI", values: ["\u2014", "Lead qualification", "Custom integrations"] },
+    { label: "Automation / AI", values: ["No", "Lead qualification", "Custom integrations"] },
     { label: "Support cadence", values: ["Launch support", "Monthly", "Ongoing + strategy"] },
     { label: "Outcome focus", values: ["Credibility", "Pipeline", "Scale & leverage"] },
   ],

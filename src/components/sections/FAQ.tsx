@@ -94,7 +94,7 @@ export default function FAQ() {
             buttonHref="#book-call"
             emailLabel={faqBooking.ctaEmailLabel}
             email={faqBooking.ctaEmail}
-            riskReversalText="If I cannot move the needle, I will tell you on the call. Before you pay anything."
+            riskReversalText="If I cannot produce a return, I tell you on the call. Before you pay anything."
           />
         </Reveal>
 

@@ -90,6 +90,10 @@ export default function CalendarSection() {
                 {t<string>("bookCall.headline")}
               </h2>
 
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: "#A69D8D" }}>
+                This is not a discovery call. It is an actual audit.
+              </p>
+
               {/* What happens on the call */}
               <div className="mt-6 space-y-5">
                 {DIAGNOSTIC_STEPS.map((step) => (

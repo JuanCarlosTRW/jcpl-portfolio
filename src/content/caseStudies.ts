@@ -39,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
     situation:
       "Triple W Rentals had vehicles available but zero online acquisition. Revenue was entirely referral-dependent and unpredictable. The Texas RV rental market had strong search demand that was completely untapped. A full Google Ads funnel was built from scratch and deployed within weeks.",
     narrative:
-      "Triple W Rentals was a new RV rental company in Texas with no online presence and no inbound lead flow. I built their conversion website, launched a Google Ads campaign, and deployed tracking in 11 days. In the first 30 days on $900 in ad spend, the system generated $41,085 in tracked revenue. They now dominate the RV rental market in their region.",
+      "Triple W Rentals entered the Texas RV rental market with no website, no online presence, and no inbound lead flow. They had the inventory and the operation. They had no digital infrastructure to let anyone find them.\n\nI built the conversion site, launched the Google Ads campaign, configured GA4 event tracking for call and booking attribution, and had the full system live in 11 days. The ads went live targeting high-intent RV rental searches across their Texas service area.\n\nIn the first 30 days on $900 in ad spend, the system generated $41,085 in tracked revenue. $46 returned for every $1 spent. Average cost per qualified call: $33. They now hold dominant search visibility across their primary Texas market.",
     deliverables: [
       "Google Ads funnel with RV rental intent keywords",
       "Conversion landing pages optimized for bookings",
@@ -62,7 +62,7 @@ export const caseStudies: CaseStudy[] = [
     caseStudySlug: "elite-barbershop",
     inProgress: false,
     situation:
-      "Elite Barbershop had the craft but zero online presence. No website, no discoverability, no way for new clients to find them. The goal was to build a full custom digital system that matched the premium quality of the service and turned online search into booked appointments.",
+      "Elite Barbershop had the craft, the space, and the reputation in their neighborhood. What they did not have was a way for anyone searching online to find them. No website. No Google Business profile with real traction. New clients came entirely from walk-ins and word of mouth.\n\nI built the full acquisition system from scratch. Conversion website designed to match the premium positioning of the shop and push visitors toward one action: booking an appointment. Google Ads targeting local purchase-intent searches. Professional brand copy across every touchpoint. GA4 tracking configured so every new booking was attributed to its source.\n\nIn 90 days, Elite Barbershop acquired 90 net new clients through the digital system. Not walk-ins. Not referrals. Clients who found them online and booked before they had ever walked through the door. The calendar went from unpredictable to fully booked. The owners reported that new clients consistently complimented the website on their first visit.",
     deliverables: [
       "Custom conversion-engineered website",
       "Google Ads campaign with local intent targeting",
@@ -74,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
     id: "absolute-painting",
     title: "Absolute Painting",
     industry: "HOME SERVICES",
-    outcome: "Custom conversion site. Google Ads funnel. Tracking live.",
+    outcome: "Custom conversion site and Google Ads funnel targeting high-intent buyers in the Dallas-Fort Worth market. Conversion tracking live. Optimization in progress.",
     resultTag: "System live",
     metrics: [],
     websiteUrl: "https://absolutepainting.vercel.app/quote",
@@ -94,7 +94,7 @@ export const caseStudies: CaseStudy[] = [
     id: "culture-barbershop",
     title: "Culture Barbershop",
     industry: "BARBERSHOP, MONTREAL",
-    outcome: "Conversion website and booking funnel delivered. Page 1 for competitive Montreal searches in under 60 days.",
+    outcome: "Conversion website and booking funnel delivered. Page 1 for competitive Montreal barbershop searches in under 60 days. System live and compounding.",
     resultTag: "Page 1 SEO, <60 days",
     metrics: [
       { label: "Deliverable", value: "Website" },

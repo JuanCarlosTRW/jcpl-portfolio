@@ -125,7 +125,7 @@ export default function FeaturedCaseStudy() {
           className="mt-5 max-w-md mx-auto"
           style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "#756D63", lineHeight: 1.6 }}
         >
-          Revenue, qualified calls, and search visibility. Not separate wins — the same connected system.
+          Revenue, qualified calls, and search visibility. Not three separate wins. The same connected system, running continuously.
         </p>
       </Reveal>
 
@@ -287,7 +287,7 @@ export default function FeaturedCaseStudy() {
               }}
             >
               Competitive Montreal market. Custom site and booking funnel delivered.
-              Last verified Q1 2025.
+              Last verified Q1 2026.
             </p>
           </div>
         </div>

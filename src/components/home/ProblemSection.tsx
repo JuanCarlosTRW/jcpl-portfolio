@@ -45,7 +45,7 @@ const DIAGNOSTICS = [
     prefix: "$",
     label: "Revenue from visitors who can\u2019t book",
     detail:
-      "No booking system, no trust signals, no follow-up \u2014 every gap in your pipeline is revenue walking out the door.",
+      "No booking system, no trust signals, no follow-up. Every gap in your pipeline is revenue walking out the door.",
     accent: "cyan" as const,
   },
 ];

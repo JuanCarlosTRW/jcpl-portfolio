@@ -34,9 +34,13 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               90 new clients in 90 days.
               <br className="hidden md:block" /> Built from zero online presence.
             </h2>
-            <p className="text-[15px] text-[#D2C9B8] leading-[1.75] mb-8 max-w-[480px]">
-              {cs.situation}
-            </p>
+            <div className="mb-8 max-w-[480px]">
+              {cs.situation.split("\n\n").map((para, i) => (
+                <p key={i} className="text-[15px] text-[#D2C9B8] leading-[1.75] mb-4 last:mb-0">
+                  {para}
+                </p>
+              ))}
+            </div>
 
             {/* What was built */}
             <div className="mb-8">

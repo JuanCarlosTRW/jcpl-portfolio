@@ -39,7 +39,7 @@ export default function QualificationCTA() {
               </span>
             </h2>
             <p className="text-[#A69D8D] text-base md:text-lg text-center">
-              I only work with businesses I can move the needle for.
+              I only take on businesses where I am confident I can produce a measurable return. Before we sign anything, I tell you directly whether that is you.
             </p>
           </div>
 
@@ -130,7 +130,7 @@ export default function QualificationCTA() {
                   className="mt-3 text-center max-w-xs"
                   style={{ fontSize: "0.875rem", color: "#5E5650", lineHeight: 1.65 }}
                 >
-                  If I cannot move the needle, I will tell you on the call. Before you pay anything.
+                  If I cannot produce a return, I will tell you on the call. Before you pay anything.
                 </p>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Client Growth — Growth Infrastructure for Service Businesses";
+export const alt = "Client Growth. Growth Infrastructure for Service Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -101,7 +101,7 @@ export default async function Image() {
             <span style={{ color: "#D4A853", fontWeight: 700 }}>$41,085</span>
             {" "}generated from{" "}
             <span style={{ color: "#C8A05A", fontWeight: 500 }}>$900</span>
-            {" "}in ad spend — within 30 days.
+            {" "}in ad spend, within 30 days.
           </span>
         </div>
       </div>

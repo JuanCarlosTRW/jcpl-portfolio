@@ -48,7 +48,7 @@ const faqEn: FAQItem[] = [
   {
     question: "What if it doesn't work?",
     answer:
-      "If I can't move the needle in the first 90 days, I keep working until I do. I don't take clients I don't believe I can help. That's why there's an application. I review your business before agreeing to work with you, not after you have paid.",
+      "If I don't produce a measurable result in the first 90 days, I keep working until I do. I don't take clients I don't believe I can help. That's why there's an application. I review your business before agreeing to work with you, not after you have paid.",
     featured: false,
   },
   {
@@ -260,7 +260,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       proof3: "One hit $2,716 in revenue in month one.",
       oneSpot: "One spot is open right now.",
       applyParagraph:
-        "Apply now and I will review your business within 24 hours. If I can't move the needle for you, I will tell you that on the review call, not after you have paid anything.",
+        "Apply now and I will review your business within 24 hours. If I cannot produce a return for you, I will tell you that on the review call, not after you have paid anything.",
       applyCta: "Book a Diagnostic Call",
       seeResults: "See Results →",
       reply24: "Reply within 24 hours",
@@ -320,7 +320,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         { question: "What's the minimum ad spend?", answer: "I recommend starting at $500/month in ad spend. Ad spend goes directly to Google, not to me. The right budget is discussed during the fit process." },
       ],
       ctaTitle: "Book a Diagnostic Call",
-      ctaBody: "I'll review your market and tell you directly whether this can move the needle.",
+      ctaBody: "I review your market before we speak. On the call, I show you exactly where you are losing calls and what fixing it is worth.",
       ctaButton: "Book a Diagnostic Call →",
       ctaEmail: "juan@clientgrowth.ca",
       ctaEmailLabel: "Prefer email?",
@@ -329,7 +329,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       eyebrow: "BOOK A CALL",
       headline: "Book your diagnostic. I will tell you if I can help.",
       italicSubline: "",
-      body: "I will review your market, your current pipeline, and the fastest path to qualified calls. If I cannot move the needle, I will tell you that directly before you pay anything.",
+      body: "I will review your market, your current pipeline, and the fastest path to qualified calls. If I cannot produce a return, I will tell you that directly before you pay anything.",
       bullet1: "15 minutes",
       bullet2: "Clear next steps",
       bullet3: "No bloated sales process",

@@ -43,19 +43,13 @@ export default function AboutCTA() {
         <div className="max-w-2xl mx-auto text-center">
           <Reveal>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.12] tracking-tight mb-4">
-              One application.{" "}
-              <span
-                className="italic font-normal"
-                style={{ fontFamily: "var(--font-playfair), Georgia, serif", color: "var(--brand-accent)" }}
-              >
-                One honest answer.
-              </span>
+              Your Pipeline Will Not Build Itself.
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto text-[0.92rem]">
-              I review your market and current positioning personally before we speak. If there is a clear path to more qualified calls, you will hear from me within 24 hours. If there is not, I will tell you that directly, before you spend anything.
+              Apply for a diagnostic call. I review your business, your market, and your pipeline before we speak. On the call, I show you exactly where you are losing calls and what fixing it is worth.
             </p>
             <p className="text-sm font-medium mt-3 mb-10" style={{ color: "var(--brand-accent)" }}>
-              No retainer until I confirm fit.
+              If I cannot produce a return, I tell you on the call. Before you pay anything.
             </p>
           </Reveal>
 

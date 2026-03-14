@@ -86,8 +86,7 @@ export default function ServicesSection() {
               lineHeight: 1.6,
             }}
           >
-            Not six separate services. One connected acquisition system built
-            to compound over time.
+            Not six separate services. One connected acquisition system. Each layer feeds the next. The longer it runs, the cheaper each call gets.
           </p>
         </div>
 
