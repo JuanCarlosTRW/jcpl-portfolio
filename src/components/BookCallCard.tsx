@@ -15,9 +15,9 @@ function KnightAvatar() {
     <Image
       src={KNIGHT_AVATAR}
       alt=""
-      width={32}
-      height={32}
-      className="w-8 h-8 object-contain"
+      width={64}
+      height={64}
+      className="w-full h-full object-cover"
       onError={() => setImgError(true)}
     />
   );
@@ -60,7 +60,7 @@ export default function BookCallCard({
       <div className="flex flex-col h-full p-6 md:p-8">
         <div className="mb-5 flex justify-center">
           <div
-            className="w-16 h-16 rounded-full flex items-center justify-center shrink-0"
+            className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center shrink-0"
             style={{ background: "#1A1510", border: "1px solid rgba(212,168,83,0.3)" }}
           >
             <KnightAvatar />
