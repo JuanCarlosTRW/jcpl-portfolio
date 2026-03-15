@@ -70,6 +70,7 @@ export default function ServicesHero() {
           <RotatingText
             texts={ROTATING_PHRASES}
             splitBy="words"
+            splitLevelClassName="mr-[0.28em]"
             rotationInterval={2800}
             staggerDuration={0.04}
             staggerFrom="first"
