@@ -52,6 +52,9 @@ export default function SystemTimelineSection() {
                 className="border-l-2 pl-6"
                 style={{ borderLeftColor: "#D4A853" }}
               >
+                <p className="text-[11px] font-bold tracking-[0.18em] mb-2" style={{ color: "rgba(212,168,83,0.55)" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </p>
                 <div className="flex items-center gap-2 flex-wrap">
                   <h3 className="text-lg md:text-xl font-semibold text-white">
                     {step.title}
@@ -62,16 +65,16 @@ export default function SystemTimelineSection() {
                     </span>
                   )}
                 </div>
-                <p className="mt-1.5 md:mt-2 leading-relaxed text-[#D2C9B8] text-[15px] md:text-base">
+                <p className="mt-2 leading-relaxed text-[#D2C9B8] text-[15px] md:text-base">
                   {step.copy}
                 </p>
                 {"deliverables" in step && step.deliverables && step.deliverables.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {step.deliverables.map((d) => (
                       <span
                         key={d}
                         className="px-3 py-1 rounded-full text-xs"
-                        style={{ color: "#8A7E74", background: "rgba(42,35,24,0.5)", border: "1px solid #2A2318" }}
+                        style={{ color: "#A69D8D", background: "rgba(42,35,24,0.7)", border: "1px solid rgba(212,168,83,0.12)" }}
                       >
                         {d}
                       </span>
@@ -83,7 +86,7 @@ export default function SystemTimelineSection() {
           </div>
           <div className="relative flex flex-col items-center">
             <div
-              className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2"
+              className="absolute left-1/2 top-6 bottom-12 w-[2px] -translate-x-1/2"
               style={{
                 background:
                   "linear-gradient(to bottom, #D4A853, rgba(212, 168, 83, 0.3))",
@@ -122,7 +125,7 @@ export default function SystemTimelineSection() {
                       <span
                         key={d}
                         className="px-3 py-1 rounded-full text-xs"
-                        style={{ color: "#8A7E74", background: "rgba(42,35,24,0.5)", border: "1px solid #2A2318" }}
+                        style={{ color: "#A69D8D", background: "rgba(42,35,24,0.7)", border: "1px solid rgba(212,168,83,0.12)" }}
                       >
                         {d}
                       </span>
