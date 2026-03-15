@@ -75,7 +75,6 @@ export const caseStudies: CaseStudy[] = [
     title: "Absolute Painting",
     industry: "HOME SERVICES",
     outcome: "Custom conversion site and Google Ads funnel targeting high-intent buyers in the Dallas-Fort Worth market. Conversion tracking live. Optimization in progress.",
-    resultTag: "System live",
     metrics: [],
     websiteUrl: "https://absolutepainting.vercel.app/quote",
     logoUrl: "/images/logos/absolute.png",

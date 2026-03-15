@@ -123,8 +123,7 @@ export default function QualificationCTA() {
                   onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}
                   onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#D4A853"; }}
                 >
-                  Book a Diagnostic Call
-                  <span aria-hidden>→</span>
+                  Book a Diagnostic Call →
                 </Link>
                 <p
                   className="mt-3 text-center max-w-xs"

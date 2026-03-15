@@ -331,7 +331,7 @@ export default function FeaturedCaseStudy() {
               <p
                 style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
-                Under 60 days. Competitive TX market.
+                Under 60 days. Competitive Montreal market.
               </p>
             </div>
             <div
