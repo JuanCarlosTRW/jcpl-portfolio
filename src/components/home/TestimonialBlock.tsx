@@ -1,6 +1,8 @@
 "use client";
 
 import CTAButton from "@/components/ui/CTAButton";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 function StarRow() {
   return (
@@ -74,6 +76,9 @@ function TestimonialCard({ quote, name, business, logoSrc, logoAlt }: Testimonia
 }
 
 export default function TestimonialBlock() {
+  const { locale, lp } = useLocale();
+  const tm = translations[locale].homepage.testimonial;
+
   return (
     <section
       className="px-4 sm:px-6 py-16 md:py-20"
@@ -87,26 +92,26 @@ export default function TestimonialBlock() {
 
         {/* Single centered testimonial */}
         <TestimonialCard
-          quote="Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since."
-          name="Mike S."
-          business="Culture Barbershop · Montreal, QC"
+          quote={tm.quote}
+          name={tm.name}
+          business={tm.business}
           logoSrc="/images/logos/culture.png"
           logoAlt="Culture Barbershop"
         />
 
         {/* Context note */}
         <p className="mt-5 text-center" style={{ fontSize: "0.78rem", color: "#5E5650" }}>
-          Every result on this page came from the same acquisition system.
+          {tm.below}
         </p>
 
         <div className="mt-6 flex justify-center">
           <CTAButton
-            href="/results"
+            href={lp("/results")}
             variant="secondary"
             size="sm"
             eventName="case_card_click"
           >
-            See Results →
+            {tm.seeResults}
           </CTAButton>
         </div>
       </div>

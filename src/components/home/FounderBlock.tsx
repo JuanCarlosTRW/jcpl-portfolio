@@ -2,16 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 const JUAN_IMG_SRC = "/images/juan-headshot-founder.jpeg";
 
-const CHIPS = [
-  "3 active partnerships max",
-  "Every system built personally",
-  "Direct access. No middlemen.",
-];
-
 export default function FounderBlock() {
+  const { locale, lp } = useLocale();
+  const o = translations[locale].homepage.oneOperator;
+
+  const CHIPS = [o.tag1, o.tag2, o.tag3];
+
   return (
     <section className="py-20 md:py-28" style={{ background: "#1A1510" }}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -25,7 +26,7 @@ export default function FounderBlock() {
             color: "#D4A853",
           }}
         >
-          WHO RUNS THE SYSTEM
+          {o.eyebrow}
         </p>
 
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 md:items-center">
@@ -68,7 +69,7 @@ export default function FounderBlock() {
               className="text-white font-bold"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.25rem)", lineHeight: 1.15, margin: 0 }}
             >
-              One operator. Full accountability.
+              {o.h2}
             </h2>
 
             <p
@@ -79,7 +80,7 @@ export default function FounderBlock() {
                 margin: 0,
               }}
             >
-              Most service businesses have tried the agency route. Multiple contacts. Handoffs between departments. A junior account manager running things six months in.
+              {o.p1}
             </p>
 
             <div className="flex flex-col gap-4">
@@ -91,7 +92,7 @@ export default function FounderBlock() {
                   margin: 0,
                 }}
               >
-                I built Client Growth around the opposite model. Three active partnerships maximum. Every system built and optimized personally. No account manager between us.
+                {o.p2}
               </p>
               <p
                 style={{
@@ -101,7 +102,7 @@ export default function FounderBlock() {
                   margin: 0,
                 }}
               >
-                Strategy, conversion, paid acquisition, and optimization stay connected because the same person runs all of it. That person is me.
+                {o.p3}
               </p>
             </div>
 
@@ -137,12 +138,11 @@ export default function FounderBlock() {
                 margin: 0,
               }}
             >
-              If performance improves, you know why. If something is
-              underperforming, you know who owns it.
+              {o.closing}
             </p>
 
             <Link
-              href="/about"
+              href={lp("/about")}
               style={{
                 fontSize: "0.8125rem",
                 color: "#8A7E74",
@@ -153,7 +153,7 @@ export default function FounderBlock() {
               onMouseOver={(e) => { e.currentTarget.style.color = "#D2C9B8"; }}
               onMouseOut={(e) => { e.currentTarget.style.color = "#8A7E74"; }}
             >
-              Why this model works →
+              {o.link}
             </Link>
           </div>
 

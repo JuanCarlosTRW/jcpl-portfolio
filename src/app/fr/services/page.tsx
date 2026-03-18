@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/metadata";
 import ServicesHero from "@/components/services/ServicesHero";
 import ProofBanner from "@/components/services/ProofBanner";
 import SystemTimelineSection from "@/components/services/SystemTimelineSection";
@@ -9,14 +8,11 @@ import ServicesFinalCTA from "@/components/services/ServicesFinalCTA";
 import "@/styles/services.css";
 
 export const metadata: Metadata = {
-  ...buildMetadata({
-    title: "Growth Systems for Service Businesses",
-    description:
-      "One acquisition system: conversion site, local SEO, Google Ads, AI call qualification, and ongoing optimization. Built and managed by one person. Apply to see if you qualify.",
-    path: "/services",
-  }),
+  title: "Services | Infrastructure de croissance pour entreprises de services",
+  description:
+    "Un système d'acquisition complet : site de conversion, SEO local, Google Ads avec coût par appel suivi, IA de qualification. Construit et géré par une personne. En ligne en 11 jours.",
   alternates: {
-    canonical: "https://clientgrowth.ca/services",
+    canonical: "https://clientgrowth.ca/fr/services",
     languages: {
       "en": "https://clientgrowth.ca/services",
       "fr": "https://clientgrowth.ca/fr/services",
@@ -25,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
+export default function FrServicesPage() {
   return (
     <>
       <ServicesHero />

@@ -51,7 +51,7 @@ export default function Footer() {
               Client Growth
             </Link>
             <p className="text-[0.8rem]" style={{ color: "#756D63" }}>
-              Growth infrastructure for local service businesses.
+              {footer.tagline}
             </p>
           </div>
 

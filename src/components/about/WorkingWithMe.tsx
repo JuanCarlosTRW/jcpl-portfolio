@@ -2,18 +2,28 @@
 
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { workingWithMe } from "@/lib/content";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function WorkingWithMe() {
+  const { locale } = useLocale();
+  const w = translations[locale].about.workingWithMe;
+
+  const phases = [
+    { title: w.phase1Title, desc: w.phase1Desc },
+    { title: w.phase2Title, desc: w.phase2Desc },
+    { title: w.phase3Title, desc: w.phase3Desc },
+  ];
+
   return (
     <div className="w-full py-16" style={{ background: "#131009" }}>
       <AnimatedSection className="max-w-2xl mx-auto">
-        <SectionLabel label={workingWithMe.overline} className="mb-4" />
+        <SectionLabel label={w.overline} className="mb-4" />
         <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-8">
-          {workingWithMe.headline}
+          {w.headline}
         </h2>
         <div className="space-y-6">
-          {workingWithMe.phases.map((phase, i) => (
+          {phases.map((phase) => (
             <div
               key={phase.title}
               className="flex gap-4 pb-6 border-b border-[#2A2318] last:border-0 last:pb-0"

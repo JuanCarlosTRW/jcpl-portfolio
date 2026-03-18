@@ -1,17 +1,22 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 const GridScan = dynamic(() => import("./GridScan"), { ssr: false });
 
-const evidenceStats = [
-  { value: "$41,085", label: "Revenue generated", note: "Google Ads · 30 days" },
-  { value: "90", label: "New clients acquired", note: "Full acquisition system" },
-  { value: "$33", label: "Cost per qualified call", note: "Paid search" },
-  { value: "46×", label: "Return on ad spend", note: "Month one" },
-];
-
 export default function ResultsHero() {
+  const { locale } = useLocale();
+  const r = translations[locale].results.hero;
+
+  const evidenceStats = [
+    { value: r.stat1Value, label: r.stat1Label, note: r.stat1Note },
+    { value: r.stat2Value, label: r.stat2Label, note: r.stat2Note },
+    { value: r.stat3Value, label: r.stat3Label, note: r.stat3Note },
+    { value: r.stat4Value, label: r.stat4Label, note: r.stat4Note },
+  ];
+
   return (
     <section
       className="relative pt-36 pb-20 md:pb-28"
@@ -36,19 +41,17 @@ export default function ResultsHero() {
       <div className="relative max-w-[760px] mx-auto text-center px-6">
         {/* Eyebrow */}
         <p className="text-[11px] uppercase tracking-[0.16em] text-[#D4A853] mb-6">
-          Client Results: Verified Record
+          {r.eyebrow}
         </p>
 
         {/* Headline */}
         <h1 className="text-[clamp(30px,4.5vw,48px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.025em]">
-          $41,085 in revenue. 90 new clients.
-          <br className="hidden md:block" /> Built on the same system.
+          {r.h1}
         </h1>
 
         {/* Sub */}
         <p className="text-[17px] text-[#D2C9B8] leading-[1.7] max-w-[560px] mx-auto mb-12">
-          A structured record from live partnerships. Starting conditions, what
-          was built, and what resulted. Every figure tied to a real account.
+          {r.sub}
         </p>
 
         {/* Evidence stats panel */}

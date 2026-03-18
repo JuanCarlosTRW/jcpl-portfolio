@@ -9,6 +9,8 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 import { countUp } from "@/lib/animations";
 import { prefersReducedMotion } from "@/lib/motion";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,6 +60,8 @@ export default function FeaturedCaseStudy() {
   const tripleWRef = useRef<HTMLDivElement>(null);
   const statCardsRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const { locale, lp } = useLocale();
+  const po = translations[locale].homepage.provenOutcomes;
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
@@ -106,7 +110,7 @@ export default function FeaturedCaseStudy() {
     <SectionWrapper ref={sectionRef} id="proof" style={{ background: "#131009" }}>
       {/* Section header */}
       <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
-        <SectionLabel label="PROVEN OUTCOMES" className="mb-5 !text-[#D4A853]" />
+        <SectionLabel label={po.eyebrow} className="mb-5 !text-[#D4A853]" />
         <h2 className="text-[clamp(30px,4.5vw,46px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto">
           <span className="text-white font-bold">
             $41,085 from $900 in ad spend.
@@ -125,7 +129,7 @@ export default function FeaturedCaseStudy() {
           className="mt-5 max-w-md mx-auto"
           style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "#756D63", lineHeight: 1.6 }}
         >
-          Revenue, qualified calls, and search visibility. Not three separate wins. The same connected system, running continuously.
+          {po.sub}
         </p>
       </Reveal>
 
@@ -150,7 +154,7 @@ export default function FeaturedCaseStudy() {
                 marginBottom: 16,
               }}
             >
-              RV RENTAL · TEXAS · GOOGLE ADS
+              {po.card1Label}
             </p>
 
             {/* Core result */}
@@ -163,10 +167,10 @@ export default function FeaturedCaseStudy() {
               </div>
             </div>
             <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
-              in revenue. First 30 days.
+              {po.card1Revenue}
             </p>
 
-            {/* ROAS — elevated; enough weight to register as a second stat */}
+            {/* ROAS */}
             <div
               style={{
                 borderTop: "1px solid #2A2318",
@@ -182,7 +186,7 @@ export default function FeaturedCaseStudy() {
                   lineHeight: 1.3,
                 }}
               >
-                $46 returned per $1 of ad spend.
+                {po.card1Return}
               </div>
             </div>
 
@@ -194,7 +198,7 @@ export default function FeaturedCaseStudy() {
                 fontStyle: "italic",
               }}
             >
-              Live account. Last verified February 2026.
+              {po.card1Verified}
             </p>
           </div>
         </div>
@@ -210,7 +214,7 @@ export default function FeaturedCaseStudy() {
             color: "#756D63",
           }}
         >
-          Confirming the pattern
+          {po.confirmingPattern}
         </p>
       </Reveal>
 
@@ -234,7 +238,7 @@ export default function FeaturedCaseStudy() {
                 marginBottom: 14,
               }}
             >
-              BARBERSHOP · MONTREAL · LOCAL SEO
+              {po.card2Label}
             </p>
 
             {/* Two-stat compact row */}
@@ -253,7 +257,7 @@ export default function FeaturedCaseStudy() {
                     marginTop: 5,
                   }}
                 >
-                  in under 60 days
+                  {po.card2Page1}
                 </p>
               </div>
               <div>
@@ -274,7 +278,7 @@ export default function FeaturedCaseStudy() {
                     marginTop: 5,
                   }}
                 >
-                  avg cost per qualified call
+                  {po.card2Cost}
                 </p>
               </div>
             </div>
@@ -286,8 +290,7 @@ export default function FeaturedCaseStudy() {
                 fontStyle: "italic",
               }}
             >
-              Competitive Montreal market. Custom site and booking funnel delivered.
-              Last verified Q1 2026.
+              {po.card2Context}
             </p>
           </div>
         </div>
@@ -308,7 +311,7 @@ export default function FeaturedCaseStudy() {
               color: "#A69D8D",
             }}
           >
-            ACROSS ALL ACTIVE PARTNERSHIPS
+            {po.acrossAll}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 stat-cards">
             <div
@@ -325,13 +328,13 @@ export default function FeaturedCaseStudy() {
                   marginBottom: 8,
                 }}
               >
-                LOCAL SEO
+                {po.localSeo}
               </p>
               <p className="text-3xl font-bold text-white">Page 1</p>
               <p
                 style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
-                Under 60 days. Competitive Montreal market.
+                {po.localSeoSub}
               </p>
             </div>
             <div
@@ -348,7 +351,7 @@ export default function FeaturedCaseStudy() {
                   marginBottom: 8,
                 }}
               >
-                COST PER QUALIFIED CALL
+                {po.costPerCallLabel}
               </p>
               <p className="text-3xl font-bold text-white stat-glow">
                 <span className="stat-33-card">$33</span>
@@ -356,7 +359,7 @@ export default function FeaturedCaseStudy() {
               <p
                 style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
-                Avg per qualified inbound call. All active accounts.
+                {po.costPerCallSub}
               </p>
             </div>
             <div
@@ -373,7 +376,7 @@ export default function FeaturedCaseStudy() {
                   marginBottom: 8,
                 }}
               >
-                SPEED TO FIRST BOOKED CALL
+                {po.speedLabel}
               </p>
               <p className="text-3xl font-bold text-white stat-glow">
                 <span className="stat-11-card">11</span> days
@@ -381,18 +384,18 @@ export default function FeaturedCaseStudy() {
               <p
                 style={{ fontSize: "0.875rem", color: "#A69D8D", marginTop: 8 }}
               >
-                Median across all active accounts.
+                {po.speedSub}
               </p>
             </div>
           </div>
         </div>
       </Reveal>
 
-      {/* See all results — proof continuation path */}
+      {/* See all results */}
       <Reveal delay={0.25}>
         <div className="text-center mt-10">
           <Link
-            href="/results"
+            href={lp("/results")}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -417,7 +420,7 @@ export default function FeaturedCaseStudy() {
               e.currentTarget.style.backgroundColor = "transparent";
             }}
           >
-            See all client results →
+            {po.seeAllResults}
           </Link>
         </div>
       </Reveal>

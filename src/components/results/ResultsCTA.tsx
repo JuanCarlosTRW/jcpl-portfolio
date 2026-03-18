@@ -2,8 +2,10 @@
 
 import CTAButton from "@/components/ui/CTAButton";
 import Link from "next/link";
+import { useLocale } from "@/context/LocaleContext";
 
 export default function ResultsCTA() {
+  const { lp } = useLocale();
   return (
     <section
       className="py-20 md:py-28"
@@ -57,11 +59,11 @@ export default function ResultsCTA() {
             style={{ borderColor: "rgba(212,168,83,0.1)" }}
           >
             <div className="flex flex-col gap-4 w-full lg:w-auto">
-              <CTAButton href="/apply" size="lg">
+              <CTAButton href={lp("/apply")} size="lg">
                 Book a Diagnostic Call
               </CTAButton>
               <Link
-                href="/services"
+                href={lp("/services")}
                 className="text-[13px] text-[rgba(255,255,255,0.4)] hover:text-[#D4A853] transition-colors text-center lg:text-left"
               >
                 How the acquisition system works →

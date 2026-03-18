@@ -7,18 +7,22 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
 import { prefersReducedMotion } from "@/lib/motion";
-import { clientReality } from "@/lib/content";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CARDS = clientReality.pains.map((p, i) => ({
-  num: String(i + 1).padStart(2, "0"),
-  title: p.title,
-  body: p.detail,
-}));
-
 export default function ClientReality() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { locale } = useLocale();
+  const r = translations[locale].homepage.reality;
+
+  const CARDS = [
+    { num: "01", title: r.card01Title, body: r.card01Body },
+    { num: "02", title: r.card02Title, body: r.card02Body },
+    { num: "03", title: r.card03Title, body: r.card03Body },
+    { num: "04", title: r.card04Title, body: r.card04Body },
+  ];
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
@@ -50,15 +54,12 @@ export default function ClientReality() {
     >
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto mb-12 max-w-[980px] text-center md:mb-14">
-          <SectionLabel label="THE REALITY" className="mb-5 !text-[#D4A853]" />
+          <SectionLabel label={r.eyebrow} className="mb-5 !text-[#D4A853]" />
           <h2 className="mx-auto mb-5 max-w-[860px] text-[clamp(32px,4.2vw,50px)] font-[800] leading-[1.12] tracking-[-0.026em] text-[#F5F0E8]">
-            Your Work Is Good.{" "}
-            <span style={{ color: "#EDE5D0", fontWeight: 700 }}>
-              Your Pipeline Shouldn&apos;t Be This Fragile.
-            </span>
+            {r.h2}
           </h2>
           <p className="mx-auto mb-6 max-w-[580px] text-[clamp(15.5px,1.7vw,17.5px)] font-[400] leading-[1.7] text-[#8A7E74]">
-            Untracked demand. A site that doesn&apos;t convert. No follow-up.
+            {r.sub}
           </p>
           <p
             className="mx-auto"
@@ -68,7 +69,7 @@ export default function ClientReality() {
               color: "#C8A05A",
             }}
           >
-            Most competitors don&apos;t work harder. They run a system.
+            {r.goldLine}
           </p>
         </Reveal>
 
@@ -86,7 +87,7 @@ export default function ClientReality() {
               className="mb-7 uppercase tracking-[0.18em]"
               style={{ fontSize: "0.6875rem", color: "#D4A853", fontWeight: 600 }}
             >
-              8:47 AM · TODAY
+              {r.notificationTime}
             </p>
             <div
               style={{
@@ -94,9 +95,9 @@ export default function ClientReality() {
                 lineHeight: 1.85,
               }}
             >
-              <p style={{ color: "#C8BFAE" }}>Someone in your city searched for your service.</p>
-              <p style={{ color: "#C8BFAE" }}>They found a competitor first.</p>
-              <p style={{ color: "#C8BFAE" }}>That phone rang. Yours didn&apos;t.</p>
+              <p style={{ color: "#C8BFAE" }}>{r.notificationLine1}</p>
+              <p style={{ color: "#C8BFAE" }}>{r.notificationLine2}</p>
+              <p style={{ color: "#C8BFAE" }}>{r.notificationLine3}</p>
 
               <div
                 aria-hidden="true"
@@ -108,10 +109,10 @@ export default function ClientReality() {
               />
 
               <p style={{ color: "#A8A098", fontWeight: 400 }}>
-                Not because your work is worse.
+                {r.notificationLine4}
               </p>
               <p style={{ color: "#D4A853", fontWeight: 600 }}>
-                Because their system was there. Yours wasn&apos;t.
+                {r.notificationLine5}
               </p>
             </div>
           </div>

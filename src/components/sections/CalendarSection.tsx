@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { useTranslations } from "@/context/LocaleContext";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 const CAL_LINK = "clientgrowth/15min";
 const CAL_BOOKING_URL = `https://app.cal.com/${CAL_LINK}?layout=column&hideEventTypeDetails=1&theme=dark`;
@@ -12,26 +13,19 @@ const BallPit = dynamic(() => import("./BallPit"), {
   loading: () => <div className="min-h-[360px] bg-transparent" aria-hidden />,
 });
 
-const DIAGNOSTIC_STEPS = [
-  {
-    num: "01",
-    body: "I audit your pipeline, your competitors, and your current traffic sources.",
-  },
-  {
-    num: "02",
-    body: "I show you where you are losing calls and what fixing it is worth.",
-  },
-  {
-    num: "03",
-    body: "I tell you if I can help. No pitch. No pressure.",
-  },
-];
-
 export default function CalendarSection() {
-  const t = useTranslations();
+  const { locale } = useLocale();
+  const d = translations[locale].homepage.diagnostic;
+
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
+
+  const DIAGNOSTIC_STEPS = [
+    { num: "01", body: d.step1 },
+    { num: "02", body: d.step2 },
+    { num: "03", body: d.step3 },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,15 +77,15 @@ export default function CalendarSection() {
                   fontWeight: 500,
                 }}
               >
-                THE DIAGNOSTIC
+                {d.eyebrow}
               </span>
 
               <h2 className="text-[clamp(1.75rem,3.5vw,2.25rem)] font-bold leading-tight text-white">
-                {t<string>("bookCall.headline")}
+                {d.h2}
               </h2>
 
               <p className="mt-3 text-sm leading-relaxed" style={{ color: "#A69D8D" }}>
-                This is not a discovery call. It is an actual audit.
+                {d.addedLine}
               </p>
 
               {/* What happens on the call */}
@@ -121,7 +115,7 @@ export default function CalendarSection() {
                 }}
               >
                 <p className="text-xs leading-relaxed" style={{ color: "#A69D8D" }}>
-                  {t<string>("bookCall.notice")}
+                  {d.note}
                 </p>
               </div>
             </div>
@@ -139,7 +133,7 @@ export default function CalendarSection() {
                 overflow: "hidden",
               }}
             >
-              {/* Dark loading overlay — hides until Cal.com fully paints */}
+              {/* Dark loading overlay */}
               {isVisible && !iframeLoaded && (
                 <div
                   className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4"

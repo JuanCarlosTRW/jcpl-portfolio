@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { qualification } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { Reveal } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 function CheckIcon() {
   return (
@@ -23,23 +24,29 @@ function XIcon() {
 }
 
 export default function QualificationCTA() {
+  const { locale } = useLocale();
+  const f = translations[locale].homepage.fitNotFit;
+
+  const forYouIf = [f.rightFit1, f.rightFit2, f.rightFit3, f.rightFit4, f.rightFit5];
+  const notForYouIf = [f.notFit1, f.notFit2, f.notFit3, f.notFit4, f.notFit5];
+
   return (
     <section id="qualify" className="relative overflow-hidden py-16 border-b border-[#2A2318]" style={{ background: "#0D0B09" }}>
       <SectionWrapper className="relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-12">
-            <SectionLabel label="WHO THIS IS FOR" className="mb-4 !text-[#D4A853]" />
+            <SectionLabel label={f.eyebrow} className="mb-4 !text-[#D4A853]" />
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              <span>This is not for everyone. </span>
+              <span>{f.h2.split(". ")[0]}. </span>
               <span
                 className="italic font-normal"
                 style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
               >
-                Here is who it is for.
+                {f.h2.split(". ").slice(1).join(". ")}
               </span>
             </h2>
             <p className="text-[#A69D8D] text-base md:text-lg text-center">
-              I only take on businesses where I am confident I can produce a measurable return. Before we sign anything, I tell you directly whether that is you.
+              {f.sub}
             </p>
           </div>
 
@@ -54,10 +61,10 @@ export default function QualificationCTA() {
                 }}
               >
                 <h3 className="text-[1.25rem] font-bold text-white mb-5">
-                  You are the right fit if:
+                  {f.rightFitTitle}
                 </h3>
                 <ul className="space-y-3.5">
-                  {qualification.forYouIf.map((item, i) => (
+                  {forYouIf.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-[14px] leading-[1.7]" style={{ color: "#D2C9B8" }}>
                       <CheckIcon />
                       {item}
@@ -74,10 +81,10 @@ export default function QualificationCTA() {
                 }}
               >
                 <h3 className="text-[1.25rem] font-bold text-white mb-5">
-                  This is NOT the right fit if:
+                  {f.notFitTitle}
                 </h3>
                 <ul className="space-y-3.5">
-                  {qualification.notForYouIf.map((item, i) => (
+                  {notForYouIf.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-[14px] leading-[1.7]" style={{ color: "#D2C9B8" }}>
                       <XIcon />
                       {item}
@@ -107,13 +114,13 @@ export default function QualificationCTA() {
                 className="text-center font-bold"
                 style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.375rem)", color: "#F5F0E8" }}
               >
-                Serious operators build infrastructure.
+                {f.closingBold}
               </p>
               <p
                 className="text-center mt-2"
                 style={{ fontSize: "clamp(1rem, 1.3vw, 1.125rem)", color: "#5E5650" }}
               >
-                Everyone else waits for the phone to ring.
+                {f.closingSub}
               </p>
               <div className="flex flex-col items-center mt-10">
                 <Link
@@ -123,13 +130,13 @@ export default function QualificationCTA() {
                   onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}
                   onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#D4A853"; }}
                 >
-                  Book a Diagnostic Call →
+                  {f.cta}
                 </Link>
                 <p
                   className="mt-3 text-center max-w-xs"
                   style={{ fontSize: "0.875rem", color: "#5E5650", lineHeight: 1.65 }}
                 >
-                  If I cannot produce a return, I will tell you on the call. Before you pay anything.
+                  {f.belowCta}
                 </p>
               </div>
             </div>

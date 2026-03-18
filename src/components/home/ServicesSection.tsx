@@ -3,47 +3,52 @@
 import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { trackEvent } from "@/lib/analytics";
-
-const SYSTEM_GROUPS = [
-  {
-    seq: "01",
-    label: "ATTRACT",
-    items: [
-      { name: "Google Ads", desc: "High-intent buyers, captured first" },
-      { name: "Local SEO", desc: "Ranking where your market searches" },
-      { name: "GEO / AI Search", desc: "Visible in ChatGPT and AI answers" },
-    ],
-    borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
-    bg: "#181410",
-    highlighted: false,
-  },
-  {
-    seq: "02",
-    label: "CONVERT",
-    items: [
-      { name: "Conversion Website", desc: "Pages that turn visits into calls" },
-      { name: "Conversion Copy", desc: "Language written to close" },
-      { name: "AI Voice Agent", desc: "Every call answered, 24/7" },
-    ],
-    borderStyle: "2px solid #D4A853",
-    bg: "#1E1A14",
-    highlighted: true,
-  },
-  {
-    seq: "03",
-    label: "COMPOUND",
-    items: [
-      { name: "Weekly Optimization", desc: "Continuous performance testing" },
-      { name: "Monthly Reporting", desc: "Clear revenue and ROI tracking" },
-      { name: "Expansion Layers", desc: "New channels as your market grows" },
-    ],
-    borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
-    bg: "#181410",
-    highlighted: false,
-  },
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function ServicesSection() {
+  const { locale, lp } = useLocale();
+  const a = translations[locale].homepage.acquisitionSystem;
+
+  const SYSTEM_GROUPS = [
+    {
+      seq: "01",
+      label: a.attract,
+      items: [
+        { name: a.googleAds, desc: a.googleAdsSub },
+        { name: a.localSeo, desc: a.localSeoSub },
+        { name: a.geoAi, desc: a.geoAiSub },
+      ],
+      borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
+      bg: "#181410",
+      highlighted: false,
+    },
+    {
+      seq: "02",
+      label: a.convert,
+      items: [
+        { name: a.conversionWebsite, desc: a.conversionWebsiteSub },
+        { name: a.conversionCopy, desc: a.conversionCopySub },
+        { name: a.aiVoiceAgent, desc: a.aiVoiceAgentSub },
+      ],
+      borderStyle: "2px solid #D4A853",
+      bg: "#1E1A14",
+      highlighted: true,
+    },
+    {
+      seq: "03",
+      label: a.compound,
+      items: [
+        { name: a.weeklyOptimization, desc: a.weeklyOptimizationSub },
+        { name: a.monthlyReporting, desc: a.monthlyReportingSub },
+        { name: a.expansionLayers, desc: a.expansionLayersSub },
+      ],
+      borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
+      bg: "#181410",
+      highlighted: false,
+    },
+  ];
+
   return (
     <SectionWrapper
       id="services"
@@ -65,7 +70,7 @@ export default function ServicesSection() {
               color: "#D4A853",
             }}
           >
-            THE ACQUISITION SYSTEM
+            {a.eyebrow}
           </p>
           <h2
             className="font-bold text-white mb-4"
@@ -75,7 +80,7 @@ export default function ServicesSection() {
               lineHeight: 1.2,
             }}
           >
-            What drives qualified calls.
+            {a.h2}
           </h2>
           <p
             style={{
@@ -86,7 +91,7 @@ export default function ServicesSection() {
               lineHeight: 1.6,
             }}
           >
-            Not six separate services. One connected acquisition system. Each layer feeds the next. The longer it runs, the cheaper each call gets.
+            {a.sub}
           </p>
         </div>
 
@@ -164,7 +169,7 @@ export default function ServicesSection() {
         {/* Footer link */}
         <div className="text-center mt-9">
           <Link
-            href="/services"
+            href={lp("/services")}
             className="inline-flex items-center gap-1.5 transition-colors"
             style={{ fontSize: "0.8125rem", color: "#A69D8D" }}
             onClick={() => trackEvent("services_link_clicked")}
@@ -175,7 +180,7 @@ export default function ServicesSection() {
               e.currentTarget.style.color = "#A69D8D";
             }}
           >
-            See the full system
+            {a.seeFullSystem}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

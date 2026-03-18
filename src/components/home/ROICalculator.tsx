@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 function sliderStyle(value: number, min: number, max: number): React.CSSProperties {
   const pct = ((value - min) / (max - min)) * 100;
@@ -29,6 +31,9 @@ const SLIDER_CLASS = `
 `.trim();
 
 export default function ROICalculator() {
+  const { locale } = useLocale();
+  const c = translations[locale].homepage.calculator;
+
   const [jobValue, setJobValue] = useState(1500);
   const [callsNeeded, setCallsNeeded] = useState(10);
 
@@ -63,7 +68,7 @@ export default function ROICalculator() {
             className="uppercase font-semibold"
             style={{ fontSize: "10px", letterSpacing: "0.22em", color: "#8A7E74" }}
           >
-            Unit Economics
+            {c.eyebrow}
           </span>
         </div>
 
@@ -76,7 +81,7 @@ export default function ROICalculator() {
             letterSpacing: "-0.028em",
           }}
         >
-          Run the Math.
+          {c.h2}
         </h2>
         <p
           className="mt-3 max-w-[500px]"
@@ -86,8 +91,7 @@ export default function ROICalculator() {
             color: "#8A7E74",
           }}
         >
-          At $33 per qualified call, this is what the numbers look like for
-          your business. Not projections. Just math.
+          {c.sub}
         </p>
 
         {/* Two-column grid */}
@@ -103,7 +107,7 @@ export default function ROICalculator() {
                   htmlFor="roi-job-value"
                   style={{ fontSize: "0.8125rem", color: "#8A7E74", lineHeight: 1.4 }}
                 >
-                  Average job value
+                  {c.avgJobValue}
                 </label>
                 <span
                   className="tabular-nums font-semibold text-[#F5F0E8]"
@@ -140,7 +144,7 @@ export default function ROICalculator() {
                   className="max-w-[200px] leading-snug"
                   style={{ fontSize: "0.8125rem", color: "#8A7E74" }}
                 >
-                  Qualified calls needed per month
+                  {c.qualifiedCalls}
                 </label>
                 <span
                   className="tabular-nums font-semibold text-[#F5F0E8]"
@@ -164,8 +168,8 @@ export default function ROICalculator() {
                 className="flex justify-between mt-2.5"
                 style={{ fontSize: "0.75rem", color: "#7A7068" }}
               >
-                <span>3 calls</span>
-                <span>30 calls</span>
+                <span>3 {c.calls}</span>
+                <span>30 {c.calls}</span>
               </div>
             </div>
 
@@ -174,7 +178,7 @@ export default function ROICalculator() {
               className="leading-relaxed"
               style={{ fontSize: "0.75rem", color: "#4A4440" }}
             >
-              Directional planning logic based on current benchmark averages. Not a guarantee. $33/call average verified Q4 2025.
+              {c.disclaimer}
             </p>
           </div>
 
@@ -195,7 +199,7 @@ export default function ROICalculator() {
                 className="mb-1 uppercase tracking-[0.14em]"
                 style={{ fontSize: "0.6875rem", color: "#5A5248", fontWeight: 600 }}
               >
-                Monthly Investment
+                {c.monthlyInvestment}
               </p>
               <p
                 className="tabular-nums font-semibold text-[#F5F0E8]"
@@ -204,19 +208,19 @@ export default function ROICalculator() {
                 ${monthlyCost.toLocaleString()}
               </p>
               <p style={{ fontSize: "0.75rem", color: "#4A4440", marginTop: "0.2rem" }}>
-                {callsNeeded} calls × $33 per call
+                {callsNeeded} {c.calls} × $33 {c.calls === "calls" ? "per call" : "par appel"}
               </p>
             </div>
 
             <div style={{ height: 1, background: "#2A2318", marginBottom: "1.625rem" }} />
 
-            {/* Projected Revenue — emotional anchor */}
+            {/* Projected Revenue */}
             <div className="pb-6">
               <p
                 className="mb-2 uppercase tracking-[0.14em]"
                 style={{ fontSize: "0.6875rem", color: "#8A7E74", fontWeight: 600 }}
               >
-                Projected Monthly Revenue
+                {c.projectedRevenue}
               </p>
               <p
                 className="tabular-nums font-[800]"
@@ -231,7 +235,7 @@ export default function ROICalculator() {
                 ${monthlyRevenue.toLocaleString()}
               </p>
               <p style={{ fontSize: "0.75rem", color: "#4A4440", marginTop: "0.5rem" }}>
-                {callsNeeded} calls × ${jobValue.toLocaleString()} avg job
+                {callsNeeded} {c.calls} × ${jobValue.toLocaleString()}
               </p>
             </div>
 
@@ -243,7 +247,7 @@ export default function ROICalculator() {
                 className="mb-1.5 uppercase tracking-[0.14em]"
                 style={{ fontSize: "0.6875rem", color: "#5A5248", fontWeight: 600 }}
               >
-                Return on Lead Cost
+                {c.returnOnLeadCost}
               </p>
               <p
                 className="tabular-nums font-[700] text-[#F5F0E8]"
@@ -259,12 +263,12 @@ export default function ROICalculator() {
                     letterSpacing: "-0.01em",
                   }}
                 >
-                  × return
+                  {c.returnSuffix}
                 </span>
               </p>
             </div>
 
-            {/* CTA — separated with amber line, the natural conclusion of the math */}
+            {/* CTA */}
             <div
               style={{
                 borderTop: "1px solid rgba(212,168,83,0.18)",
@@ -296,7 +300,7 @@ export default function ROICalculator() {
                     "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,168,83,0.16), 0 0 22px rgba(212,168,83,0.10)";
                 }}
               >
-                Book a Diagnostic Call →
+                {c.cta}
               </a>
             </div>
           </div>

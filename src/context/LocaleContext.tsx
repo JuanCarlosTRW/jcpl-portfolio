@@ -8,9 +8,15 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 import { translations, type Locale } from "@/lib/translations";
 
 const STORAGE_KEY = "locale";
+
+function getLocaleFromPath(path: string): Locale | null {
+  if (path === "/fr" || path.startsWith("/fr/")) return "fr";
+  return null;
+}
 
 function getStoredLocale(): Locale | null {
   if (typeof window === "undefined") return null;
@@ -28,6 +34,8 @@ type LocaleContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: <T = string>(path: string) => T;
+  /** Build a locale-aware internal path: lp("/results") → "/fr/results" in FR */
+  lp: (path: string) => string;
 };
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
@@ -43,12 +51,21 @@ function getByPath(obj: unknown, path: string): unknown {
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [locale, setLocaleState] = useState<Locale>("en");
 
+  // Sync locale from URL path — URL is the source of truth
   useEffect(() => {
-    const stored = getStoredLocale();
-    if (stored) setLocaleState(stored);
-  }, []);
+    const fromPath = getLocaleFromPath(pathname);
+    if (fromPath) {
+      setLocaleState(fromPath);
+      try { localStorage.setItem(STORAGE_KEY, fromPath); } catch { /* ignore */ }
+    } else {
+      // EN path: check localStorage for preference, default to "en"
+      const stored = getStoredLocale();
+      setLocaleState(stored ?? "en");
+    }
+  }, [pathname]);
 
   useEffect(() => {
     if (typeof document !== "undefined") {
@@ -74,10 +91,21 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     [locale]
   );
 
+  const lp = useCallback(
+    (path: string): string => {
+      if (locale === "fr") {
+        return `/fr${path === "/" ? "" : path}`;
+      }
+      return path;
+    },
+    [locale]
+  );
+
   const value: LocaleContextValue = {
     locale,
     setLocale,
     t,
+    lp,
   };
 
   return (

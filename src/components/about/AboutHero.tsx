@@ -1,10 +1,11 @@
 "use client";
 
-import { aboutContent, ctaCopy } from "@/lib/content";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import CTAButton from "@/components/ui/CTAButton";
 import FounderUnicornProfile from "@/components/ui/FounderUnicornProfile";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 function LightningIcon() {
   return (
@@ -32,23 +33,26 @@ function ClipboardIcon() {
   );
 }
 
-const trustItems = [
-  { Icon: LightningIcon, text: "Response within 24h" },
-  { Icon: LockIcon, text: "100% confidential" },
-  { Icon: ClipboardIcon, text: "Limited spots per quarter" },
-];
-
 /**
  * AboutHero — 12-col grid: left 7 cols copy, right 5 cols portrait.
  * Two CTAs + trust row. Portrait wrapped in CSS overlay. Animation UNTOUCHED.
  */
 export default function AboutHero() {
+  const { locale, lp } = useLocale();
+  const h = translations[locale].about.hero;
+
+  const trustItems = [
+    { Icon: LightningIcon, text: h.trust1 },
+    { Icon: LockIcon, text: h.trust2 },
+    { Icon: ClipboardIcon, text: h.trust3 },
+  ];
+
   return (
     <div className="grid gap-10 lg:gap-14 items-center lg:grid-cols-12">
       {/* ── Left: Copy (7 cols) ── */}
       <div className="lg:col-span-7">
         <AnimatedSection direction="left">
-          <SectionLabel label="ABOUT" className="mb-5" />
+          <SectionLabel label={h.sectionLabel} className="mb-5" />
 
           {/* H1 */}
           <h1
@@ -59,21 +63,21 @@ export default function AboutHero() {
               letterSpacing: "-0.02em",
             }}
           >
-            Juan Carlos. I build systems that turn search traffic into booked calls.
+            {h.h1}
           </h1>
 
           {/* Sub-head */}
           <p className="text-sv-primary font-medium text-base md:text-lg mb-4 leading-snug">
-            One operator. Every layer. Full accountability.
+            {h.subHead}
           </p>
 
           {/* Mechanism lines */}
           <div className="space-y-4 mb-6 max-w-[52ch]">
             <p className="text-sv-text-sub text-[0.9rem] md:text-[0.95rem] leading-relaxed">
-              Most business owners I talk to are great at what they do. The work is there. The reputation is there. What is missing is the infrastructure that lets the right people find them before they find a competitor. That is the gap I close.
+              {h.body1}
             </p>
             <p className="text-sv-text-sub text-[0.9rem] md:text-[0.95rem] leading-relaxed">
-              Website, ads, SEO, and AI automation. Built as one connected system so the right clients find you first, already convinced you are the right choice.
+              {h.body2}
             </p>
           </div>
 
@@ -81,25 +85,25 @@ export default function AboutHero() {
           <ul className="space-y-2.5 mb-8" aria-label="What I build">
             <li className="flex items-start gap-2 text-sv-text-sub text-[0.97rem]">
               <span className="mt-1.5 h-1 w-1 rounded-full bg-sv-primary shrink-0" aria-hidden="true" />
-              Strategy, build, and optimization owned by one person
+              {h.bullet1}
             </li>
             <li className="flex items-start gap-2 text-sv-text-sub text-[0.97rem]">
               <span className="mt-1.5 h-1 w-1 rounded-full bg-sv-primary shrink-0" aria-hidden="true" />
-              No account managers between you and the work
+              {h.bullet2}
             </li>
             <li className="flex items-start gap-2 text-sv-text-sub text-[0.97rem]">
               <span className="mt-1.5 h-1 w-1 rounded-full bg-sv-primary shrink-0" aria-hidden="true" />
-              Measured by qualified calls and revenue, nothing else
+              {h.bullet3}
             </li>
           </ul>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-7">
-            <CTAButton href="/apply" size="lg" eventName="hero_primary_cta_click">
-        Book a Diagnostic Call
+            <CTAButton href={lp("/apply")} size="lg" eventName="hero_primary_cta_click">
+              {h.cta1}
             </CTAButton>
-            <CTAButton href="/results" variant="secondary" size="md" eventName="hero_secondary_cta_click">
-              See Results →
+            <CTAButton href={lp("/results")} variant="secondary" size="md" eventName="hero_secondary_cta_click">
+              {h.cta2}
             </CTAButton>
           </div>
 

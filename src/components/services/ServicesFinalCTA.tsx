@@ -4,8 +4,10 @@ import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { Reveal } from "@/components/motion";
 import GuaranteesStrip from "./GuaranteesStrip";
+import { useLocale } from "@/context/LocaleContext";
 
 export default function ServicesFinalCTA() {
+  const { lp } = useLocale();
   return (
     <section
       id="apply"
@@ -94,7 +96,7 @@ export default function ServicesFinalCTA() {
               </div>
 
               <Link
-                href="/apply"
+                href={lp("/apply")}
                 className="cta-primary inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-bold tracking-wide"
               >
                 Book a Diagnostic Call →

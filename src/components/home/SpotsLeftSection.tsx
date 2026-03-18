@@ -3,13 +3,14 @@
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
-import { useTranslations } from "@/context/LocaleContext";
+import { useTranslations, useLocale } from "@/context/LocaleContext";
 import { prefersReducedMotion } from "@/lib/motion";
 
 type SpotsLeftSectionProps = { background?: string; variant?: "default" | "compact" };
 
 export default function SpotsLeftSection({ background, variant = "default" }: SpotsLeftSectionProps) {
   const t = useTranslations();
+  const { lp } = useLocale();
   const microcopy = [t<string>("spots.reply24"), t<string>("spots.noContracts"), t<string>("spots.threeSpots")];
   const proofRef = useRef<HTMLDivElement>(null);
 
@@ -143,10 +144,10 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
 
         {/* Primary CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          <CTAButton href="/apply" size="lg">
+          <CTAButton href={lp("/apply")} size="lg">
             {t<string>("spots.applyCta")}
           </CTAButton>
-          <CTAButton href="/results" variant="secondary" size="md">
+          <CTAButton href={lp("/results")} variant="secondary" size="md">
             {t<string>("spots.seeResults")}
           </CTAButton>
         </div>

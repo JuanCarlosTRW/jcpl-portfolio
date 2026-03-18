@@ -2,8 +2,9 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import CTAButton from "@/components/ui/CTAButton";
-import { ctaCopy } from "@/lib/content";
 import { Reveal } from "@/components/motion";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 function LightningIcon() {
   return (
@@ -22,12 +23,15 @@ function LockIcon() {
   );
 }
 
-const trustItems = [
-  { Icon: LightningIcon, text: "Response within 24 hours" },
-  { Icon: LockIcon, text: "100% confidential" },
-];
-
 export default function AboutCTA() {
+  const { locale, lp } = useLocale();
+  const c = translations[locale].about.cta;
+
+  const trustItems = [
+    { Icon: LightningIcon, text: c.trust1 },
+    { Icon: LockIcon, text: c.trust2 },
+  ];
+
   return (
     <section id="about-cta" className="relative overflow-hidden">
       {/* Background radial */}
@@ -43,34 +47,34 @@ export default function AboutCTA() {
         <div className="max-w-2xl mx-auto text-center">
           <Reveal>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.12] tracking-tight mb-4">
-              Your Pipeline Will Not Build Itself.
+              {c.headline}
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed max-w-md mx-auto text-[0.92rem]">
-              Apply for a diagnostic call. I review your business, your market, and your pipeline before we speak. On the call, I show you exactly where you are losing calls and what fixing it is worth.
+              {c.sub}
             </p>
             <p className="text-sm font-medium mt-3 mb-10" style={{ color: "var(--brand-accent)" }}>
-              If I cannot produce a return, I tell you on the call. Before you pay anything.
+              {c.guarantee}
             </p>
           </Reveal>
 
           <Reveal delay={0.08}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-7">
               <CTAButton
-                href={ctaCopy.href}
+                href={lp("/apply")}
                 size="lg"
                 eventName="final_cta_primary_click"
                 className="hover:-translate-y-0.5 transition-all duration-300"
               >
-                {ctaCopy.primary}
+                {c.primary}
               </CTAButton>
               <CTAButton
-                href="/results"
+                href={lp("/results")}
                 variant="secondary"
                 size="md"
                 eventName="final_cta_secondary_click"
                 className="hover:-translate-y-0.5 transition-all duration-300"
               >
-                {ctaCopy.secondary}
+                {c.secondary}
               </CTAButton>
             </div>
           </Reveal>

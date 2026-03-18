@@ -1,13 +1,17 @@
 "use client";
 
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { CountUpValue } from "@/components/motion";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 /**
  * MetricsRow — inline stat tiles with vertical dividers.
  * Engineered baseline look. Compact, no dead space.
  */
 export default function MetricsRow() {
+  const { locale } = useLocale();
+  const m = translations[locale].about.metrics;
+
   return (
     <AnimatedSection className="max-w-2xl mx-auto">
       {/* Thin top baseline */}
@@ -19,10 +23,10 @@ export default function MetricsRow() {
             90
           </span>
           <span className="text-[0.8rem] text-sv-text-sub leading-snug">
-            New clients acquired
+            {m.label1}
           </span>
           <span className="text-[0.68rem] text-sv-text-sub opacity-60 mt-0.5 leading-snug">
-            Elite Barbershop, 90 days
+            {m.note1}
           </span>
         </div>
         <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
@@ -30,7 +34,7 @@ export default function MetricsRow() {
             46x
           </span>
           <span className="text-[0.8rem] text-sv-text-sub leading-snug">
-            Return on ad spend, Triple W Rentals
+            {m.label2}
           </span>
         </div>
         <div className="flex flex-col items-center justify-center py-5 px-4 text-center">
@@ -38,7 +42,7 @@ export default function MetricsRow() {
             1-2 wks
           </span>
           <span className="text-[0.8rem] text-sv-text-sub leading-snug">
-            Typical time from signed to live system
+            {m.label3}
           </span>
         </div>
       </div>
@@ -47,7 +51,7 @@ export default function MetricsRow() {
       <div className="h-px w-full bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent mt-1" aria-hidden="true" />
 
       <p className="text-center text-[0.7rem] text-sv-text-sub mt-3 tracking-wider uppercase">
-        UPDATED AS RESULTS COME IN.
+        {m.updated}
       </p>
     </AnimatedSection>
   );

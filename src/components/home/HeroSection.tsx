@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import LightPillar from "./LightPillar";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 const ACTIVE_CLIENTS = [
   { alt: "Triple W Rentals",   src: "/images/logos/triplew.png" },
@@ -12,20 +14,7 @@ const ACTIVE_CLIENTS = [
   { alt: "Centre Dentaire",    src: "/images/logos/dentaire.png" },
 ];
 
-// ─── Static proof blocks — verified, no zero-state, no animation ────────────
-const METRICS = [
-  { display: "$41,085", sublabel: "REVENUE GENERATED"                  },
-  { display: "$33",     sublabel: "avg cost per qualified call"  },
-  { display: "11 days", sublabel: "median to first booked call" },
-];
-
 // ─── Beam presets — tuned per breakpoint ─────────────────────────────────────
-// glowAmount drives tanh remapping: higher = richer core, restrained outer haze.
-// desktop: text left / terminal right — gradient opened earlier to let pillar
-//          atmosphere bleed through the semi-transparent card stack on the right.
-// tablet:  same pattern, lighter overlay.
-// mobile:  text stacks top; ray recomposed as focused core in centre-right lower
-//          zone; vertical gradient protects text, permits ray in lower viewport.
 const BEAM_PRESETS = {
   desktop: {
     topColor: "#D4A853",
@@ -36,7 +25,6 @@ const BEAM_PRESETS = {
     noiseIntensity: 0.045,
     pillarRotation: 9,
     containerWidth: "60%",
-    // Opened ~3% earlier on the right to let atmosphere bleed through card stack
     fadeGradient:
       "linear-gradient(to right, #0D0B09 0%, #0D0B09 30%, rgba(13,11,9,0.92) 41%, rgba(13,11,9,0.30) 53%, rgba(13,11,9,0.07) 64%, transparent 72%)",
     overlayStyle: "rgba(13,11,9,0.00)",
@@ -83,8 +71,13 @@ type BeamPreset = {
   overlayStyle: string;
 };
 
-// ─── Clean Proof Badge — verified result, no dashboard UI clutter ──────────
-function ProofCard() {
+// ─── Clean Proof Badge ──────────────────────────────────────────────────────
+function ProofCard({ vc }: { vc: typeof translations["en"]["homepage"]["verifiedCard"] }) {
+  const stats = [
+    { num: "46×", label: vc.returnOnAd },
+    { num: "$33", label: vc.perQualifiedCall },
+    { num: "11 days", label: vc.toFirstBookedCall },
+  ];
   return (
     <div
       className="hero-enter"
@@ -98,7 +91,6 @@ function ProofCard() {
         animationDelay: "0.62s",
       }}
     >
-      {/* Top label */}
       <p
         style={{
           fontSize: "11px",
@@ -109,10 +101,8 @@ function ProofCard() {
           marginBottom: "16px",
         }}
       >
-        Verified Client Result
+        {vc.title}
       </p>
-
-      {/* Main number */}
       <div
         style={{
           fontSize: "clamp(2.2rem, 3.5vw, 2.75rem)",
@@ -127,18 +117,11 @@ function ProofCard() {
         $41,085
       </div>
       <div style={{ fontSize: "0.75rem", color: "#756D63", marginBottom: "10px" }}>
-        revenue
+        {vc.revenue}
       </div>
-
-      {/* Context */}
       <div style={{ fontSize: "0.8125rem", color: "#A69D8D", marginBottom: "4px" }}>
-        from{" "}
-        <span style={{ color: "#D4A853", fontWeight: 600 }}>$900</span>
-        {" "}ad spend
-        <span style={{ color: "#5E5650" }}> · 30 days</span>
+        {vc.fromAdSpend}
       </div>
-
-      {/* Industry tag */}
       <div
         style={{
           display: "inline-block",
@@ -149,26 +132,12 @@ function ProofCard() {
           marginBottom: "18px",
         }}
       >
-        RV Rental · Texas
+        {vc.location}
       </div>
-
-      {/* Divider */}
-      <div
-        style={{
-          height: 1,
-          background: "rgba(255,255,255,0.08)",
-          marginBottom: "16px",
-        }}
-      />
-
-      {/* Three stat rows */}
-      {[
-        { num: "46×", label: "return on ad spend" },
-        { num: "$33", label: "per qualified call" },
-        { num: "11 days", label: "to first booked call" },
-      ].map(({ num, label }) => (
+      <div style={{ height: 1, background: "rgba(255,255,255,0.08)", marginBottom: "16px" }} />
+      {stats.map(({ num, label }) => (
         <div
-          key={label}
+          key={num}
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -187,13 +156,7 @@ function ProofCard() {
           >
             {num}
           </span>
-          <span
-            style={{
-              fontSize: "0.725rem",
-              color: "#756D63",
-              letterSpacing: "-0.004em",
-            }}
-          >
+          <span style={{ fontSize: "0.725rem", color: "#756D63", letterSpacing: "-0.004em" }}>
             {label}
           </span>
         </div>
@@ -204,6 +167,18 @@ function ProofCard() {
 
 // ═══════════════════════════════════════════════════════════════════════════
 export default function HeroSection() {
+  const { locale, lp } = useLocale();
+  const t = translations[locale];
+  const hero = t.homepage.hero;
+  const vc = t.homepage.verifiedCard;
+  const sb = t.homepage.statsBar;
+
+  const METRICS = [
+    { display: "$41,085", sublabel: sb.revenueLabel },
+    { display: "$33",     sublabel: sb.costPerCall  },
+    { display: "11 days", sublabel: sb.medianDays   },
+  ];
+
   const [beam, setBeam] = useState<BeamPreset>(BEAM_PRESETS.desktop);
   const [ctaHover, setCtaHover] = useState(false);
   const [ctaPressed, setCtaPressed] = useState(false);
@@ -230,8 +205,7 @@ export default function HeroSection() {
       style={{ minHeight: "100svh" }}
       aria-label="Hero"
     >
-
-      {/* ── LightPillar background — right-side atmosphere ── */}
+      {/* ── LightPillar background ── */}
       <div
         aria-hidden="true"
         style={{
@@ -260,7 +234,7 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Horizontal fade — protects left text column, opens toward right card zone */}
+      {/* Horizontal fade */}
       <div
         aria-hidden="true"
         style={{
@@ -272,7 +246,7 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Sub-desktop overlay — vertical (mobile) or flat (tablet) */}
+      {/* Sub-desktop overlay */}
       <div
         aria-hidden="true"
         className="lg:hidden"
@@ -285,14 +259,14 @@ export default function HeroSection() {
         }}
       />
 
-      {/* ─── MAIN CONTENT ──────────────────────────────────────────────── */}
+      {/* ─── MAIN CONTENT ── */}
       <div
         className="relative flex-1 flex flex-col justify-center"
         style={{ zIndex: 10, paddingTop: "var(--nav-h, 72px)" }}
       >
         <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row lg:items-center">
 
-          {/* LEFT: All text content — max 520px, sits on pure dark */}
+          {/* LEFT: Text content */}
           <div className="flex flex-col w-full lg:max-w-[520px] xl:max-w-[540px] pt-10 pb-8 sm:pt-12 sm:pb-10 lg:py-24">
 
             {/* Eyebrow */}
@@ -313,17 +287,14 @@ export default function HeroSection() {
                   color: "#7A7066",
                 }}
               >
-                Growth Infrastructure&nbsp;•&nbsp;Service Businesses
+                {hero.eyebrow}
               </span>
             </div>
 
-            {/* H1 — two visual beats: outcome (dominant) → mechanism (secondary) */}
+            {/* H1 */}
             <h1
               className="hero-enter font-bold"
-              style={{
-                marginBottom: "1.375rem",
-                animationDelay: "0.22s",
-              }}
+              style={{ marginBottom: "1.375rem", animationDelay: "0.22s" }}
             >
               <span
                 style={{
@@ -335,7 +306,7 @@ export default function HeroSection() {
                   marginBottom: "0.18em",
                 }}
               >
-                $41,085 from $900 in ad spend.
+                {hero.h1Line1}
               </span>
               <span
                 style={{
@@ -346,7 +317,7 @@ export default function HeroSection() {
                   color: "rgba(245,240,232,0.72)",
                 }}
               >
-                30 days.
+                {hero.h1Line2}
               </span>
             </h1>
 
@@ -363,7 +334,7 @@ export default function HeroSection() {
                 animationDelay: "0.36s",
               }}
             >
-              I build the system. You answer the phone.
+              {hero.subHeadline}
             </p>
 
             {/* Body text */}
@@ -380,7 +351,7 @@ export default function HeroSection() {
                 animationDelay: "0.46s",
               }}
             >
-              Google Ads, SEO, and conversion websites. One system, one owner, zero handoffs.
+              {hero.body}
             </p>
 
             {/* CTA cluster */}
@@ -388,26 +359,19 @@ export default function HeroSection() {
               className="hero-enter flex flex-col items-start gap-3"
               style={{ animationDelay: "0.56s" }}
             >
-              {/* Primary CTA — gold, confident, not cream */}
+              {/* Primary CTA */}
               <a
                 href="#book-call"
                 className="inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(212,168,83,0.50)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B09]"
                 onMouseEnter={() => setCtaHover(true)}
-                onMouseLeave={() => {
-                  setCtaHover(false);
-                  setCtaPressed(false);
-                }}
+                onMouseLeave={() => { setCtaHover(false); setCtaPressed(false); }}
                 onMouseDown={() => setCtaPressed(true)}
                 onMouseUp={() => setCtaPressed(false)}
                 style={{
                   fontSize: "0.9375rem",
                   padding: "0.875rem 1.75rem",
                   letterSpacing: "-0.012em",
-                  backgroundColor: ctaPressed
-                    ? "#B08820"
-                    : ctaHover
-                    ? "#C49A2A"
-                    : "#D4A853",
+                  backgroundColor: ctaPressed ? "#B08820" : ctaHover ? "#C49A2A" : "#D4A853",
                   color: "#0D0B09",
                   boxShadow: ctaPressed
                     ? "0 1px 2px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,168,83,0.22), inset 0 1px 3px rgba(0,0,0,0.10)"
@@ -415,11 +379,10 @@ export default function HeroSection() {
                     ? "0 2px 18px rgba(212,168,83,0.30), 0 0 0 1px rgba(212,168,83,0.24), 0 6px 28px rgba(0,0,0,0.30)"
                     : "0 1px 4px rgba(0,0,0,0.50), 0 0 0 1px rgba(212,168,83,0.16), 0 0 22px rgba(212,168,83,0.10)",
                   transform: ctaPressed ? "translateY(1px)" : "translateY(0)",
-                  transition:
-                    "background-color 150ms ease, box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 100ms ease",
+                  transition: "background-color 150ms ease, box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 100ms ease",
                 }}
               >
-                Book a Diagnostic Call
+                {hero.cta}
                 <svg
                   className="w-[14px] h-[14px]"
                   style={{
@@ -432,15 +395,11 @@ export default function HeroSection() {
                   stroke="currentColor"
                   strokeWidth={2.5}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
 
-              {/* Secondary row — confident, not apologetic */}
+              {/* Secondary row */}
               <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
                 <span
                   style={{
@@ -449,7 +408,7 @@ export default function HeroSection() {
                     letterSpacing: "-0.008em",
                   }}
                 >
-                  One call. I tell you if I can help.
+                  {hero.microCopy}
                 </span>
                 <span
                   aria-hidden="true"
@@ -461,7 +420,7 @@ export default function HeroSection() {
                   }}
                 />
                 <Link
-                  href="/results"
+                  href={lp("/results")}
                   style={{
                     fontSize: "0.8rem",
                     color: "#6B6360",
@@ -469,49 +428,26 @@ export default function HeroSection() {
                     textDecoration: "none",
                     transition: "color 180ms ease",
                   }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.color = "#A69D8D";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.color = "#6B6360";
-                  }}
+                  onMouseOver={(e) => { e.currentTarget.style.color = "#A69D8D"; }}
+                  onMouseOut={(e) => { e.currentTarget.style.color = "#6B6360"; }}
                 >
-                  See results →
+                  {hero.seeResults}
                 </Link>
               </div>
             </div>
           </div>
 
-          {/*
-           * RIGHT: Acquisition Terminal
-           * ─────────────────────────────────────────────────────────────
-           * Desktop only. Floats in the LightPillar atmosphere zone.
-           * Three connected elements: status signal → proof card → system card.
-           * Semi-transparent glass backgrounds let the amber atmosphere from
-           * the WebGL pillar read through, softly grounding the cards in the
-           * same cinematic space rather than fighting for contrast against it.
-           * ─────────────────────────────────────────────────────────────
-           */}
-          <div
-            className="hidden lg:flex flex-1 min-w-0 items-center justify-end"
-          >
+          {/* RIGHT: Proof card (desktop only) */}
+          <div className="hidden lg:flex flex-1 min-w-0 items-center justify-end">
             <div style={{ paddingRight: "1.5rem" }}>
-              <ProofCard />
+              <ProofCard vc={vc} />
             </div>
           </div>
 
         </div>
       </div>
 
-      {/*
-       * ─────────────────────────────────────────────────────────────────
-       * CONFIDENCE RAIL
-       *
-       * Solid bg-[#0D0B09] with hairline border-t.
-       * Anchored to the bottom of the flex column.
-       * Sits above the WebGL layer (z-10) — no background bleed possible.
-       * ─────────────────────────────────────────────────────────────────
-       */}
+      {/* CONFIDENCE RAIL */}
       <div
         className="relative w-full"
         style={{
@@ -525,8 +461,7 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 sm:gap-0"
             style={{ padding: "1.5rem 0" }}
           >
-
-            {/* Metrics — static verified proof blocks */}
+            {/* Metrics */}
             <div className="flex items-center gap-5 sm:gap-0 flex-wrap hero-rail-metrics">
               {METRICS.map((m, i) => (
                 <div key={i} className="flex items-center">
@@ -590,9 +525,8 @@ export default function HeroSection() {
                   flexShrink: 0,
                 }}
               >
-                Active Clients
+                {sb.activeClients}
               </span>
-
               <div className="flex items-center">
                 {ACTIVE_CLIENTS.map((logo, i) => (
                   <div
@@ -611,17 +545,11 @@ export default function HeroSection() {
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      style={{
-                        width: 16,
-                        height: 16,
-                        objectFit: "contain",
-                        opacity: 0.70,
-                      }}
+                      style={{ width: 16, height: 16, objectFit: "contain", opacity: 0.70 }}
                     />
                   </div>
                 ))}
               </div>
-
               <span
                 style={{
                   fontSize: "0.65rem",
@@ -631,7 +559,7 @@ export default function HeroSection() {
                   fontWeight: 500,
                 }}
               >
-                +2 in build
+                {sb.inBuild}
               </span>
             </div>
 

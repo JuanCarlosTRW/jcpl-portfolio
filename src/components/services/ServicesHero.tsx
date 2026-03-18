@@ -1,19 +1,16 @@
 "use client";
 
 import RotatingText from "@/components/ui/RotatingText";
-
-const ROTATING_PHRASES = [
-  "Sites that convert.",
-  "SEO that compounds.",
-  "Ads tracked to cost per call.",
-  "AI that captures every lead.",
-  "One owner. Zero handoffs.",
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function ServicesHero() {
+  const { locale } = useLocale();
+  const hero = translations[locale].services.hero;
+
   return (
     <section
-      className="relative w-full min-h-[75vh] flex items-center px-6 overflow-hidden"
+      className="relative w-full min-h-[75vh] flex items-center px-5 sm:px-6 overflow-hidden"
       style={{ background: "#0D0B09" }}
     >
       {/* Hero orb */}
@@ -26,7 +23,7 @@ export default function ServicesHero() {
         aria-hidden
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto pt-28 pb-14 md:pb-12">
+      <div className="relative z-10 max-w-4xl mx-auto pt-28 pb-14 md:pb-12 w-full">
         {/* Eyebrow */}
         <p
           className="mb-6 section-label"
@@ -38,37 +35,37 @@ export default function ServicesHero() {
             color: "#D4A853",
           }}
         >
-          SERVICES
+          {hero.eyebrow}
         </p>
 
         {/* Main headline */}
         <h1
           className="mb-3"
           style={{
-            fontSize: "clamp(2.4rem, 5.5vw, 5rem)",
+            fontSize: "clamp(2.0rem, 5.5vw, 5rem)",
             fontWeight: 700,
             lineHeight: 1.0,
             letterSpacing: "-0.03em",
             color: "#F5F0E8",
           }}
         >
-          One acquisition system.
+          {hero.h1}
         </h1>
 
         {/* Rotating sub-headline */}
         <div
           className="mb-10 overflow-hidden"
           style={{
-            fontSize: "clamp(1.6rem, 3.8vw, 3.4rem)",
+            fontSize: "clamp(1.3rem, 3.8vw, 3.4rem)",
             fontWeight: 600,
             lineHeight: 1.15,
             letterSpacing: "-0.02em",
             color: "#D4A853",
-            minHeight: "clamp(2rem, 4.5vw, 4rem)",
+            minHeight: "clamp(1.8rem, 4.5vw, 4rem)",
           }}
         >
           <RotatingText
-            texts={ROTATING_PHRASES}
+            texts={hero.rotating}
             splitBy="words"
             splitLevelClassName="mr-[0.28em]"
             rotationInterval={2800}
@@ -97,69 +94,67 @@ export default function ServicesHero() {
         <p
           className="mb-5"
           style={{
-            fontSize: "17px",
+            fontSize: "clamp(15px, 1.6vw, 17px)",
             fontWeight: 400,
             lineHeight: 1.75,
             color: "#D2C9B8",
             maxWidth: "520px",
           }}
         >
-          Conversion site. Local SEO. Google Ads with tracked cost per call.
-          AI that qualifies leads after hours. Built as one connected system,
-          run by one person. Live in 11 days.
+          {hero.body1}
         </p>
 
         <p
           className="mb-4"
           style={{
-            fontSize: "17px",
+            fontSize: "clamp(15px, 1.6vw, 17px)",
             fontWeight: 400,
             lineHeight: 1.75,
             color: "#D2C9B8",
             maxWidth: "520px",
           }}
         >
-          Every layer feeds the next. The longer it runs, the less each call costs.
+          {hero.body2}
         </p>
 
         <p
           className="mb-10 text-sm font-medium"
           style={{ color: "#C8A05A" }}
         >
-          Most recent result: 90 new clients in 90 days. Page 1 in under 60 days.
+          {hero.microResult}
         </p>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <a
             href="#apply"
-            className="cta-primary inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-semibold"
+            className="cta-primary inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-semibold min-h-[48px]"
           >
-            Book a Diagnostic Call →
+            {hero.cta1}
           </a>
           <a
             href="#system"
-            className="cta-secondary inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-medium"
+            className="cta-secondary inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-medium min-h-[48px]"
           >
-            See how the system works
+            {hero.cta2}
           </a>
         </div>
 
         {/* Trust row */}
-        <div className="flex flex-wrap gap-6 mt-8">
+        <div className="flex flex-wrap gap-4 sm:gap-6 mt-8">
           <span
             className="text-xs flex items-center gap-2 animate-fade-in"
             style={{ color: "#A69D8D", animationDelay: "0ms" }}
           >
             <span style={{ color: "#D4A853" }}>✓</span>
-            Response within 24 hours
+            {hero.trust1}
           </span>
           <span
             className="text-xs flex items-center gap-2 animate-fade-in"
             style={{ color: "#A69D8D", animationDelay: "100ms" }}
           >
             <span style={{ color: "#D4A853" }}>✓</span>
-            No retainer until I confirm fit
+            {hero.trust2}
           </span>
           <span
             className="flex items-center gap-2 text-emerald-400/80 animate-fade-in"
@@ -169,7 +164,7 @@ export default function ServicesHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-            <span className="text-xs">One spot currently open</span>
+            <span className="text-xs">{hero.trust3}</span>
           </span>
         </div>
       </div>

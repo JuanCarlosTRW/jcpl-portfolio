@@ -2,42 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedSection from "@/components/ui/AnimatedSection";
+import { Check } from "lucide-react";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 const JUAN_IMG_SRC = "/images/juan-headshot.jpeg";
 
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import { Check } from "lucide-react";
-
-const FEATURES_ACQUISITION = [
-  "Conversion site built to close",
-  "Google Ads targeting buyers with intent",
-  "Local SEO and location pages",
-  "Copy engineered to convert",
-];
-
-const FEATURES_OWNERSHIP = [
-  "Weekly optimization loop",
-  "Monthly revenue reporting",
-  "Full asset ownership",
-  "Expansion layers as your market grows",
-];
-
-const ASSURANCES = [
-  {
-    title: "90-day initial term",
-    body: "Month-to-month after that.",
-  },
-  {
-    title: "No payment before fit",
-    body: "I confirm strategic fit on the call before you pay anything.",
-  },
-  {
-    title: "You own everything",
-    body: "Every asset, campaign, and page is built for your business, not held by an agency.",
-  },
-];
-
 export default function PricingStatement() {
+  const { locale, lp } = useLocale();
+  const p = translations[locale].homepage.pricing;
+
+  const FEATURES_ACQUISITION = [p.item1, p.item2, p.item3, p.item4];
+  const FEATURES_OWNERSHIP = [p.item5, p.item6, p.item7, p.item8];
+  const ASSURANCES = [
+    { title: p.term1Title, body: p.term1Sub },
+    { title: p.term2Title, body: p.term2Sub },
+    { title: p.term3Title, body: p.term3Sub },
+  ];
+
   return (
     <section
       className="px-4"
@@ -57,7 +40,7 @@ export default function PricingStatement() {
             color: "#D4A853",
           }}
         >
-          PRICING
+          {p.eyebrow}
         </p>
 
         {/* Section h2 */}
@@ -66,12 +49,12 @@ export default function PricingStatement() {
             className="font-bold text-white"
             style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.4rem)" }}
           >
-            One person.{" "}
+            {p.h2.split(". ")[0]}.{" "}
             <span
               className="italic"
               style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
             >
-              Full pipeline.
+              {p.h2.split(". ")[1]}
             </span>
           </h2>
         </AnimatedSection>
@@ -87,8 +70,7 @@ export default function PricingStatement() {
               lineHeight: 1.65,
             }}
           >
-            A focused growth engagement: not a package. One partner, full
-            scope, direct access.
+            {p.sub}
           </p>
         </AnimatedSection>
 
@@ -135,7 +117,7 @@ export default function PricingStatement() {
                     color: "#D4A853",
                   }}
                 >
-                  BY APPLICATION ONLY
+                  {p.byApplication}
                 </p>
                 <p
                   className="font-extrabold text-white mb-1"
@@ -144,7 +126,7 @@ export default function PricingStatement() {
                     lineHeight: 1.2,
                   }}
                 >
-                  Work directly with Juan.
+                  {p.workDirectly}
                 </p>
                 <p
                   className="mb-5"
@@ -154,9 +136,7 @@ export default function PricingStatement() {
                     lineHeight: 1.6,
                   }}
                 >
-                  No account managers. No handoffs.
-                  <br />
-                  Every system built, owned, and optimized by me. I take on three partnerships at a time. One spot is currently open.
+                  {p.noAccountManagers}
                 </p>
                 <div className="flex items-center mb-5" style={{ gap: 8 }}>
                   <span
@@ -169,11 +149,11 @@ export default function PricingStatement() {
                     }}
                   />
                   <span style={{ fontSize: "0.8rem", color: "#A69D8D" }}>
-                    1 partnership spot open
+                    {p.spotOpen}
                   </span>
                 </div>
                 <Link
-                  href="/apply"
+                  href={lp("/apply")}
                   className="flex items-center justify-center w-full rounded-lg font-semibold py-4 transition-colors"
                   style={{
                     backgroundColor: "transparent",
@@ -191,7 +171,7 @@ export default function PricingStatement() {
                     e.currentTarget.style.color = "#D4A853";
                   }}
                 >
-                  Book a Diagnostic Call →
+                  {p.cta}
                 </Link>
               </div>
             </div>
@@ -220,7 +200,7 @@ export default function PricingStatement() {
                   color: "#D4A853",
                 }}
               >
-                GROWTH PARTNERSHIP
+                {p.growthPartnership}
               </p>
 
               {/* Price */}
@@ -252,7 +232,7 @@ export default function PricingStatement() {
                   lineHeight: 1.55,
                 }}
               >
-                The full acquisition system: conversion site, local SEO, Google Ads, weekly optimization, and monthly revenue reporting. Everything you need to stop depending on referrals.
+                {p.description}
               </p>
 
               {/* Divider */}
@@ -273,7 +253,7 @@ export default function PricingStatement() {
                       color: "#756D63",
                     }}
                   >
-                    Acquisition System
+                    {p.acquisitionSystem}
                   </p>
                   <ul className="space-y-2">
                     {FEATURES_ACQUISITION.map((feature) => (
@@ -303,7 +283,7 @@ export default function PricingStatement() {
                       color: "#756D63",
                     }}
                   >
-                    Ownership &amp; Optimization
+                    {p.ownershipOptimization}
                   </p>
                   <ul className="space-y-2">
                     {FEATURES_OWNERSHIP.map((feature) => (
@@ -337,17 +317,17 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Book a Diagnostic Call →
+                  {p.cta}
                 </Link>
                 <p
                   className="text-center"
                   style={{ fontSize: "0.72rem", color: "#756D63" }}
                 >
-                  Short application. I review every fit personally.
+                  {p.shortApplication}
                 </p>
                 <p className="text-center" style={{ paddingTop: 4 }}>
                   <Link
-                    href="/services"
+                    href={lp("/services")}
                     style={{
                       fontSize: "0.72rem",
                       color: "#4E4845",
@@ -358,7 +338,7 @@ export default function PricingStatement() {
                     onMouseOver={(e) => { e.currentTarget.style.color = "#A69D8D"; }}
                     onMouseOut={(e) => { e.currentTarget.style.color = "#4E4845"; }}
                   >
-                    See what changes the monthly investment →
+                    {p.seeInvestment}
                   </Link>
                 </p>
               </div>
