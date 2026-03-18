@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
 import FounderBlock from "@/components/home/FounderBlock";
 import PricingStatement from "@/components/home/PricingStatement";
+import NowOrNeverBanner from "@/components/home/NowOrNeverBanner";
 
 export const metadata: Metadata = {
   alternates: {
@@ -61,8 +62,8 @@ export default function HomePage() {
 
       {/* 11. Booking (diagnostic + calendar) */}
       <CalendarSection />
-        {/* Now Or Never Banner */}
-        {typeof window !== "undefined" && (await import("@/components/home/NowOrNeverBanner")).default ? <((await import("@/components/home/NowOrNeverBanner")).default) /> : null}
+      {/* Now Or Never Banner */}
+      <NowOrNeverBanner />
     </>
   );
 }
