@@ -1,65 +1,8 @@
 "use client";
 
 import { Reveal } from "@/components/motion";
-
-const coreIncludes = [
-  {
-    title: "Market Gap Report",
-    copy: "Competitor exposure mapped before a line of code is written. Every build decision follows from this.",
-  },
-  {
-    title: "Conversion Site",
-    copy: "Hand-coded. Sub-second load. Built to book calls, not to look presentable.",
-  },
-  {
-    title: "Local Search Capture",
-    copy: "Local SEO targeting buyers with intent to book. Compounds from day one.",
-  },
-  {
-    title: "Booking Flow",
-    copy: "Calls and forms captured 24/7. No leads lost while you're working.",
-  },
-  {
-    title: "Analytics Layer",
-    copy: "Every call, form, and booking attributed to its source. You see exactly what the system produces.",
-  },
-  {
-    title: "Full Asset Ownership",
-    copy: "Website, ad accounts, analytics, and tracking are yours. If you leave, you take everything.",
-  },
-];
-
-const expansionLayers = [
-  {
-    num: "01",
-    label: "PAID ACQUISITION LAYER",
-    title: "When organic capture alone is not enough.",
-    copy: "When search alone isn't fast enough. Ads targeting active purchase intent, tracked to cost per call.",
-    items: [
-      "Google Ads targeting active buyers in your market",
-      "Landing pages per service and city",
-      "AI voice agent: no lead to voicemail",
-      "Weekly optimization against cost per qualified call",
-    ],
-    investment: "$2,500 / month + ad spend",
-    investmentDetail: "Ad spend separate. Minimum $500/month. 90-day initial term.",
-  },
-  {
-    num: "02",
-    label: "MARKET SCALE LAYER",
-    title: "When the objective is structural dominance.",
-    copy: "Proven demand. A competitor about to move. Multi-city architecture built to own a market, not just rank in it.",
-    items: [
-      "Multi-city campaign architecture",
-      "Competitor displacement across search and paid",
-      "Expanded SEO targeting high-value commercial terms",
-      "Bi-weekly strategy calls",
-    ],
-    investment: "$6,000 / month + ad spend",
-    investmentDetail: "Ad spend minimum $1,500/month. Two slots per niche per city.",
-    scarcity: "If a competitor in your market applies first, this layer closes for your area.",
-  },
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 function CoreItem({ title, copy }: { title: string; copy: string }) {
   return (
@@ -82,6 +25,9 @@ function CoreItem({ title, copy }: { title: string; copy: string }) {
 }
 
 export default function SystemArchitectureSection() {
+  const { locale } = useLocale();
+  const arch = translations[locale].services.architecture;
+
   return (
     <section
       id="system"
@@ -106,25 +52,25 @@ export default function SystemArchitectureSection() {
             className="section-label mb-5"
             style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
           >
-            THE ACQUISITION ENGINE
+            {arch.sectionLabel}
           </p>
           <h2
             className="text-[clamp(2rem,4.5vw,3.25rem)] font-semibold text-white leading-[1.1] tracking-tight mb-6"
             style={{ maxWidth: "700px" }}
           >
-            One System. Every Layer Connected.
+            {arch.heading}
           </h2>
           <p
             className="text-[17px] leading-[1.75] mb-4"
             style={{ color: "#D2C9B8", maxWidth: "600px" }}
           >
-            Not a bundle of services. One acquisition infrastructure: site, search, paid, AI qualification, and optimization running as one connected machine.
+            {arch.body1}
           </p>
           <p
             className="text-[15px] leading-relaxed"
             style={{ color: "#756D63", maxWidth: "580px" }}
           >
-            The core system ships with every engagement. Expansion layers activate based on your stage.
+            {arch.body2}
           </p>
         </Reveal>
 
@@ -137,21 +83,21 @@ export default function SystemArchitectureSection() {
             className="text-xs font-semibold tracking-[0.2em] uppercase mb-3"
             style={{ color: "#D4A853" }}
           >
-            BUILT INTO EVERY PARTNERSHIP
+            {arch.coreLabel}
           </p>
           <h3
             className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-2"
           >
-            The Core Acquisition System
+            {arch.coreHeading}
           </h3>
           <p className="text-sm mb-10" style={{ color: "#756D63" }}>
-            Always included. The foundation every expansion layer builds on.
+            {arch.coreSub}
           </p>
         </Reveal>
 
         <Reveal delay={0.05}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-            {coreIncludes.map((item) => (
+            {arch.core.map((item) => (
               <CoreItem key={item.title} title={item.title} copy={item.copy} />
             ))}
           </div>
@@ -166,20 +112,20 @@ export default function SystemArchitectureSection() {
             className="text-xs font-semibold tracking-[0.2em] uppercase mb-3"
             style={{ color: "#D4A853" }}
           >
-            WHAT ACTIVATES BASED ON STAGE
+            {arch.expansionLabel}
           </p>
           <h3
             className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-2"
           >
-            Expansion Layers
+            {arch.expansionHeading}
           </h3>
           <p className="text-sm mb-8" style={{ color: "#756D63" }}>
-            Not separate packages. The next layer of the same machine, activated when your stage calls for it.
+            {arch.expansionSub}
           </p>
         </Reveal>
 
         <div className="flex flex-col gap-6">
-          {expansionLayers.map((layer, i) => (
+          {arch.layers.map((layer, i) => (
             <Reveal key={layer.label} delay={i * 0.06}>
               <div
                 className="rounded-xl overflow-hidden"
@@ -202,7 +148,7 @@ export default function SystemArchitectureSection() {
                           color: "#D4A853",
                         }}
                       >
-                        {layer.num}
+                        {String(i + 1).padStart(2, "0")}
                       </div>
                       <p
                         className="text-[11px] font-semibold tracking-[0.18em] uppercase"

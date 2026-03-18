@@ -2,6 +2,8 @@
 
 import { CaseStudy } from "@/content/caseStudies";
 import CaseStudyCard from "@/components/case-studies/CaseStudyCard";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 interface Props {
   recent: CaseStudy[];
@@ -9,6 +11,9 @@ interface Props {
 }
 
 export default function ResultsPortfolioSection({ recent, building }: Props) {
+  const { locale } = useLocale();
+  const rp = translations[locale].results.portfolio;
+
   if (recent.length === 0 && building.length === 0) return null;
 
   return (
@@ -26,7 +31,7 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
           <div className="mb-16">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[11px] uppercase tracking-[0.14em] text-[#D4A853]">
-                Recently Delivered
+                {rp.recentlyDelivered}
               </span>
               <span
                 className="flex-1 h-px"
@@ -34,7 +39,7 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
               />
             </div>
             <p className="text-[14px] text-[rgba(255,255,255,0.35)] mb-10 max-w-[520px] leading-[1.65]">
-              Systems live. Results tracked.
+              {rp.recentSub}
             </p>
             <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
               {recent.map((cs) => (
@@ -49,18 +54,18 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.3)]">
-                Active Builds
+                {rp.activeBuilds}
               </span>
               <span
                 className="flex-1 h-px"
                 style={{ background: "rgba(255,255,255,0.05)" }}
               />
               <span className="text-[11px] text-[rgba(255,255,255,0.2)] tabular-nums">
-                {building.length} in progress
+                {building.length} {rp.inProgress}
               </span>
             </div>
             <p className="text-[14px] text-[rgba(255,255,255,0.25)] mb-10 max-w-[520px] leading-[1.65]">
-              System live. Performance tracking active.
+              {rp.activeSub}
             </p>
             <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
               {building.map((cs) => (

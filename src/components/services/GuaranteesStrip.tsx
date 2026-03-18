@@ -1,8 +1,13 @@
 "use client";
 
 import { Reveal } from "@/components/motion";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function GuaranteesStrip() {
+  const { locale } = useLocale();
+  const g = translations[locale].services.guarantees;
+
   return (
     <Reveal>
       <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6">
@@ -32,19 +37,19 @@ export default function GuaranteesStrip() {
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
                 style={{ color: "#D4A853" }}
               >
-                THE STANDARD
+                {g.standardLabel}
               </p>
               <h3
                 className="text-2xl font-semibold leading-snug mb-5"
                 style={{ color: "#F5F0E8" }}
               >
-                Every number is real or it does not get published.
+                {g.standardHeading}
               </h3>
               <p
                 className="text-sm leading-relaxed"
                 style={{ color: "#D2C9B8" }}
               >
-                All results are from live client accounts. No projections. No hypotheticals.
+                {g.standardBody}
               </p>
             </div>
             <div>
@@ -52,7 +57,7 @@ export default function GuaranteesStrip() {
                 className="text-xs"
                 style={{ color: "#756D63" }}
               >
-                Verified Q1 2026. All results from live accounts.
+                {g.standardVerified}
               </p>
             </div>
           </div>
@@ -72,13 +77,13 @@ export default function GuaranteesStrip() {
               className="text-base font-semibold mb-2"
               style={{ color: "#F5F0E8" }}
             >
-              Milestone Delivery
+              {g.milestone}
             </p>
             <p
               className="text-sm leading-relaxed"
               style={{ color: "#A69D8D" }}
             >
-              Phase 1: market analysis and 90-day roadmap. Phase 2: live site, campaigns, and booking system. You approve before each phase starts.
+              {g.milestoneBody}
             </p>
           </div>
           <div
@@ -93,13 +98,13 @@ export default function GuaranteesStrip() {
               className="text-base font-semibold mb-2"
               style={{ color: "#F5F0E8" }}
             >
-              Asset Ownership
+              {g.ownership}
             </p>
             <p
               className="text-sm leading-relaxed"
               style={{ color: "#A69D8D" }}
             >
-              Website, ad accounts, and tracking are yours. Month-to-month after build. Leave with everything.
+              {g.ownershipBody}
             </p>
           </div>
           <div
@@ -114,13 +119,13 @@ export default function GuaranteesStrip() {
               className="text-base font-semibold mb-2"
               style={{ color: "#F5F0E8" }}
             >
-              Pre-Engagement Review
+              {g.preEngagement}
             </p>
             <p
               className="text-sm leading-relaxed"
               style={{ color: "#A69D8D" }}
             >
-              I review your market and operation before any agreement. If I can't produce a return, I tell you directly. I've turned clients down before.
+              {g.preEngagementBody}
             </p>
           </div>
         </div>

@@ -2,8 +2,15 @@
 
 import Link from "next/link";
 import { CaseStudy } from "@/content/caseStudies";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
+  const { locale } = useLocale();
+  const rs = translations[locale].results.secondary;
+
+  const headlineParts = rs.headline.split("\n");
+
   return (
     <section
       className="py-14 md:py-20"
@@ -16,7 +23,7 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
         {/* Section marker */}
         <div className="flex items-center gap-3 mb-10">
           <span className="text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.3)]">
-            Featured partnership
+            {rs.sectionMarker}
           </span>
           <span
             className="flex-1 h-px"
@@ -31,8 +38,12 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               {cs.industry}
             </span>
             <h2 className="text-[clamp(26px,3.2vw,38px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
-              90 new clients in 90 days.
-              <br className="hidden md:block" /> Built from zero online presence.
+              {headlineParts[0]}
+              {headlineParts[1] && (
+                <>
+                  <br className="hidden md:block" /> {headlineParts[1]}
+                </>
+              )}
             </h2>
             <div className="mb-8 max-w-[480px]">
               {cs.situation.split("\n\n").map((para, i) => (
@@ -45,7 +56,7 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
             {/* What was built */}
             <div className="mb-8">
               <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.3)] mb-4">
-                Infrastructure built
+                {rs.infrastructureBuilt}
               </p>
               <ul className="space-y-2.5">
                 {cs.deliverables.map((d) => (
@@ -77,14 +88,14 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
                   />
                 </svg>
                 <span className="text-[12px] font-semibold text-[#D4A853]">
-                  Verified
+                  {rs.verified}
                 </span>
               </div>
               <Link
                 href={`/results/${cs.caseStudySlug}`}
                 className="text-[14px] font-semibold text-[rgba(255,255,255,0.55)] hover:text-[#D4A853] transition-colors"
               >
-                View full case study →
+                {rs.viewCaseStudy}
               </Link>
             </div>
           </div>
@@ -98,7 +109,7 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
             }}
           >
             <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.3)] mb-6">
-              Outcome
+              {rs.outcome}
             </p>
 
             {/* Primary metric — dominant */}
@@ -109,7 +120,7 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               <div className="text-[52px] font-extrabold text-white tracking-[-0.03em] leading-none mb-2">
                 90
               </div>
-              <div className="text-[14px] text-[#D2C9B8]">New clients acquired</div>
+              <div className="text-[14px] text-[#D2C9B8]">{rs.newClients}</div>
             </div>
 
             {/* Secondary metric */}
@@ -118,17 +129,16 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               style={{ borderColor: "rgba(255,255,255,0.06)" }}
             >
               <div className="text-[28px] font-extrabold text-white tracking-[-0.02em] leading-none mb-1">
-                90 days
+                90 {rs.days}
               </div>
               <div className="text-[12px] text-[rgba(255,255,255,0.4)]">
-                Timeframe
+                {rs.timeframe}
               </div>
             </div>
 
             {/* Commercial context note */}
             <p className="text-[13px] text-[rgba(255,255,255,0.4)] leading-[1.65]">
-              Full acquisition infrastructure built from scratch. No prior
-              website, no paid channels, no existing discoverability.
+              {rs.contextNote}
             </p>
           </div>
         </div>

@@ -2,13 +2,19 @@
 
 import Link from "next/link";
 import { CaseStudy } from "@/content/caseStudies";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
+  const { locale } = useLocale();
+  const rf = translations[locale].results.flagship;
   const narrative = cs.narrative ?? cs.situation;
 
   // Split metrics: primary (revenue) gets dominant display, rest are supporting
   const primaryMetric = cs.metrics[0];
   const supportingMetrics = cs.metrics.slice(1);
+
+  const verifyLines = [rf.verifyLine1, rf.verifyLine2, rf.verifyLine3];
 
   return (
     <section
@@ -19,7 +25,7 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
         {/* Section marker */}
         <div className="flex items-center gap-3 mb-10">
           <span className="text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.3)]">
-            Lead partnership
+            {rf.sectionMarker}
           </span>
           <span
             className="flex-1 h-px"
@@ -58,7 +64,7 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
                 />
               </svg>
               <span className="text-[12px] font-semibold text-[#D4A853]">
-                Verified
+                {rf.verified}
               </span>
             </div>
 
@@ -68,7 +74,7 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
                 href={`/results/${cs.caseStudySlug}`}
                 className="inline-flex items-center gap-2 bg-[#D4A853] text-[#0D0B09] px-5 py-2.5 rounded-lg text-[14px] font-bold hover:bg-[#C9983E] transition-colors"
               >
-                View full case study →
+                {rf.viewCaseStudy}
               </Link>
               {cs.metricsImageUrl && (
                 <button
@@ -79,7 +85,7 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
                   }}
                   className="border border-[rgba(212,168,83,0.3)] text-[rgba(255,255,255,0.6)] px-5 py-2.5 rounded-lg text-[14px] font-medium hover:border-[rgba(212,168,83,0.5)] hover:text-white transition-colors"
                 >
-                  Scroll to proof
+                  {rf.scrollToProof}
                 </button>
               )}
             </div>
@@ -132,14 +138,10 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
               {/* Verification context — authored evidence, not a browser mock */}
               <div className="p-6 pt-5">
                 <p className="text-[10px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.25)] mb-4">
-                  Verification context
+                  {rf.verificationContext}
                 </p>
                 <div className="space-y-3 mb-5">
-                  {[
-                    "Full Google Ads account access provided",
-                    "Revenue figures owner-reported and verified",
-                    "Booking tracking confirmed via GA4 events",
-                  ].map((line) => (
+                  {verifyLines.map((line) => (
                     <div key={line} className="flex items-start gap-3">
                       <span
                         className="flex-shrink-0 mt-[7px] w-3 h-px"
@@ -158,7 +160,7 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
                     rel="noopener noreferrer"
                     className="text-[12px] text-[rgba(212,168,83,0.55)] hover:text-[#D4A853] transition-colors"
                   >
-                    View campaign metrics report ↗
+                    {rf.viewMetrics}
                   </a>
                 )}
               </div>

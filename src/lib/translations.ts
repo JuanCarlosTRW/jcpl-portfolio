@@ -287,6 +287,8 @@ export type TranslationsShape = {
     provenOutcomes: {
       eyebrow: string;
       h2: string;
+      h2Main: string;
+      h2Italic: string;
       sub: string;
       card1Label: string;
       card1Revenue: string;
@@ -444,6 +446,63 @@ export type TranslationsShape = {
       trust3: string;
       rotating: string[];
     };
+    proofBanner: {
+      stat1Sub: string;
+      stat2Sub: string;
+      stat3Sub: string;
+      days: string;
+    };
+    architecture: {
+      sectionLabel: string;
+      heading: string;
+      body1: string;
+      body2: string;
+      coreLabel: string;
+      coreHeading: string;
+      coreSub: string;
+      expansionLabel: string;
+      expansionHeading: string;
+      expansionSub: string;
+      core: Array<{ title: string; copy: string }>;
+      layers: Array<{
+        label: string;
+        title: string;
+        copy: string;
+        items: string[];
+        investment: string;
+        investmentDetail: string;
+        scarcity?: string;
+      }>;
+    };
+    techStack: {
+      label: string;
+      heading: string;
+      sub: string;
+      items: Array<{ name: string; role: string; detail: string }>;
+    };
+    finalCta: {
+      howLabel: string;
+      howHeading: string;
+      howSub: string;
+      applyLabel: string;
+      applyHeading: string;
+      applyBody: string;
+      proofText: string;
+      button: string;
+      microcopy: string;
+    };
+    guarantees: {
+      standardLabel: string;
+      standardHeading: string;
+      standardBody: string;
+      standardVerified: string;
+      milestone: string;
+      milestoneBody: string;
+      ownership: string;
+      ownershipBody: string;
+      preEngagement: string;
+      preEngagementBody: string;
+    };
   };
   results: {
     hero: {
@@ -463,6 +522,47 @@ export type TranslationsShape = {
       stat4Label: string;
       stat4Note: string;
     };
+    flagship: {
+      sectionMarker: string;
+      verified: string;
+      viewCaseStudy: string;
+      scrollToProof: string;
+      verificationContext: string;
+      verifyLine1: string;
+      verifyLine2: string;
+      verifyLine3: string;
+      viewMetrics: string;
+    };
+    secondary: {
+      sectionMarker: string;
+      headline: string;
+      infrastructureBuilt: string;
+      verified: string;
+      viewCaseStudy: string;
+      outcome: string;
+      newClients: string;
+      timeframe: string;
+      days: string;
+      contextNote: string;
+    };
+    cta: {
+      eyebrow: string;
+      heading: string;
+      body: string;
+      trust1: string;
+      trust2: string;
+      trust3: string;
+      button: string;
+      link: string;
+    };
+    portfolio: {
+      recentlyDelivered: string;
+      recentSub: string;
+      activeBuilds: string;
+      inProgress: string;
+      activeSub: string;
+    };
+    disclaimer: string;
   };
   about: {
     hero: {
@@ -672,6 +772,8 @@ export const translations: Record<Locale, TranslationsShape> = {
       provenOutcomes: {
         eyebrow: "PROVEN OUTCOMES",
         h2: "$41,085 from $900 in ad spend. Page 1 in under 60 days.",
+        h2Main: "$41,085 from $900 in ad spend.",
+        h2Italic: "Page 1 in under 60 days.",
         sub: "Revenue, qualified calls, and search visibility. Not three separate wins. The same connected system, running continuously.",
         card1Label: "RV RENTAL · TEXAS · GOOGLE ADS",
         card1Revenue: "in revenue. First 30 days.",
@@ -835,6 +937,97 @@ export const translations: Record<Locale, TranslationsShape> = {
           "One owner. Zero handoffs.",
         ],
       },
+      proofBanner: {
+        stat1Sub: "Revenue generated. One client. First 30 days.",
+        stat2Sub: "Average cost per qualified call. All active accounts.",
+        stat3Sub: "Median time from signed agreement to first booked call.",
+        days: "days",
+      },
+      architecture: {
+        sectionLabel: "THE ACQUISITION ENGINE",
+        heading: "One System. Every Layer Connected.",
+        body1: "Not a bundle of services. One acquisition infrastructure: site, search, paid, AI qualification, and optimization running as one connected machine.",
+        body2: "The core system ships with every engagement. Expansion layers activate based on your stage.",
+        coreLabel: "BUILT INTO EVERY PARTNERSHIP",
+        coreHeading: "The Core Acquisition System",
+        coreSub: "Always included. The foundation every expansion layer builds on.",
+        expansionLabel: "WHAT ACTIVATES BASED ON STAGE",
+        expansionHeading: "Expansion Layers",
+        expansionSub: "Not separate packages. The next layer of the same machine, activated when your stage calls for it.",
+        core: [
+          { title: "Market Gap Report", copy: "Competitor exposure mapped before a line of code is written. Every build decision follows from this." },
+          { title: "Conversion Site", copy: "Hand-coded. Sub-second load. Built to book calls, not to look presentable." },
+          { title: "Local Search Capture", copy: "Local SEO targeting buyers with intent to book. Compounds from day one." },
+          { title: "Booking Flow", copy: "Calls and forms captured 24/7. No leads lost while you're working." },
+          { title: "Analytics Layer", copy: "Every call, form, and booking attributed to its source. You see exactly what the system produces." },
+          { title: "Full Asset Ownership", copy: "Website, ad accounts, analytics, and tracking are yours. If you leave, you take everything." },
+        ],
+        layers: [
+          {
+            label: "PAID ACQUISITION LAYER",
+            title: "When organic capture alone is not enough.",
+            copy: "When search alone isn't fast enough. Ads targeting active purchase intent, tracked to cost per call.",
+            items: [
+              "Google Ads targeting active buyers in your market",
+              "Landing pages per service and city",
+              "AI voice agent: no lead to voicemail",
+              "Weekly optimization against cost per qualified call",
+            ],
+            investment: "$2,500 / month + ad spend",
+            investmentDetail: "Ad spend separate. Minimum $500/month. 90-day initial term.",
+          },
+          {
+            label: "MARKET SCALE LAYER",
+            title: "When the objective is structural dominance.",
+            copy: "Proven demand. A competitor about to move. Multi-city architecture built to own a market, not just rank in it.",
+            items: [
+              "Multi-city campaign architecture",
+              "Competitor displacement across search and paid",
+              "Expanded SEO targeting high-value commercial terms",
+              "Bi-weekly strategy calls",
+            ],
+            investment: "$6,000 / month + ad spend",
+            investmentDetail: "Ad spend minimum $1,500/month. Two slots per niche per city.",
+            scarcity: "If a competitor in your market applies first, this layer closes for your area.",
+          },
+        ],
+      },
+      techStack: {
+        label: "Infrastructure Advantage",
+        heading: "Built With Infrastructure. Not Page Builders.",
+        sub: "Page speed, search ranking, and full asset ownership don't happen by accident. They follow from what the infrastructure is built on.",
+        items: [
+          { name: "Next.js", role: "Page speed", detail: "Sub-second load times globally. Faster pages book more calls." },
+          { name: "Vercel", role: "Reliability", detail: "99.99% uptime on a global CDN. No downtime during your busiest season." },
+          { name: "Google Ads", role: "Paid acquisition", detail: "Purchase-intent targeting tracked to cost per qualified call. Optimized weekly against outcomes." },
+          { name: "Retell AI", role: "Lead capture", detail: "Calls captured and qualified after hours. No lead goes to voicemail." },
+          { name: "Google Analytics", role: "Revenue attribution", detail: "Every call and form traced to its source. You see exactly where each dollar went." },
+          { name: "Custom code", role: "Full ownership", detail: "Hand-coded. No WordPress. No templates. Everything built is yours from day one." },
+        ],
+      },
+      finalCta: {
+        howLabel: "HOW I WORK",
+        howHeading: "What You Know Before Signing Anything.",
+        howSub: "The terms, the standards, and the protections are set before any retainer is signed.",
+        applyLabel: "APPLY",
+        applyHeading: "I Run 3 Partnerships at a Time.",
+        applyBody: "Short application. I review your market before we speak. If I can produce a return, you will get a call link within 24 hours. If not, I will tell you directly.",
+        proofText: "Last 3 partnerships: one went live in 9 days. One booked their first qualified call on day 7. One generated $2,716 in month one.",
+        button: "Book a Diagnostic Call →",
+        microcopy: "Response within 24 hours. No retainer until I confirm fit.",
+      },
+      guarantees: {
+        standardLabel: "THE STANDARD",
+        standardHeading: "Every number is real or it does not get published.",
+        standardBody: "All results are from live client accounts. No projections. No hypotheticals.",
+        standardVerified: "Verified Q1 2026. All results from live accounts.",
+        milestone: "Milestone Delivery",
+        milestoneBody: "Phase 1: market analysis and 90-day roadmap. Phase 2: live site, campaigns, and booking system. You approve before each phase starts.",
+        ownership: "Asset Ownership",
+        ownershipBody: "Website, ad accounts, and tracking are yours. Month-to-month after build. Leave with everything.",
+        preEngagement: "Pre-Engagement Review",
+        preEngagementBody: "I review your market and operation before any agreement. If I can't produce a return, I tell you directly. I've turned clients down before.",
+      },
     },
     results: {
       hero: {
@@ -854,6 +1047,47 @@ export const translations: Record<Locale, TranslationsShape> = {
         stat4Label: "Return on ad spend",
         stat4Note: "Month one",
       },
+      flagship: {
+        sectionMarker: "Lead partnership",
+        verified: "Verified",
+        viewCaseStudy: "View full case study →",
+        scrollToProof: "Scroll to proof",
+        verificationContext: "Verification context",
+        verifyLine1: "Full Google Ads account access provided",
+        verifyLine2: "Revenue figures owner-reported and verified",
+        verifyLine3: "Booking tracking confirmed via GA4 events",
+        viewMetrics: "View campaign metrics report ↗",
+      },
+      secondary: {
+        sectionMarker: "Featured partnership",
+        headline: "90 new clients in 90 days.\nBuilt from zero online presence.",
+        infrastructureBuilt: "Infrastructure built",
+        verified: "Verified",
+        viewCaseStudy: "View full case study →",
+        outcome: "Outcome",
+        newClients: "New clients acquired",
+        timeframe: "Timeframe",
+        days: "days",
+        contextNote: "Full acquisition infrastructure built from scratch. No prior website, no paid channels, no existing discoverability.",
+      },
+      cta: {
+        eyebrow: "Next step",
+        heading: "If the evidence looks right, the next step is a conversation.",
+        body: "Partnerships are selective. The first call is diagnostic. It is about whether the fit is real, not a sales pitch. No commitment required, no deck.",
+        trust1: "Response within 24 hours",
+        trust2: "No commitment to apply",
+        trust3: "Founder-led, not an agency intake",
+        button: "Book a Diagnostic Call",
+        link: "How the acquisition system works →",
+      },
+      portfolio: {
+        recentlyDelivered: "Recently Delivered",
+        recentSub: "Systems live. Results tracked.",
+        activeBuilds: "Active Builds",
+        inProgress: "in progress",
+        activeSub: "System live. Performance tracking active.",
+      },
+      disclaimer: "Results shown are from real client engagements. Revenue figures are client-reported. Your results will vary based on market, offer, and execution.",
     },
     about: {
       hero: {
@@ -1062,6 +1296,8 @@ export const translations: Record<Locale, TranslationsShape> = {
       provenOutcomes: {
         eyebrow: "RÉSULTATS PROUVÉS",
         h2: "$41 085 avec $900 en publicité. Page 1 en moins de 60 jours.",
+        h2Main: "$41 085 avec $900 en publicité.",
+        h2Italic: "Page 1 en moins de 60 jours.",
         sub: "Revenus, appels qualifiés et visibilité de recherche. Pas trois victoires séparées. Le même système connecté, en continu.",
         card1Label: "LOCATION DE VR · TEXAS · GOOGLE ADS",
         card1Revenue: "en revenus. Premiers 30 jours.",
@@ -1225,6 +1461,97 @@ export const translations: Record<Locale, TranslationsShape> = {
           "Un propriétaire. Zéro intermédiaire.",
         ],
       },
+      proofBanner: {
+        stat1Sub: "Revenus générés. Un client. Premiers 30 jours.",
+        stat2Sub: "Coût moyen par appel qualifié. Tous les comptes actifs.",
+        stat3Sub: "Délai médian entre la signature et le premier appel réservé.",
+        days: "jours",
+      },
+      architecture: {
+        sectionLabel: "LE MOTEUR D'ACQUISITION",
+        heading: "Un système. Chaque couche connectée.",
+        body1: "Pas un ensemble de services. Une infrastructure d'acquisition : site, recherche, publicité payante, qualification IA et optimisation fonctionnant comme une seule machine connectée.",
+        body2: "Le système de base est inclus dans chaque engagement. Les couches d'expansion s'activent selon votre stade.",
+        coreLabel: "INCLUS DANS CHAQUE PARTENARIAT",
+        coreHeading: "Le système d'acquisition de base",
+        coreSub: "Toujours inclus. La fondation sur laquelle chaque couche d'expansion s'appuie.",
+        expansionLabel: "CE QUI S'ACTIVE SELON LE STADE",
+        expansionHeading: "Couches d'expansion",
+        expansionSub: "Pas des forfaits séparés. La prochaine couche de la même machine, activée quand votre stade le demande.",
+        core: [
+          { title: "Rapport d'écart de marché", copy: "Exposition des concurrents cartographiée avant qu'une ligne de code soit écrite. Chaque décision de construction en découle." },
+          { title: "Site de conversion", copy: "Codé à la main. Chargement en sous-seconde. Conçu pour réserver des appels, pas pour paraître présentable." },
+          { title: "Capture de recherche locale", copy: "SEO local ciblant les acheteurs avec intention de réserver. S'accumule dès le premier jour." },
+          { title: "Tunnel de réservation", copy: "Appels et formulaires capturés 24h/7j. Aucun lead perdu pendant que vous travaillez." },
+          { title: "Couche analytique", copy: "Chaque appel, formulaire et réservation attribué à sa source. Vous voyez exactement ce que le système produit." },
+          { title: "Propriété complète des actifs", copy: "Site web, comptes publicitaires, analyses et suivi vous appartiennent. Si vous partez, vous emportez tout." },
+        ],
+        layers: [
+          {
+            label: "COUCHE D'ACQUISITION PAYANTE",
+            title: "Quand la capture organique seule ne suffit pas.",
+            copy: "Quand la recherche seule n'est pas assez rapide. Annonces ciblant l'intention d'achat active, tracées au coût par appel.",
+            items: [
+              "Google Ads ciblant les acheteurs actifs dans votre marché",
+              "Pages d'atterrissage par service et par ville",
+              "Agent vocal IA : aucun lead vers la messagerie vocale",
+              "Optimisation hebdomadaire contre le coût par appel qualifié",
+            ],
+            investment: "2 500 $ / mois + budget pub",
+            investmentDetail: "Budget pub séparé. Minimum 500 $/mois. Terme initial de 90 jours.",
+          },
+          {
+            label: "COUCHE DE MISE À L'ÉCHELLE DU MARCHÉ",
+            title: "Quand l'objectif est la domination structurelle.",
+            copy: "Demande prouvée. Un concurrent prêt à bouger. Architecture multi-villes construite pour posséder un marché, pas juste pour s'y classer.",
+            items: [
+              "Architecture de campagne multi-villes",
+              "Déplacement des concurrents en recherche et en payant",
+              "SEO étendu ciblant les termes commerciaux à haute valeur",
+              "Appels de stratégie bi-hebdomadaires",
+            ],
+            investment: "6 000 $ / mois + budget pub",
+            investmentDetail: "Budget pub minimum 1 500 $/mois. Deux places par niche par ville.",
+            scarcity: "Si un concurrent dans votre marché postule en premier, cette couche se ferme pour votre région.",
+          },
+        ],
+      },
+      techStack: {
+        label: "Avantage infrastructure",
+        heading: "Construit avec une infrastructure. Pas des constructeurs de pages.",
+        sub: "La vitesse de page, le classement en recherche et la propriété complète des actifs ne sont pas le fruit du hasard. Ils découlent de l'infrastructure sur laquelle tout est construit.",
+        items: [
+          { name: "Next.js", role: "Vitesse de page", detail: "Temps de chargement en sous-seconde à l'échelle mondiale. Les pages plus rapides réservent plus d'appels." },
+          { name: "Vercel", role: "Fiabilité", detail: "99,99 % de disponibilité sur un CDN mondial. Aucune interruption pendant votre saison la plus occupée." },
+          { name: "Google Ads", role: "Acquisition payante", detail: "Ciblage par intention d'achat tracé au coût par appel qualifié. Optimisé hebdomadairement selon les résultats." },
+          { name: "Retell AI", role: "Capture de leads", detail: "Appels capturés et qualifiés après les heures. Aucun lead vers la messagerie vocale." },
+          { name: "Google Analytics", role: "Attribution des revenus", detail: "Chaque appel et formulaire tracé à sa source. Vous voyez exactement où chaque dollar est allé." },
+          { name: "Code sur mesure", role: "Propriété complète", detail: "Codé à la main. Pas de WordPress. Pas de gabarits. Tout ce qui est construit vous appartient dès le premier jour." },
+        ],
+      },
+      finalCta: {
+        howLabel: "MA MÉTHODE DE TRAVAIL",
+        howHeading: "Ce que vous savez avant de signer quoi que ce soit.",
+        howSub: "Les conditions, les standards et les protections sont définis avant qu'un contrat soit signé.",
+        applyLabel: "POSTULER",
+        applyHeading: "Je gère 3 partenariats à la fois.",
+        applyBody: "Candidature courte. J'examine votre marché avant qu'on parle. Si je peux produire un retour, vous recevrez un lien d'appel dans les 24 heures. Sinon, je vous le dirai directement.",
+        proofText: "3 derniers partenariats : l'un était en ligne en 9 jours. L'un a réservé son premier appel qualifié le jour 7. L'un a généré 2 716 $ le premier mois.",
+        button: "Réserver un appel diagnostic →",
+        microcopy: "Réponse dans les 24 heures. Aucun acompte avant confirmation.",
+      },
+      guarantees: {
+        standardLabel: "LE STANDARD",
+        standardHeading: "Chaque chiffre est réel ou il n'est pas publié.",
+        standardBody: "Tous les résultats proviennent de comptes clients actifs. Pas de projections. Pas d'hypothèses.",
+        standardVerified: "Vérifié T1 2026. Tous les résultats proviennent de comptes actifs.",
+        milestone: "Livraison par étapes",
+        milestoneBody: "Phase 1 : analyse de marché et feuille de route 90 jours. Phase 2 : site en ligne, campagnes et système de réservation. Vous approuvez avant chaque phase.",
+        ownership: "Propriété des actifs",
+        ownershipBody: "Site web, comptes publicitaires et suivi vous appartiennent. Mois par mois après la construction. Partez avec tout.",
+        preEngagement: "Revue pré-engagement",
+        preEngagementBody: "J'examine votre marché et votre opération avant tout accord. Si je ne peux pas produire un retour, je vous le dis directement. J'ai déjà refusé des clients.",
+      },
     },
     results: {
       hero: {
@@ -1244,6 +1571,47 @@ export const translations: Record<Locale, TranslationsShape> = {
         stat4Label: "Retour sur investissement pub",
         stat4Note: "Premier mois",
       },
+      flagship: {
+        sectionMarker: "Partenariat principal",
+        verified: "Vérifié",
+        viewCaseStudy: "Voir l'étude de cas complète →",
+        scrollToProof: "Voir la preuve",
+        verificationContext: "Contexte de vérification",
+        verifyLine1: "Accès complet au compte Google Ads fourni",
+        verifyLine2: "Chiffres de revenus déclarés par le propriétaire et vérifiés",
+        verifyLine3: "Suivi des réservations confirmé via les événements GA4",
+        viewMetrics: "Voir le rapport de métriques de campagne ↗",
+      },
+      secondary: {
+        sectionMarker: "Partenariat vedette",
+        headline: "90 nouveaux clients en 90 jours.\nConstruit depuis zéro présence en ligne.",
+        infrastructureBuilt: "Infrastructure construite",
+        verified: "Vérifié",
+        viewCaseStudy: "Voir l'étude de cas complète →",
+        outcome: "Résultat",
+        newClients: "Nouveaux clients acquis",
+        timeframe: "Délai",
+        days: "jours",
+        contextNote: "Infrastructure d'acquisition complète construite de zéro. Aucun site préexistant, aucun canal payant, aucune visibilité.",
+      },
+      cta: {
+        eyebrow: "Prochaine étape",
+        heading: "Si les résultats vous semblent convaincants, la prochaine étape est une conversation.",
+        body: "Les partenariats sont sélectifs. Le premier appel est diagnostic. Il s'agit de vérifier si l'adéquation est réelle, pas d'un pitch de vente. Aucun engagement requis, aucune présentation.",
+        trust1: "Réponse dans les 24 heures",
+        trust2: "Aucun engagement pour postuler",
+        trust3: "Fondateur, pas une agence",
+        button: "Réserver un appel diagnostic",
+        link: "Comment le système d'acquisition fonctionne →",
+      },
+      portfolio: {
+        recentlyDelivered: "Récemment livrés",
+        recentSub: "Systèmes en ligne. Résultats suivis.",
+        activeBuilds: "Constructions actives",
+        inProgress: "en cours",
+        activeSub: "Système en ligne. Suivi de performance actif.",
+      },
+      disclaimer: "Les résultats présentés proviennent de mandats clients réels. Les chiffres de revenus sont déclarés par les clients. Vos résultats varieront selon le marché, l'offre et l'exécution.",
     },
     about: {
       hero: {

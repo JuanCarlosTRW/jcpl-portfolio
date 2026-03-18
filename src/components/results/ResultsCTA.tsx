@@ -3,9 +3,13 @@
 import CTAButton from "@/components/ui/CTAButton";
 import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function ResultsCTA() {
-  const { lp } = useLocale();
+  const { lp, locale } = useLocale();
+  const rc = translations[locale].results.cta;
+  const trustItems = [rc.trust1, rc.trust2, rc.trust3];
+
   return (
     <section
       className="py-20 md:py-28"
@@ -19,26 +23,18 @@ export default function ResultsCTA() {
           {/* Left: Conversion framing */}
           <div className="lg:pr-16">
             <p className="text-[11px] uppercase tracking-[0.14em] text-[#D4A853] mb-5">
-              Next step
+              {rc.eyebrow}
             </p>
             <h2 className="text-[clamp(26px,3.5vw,38px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
-              If the evidence looks right,
-              <br className="hidden md:block" /> the next step is a
-              conversation.
+              {rc.heading}
             </h2>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.7] max-w-[480px] mb-8">
-              Partnerships are selective. The first call is diagnostic. It is
-              about whether the fit is real, not a sales pitch. No commitment
-              required, no deck.
+              {rc.body}
             </p>
 
             {/* Trust signals */}
             <div className="flex flex-col gap-2.5">
-              {[
-                "Response within 24 hours",
-                "No commitment to apply",
-                "Founder-led, not an agency intake",
-              ].map((item) => (
+              {trustItems.map((item) => (
                 <span
                   key={item}
                   className="text-[13px] text-[rgba(255,255,255,0.4)] flex items-center gap-2.5"
@@ -60,13 +56,13 @@ export default function ResultsCTA() {
           >
             <div className="flex flex-col gap-4 w-full lg:w-auto">
               <CTAButton href={lp("/apply")} size="lg">
-                Book a Diagnostic Call
+                {rc.button}
               </CTAButton>
               <Link
                 href={lp("/services")}
                 className="text-[13px] text-[rgba(255,255,255,0.4)] hover:text-[#D4A853] transition-colors text-center lg:text-left"
               >
-                How the acquisition system works →
+                {rc.link}
               </Link>
             </div>
           </div>

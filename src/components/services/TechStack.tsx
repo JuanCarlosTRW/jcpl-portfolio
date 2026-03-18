@@ -1,64 +1,31 @@
 "use client";
 
-const stack = [
-  {
-    name: "Next.js",
-    role: "Page speed",
-    detail:
-      "Sub-second load times globally. Faster pages book more calls.",
-  },
-  {
-    name: "Vercel",
-    role: "Reliability",
-    detail:
-      "99.99% uptime on a global CDN. No downtime during your busiest season.",
-  },
-  {
-    name: "Google Ads",
-    role: "Paid acquisition",
-    detail:
-      "Purchase-intent targeting tracked to cost per qualified call. Optimized weekly against outcomes.",
-  },
-  {
-    name: "Retell AI",
-    role: "Lead capture",
-    detail:
-      "Calls captured and qualified after hours. No lead goes to voicemail.",
-  },
-  {
-    name: "Google Analytics",
-    role: "Revenue attribution",
-    detail:
-      "Every call and form traced to its source. You see exactly where each dollar went.",
-  },
-  {
-    name: "Custom code",
-    role: "Full ownership",
-    detail:
-      "Hand-coded. No WordPress. No templates. Everything built is yours from day one.",
-  },
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function TechStack() {
+  const { locale } = useLocale();
+  const ts = translations[locale].services.techStack;
+
   return (
     <section className="px-6 md:px-12 lg:px-20 py-20 border-t" style={{ background: "#131009", borderColor: "#2A2318" }}>
       <div className="max-w-[1200px] mx-auto">
         <div className="flex items-center gap-3 mb-4">
           <div className="h-px w-8" style={{ background: "rgba(212,168,83,0.6)" }} />
           <span className="text-xs tracking-[0.2em] uppercase font-medium" style={{ color: "#756D63" }}>
-            Infrastructure Advantage
+            {ts.label}
           </span>
         </div>
 
         <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight max-w-[600px]">
-          Built With Infrastructure. Not Page Builders.
+          {ts.heading}
         </h2>
         <p className="mt-3 text-sm max-w-[520px]" style={{ color: "#A69D8D" }}>
-          Page speed, search ranking, and full asset ownership don&apos;t happen by accident. They follow from what the infrastructure is built on.
+          {ts.sub}
         </p>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {stack.map((item, i) => (
+          {ts.items.map((item, i) => (
             <div
               key={i}
               className="p-5 rounded-xl"

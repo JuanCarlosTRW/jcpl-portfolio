@@ -113,7 +113,7 @@ export default function FeaturedCaseStudy() {
         <SectionLabel label={po.eyebrow} className="mb-5 !text-[#D4A853]" />
         <h2 className="text-[clamp(30px,4.5vw,46px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto">
           <span className="text-white font-bold">
-            $41,085 from $900 in ad spend.
+            {po.h2Main}
           </span>{" "}
           <span
             className="italic"
@@ -122,7 +122,7 @@ export default function FeaturedCaseStudy() {
               color: "#A69D8D",
             }}
           >
-            Page 1 in under 60 days.
+            {po.h2Italic}
           </span>
         </h2>
         <p
