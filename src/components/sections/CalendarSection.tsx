@@ -145,7 +145,7 @@ export default function CalendarSection() {
                     style={{ borderColor: "rgba(212,168,83,0.3)", borderTopColor: "transparent" }}
                   />
                   <span style={{ fontSize: "0.75rem", color: "#756D63", letterSpacing: "0.08em" }}>
-                    Loading calendar...
+                    {d.loading}
                   </span>
                 </div>
               )}
@@ -158,7 +158,7 @@ export default function CalendarSection() {
               ) : (
                 <iframe
                   src={CAL_BOOKING_URL}
-                  title="Book a call"
+                  title={d.iframeTitle}
                   className="h-full min-h-[520px] w-full border-0 rounded-lg md:min-h-[600px]"
                   style={{
                     width: "100%",

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 /**
  * SpeedPopup — Premium informational modal.
@@ -8,6 +10,8 @@ import { useEffect, useState, useCallback, useRef } from "react";
  * Glass/dark aesthetic, accessible, keyboard-friendly.
  */
 export default function SpeedPopup() {
+  const { locale } = useLocale();
+  const sp = translations[locale].speedPopup;
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
   const backdropRef = useRef<HTMLDivElement>(null);
@@ -86,7 +90,7 @@ export default function SpeedPopup() {
           ref={closeBtnRef}
           className="speed-popup-close"
           onClick={close}
-          aria-label="Close popup"
+          aria-label={sp.closeLabel}
           type="button"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -96,11 +100,11 @@ export default function SpeedPopup() {
         </button>
 
         {/* Eyebrow */}
-        <p className="speed-popup-eyebrow">My Promise</p>
+        <p className="speed-popup-eyebrow">{sp.eyebrow}</p>
 
         {/* Title */}
         <h2 id="speed-popup-title" className="speed-popup-title">
-          SPEED
+          {sp.title}
         </h2>
 
         {/* Accent line */}
@@ -108,7 +112,7 @@ export default function SpeedPopup() {
 
         {/* Body text */}
         <p className="speed-popup-body">
-          I respect your time as much as I respect mine. This is why <strong className="speed-popup-highlight">99% of my projects launch within the first week.</strong>
+          {sp.body}<strong className="speed-popup-highlight">{sp.highlight}</strong>
         </p>
       </div>
     </div>

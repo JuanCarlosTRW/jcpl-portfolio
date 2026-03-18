@@ -187,6 +187,13 @@ export type TranslationsShape = {
     menu: string;
     close: string;
   };
+  speedPopup: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    highlight: string;
+    closeLabel: string;
+  };
   benefits: {
     eyebrow: string;
     headline: string;
@@ -419,6 +426,8 @@ export type TranslationsShape = {
       step2: string;
       step3: string;
       note: string;
+      loading: string;
+      iframeTitle: string;
     };
   };
   services: {
@@ -555,6 +564,13 @@ export const translations: Record<Locale, TranslationsShape> = {
       skipToContent: "Skip to content",
       menu: "Menu",
       close: "Close",
+    },
+    speedPopup: {
+      eyebrow: "My Promise",
+      title: "SPEED",
+      body: "I respect your time as much as I respect mine. This is why ",
+      highlight: "99% of my projects launch within the first week.",
+      closeLabel: "Close popup",
     },
     benefits: {
       eyebrow: "SYSTEM BENEFITS",
@@ -795,6 +811,8 @@ export const translations: Record<Locale, TranslationsShape> = {
         step2: "I show you where you are losing calls and what fixing it is worth.",
         step3: "I tell you if I can help. No pitch. No pressure.",
         note: "I run a limited number of diagnostic calls per week. For a faster response, email juan@clientgrowth.ca for a same-day reply.",
+        loading: "Loading calendar...",
+        iframeTitle: "Book a call",
       },
     },
     services: {
@@ -936,6 +954,13 @@ export const translations: Record<Locale, TranslationsShape> = {
       skipToContent: "Aller au contenu",
       menu: "Menu",
       close: "Fermer",
+    },
+    speedPopup: {
+      eyebrow: "Ma Promesse",
+      title: "RAPIDITÉ",
+      body: "Je respecte votre temps autant que le mien. C'est pourquoi ",
+      highlight: "99 % de mes projets sont lancés dans la première semaine.",
+      closeLabel: "Fermer le popup",
     },
     benefits: {
       eyebrow: "AVANTAGES DU SYSTÈME",
@@ -1110,7 +1135,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         link: "Pourquoi ce modèle fonctionne →",
       },
       testimonial: {
-        quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.",
+        quote: "Juan a complètement refait notre présence en ligne depuis zéro. La première réservation est arrivée en 11 jours. Le calendrier n'a plus eu un seul créneau vide depuis.",
         name: "Mike S.",
         business: "Culture Barbershop · Montréal, QC",
         below: "Chaque résultat sur cette page provient du même système d'acquisition.",
@@ -1176,6 +1201,8 @@ export const translations: Record<Locale, TranslationsShape> = {
         step2: "Je vous montre où vous perdez des appels et ce que ça vaut de corriger.",
         step3: "Je vous dis si je peux aider. Aucun pitch. Aucune pression.",
         note: "Je fais un nombre limité d'appels diagnostiques par semaine. Pour une réponse plus rapide, écrivez à juan@clientgrowth.ca pour une réponse le jour même.",
+        loading: "Chargement du calendrier...",
+        iframeTitle: "Réserver un appel",
       },
     },
     services: {
