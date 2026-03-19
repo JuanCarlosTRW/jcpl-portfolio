@@ -49,6 +49,8 @@ export default function Hero() {
 	}, []);
 
 	useEffect(() => {
+		// Skip parallax on touch devices — no mousemove events + saves battery
+		if (window.matchMedia("(pointer: coarse)").matches) return;
 		window.addEventListener("mousemove", handleMouseMove, { passive: true });
 		return () => window.removeEventListener("mousemove", handleMouseMove);
 	}, [handleMouseMove]);
@@ -68,12 +70,12 @@ export default function Hero() {
 		if (frameRef.current) gsap.set(frameRef.current, { opacity: 1 });
 
 		if (isMobile) {
-			tl.from(".hero-bridge", { opacity: 0, duration: 0.4 })
-				.from(".hero-label", { opacity: 0, duration: 0.4 }, "-=0.2")
-				.from(".hero-word", { opacity: 0, duration: 0.55 }, "-=0.1")
-				.from(".hero-subheadline", { opacity: 0, duration: 0.5 }, "-=0.2")
-				.from(".hero-cta-wrapper", { opacity: 0, duration: 0.4 }, "-=0.2")
-				.from(".hero-risk-reversal", { opacity: 0, duration: 0.3 }, "-=0.1");
+			// Stagger each element in clearly so the animation reads on mobile
+			tl.from(".hero-label", { opacity: 0, y: 6, duration: 0.5, delay: 0.15 })
+				.from(".hero-word", { opacity: 0, y: 12, stagger: 0.04, duration: 0.5 }, "-=0.15")
+				.from(".hero-subheadline", { opacity: 0, y: 8, duration: 0.5 }, "-=0.15")
+				.from(".hero-cta-wrapper", { opacity: 0, y: 8, duration: 0.45 }, "-=0.1")
+				.from(".hero-risk-reversal", { opacity: 0, duration: 0.35 }, "-=0.05");
 		} else {
 			tl.from(".hero-bridge", { opacity: 0, y: 8, duration: 0.5 })
 				.from(".hero-label", { opacity: 0, duration: 0.4 }, "-=0.2")

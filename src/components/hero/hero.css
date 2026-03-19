@@ -309,20 +309,53 @@
 }
 
 /* ═══════════════════════════════════════════════════
+   WEBGL FALLBACK — always-visible gradient behind the
+   canvas so the hero has depth even if WebGL fails,
+   is blocked, or hasn't loaded yet.
+   ═══════════════════════════════════════════════════ */
+.hero-webgl-wrap {
+  background:
+    radial-gradient(ellipse 120% 80% at 60% 40%, rgba(43,90,140,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 20% 70%, rgba(212,168,83,0.08) 0%, transparent 55%),
+    linear-gradient(160deg, #101820 0%, #0D0B09 50%, #0a0e14 100%);
+}
+
+/* ═══════════════════════════════════════════════════
    MOBILE
    ═══════════════════════════════════════════════════ */
 @media (max-width: 767px) {
   .cb {
-    min-height: 80vh;
+    min-height: 100svh;
+    /* Slightly pull content below the fixed nav bar */
+    padding-top: 72px;
+  }
+
+  .cb-content-wrap {
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .cb-content {
+    padding: 1.5rem 1.25rem 2.5rem;
+    text-align: left;
+    align-items: flex-start;
+    gap: 0.875rem;
   }
 
   .cb-cta-wrap {
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
+    align-self: stretch;
   }
 
   .cb-cta {
     width: 100%;
     justify-content: center;
+  }
+
+  /* Disable heavy WebGL parallax shift on mobile to reduce GPU pressure */
+  .cb-layer--bg {
+    inset: 0;
+    will-change: auto;
   }
 }

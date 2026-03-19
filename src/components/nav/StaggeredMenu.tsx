@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from "next/image";
 import { gsap } from 'gsap';
+import { useLenis } from '@/context/LenisContext';
 import './StaggeredMenu.css';
 
 export interface StaggeredMenuItem {
@@ -75,8 +76,41 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
   const busyRef = useRef(false);
   const initDone = useRef(false);
+  const scrollLockRef = useRef<{ y: number; active: boolean }>({ y: 0, active: false });
+
+  const lenisRef = useLenis();
 
   const offscreen = position === 'left' ? -100 : 100;
+
+  /* ─── iOS-safe scroll lock helpers ─── */
+  const lockScroll = useCallback(() => {
+    if (scrollLockRef.current.active) return;
+    const lenis = lenisRef.current;
+    const y = lenis ? lenis.scroll : window.scrollY;
+    scrollLockRef.current = { y, active: true };
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${y}px`;
+    document.body.style.width = '100%';
+    lenis?.stop();
+  }, [lenisRef]);
+
+  const unlockScroll = useCallback(() => {
+    if (!scrollLockRef.current.active) return;
+    const { y } = scrollLockRef.current;
+    scrollLockRef.current.active = false;
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    const lenis = lenisRef.current;
+    if (lenis) {
+      lenis.scrollTo(y, { immediate: true });
+      lenis.start();
+    } else {
+      window.scrollTo(0, y);
+    }
+  }, [lenisRef]);
 
   /* ─── Helper: get prelayer elements ─── */
   const getPrelayers = useCallback((): HTMLElement[] => {
@@ -195,6 +229,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   /* ─── Play open ─── */
   const playOpen = useCallback(() => {
     busyRef.current = true;
+    lockScroll();
     const tl = buildOpenTimeline();
     if (tl) {
       tl.eventCallback('onComplete', () => {
@@ -204,7 +239,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     } else {
       busyRef.current = false;
     }
-  }, [buildOpenTimeline]);
+  }, [buildOpenTimeline, lockScroll]);
 
   /* ─── Play close ─── */
   const playClose = useCallback(() => {
@@ -229,10 +264,12 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
         const nums = panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item');
         if (nums.length) gsap.set(nums, { '--sm-num-opacity': 0 } as gsap.TweenVars);
+        // Unlock scroll AFTER animation completes — prevents iOS scroll position jump
+        unlockScroll();
         busyRef.current = false;
       },
     });
-  }, [offscreen, getPrelayers]);
+  }, [offscreen, getPrelayers, unlockScroll]);
 
   /* ─── Animate icon (plus → X) ─── */
   const animateIcon = useCallback((opening: boolean) => {
@@ -350,17 +387,12 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     return () => document.removeEventListener('mousedown', handler);
   }, [closeOnClickAwayProp, open, closeMenu]);
 
-  /* ─── Body scroll lock ─── */
+  /* ─── Ensure scroll is unlocked on unmount (safety net) ─── */
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
     return () => {
-      document.body.style.overflow = '';
+      unlockScroll();
     };
-  }, [open]);
+  }, [unlockScroll]);
 
   /* ═══════════════════════════════════════════════
      RENDER

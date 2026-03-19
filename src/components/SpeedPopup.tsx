@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useLocale } from "@/context/LocaleContext";
 import { translations } from "@/lib/translations";
+import { useLenis } from "@/context/LenisContext";
 
 /**
  * SpeedPopup — Premium informational modal.
@@ -17,6 +18,8 @@ export default function SpeedPopup() {
   const backdropRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const scrollLockRef = useRef<{ y: number; active: boolean }>({ y: 0, active: false });
+  const lenisRef = useLenis();
 
   /* Show after 10s — once per session */
   useEffect(() => {
@@ -60,15 +63,49 @@ export default function SpeedPopup() {
     [close]
   );
 
-  /* Lock body scroll when open */
+  /* iOS-safe scroll lock when open */
   useEffect(() => {
+    const lenis = lenisRef.current;
     if (visible && !closing) {
-      document.body.style.overflow = "hidden";
+      if (!scrollLockRef.current.active) {
+        const y = lenis ? lenis.scroll : window.scrollY;
+        scrollLockRef.current = { y, active: true };
+        document.body.style.overflow = "hidden";
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${y}px`;
+        document.body.style.width = "100%";
+        lenis?.stop();
+      }
     } else {
-      document.body.style.overflow = "";
+      if (scrollLockRef.current.active) {
+        const { y } = scrollLockRef.current;
+        scrollLockRef.current.active = false;
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        if (lenis) {
+          lenis.scrollTo(y, { immediate: true });
+          lenis.start();
+        } else {
+          window.scrollTo(0, y);
+        }
+      }
     }
-    return () => { document.body.style.overflow = ""; };
-  }, [visible, closing]);
+    return () => {
+      if (scrollLockRef.current.active) {
+        const { y } = scrollLockRef.current;
+        scrollLockRef.current.active = false;
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        const l = lenisRef.current;
+        if (l) { l.scrollTo(y, { immediate: true }); l.start(); }
+        else window.scrollTo(0, y);
+      }
+    };
+  }, [visible, closing, lenisRef]);
 
   if (!visible) return null;
 
