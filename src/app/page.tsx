@@ -4,6 +4,7 @@ import HeroSection from "@/components/home/HeroSection";
 import FounderBlock from "@/components/home/FounderBlock";
 import PricingStatement from "@/components/home/PricingStatement";
 import UnicornStudioEmbed from "@/components/home/UnicornStudioEmbed";
+import ClientLogoTicker from "@/components/home/ClientLogoTicker";
 
 export const metadata: Metadata = {
   alternates: {
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
 };
 
 /* Dynamic imports for below-the-fold sections */
-const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
-const ROICalculator = dynamic(() => import("@/components/home/ROICalculator"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
-const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
+const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
 const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"));
+const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
+const ROICalculator = dynamic(() => import("@/components/home/ROICalculator"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const CalendarSection = dynamic(() => import("@/components/sections/CalendarSection"));
@@ -33,35 +34,39 @@ export default function HomePage() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Pain (8:47 AM + cards) */}
-      <ClientReality />
+      {/* 2. Client logos strip */}
+      <ClientLogoTicker />
 
-      {/* 3. Proof — surfaces earlier for stronger trust */}
+      {/* 3. Proof — verified results */}
       <FeaturedCaseStudy />
 
-      {/* 4. ROI Calculator — immediately after proof, numbers still fresh */}
-      <ROICalculator />
+      {/* 4. Pain points (2 cards) */}
+      <ClientReality />
 
-      {/* 5. Services — explains HOW the proof was achieved */}
+      {/* 5. Acquisition system — Attract → Convert → Compound */}
       <ServicesSection />
 
       {/* 6. Who Builds This */}
       <FounderBlock />
 
-      {/* 7. Testimonial */}
+      {/* 7. Testimonial — Mike S., Culture Barbershop */}
       <TestimonialBlock />
 
       {/* 8. Pricing */}
       <PricingStatement />
 
-      {/* 9. Who This Is For */}
+      {/* 9. ROI Calculator */}
+      <ROICalculator />
+
+      {/* 10. Who This Is For */}
       <QualificationCTA />
 
-      {/* 10. FAQ */}
+      {/* 11. FAQ */}
       <FAQ />
 
-      {/* 11. Booking (diagnostic + calendar) */}
+      {/* 12. Booking (diagnostic + calendar) */}
       <CalendarSection />
+
       {/* Unicorn Studio WebGL Embed */}
       <UnicornStudioEmbed />
     </>

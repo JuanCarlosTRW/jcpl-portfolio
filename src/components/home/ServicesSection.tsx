@@ -10,45 +10,6 @@ export default function ServicesSection() {
   const { locale, lp } = useLocale();
   const a = translations[locale].homepage.acquisitionSystem;
 
-  const SYSTEM_GROUPS = [
-    {
-      seq: "01",
-      label: a.attract,
-      items: [
-        { name: a.googleAds, desc: a.googleAdsSub },
-        { name: a.localSeo, desc: a.localSeoSub },
-        { name: a.geoAi, desc: a.geoAiSub },
-      ],
-      borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
-      bg: "#181410",
-      highlighted: false,
-    },
-    {
-      seq: "02",
-      label: a.convert,
-      items: [
-        { name: a.conversionWebsite, desc: a.conversionWebsiteSub },
-        { name: a.conversionCopy, desc: a.conversionCopySub },
-        { name: a.aiVoiceAgent, desc: a.aiVoiceAgentSub },
-      ],
-      borderStyle: "2px solid #D4A853",
-      bg: "#1E1A14",
-      highlighted: true,
-    },
-    {
-      seq: "03",
-      label: a.compound,
-      items: [
-        { name: a.weeklyOptimization, desc: a.weeklyOptimizationSub },
-        { name: a.monthlyReporting, desc: a.monthlyReportingSub },
-        { name: a.expansionLayers, desc: a.expansionLayersSub },
-      ],
-      borderStyle: "1px solid rgba(212, 168, 83, 0.2)",
-      bg: "#181410",
-      highlighted: false,
-    },
-  ];
-
   return (
     <SectionWrapper
       id="services"
@@ -95,75 +56,240 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Three-column system architecture */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {SYSTEM_GROUPS.map((group) => (
-            <div
-              key={group.label}
-              className="rounded-[14px] p-7"
-              style={{
-                background: group.bg,
-                border: "1px solid #2A2318",
-                borderTop: group.borderStyle,
-              }}
-            >
-              {/* Sequence + label */}
-              <p
-                className="uppercase mb-6"
-                style={{
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.14em",
-                  fontWeight: 600,
-                }}
-              >
-                <span style={{ color: "#4A4540", marginRight: 7 }}>
-                  {group.seq}
+        {/* ── Premium System Diagram ── */}
+        <div
+          style={{
+            background: "#0F0D0B",
+            border: "1px solid rgba(212,168,83,0.18)",
+            borderRadius: 14,
+            padding: "36px 28px 28px",
+          }}
+        >
+          {/* Phases wrapper — horizontal on desktop, vertical on mobile */}
+          <div className="phases-wrapper flex flex-col md:flex-row md:items-start md:gap-0">
+
+            {/* Phase 01 — Attract */}
+            <div className="phase flex-1 md:pr-6 md:border-r" style={{ borderColor: "rgba(212,168,83,0.12)" }}>
+              <div className="phase-header mb-4">
+                <span
+                  className="block"
+                  style={{ fontSize: "10px", letterSpacing: "0.14em", color: "rgba(212,168,83,0.6)", fontWeight: 600, textTransform: "uppercase", marginBottom: 4 }}
+                >
+                  01
                 </span>
                 <span
-                  style={{
-                    color: group.highlighted ? "#D4A853" : "#756D63",
-                  }}
+                  className="block font-semibold"
+                  style={{ fontSize: "15px", color: "#D4A853", marginBottom: 2 }}
                 >
-                  {group.label}
+                  {a.attract}
                 </span>
-              </p>
-
-              {/* Items with micro-descriptors */}
-              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                {group.items.map((item, idx) => (
-                  <li
-                    key={item.name}
-                    style={{
-                      marginBottom:
-                        idx < group.items.length - 1 ? 14 : 0,
-                    }}
-                  >
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: "0.9rem",
-                        color: group.highlighted ? "#D2C9B8" : "#A69D8D",
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      {item.name}
-                    </span>
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: "0.72rem",
-                        color: "#5E5650",
-                        marginTop: 3,
-                        lineHeight: 1.45,
-                      }}
-                    >
-                      {item.desc}
-                    </span>
-                  </li>
-                ))}
+                <span
+                  className="block"
+                  style={{ fontSize: "11px", color: "rgba(237,229,213,0.38)" }}
+                >
+                  Pull in buyers
+                </span>
+              </div>
+              <div
+                aria-hidden="true"
+                style={{ height: 1, background: "rgba(212,168,83,0.12)", marginBottom: 16 }}
+              />
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 14 }}>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.googleAds}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.googleAdsSub}</span>
+                </li>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.localSeo}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.localSeoSub}</span>
+                </li>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.geoAi}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.geoAiSub}</span>
+                </li>
               </ul>
             </div>
-          ))}
+
+            {/* Arrow — desktop only */}
+            <div
+              className="hidden md:flex items-center justify-center flex-shrink-0"
+              style={{ width: 40, paddingTop: 8 }}
+              aria-hidden="true"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M15 8l4 4-4 4" stroke="#D4A853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+
+            {/* Mobile divider between phases */}
+            <div
+              className="md:hidden"
+              aria-hidden="true"
+              style={{ height: 1, background: "rgba(212,168,83,0.18)", margin: "20px 0" }}
+            />
+
+            {/* Phase 02 — Convert */}
+            <div className="phase flex-1 md:px-6 md:border-r" style={{ borderColor: "rgba(212,168,83,0.12)" }}>
+              <div className="phase-header mb-4">
+                <span
+                  className="block"
+                  style={{ fontSize: "10px", letterSpacing: "0.14em", color: "rgba(212,168,83,0.6)", fontWeight: 600, textTransform: "uppercase", marginBottom: 4 }}
+                >
+                  02
+                </span>
+                <span
+                  className="block font-semibold"
+                  style={{ fontSize: "15px", color: "#D4A853", marginBottom: 2 }}
+                >
+                  {a.convert}
+                </span>
+                <span
+                  className="block"
+                  style={{ fontSize: "11px", color: "rgba(237,229,213,0.38)" }}
+                >
+                  Turn visits into calls
+                </span>
+              </div>
+              <div
+                aria-hidden="true"
+                style={{ height: 1, background: "rgba(212,168,83,0.12)", marginBottom: 16 }}
+              />
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 14 }}>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.conversionWebsite}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.conversionWebsiteSub}</span>
+                </li>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.conversionCopy}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.conversionCopySub}</span>
+                </li>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.aiVoiceAgent}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.aiVoiceAgentSub}</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Arrow — desktop only */}
+            <div
+              className="hidden md:flex items-center justify-center flex-shrink-0"
+              style={{ width: 40, paddingTop: 8 }}
+              aria-hidden="true"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M15 8l4 4-4 4" stroke="#D4A853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+
+            {/* Mobile divider between phases */}
+            <div
+              className="md:hidden"
+              aria-hidden="true"
+              style={{ height: 1, background: "rgba(212,168,83,0.18)", margin: "20px 0" }}
+            />
+
+            {/* Phase 03 — Compound */}
+            <div className="phase flex-1 md:pl-6">
+              <div className="phase-header mb-4">
+                <span
+                  className="block"
+                  style={{ fontSize: "10px", letterSpacing: "0.14em", color: "rgba(212,168,83,0.6)", fontWeight: 600, textTransform: "uppercase", marginBottom: 4 }}
+                >
+                  03
+                </span>
+                <span
+                  className="block font-semibold"
+                  style={{ fontSize: "15px", color: "#D4A853", marginBottom: 2 }}
+                >
+                  {a.compound}
+                </span>
+                <span
+                  className="block"
+                  style={{ fontSize: "11px", color: "rgba(237,229,213,0.38)" }}
+                >
+                  Lower cost over time
+                </span>
+              </div>
+              <div
+                aria-hidden="true"
+                style={{ height: 1, background: "rgba(212,168,83,0.12)", marginBottom: 16 }}
+              />
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 14 }}>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.weeklyOptimization}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.weeklyOptimizationSub}</span>
+                </li>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.monthlyReporting}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.monthlyReportingSub}</span>
+                </li>
+                <li>
+                  <span className="block" style={{ color: "#EDE5D5", fontSize: "13px", fontWeight: 500 }}>{a.expansionLayers}</span>
+                  <span className="block" style={{ color: "rgba(237,229,213,0.38)", fontSize: "11px", marginTop: 2 }}>{a.expansionLayersSub}</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          {/* Footer line */}
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "11px",
+              color: "rgba(237,229,213,0.35)",
+              borderTop: "1px solid rgba(255,255,255,0.06)",
+              marginTop: 22,
+              paddingTop: 16,
+            }}
+          >
+            The longer it runs, the cheaper each call gets.
+          </p>
+        </div>
+
+        {/* ── Custom Website Callout Card ── */}
+        <div
+          className="mt-6"
+          style={{
+            border: "1px solid rgba(212,168,83,0.2)",
+            borderRadius: 10,
+            padding: "24px 28px",
+            background: "#0F0D0B",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "10px",
+              fontWeight: 600,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "#D4A853",
+              marginBottom: 10,
+            }}
+          >
+            Your Vision, Built to Convert
+          </p>
+          <h3
+            style={{
+              fontSize: "16px",
+              fontWeight: 500,
+              color: "#EDE5D5",
+              marginBottom: 10,
+              lineHeight: 1.3,
+            }}
+          >
+            You have an idea for how your site should look and feel.
+            I build it — designed from scratch around your brand, engineered to turn visitors into calls.
+          </h3>
+          <p
+            style={{
+              fontSize: "13px",
+              color: "rgba(237,229,213,0.55)",
+              lineHeight: 1.65,
+            }}
+          >
+            No templates. No guesswork. You describe it, I make it real.
+          </p>
         </div>
 
         {/* Footer link */}

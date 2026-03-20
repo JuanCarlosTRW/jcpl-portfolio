@@ -134,6 +134,45 @@ function ProofCard({ vc }: { vc: typeof translations["en"]["homepage"]["verified
       >
         {vc.location}
       </div>
+      {/* Screenshot — live Google Ads dashboard */}
+      <div
+        style={{
+          position: "relative",
+          borderRadius: 7,
+          overflow: "hidden",
+          marginBottom: "12px",
+        }}
+      >
+        <img
+          src="https://static.wixstatic.com/media/62f926_492fa3904b904883bd7ff2023e2c28a9~mv2.png"
+          alt="Google Ads account dashboard showing $41,085 in revenue"
+          style={{ width: "100%", display: "block", borderRadius: 7 }}
+          loading="lazy"
+        />
+        {/* Dark overlay so text beneath stays legible */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(13,11,9,0.52)",
+            borderRadius: 7,
+          }}
+        />
+      </div>
+      <p
+        style={{
+          fontSize: "0.6rem",
+          color: "#4A4540",
+          letterSpacing: "0.07em",
+          textTransform: "uppercase",
+          marginBottom: "14px",
+          lineHeight: 1.5,
+        }}
+      >
+        Live Google Ads account · Verified February 2026
+      </p>
+
       <div style={{ height: 1, background: "rgba(255,255,255,0.08)", marginBottom: "16px" }} />
       {stats.map(({ num, label }) => (
         <div

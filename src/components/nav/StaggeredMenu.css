@@ -247,6 +247,12 @@
 .staggered-menu-header .sm-lang {
   margin-left: auto;
   margin-right: 0.5rem;
+  background: rgba(212, 168, 83, 0.08);
+  border: 1px solid rgba(212, 168, 83, 0.25);
+  border-radius: 8px;
+  padding: 2px 4px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
 }
 
 .sm-panel-footer {

@@ -106,6 +106,59 @@ export default function FounderBlock() {
               </p>
             </div>
 
+            {/* Video placeholder */}
+            <div
+              style={{
+                background: "rgba(212,168,83,0.07)",
+                border: "1px solid rgba(212,168,83,0.25)",
+                borderRadius: 10,
+                padding: "20px 24px",
+                display: "flex",
+                alignItems: "center",
+                gap: 14,
+              }}
+            >
+              <div
+                aria-hidden="true"
+                style={{
+                  width: 36,
+                  height: 36,
+                  background: "#D4A853",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <polygon points="6,4 16,10 6,16" fill="#0D0B09"/>
+                </svg>
+              </div>
+              <div>
+                <span
+                  style={{
+                    display: "block",
+                    color: "#EDE5D5",
+                    fontSize: "14px",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  Watch: how the system works
+                </span>
+                <span
+                  style={{
+                    display: "block",
+                    color: "rgba(237,229,213,0.4)",
+                    fontSize: "11px",
+                    marginTop: 3,
+                  }}
+                >
+                  Video coming soon
+                </span>
+              </div>
+            </div>
+
             {/* Trust chips */}
             <div className="flex flex-wrap gap-2">
               {CHIPS.map((chip) => (

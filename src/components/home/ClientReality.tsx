@@ -19,8 +19,6 @@ export default function ClientReality() {
 
   const CARDS = [
     { num: "01", title: r.card01Title, body: r.card01Body },
-    { num: "02", title: r.card02Title, body: r.card02Body },
-    { num: "03", title: r.card03Title, body: r.card03Body },
     { num: "04", title: r.card04Title, body: r.card04Body },
   ];
 
@@ -118,59 +116,47 @@ export default function ClientReality() {
           </div>
         </Reveal>
 
-        <div className="mb-12 grid gap-5 lg:mb-14 lg:grid-cols-2 reality-cards">
-          {CARDS.map((card, i) => {
-            const isFullWidth = i === 0 || i === 3;
-            const isDominant = i === 0;
-            const isConclusion = i === 3;
-            const padding = isFullWidth ? "p-9 md:p-11" : "p-7 md:p-8";
-            const titleSize = isFullWidth
-              ? "text-[clamp(22px,2.3vw,27px)]"
-              : "text-[19px]";
-            return (
-              <Reveal key={card.num} delay={0.08 * (i + 1)} className={isFullWidth ? "lg:col-span-2" : ""}>
-                <div
-                  className={`group relative flex h-full flex-col rounded-[14px] lift-card card ${padding}`}
+        <div className="mb-12 grid gap-5 lg:mb-14 reality-cards">
+          {CARDS.map((card, i) => (
+            <Reveal key={card.num} delay={0.08 * (i + 1)}>
+              <div
+                className="group relative flex h-full flex-col rounded-[14px] lift-card card p-9 md:p-11"
+                style={{
+                  background: "#1A1714",
+                  border: "1px solid rgba(212,168,83,0.12)",
+                  borderLeft: i === 1
+                    ? "3px solid rgba(212,168,83,0.50)"
+                    : "3px solid rgba(212,168,83,0.30)",
+                }}
+              >
+                <span
+                  className="mb-5 inline-flex w-fit items-center rounded-md px-2.5 py-1"
                   style={{
-                    background: "#1A1714",
-                    border: "1px solid rgba(212,168,83,0.12)",
-                    borderLeft: "3px solid rgba(212,168,83,0.30)",
-                    ...(isConclusion
-                      ? { borderLeft: "3px solid rgba(212,168,83,0.50)" }
-                      : {}),
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "#D4A853",
+                    background: "rgba(212,168,83,0.08)",
+                    border: "1px solid rgba(212,168,83,0.22)",
                   }}
                 >
-                  <span
-                    className="mb-5 inline-flex w-fit items-center rounded-md px-2.5 py-1"
-                    style={{
-                      fontSize: "10px",
-                      fontWeight: 700,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: "#D4A853",
-                      background: "rgba(212,168,83,0.08)",
-                      border: "1px solid rgba(212,168,83,0.22)",
-                    }}
-                  >
-                    {card.num}
-                  </span>
-                  <h3
-                    className={`mb-3.5 font-[700] leading-[1.26] text-[#F5F0E8] ${titleSize}`}
-                  >
-                    {card.title}
-                  </h3>
-                  <p
-                    className={`flex-1 leading-[1.72] ${
-                      isFullWidth ? "text-[0.9375rem] md:text-[1rem]" : "text-[0.8625rem]"
-                    }`}
-                    style={{ color: isDominant ? "#A8A098" : "#9A9080" }}
-                  >
-                    {card.body}
-                  </p>
-                </div>
-              </Reveal>
-            );
-          })}
+                  {card.num}
+                </span>
+                <h3
+                  className="mb-3.5 font-[700] leading-[1.26] text-[#F5F0E8] text-[clamp(22px,2.3vw,27px)]"
+                >
+                  {card.title}
+                </h3>
+                <p
+                  className="flex-1 leading-[1.72] text-[0.9375rem] md:text-[1rem]"
+                  style={{ color: "#A8A098" }}
+                >
+                  {card.body}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
 
       </div>

@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { useLocale } from "@/context/LocaleContext";
 import { translations } from "@/lib/translations";
+import { trackEvent } from "@/lib/analytics";
 
 function CheckIcon() {
   return (
@@ -27,8 +28,8 @@ export default function QualificationCTA() {
   const { locale } = useLocale();
   const f = translations[locale].homepage.fitNotFit;
 
-  const forYouIf = [f.rightFit1, f.rightFit2, f.rightFit3, f.rightFit4, f.rightFit5];
-  const notForYouIf = [f.notFit1, f.notFit2, f.notFit3, f.notFit4, f.notFit5];
+  const forYouIf = [f.rightFit1, f.rightFit2, f.rightFit3];
+  const notForYouIf = [f.notFit1, f.notFit2, f.notFit3];
 
   return (
     <section id="qualify" className="relative overflow-hidden py-16 border-b border-[#2A2318]" style={{ background: "#0D0B09" }}>
@@ -71,6 +72,16 @@ export default function QualificationCTA() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href="/apply"
+                  className="mt-5 inline-flex items-center gap-1"
+                  style={{ fontSize: "0.75rem", color: "#8A7E74", textDecoration: "none" }}
+                  onClick={() => trackEvent("section_cta_click")}
+                  onMouseOver={(e) => { e.currentTarget.style.color = "#D2C9B8"; }}
+                  onMouseOut={(e) => { e.currentTarget.style.color = "#8A7E74"; }}
+                >
+                  Full list →
+                </Link>
               </div>
 
               <div
@@ -91,6 +102,16 @@ export default function QualificationCTA() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href="/apply"
+                  className="mt-5 inline-flex items-center gap-1"
+                  style={{ fontSize: "0.75rem", color: "#8A7E74", textDecoration: "none" }}
+                  onClick={() => trackEvent("section_cta_click")}
+                  onMouseOver={(e) => { e.currentTarget.style.color = "#D2C9B8"; }}
+                  onMouseOut={(e) => { e.currentTarget.style.color = "#8A7E74"; }}
+                >
+                  Full list →
+                </Link>
               </div>
             </div>
           </Reveal>

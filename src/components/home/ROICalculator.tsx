@@ -36,6 +36,15 @@ export default function ROICalculator() {
 
   const [jobValue, setJobValue] = useState(1500);
   const [callsNeeded, setCallsNeeded] = useState(10);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check, { passive: true });
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const costPerCall = 33;
   const monthlyCost = callsNeeded * costPerCall;
@@ -59,6 +68,38 @@ export default function ROICalculator() {
       className="relative px-6 md:px-12 lg:px-20 py-24 md:py-28"
       style={{ background: "#0D0B09", borderBottom: "1px solid #2A2318" }}
     >
+      {/* Mobile accordion trigger — visible only below 768px */}
+      {isMobile && !mobileOpen && (
+        <button
+          type="button"
+          onClick={() => setMobileOpen(true)}
+          className="w-full flex items-center justify-between"
+          style={{
+            background: "transparent",
+            border: "1px solid rgba(212,168,83,0.22)",
+            borderRadius: 10,
+            padding: "18px 20px",
+            color: "#EDE5D5",
+            fontSize: "15px",
+            fontWeight: 500,
+            cursor: "pointer",
+            marginBottom: 0,
+          }}
+          aria-expanded={false}
+          aria-controls="roi-content"
+        >
+          <span>Run the math</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M4 7l5 5 5-5" stroke="#D4A853" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
+
+      {/* Content — always visible on desktop, toggled on mobile */}
+      <div
+        id="roi-content"
+        style={{ display: isMobile && !mobileOpen ? "none" : undefined }}
+      >
       <div className="max-w-[1200px] mx-auto">
 
         {/* Eyebrow */}
@@ -305,6 +346,7 @@ export default function ROICalculator() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
