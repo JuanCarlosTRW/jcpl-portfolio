@@ -1,13 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { trackEvent } from "@/lib/analytics";
 import { useLocale } from "@/context/LocaleContext";
 import { translations } from "@/lib/translations";
-
-const Prism = dynamic(() => import("./Prism"), { ssr: false });
 
 export default function ServicesSection() {
   const { locale, lp } = useLocale();
@@ -18,50 +15,12 @@ export default function ServicesSection() {
       id="services"
       className="border-t border-[#2A2318]"
       style={{
-        position: "relative",
         background: "#0D0B09",
         paddingTop: "clamp(56px, 8vw, 96px)",
         paddingBottom: "clamp(56px, 8vw, 96px)",
-        overflow: "hidden",
       }}
     >
-      {/* Prism WebGL background — dimmed so content stays legible */}
-      <div
-        aria-hidden="true"
-        style={{ position: "absolute", inset: 0, opacity: 0.18, pointerEvents: "none", zIndex: 0 }}
-      >
-        <Prism
-          animationType="rotate"
-          timeScale={0.4}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
-          hueShift={0}
-          colorFrequency={1}
-          noise={0}
-          glow={1}
-          bloom={1}
-          transparent
-          suspendWhenOffscreen
-        />
-      </div>
-
-      {/* Dark bottom fade so section blends into next section */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "40%",
-          background: "linear-gradient(to bottom, transparent 0%, #0D0B09 100%)",
-          pointerEvents: "none",
-          zIndex: 1,
-        }}
-      />
-
-      <div className="max-w-[900px] mx-auto px-4 sm:px-6" style={{ position: "relative", zIndex: 2 }}>
+      <div className="max-w-[900px] mx-auto px-4 sm:px-6">
         {/* Section label + heading */}
         <div className="text-center mb-10">
           <p

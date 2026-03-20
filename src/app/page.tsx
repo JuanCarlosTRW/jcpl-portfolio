@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
-import FounderBlock from "@/components/home/FounderBlock";
-import PricingStatement from "@/components/home/PricingStatement";
-import UnicornStudioEmbed from "@/components/home/UnicornStudioEmbed";
 import ClientLogoTicker from "@/components/home/ClientLogoTicker";
 
 export const metadata: Metadata = {
@@ -17,15 +14,18 @@ export const metadata: Metadata = {
   },
 };
 
-/* Dynamic imports for below-the-fold sections */
+/* Dynamic imports — everything below the fold */
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
 const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"));
+const FounderBlock = dynamic(() => import("@/components/home/FounderBlock"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
+const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
 const ROICalculator = dynamic(() => import("@/components/home/ROICalculator"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const CalendarSection = dynamic(() => import("@/components/sections/CalendarSection"));
+const UnicornStudioEmbed = dynamic(() => import("@/components/home/UnicornStudioEmbed"));
 
 
 export default function HomePage() {

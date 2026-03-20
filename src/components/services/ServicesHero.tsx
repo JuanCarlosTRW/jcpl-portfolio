@@ -1,8 +1,11 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import RotatingText from "@/components/ui/RotatingText";
 import { useLocale } from "@/context/LocaleContext";
 import { translations } from "@/lib/translations";
+
+const Prism = dynamic(() => import("@/components/home/Prism"), { ssr: false });
 
 export default function ServicesHero() {
   const { locale } = useLocale();
@@ -13,6 +16,27 @@ export default function ServicesHero() {
       className="relative w-full min-h-[75vh] flex items-center px-5 sm:px-6 overflow-hidden"
       style={{ background: "#0D0B09" }}
     >
+      {/* Prism WebGL background */}
+      <div
+        aria-hidden="true"
+        style={{ position: "absolute", inset: 0, opacity: 0.18, pointerEvents: "none", zIndex: 0 }}
+      >
+        <Prism
+          animationType="rotate"
+          timeScale={0.4}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.6}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0}
+          glow={1}
+          bloom={1}
+          transparent
+          suspendWhenOffscreen
+        />
+      </div>
+
       {/* Hero orb */}
       <div
         className="absolute top-[10%] right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none z-0 orb-hero"
