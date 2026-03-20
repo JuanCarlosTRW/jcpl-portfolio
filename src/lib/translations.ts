@@ -256,6 +256,7 @@ export type TranslationsShape = {
       returnOnAd: string;
       perQualifiedCall: string;
       toFirstBookedCall: string;
+      screenshotLabel: string;
     };
     statsBar: {
       revenueLabel: string;
@@ -348,6 +349,17 @@ export type TranslationsShape = {
       expansionLayers: string;
       expansionLayersSub: string;
       seeFullSystem: string;
+      attractSub: string;
+      convertSub: string;
+      compoundSub: string;
+      footerLine: string;
+      websiteCalloutLabel: string;
+      websiteCalloutHeadline: string;
+      websiteCalloutBody: string;
+    };
+    logoTicker: {
+      label: string;
+      footer: string;
     };
     oneOperator: {
       eyebrow: string;
@@ -360,6 +372,8 @@ export type TranslationsShape = {
       tag3: string;
       closing: string;
       link: string;
+      videoLabel: string;
+      videoSoon: string;
     };
     testimonial: {
       quote: string;
@@ -419,6 +433,7 @@ export type TranslationsShape = {
       closingSub: string;
       belowCta: string;
       cta: string;
+      fullList: string;
     };
     diagnostic: {
       eyebrow: string;
@@ -741,6 +756,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         returnOnAd: "return on ad spend",
         perQualifiedCall: "per qualified call",
         toFirstBookedCall: "to first booked call",
+        screenshotLabel: "Live Google Ads account · Verified February 2026",
       },
       statsBar: {
         revenueLabel: "REVENUE GENERATED",
@@ -833,6 +849,17 @@ export const translations: Record<Locale, TranslationsShape> = {
         expansionLayers: "Expansion Layers",
         expansionLayersSub: "New channels as your market grows",
         seeFullSystem: "See the full system",
+        attractSub: "Pull in buyers",
+        convertSub: "Turn visits into calls",
+        compoundSub: "Lower cost over time",
+        footerLine: "The longer it runs, the cheaper each call gets.",
+        websiteCalloutLabel: "Your Vision, Built to Convert",
+        websiteCalloutHeadline: "You have an idea for how your site should look and feel. I build it — designed from scratch around your brand, engineered to turn visitors into calls.",
+        websiteCalloutBody: "No templates. No guesswork. You describe it, I make it real.",
+      },
+      logoTicker: {
+        label: "CURRENT CLIENTS GENERATING QUALIFIED CALLS RIGHT NOW",
+        footer: "Five industries. One growth system.",
       },
       oneOperator: {
         eyebrow: "WHO RUNS THE SYSTEM",
@@ -845,6 +872,8 @@ export const translations: Record<Locale, TranslationsShape> = {
         tag3: "Direct access. No middlemen.",
         closing: "If performance improves, you know why. If something is underperforming, you know who owns it.",
         link: "Why this model works →",
+        videoLabel: "Watch: how the system works",
+        videoSoon: "Video coming soon",
       },
       testimonial: {
         quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.",
@@ -904,6 +933,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         closingSub: "Everyone else waits for the phone to ring.",
         belowCta: "If I cannot produce a return, I tell you on the call. Before you pay anything.",
         cta: "Book a Diagnostic Call →",
+        fullList: "Full list →",
       },
       diagnostic: {
         eyebrow: "THE DIAGNOSTIC",
@@ -1265,6 +1295,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         returnOnAd: "retour sur investissement pub",
         perQualifiedCall: "par appel qualifié",
         toFirstBookedCall: "avant le premier appel réservé",
+        screenshotLabel: "Compte Google Ads actif · Vérifié en février 2026",
       },
       statsBar: {
         revenueLabel: "REVENUS GÉNÉRÉS",
@@ -1357,6 +1388,17 @@ export const translations: Record<Locale, TranslationsShape> = {
         expansionLayers: "Couches d'expansion",
         expansionLayersSub: "Nouveaux canaux au fur et à mesure que votre marché grandit",
         seeFullSystem: "Voir le système complet",
+        attractSub: "Attirer les acheteurs",
+        convertSub: "Transformer les visites en appels",
+        compoundSub: "Réduire le coût au fil du temps",
+        footerLine: "Plus il roule longtemps, moins chaque appel coûte cher.",
+        websiteCalloutLabel: "Votre vision, conçue pour convertir",
+        websiteCalloutHeadline: "Vous avez une idée de l'apparence et du ressenti de votre site. Je le construis — conçu de zéro autour de votre marque, optimisé pour transformer les visiteurs en appels.",
+        websiteCalloutBody: "Aucun gabarit. Aucune approximation. Vous le décrivez, je le réalise.",
+      },
+      logoTicker: {
+        label: "CLIENTS ACTUELS GÉNÉRANT DES APPELS QUALIFIÉS EN CE MOMENT",
+        footer: "Cinq secteurs. Un système de croissance.",
       },
       oneOperator: {
         eyebrow: "QUI OPÈRE LE SYSTÈME",
@@ -1369,6 +1411,8 @@ export const translations: Record<Locale, TranslationsShape> = {
         tag3: "Accès direct. Aucun intermédiaire.",
         closing: "Si la performance s'améliore, vous savez pourquoi. Si quelque chose sous-performe, vous savez qui en est responsable.",
         link: "Pourquoi ce modèle fonctionne →",
+        videoLabel: "Voir : comment le système fonctionne",
+        videoSoon: "Vidéo bientôt disponible",
       },
       testimonial: {
         quote: "Juan a complètement refait notre présence en ligne depuis zéro. La première réservation est arrivée en 11 jours. Le calendrier n'a plus eu un seul créneau vide depuis.",
@@ -1428,6 +1472,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         closingSub: "Les autres attendent que le téléphone sonne.",
         belowCta: "Si je ne peux pas produire un retour, je vous le dis lors de l'appel. Avant que vous ne payiez quoi que ce soit.",
         cta: "Réserver un appel diagnostic →",
+        fullList: "Liste complète →",
       },
       diagnostic: {
         eyebrow: "LE DIAGNOSTIC",

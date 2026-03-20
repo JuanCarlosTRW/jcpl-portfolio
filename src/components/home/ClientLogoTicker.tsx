@@ -3,8 +3,13 @@
 import Image from "next/image";
 import { caseStudyLogos } from "@/components/hero/LogoLoopData";
 import LogoLoop from "@/components/home/LogoLoop";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function ClientLogoTicker() {
+  const { locale } = useLocale();
+  const lt = translations[locale].homepage.logoTicker;
+
   return (
     <div
       style={{
@@ -24,7 +29,7 @@ export default function ClientLogoTicker() {
           marginBottom: 32,
         }}
       >
-        CURRENT CLIENTS GENERATING QUALIFIED CALLS RIGHT NOW
+        {lt.label}
       </p>
 
       {/* Edge-fade mask so logos fade in/out at the edges */}
@@ -88,7 +93,7 @@ export default function ClientLogoTicker() {
         className="text-center"
         style={{ fontSize: "0.85rem", color: "#6B6360", marginTop: 32, marginBottom: 0 }}
       >
-        Five industries. One growth system.
+        {lt.footer}
       </p>
     </div>
   );

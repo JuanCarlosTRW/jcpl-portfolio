@@ -170,7 +170,7 @@ function ProofCard({ vc }: { vc: typeof translations["en"]["homepage"]["verified
           lineHeight: 1.5,
         }}
       >
-        Live Google Ads account · Verified February 2026
+        {vc.screenshotLabel}
       </p>
 
       <div style={{ height: 1, background: "rgba(255,255,255,0.08)", marginBottom: "16px" }} />

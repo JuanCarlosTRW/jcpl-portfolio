@@ -144,7 +144,7 @@ export default function FounderBlock() {
                     lineHeight: 1.4,
                   }}
                 >
-                  Watch: how the system works
+                  {o.videoLabel}
                 </span>
                 <span
                   style={{
@@ -154,7 +154,7 @@ export default function FounderBlock() {
                     marginTop: 3,
                   }}
                 >
-                  Video coming soon
+                  {o.videoSoon}
                 </span>
               </div>
             </div>

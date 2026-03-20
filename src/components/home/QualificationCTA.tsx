@@ -80,7 +80,7 @@ export default function QualificationCTA() {
                   onMouseOver={(e) => { e.currentTarget.style.color = "#D2C9B8"; }}
                   onMouseOut={(e) => { e.currentTarget.style.color = "#8A7E74"; }}
                 >
-                  Full list →
+                  {f.fullList}
                 </Link>
               </div>
 
@@ -110,7 +110,7 @@ export default function QualificationCTA() {
                   onMouseOver={(e) => { e.currentTarget.style.color = "#D2C9B8"; }}
                   onMouseOut={(e) => { e.currentTarget.style.color = "#8A7E74"; }}
                 >
-                  Full list →
+                  {f.fullList}
                 </Link>
               </div>
             </div>
