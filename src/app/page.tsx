@@ -24,7 +24,7 @@ const PricingStatement = dynamic(() => import("@/components/home/PricingStatemen
 const ROICalculator = dynamic(() => import("@/components/home/ROICalculator"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
-const CalendarSection = dynamic(() => import("@/components/sections/CalendarSection"));
+const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 const UnicornStudioEmbed = dynamic(() => import("@/components/home/UnicornStudioEmbed"));
 
 
@@ -64,8 +64,8 @@ export default function HomePage() {
       {/* 11. FAQ */}
       <FAQ />
 
-      {/* 12. Booking (diagnostic + calendar) */}
-      <CalendarSection />
+      {/* 12. Diagnostic application form */}
+      <DiagnosticForm />
 
       {/* Unicorn Studio WebGL Embed */}
       <UnicornStudioEmbed />

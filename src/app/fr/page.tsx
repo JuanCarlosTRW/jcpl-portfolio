@@ -11,7 +11,7 @@ const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBloc
 const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
-const CalendarSection = dynamic(() => import("@/components/sections/CalendarSection"));
+const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 
 export const metadata: Metadata = {
   title: "Client Growth | Appels qualifiés prévisibles pour entreprises de services",
@@ -40,7 +40,7 @@ export default function FrHomePage() {
       <PricingStatement />
       <QualificationCTA />
       <FAQ />
-      <CalendarSection />
+      <DiagnosticForm />
     </>
   );
 }

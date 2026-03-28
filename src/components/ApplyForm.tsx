@@ -112,11 +112,11 @@ export default function ApplyForm() {
         <SectionLabel label="Application" className="mb-6" />
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
           Apply for a Private{" "}
-          <span className="gradient-text">Growth Partnership</span>
+          <span style={{ color: "#D4A853" }}>Growth Partnership</span>
         </h1>
         <p className="text-lg text-[var(--text-secondary)] mb-4">
           Every application is reviewed personally. Not every business moves
-          forward — that&apos;s what makes this process worth your time. If
+          forward. That&apos;s what makes this process worth your time. If
           there&apos;s a clear fit, you&apos;ll hear within 24 hours. If not,
           I&apos;ll tell you directly.
         </p>

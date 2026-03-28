@@ -1192,6 +1192,13 @@ img {
 
 @media (max-width: 768px) {
   .cta-primary { animation: ctaPulse 3s ease-in-out infinite; }
+  .cta-primary,
+  .cta-secondary,
+  .cta-button {
+    min-height: 48px;
+    min-width: 280px;
+    justify-content: center;
+  }
 }
 
 /* ── Founder photo float ── */

@@ -65,8 +65,7 @@ export default function ClientLogoTicker() {
                     height: 44,
                     width: "auto",
                     maxWidth: 160,
-                    /* Override the default brightness/invert filter — show logos as-is */
-                    filter: "none",
+                    filter: "grayscale(100%) brightness(1.2)",
                     opacity: 1,
                     transition: "opacity 250ms ease",
                   }}

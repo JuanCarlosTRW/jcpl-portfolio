@@ -121,12 +121,17 @@ export default function ServicesSection() {
               </svg>
             </div>
 
-            {/* Mobile divider between phases */}
+            {/* Mobile divider + arrow between phases */}
             <div
-              className="md:hidden"
+              className="md:hidden flex flex-col items-center gap-1"
               aria-hidden="true"
-              style={{ height: 1, background: "rgba(212,168,83,0.18)", margin: "20px 0" }}
-            />
+              style={{ margin: "20px 0" }}
+            >
+              <div style={{ height: 1, width: "100%", background: "rgba(212,168,83,0.18)" }} />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5v14M8 15l4 4 4-4" stroke="#D4A853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
 
             {/* Phase 02 — Convert */}
             <div className="phase flex-1 md:px-6 md:border-r" style={{ borderColor: "rgba(212,168,83,0.12)" }}>
@@ -181,12 +186,17 @@ export default function ServicesSection() {
               </svg>
             </div>
 
-            {/* Mobile divider between phases */}
+            {/* Mobile divider + arrow between phases */}
             <div
-              className="md:hidden"
+              className="md:hidden flex flex-col items-center gap-1"
               aria-hidden="true"
-              style={{ height: 1, background: "rgba(212,168,83,0.18)", margin: "20px 0" }}
-            />
+              style={{ margin: "20px 0" }}
+            >
+              <div style={{ height: 1, width: "100%", background: "rgba(212,168,83,0.18)" }} />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5v14M8 15l4 4 4-4" stroke="#D4A853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
 
             {/* Phase 03 — Compound */}
             <div className="phase flex-1 md:pl-6">

@@ -146,12 +146,16 @@ export default function QualificationCTA() {
               <div className="flex flex-col items-center mt-10">
                 <Link
                   href="#book-call"
-                  className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-base font-semibold text-[#0A0E1A] cta-primary cta-button"
-                  style={{ background: "#D4A853" }}
-                  onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}
-                  onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#D4A853"; }}
+                  style={{
+                    fontSize: "0.875rem",
+                    color: "#D4A853",
+                    textDecoration: "none",
+                    transition: "color 180ms ease",
+                  }}
+                  onMouseOver={(e) => { e.currentTarget.style.color = "#F5F0E8"; }}
+                  onMouseOut={(e) => { e.currentTarget.style.color = "#D4A853"; }}
                 >
-                  {f.cta}
+                  How the system works &rarr;
                 </Link>
                 <p
                   className="mt-3 text-center max-w-xs"

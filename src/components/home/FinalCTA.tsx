@@ -31,10 +31,10 @@ export default function FinalCTA() {
           {/* Headline */}
           <Reveal>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight mb-5">
-              Let&apos;s Make Your Business Dominate Your Market.
+              Your Pipeline Will Not Build Itself.
             </h2>
             <p className="text-[var(--text-secondary)] leading-[1.75] mb-10 max-w-lg mx-auto text-[18px]">
-              Every week without a system is revenue you won&apos;t
+              Every week without a system is revenue you will not
               recover. I take on 3 partnerships per quarter.
               Apply now. If there&apos;s a fit, you&apos;ll hear from me
               within 24 hours.

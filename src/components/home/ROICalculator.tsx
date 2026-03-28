@@ -309,39 +309,26 @@ export default function ROICalculator() {
               </p>
             </div>
 
-            {/* CTA */}
+            {/* Text link — CTA consolidated to diagnostic form */}
             <div
               style={{
                 borderTop: "1px solid rgba(212,168,83,0.18)",
                 paddingTop: "1.625rem",
+                textAlign: "center",
               }}
             >
               <a
                 href="#book-call"
-                className="block w-full text-center rounded-[0.6rem] font-semibold text-[#0D0B09]"
                 style={{
-                  fontSize: "0.9375rem",
-                  padding: "0.925rem 1.5rem",
-                  letterSpacing: "-0.01em",
-                  backgroundColor: "#D4A853",
-                  boxShadow:
-                    "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,168,83,0.16), 0 0 22px rgba(212,168,83,0.10)",
-                  transition: "background-color 180ms ease, box-shadow 220ms ease",
+                  fontSize: "0.875rem",
+                  color: "#D4A853",
+                  textDecoration: "none",
+                  transition: "color 180ms ease",
                 }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLAnchorElement;
-                  el.style.backgroundColor = "#C49A2A";
-                  el.style.boxShadow =
-                    "0 2px 18px rgba(212,168,83,0.30), 0 0 0 1px rgba(212,168,83,0.24), 0 6px 28px rgba(0,0,0,0.30)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLAnchorElement;
-                  el.style.backgroundColor = "#D4A853";
-                  el.style.boxShadow =
-                    "0 1px 3px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,168,83,0.16), 0 0 22px rgba(212,168,83,0.10)";
-                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5F0E8"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#D4A853"; }}
               >
-                {c.cta}
+                See results \u2192
               </a>
             </div>
           </div>

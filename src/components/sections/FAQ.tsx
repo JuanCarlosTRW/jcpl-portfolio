@@ -6,7 +6,6 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import { useTranslations } from "@/context/LocaleContext";
 import Reveal from "@/components/motion/Reveal";
 import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReducedMotionSafe";
-import BookCallCard from "@/components/BookCallCard";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -85,17 +84,52 @@ export default function FAQ() {
           </Reveal>
         </div>
 
-        {/* Block 2: CTA card — static positioning; sticky + Lenis smooth scroll caused scroll lock */}
+        {/* Block 2: CTA card — simplified, no button */}
         <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-start">
-          <BookCallCard
-            title={faqBooking.ctaTitle}
-            body={faqBooking.ctaBody}
-            buttonText={faqBooking.ctaButton}
-            buttonHref="#book-call"
-            emailLabel={faqBooking.ctaEmailLabel}
-            email={faqBooking.ctaEmail}
-            riskReversalText="If I cannot produce a return, I tell you on the call. Before you pay anything."
-          />
+          <div
+            className="relative rounded-2xl overflow-hidden lift-card"
+            style={{
+              background: "#1A1510",
+              borderTop: "2px solid rgba(212,168,83,0.32)",
+              borderLeft: "1px solid #2A2318",
+              borderRight: "1px solid #2A2318",
+              borderBottom: "1px solid #2A2318",
+              borderRadius: 16,
+              padding: "28px",
+            }}
+          >
+            <div className="p-6 md:p-8">
+              <h3 className="text-[1.25rem] font-bold text-white leading-tight mb-2">{faqBooking.ctaTitle}</h3>
+              <p className="text-[0.9rem] leading-[1.6] mb-6" style={{ color: "#D2C9B8" }}>
+                {faqBooking.ctaBody}
+              </p>
+              <a
+                href="#book-call"
+                style={{
+                  fontSize: "0.875rem",
+                  color: "#D4A853",
+                  textDecoration: "none",
+                  transition: "color 180ms ease",
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5F0E8"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#D4A853"; }}
+              >
+                See results &rarr;
+              </a>
+              <div className="mt-6">
+                <p className="text-[13px]" style={{ color: "#A69D8D" }}>
+                  {faqBooking.ctaEmailLabel}{" "}
+                  <a
+                    href={`mailto:${faqBooking.ctaEmail}`}
+                    className="font-medium underline underline-offset-2"
+                    style={{ color: "#D4A853" }}
+                  >
+                    {faqBooking.ctaEmail}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Block 3: Accordion */}
