@@ -950,7 +950,7 @@ export const translations: Record<Locale, TranslationsShape> = {
     services: {
       hero: {
         eyebrow: "SERVICES",
-        h1: "One acquisition system.",
+        h1: "One system. Every qualified call tracked.",
         body1: "Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. Built as one connected system, run by one person. Live in 11 days.",
         body2: "Every layer feeds the next. The longer it runs, the less each call costs.",
         microResult: "Most recent result: 90 new clients in 90 days. Page 1 in under 60 days.",
@@ -985,12 +985,12 @@ export const translations: Record<Locale, TranslationsShape> = {
         expansionHeading: "Expansion Layers",
         expansionSub: "Not separate packages. The next layer of the same machine, activated when your stage calls for it.",
         core: [
-          { title: "Market Gap Report", copy: "Competitor exposure mapped before a line of code is written. Every build decision follows from this." },
-          { title: "Conversion Site", copy: "Hand-coded. Sub-second load. Built to book calls, not to look presentable." },
-          { title: "Local Search Capture", copy: "Local SEO targeting buyers with intent to book. Compounds from day one." },
-          { title: "Booking Flow", copy: "Calls and forms captured 24/7. No leads lost while you're working." },
-          { title: "Analytics Layer", copy: "Every call, form, and booking attributed to its source. You see exactly what the system produces." },
-          { title: "Full Asset Ownership", copy: "Website, ad accounts, analytics, and tracking are yours. If you leave, you take everything." },
+          { title: "Market Analysis", copy: "I map your competitors before writing a line of code. Every build decision follows from what the data shows." },
+          { title: "Conversion Website", copy: "Hand-coded. Loads in under a second. Built to turn visitors into booked calls, not to look impressive." },
+          { title: "Local Search Visibility", copy: "SEO targeting buyers with intent to book in your city. Compounds from day one and gets stronger every month." },
+          { title: "Booking Flow", copy: "Calls and forms captured around the clock. No lead slips through while you are on a job." },
+          { title: "Revenue Tracking", copy: "Every call, form, and booking traced to its source. You see exactly what the system is producing each month." },
+          { title: "You Own Everything", copy: "Website, ad accounts, analytics, and tracking belong to your business. If you leave, you take all of it." },
         ],
         layers: [
           {
@@ -1037,7 +1037,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       finalCta: {
         howLabel: "HOW I WORK",
-        howHeading: "What You Know Before Signing Anything.",
+        howHeading: "What you know before signing anything.",
         howSub: "The terms, the standards, and the protections are set before any retainer is signed.",
         applyLabel: "APPLY",
         applyHeading: "I Run 3 Partnerships at a Time.",
@@ -1052,11 +1052,11 @@ export const translations: Record<Locale, TranslationsShape> = {
         standardBody: "All results are from live client accounts. No projections. No hypotheticals.",
         standardVerified: "Verified Q1 2026. All results from live accounts.",
         milestone: "Milestone Delivery",
-        milestoneBody: "Phase 1: market analysis and 90-day roadmap. Phase 2: live site, campaigns, and booking system. You approve before each phase starts.",
+        milestoneBody: "Phase 1: market analysis and 90-day roadmap. Phase 2: live site, campaigns, and booking system. You approve before each phase starts. Nothing ships without your sign-off.",
         ownership: "Asset Ownership",
         ownershipBody: "Website, ad accounts, and tracking are yours. Month-to-month after build. Leave with everything.",
         preEngagement: "Pre-Engagement Review",
-        preEngagementBody: "I review your market and operation before any agreement. If I can't produce a return, I tell you directly. I've turned clients down before.",
+        preEngagementBody: "I review your market before any agreement. If I cannot produce a return, I tell you directly on the review call. Before you pay anything. I have turned clients down before.",
       },
     },
     results: {

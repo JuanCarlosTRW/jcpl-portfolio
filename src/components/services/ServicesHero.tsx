@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import RotatingText from "@/components/ui/RotatingText";
 import { useLocale } from "@/context/LocaleContext";
 import { translations } from "@/lib/translations";
 
@@ -64,7 +63,7 @@ export default function ServicesHero() {
 
         {/* Main headline */}
         <h1
-          className="mb-3"
+          className="mb-8"
           style={{
             fontSize: "clamp(2.0rem, 5.5vw, 5rem)",
             fontWeight: 700,
@@ -76,47 +75,9 @@ export default function ServicesHero() {
           {hero.h1}
         </h1>
 
-        {/* Rotating sub-headline */}
-        <div
-          className="mb-10 overflow-hidden"
-          style={{
-            fontSize: "clamp(1.3rem, 3.8vw, 3.4rem)",
-            fontWeight: 600,
-            lineHeight: 1.15,
-            letterSpacing: "-0.02em",
-            color: "#D4A853",
-            minHeight: "clamp(1.8rem, 4.5vw, 4rem)",
-          }}
-        >
-          <RotatingText
-            texts={hero.rotating}
-            splitBy="words"
-            splitLevelClassName="mr-[0.28em]"
-            rotationInterval={2800}
-            staggerDuration={0.04}
-            staggerFrom="first"
-            transition={{ type: "spring", damping: 22, stiffness: 280 }}
-            initial={{ y: "110%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: "-110%", opacity: 0 }}
-          />
-        </div>
-
-        {/* Divider */}
-        <div
-          className="mb-7"
-          style={{
-            width: "48px",
-            height: "2px",
-            background: "rgba(212,168,83,0.35)",
-            borderRadius: "1px",
-          }}
-          aria-hidden
-        />
-
-        {/* Body copy */}
+        {/* Static subtitle */}
         <p
-          className="mb-5"
+          className="mb-4"
           style={{
             fontSize: "clamp(15px, 1.6vw, 17px)",
             fontWeight: 400,
@@ -128,24 +89,18 @@ export default function ServicesHero() {
           {hero.body1}
         </p>
 
+        {/* Gold accent line */}
         <p
-          className="mb-4"
+          className="mb-10"
           style={{
-            fontSize: "clamp(15px, 1.6vw, 17px)",
-            fontWeight: 400,
-            lineHeight: 1.75,
-            color: "#D2C9B8",
+            fontSize: "0.9rem",
+            fontWeight: 500,
+            lineHeight: 1.6,
+            color: "#D4A853",
             maxWidth: "520px",
           }}
         >
           {hero.body2}
-        </p>
-
-        <p
-          className="mb-10 text-sm font-medium"
-          style={{ color: "#C8A05A" }}
-        >
-          {hero.microResult}
         </p>
 
         {/* CTAs */}
