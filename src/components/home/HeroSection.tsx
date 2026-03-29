@@ -43,6 +43,8 @@ export default function HeroSection() {
         minHeight: "100svh",
         overflow: "hidden",
         background: "#0D0B09",
+        margin: 0,
+        padding: 0,
       }}
       aria-label="Hero"
     >
@@ -301,17 +303,30 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* ── STEP 2: Force Unicorn Studio to fill hero at ALL depths ── */
-        .hero-animation,
-        .hero-animation div,
-        .hero-animation canvas,
-        .hero-animation iframe {
+        /* ── Force Unicorn Studio wrapper to fill hero ── */
+        .hero-animation {
           position: absolute !important;
           top: 0 !important;
           left: 0 !important;
           width: 100% !important;
           height: 100% !important;
+          overflow: hidden !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        /* ── Force ALL nested SDK elements (div/canvas/iframe at any depth) ── */
+        .hero-animation div,
+        .hero-animation canvas,
+        .hero-animation iframe {
+          position: absolute !important;
+          top: 50% !important;
+          left: 50% !important;
+          transform: translate(-50%, -50%) !important;
+          width: 100% !important;
+          height: 100% !important;
+          min-width: 100vw !important;
           min-height: 100svh !important;
+          object-fit: cover !important;
           overflow: hidden !important;
           border: none !important;
           margin: 0 !important;
@@ -319,16 +334,17 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
-          /* ── FIX 4: Scale animation and push planet up into frame ── */
-          .hero-animation {
-            transform: scale(1.15) translateY(-5%) !important;
-            transform-origin: center center !important;
+          /* ── Animation: scale to guarantee full coverage on tall screens ── */
+          .hero-animation div,
+          .hero-animation canvas,
+          .hero-animation iframe {
+            transform: translate(-50%, -50%) scale(1.3) !important;
           }
 
-          /* ── FIX 1+2+5: Text container on mobile ── */
+          /* ── Text container on mobile ── */
           .hero-container {
             position: absolute !important;
-            top: 44% !important;
+            top: 42% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
             width: 88vw !important;

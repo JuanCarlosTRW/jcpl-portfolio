@@ -128,11 +128,11 @@ export default function PremiumNav() {
       <style jsx>{`
         @media (max-width: 768px) {
           nav {
-            position: absolute !important;
+            position: fixed !important;
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
-            z-index: 50 !important;
+            z-index: 100 !important;
             background: transparent !important;
             background-color: transparent !important;
             backdrop-filter: none !important;
