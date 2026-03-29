@@ -299,7 +299,7 @@ export default function HeroSection() {
             max-width: 400px !important;
             padding: 24px 20px 20px 20px !important;
             position: absolute !important;
-            top: 40% !important;
+            top: 32% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
             z-index: 10 !important;
