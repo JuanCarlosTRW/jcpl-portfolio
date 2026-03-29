@@ -123,35 +123,30 @@ export default function PremiumNav() {
       </div>
 
       {/* Mobile responsive override */}
-      <style jsx>{`
+      <style jsx global>{`
         @media (max-width: 768px) {
-          nav > div {
+          nav[aria-label="Main navigation"] > div {
             padding: 0 16px !important;
             height: 56px !important;
           }
-          /* Hide "Work" link on mobile */
-          nav > div > a.nav-link {
+          /* Hide "Work" text link on mobile */
+          nav[aria-label="Main navigation"] > div > a:first-child {
             display: none !important;
           }
-          /* Logo: remove absolute positioning, flow to left */
-          nav > div > a:nth-child(2) {
+          /* Logo: remove absolute, flow to left */
+          nav[aria-label="Main navigation"] > div > a:nth-child(2) {
             position: relative !important;
             left: auto !important;
             transform: none !important;
           }
-          nav > div > a:nth-child(2) span {
+          nav[aria-label="Main navigation"] > div > a:nth-child(2) span {
             font-size: 18px !important;
           }
-          /* Hide "Results" link on mobile */
-          nav > div > div > a.nav-link {
-            display: none !important;
-          }
           /* CTA button: compact */
-          nav > div > div > a:last-child {
+          nav[aria-label="Main navigation"] > div > div > a:last-child {
             font-size: 10px !important;
-            padding: 8px 16px !important;
+            padding: 8px 14px !important;
             white-space: nowrap !important;
-            flex-shrink: 0 !important;
           }
         }
       `}</style>

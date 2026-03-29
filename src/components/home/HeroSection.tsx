@@ -370,23 +370,23 @@ export default function HeroSection() {
             left: 0 !important;
             overflow: hidden !important;
           }
-          /* FIX 3 — Container: no border, radial fade, more transparent */
+          /* Container: move up, seamless blend with planet */
           .hero-container {
-            width: 88% !important;
+            width: 92% !important;
             max-width: 400px !important;
-            padding: 32px 20px 28px 20px !important;
+            padding: 24px 20px 20px 20px !important;
             position: absolute !important;
-            top: 50% !important;
+            top: 38% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
             z-index: 10 !important;
-            background: rgba(13, 11, 9, 0.45) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
+            background: rgba(13, 11, 9, 0.35) !important;
+            backdrop-filter: blur(6px) !important;
+            -webkit-backdrop-filter: blur(6px) !important;
             border: none !important;
             border-radius: 0px !important;
-            mask-image: radial-gradient(ellipse 88% 82% at 50% 50%, black 55%, transparent 100%) !important;
-            -webkit-mask-image: radial-gradient(ellipse 88% 82% at 50% 50%, black 55%, transparent 100%) !important;
+            mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 45%, transparent 100%) !important;
+            -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 45%, transparent 100%) !important;
           }
           /* Eyebrow on mobile */
           .hero-container .hero-enter {
