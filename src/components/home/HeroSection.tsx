@@ -312,28 +312,22 @@ export default function HeroSection() {
           margin: 0 !important;
           padding: 0 !important;
         }
-        /* ── Override SDK container and ALL nested elements at any depth ── */
-        .hero-animation * {
-          position: absolute !important;
-          top: 0 !important;
-          left: 0 !important;
+        /* ── Only override the SDK's direct container div ── */
+        .hero-animation > div {
           width: 100% !important;
           height: 100% !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          border: none !important;
         }
 
         @media (max-width: 768px) {
           /*
-            Mobile phones are ~9:19.5 portrait. The Unicorn Studio animation
-            renders at a landscape aspect ratio. scale(1.4) is not enough.
-            We need ~2x to guarantee the animation covers a tall viewport.
-            The hero section overflow:hidden clips the excess.
+            The animation renders its planet in the bottom half of its canvas.
+            On tall phones (~9:19.5), we scale up from the bottom so the
+            planet stays visible and the animation extends upward to fill
+            the black zone at the top. Section overflow:hidden clips excess.
           */
           .hero-animation {
-            transform: scale(2) !important;
-            transform-origin: center center !important;
+            transform: scale(2.5) !important;
+            transform-origin: center bottom !important;
           }
 
           /* ── Text container on mobile ── */
