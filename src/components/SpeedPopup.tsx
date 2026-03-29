@@ -31,7 +31,7 @@ export default function SpeedPopup() {
       sessionStorage.setItem("speed-popup-shown", "1");
       // Focus the close button after opening
       requestAnimationFrame(() => closeBtnRef.current?.focus());
-    }, 20000);
+    }, 45000);
 
     return () => clearTimeout(timer);
   }, []);
