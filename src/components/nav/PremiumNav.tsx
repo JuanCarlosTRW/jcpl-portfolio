@@ -15,12 +15,7 @@ export default function PremiumNav() {
   return (
     <nav
       aria-label="Main navigation"
-      className="fixed top-0 left-0 w-full z-[100]"
-      style={{
-        background: scrolled ? "rgba(13,11,9,0.85)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        transition: "background 0.3s ease, backdrop-filter 0.3s ease",
-      }}
+      className={`premium-nav fixed top-0 left-0 w-full z-[100] ${scrolled ? "nav-scrolled" : ""}`}
     >
       <div
         className="flex items-center justify-between"
@@ -124,15 +119,23 @@ export default function PremiumNav() {
         </div>
       </div>
 
-      {/* Mobile responsive override */}
-      <style jsx>{`
+      <style jsx global>{`
+        /* ── Desktop: scrolled state ── */
+        .premium-nav {
+          background: transparent;
+          backdrop-filter: none;
+          transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+        .premium-nav.nav-scrolled {
+          background: rgba(13, 11, 9, 0.85);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* ── Mobile: always transparent ── */
         @media (max-width: 768px) {
-          nav {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            z-index: 100 !important;
+          .premium-nav,
+          .premium-nav.nav-scrolled {
             background: transparent !important;
             background-color: transparent !important;
             backdrop-filter: none !important;
@@ -140,24 +143,21 @@ export default function PremiumNav() {
             border-bottom: none !important;
             box-shadow: none !important;
           }
-          nav > div {
+          .premium-nav > div {
             padding: 16px 20px !important;
             height: auto !important;
             box-sizing: border-box !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
           }
-          :global(.nav-logo) {
+          .nav-logo {
             position: static !important;
             transform: none !important;
             margin: 0 !important;
             padding: 0 !important;
           }
-          :global(.nav-logo-text) {
+          .nav-logo-text {
             font-size: 17px !important;
           }
-          :global(.nav-cta-btn) {
+          .nav-cta-btn {
             flex-shrink: 0 !important;
             font-size: 11px !important;
             padding: 9px 16px !important;
