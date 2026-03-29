@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import ClientAppShell from "@/components/ClientAppShell";
 import ClarityScript from "@/components/analytics/ClarityScript";
@@ -19,6 +19,19 @@ const playfair = Playfair_Display({
   display: "swap",
   style: ["normal", "italic"],
   variable: "--font-playfair",
+});
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+});
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "700"],
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
@@ -91,7 +104,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} ${playfair.variable} antialiased bg-[var(--bg-base)] text-[var(--text-primary)]`}>
+      <body className={`${inter.className} ${playfair.variable} ${cormorant.variable} ${dmSans.variable} antialiased bg-[var(--bg-base)] text-[var(--text-primary)]`}>
         <ClientAppShell>{children}</ClientAppShell>
         <SpeedInsights />
         <Analytics />

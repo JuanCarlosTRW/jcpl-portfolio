@@ -1,630 +1,246 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import LightPillar from "./LightPillar";
-import { useLocale } from "@/context/LocaleContext";
-import { translations } from "@/lib/translations";
 
-const ACTIVE_CLIENTS = [
-  { alt: "Triple W Rentals",   src: "/images/logos/triplew.png" },
-  { alt: "Culture Barbershop", src: "/images/logos/culture.png" },
-  { alt: "Elite Barbershop",   src: "/images/logos/elite.png" },
-  { alt: "Absolute Painting",  src: "/images/logos/absolute.png" },
-  { alt: "Centre Dentaire",    src: "/images/logos/dentaire.png" },
+const SDK_URL =
+  "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.4/dist/unicornStudio.umd.js";
+const SCRIPT_ID = "unicornstudio-hero-sdk";
+
+const TICKER_ITEMS = [
+  { stat: "46x ROAS", detail: "Triple W Rentals", sub: "$41K from $900 in 30 days" },
+  { stat: "90 new clients", detail: "Elite Barbershop", sub: "90 days" },
+  { stat: "Page 1 Google", detail: "Culture Barbershop", sub: "under 60 days" },
 ];
 
-// ─── Beam presets — tuned per breakpoint ─────────────────────────────────────
-const BEAM_PRESETS = {
-  desktop: {
-    topColor: "#D4A853",
-    intensity: 0.57,
-    glowAmount: 0.0028,
-    pillarWidth: 2.7,
-    pillarHeight: 0.30,
-    noiseIntensity: 0.045,
-    pillarRotation: 9,
-    containerWidth: "60%",
-    fadeGradient:
-      "linear-gradient(to right, #0D0B09 0%, #0D0B09 30%, rgba(13,11,9,0.92) 41%, rgba(13,11,9,0.30) 53%, rgba(13,11,9,0.07) 64%, transparent 72%)",
-    overlayStyle: "rgba(13,11,9,0.00)",
-  },
-  tablet: {
-    topColor: "#D4A853",
-    intensity: 0.48,
-    glowAmount: 0.0024,
-    pillarWidth: 2.4,
-    pillarHeight: 0.30,
-    noiseIntensity: 0.045,
-    pillarRotation: 9,
-    containerWidth: "60%",
-    fadeGradient:
-      "linear-gradient(to right, #0D0B09 0%, #0D0B09 30%, rgba(13,11,9,0.88) 43%, rgba(13,11,9,0.26) 56%, rgba(13,11,9,0.07) 67%, transparent 76%)",
-    overlayStyle: "rgba(13,11,9,0.28)",
-  },
-  mobile: {
-    topColor: "#D4A853",
-    intensity: 0.40,
-    glowAmount: 0.0022,
-    pillarWidth: 1.8,
-    pillarHeight: 0.34,
-    noiseIntensity: 0.025,
-    pillarRotation: 14,
-    containerWidth: "100%",
-    fadeGradient:
-      "linear-gradient(to right, #0D0B09 0%, #0D0B09 28%, rgba(13,11,9,0.82) 42%, rgba(13,11,9,0.22) 58%, rgba(13,11,9,0.05) 74%, transparent 85%)",
-    overlayStyle:
-      "linear-gradient(to bottom, rgba(13,11,9,0.72) 0%, rgba(13,11,9,0.48) 30%, rgba(13,11,9,0.16) 62%, rgba(13,11,9,0.05) 82%, transparent 100%)",
-  },
-};
-
-type BeamPreset = {
-  topColor: string;
-  intensity: number;
-  glowAmount: number;
-  pillarWidth: number;
-  pillarHeight: number;
-  noiseIntensity: number;
-  pillarRotation: number;
-  containerWidth: string;
-  fadeGradient: string;
-  overlayStyle: string;
-};
-
-// ─── Clean Proof Badge ──────────────────────────────────────────────────────
-function ProofCard({ vc }: { vc: typeof translations["en"]["homepage"]["verifiedCard"] }) {
-  const stats = [
-    { num: "46×", label: vc.returnOnAd },
-    { num: "$33", label: vc.perQualifiedCall },
-    { num: "11 days", label: vc.toFirstBookedCall },
-  ];
-  return (
-    <div
-      className="hero-enter"
-      style={{
-        background: "#151210",
-        border: "1px solid rgba(212,168,83,0.20)",
-        borderRadius: 12,
-        padding: "28px 32px",
-        maxWidth: 360,
-        width: "100%",
-        animationDelay: "0.62s",
-        transition: "box-shadow 300ms ease",
-      }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 0 0 1px rgba(212,168,83,0.3)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
-    >
-      <p
-        style={{
-          fontSize: "11px",
-          fontWeight: 600,
-          letterSpacing: "0.22em",
-          textTransform: "uppercase",
-          color: "#D4A853",
-          marginBottom: "16px",
-        }}
-      >
-        {vc.title}
-      </p>
-      <div
-        style={{
-          fontSize: "clamp(2.2rem, 3.5vw, 2.75rem)",
-          fontWeight: 700,
-          letterSpacing: "-0.048em",
-          color: "#F5F0E8",
-          lineHeight: 1,
-          fontVariantNumeric: "tabular-nums",
-          marginBottom: "2px",
-        }}
-      >
-        $41,085
-      </div>
-      <div style={{ fontSize: "0.75rem", color: "#756D63", marginBottom: "10px" }}>
-        {vc.revenue}
-      </div>
-      <div style={{ fontSize: "0.8125rem", color: "#A69D8D", marginBottom: "4px" }}>
-        {vc.fromAdSpend}
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          fontSize: "0.675rem",
-          color: "#5E5650",
-          letterSpacing: "0.06em",
-          textTransform: "uppercase",
-          marginBottom: "18px",
-        }}
-      >
-        {vc.location}
-      </div>
-      {/* Screenshot — live Google Ads dashboard */}
-      <div
-        style={{
-          position: "relative",
-          borderRadius: 7,
-          overflow: "hidden",
-          marginBottom: "12px",
-        }}
-      >
-        <img
-          src="https://static.wixstatic.com/media/62f926_492fa3904b904883bd7ff2023e2c28a9~mv2.png"
-          alt="Google Ads account dashboard showing $41,085 in revenue"
-          style={{ width: "100%", display: "block", borderRadius: 7 }}
-          loading="eager"
-        />
-        {/* Dark overlay so text beneath stays legible */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(13,11,9,0.52)",
-            borderRadius: 7,
-          }}
-        />
-      </div>
-      <p
-        style={{
-          fontSize: "0.6rem",
-          color: "#4A4540",
-          letterSpacing: "0.07em",
-          textTransform: "uppercase",
-          marginBottom: "14px",
-          lineHeight: 1.5,
-        }}
-      >
-        {vc.screenshotLabel}
-      </p>
-
-      <div style={{ height: 1, background: "rgba(255,255,255,0.08)", marginBottom: "16px" }} />
-      {stats.map(({ num, label }) => (
-        <div
-          key={num}
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "baseline",
-            marginBottom: "10px",
-          }}
-        >
-          <span
-            style={{
-              fontSize: "0.925rem",
-              fontWeight: 600,
-              color: "#F5F0E8",
-              letterSpacing: "-0.018em",
-              fontVariantNumeric: "tabular-nums",
-            }}
-          >
-            {num}
-          </span>
-          <span style={{ fontSize: "0.725rem", color: "#756D63", letterSpacing: "-0.004em" }}>
-            {label}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
 export default function HeroSection() {
-  const { locale, lp } = useLocale();
-  const t = translations[locale];
-  const hero = t.homepage.hero;
-  const vc = t.homepage.verifiedCard;
-  const sb = t.homepage.statsBar;
-
-  const METRICS = [
-    { display: "$41,085", sublabel: sb.revenueLabel },
-    { display: "$33",     sublabel: sb.costPerCall  },
-    { display: "11 days", sublabel: sb.medianDays   },
-  ];
-
-  const [beam, setBeam] = useState<BeamPreset>(BEAM_PRESETS.desktop);
-  const [ctaHover, setCtaHover] = useState(false);
-  const [ctaPressed, setCtaPressed] = useState(false);
+  const embedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const update = () => {
-      const w = window.innerWidth;
-      setBeam(
-        w < 640
-          ? BEAM_PRESETS.mobile
-          : w < 1024
-          ? BEAM_PRESETS.tablet
-          : BEAM_PRESETS.desktop
-      );
+    const initUS = () => {
+      const us = (window as any).UnicornStudio;
+      if (us?.init) {
+        us.init();
+      }
     };
-    update();
-    window.addEventListener("resize", update, { passive: true });
-    return () => window.removeEventListener("resize", update);
+
+    if ((window as any).UnicornStudio?.init) {
+      setTimeout(initUS, 50);
+    } else if (document.getElementById(SCRIPT_ID)) {
+      setTimeout(initUS, 400);
+    } else {
+      (window as any).UnicornStudio = { isInitialized: false };
+      const s = document.createElement("script");
+      s.id = SCRIPT_ID;
+      s.src = SDK_URL;
+      s.async = true;
+      s.onload = () => setTimeout(initUS, 50);
+      document.head.appendChild(s);
+    }
   }, []);
+
+  const tickerContent = (
+    <>
+      {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
+        <span key={i} className="inline-flex items-center gap-3 whitespace-nowrap">
+          <span
+            className="inline-block w-1 h-1 rounded-full flex-shrink-0"
+            style={{ background: "#D4A853" }}
+          />
+          <span>
+            <span style={{ color: "#D4A853" }}>{item.stat}</span>
+            <span style={{ color: "rgba(240,234,214,0.35)" }}>
+              {" "}/{" "}{item.detail}{" "}/{" "}{item.sub}
+            </span>
+          </span>
+        </span>
+      ))}
+    </>
+  );
 
   return (
     <section
-      className="relative flex flex-col bg-[#0D0B09] overflow-hidden"
-      style={{ minHeight: "100svh" }}
+      className="relative overflow-hidden"
+      style={{ height: "100vh", minHeight: "100svh", background: "#0D0B09" }}
       aria-label="Hero"
     >
-      {/* ── LightPillar background ── */}
+      {/* ── Layer 0: Unicorn Studio planet animation ── */}
+      <div
+        ref={embedRef}
+        data-us-project-src="/scenes/hero-planet.json"
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      />
+
+      {/* ── Layer 1: Dark overlay for text readability ── */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: 0,
-          right: 0,
-          bottom: 0,
-          width: beam.containerWidth,
-          pointerEvents: "none",
+          inset: 0,
+          background: "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(13,11,9,0.35) 0%, rgba(13,11,9,0.55) 100%)",
           zIndex: 1,
-        }}
-      >
-        <LightPillar
-          topColor={beam.topColor}
-          bottomColor="#0D0B09"
-          intensity={beam.intensity}
-          rotationSpeed={0.16}
-          glowAmount={beam.glowAmount}
-          pillarWidth={beam.pillarWidth}
-          pillarHeight={beam.pillarHeight}
-          noiseIntensity={beam.noiseIntensity}
-          pillarRotation={beam.pillarRotation}
-          interactive={false}
-          mixBlendMode="screen"
-          quality="high"
-        />
-      </div>
-
-      {/* Horizontal fade */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 2,
           pointerEvents: "none",
-          background: beam.fadeGradient,
         }}
       />
 
-      {/* Sub-desktop overlay */}
+      {/* ── Layer 2: Hero content, centered over the planet ── */}
       <div
-        aria-hidden="true"
-        className="lg:hidden"
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 3,
-          pointerEvents: "none",
-          background: beam.overlayStyle,
-        }}
-      />
-
-      {/* Radial gold glow behind hero text */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: "30%",
-          left: "30%",
-          width: "500px",
-          height: "500px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(212,168,83,0.06) 0%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 4,
-        }}
-      />
-
-      {/* ─── MAIN CONTENT ── */}
-      <div
-        className="relative flex-1 flex flex-col justify-center"
-        style={{ zIndex: 10, paddingTop: "var(--nav-h, 72px)" }}
-      >
-        <div className="max-w-[1280px] mx-auto w-full px-6 md:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row lg:items-center">
-
-          {/* LEFT: Text content */}
-          <div className="flex flex-col w-full lg:max-w-[520px] xl:max-w-[540px] pt-10 pb-8 sm:pt-12 sm:pb-10 lg:py-24">
-
-            {/* Eyebrow */}
-            <div
-              className="hero-enter flex items-center gap-3"
-              style={{ marginBottom: "1.375rem", animationDelay: "0.1s" }}
-            >
-              <div
-                className="h-px w-5 flex-shrink-0"
-                style={{ background: "rgba(212,168,83,0.42)" }}
-              />
-              <span
-                style={{
-                  fontSize: "9.5px",
-                  fontWeight: 600,
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                  color: "#7A7066",
-                }}
-              >
-                {hero.eyebrow}
-              </span>
-            </div>
-
-            {/* H1 */}
-            <h1
-              className="hero-enter font-bold"
-              style={{ marginBottom: "1.375rem", animationDelay: "0.22s" }}
-            >
-              <span
-                style={{
-                  display: "block",
-                  fontSize: "clamp(2.4rem, 4.2vw, 4rem)",
-                  lineHeight: 1.04,
-                  letterSpacing: "-0.040em",
-                  color: "#F5F0E8",
-                  marginBottom: "0.18em",
-                }}
-              >
-                {hero.h1Line1}
-              </span>
-              <span
-                style={{
-                  display: "block",
-                  fontSize: "clamp(2.0rem, 3.2vw, 3.2rem)",
-                  lineHeight: 1.07,
-                  letterSpacing: "-0.036em",
-                  color: "rgba(245,240,232,0.72)",
-                }}
-              >
-                {hero.h1Line2}
-              </span>
-            </h1>
-
-            {/* Sub-headline */}
-            <p
-              className="hero-enter"
-              style={{
-                fontSize: "1.0625rem",
-                lineHeight: 1.55,
-                letterSpacing: "-0.012em",
-                color: "#D2C9B8",
-                fontWeight: 700,
-                marginBottom: "0.75rem",
-                animationDelay: "0.36s",
-              }}
-            >
-              {hero.subHeadline}
-            </p>
-
-            {/* Body text */}
-            <p
-              className="hero-enter"
-              style={{
-                fontSize: "0.9375rem",
-                lineHeight: 1.58,
-                letterSpacing: "-0.01em",
-                color: "#756D63",
-                paddingLeft: "0.875rem",
-                borderLeft: "2px solid rgba(212,168,83,0.18)",
-                marginBottom: "2.25rem",
-                animationDelay: "0.46s",
-              }}
-            >
-              {hero.body}
-            </p>
-
-            {/* CTA cluster */}
-            <div
-              className="hero-enter flex flex-col items-start gap-3"
-              style={{ animationDelay: "0.56s" }}
-            >
-              {/* Primary CTA */}
-              <a
-                href="#book-call"
-                className="inline-flex items-center gap-2.5 rounded-[0.6rem] font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(212,168,83,0.50)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0B09]"
-                onMouseEnter={() => setCtaHover(true)}
-                onMouseLeave={() => { setCtaHover(false); setCtaPressed(false); }}
-                onMouseDown={() => setCtaPressed(true)}
-                onMouseUp={() => setCtaPressed(false)}
-                style={{
-                  fontSize: "0.9375rem",
-                  padding: "0.875rem 1.75rem",
-                  letterSpacing: "-0.012em",
-                  backgroundColor: ctaPressed ? "#B08820" : ctaHover ? "#C49A2A" : "#D4A853",
-                  color: "#0D0B09",
-                  boxShadow: ctaPressed
-                    ? "0 1px 2px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,168,83,0.22), inset 0 1px 3px rgba(0,0,0,0.10)"
-                    : ctaHover
-                    ? "0 2px 18px rgba(212,168,83,0.30), 0 0 0 1px rgba(212,168,83,0.24), 0 6px 28px rgba(0,0,0,0.30)"
-                    : "0 1px 4px rgba(0,0,0,0.50), 0 0 0 1px rgba(212,168,83,0.16), 0 0 22px rgba(212,168,83,0.10)",
-                  transform: ctaPressed ? "translateY(1px)" : "translateY(0)",
-                  transition: "background-color 150ms ease, box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1), transform 100ms ease",
-                }}
-              >
-                {hero.cta}
-                <svg
-                  className="w-[14px] h-[14px]"
-                  style={{
-                    opacity: 0.75,
-                    transform: ctaHover ? "translateX(3px)" : "translateX(0)",
-                    transition: "transform 220ms ease",
-                  }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-
-              {/* Secondary row */}
-              <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
-                <span
-                  style={{
-                    fontSize: "0.8rem",
-                    color: "#6B6360",
-                    letterSpacing: "-0.008em",
-                  }}
-                >
-                  {hero.microCopy}
-                </span>
-                <span
-                  aria-hidden="true"
-                  style={{
-                    width: 1,
-                    height: 12,
-                    background: "rgba(255,255,255,0.08)",
-                    flexShrink: 0,
-                  }}
-                />
-                <Link
-                  href={lp("/results")}
-                  style={{
-                    fontSize: "0.8rem",
-                    color: "#6B6360",
-                    letterSpacing: "-0.006em",
-                    textDecoration: "none",
-                    transition: "color 180ms ease",
-                  }}
-                  onMouseOver={(e) => { e.currentTarget.style.color = "#A69D8D"; }}
-                  onMouseOut={(e) => { e.currentTarget.style.color = "#6B6360"; }}
-                >
-                  {hero.seeResults}
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT: Proof card (desktop only) */}
-          <div className="hidden lg:flex flex-1 min-w-0 items-center justify-end">
-            <div style={{ paddingRight: "1.5rem" }}>
-              <ProofCard vc={vc} />
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* CONFIDENCE RAIL */}
-      <div
-        className="relative w-full"
+        className="relative flex flex-col items-center justify-center text-center px-6"
         style={{
           zIndex: 10,
-          background: "#0D0B09",
-          borderTop: "1px solid rgba(255,255,255,0.062)",
+          height: "100%",
+          paddingTop: "var(--nav-h, 72px)",
+          paddingBottom: 60,
         }}
       >
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
-          <div
-            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 sm:gap-0"
-            style={{ padding: "1.5rem 0" }}
+        {/* Eyebrow */}
+        <div
+          className="hero-enter flex items-center gap-3 mb-6"
+          style={{ animationDelay: "0.1s" }}
+        >
+          <div className="h-px w-5" style={{ background: "rgba(212,168,83,0.5)" }} />
+          <span
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: 11,
+              fontWeight: 500,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#D4A853",
+            }}
           >
-            {/* Metrics */}
-            <div className="flex items-center gap-5 sm:gap-0 flex-wrap hero-rail-metrics">
-              {METRICS.map((m, i) => (
-                <div key={i} className="flex items-center">
-                  {i > 0 && (
-                    <div
-                      className="hidden sm:block flex-shrink-0"
-                      style={{
-                        width: 1,
-                        height: 28,
-                        background: "rgba(255,255,255,0.07)",
-                        margin: "0 1.625rem",
-                      }}
-                    />
-                  )}
-                  <div>
-                    <div
-                      className="font-semibold text-[#F5F0E8] leading-none"
-                      style={{
-                        fontSize: "clamp(1.35rem, 2.0vw, 1.68rem)",
-                        letterSpacing: "-0.032em",
-                        fontVariantNumeric: "tabular-nums",
-                      }}
-                    >
-                      {m.display}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "0.65rem",
-                        color: "#756D63",
-                        letterSpacing: "0.055em",
-                        textTransform: "uppercase",
-                        marginTop: "0.35rem",
-                      }}
-                    >
-                      {m.sublabel}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            Local Business Growth / Worldwide
+          </span>
+          <div className="h-px w-5" style={{ background: "rgba(212,168,83,0.5)" }} />
+        </div>
 
-            {/* Rail divider */}
-            <div
-              className="hidden sm:block flex-shrink-0"
-              style={{
-                width: 1,
-                height: 36,
-                background: "rgba(255,255,255,0.07)",
-                margin: "0 1.625rem",
-              }}
-            />
+        {/* Headline */}
+        <h1
+          className="hero-enter"
+          style={{
+            fontFamily: "var(--font-cormorant), Georgia, serif",
+            fontSize: "clamp(48px, 6vw, 72px)",
+            fontWeight: 300,
+            lineHeight: 1.1,
+            color: "#F0EAD6",
+            margin: "0 0 1.25rem 0",
+            animationDelay: "0.25s",
+          }}
+        >
+          Your city. My{" "}
+          <em style={{ color: "#D4A853", fontStyle: "italic" }}>results.</em>
+        </h1>
 
-            {/* Active clients */}
-            <div className="flex items-center gap-3">
-              <span
-                style={{
-                  fontSize: "0.62rem",
-                  color: "#756D63",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  flexShrink: 0,
-                }}
-              >
-                {sb.activeClients}
-              </span>
-              <div className="flex items-center">
-                {ACTIVE_CLIENTS.map((logo, i) => (
-                  <div
-                    key={i}
-                    className="relative rounded-full overflow-hidden flex items-center justify-center flex-shrink-0"
-                    title={logo.alt}
-                    style={{
-                      width: 28,
-                      height: 28,
-                      background: "#181410",
-                      border: "1.5px solid rgba(255,255,255,0.08)",
-                      marginLeft: i > 0 ? -8 : 0,
-                      zIndex: ACTIVE_CLIENTS.length - i,
-                    }}
-                  >
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      style={{ width: 16, height: 16, objectFit: "contain", opacity: 0.70 }}
-                    />
-                  </div>
-                ))}
-              </div>
-              <span
-                style={{
-                  fontSize: "0.65rem",
-                  color: "#6B6360",
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  fontWeight: 500,
-                }}
-              >
-                {sb.inBuild}
-              </span>
-            </div>
+        {/* Subheadline */}
+        <p
+          className="hero-enter"
+          style={{
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 15,
+            lineHeight: 1.7,
+            color: "rgba(240,234,214,0.55)",
+            maxWidth: 480,
+            margin: "0 auto 2rem",
+            animationDelay: "0.4s",
+          }}
+        >
+          Websites, Google Ads, SEO, and AI. Built for service businesses that want more customers, not more agencies.
+        </p>
 
-          </div>
+        {/* CTAs */}
+        <div
+          className="hero-enter flex flex-col items-center gap-4"
+          style={{ animationDelay: "0.55s" }}
+        >
+          {/* Primary CTA */}
+          <Link
+            href="/apply"
+            className="group inline-flex items-center justify-center transition-all"
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: 12,
+              fontWeight: 500,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              background: "#D4A853",
+              color: "#0D0B09",
+              padding: "14px 36px",
+              borderRadius: 0,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.filter = "brightness(1.1)";
+              e.currentTarget.style.transform = "translateY(-1px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.filter = "none";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
+            Work with me
+          </Link>
+
+          {/* Secondary CTA */}
+          <Link
+            href="/results"
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: 12,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "rgba(240,234,214,0.45)",
+              textDecoration: "none",
+              transition: "color 200ms ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "rgba(240,234,214,0.9)";
+              e.currentTarget.style.textDecoration = "underline";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "rgba(240,234,214,0.45)";
+              e.currentTarget.style.textDecoration = "none";
+            }}
+          >
+            See the results
+          </Link>
         </div>
       </div>
 
+      {/* ── Layer 3: Proof ticker pinned to bottom ── */}
+      <div
+        className="absolute bottom-0 left-0 right-0 overflow-hidden"
+        style={{
+          zIndex: 10,
+          background: "rgba(13,11,9,0.6)",
+          borderTop: "1px solid rgba(255,255,255,0.04)",
+        }}
+      >
+        <div
+          className="flex items-center gap-8 py-3"
+          style={{
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 12,
+            animation: "ticker-scroll 20s linear infinite",
+            width: "max-content",
+          }}
+        >
+          {tickerContent}
+        </div>
+      </div>
+
+      {/* Ticker animation keyframes */}
+      <style jsx>{`
+        @keyframes ticker-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+      `}</style>
     </section>
   );
 }
