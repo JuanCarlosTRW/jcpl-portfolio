@@ -101,7 +101,7 @@ export default function HeroSection() {
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%, -58%)",
+          transform: "translate(-50%, -54%)",
           zIndex: 10,
           background: "rgba(13, 11, 9, 0.42)",
           backdropFilter: "blur(8px)",
@@ -158,11 +158,12 @@ export default function HeroSection() {
           className="hero-fadeup"
           style={{
             fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: "clamp(2.6rem, 4.5vw, 3.8rem)",
+            fontSize: "clamp(2.4rem, 4vw, 3.6rem)",
             fontWeight: 300,
             lineHeight: 1.0,
             color: "#F0EAD6",
-            margin: 0,
+            maxWidth: 560,
+            margin: "0 auto",
             marginBottom: 20,
             textShadow: "0 2px 20px rgba(13,11,9,0.8)",
           }}
@@ -310,24 +311,81 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
         @media (max-width: 768px) {
+          /* FIX 3 — Container width & breathing room */
           .hero-container {
-            padding: 32px 24px !important;
+            width: 82% !important;
+            max-width: 420px !important;
+            margin: 0 auto !important;
+            padding: 28px 24px !important;
             border-radius: 12px !important;
-            width: 92% !important;
+            /* FIX 4 — More transparent on mobile */
+            background: rgba(13, 11, 9, 0.38) !important;
+            backdrop-filter: blur(6px) !important;
+            -webkit-backdrop-filter: blur(6px) !important;
+            /* FIX 10 — Center vertically on mobile */
+            transform: translate(-50%, -50%) !important;
           }
+          /* FIX 5 — Eyebrow on mobile */
+          .hero-container .hero-enter {
+            margin-bottom: 16px !important;
+          }
+          .hero-container .hero-enter span {
+            font-size: 9px !important;
+            letter-spacing: 0.10em !important;
+          }
+          .hero-container .hero-enter div[style] {
+            display: none !important;
+          }
+          /* FIX 6 — Headline on mobile */
           .hero-container h1 {
-            font-size: clamp(2.2rem, 6vw, 3rem) !important;
+            font-size: clamp(1.9rem, 7vw, 2.4rem) !important;
+            line-height: 1.2 !important;
+            text-align: center !important;
+            margin-bottom: 16px !important;
           }
-          .hero-container .hero-enter p {
-            font-size: 15px !important;
+          /* FIX 7 — Subheadline on mobile */
+          .hero-container .hero-enter p,
+          .hero-container > p.hero-enter:nth-of-type(1) {
+            font-size: 13px !important;
+            line-height: 1.55 !important;
+            max-width: 320px !important;
+            margin: 0 auto 24px auto !important;
+            text-align: center !important;
+            color: rgba(240,234,214,0.8) !important;
           }
+          /* FIX 8 — CTA row on mobile */
           .hero-cta-row {
             flex-direction: column !important;
-            gap: 16px !important;
+            align-items: center !important;
+            gap: 12px !important;
+            width: 100% !important;
           }
           .hero-cta-primary {
             width: 100% !important;
+            padding: 15px 0 !important;
+            font-size: 13px !important;
+            letter-spacing: 0.10em !important;
             text-align: center !important;
+            border-radius: 6px !important;
+          }
+          .hero-cta-row a:not(.hero-cta-primary) {
+            display: block !important;
+            text-align: center !important;
+            font-size: 12px !important;
+            color: rgba(240,234,214,0.6) !important;
+            letter-spacing: 0.08em !important;
+            padding: 4px 0 !important;
+          }
+          /* FIX 9 — Risk reversal chip on mobile */
+          .hero-container > p.hero-enter:last-child {
+            font-size: 11px !important;
+            color: rgba(240,234,214,0.35) !important;
+            text-align: center !important;
+            margin-top: 14px !important;
+            line-height: 1.5 !important;
+            max-width: 280px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
           }
         }
       `}</style>
