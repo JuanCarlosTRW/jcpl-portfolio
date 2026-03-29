@@ -89,7 +89,7 @@ export default function HeroSection() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(13,11,9,0.45) 0%, rgba(13,11,9,0.65) 100%)",
+          background: "linear-gradient(to bottom, rgba(13,11,9,0.10) 0%, rgba(13,11,9,0.20) 40%, rgba(13,11,9,0.55) 85%, rgba(13,11,9,0.75) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
@@ -97,7 +97,7 @@ export default function HeroSection() {
 
       {/* ── Layer 2: Hero content, top-aligned above the planet ── */}
       <div
-        className="relative flex flex-col items-center text-center px-6"
+        className="relative flex flex-col items-start px-6 md:px-[10vw]"
         style={{
           zIndex: 10,
           height: "100%",
@@ -138,7 +138,7 @@ export default function HeroSection() {
           className="hero-fadeup"
           style={{
             fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: "clamp(44px, 6vw, 78px)",
+            fontSize: "clamp(53px, 7.2vw, 94px)",
             fontWeight: 300,
             lineHeight: 1.0,
             color: "#F0EAD6",
@@ -182,13 +182,14 @@ export default function HeroSection() {
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: 11,
-              fontWeight: 500,
+              fontWeight: 600,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               background: "#D4A853",
               color: "#0D0B09",
-              padding: "13px 32px",
-              borderRadius: 0,
+              padding: "14px 28px",
+              borderRadius: 6,
+              border: "none",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.filter = "brightness(1.1)";
@@ -235,7 +236,7 @@ export default function HeroSection() {
             animationDelay: "0.65s",
             fontSize: 13,
             color: "rgba(240, 234, 214, 0.5)",
-            textAlign: "center",
+            textAlign: "left",
             marginTop: 12,
             fontFamily: "var(--font-dm-sans), sans-serif",
           }}

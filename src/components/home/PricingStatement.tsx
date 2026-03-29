@@ -33,11 +33,14 @@ export default function PricingStatement() {
       <div className="mx-auto max-w-[960px]">
         {/* Section label */}
         <p
-          className="text-center uppercase mb-4"
+          className="text-center uppercase"
           style={{
-            fontSize: "0.7rem",
-            letterSpacing: "0.15em",
+            fontSize: "11px",
+            letterSpacing: "0.12em",
             color: "#D4A853",
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontWeight: 400,
+            marginBottom: 16,
           }}
         >
           {p.eyebrow}
@@ -148,10 +151,14 @@ export default function PricingStatement() {
                 </div>
                 <Link
                   href={lp("/apply")}
-                  className="flex items-center justify-center w-full rounded-lg font-semibold py-4 transition-colors"
+                  className="flex items-center justify-center w-full transition-colors"
                   style={{
                     backgroundColor: "#D4A853",
                     color: "#0D0B09",
+                    fontWeight: 600,
+                    border: "none",
+                    borderRadius: 6,
+                    padding: "14px 28px",
                     fontSize: "0.9rem",
                   }}
                   onMouseOver={(e) => {
@@ -161,7 +168,7 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Apply Now →
+                  Book a Diagnostic Call →
                 </Link>
               </div>
             </div>
@@ -317,16 +324,16 @@ export default function PricingStatement() {
                 <p
                   className="mt-4"
                   style={{
-                    fontSize: "0.85rem",
-                    color: "#756D63",
+                    fontSize: "14px",
+                    color: "rgba(240,234,214,0.4)",
                     textDecoration: "line-through",
                   }}
                 >
                   Total agency equivalent: $5,500+/month
                 </p>
                 <p
-                  className="font-bold mt-1"
-                  style={{ fontSize: "0.95rem", color: "#D4A853" }}
+                  className="mt-1"
+                  style={{ fontSize: "18px", fontWeight: 700, color: "#D4A853" }}
                 >
                   Your investment: $2,500/month
                 </p>
@@ -336,8 +343,8 @@ export default function PricingStatement() {
               <div className="mt-auto space-y-2">
                 <Link
                   href="#book-call"
-                  className="flex items-center justify-center w-full py-4 rounded-lg font-semibold text-[#0A0E1A] text-base cta-primary cta-button"
-                  style={{ backgroundColor: "#D4A853" }}
+                  className="flex items-center justify-center w-full text-base cta-primary cta-button"
+                  style={{ backgroundColor: "#D4A853", color: "#0D0B09", fontWeight: 600, border: "none", borderRadius: 6, padding: "14px 28px" }}
                   onMouseOver={(e) => {
                     e.currentTarget.style.backgroundColor = "#C49A2A";
                   }}

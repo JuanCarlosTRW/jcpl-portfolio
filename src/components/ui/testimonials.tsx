@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 
 interface Testimonial {
   id: number;
@@ -60,7 +59,7 @@ export const TestimonialSection = ({
         </p>
 
         <motion.div
-          className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -73,20 +72,34 @@ export const TestimonialSection = ({
               style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
               variants={itemVariants}
             >
-              <div className="relative">
+              <div
+                className="relative w-full overflow-hidden"
+                style={{ aspectRatio: "3/4" }}
+              >
                 <img
                   src={testimonial.imageSrc}
                   alt={testimonial.name}
-                  className="h-120 w-full object-cover"
+                  className="w-full h-full object-cover object-top"
+                  style={{ borderRadius: "12px 12px 0 0" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 p-6 text-left text-white">
-                <Quote
-                  className="mb-4 h-8 w-8 text-white/40"
+                <span
                   aria-hidden="true"
-                />
+                  style={{
+                    display: "block",
+                    fontSize: 32,
+                    color: "#D4A853",
+                    opacity: 0.6,
+                    fontFamily: "Georgia, serif",
+                    lineHeight: 1,
+                    marginBottom: 12,
+                  }}
+                >
+                  {"\u201C"}
+                </span>
                 <blockquote className="text-base font-medium leading-relaxed">
                   {testimonial.quote}
                 </blockquote>

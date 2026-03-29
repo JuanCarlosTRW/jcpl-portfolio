@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const SERVICES = [
   {
@@ -71,11 +70,6 @@ export function VerticalTabs() {
     setActiveIndex((prev) => (prev + 1) % SERVICES.length);
   }, []);
 
-  const handlePrev = useCallback(() => {
-    setDirection(-1);
-    setActiveIndex((prev) => (prev - 1 + SERVICES.length) % SERVICES.length);
-  }, []);
-
   const handleTabClick = (index: number) => {
     if (index === activeIndex) return;
     setDirection(index > activeIndex ? 1 : -1);
@@ -119,15 +113,29 @@ export function VerticalTabs() {
       style={{
         background: "#0D0B09",
         borderColor: "#2A2318",
-        paddingTop: "clamp(56px, 8vw, 96px)",
-        paddingBottom: "clamp(56px, 8vw, 96px)",
+        paddingTop: "clamp(40px, 5vw, 80px)",
+        paddingBottom: "clamp(40px, 5vw, 80px)",
       }}
     >
       <div className="w-full px-4 md:px-8 lg:px-12 xl:px-20 max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Content */}
           <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-4">
-            <div className="space-y-1 mb-12">
+            <div className="mb-12">
+              <span
+                className="block"
+                style={{
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                  fontSize: "11px",
+                  fontWeight: 400,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "#D4A853",
+                  marginBottom: 16,
+                }}
+              >
+                THE ACQUISITION SYSTEM
+              </span>
               <h2
                 className="tracking-tight text-balance"
                 style={{
@@ -141,20 +149,6 @@ export function VerticalTabs() {
               >
                 The system that fills your calendar.
               </h2>
-              <span
-                className="block ml-0.5"
-                style={{
-                  fontFamily: "var(--font-dm-sans), sans-serif",
-                  fontSize: "10px",
-                  fontWeight: 500,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.3em",
-                  color: "#D4A853",
-                  marginTop: 8,
-                }}
-              >
-                (THE ACQUISITION SYSTEM)
-              </span>
             </div>
 
             <div className="flex flex-col space-y-0">
@@ -271,7 +265,7 @@ export function VerticalTabs() {
                                   <span
                                     style={{ color: "rgba(240,234,214,0.3)" }}
                                   >
-                                    — {item.detail}
+                                    · {item.detail}
                                   </span>
                                 </p>
                               ))}
@@ -422,39 +416,6 @@ export function VerticalTabs() {
                   </div>
                 )}
 
-                {/* Nav arrows */}
-                <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 flex gap-2 md:gap-3 z-20">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePrev();
-                    }}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all active:scale-90"
-                    style={{
-                      background: "rgba(13,11,9,0.8)",
-                      backdropFilter: "blur(12px)",
-                      border: "1px solid rgba(212,168,83,0.2)",
-                    }}
-                    aria-label="Previous"
-                  >
-                    <ChevronLeft className="w-5 h-5 text-[#F0EAD6]" />
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNext();
-                    }}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all active:scale-90"
-                    style={{
-                      background: "rgba(13,11,9,0.8)",
-                      backdropFilter: "blur(12px)",
-                      border: "1px solid rgba(212,168,83,0.2)",
-                    }}
-                    aria-label="Next"
-                  >
-                    <ChevronRight className="w-5 h-5 text-[#F0EAD6]" />
-                  </button>
-                </div>
               </div>
             </div>
           </div>

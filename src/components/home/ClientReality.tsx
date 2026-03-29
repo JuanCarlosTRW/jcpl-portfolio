@@ -49,7 +49,7 @@ export default function ClientReality() {
       ref={sectionRef}
       id="reality"
       variant="alt"
-      className="border-b border-[#2A2318] py-20 md:py-28"
+      className="border-b border-[#2A2318] py-16 md:py-20"
       style={{ background: "#0D0B09" }}
     >
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">

@@ -91,32 +91,36 @@ export default function FAQ() {
             }}
           >
             <div className="p-6 md:p-8">
-              <h3 className="text-[1.25rem] font-bold text-white leading-tight mb-2">{faqBooking.ctaTitle}</h3>
-              <p className="text-[0.9rem] leading-[1.6] mb-6" style={{ color: "#D2C9B8" }}>
-                {faqBooking.ctaBody}
+              <h3 className="text-[1.25rem] font-bold text-white leading-tight mb-2">Book a diagnostic call</h3>
+              <p className="text-[0.9rem] leading-[1.6] mb-4" style={{ color: "#D2C9B8" }}>
+                I review your market before we speak. I show you exactly where you are losing calls and what fixing it is worth.
+              </p>
+              <p className="text-[0.8rem] leading-[1.6] mb-6" style={{ color: "rgba(240,234,214,0.5)" }}>
+                No pitch. No pressure. No retainer until fit is confirmed.
               </p>
               <a
                 href="#book-call"
                 style={{
                   fontSize: "0.875rem",
                   color: "#D4A853",
+                  fontWeight: 500,
                   textDecoration: "none",
                   transition: "color 180ms ease",
                 }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5F0E8"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#D4A853"; }}
               >
-                See results &rarr;
+                Get my diagnostic call →
               </a>
               <div className="mt-6">
                 <p className="text-[13px]" style={{ color: "#A69D8D" }}>
-                  {faqBooking.ctaEmailLabel}{" "}
+                  Prefer email?{" "}
                   <a
-                    href={`mailto:${faqBooking.ctaEmail}`}
+                    href="mailto:juan@clientgrowth.ca"
                     className="font-medium underline underline-offset-2"
                     style={{ color: "#D4A853" }}
                   >
-                    {faqBooking.ctaEmail}
+                    juan@clientgrowth.ca
                   </a>
                 </p>
               </div>

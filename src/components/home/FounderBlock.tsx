@@ -19,11 +19,14 @@ export default function FounderBlock() {
 
         {/* Section label */}
         <p
-          className="text-center uppercase mb-12 md:mb-16"
+          className="text-center uppercase"
           style={{
-            fontSize: "0.6875rem",
-            letterSpacing: "0.15em",
+            fontSize: "11px",
+            letterSpacing: "0.12em",
             color: "#D4A853",
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontWeight: 400,
+            marginBottom: 16,
           }}
         >
           {o.eyebrow}
@@ -83,31 +86,19 @@ export default function FounderBlock() {
               {o.p1}
             </p>
 
-            <div className="flex flex-col gap-4">
-              <p
-                style={{
-                  fontSize: "0.9375rem",
-                  color: "#A8998A",
-                  lineHeight: 1.78,
-                  margin: 0,
-                }}
-              >
-                {o.p2}
-              </p>
-              <p
-                style={{
-                  fontSize: "0.9375rem",
-                  color: "#A8998A",
-                  lineHeight: 1.78,
-                  margin: 0,
-                }}
-              >
-                {o.p3}
-              </p>
-            </div>
+            <p
+              style={{
+                fontSize: "0.9375rem",
+                color: "#A8998A",
+                lineHeight: 1.78,
+                margin: 0,
+              }}
+            >
+              {o.p2}
+            </p>
 
             {/* Industries line */}
-            <p style={{ fontSize: "14px", color: "rgba(240, 234, 214, 0.6)", margin: 0 }}>
+            <p style={{ fontSize: "14px", fontWeight: 500, color: "rgba(240, 234, 214, 0.8)", margin: 0, marginTop: 20 }}>
               5 industries. 3 countries. Every system built personally.
             </p>
 
@@ -149,8 +140,8 @@ export default function FounderBlock() {
             <Link
               href={lp("/about")}
               style={{
-                fontSize: "0.8125rem",
-                color: "#8A7E74",
+                fontSize: "14px",
+                color: "rgba(240, 234, 214, 0.7)",
                 letterSpacing: "-0.006em",
                 textDecoration: "none",
                 transition: "color 180ms ease",

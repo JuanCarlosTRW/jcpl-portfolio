@@ -322,9 +322,11 @@ export default function ROICalculator() {
               <a
                 href="#book-call"
                 style={{
-                  fontSize: "0.875rem",
+                  fontSize: "14px",
+                  fontWeight: 500,
                   color: "#D4A853",
                   textDecoration: "none",
+                  opacity: 1,
                   transition: "color 180ms ease",
                 }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5F0E8"; }}

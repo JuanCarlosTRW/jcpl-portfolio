@@ -32,15 +32,6 @@ const testimonialsData = [
     imageSrc:
       "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/Facelab_2025-08-18_06-28-56.jpg?v=1755567059",
   },
-  {
-    id: 4,
-    quote:
-      "Professional, fast, and the results speak for themselves. Our online visibility has never been better.",
-    name: "Centre Dentaire St-Elzear",
-    role: "Dental Clinic · Laval, QC",
-    imageSrc:
-      "https://static.wixstatic.com/media/62f926_acfce4c5f2b54e88b9f994f56e927c73~mv2.png",
-  },
 ];
 
 export default function TestimonialBlock() {
@@ -54,8 +45,8 @@ export default function TestimonialBlock() {
       }}
     >
       <TestimonialSection
-        title="Real clients. Real results."
-        subtitle="Every result on this page came from the same acquisition system."
+        title="What happens when the system runs."
+        subtitle="Every one of these came from the same system. Running continuously."
         testimonials={testimonialsData}
       />
 

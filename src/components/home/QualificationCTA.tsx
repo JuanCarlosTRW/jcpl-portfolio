@@ -55,7 +55,7 @@ export default function QualificationCTA() {
                 }}
               >
                 <h3 className="text-[1.25rem] font-bold text-white mb-5">
-                  {f.rightFitTitle}
+                  You are the right fit if:
                 </h3>
                 <ul className="space-y-3.5">
                   {forYouIf.map((item, i) => (
@@ -75,7 +75,7 @@ export default function QualificationCTA() {
                 }}
               >
                 <h3 className="text-[1.25rem] font-bold text-white mb-5">
-                  {f.notFitTitle}
+                  This is not the right fit if:
                 </h3>
                 <ul className="space-y-3.5">
                   {notForYouIf.map((item, i) => (
@@ -93,7 +93,7 @@ export default function QualificationCTA() {
               className="text-center mt-10"
               style={{
                 fontSize: "15px",
-                color: "rgba(240, 234, 214, 0.55)",
+                color: "rgba(240, 234, 214, 0.7)",
                 fontStyle: "italic",
               }}
             >
