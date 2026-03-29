@@ -126,7 +126,31 @@ export default function PremiumNav() {
       <style jsx>{`
         @media (max-width: 768px) {
           nav > div {
-            padding: 20px 24px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 0 16px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+            height: 56px !important;
+          }
+          nav > div > a:first-child {
+            font-size: 16px !important;
+            white-space: nowrap !important;
+            flex-shrink: 1 !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+          }
+          nav > div > a:first-child span {
+            font-size: 16px !important;
+          }
+          nav > div > div:last-child a:last-child {
+            flex-shrink: 0 !important;
+            font-size: 11px !important;
+            padding: 8px 14px !important;
+            white-space: nowrap !important;
           }
         }
       `}</style>

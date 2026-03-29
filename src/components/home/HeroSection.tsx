@@ -311,21 +311,53 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
         @media (max-width: 768px) {
-          /* FIX 3 — Container width & breathing room */
-          .hero-container {
-            width: 82% !important;
-            max-width: 420px !important;
-            margin: 0 auto !important;
-            padding: 28px 24px !important;
-            border-radius: 12px !important;
-            /* FIX 4 — More transparent on mobile */
-            background: rgba(13, 11, 9, 0.38) !important;
-            backdrop-filter: blur(6px) !important;
-            -webkit-backdrop-filter: blur(6px) !important;
-            /* FIX 10 — Center vertically on mobile */
-            transform: translate(-50%, -50%) !important;
+          /* FIX 1 — Animation fills full mobile screen */
+          section[aria-label="Hero"] > div[data-us-project-src] {
+            width: 100vw !important;
+            height: 100svh !important;
+            min-height: 100svh !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            overflow: hidden !important;
           }
-          /* FIX 5 — Eyebrow on mobile */
+          section[aria-label="Hero"] > div[data-us-project-src] canvas,
+          section[aria-label="Hero"] > div[data-us-project-src] iframe {
+            width: 100% !important;
+            height: 100% !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            object-fit: cover !important;
+            border: none !important;
+          }
+          /* FIX 2 — Hero section height on mobile */
+          section[aria-label="Hero"] {
+            position: relative !important;
+            width: 100vw !important;
+            height: 100svh !important;
+            min-height: 100svh !important;
+            overflow: hidden !important;
+          }
+          /* FIX 3 — Container: no border, radial fade, more transparent */
+          .hero-container {
+            width: 88% !important;
+            max-width: 400px !important;
+            padding: 32px 20px 28px 20px !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 10 !important;
+            background: rgba(13, 11, 9, 0.45) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border: none !important;
+            border-radius: 0px !important;
+            mask-image: radial-gradient(ellipse 88% 82% at 50% 50%, black 55%, transparent 100%) !important;
+            -webkit-mask-image: radial-gradient(ellipse 88% 82% at 50% 50%, black 55%, transparent 100%) !important;
+          }
+          /* Eyebrow on mobile */
           .hero-container .hero-enter {
             margin-bottom: 16px !important;
           }
@@ -336,24 +368,24 @@ export default function HeroSection() {
           .hero-container .hero-enter div[style] {
             display: none !important;
           }
-          /* FIX 6 — Headline on mobile */
+          /* Headline on mobile */
           .hero-container h1 {
             font-size: clamp(1.9rem, 7vw, 2.4rem) !important;
             line-height: 1.2 !important;
             text-align: center !important;
             margin-bottom: 16px !important;
           }
-          /* FIX 7 — Subheadline on mobile */
+          /* FIX 6 — Subheadline on mobile */
           .hero-container .hero-enter p,
           .hero-container > p.hero-enter:nth-of-type(1) {
-            font-size: 13px !important;
-            line-height: 1.55 !important;
-            max-width: 320px !important;
-            margin: 0 auto 24px auto !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            max-width: 300px !important;
+            margin: 0 auto 20px auto !important;
             text-align: center !important;
             color: rgba(240,234,214,0.8) !important;
           }
-          /* FIX 8 — CTA row on mobile */
+          /* CTA row on mobile */
           .hero-cta-row {
             flex-direction: column !important;
             align-items: center !important;
@@ -376,7 +408,7 @@ export default function HeroSection() {
             letter-spacing: 0.08em !important;
             padding: 4px 0 !important;
           }
-          /* FIX 9 — Risk reversal chip on mobile */
+          /* Risk reversal chip on mobile */
           .hero-container > p.hero-enter:last-child {
             font-size: 11px !important;
             color: rgba(240,234,214,0.35) !important;
@@ -386,6 +418,15 @@ export default function HeroSection() {
             max-width: 280px !important;
             margin-left: auto !important;
             margin-right: auto !important;
+          }
+          /* FIX 7 — Proof ticker flush at bottom on mobile */
+          div[role="marquee"] {
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 20 !important;
+            background: rgba(13,11,9,0.6) !important;
           }
         }
       `}</style>
