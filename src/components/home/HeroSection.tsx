@@ -43,8 +43,6 @@ export default function HeroSection() {
         minHeight: "100svh",
         overflow: "hidden",
         background: "#0D0B09",
-        margin: 0,
-        padding: 0,
       }}
       aria-label="Hero"
     >
@@ -54,22 +52,15 @@ export default function HeroSection() {
         className="hero-animation"
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          minHeight: "100svh",
-          overflow: "hidden",
-          margin: 0,
-          padding: 0,
+          inset: 0,
           zIndex: 0,
         }}
       >
         <UnicornScene
           projectId="VhaHzIfQSlNqY2QWIadP"
           sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
-          width="100%"
-          height="100%"
+          width="100vw"
+          height="100svh"
         />
       </div>
 
@@ -303,33 +294,17 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* ── Force Unicorn Studio to fill the hero section ── */
+        /* ── Unicorn Studio: explicit viewport units handle sizing ── */
         .hero-animation {
           position: absolute !important;
           inset: 0 !important;
-          width: 100% !important;
-          height: 100% !important;
-          margin: 0 !important;
-          padding: 0 !important;
         }
-        /* ── Only override the SDK's direct container div ── */
         .hero-animation > div {
-          width: 100% !important;
-          height: 100% !important;
+          width: 100vw !important;
+          height: 100svh !important;
         }
 
         @media (max-width: 768px) {
-          /*
-            The animation renders its planet in the bottom half of its canvas.
-            On tall phones (~9:19.5), we scale up from the bottom so the
-            planet stays visible and the animation extends upward to fill
-            the black zone at the top. Section overflow:hidden clips excess.
-          */
-          .hero-animation {
-            transform: scale(2) !important;
-            transform-origin: center 85% !important;
-          }
-
           /* ── Text container on mobile ── */
           .hero-container {
             position: absolute !important;
