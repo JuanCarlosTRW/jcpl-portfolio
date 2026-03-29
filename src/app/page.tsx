@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 /* Dynamic imports — everything below the fold */
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const ClientReality = dynamic(() => import("@/components/home/ClientReality"));
-const ServicesSection = dynamic(() => import("@/components/home/ServicesSection"));
+const VerticalTabs = dynamic(() => import("@/components/ui/vertical-tabs"));
 const FounderBlock = dynamic(() => import("@/components/home/FounderBlock"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
@@ -35,7 +35,7 @@ export default function HomePage() {
       <ClientReality />
 
       {/* 5. Acquisition system — Attract → Convert → Compound */}
-      <ServicesSection />
+      <VerticalTabs />
 
       {/* 6. Who Builds This */}
       <FounderBlock />
