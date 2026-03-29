@@ -134,6 +134,11 @@ export default function PremiumNav() {
             width: 100% !important;
             z-index: 50 !important;
             background: transparent !important;
+            background-color: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
           }
           nav > div {
             padding: 16px 20px !important;

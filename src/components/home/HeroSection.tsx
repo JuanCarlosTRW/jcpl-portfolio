@@ -319,32 +319,32 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
-          /* ── STEP 2 mobile: brute-force scale if animation still short ── */
+          /* ── FIX 4: Scale animation and push planet up into frame ── */
           .hero-animation {
-            transform: scale(1.8) !important;
+            transform: scale(1.15) translateY(-5%) !important;
             transform-origin: center center !important;
           }
 
-          /* ── STEP 3: Text container on mobile ── */
+          /* ── FIX 1+2+5: Text container on mobile ── */
           .hero-container {
             position: absolute !important;
-            top: 50% !important;
+            top: 44% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
             width: 88vw !important;
             max-width: 400px !important;
-            padding: 28px 20px !important;
-            background: rgba(13, 11, 9, 0.5) !important;
-            backdrop-filter: blur(8px) !important;
-            -webkit-backdrop-filter: blur(8px) !important;
+            padding: 24px 18px 20px 18px !important;
+            background: rgba(13, 11, 9, 0.35) !important;
+            backdrop-filter: blur(6px) !important;
+            -webkit-backdrop-filter: blur(6px) !important;
             border: none !important;
             border-radius: 0px !important;
             z-index: 20 !important;
-            mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 45%, transparent 100%) !important;
-            -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 45%, transparent 100%) !important;
+            mask-image: radial-gradient(ellipse 90% 85% at 50% 48%, black 35%, rgba(0,0,0,0.5) 60%, transparent 100%) !important;
+            -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 48%, black 35%, rgba(0,0,0,0.5) 60%, transparent 100%) !important;
           }
 
-          /* ── STEP 5: Mobile typography ── */
+          /* ── Mobile typography ── */
           /* Eyebrow */
           .hero-container .hero-enter {
             margin-bottom: 16px !important;
@@ -356,19 +356,19 @@ export default function HeroSection() {
           .hero-eyebrow-rule {
             display: none !important;
           }
-          /* Headline */
+          /* FIX 6: Headline */
           .hero-container h1 {
-            font-size: clamp(1.8rem, 6.5vw, 2.2rem) !important;
-            line-height: 1.2 !important;
+            font-size: clamp(1.75rem, 6vw, 2.1rem) !important;
+            line-height: 1.18 !important;
             text-align: center !important;
-            margin-bottom: 14px !important;
+            margin-bottom: 12px !important;
           }
-          /* Subheadline */
+          /* FIX 7: Subheadline */
           .hero-sub {
             font-size: 13px !important;
-            line-height: 1.55 !important;
-            max-width: 290px !important;
-            margin: 0 auto 22px auto !important;
+            line-height: 1.5 !important;
+            max-width: 280px !important;
+            margin: 0 auto 20px auto !important;
             text-align: center !important;
             color: rgba(240,234,214,0.8) !important;
           }
