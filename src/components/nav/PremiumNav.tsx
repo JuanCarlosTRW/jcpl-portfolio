@@ -126,31 +126,32 @@ export default function PremiumNav() {
       <style jsx>{`
         @media (max-width: 768px) {
           nav > div {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
             padding: 0 16px !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            overflow: hidden !important;
             height: 56px !important;
           }
-          nav > div > a:first-child {
-            font-size: 16px !important;
+          /* Hide "Work" link on mobile */
+          nav > div > a.nav-link {
+            display: none !important;
+          }
+          /* Logo: remove absolute positioning, flow to left */
+          nav > div > a:nth-child(2) {
+            position: relative !important;
+            left: auto !important;
+            transform: none !important;
+          }
+          nav > div > a:nth-child(2) span {
+            font-size: 18px !important;
+          }
+          /* Hide "Results" link on mobile */
+          nav > div > div > a.nav-link {
+            display: none !important;
+          }
+          /* CTA button: compact */
+          nav > div > div > a:last-child {
+            font-size: 10px !important;
+            padding: 8px 16px !important;
             white-space: nowrap !important;
-            flex-shrink: 1 !important;
-            min-width: 0 !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
-          }
-          nav > div > a:first-child span {
-            font-size: 16px !important;
-          }
-          nav > div > div:last-child a:last-child {
             flex-shrink: 0 !important;
-            font-size: 11px !important;
-            padding: 8px 14px !important;
-            white-space: nowrap !important;
           }
         }
       `}</style>

@@ -21,10 +21,36 @@ export default function HeroSection() {
     if (!el) return;
     if (el.querySelector("canvas")) return;
 
+    const forceCanvasFill = () => {
+      if (!el) return;
+      const canvas = el.querySelector("canvas");
+      if (canvas) {
+        canvas.style.position = "absolute";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.objectFit = "cover";
+      }
+      const iframe = el.querySelector("iframe");
+      if (iframe) {
+        iframe.style.position = "absolute";
+        iframe.style.top = "0";
+        iframe.style.left = "0";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.border = "none";
+      }
+    };
+
     const initUS = () => {
       const us = (window as any).UnicornStudio;
       if (us?.init) {
         us.init();
+        // Force canvas to fill after init renders
+        setTimeout(forceCanvasFill, 100);
+        setTimeout(forceCanvasFill, 500);
+        setTimeout(forceCanvasFill, 1500);
       }
     };
 
@@ -73,12 +99,16 @@ export default function HeroSection() {
         ref={embedRef}
         data-us-project-src="/scenes/hero-planet.json"
         aria-hidden="true"
+        className="hero-animation"
         style={{
           position: "absolute",
-          inset: 0,
-          width: "100%",
+          top: 0,
+          left: 0,
+          width: "100vw",
           height: "100%",
+          minHeight: "100svh",
           zIndex: 0,
+          overflow: "hidden",
         }}
       />
 
@@ -310,33 +340,34 @@ export default function HeroSection() {
           opacity: 0;
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
+        /* Force canvas/iframe fill on all viewports */
+        .hero-animation :global(canvas),
+        .hero-animation :global(iframe) {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          border: none !important;
+        }
         @media (max-width: 768px) {
-          /* FIX 1 — Animation fills full mobile screen */
-          section[aria-label="Hero"] > div[data-us-project-src] {
-            width: 100vw !important;
-            height: 100svh !important;
-            min-height: 100svh !important;
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            overflow: hidden !important;
-          }
-          section[aria-label="Hero"] > div[data-us-project-src] canvas,
-          section[aria-label="Hero"] > div[data-us-project-src] iframe {
-            width: 100% !important;
-            height: 100% !important;
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            object-fit: cover !important;
-            border: none !important;
-          }
-          /* FIX 2 — Hero section height on mobile */
+          /* Hero section fills mobile viewport */
           section[aria-label="Hero"] {
             position: relative !important;
             width: 100vw !important;
             height: 100svh !important;
             min-height: 100svh !important;
+            overflow: hidden !important;
+          }
+          /* Animation wrapper fills section */
+          .hero-animation {
+            width: 100vw !important;
+            height: 100svh !important;
+            min-height: 100svh !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
             overflow: hidden !important;
           }
           /* FIX 3 — Container: no border, radial fade, more transparent */
