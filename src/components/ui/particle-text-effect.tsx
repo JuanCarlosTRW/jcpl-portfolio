@@ -173,12 +173,10 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
     const offscreenCtx = offscreenCanvas.getContext("2d")!
 
     offscreenCtx.fillStyle = "white"
-    // Responsive font size based on display width (not DPR-scaled canvas)
-    const displayW = canvas.width / (window.devicePixelRatio || 1)
-    const baseSize = Math.min(displayW * 0.07, 140)
-    const fontSize = word.length > 25 ? baseSize * 0.55 : word.length > 15 ? baseSize * 0.7 : baseSize
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
-    offscreenCtx.font = `bold ${fontSize * dpr}px Arial`
+    // Responsive font size based on canvas width
+    const baseSize = Math.min(canvas.width * 0.07, 120)
+    const fontSize = word.length > 25 ? baseSize * 0.5 : word.length > 15 ? baseSize * 0.65 : baseSize
+    offscreenCtx.font = `bold ${fontSize}px Arial`
     offscreenCtx.textAlign = "center"
     offscreenCtx.textBaseline = "middle"
     offscreenCtx.fillText(word, canvas.width / 2, canvas.height / 2)
@@ -258,15 +256,10 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
     const canvas = canvasRef.current
     if (!canvas) return
 
-    // Fill the entire viewport
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    // Fill the entire viewport — 1:1 pixel mapping, no DPR scaling
     const resize = () => {
-      canvas.width = window.innerWidth * dpr
-      canvas.height = window.innerHeight * dpr
-      canvas.style.width = window.innerWidth + "px"
-      canvas.style.height = window.innerHeight + "px"
-      const ctx = canvas.getContext("2d")!
-      ctx.scale(dpr, dpr)
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
     }
     resize()
     window.addEventListener("resize", resize)
