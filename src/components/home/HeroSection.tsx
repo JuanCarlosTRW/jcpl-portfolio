@@ -309,31 +309,31 @@ export default function HeroSection() {
           inset: 0 !important;
           width: 100% !important;
           height: 100% !important;
-          overflow: hidden !important;
           margin: 0 !important;
           padding: 0 !important;
         }
-        /* ── Override SDK container (position: relative) and all children ── */
-        .hero-animation > div {
+        /* ── Override SDK container and ALL nested elements at any depth ── */
+        .hero-animation * {
           position: absolute !important;
-          inset: 0 !important;
+          top: 0 !important;
+          left: 0 !important;
           width: 100% !important;
           height: 100% !important;
           margin: 0 !important;
           padding: 0 !important;
-        }
-        .hero-animation canvas {
-          display: block !important;
-          width: 100% !important;
-          height: 100% !important;
-          object-fit: cover !important;
+          border: none !important;
         }
 
         @media (max-width: 768px) {
-          /* ── Mobile: scale the entire animation wrapper to cover tall viewports ── */
+          /*
+            Mobile phones are ~9:19.5 portrait. The Unicorn Studio animation
+            renders at a landscape aspect ratio. scale(1.4) is not enough.
+            We need ~2x to guarantee the animation covers a tall viewport.
+            The hero section overflow:hidden clips the excess.
+          */
           .hero-animation {
-            transform: scale(1.4) !important;
-            transform-origin: center 40% !important;
+            transform: scale(2) !important;
+            transform-origin: center center !important;
           }
 
           /* ── Text container on mobile ── */
