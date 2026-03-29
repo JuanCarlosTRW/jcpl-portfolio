@@ -26,6 +26,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "resend": "^6.9.2",
+    "tailwind-merge": "^3.5.0",
     "three": "^0.182.0",
     "unicornstudio-react": "^2.1.1"
   },

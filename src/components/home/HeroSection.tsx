@@ -84,54 +84,61 @@ export default function HeroSection() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(13,11,9,0.35) 0%, rgba(13,11,9,0.55) 100%)",
+          background: "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(13,11,9,0.45) 0%, rgba(13,11,9,0.65) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
-      {/* ── Layer 2: Hero content, centered over the planet ── */}
+      {/* ── Layer 2: Hero content, top-aligned above the planet ── */}
       <div
-        className="relative flex flex-col items-center justify-center text-center px-6"
+        className="relative flex flex-col items-center text-center px-6"
         style={{
           zIndex: 10,
           height: "100%",
-          paddingTop: "var(--nav-h, 72px)",
-          paddingBottom: 60,
+          paddingTop: "18vh",
+          justifyContent: "flex-start",
         }}
       >
         {/* Eyebrow */}
         <div
-          className="hero-enter flex items-center gap-3 mb-6"
-          style={{ animationDelay: "0.1s" }}
+          className="hero-enter flex items-center gap-3"
+          style={{ animationDelay: "0.1s", marginBottom: 20 }}
         >
-          <div className="h-px w-5" style={{ background: "rgba(212,168,83,0.5)" }} />
+          <div
+            style={{
+              width: 28,
+              height: 1,
+              background: "#D4A853",
+              flexShrink: 0,
+            }}
+          />
           <span
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: 11,
               fontWeight: 500,
-              letterSpacing: "0.18em",
+              letterSpacing: "0.2em",
               textTransform: "uppercase",
               color: "#D4A853",
+              opacity: 1,
             }}
           >
             Local Business Growth / Worldwide
           </span>
-          <div className="h-px w-5" style={{ background: "rgba(212,168,83,0.5)" }} />
         </div>
 
-        {/* Headline */}
+        {/* Headline — fade up animation */}
         <h1
-          className="hero-enter"
+          className="hero-fadeup"
           style={{
             fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: "clamp(48px, 6vw, 72px)",
+            fontSize: "clamp(44px, 6vw, 78px)",
             fontWeight: 300,
-            lineHeight: 1.1,
+            lineHeight: 1.0,
             color: "#F0EAD6",
-            margin: "0 0 1.25rem 0",
-            animationDelay: "0.25s",
+            margin: 0,
+            marginBottom: 20,
           }}
         >
           Your city. My{" "}
@@ -145,10 +152,12 @@ export default function HeroSection() {
             fontFamily: "var(--font-dm-sans), sans-serif",
             fontSize: 15,
             lineHeight: 1.7,
-            color: "rgba(240,234,214,0.55)",
+            color: "rgba(240,234,214,0.70)",
             maxWidth: 480,
-            margin: "0 auto 2rem",
+            margin: 0,
+            marginBottom: 36,
             animationDelay: "0.4s",
+            textShadow: "0 2px 20px rgba(0,0,0,0.8)",
           }}
         >
           Websites, Google Ads, SEO, and AI. Built for service businesses that want more customers, not more agencies.
@@ -156,7 +165,7 @@ export default function HeroSection() {
 
         {/* CTAs */}
         <div
-          className="hero-enter flex flex-col items-center gap-4"
+          className="hero-enter flex items-center gap-5"
           style={{ animationDelay: "0.55s" }}
         >
           {/* Primary CTA */}
@@ -165,13 +174,13 @@ export default function HeroSection() {
             className="group inline-flex items-center justify-center transition-all"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 12,
+              fontSize: 11,
               fontWeight: 500,
-              letterSpacing: "0.08em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
               background: "#D4A853",
               color: "#0D0B09",
-              padding: "14px 36px",
+              padding: "13px 32px",
               borderRadius: 0,
             }}
             onMouseEnter={(e) => {
@@ -234,11 +243,19 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Ticker animation keyframes */}
+      {/* Animation keyframes */}
       <style jsx>{`
         @keyframes ticker-scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.333%); }
+        }
+        @keyframes hero-fadeup {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .hero-fadeup {
+          opacity: 0;
+          animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
       `}</style>
     </section>
