@@ -1,15 +1,8 @@
 "use client";
 
-import CTAButton from "@/components/ui/CTAButton";
 import Link from "next/link";
-import { useLocale } from "@/context/LocaleContext";
-import { translations } from "@/lib/translations";
 
 export default function ResultsCTA() {
-  const { lp, locale } = useLocale();
-  const rc = translations[locale].results.cta;
-  const trustItems = [rc.trust1, rc.trust2, rc.trust3];
-
   return (
     <section
       className="py-20 md:py-28"
@@ -18,55 +11,58 @@ export default function ResultsCTA() {
         borderTop: "1px solid rgba(212,168,83,0.07)",
       }}
     >
-      <div className="max-w-[1120px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-0 items-start">
-          {/* Left: Conversion framing */}
-          <div className="lg:pr-16">
-            <p className="text-[11px] uppercase tracking-[0.14em] text-[#D4A853] mb-5">
-              {rc.eyebrow}
-            </p>
-            <h2 className="text-[clamp(26px,3.5vw,38px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
-              {rc.heading}
-            </h2>
-            <p className="text-[16px] text-[#D2C9B8] leading-[1.7] max-w-[480px] mb-8">
-              {rc.body}
-            </p>
+      <div className="max-w-[680px] mx-auto px-6 text-center">
+        {/* Headline */}
+        <h2 className="text-[clamp(26px,3.5vw,38px)] font-extrabold text-white leading-[1.15] mb-6 tracking-[-0.02em]">
+          The results are documented. The system is the same one I&apos;d build for you.
+        </h2>
 
-            {/* Trust signals */}
-            <div className="flex flex-col gap-2.5">
-              {trustItems.map((item) => (
-                <span
-                  key={item}
-                  className="text-[13px] text-[rgba(255,255,255,0.4)] flex items-center gap-2.5"
-                >
-                  <span
-                    className="flex-shrink-0 w-[18px] h-px"
-                    style={{ background: "rgba(212,168,83,0.4)" }}
-                  />
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
+        {/* Body */}
+        <p className="text-[16px] text-[#D2C9B8] leading-[1.7] mb-8 max-w-[560px] mx-auto">
+          If you&apos;re generating consistent revenue and your pipeline depends on referrals, that&apos;s the problem I fix. One spot is open this quarter. Book the diagnostic call. I&apos;ll tell you exactly what it&apos;s worth before you pay anything.{" "}
+          <span style={{ color: "#D4A853" }}>Before you pay anything.</span>
+        </p>
 
-          {/* Right: Action zone — separated with vertical border */}
-          <div
-            className="flex flex-col items-start gap-5 lg:border-l lg:pl-16 pt-8 lg:pt-0"
-            style={{ borderColor: "rgba(212,168,83,0.1)" }}
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <Link
+            href="/apply"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-bold w-full sm:w-auto"
+            style={{ background: "#D4A853", color: "#0A0F1E" }}
           >
-            <div className="flex flex-col gap-4 w-full lg:w-auto">
-              <CTAButton href={lp("/apply")} size="lg">
-                {rc.button}
-              </CTAButton>
-              <Link
-                href={lp("/services")}
-                className="text-[13px] text-[rgba(255,255,255,0.4)] hover:text-[#D4A853] transition-colors text-center lg:text-left"
-              >
-                {rc.link}
-              </Link>
-            </div>
-          </div>
+            Book a Diagnostic Call &rarr;
+          </Link>
+          <Link
+            href="/services"
+            className="text-[13px] text-[rgba(255,255,255,0.4)] hover:text-[#D4A853] transition-colors"
+          >
+            How the acquisition system works &rarr;
+          </Link>
         </div>
+
+        {/* Trust badges */}
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-8">
+          {[
+            "\u26A1 Response within 24 hours",
+            "\uD83D\uDD12 No commitment to apply",
+            "Founder-led, not an agency intake",
+          ].map((item, i) => (
+            <span key={i} className="text-[13px] text-[rgba(255,255,255,0.4)] flex items-center gap-2">
+              {i > 0 && (
+                <span
+                  className="hidden sm:inline-block"
+                  style={{ width: 1, height: 14, background: "rgba(255,255,255,0.08)" }}
+                />
+              )}
+              {item}
+            </span>
+          ))}
+        </div>
+
+        {/* Disclaimer */}
+        <p className="text-[0.75rem] text-center mx-auto max-w-[480px]" style={{ color: "rgba(255,255,255,0.2)" }}>
+          Results shown are from real client engagements. Revenue figures are client-reported. Your results will vary based on market, offer, and execution.
+        </p>
       </div>
     </section>
   );

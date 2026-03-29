@@ -189,6 +189,7 @@ export default function PricingStatement() {
                 minHeight: 520,
                 background: "#1E1A14",
                 border: "1px solid #2A2318",
+                borderTop: "3px solid #D4A853",
               }}
             >
               {/* Card label */}

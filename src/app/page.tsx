@@ -6,11 +6,6 @@ import ClientLogoTicker from "@/components/home/ClientLogoTicker";
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://clientgrowth.ca/",
-    languages: {
-      "en": "https://clientgrowth.ca/",
-      "fr": "https://clientgrowth.ca/fr",
-      "x-default": "https://clientgrowth.ca/",
-    },
   },
 };
 

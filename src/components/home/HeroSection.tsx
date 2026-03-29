@@ -89,7 +89,10 @@ function ProofCard({ vc }: { vc: typeof translations["en"]["homepage"]["verified
         maxWidth: 360,
         width: "100%",
         animationDelay: "0.62s",
+        transition: "box-shadow 300ms ease",
       }}
+      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 0 0 1px rgba(212,168,83,0.3)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
     >
       <p
         style={{
@@ -147,7 +150,7 @@ function ProofCard({ vc }: { vc: typeof translations["en"]["homepage"]["verified
           src="https://static.wixstatic.com/media/62f926_492fa3904b904883bd7ff2023e2c28a9~mv2.png"
           alt="Google Ads account dashboard showing $41,085 in revenue"
           style={{ width: "100%", display: "block", borderRadius: 7 }}
-          loading="lazy"
+          loading="eager"
         />
         {/* Dark overlay so text beneath stays legible */}
         <div
@@ -295,6 +298,22 @@ export default function HeroSection() {
           zIndex: 3,
           pointerEvents: "none",
           background: beam.overlayStyle,
+        }}
+      />
+
+      {/* Radial gold glow behind hero text */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "30%",
+          left: "30%",
+          width: "500px",
+          height: "500px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(212,168,83,0.06) 0%, transparent 70%)",
+          pointerEvents: "none",
+          zIndex: 4,
         }}
       />
 

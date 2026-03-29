@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import ServicesHero from "@/components/services/ServicesHero";
@@ -17,11 +18,6 @@ export const metadata: Metadata = {
   }),
   alternates: {
     canonical: "https://clientgrowth.ca/services",
-    languages: {
-      "en": "https://clientgrowth.ca/services",
-      "fr": "https://clientgrowth.ca/fr/services",
-      "x-default": "https://clientgrowth.ca/services",
-    },
   },
 };
 
@@ -93,12 +89,14 @@ export default function ServicesPage() {
               </p>
 
               {/* Screenshot */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://static.wixstatic.com/media/62f926_492fa3904b904883bd7ff2023e2c28a9~mv2.png"
                 alt="Google Ads results: $41,085 revenue in 30 days"
+                width={600}
+                height={200}
                 style={{
                   width: "100%",
+                  height: "auto",
                   borderRadius: "6px",
                   border: "1px solid #2A2010",
                   maxHeight: "200px",
@@ -174,12 +172,14 @@ export default function ServicesPage() {
               </p>
 
               {/* Screenshot */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://static.wixstatic.com/media/62f926_682a6adfbe824964b8be5e7d1df48c67~mv2.png"
                 alt="Auction Insights: impression share dominance over all competitors"
+                width={600}
+                height={200}
                 style={{
                   width: "100%",
+                  height: "auto",
                   borderRadius: "6px",
                   border: "1px solid #2A2010",
                   maxHeight: "200px",

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { trackEvent } from "@/lib/analytics";
@@ -9,6 +10,32 @@ import { translations } from "@/lib/translations";
 export default function ServicesSection() {
   const { locale, lp } = useLocale();
   const a = translations[locale].homepage.acquisitionSystem;
+  const phasesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = phasesRef.current;
+    if (!el) return;
+    const phases = el.querySelectorAll(".phase");
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        phases.forEach((phase, i) => {
+          (phase as HTMLElement).style.transition = `opacity 0.6s ease ${i * 0.12}s, transform 0.6s ease ${i * 0.12}s`;
+          (phase as HTMLElement).style.opacity = "1";
+          (phase as HTMLElement).style.transform = "translateY(0)";
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.2 }
+    );
+    phases.forEach((phase) => {
+      (phase as HTMLElement).style.opacity = "0";
+      (phase as HTMLElement).style.transform = "translateY(24px)";
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <SectionWrapper
@@ -66,7 +93,7 @@ export default function ServicesSection() {
           }}
         >
           {/* Phases wrapper — horizontal on desktop, vertical on mobile */}
-          <div className="phases-wrapper flex flex-col md:flex-row md:items-start md:gap-0">
+          <div ref={phasesRef} className="phases-wrapper flex flex-col md:flex-row md:items-start md:gap-0">
 
             {/* Phase 01 — Attract */}
             <div className="phase flex-1 md:pr-6 md:border-r" style={{ borderColor: "rgba(212,168,83,0.12)" }}>

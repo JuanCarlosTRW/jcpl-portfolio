@@ -120,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
     id: "centre-dentaire-saint-elzear",
     title: "Centre Dentaire Saint-Élzéar",
     industry: "DENTAL CLINIC",
-    outcome: "Website delivered. Google Ads funnel built.",
+    outcome: "Ads to booking funnel built. Tracking active.",
     resultTag: "Funnel live",
     metrics: [
       { label: "Deliverable", value: "Website + Ads funnel" },

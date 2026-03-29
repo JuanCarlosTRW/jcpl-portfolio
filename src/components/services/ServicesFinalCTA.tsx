@@ -42,11 +42,16 @@ export default function ServicesFinalCTA() {
           <GuaranteesStrip />
         </div>
 
-        {/* Divider */}
+        {/* Gold dot separator */}
         <div className="flex justify-center mb-16" aria-hidden="true">
           <div
-            className="w-16 h-px"
-            style={{ background: "rgba(212, 168, 83, 0.4)" }}
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: "50%",
+              background: "#D4A853",
+              boxShadow: "0 0 8px rgba(212,168,83,0.4)",
+            }}
           />
         </div>
 
@@ -99,7 +104,7 @@ export default function ServicesFinalCTA() {
 
               <Link
                 href={lp("/apply")}
-                className="cta-primary inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-bold tracking-wide"
+                className="cta-primary inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-bold tracking-wide w-full sm:w-auto"
               >
                 {fc.button}
               </Link>

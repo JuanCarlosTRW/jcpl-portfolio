@@ -34,11 +34,11 @@ export default function AboutCTA() {
 
   return (
     <section id="about-cta" className="relative overflow-hidden">
-      {/* Background radial */}
+      {/* Background radial — gold glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,168,83,0.05) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,168,83,0.06) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -63,7 +63,7 @@ export default function AboutCTA() {
                 href={lp("/apply")}
                 size="lg"
                 eventName="final_cta_primary_click"
-                className="hover:-translate-y-0.5 transition-all duration-300"
+                className="hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
               >
                 {c.primary}
               </CTAButton>

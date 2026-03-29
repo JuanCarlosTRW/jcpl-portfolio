@@ -84,14 +84,25 @@ export default function DiagnosticForm() {
           style={{ color: "#A69D8D" }}
         >
           Apply for a diagnostic call. I review your business, your market, and
-          your pipeline before we speak. On the call, I show you exactly where
+          your pipeline before the call. I show you exactly where
           you are losing calls and what fixing it is worth. If I cannot produce a
           return, I tell you on the call.{" "}
           <span style={{ color: "#D4A853" }}>Before you pay anything.</span>
         </p>
       </div>
 
-      <div className="mx-auto max-w-2xl px-4 md:px-6">
+      <div
+        className="mx-auto max-w-2xl px-4 md:px-6"
+      >
+        <div
+          className="rounded-xl"
+          style={{
+            background: "#111009",
+            border: "1px solid #2A2010",
+            borderRadius: 12,
+            padding: "48px 32px",
+          }}
+        >
         {/* Section label */}
         <p
           className="uppercase mb-3"
@@ -124,19 +135,26 @@ export default function DiagnosticForm() {
         </p>
 
         {/* Trust badges */}
-        <div className="flex flex-wrap gap-4 mb-10">
+        <div className="flex flex-wrap items-center gap-2 mb-10">
           {[
             { icon: "\u26A1", text: "Response within 24h" },
             { icon: "\uD83D\uDD12", text: "100% confidential" },
             { icon: "\u2728", text: "Limited spots per quarter" },
-          ].map((badge) => (
-            <span
-              key={badge.text}
-              className="inline-flex items-center gap-1.5 text-xs"
-              style={{ color: "#756D63" }}
-            >
-              <span>{badge.icon}</span>
-              {badge.text}
+          ].map((badge, i) => (
+            <span key={badge.text} className="inline-flex items-center">
+              {i > 0 && (
+                <span
+                  className="mx-2 hidden sm:inline-block"
+                  style={{ width: 1, height: 14, background: "rgba(255,255,255,0.08)" }}
+                />
+              )}
+              <span
+                className="inline-flex items-center gap-1.5 text-xs"
+                style={{ color: "#756D63" }}
+              >
+                <span>{badge.icon}</span>
+                {badge.text}
+              </span>
             </span>
           ))}
         </div>
@@ -150,6 +168,12 @@ export default function DiagnosticForm() {
               border: "1px solid rgba(212,168,83,0.25)",
             }}
           >
+            <span
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4"
+              style={{ background: "rgba(212,168,83,0.12)", color: "#D4A853", fontSize: "1.5rem" }}
+            >
+              ✓
+            </span>
             <p className="text-lg font-semibold text-white mb-2">
               Application received.
             </p>
@@ -297,6 +321,7 @@ export default function DiagnosticForm() {
               style={{
                 background: "#D4A853",
                 color: "#0A0F1E",
+                minHeight: 56,
               }}
               onMouseOver={(e) => {
                 if (status !== "submitting")
@@ -307,9 +332,16 @@ export default function DiagnosticForm() {
                 (e.currentTarget as HTMLButtonElement).style.filter = "none";
               }}
             >
-              {status === "submitting"
-                ? "Submitting..."
-                : "Get My Diagnostic Call \u2192"}
+              {status === "submitting" ? (
+                <span className="inline-flex items-center gap-2">
+                  <span
+                    className="inline-block w-4 h-4 border-2 border-[#0A0F1E] border-t-transparent rounded-full animate-spin"
+                  />
+                  Submitting...
+                </span>
+              ) : (
+                "Get My Diagnostic Call \u2192"
+              )}
             </button>
 
             {/* Microcopy */}
@@ -317,11 +349,12 @@ export default function DiagnosticForm() {
               className="text-center text-xs"
               style={{ color: "#756D63", lineHeight: 1.6 }}
             >
-              I review your market before we speak. Response within 24 hours. No
+              I review your market before the call. Response within 24 hours. No
               retainer until I confirm fit.
             </p>
           </form>
         )}
+        </div>
       </div>
     </section>
   );

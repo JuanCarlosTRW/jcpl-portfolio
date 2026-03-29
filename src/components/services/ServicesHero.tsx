@@ -45,6 +45,14 @@ export default function ServicesHero() {
         }}
         aria-hidden
       />
+      {/* Radial gold glow behind headline */}
+      <div
+        className="absolute top-[20%] left-[20%] w-[400px] h-[400px] rounded-full pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(circle, rgba(212,168,83,0.06) 0%, transparent 70%)",
+        }}
+        aria-hidden
+      />
 
       <div className="relative z-10 max-w-4xl mx-auto pt-28 pb-14 md:pb-12 w-full">
         {/* Eyebrow */}

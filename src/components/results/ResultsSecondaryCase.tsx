@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { CaseStudy } from "@/content/caseStudies";
 import { useLocale } from "@/context/LocaleContext";
@@ -8,11 +9,33 @@ import { translations } from "@/lib/translations";
 export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
   const { locale } = useLocale();
   const rs = translations[locale].results.secondary;
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = sectionRef.current;
+    if (!el) return;
+    el.style.opacity = "0";
+    el.style.transform = "translateY(32px)";
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+        observer.disconnect();
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const headlineParts = rs.headline.split("\n");
 
   return (
     <section
+      ref={sectionRef}
       className="py-14 md:py-20"
       style={{
         background: "#0D0B09",

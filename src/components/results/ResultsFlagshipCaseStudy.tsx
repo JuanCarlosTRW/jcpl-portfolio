@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { CaseStudy } from "@/content/caseStudies";
 import { useLocale } from "@/context/LocaleContext";
@@ -9,6 +10,27 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
   const { locale } = useLocale();
   const rf = translations[locale].results.flagship;
   const narrative = cs.narrative ?? cs.situation;
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = sectionRef.current;
+    if (!el) return;
+    el.style.opacity = "0";
+    el.style.transform = "translateY(32px)";
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+        observer.disconnect();
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Split metrics: primary (revenue) gets dominant display, rest are supporting
   const primaryMetric = cs.metrics[0];
@@ -18,6 +40,7 @@ export default function ResultsFlagshipCaseStudy({ cs }: { cs: CaseStudy }) {
 
   return (
     <section
+      ref={sectionRef}
       className="py-16 md:py-24"
       style={{ background: "#131009" }}
     >

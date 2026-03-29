@@ -12,11 +12,6 @@ export const metadata: Metadata = {
   }),
   alternates: {
     canonical: "https://clientgrowth.ca/results",
-    languages: {
-      "en": "https://clientgrowth.ca/results",
-      "fr": "https://clientgrowth.ca/fr/results",
-      "x-default": "https://clientgrowth.ca/results",
-    },
   },
 };
 

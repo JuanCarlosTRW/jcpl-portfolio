@@ -8,7 +8,6 @@ export default function Footer() {
   const { locale } = useLocale();
   const { nav, footer } = translations[locale];
   const navItems = [
-    { href: "/", label: nav.home },
     { href: "/services", label: nav.services },
     { href: "/results", label: nav.results },
     { href: "/about", label: nav.about },

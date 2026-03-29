@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
           }
           <p style="margin:0 0 4px;line-height:1.6;">Juan Carlos</p>
           <p style="margin:0;color:#6b7280;font-size:14px;">
-            Client Growth &mdash;
+            Client Growth |
             <a href="https://clientgrowth.ca" style="color:#2563eb;">clientgrowth.ca</a>
           </p>
         </body>
