@@ -171,6 +171,7 @@ export default function HeroSection() {
           {/* Primary CTA */}
           <Link
             href="/apply"
+            aria-label="Work with me — book a call"
             className="group inline-flex items-center justify-center transition-all"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
@@ -198,6 +199,7 @@ export default function HeroSection() {
           {/* Secondary CTA */}
           <Link
             href="/results"
+            aria-label="See client case studies"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: 12,
@@ -223,6 +225,8 @@ export default function HeroSection() {
 
       {/* ── Layer 3: Proof ticker pinned to bottom ── */}
       <div
+        role="marquee"
+        aria-label="Client results ticker"
         className="absolute bottom-0 left-0 right-0 overflow-hidden"
         style={{
           zIndex: 10,

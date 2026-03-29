@@ -14,6 +14,7 @@ export default function PremiumNav() {
 
   return (
     <nav
+      aria-label="Main navigation"
       className="fixed top-0 left-0 w-full z-[100]"
       style={{
         background: scrolled ? "rgba(13,11,9,0.85)" : "transparent",
@@ -30,6 +31,7 @@ export default function PremiumNav() {
         {/* Left — Work link */}
         <Link
           href="/results"
+          aria-label="View our work"
           className="nav-link"
           style={{
             fontFamily: "var(--font-dm-sans), sans-serif",
@@ -50,6 +52,7 @@ export default function PremiumNav() {
         {/* Center — Logo */}
         <Link
           href="/"
+          aria-label="Client Growth — Home"
           className="absolute left-1/2 -translate-x-1/2"
           style={{ textDecoration: "none" }}
         >
@@ -71,6 +74,7 @@ export default function PremiumNav() {
         <div className="flex items-center gap-8">
           <Link
             href="/results"
+            aria-label="View client results"
             className="nav-link hidden sm:inline-block"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
@@ -90,6 +94,7 @@ export default function PremiumNav() {
 
           <Link
             href="/apply"
+            aria-label="Work with me"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: 11,

@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | ${siteConfig.title}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: "Websites, Google Ads, SEO, and AI for local service businesses. Results-driven marketing by Juan — ClientGrowth.ca",
   icons: {
     icon: [{ url: "/favicon.ico", sizes: "32x32" }],
   },
@@ -70,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://static.wixstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://static.wixstatic.com" />
         {/* Google Analytics GA4 */}
