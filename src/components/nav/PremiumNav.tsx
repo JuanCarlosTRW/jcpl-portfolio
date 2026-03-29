@@ -53,10 +53,11 @@ export default function PremiumNav() {
         <Link
           href="/"
           aria-label="Client Growth — Home"
-          className="md:absolute md:left-1/2 md:-translate-x-1/2"
+          className="nav-logo md:absolute md:left-1/2 md:-translate-x-1/2"
           style={{ textDecoration: "none" }}
         >
           <span
+            className="nav-logo-text"
             style={{
               fontFamily: "var(--font-cormorant), Georgia, serif",
               fontSize: 22,
@@ -95,6 +96,7 @@ export default function PremiumNav() {
           <Link
             href="/apply"
             aria-label="Work with me"
+            className="nav-cta-btn"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: 11,
@@ -125,9 +127,36 @@ export default function PremiumNav() {
       {/* Mobile responsive override */}
       <style jsx>{`
         @media (max-width: 768px) {
+          nav {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 50 !important;
+            background: transparent !important;
+          }
           nav > div {
-            padding: 0 20px !important;
-            height: 56px !important;
+            padding: 16px 20px !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+          }
+          :global(.nav-logo) {
+            position: static !important;
+            transform: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+          :global(.nav-logo-text) {
+            font-size: 17px !important;
+          }
+          :global(.nav-cta-btn) {
+            flex-shrink: 0 !important;
+            font-size: 11px !important;
+            padding: 9px 16px !important;
+            white-space: nowrap !important;
           }
         }
       `}</style>

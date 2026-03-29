@@ -35,8 +35,15 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ height: "100svh", minHeight: "100svh", background: "#0D0B09" }}
+      className="hero-section relative overflow-hidden"
+      style={{
+        position: "relative",
+        width: "100vw",
+        height: "100svh",
+        minHeight: "100svh",
+        overflow: "hidden",
+        background: "#0D0B09",
+      }}
       aria-label="Hero"
     >
       {/* ── Layer 0: Unicorn Studio planet animation ── */}
@@ -45,7 +52,14 @@ export default function HeroSection() {
         className="hero-animation"
         style={{
           position: "absolute",
-          inset: 0,
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          minHeight: "100svh",
+          overflow: "hidden",
+          margin: 0,
+          padding: 0,
           zIndex: 0,
         }}
       >
@@ -286,32 +300,52 @@ export default function HeroSection() {
           opacity: 0;
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
-        /* Unicorn Studio canvas must fill its wrapper */
+
+        /* ── STEP 2: Force Unicorn Studio to fill hero at ALL depths ── */
+        .hero-animation,
         .hero-animation div,
-        .hero-animation canvas {
+        .hero-animation canvas,
+        .hero-animation iframe {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
           width: 100% !important;
           height: 100% !important;
+          min-height: 100svh !important;
+          overflow: hidden !important;
+          border: none !important;
+          margin: 0 !important;
+          padding: 0 !important;
         }
+
         @media (max-width: 768px) {
-          /* Container: centered on planet, seamless edges */
+          /* ── STEP 2 mobile: brute-force scale if animation still short ── */
+          .hero-animation {
+            transform: scale(1.8) !important;
+            transform-origin: center center !important;
+          }
+
+          /* ── STEP 3: Text container on mobile ── */
           .hero-container {
-            width: 100% !important;
-            max-width: 100% !important;
-            padding: 24px 24px 20px 24px !important;
             position: absolute !important;
             top: 50% !important;
             left: 50% !important;
-            transform: translate(-50%, -54%) !important;
-            z-index: 10 !important;
-            background: rgba(13, 11, 9, 0.30) !important;
-            backdrop-filter: blur(6px) !important;
-            -webkit-backdrop-filter: blur(6px) !important;
+            transform: translate(-50%, -50%) !important;
+            width: 88vw !important;
+            max-width: 400px !important;
+            padding: 28px 20px !important;
+            background: rgba(13, 11, 9, 0.5) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
             border: none !important;
             border-radius: 0px !important;
-            mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 55%, transparent 100%) !important;
-            -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 55%, transparent 100%) !important;
+            z-index: 20 !important;
+            mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 45%, transparent 100%) !important;
+            -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 45%, transparent 100%) !important;
           }
-          /* Eyebrow on mobile */
+
+          /* ── STEP 5: Mobile typography ── */
+          /* Eyebrow */
           .hero-container .hero-enter {
             margin-bottom: 16px !important;
           }
@@ -322,23 +356,23 @@ export default function HeroSection() {
           .hero-eyebrow-rule {
             display: none !important;
           }
-          /* Headline on mobile */
+          /* Headline */
           .hero-container h1 {
-            font-size: clamp(1.9rem, 7vw, 2.4rem) !important;
+            font-size: clamp(1.8rem, 6.5vw, 2.2rem) !important;
             line-height: 1.2 !important;
             text-align: center !important;
-            margin-bottom: 16px !important;
+            margin-bottom: 14px !important;
           }
-          /* Subheadline on mobile */
+          /* Subheadline */
           .hero-sub {
-            font-size: 14px !important;
-            line-height: 1.5 !important;
-            max-width: 300px !important;
-            margin: 0 auto 20px auto !important;
+            font-size: 13px !important;
+            line-height: 1.55 !important;
+            max-width: 290px !important;
+            margin: 0 auto 22px auto !important;
             text-align: center !important;
             color: rgba(240,234,214,0.8) !important;
           }
-          /* CTA row on mobile */
+          /* CTA row */
           .hero-cta-row {
             flex-direction: column !important;
             align-items: center !important;
@@ -361,16 +395,26 @@ export default function HeroSection() {
             letter-spacing: 0.08em !important;
             padding: 4px 0 !important;
           }
-          /* Risk reversal chip on mobile */
+          /* Risk reversal chip */
           .hero-risk {
             font-size: 11px !important;
             color: rgba(240,234,214,0.35) !important;
             text-align: center !important;
             margin-top: 14px !important;
             line-height: 1.5 !important;
-            max-width: 280px !important;
+            max-width: 270px !important;
             margin-left: auto !important;
             margin-right: auto !important;
+          }
+
+          /* ── STEP 6: Proof ticker on mobile ── */
+          [role="marquee"] {
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 30 !important;
+            background: rgba(13, 11, 9, 0.5) !important;
           }
         }
       `}</style>
