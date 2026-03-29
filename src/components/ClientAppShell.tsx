@@ -10,8 +10,6 @@ import SpeedPopup from "@/components/SpeedPopup";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import SectionLabelAnimator from "@/components/motion/SectionLabelAnimator";
 import { useTranslations } from "@/context/LocaleContext";
-import dynamic from "next/dynamic";
-import { useState } from "react";
 
 function SkipToContent() {
   const t = useTranslations();
@@ -25,30 +23,21 @@ function SkipToContent() {
   );
 }
 
-const IntroAnimation = dynamic(() => import("@/components/IntroAnimation"), { ssr: false });
-
 export default function ClientAppShell({ children }: { children: ReactNode }) {
-  const [introComplete, setIntroComplete] = useState(false);
-
   return (
     <LocaleProvider>
-      {!introComplete && (
-        <IntroAnimation onComplete={() => setIntroComplete(true)} />
-      )}
-      <div style={{ opacity: introComplete ? 1 : 0, transition: "opacity 0.5s ease" }}>
-        <SkipToContent />
-        <ScrollProgressBar />
-        <SectionLabelAnimator />
-        <SmoothScrollProvider>
-          <RouteScrollManager />
-          <PremiumNav />
-          <main id="main-content" className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          <SpeedPopup />
-        </SmoothScrollProvider>
-      </div>
+      <SkipToContent />
+      <ScrollProgressBar />
+      <SectionLabelAnimator />
+      <SmoothScrollProvider>
+        <RouteScrollManager />
+        <PremiumNav />
+        <main id="main-content" className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
+        <SpeedPopup />
+      </SmoothScrollProvider>
     </LocaleProvider>
   );
 }
