@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
-import ClientLogoTicker from "@/components/home/ClientLogoTicker";
 
 export const metadata: Metadata = {
   alternates: {
@@ -29,10 +28,7 @@ export default function HomePage() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Client logos strip */}
-      <ClientLogoTicker />
-
-      {/* 3. Proof — verified results */}
+      {/* 2. Proof — verified results */}
       <FeaturedCaseStudy />
 
       {/* 4. Pain points (2 cards) */}

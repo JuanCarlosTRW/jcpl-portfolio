@@ -145,9 +145,9 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
   const pixelSteps = 6
   const drawAsPoints = true
 
-  const generateRandomPos = (x: number, y: number, mag: number): Vector2D => {
-    const randomX = Math.random() * 1000
-    const randomY = Math.random() * 500
+  const generateRandomPos = (x: number, y: number, mag: number, canvasW?: number, canvasH?: number): Vector2D => {
+    const randomX = Math.random() * (canvasW || 1000)
+    const randomY = Math.random() * (canvasH || 500)
 
     const direction = {
       x: randomX - x,
@@ -173,8 +173,9 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
     const offscreenCtx = offscreenCanvas.getContext("2d")!
 
     offscreenCtx.fillStyle = "white"
-    // Adjust font size based on text length
-    const fontSize = word.length > 20 ? 60 : word.length > 12 ? 80 : 100
+    // Responsive font size based on canvas width and text length
+    const baseSize = Math.min(canvas.width * 0.07, 140)
+    const fontSize = word.length > 25 ? baseSize * 0.55 : word.length > 15 ? baseSize * 0.7 : baseSize
     offscreenCtx.font = `bold ${fontSize}px Arial`
     offscreenCtx.textAlign = "center"
     offscreenCtx.textBaseline = "middle"
@@ -255,8 +256,18 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
     const canvas = canvasRef.current
     if (!canvas) return
 
-    canvas.width = 1000
-    canvas.height = 500
+    // Fill the entire viewport
+    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    const resize = () => {
+      canvas.width = window.innerWidth * dpr
+      canvas.height = window.innerHeight * dpr
+      canvas.style.width = window.innerWidth + "px"
+      canvas.style.height = window.innerHeight + "px"
+      const ctx = canvas.getContext("2d")!
+      ctx.scale(dpr, dpr)
+    }
+    resize()
+    window.addEventListener("resize", resize)
 
     nextWord(words[0], canvas)
 
@@ -309,14 +320,15 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }
+      window.removeEventListener("resize", resize)
     }
   }, [words, nextWord, onComplete])
 
   return (
-    <div className="flex items-center justify-center w-full h-full bg-black">
+    <div className="absolute inset-0 w-full h-full bg-black overflow-hidden">
       <canvas
         ref={canvasRef}
-        style={{ maxWidth: "100%", height: "auto" }}
+        className="block"
       />
     </div>
   )
