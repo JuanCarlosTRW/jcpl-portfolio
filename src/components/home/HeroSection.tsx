@@ -19,7 +19,6 @@ export default function HeroSection() {
   useEffect(() => {
     const el = embedRef.current;
     if (!el) return;
-    // Skip if already initialized (canvas already injected)
     if (el.querySelector("canvas")) return;
 
     const initUS = () => {
@@ -83,32 +82,52 @@ export default function HeroSection() {
         }}
       />
 
-      {/* ── Layer 1: Dark overlay for text readability ── */}
+      {/* ── Layer 1: Minimal overlay — bottom fade only ── */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(to bottom, rgba(13,11,9,0.10) 0%, rgba(13,11,9,0.20) 40%, rgba(13,11,9,0.55) 85%, rgba(13,11,9,0.75) 100%)",
+          background: "linear-gradient(to bottom, rgba(13,11,9,0.0) 0%, rgba(13,11,9,0.0) 60%, rgba(13,11,9,0.7) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
-      {/* ── Layer 2: Hero content, top-aligned above the planet ── */}
+      {/* ── Layer 2: Backdrop blur text container ── */}
       <div
-        className="relative flex flex-col items-start px-6 md:px-[10vw]"
+        className="hero-container"
         style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -52%)",
           zIndex: 10,
-          height: "100%",
-          paddingTop: "18vh",
-          justifyContent: "flex-start",
+          background: "rgba(13, 11, 9, 0.55)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          border: "1px solid rgba(212, 168, 83, 0.12)",
+          borderRadius: 16,
+          padding: "48px 56px",
+          maxWidth: 720,
+          width: "90%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
         }}
       >
         {/* Eyebrow */}
         <div
-          className="hero-enter flex items-center gap-3"
-          style={{ animationDelay: "0.1s", marginBottom: 20 }}
+          className="hero-enter"
+          style={{
+            animationDelay: "0.1s",
+            marginBottom: 24,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+          }}
         >
           <div
             style={{
@@ -123,17 +142,16 @@ export default function HeroSection() {
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: 11,
               fontWeight: 500,
-              letterSpacing: "0.2em",
+              letterSpacing: "0.14em",
               textTransform: "uppercase",
               color: "#D4A853",
-              opacity: 1,
             }}
           >
             5 industries · 3 countries · verified results
           </span>
         </div>
 
-        {/* Headline — fade up animation */}
+        {/* Headline */}
         <h1
           className="hero-fadeup"
           style={{
@@ -144,6 +162,7 @@ export default function HeroSection() {
             color: "#F0EAD6",
             margin: 0,
             marginBottom: 20,
+            textShadow: "0 2px 20px rgba(13,11,9,0.8)",
           }}
         >
           I build the system that{" "}
@@ -156,38 +175,44 @@ export default function HeroSection() {
           className="hero-enter"
           style={{
             fontFamily: "var(--font-dm-sans), sans-serif",
-            fontSize: 15,
-            lineHeight: 1.7,
-            color: "rgba(240,234,214,0.70)",
-            maxWidth: 480,
-            margin: 0,
-            marginBottom: 36,
+            fontSize: 17,
+            lineHeight: 1.65,
+            color: "rgba(240,234,214,0.85)",
+            maxWidth: 520,
+            margin: "0 auto",
+            marginBottom: 32,
             animationDelay: "0.4s",
-            textShadow: "0 2px 20px rgba(0,0,0,0.8)",
+            textAlign: "center",
           }}
         >
           Websites, Google Ads, SEO, and AI. Built for service businesses that want more customers, not more agencies.
         </p>
 
-        {/* CTAs */}
+        {/* CTA row */}
         <div
-          className="hero-enter flex items-center gap-5"
-          style={{ animationDelay: "0.55s" }}
+          className="hero-enter hero-cta-row"
+          style={{
+            animationDelay: "0.55s",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+          }}
         >
           {/* Primary CTA */}
           <Link
             href="/apply"
             aria-label="Work with me. Book a call."
-            className="group inline-flex items-center justify-center transition-all"
+            className="group inline-flex items-center justify-center transition-all hero-cta-primary"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 11,
+              fontSize: 14,
               fontWeight: 600,
-              letterSpacing: "0.12em",
+              letterSpacing: "0.08em",
               textTransform: "uppercase",
               background: "#D4A853",
               color: "#0D0B09",
-              padding: "14px 28px",
+              padding: "14px 32px",
               borderRadius: 6,
               border: "none",
             }}
@@ -209,20 +234,18 @@ export default function HeroSection() {
             aria-label="See client case studies"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 12,
+              fontSize: 13,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "rgba(240,234,214,0.45)",
+              color: "rgba(240,234,214,0.6)",
               textDecoration: "none",
               transition: "color 200ms ease",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = "rgba(240,234,214,0.9)";
-              e.currentTarget.style.textDecoration = "underline";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "rgba(240,234,214,0.45)";
-              e.currentTarget.style.textDecoration = "none";
+              e.currentTarget.style.color = "rgba(240,234,214,0.6)";
             }}
           >
             See the Results →
@@ -234,10 +257,11 @@ export default function HeroSection() {
           className="hero-enter"
           style={{
             animationDelay: "0.65s",
-            fontSize: 13,
-            color: "rgba(240, 234, 214, 0.5)",
-            textAlign: "left",
-            marginTop: 12,
+            fontSize: 12,
+            color: "rgba(240, 234, 214, 0.4)",
+            textAlign: "center",
+            marginTop: 16,
+            letterSpacing: "0.02em",
             fontFamily: "var(--font-dm-sans), sans-serif",
           }}
         >
@@ -269,7 +293,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Animation keyframes */}
+      {/* Keyframes + mobile responsive */}
       <style jsx>{`
         @keyframes ticker-scroll {
           0% { transform: translateX(0); }
@@ -282,6 +306,27 @@ export default function HeroSection() {
         .hero-fadeup {
           opacity: 0;
           animation: hero-fadeup 0.6s ease 0.2s forwards;
+        }
+        @media (max-width: 768px) {
+          .hero-container {
+            padding: 32px 24px !important;
+            border-radius: 12px !important;
+            width: 92% !important;
+          }
+          .hero-container h1 {
+            font-size: clamp(2.2rem, 6vw, 3rem) !important;
+          }
+          .hero-container .hero-enter p {
+            font-size: 15px !important;
+          }
+          .hero-cta-row {
+            flex-direction: column !important;
+            gap: 16px !important;
+          }
+          .hero-cta-primary {
+            width: 100% !important;
+            text-align: center !important;
+          }
         }
       `}</style>
     </section>
