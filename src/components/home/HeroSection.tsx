@@ -294,10 +294,11 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* ── Unicorn Studio: explicit viewport units handle sizing ── */
+        /* ── Unicorn Studio: fill hero on desktop ── */
         .hero-animation {
           position: absolute !important;
           inset: 0 !important;
+          overflow: hidden !important;
         }
         .hero-animation > div {
           width: 100vw !important;
@@ -305,6 +306,21 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
+          /*
+            The WebGL scene is landscape. On portrait phones it compresses,
+            leaving black at the top. Fix: force the SDK container to
+            landscape proportions (177svh ≈ 16:9 based on screen height),
+            center it horizontally, and let overflow:hidden crop the sides.
+            This is the CSS equivalent of object-fit: cover.
+          */
+          .hero-animation > div {
+            width: 177svh !important;
+            height: 100svh !important;
+            position: relative !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+          }
+
           /* ── Text container on mobile ── */
           .hero-container {
             position: absolute !important;
