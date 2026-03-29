@@ -295,21 +295,21 @@ export default function HeroSection() {
         @media (max-width: 768px) {
           /* Container: centered on planet, seamless edges */
           .hero-container {
-            width: 92% !important;
-            max-width: 400px !important;
-            padding: 24px 20px 20px 20px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 24px 24px 20px 24px !important;
             position: absolute !important;
-            top: 26% !important;
+            top: 50% !important;
             left: 50% !important;
-            transform: translate(-50%, -50%) !important;
+            transform: translate(-50%, -54%) !important;
             z-index: 10 !important;
-            background: rgba(13, 11, 9, 0.35) !important;
+            background: rgba(13, 11, 9, 0.30) !important;
             backdrop-filter: blur(6px) !important;
             -webkit-backdrop-filter: blur(6px) !important;
             border: none !important;
             border-radius: 0px !important;
-            mask-image: radial-gradient(ellipse 92% 78% at 50% 55%, black 50%, transparent 100%) !important;
-            -webkit-mask-image: radial-gradient(ellipse 92% 78% at 50% 55%, black 50%, transparent 100%) !important;
+            mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 55%, transparent 100%) !important;
+            -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 55%, transparent 100%) !important;
           }
           /* Eyebrow on mobile */
           .hero-container .hero-enter {
