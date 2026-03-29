@@ -303,42 +303,37 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* ── Force Unicorn Studio wrapper to fill hero ── */
+        /* ── Force Unicorn Studio to fill the hero section ── */
         .hero-animation {
           position: absolute !important;
-          top: 0 !important;
-          left: 0 !important;
+          inset: 0 !important;
           width: 100% !important;
           height: 100% !important;
           overflow: hidden !important;
           margin: 0 !important;
           padding: 0 !important;
         }
-        /* ── Force ALL nested SDK elements (div/canvas/iframe at any depth) ── */
-        .hero-animation div,
-        .hero-animation canvas,
-        .hero-animation iframe {
+        /* ── Override SDK container (position: relative) and all children ── */
+        .hero-animation > div {
           position: absolute !important;
-          top: 50% !important;
-          left: 50% !important;
-          transform: translate(-50%, -50%) !important;
+          inset: 0 !important;
           width: 100% !important;
           height: 100% !important;
-          min-width: 100vw !important;
-          min-height: 100svh !important;
-          object-fit: cover !important;
-          overflow: hidden !important;
-          border: none !important;
           margin: 0 !important;
           padding: 0 !important;
+        }
+        .hero-animation canvas {
+          display: block !important;
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
         }
 
         @media (max-width: 768px) {
-          /* ── Animation: scale to guarantee full coverage on tall screens ── */
-          .hero-animation div,
-          .hero-animation canvas,
-          .hero-animation iframe {
-            transform: translate(-50%, -50%) scale(1.3) !important;
+          /* ── Mobile: scale the entire animation wrapper to cover tall viewports ── */
+          .hero-animation {
+            transform: scale(1.4) !important;
+            transform-origin: center 40% !important;
           }
 
           /* ── Text container on mobile ── */
