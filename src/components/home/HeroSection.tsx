@@ -38,7 +38,7 @@ export default function HeroSection() {
       className="hero-section relative overflow-hidden"
       style={{
         position: "relative",
-        width: "100vw",
+        width: "100%",
         height: "100svh",
         minHeight: "100svh",
         overflow: "hidden",
@@ -59,8 +59,8 @@ export default function HeroSection() {
         <UnicornScene
           projectId="VhaHzIfQSlNqY2QWIadP"
           sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
-          width="100vw"
-          height="100svh"
+          width="100%"
+          height="100%"
         />
       </div>
 
@@ -294,14 +294,14 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* ── Unicorn Studio: explicit viewport units handle sizing ── */
+        /* ── Unicorn Studio: fill hero container ── */
         .hero-animation {
           position: absolute !important;
           inset: 0 !important;
         }
         .hero-animation > div {
-          width: 100vw !important;
-          height: 100svh !important;
+          width: 100% !important;
+          height: 100% !important;
         }
 
         @media (max-width: 768px) {
