@@ -352,31 +352,43 @@ export default function HeroSection() {
           border: none !important;
         }
         @media (max-width: 768px) {
-          /* Hero section fills mobile viewport */
+          /* Hero section locks to viewport */
           section[aria-label="Hero"] {
             position: relative !important;
             width: 100vw !important;
             height: 100svh !important;
             min-height: 100svh !important;
+            max-height: 100svh !important;
             overflow: hidden !important;
           }
-          /* Animation wrapper fills section */
+          /* Animation wrapper fills entire hero — no gaps */
           .hero-animation {
-            width: 100vw !important;
-            height: 100svh !important;
-            min-height: 100svh !important;
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
+            width: 100vw !important;
+            height: 100% !important;
+            min-height: 100svh !important;
             overflow: hidden !important;
           }
-          /* Container: move up, seamless blend with planet */
+          .hero-animation :global(canvas),
+          .hero-animation :global(iframe) {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100svh !important;
+            min-height: 100svh !important;
+            object-fit: cover !important;
+            border: none !important;
+          }
+          /* Container: centered on planet glow */
           .hero-container {
             width: 92% !important;
             max-width: 400px !important;
             padding: 24px 20px 20px 20px !important;
             position: absolute !important;
-            top: 38% !important;
+            top: 42% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
             z-index: 10 !important;
@@ -385,8 +397,8 @@ export default function HeroSection() {
             -webkit-backdrop-filter: blur(6px) !important;
             border: none !important;
             border-radius: 0px !important;
-            mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 45%, transparent 100%) !important;
-            -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 45%, transparent 100%) !important;
+            mask-image: radial-gradient(ellipse 92% 78% at 50% 55%, black 50%, transparent 100%) !important;
+            -webkit-mask-image: radial-gradient(ellipse 92% 78% at 50% 55%, black 50%, transparent 100%) !important;
           }
           /* Eyebrow on mobile */
           .hero-container .hero-enter {
@@ -450,13 +462,13 @@ export default function HeroSection() {
             margin-left: auto !important;
             margin-right: auto !important;
           }
-          /* FIX 7 — Proof ticker flush at bottom on mobile */
+          /* Proof ticker flush at bottom on mobile */
           div[role="marquee"] {
             position: absolute !important;
             bottom: 0 !important;
             left: 0 !important;
             width: 100% !important;
-            z-index: 20 !important;
+            z-index: 30 !important;
             background: rgba(13,11,9,0.6) !important;
           }
         }

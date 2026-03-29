@@ -49,11 +49,11 @@ export default function PremiumNav() {
           Work
         </Link>
 
-        {/* Center — Logo */}
+        {/* Center — Logo (absolute on desktop, static on mobile) */}
         <Link
           href="/"
           aria-label="Client Growth — Home"
-          className="absolute left-1/2 -translate-x-1/2"
+          className="nav-logo absolute left-1/2 -translate-x-1/2"
           style={{ textDecoration: "none" }}
         >
           <span
@@ -126,20 +126,31 @@ export default function PremiumNav() {
       <style jsx global>{`
         @media (max-width: 768px) {
           nav[aria-label="Main navigation"] > div {
-            padding: 0 16px !important;
+            padding: 0 20px !important;
             height: 56px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: relative !important;
           }
           /* Hide "Work" text link on mobile */
           nav[aria-label="Main navigation"] > div > a:first-child {
             display: none !important;
           }
-          /* Logo: remove absolute, flow to left */
-          nav[aria-label="Main navigation"] > div > a:nth-child(2) {
-            position: relative !important;
+          /* Logo: override Tailwind absolute/translate classes */
+          nav[aria-label="Main navigation"] > div > a.nav-logo,
+          nav[aria-label="Main navigation"] > div > a.nav-logo.absolute,
+          nav[aria-label="Main navigation"] > div > a.nav-logo.left-1\/2,
+          nav[aria-label="Main navigation"] > div > a.nav-logo.-translate-x-1\/2 {
+            position: static !important;
             left: auto !important;
             transform: none !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
           }
-          nav[aria-label="Main navigation"] > div > a:nth-child(2) span {
+          nav[aria-label="Main navigation"] > div > a.nav-logo span {
             font-size: 18px !important;
           }
           /* CTA button: compact */
@@ -147,6 +158,7 @@ export default function PremiumNav() {
             font-size: 10px !important;
             padding: 8px 14px !important;
             white-space: nowrap !important;
+            flex-shrink: 0 !important;
           }
         }
       `}</style>
