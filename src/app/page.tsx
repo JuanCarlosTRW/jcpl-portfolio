@@ -19,7 +19,6 @@ const ROICalculator = dynamic(() => import("@/components/home/ROICalculator"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
-const UnicornStudioEmbed = dynamic(() => import("@/components/home/UnicornStudioEmbed"));
 
 
 export default function HomePage() {
@@ -57,9 +56,6 @@ export default function HomePage() {
 
       {/* 12. Diagnostic application form */}
       <DiagnosticForm />
-
-      {/* Unicorn Studio WebGL Embed */}
-      <UnicornStudioEmbed />
     </>
   );
 }
