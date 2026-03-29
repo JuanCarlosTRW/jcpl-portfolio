@@ -291,8 +291,8 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
       }
 
       frameCountRef.current++
-      // Change word every 240 frames (~4 seconds)
-      if (frameCountRef.current % 240 === 0) {
+      // Change word every 180 frames (~3 seconds)
+      if (frameCountRef.current % 180 === 0) {
         const nextIndex = wordIndexRef.current + 1
         if (nextIndex < words.length) {
           wordIndexRef.current = nextIndex
@@ -302,7 +302,7 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
           completedRef.current = true
           setTimeout(() => {
             onComplete?.()
-          }, 2000)
+          }, 1000)
         }
       }
 
