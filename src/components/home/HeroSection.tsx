@@ -15,55 +15,33 @@ const TICKER_ITEMS = [
 
 export default function HeroSection() {
   const embedRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<any>(null);
 
   useEffect(() => {
     const el = embedRef.current;
     if (!el) return;
+    // Skip if already initialized (canvas already injected)
+    if (el.querySelector("canvas")) return;
 
-    let destroyed = false;
-
-    const initScene = () => {
-      if (destroyed || sceneRef.current) return;
+    const initUS = () => {
       const us = (window as any).UnicornStudio;
-      if (us?.addScene) {
-        us.addScene({
-          elementId: el.id,
-          fps: 60,
-          scale: 1,
-          dpi: 1.5,
-          projectFile: "/scenes/hero-planet.json",
-          interElement: el,
-          lazyLoad: false,
-        }).then((scene: any) => {
-          if (!destroyed) {
-            sceneRef.current = scene;
-          } else {
-            scene?.destroy?.();
-          }
-        }).catch(() => {});
+      if (us?.init) {
+        us.init();
       }
     };
 
-    if ((window as any).UnicornStudio?.addScene) {
-      setTimeout(initScene, 50);
+    if ((window as any).UnicornStudio?.init) {
+      setTimeout(initUS, 50);
     } else if (document.getElementById(SCRIPT_ID)) {
-      setTimeout(initScene, 400);
+      setTimeout(initUS, 400);
     } else {
       (window as any).UnicornStudio = { isInitialized: false };
       const s = document.createElement("script");
       s.id = SCRIPT_ID;
       s.src = SDK_URL;
       s.async = true;
-      s.onload = () => setTimeout(initScene, 50);
+      s.onload = () => setTimeout(initUS, 50);
       document.head.appendChild(s);
     }
-
-    return () => {
-      destroyed = true;
-      sceneRef.current?.destroy?.();
-      sceneRef.current = null;
-    };
   }, []);
 
   const tickerContent = (
@@ -94,7 +72,7 @@ export default function HeroSection() {
       {/* ── Layer 0: Unicorn Studio planet animation ── */}
       <div
         ref={embedRef}
-        id="hero-planet-scene"
+        data-us-project-src="/scenes/hero-planet.json"
         aria-hidden="true"
         style={{
           position: "absolute",
