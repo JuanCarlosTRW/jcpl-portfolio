@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
-const SDK_URL =
-  "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.4/dist/unicornStudio.umd.js";
-const SCRIPT_ID = "unicornstudio-hero-sdk";
+const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
+  ssr: false,
+});
 
 const TICKER_ITEMS = [
   { stat: "46x ROAS", detail: "Triple W Rentals", sub: "$41K from $900 in 30 days" },
@@ -14,61 +14,6 @@ const TICKER_ITEMS = [
 ];
 
 export default function HeroSection() {
-  const embedRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = embedRef.current;
-    if (!el) return;
-    if (el.querySelector("canvas")) return;
-
-    const forceCanvasFill = () => {
-      if (!el) return;
-      const canvas = el.querySelector("canvas");
-      if (canvas) {
-        canvas.style.position = "absolute";
-        canvas.style.top = "0";
-        canvas.style.left = "0";
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
-        canvas.style.objectFit = "cover";
-      }
-      const iframe = el.querySelector("iframe");
-      if (iframe) {
-        iframe.style.position = "absolute";
-        iframe.style.top = "0";
-        iframe.style.left = "0";
-        iframe.style.width = "100%";
-        iframe.style.height = "100%";
-        iframe.style.border = "none";
-      }
-    };
-
-    const initUS = () => {
-      const us = (window as any).UnicornStudio;
-      if (us?.init) {
-        us.init();
-        // Force canvas to fill after init renders
-        setTimeout(forceCanvasFill, 100);
-        setTimeout(forceCanvasFill, 500);
-        setTimeout(forceCanvasFill, 1500);
-      }
-    };
-
-    if ((window as any).UnicornStudio?.init) {
-      setTimeout(initUS, 50);
-    } else if (document.getElementById(SCRIPT_ID)) {
-      setTimeout(initUS, 400);
-    } else {
-      (window as any).UnicornStudio = { isInitialized: false };
-      const s = document.createElement("script");
-      s.id = SCRIPT_ID;
-      s.src = SDK_URL;
-      s.async = true;
-      s.onload = () => setTimeout(initUS, 50);
-      document.head.appendChild(s);
-    }
-  }, []);
-
   const tickerContent = (
     <>
       {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
@@ -91,26 +36,26 @@ export default function HeroSection() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ height: "100vh", minHeight: "100svh", background: "#0D0B09" }}
+      style={{ height: "100svh", minHeight: "100svh", background: "#0D0B09" }}
       aria-label="Hero"
     >
       {/* ── Layer 0: Unicorn Studio planet animation ── */}
       <div
-        ref={embedRef}
-        data-us-project-src="/scenes/hero-planet.json"
         aria-hidden="true"
         className="hero-animation"
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100%",
-          minHeight: "100svh",
+          inset: 0,
           zIndex: 0,
-          overflow: "hidden",
         }}
-      />
+      >
+        <UnicornScene
+          projectId="VhaHzIfQSlNqY2QWIadP"
+          sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+          width="100%"
+          height="100%"
+        />
+      </div>
 
       {/* ── Layer 1: Minimal overlay — bottom fade only ── */}
       <div
@@ -162,6 +107,7 @@ export default function HeroSection() {
           }}
         >
           <div
+            className="hero-eyebrow-rule"
             style={{
               width: 28,
               height: 1,
@@ -205,7 +151,7 @@ export default function HeroSection() {
 
         {/* Subheadline */}
         <p
-          className="hero-enter"
+          className="hero-enter hero-sub"
           style={{
             fontFamily: "var(--font-dm-sans), sans-serif",
             fontSize: 17,
@@ -287,7 +233,7 @@ export default function HeroSection() {
 
         {/* Risk reversal chip */}
         <p
-          className="hero-enter"
+          className="hero-enter hero-risk"
           style={{
             animationDelay: "0.65s",
             fontSize: 12,
@@ -308,7 +254,7 @@ export default function HeroSection() {
         aria-label="Client results ticker"
         className="absolute bottom-0 left-0 right-0 overflow-hidden"
         style={{
-          zIndex: 10,
+          zIndex: 30,
           background: "rgba(13,11,9,0.6)",
           borderTop: "1px solid rgba(255,255,255,0.04)",
         }}
@@ -327,7 +273,7 @@ export default function HeroSection() {
       </div>
 
       {/* Keyframes + mobile responsive */}
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes ticker-scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.333%); }
@@ -340,49 +286,14 @@ export default function HeroSection() {
           opacity: 0;
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
-        /* Force canvas/iframe fill on all viewports */
-        .hero-animation :global(canvas),
-        .hero-animation :global(iframe) {
-          position: absolute !important;
-          top: 0 !important;
-          left: 0 !important;
+        /* Unicorn Studio canvas must fill its wrapper */
+        .hero-animation div,
+        .hero-animation canvas {
           width: 100% !important;
           height: 100% !important;
-          object-fit: cover !important;
-          border: none !important;
         }
         @media (max-width: 768px) {
-          /* Hero section locks to viewport */
-          section[aria-label="Hero"] {
-            position: relative !important;
-            width: 100vw !important;
-            height: 100svh !important;
-            min-height: 100svh !important;
-            max-height: 100svh !important;
-            overflow: hidden !important;
-          }
-          /* Animation wrapper fills entire hero — no gaps */
-          .hero-animation {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100vw !important;
-            height: 100% !important;
-            min-height: 100svh !important;
-            overflow: hidden !important;
-          }
-          .hero-animation :global(canvas),
-          .hero-animation :global(iframe) {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100vw !important;
-            height: 100svh !important;
-            min-height: 100svh !important;
-            object-fit: cover !important;
-            border: none !important;
-          }
-          /* Container: centered on planet glow */
+          /* Container: centered on planet, seamless edges */
           .hero-container {
             width: 92% !important;
             max-width: 400px !important;
@@ -408,7 +319,7 @@ export default function HeroSection() {
             font-size: 9px !important;
             letter-spacing: 0.10em !important;
           }
-          .hero-container .hero-enter div[style] {
+          .hero-eyebrow-rule {
             display: none !important;
           }
           /* Headline on mobile */
@@ -418,9 +329,8 @@ export default function HeroSection() {
             text-align: center !important;
             margin-bottom: 16px !important;
           }
-          /* FIX 6 — Subheadline on mobile */
-          .hero-container .hero-enter p,
-          .hero-container > p.hero-enter:nth-of-type(1) {
+          /* Subheadline on mobile */
+          .hero-sub {
             font-size: 14px !important;
             line-height: 1.5 !important;
             max-width: 300px !important;
@@ -452,7 +362,7 @@ export default function HeroSection() {
             padding: 4px 0 !important;
           }
           /* Risk reversal chip on mobile */
-          .hero-container > p.hero-enter:last-child {
+          .hero-risk {
             font-size: 11px !important;
             color: rgba(240,234,214,0.35) !important;
             text-align: center !important;
@@ -461,15 +371,6 @@ export default function HeroSection() {
             max-width: 280px !important;
             margin-left: auto !important;
             margin-right: auto !important;
-          }
-          /* Proof ticker flush at bottom on mobile */
-          div[role="marquee"] {
-            position: absolute !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            z-index: 30 !important;
-            background: rgba(13,11,9,0.6) !important;
           }
         }
       `}</style>
