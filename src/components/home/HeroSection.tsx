@@ -326,8 +326,8 @@ export default function HeroSection() {
             the black zone at the top. Section overflow:hidden clips excess.
           */
           .hero-animation {
-            transform: scale(2.5) !important;
-            transform-origin: center bottom !important;
+            transform: scale(2) !important;
+            transform-origin: center 85% !important;
           }
 
           /* ── Text container on mobile ── */
