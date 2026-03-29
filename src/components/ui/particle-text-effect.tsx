@@ -291,11 +291,13 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS, onComplete }: Partic
       }
 
       frameCountRef.current++
-      // Change word every 180 frames (~3 seconds)
-      if (frameCountRef.current % 180 === 0) {
+      // First word (CLIENT GROWTH) holds longer, others at 180 frames
+      const holdFrames = wordIndexRef.current === 0 ? 300 : 180
+      if (frameCountRef.current % holdFrames === 0) {
         const nextIndex = wordIndexRef.current + 1
         if (nextIndex < words.length) {
           wordIndexRef.current = nextIndex
+          frameCountRef.current = 0
           nextWord(words[nextIndex], canvas)
         } else if (!completedRef.current) {
           // All words shown, wait a bit then complete
