@@ -8,10 +8,10 @@
 @media (max-width: 1024px) {
   .hero-animation {
     inset: auto !important;
-    width: 177vh !important;
+    width: 155vh !important;
     min-width: 100% !important;
-    height: 120% !important;
-    top: -8% !important;
+    height: 110% !important;
+    top: -4% !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
   }
@@ -19,8 +19,8 @@
 
 @media (max-width: 768px) {
   .hero-animation {
-    width: 200vh !important;
-    height: 125% !important;
-    top: -10% !important;
+    width: 150vh !important;
+    height: 108% !important;
+    top: -3% !important;
   }
 }
