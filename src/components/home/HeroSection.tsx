@@ -129,7 +129,7 @@ export default function HeroSection() {
               opacity: 1,
             }}
           >
-            Local Business Growth / Worldwide
+            5 industries · 3 countries · verified results
           </span>
         </div>
 
@@ -146,8 +146,9 @@ export default function HeroSection() {
             marginBottom: 20,
           }}
         >
-          Your city. My{" "}
-          <em style={{ color: "#D4A853", fontStyle: "italic" }}>results.</em>
+          I build the system that{" "}
+          <em style={{ color: "#D4A853", fontStyle: "italic" }}>fills</em>{" "}
+          your calendar.
         </h1>
 
         {/* Subheadline */}
@@ -176,7 +177,7 @@ export default function HeroSection() {
           {/* Primary CTA */}
           <Link
             href="/apply"
-            aria-label="Work with me — book a call"
+            aria-label="Work with me. Book a call."
             className="group inline-flex items-center justify-center transition-all"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
@@ -223,9 +224,24 @@ export default function HeroSection() {
               e.currentTarget.style.textDecoration = "none";
             }}
           >
-            See the results
+            See the Results →
           </Link>
         </div>
+
+        {/* Risk reversal chip */}
+        <p
+          className="hero-enter"
+          style={{
+            animationDelay: "0.65s",
+            fontSize: 13,
+            color: "rgba(240, 234, 214, 0.5)",
+            textAlign: "center",
+            marginTop: 12,
+            fontFamily: "var(--font-dm-sans), sans-serif",
+          }}
+        >
+          One call. No retainer until fit is confirmed. You own everything we build.
+        </p>
       </div>
 
       {/* ── Layer 3: Proof ticker pinned to bottom ── */}

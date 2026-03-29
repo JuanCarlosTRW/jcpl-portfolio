@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const SERVICES = [
   {
@@ -18,7 +17,7 @@ const SERVICES = [
     id: "02",
     title: "Convert",
     description:
-      "Conversion-first websites, persuasion-driven copy, and AI voice agents that turn traffic into booked calls — automatically.",
+      "Conversion-first websites, persuasion-driven copy, and AI voice agents that turn traffic into booked calls. Automatically.",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
   },
@@ -121,7 +120,7 @@ export function VerticalTabs() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                What Drives Qualified Calls
+                What drives qualified calls
               </h2>
             </div>
 
@@ -191,32 +190,18 @@ export function VerticalTabs() {
                         {service.title}
                       </span>
 
-                      <AnimatePresence mode="wait">
-                        {isActive && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{
-                              duration: 0.3,
-                              ease: [0.23, 1, 0.32, 1],
-                            }}
-                            className="overflow-hidden"
-                          >
-                            <p
-                              className="max-w-sm pb-2"
-                              style={{
-                                fontFamily: "var(--font-dm-sans), sans-serif",
-                                fontSize: 14,
-                                lineHeight: 1.65,
-                                color: "rgba(240,234,214,0.5)",
-                              }}
-                            >
-                              {service.description}
-                            </p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      <p
+                        className="max-w-sm pb-2"
+                        style={{
+                          fontFamily: "var(--font-dm-sans), sans-serif",
+                          fontSize: 14,
+                          lineHeight: 1.65,
+                          color: isActive ? "rgba(240,234,214,0.5)" : "rgba(240,234,214,0.25)",
+                          transition: "color 0.3s ease",
+                        }}
+                      >
+                        {service.description}
+                      </p>
                     </div>
                   </button>
                 );
@@ -224,82 +209,54 @@ export function VerticalTabs() {
             </div>
           </div>
 
-          {/* Right Column: Image */}
-          <div className="lg:col-span-7 flex flex-col justify-end h-full order-1 lg:order-2">
+          {/* Right Column: Stat Block */}
+          <div className="lg:col-span-7 flex flex-col justify-center h-full order-1 lg:order-2">
             <div
-              className="relative group/gallery"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
+              className="rounded-[14px] p-8 sm:p-10"
+              style={{
+                background: "#1A1714",
+                border: "1px solid rgba(212,168,83,0.12)",
+              }}
             >
-              <div
-                className="relative aspect-[4/5] md:aspect-[4/3] lg:aspect-[16/11] overflow-hidden"
+              <p
                 style={{
-                  border: "1px solid rgba(212,168,83,0.12)",
-                  background: "rgba(13,11,9,0.5)",
+                  fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
+                  color: "#F0EAD6",
+                  fontWeight: 600,
+                  marginBottom: 32,
                 }}
               >
-                <AnimatePresence
-                  initial={false}
-                  custom={direction}
-                  mode="popLayout"
-                >
-                  <motion.div
-                    key={activeIndex}
-                    custom={direction}
-                    variants={variants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                      y: { type: "spring", stiffness: 260, damping: 32 },
-                      opacity: { duration: 0.4 },
-                    }}
-                    className="absolute inset-0 w-full h-full cursor-pointer"
-                    onClick={handleNext}
-                  >
-                    <img
-                      src={SERVICES[activeIndex].image}
-                      alt={SERVICES[activeIndex].title}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105 block"
-                    />
+                Three clients. Three industries. One system.
+              </p>
 
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60" />
-                  </motion.div>
-                </AnimatePresence>
+              {/* RV Rental */}
+              <div style={{ paddingBottom: 24, marginBottom: 24, borderBottom: "1px solid rgba(212,168,83,0.12)" }}>
+                <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#D4A853", marginBottom: 8, fontWeight: 600 }}>
+                  RV RENTAL · TEXAS
+                </p>
+                <p style={{ fontSize: "1.0625rem", color: "#F5F0E8", fontWeight: 600, marginBottom: 4 }}>
+                  $41,085 revenue · 30 days · $900 ad spend
+                </p>
+              </div>
 
-                {/* Nav arrows */}
-                <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 flex gap-2 md:gap-3 z-20">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePrev();
-                    }}
-                    className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all active:scale-90"
-                    style={{
-                      background: "rgba(13,11,9,0.8)",
-                      backdropFilter: "blur(12px)",
-                      border: "1px solid rgba(212,168,83,0.2)",
-                    }}
-                    aria-label="Previous"
-                  >
-                    <ChevronLeft className="w-5 h-5 text-[#F0EAD6]" />
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNext();
-                    }}
-                    className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all active:scale-90"
-                    style={{
-                      background: "rgba(13,11,9,0.8)",
-                      backdropFilter: "blur(12px)",
-                      border: "1px solid rgba(212,168,83,0.2)",
-                    }}
-                    aria-label="Next"
-                  >
-                    <ChevronRight className="w-5 h-5 text-[#F0EAD6]" />
-                  </button>
-                </div>
+              {/* Barbershop */}
+              <div style={{ paddingBottom: 24, marginBottom: 24, borderBottom: "1px solid rgba(212,168,83,0.12)" }}>
+                <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#D4A853", marginBottom: 8, fontWeight: 600 }}>
+                  BARBERSHOP · MONTREAL
+                </p>
+                <p style={{ fontSize: "1.0625rem", color: "#F5F0E8", fontWeight: 600, marginBottom: 4 }}>
+                  90 new clients · 90 days · Page 1 Google
+                </p>
+              </div>
+
+              {/* Painting */}
+              <div>
+                <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#D4A853", marginBottom: 8, fontWeight: 600 }}>
+                  PAINTING · DFW
+                </p>
+                <p style={{ fontSize: "1.0625rem", color: "#F5F0E8", fontWeight: 600, marginBottom: 4 }}>
+                  Pipeline built from zero · Active calls within 14 days
+                </p>
               </div>
             </div>
           </div>

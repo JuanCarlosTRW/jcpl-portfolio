@@ -69,7 +69,7 @@ export default function FounderBlock() {
               className="text-white font-bold"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.25rem)", lineHeight: 1.15, margin: 0 }}
             >
-              {o.h2}
+              One operator. Full accountability.
             </h2>
 
             <p
@@ -106,58 +106,10 @@ export default function FounderBlock() {
               </p>
             </div>
 
-            {/* Video placeholder */}
-            <div
-              style={{
-                background: "rgba(212,168,83,0.07)",
-                border: "1px solid rgba(212,168,83,0.25)",
-                borderRadius: 10,
-                padding: "20px 24px",
-                display: "flex",
-                alignItems: "center",
-                gap: 14,
-              }}
-            >
-              <div
-                aria-hidden="true"
-                style={{
-                  width: 36,
-                  height: 36,
-                  background: "#D4A853",
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <polygon points="6,4 16,10 6,16" fill="#0D0B09"/>
-                </svg>
-              </div>
-              <div>
-                <span
-                  style={{
-                    display: "block",
-                    color: "#EDE5D5",
-                    fontSize: "14px",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {o.videoLabel}
-                </span>
-                <span
-                  style={{
-                    display: "block",
-                    color: "rgba(237,229,213,0.4)",
-                    fontSize: "11px",
-                    marginTop: 3,
-                  }}
-                >
-                  {o.videoSoon}
-                </span>
-              </div>
-            </div>
+            {/* Industries line */}
+            <p style={{ fontSize: "14px", color: "rgba(240, 234, 214, 0.6)", margin: 0 }}>
+              5 industries. 3 countries. Every system built personally.
+            </p>
 
             {/* Trust chips */}
             <div className="flex flex-wrap gap-2">

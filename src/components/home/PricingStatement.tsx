@@ -49,13 +49,7 @@ export default function PricingStatement() {
             className="font-bold text-white"
             style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.4rem)" }}
           >
-            {p.h2.split(". ")[0]}.{" "}
-            <span
-              className="italic"
-              style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
-            >
-              {p.h2.split(". ")[1]}
-            </span>
+            One person. Full pipeline.
           </h2>
         </AnimatedSection>
 
@@ -156,22 +150,18 @@ export default function PricingStatement() {
                   href={lp("/apply")}
                   className="flex items-center justify-center w-full rounded-lg font-semibold py-4 transition-colors"
                   style={{
-                    backgroundColor: "transparent",
-                    border: "1px solid rgba(212, 168, 83, 0.35)",
-                    color: "#D4A853",
+                    backgroundColor: "#D4A853",
+                    color: "#0D0B09",
                     fontSize: "0.9rem",
                   }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.borderColor = "#D4A853";
-                    e.currentTarget.style.color = "#F5F0E8";
+                    e.currentTarget.style.backgroundColor = "#C49A2A";
                   }}
                   onMouseOut={(e) => {
-                    e.currentTarget.style.borderColor =
-                      "rgba(212, 168, 83, 0.35)";
-                    e.currentTarget.style.color = "#D4A853";
+                    e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  {p.cta}
+                  Apply Now →
                 </Link>
               </div>
             </div>
@@ -305,6 +295,43 @@ export default function PricingStatement() {
                 </div>
               </div>
 
+              {/* Value stack */}
+              <div
+                className="mb-6"
+                style={{ borderTop: "1px solid rgba(212,168,83,0.15)", paddingTop: 20 }}
+              >
+                <p
+                  className="font-semibold mb-4"
+                  style={{ fontSize: "0.9rem", color: "#F5F0E8" }}
+                >
+                  What you&apos;re actually getting:
+                </p>
+                <div className="space-y-2" style={{ fontSize: "0.8rem", color: "#D2C9B8" }}>
+                  <p>→ A conversion website built for your niche ($3,500 value)</p>
+                  <p>→ Google Ads setup and management ($1,200/mo agency rate)</p>
+                  <p>→ Local SEO + location pages ($800/mo agency rate)</p>
+                  <p>→ Weekly optimization loop (not included anywhere at this price)</p>
+                  <p>→ Monthly revenue reporting with real numbers</p>
+                  <p>→ Direct founder access. No account managers.</p>
+                </div>
+                <p
+                  className="mt-4"
+                  style={{
+                    fontSize: "0.85rem",
+                    color: "#756D63",
+                    textDecoration: "line-through",
+                  }}
+                >
+                  Total agency equivalent: $5,500+/month
+                </p>
+                <p
+                  className="font-bold mt-1"
+                  style={{ fontSize: "0.95rem", color: "#D4A853" }}
+                >
+                  Your investment: $2,500/month
+                </p>
+              </div>
+
               {/* CTA */}
               <div className="mt-auto space-y-2">
                 <Link
@@ -318,29 +345,13 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  {p.cta}
+                  Book a Diagnostic Call →
                 </Link>
                 <p
                   className="text-center"
-                  style={{ fontSize: "0.72rem", color: "#756D63" }}
+                  style={{ fontSize: "13px", color: "rgba(240, 234, 214, 0.5)" }}
                 >
-                  {p.shortApplication}
-                </p>
-                <p className="text-center" style={{ paddingTop: 4 }}>
-                  <Link
-                    href={lp("/services")}
-                    style={{
-                      fontSize: "0.72rem",
-                      color: "#4E4845",
-                      letterSpacing: "-0.004em",
-                      textDecoration: "none",
-                      transition: "color 180ms ease",
-                    }}
-                    onMouseOver={(e) => { e.currentTarget.style.color = "#A69D8D"; }}
-                    onMouseOut={(e) => { e.currentTarget.style.color = "#4E4845"; }}
-                  >
-                    {p.seeInvestment}
-                  </Link>
+                  No payment before fit. I confirm strategic fit on the call before you pay anything.
                 </p>
               </div>
             </div>

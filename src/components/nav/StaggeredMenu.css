@@ -27,6 +27,15 @@
   height: 4rem;
   position: relative;
   z-index: 102;
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.staggered-menu-header.scrolled {
+  background: rgba(13, 11, 9, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 168, 83, 0.15);
 }
 
 /* ─── logo ─── */

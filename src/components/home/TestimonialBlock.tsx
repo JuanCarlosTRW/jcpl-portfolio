@@ -1,119 +1,83 @@
 "use client";
 
-import CTAButton from "@/components/ui/CTAButton";
+import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
-import { translations } from "@/lib/translations";
+import { TestimonialSection } from "@/components/ui/testimonials";
 
-function StarRow() {
-  return (
-    <div className="flex items-center justify-center gap-1 mb-5" aria-label="5 stars">
-      {[...Array(5)].map((_, i) => (
-        <svg key={i} width="15" height="15" viewBox="0 0 16 16" fill="#D4A853" aria-hidden="true">
-          <path d="M8 1.2l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.4l4-.6L8 1.2z"/>
-        </svg>
-      ))}
-    </div>
-  );
-}
-
-interface TestimonialProps {
-  quote: string;
-  name: string;
-  business: string;
-  logoSrc?: string;
-  logoAlt?: string;
-}
-
-function TestimonialCard({ quote, name, business, logoSrc, logoAlt }: TestimonialProps) {
-  return (
-    <div
-      className="rounded-[14px] px-8 py-10 sm:px-10 sm:py-12 text-center h-full flex flex-col"
-      style={{
-        background: "#1A1510",
-        border: "1px solid #2A2318",
-        borderTop: "2px solid rgba(212,168,83,0.35)",
-      }}
-    >
-      <StarRow />
-
-      <blockquote
-        className="font-medium leading-relaxed mb-8 flex-1"
-        style={{
-          fontSize: "clamp(0.95rem, 1.7vw, 1.075rem)",
-          color: "#EDE5D0",
-          lineHeight: 1.75,
-        }}
-      >
-        &ldquo;{quote}&rdquo;
-      </blockquote>
-
-      {/* Attribution */}
-      <div className="flex items-center justify-center gap-3.5">
-        {logoSrc && (
-          <div
-            className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center shrink-0"
-            style={{ background: "#221D17", border: "1.5px solid rgba(212,168,83,0.2)" }}
-          >
-            <img
-              src={logoSrc}
-              alt={logoAlt ?? ""}
-              className="w-7 h-7 object-contain"
-              style={{ opacity: 0.85 }}
-            />
-          </div>
-        )}
-        <div className="text-left">
-          <p className="font-semibold text-sm" style={{ color: "#F5F0E8" }}>
-            {name}
-          </p>
-          <p className="text-xs mt-0.5" style={{ color: "#756D63" }}>
-            {business}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+const testimonialsData = [
+  {
+    id: 1,
+    quote:
+      "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.",
+    name: "Mike S.",
+    role: "Culture Barbershop · Montreal, QC",
+    imageSrc:
+      "https://static.wixstatic.com/media/62f926_1dc693b7cf684246a2646e373b31390f~mv2.png",
+  },
+  {
+    id: 2,
+    quote:
+      "First call came in 9 days. We had tried two agencies before this. Nothing came close.",
+    name: "Tyler W.",
+    role: "Triple W Rentals · Texas",
+    imageSrc:
+      "https://static.wixstatic.com/media/62f926_1a67b8b17c99467a899c5bacbb26b5bc~mv2.png",
+  },
+  {
+    id: 3,
+    quote:
+      "90 new clients in 90 days. The system runs itself. Best investment I've made for the shop.",
+    name: "Alex M.",
+    role: "Elite Barbershop · Montreal, QC",
+    imageSrc:
+      "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/Facelab_2025-08-18_06-28-56.jpg?v=1755567059",
+  },
+  {
+    id: 4,
+    quote:
+      "Professional, fast, and the results speak for themselves. Our online visibility has never been better.",
+    name: "Centre Dentaire St-Elzear",
+    role: "Dental Clinic · Laval, QC",
+    imageSrc:
+      "https://static.wixstatic.com/media/62f926_acfce4c5f2b54e88b9f994f56e927c73~mv2.png",
+  },
+];
 
 export default function TestimonialBlock() {
-  const { locale, lp } = useLocale();
-  const tm = translations[locale].homepage.testimonial;
+  const { lp } = useLocale();
 
   return (
     <section
-      className="px-4 sm:px-6 py-16 md:py-20"
       style={{
-        background: "#0D0B09",
         borderTop: "1px solid #2A2318",
         borderBottom: "1px solid #2A2318",
       }}
     >
-      <div className="max-w-[640px] mx-auto">
+      <TestimonialSection
+        title="Real clients. Real results."
+        subtitle="Every result on this page came from the same acquisition system."
+        testimonials={testimonialsData}
+      />
 
-        {/* Single centered testimonial */}
-        <TestimonialCard
-          quote={tm.quote}
-          name={tm.name}
-          business={tm.business}
-          logoSrc="/images/logos/culture.png"
-          logoAlt="Culture Barbershop"
-        />
-
-        {/* Context note */}
-        <p className="mt-5 text-center" style={{ fontSize: "0.78rem", color: "#5E5650" }}>
-          {tm.below}
-        </p>
-
-        <div className="mt-6 flex justify-center">
-          <CTAButton
-            href={lp("/results")}
-            variant="secondary"
-            size="sm"
-            eventName="case_card_click"
-          >
-            {tm.seeResults}
-          </CTAButton>
-        </div>
+      {/* See Results link */}
+      <div className="text-center pb-16" style={{ background: "#0D0B09" }}>
+        <Link
+          href={lp("/results")}
+          style={{
+            fontSize: "0.85rem",
+            color: "#D4A853",
+            textDecoration: "none",
+            transition: "color 180ms ease",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.color = "#F5F0E8";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.color = "#D4A853";
+          }}
+        >
+          See Results →
+        </Link>
       </div>
     </section>
   );

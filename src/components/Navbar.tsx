@@ -19,6 +19,7 @@ export default function Navbar() {
       link: ctaCopy.href,
       ariaLabel: t<string>("nav.apply"),
       onClick: () => trackEvent("nav_cta_clicked"),
+      isCta: true,
     },
   ];
 

@@ -68,15 +68,7 @@ export default function FAQ() {
         <div className="order-1 lg:col-start-1 lg:row-start-1">
           <Reveal>
             <h2 className="text-[clamp(32px,4vw,48px)] font-[700] text-white leading-[1.15] tracking-[-0.02em] mb-3">
-              {headlineItalic ? (
-                <>
-                  {headingParts[0]}
-                  <em style={{ color: "#D4A853" }}>{headlineItalic}</em>
-                  {headingParts[1] ?? ""}
-                </>
-              ) : (
-                faqBooking.heading
-              )}
+              Every question I hear before someone signs. Answered.
             </h2>
             <p className="text-[16px] md:text-[17px] leading-[1.5] mb-8 lg:mb-0" style={{ color: "#A69D8D" }}>
               {faqBooking.supportingLine}

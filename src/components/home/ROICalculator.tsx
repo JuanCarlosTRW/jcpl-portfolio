@@ -214,13 +214,7 @@ export default function ROICalculator() {
               </div>
             </div>
 
-            {/* Disclaimer */}
-            <p
-              className="leading-relaxed"
-              style={{ fontSize: "0.75rem", color: "#4A4440" }}
-            >
-              {c.disclaimer}
-            </p>
+            {/* Disclaimer moved to results card */}
           </div>
 
           {/* ── Results Card ── */}
@@ -309,6 +303,14 @@ export default function ROICalculator() {
               </p>
             </div>
 
+            {/* Disclaimer */}
+            <p
+              className="leading-relaxed mb-5"
+              style={{ fontSize: "0.72rem", color: "#4A4440" }}
+            >
+              {c.disclaimer}
+            </p>
+
             {/* Text link — CTA consolidated to diagnostic form */}
             <div
               style={{
@@ -328,7 +330,7 @@ export default function ROICalculator() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5F0E8"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#D4A853"; }}
               >
-                See results \u2192
+                See results →
               </a>
             </div>
           </div>

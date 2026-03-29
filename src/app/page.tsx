@@ -30,16 +30,19 @@ export default function HomePage() {
       {/* 2. Proof — verified results */}
       <FeaturedCaseStudy />
 
-      {/* 4. Pain points (2 cards) */}
+      {/* 3. The Reality + Pain Points */}
       <ClientReality />
 
-      {/* 5. Acquisition system — Attract → Convert → Compound */}
+      {/* 4. Acquisition system — Attract → Convert → Compound */}
       <VerticalTabs />
 
-      {/* 6. Who Builds This */}
+      {/* 5. Who Builds This */}
       <FounderBlock />
 
-      {/* 7. Testimonial — Mike S., Culture Barbershop */}
+      {/* 6. FAQ */}
+      <FAQ />
+
+      {/* 7. Testimonials */}
       <TestimonialBlock />
 
       {/* 8. Pricing */}
@@ -51,10 +54,7 @@ export default function HomePage() {
       {/* 10. Who This Is For */}
       <QualificationCTA />
 
-      {/* 11. FAQ */}
-      <FAQ />
-
-      {/* 12. Diagnostic application form */}
+      {/* 11. Final CTA + Form */}
       <DiagnosticForm />
     </>
   );

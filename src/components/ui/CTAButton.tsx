@@ -20,7 +20,7 @@ const variants = {
   primary:
     "bg-[#D4A853] text-[#0D0B09] border border-[#D4A853] hover:bg-[#C49A2A] hover:-translate-y-[1px] shadow-[0_4px_24px_rgba(212,168,83,0.18)]",
   secondary:
-    "bg-transparent text-white border border-[rgba(255,255,255,0.2)] hover:border-[rgba(255,255,255,0.35)] hover:bg-[rgba(255,255,255,0.06)]",
+    "bg-[#D4A853] text-[#0D0B09] border border-[#D4A853] hover:bg-[#C49A2A] hover:-translate-y-[1px] shadow-[0_4px_24px_rgba(212,168,83,0.18)]",
   ghost: "text-sv-muted hover:text-sv-primary hover:bg-white/5",
 };
 

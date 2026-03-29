@@ -12,6 +12,7 @@ export interface StaggeredMenuItem {
   ariaLabel: string;
   link: string;
   onClick?: () => void;
+  isCta?: boolean;
 }
 
 export interface StaggeredMenuProps {
@@ -79,8 +80,25 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const scrollLockRef = useRef<{ y: number; active: boolean }>({ y: 0, active: false });
 
   const lenisRef = useLenis();
+  const headerRef = useRef<HTMLElement | null>(null);
 
   const offscreen = position === 'left' ? -100 : 100;
+
+  /* ─── Sticky scroll effect ─── */
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.85) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   /* ─── iOS-safe scroll lock helpers ─── */
   const lockScroll = useCallback(() => {
@@ -439,7 +457,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 return (
                   <li className="sm-panel-itemWrap" key={it.label + idx}>
                     <a
-                      className="sm-panel-item"
+                      className={`sm-panel-item${it.isCta ? ' sm-panel-item-cta' : ''}`}
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
@@ -447,6 +465,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                       style={isActive ? {
                         color: 'var(--brand-accent)',
                         borderBottom: '2px solid var(--brand-accent)',
+                      } : it.isCta ? {
+                        background: '#D4A853',
+                        color: '#0D0B09',
+                        fontWeight: 600,
+                        padding: '10px 22px',
+                        borderRadius: '6px',
+                        display: 'inline-flex',
+                        width: 'fit-content',
                       } : undefined}
                     >
                       <span className="sm-panel-itemLabel">{it.label}</span>
@@ -471,7 +497,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       </aside>
 
       {/* Header bar with logo + language switcher + toggle */}
-      <header className="staggered-menu-header" aria-label="Main navigation header">
+      <header ref={headerRef} className="staggered-menu-header" aria-label="Main navigation header">
         <div className="sm-logo" aria-label="Logo">
           {logoUrl ? (
             <a href="/" tabIndex={0} aria-label="Home" style={{ display: 'inline-block' }}>

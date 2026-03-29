@@ -19,6 +19,8 @@ export default function ClientReality() {
 
   const CARDS = [
     { num: "01", title: r.card01Title, body: r.card01Body },
+    { num: "02", title: "Your site is online. It's not working.", body: "Most local service websites exist. They don't convert. No clear offer, no call to action, no reason for a visitor to pick up the phone. Traffic without conversion is just noise." },
+    { num: "03", title: "You're invisible on Google Maps and AI search.", body: "ChatGPT, Google AI overviews, and Maps are where buyers go first. If you're not in those results, the call goes to whoever is. Being invisible is no longer neutral. It's losing." },
     { num: "04", title: r.card04Title, body: r.card04Body },
   ];
 
@@ -54,7 +56,7 @@ export default function ClientReality() {
         <Reveal className="mx-auto mb-12 max-w-[980px] text-center md:mb-14">
           <SectionLabel label={r.eyebrow} className="mb-5 !text-[#D4A853]" />
           <h2 className="mx-auto mb-5 max-w-[860px] text-[clamp(32px,4.2vw,50px)] font-[800] leading-[1.12] tracking-[-0.026em] text-[#F5F0E8]">
-            {r.h2}
+            Your work is good. Your pipeline shouldn&apos;t be this fragile.
           </h2>
           <p className="mx-auto mb-6 max-w-[580px] text-[clamp(15.5px,1.7vw,17.5px)] font-[400] leading-[1.7] text-[#8A7E74]">
             {r.sub}
@@ -71,7 +73,7 @@ export default function ClientReality() {
           </p>
         </Reveal>
 
-        <Reveal className="mx-auto my-14 md:my-16 max-w-[620px]">
+        <Reveal className="mx-auto mt-14 mb-6 md:mt-16 md:mb-8 max-w-[620px]">
           <div
             className="relative mx-auto max-w-[620px] rounded-[14px] px-8 py-10 sm:px-10 sm:py-11 lift-card"
             style={{
@@ -116,7 +118,7 @@ export default function ClientReality() {
           </div>
         </Reveal>
 
-        <div className="mb-12 grid gap-5 lg:mb-14 reality-cards">
+        <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-5 lg:mb-14 reality-cards">
           {CARDS.map((card, i) => (
             <Reveal key={card.num} delay={0.08 * (i + 1)}>
               <div

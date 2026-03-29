@@ -6,7 +6,6 @@ import { Reveal } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { useLocale } from "@/context/LocaleContext";
 import { translations } from "@/lib/translations";
-import { trackEvent } from "@/lib/analytics";
 
 function CheckIcon() {
   return (
@@ -38,13 +37,7 @@ export default function QualificationCTA() {
           <div className="max-w-2xl mx-auto text-center mb-12">
             <SectionLabel label={f.eyebrow} className="mb-4 !text-[#D4A853]" />
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              <span>{f.h2.split(". ")[0]}. </span>
-              <span
-                className="italic font-normal"
-                style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
-              >
-                {f.h2.split(". ").slice(1).join(". ")}
-              </span>
+              This is not for everyone. Here is who it is for.
             </h2>
             <p className="text-[#A69D8D] text-base md:text-lg text-center">
               {f.sub}
@@ -72,16 +65,6 @@ export default function QualificationCTA() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/apply"
-                  className="mt-5 inline-flex items-center gap-1"
-                  style={{ fontSize: "0.75rem", color: "#8A7E74", textDecoration: "none" }}
-                  onClick={() => trackEvent("section_cta_click")}
-                  onMouseOver={(e) => { e.currentTarget.style.color = "#D2C9B8"; }}
-                  onMouseOut={(e) => { e.currentTarget.style.color = "#8A7E74"; }}
-                >
-                  {f.fullList}
-                </Link>
               </div>
 
               <div
@@ -102,18 +85,20 @@ export default function QualificationCTA() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/apply"
-                  className="mt-5 inline-flex items-center gap-1"
-                  style={{ fontSize: "0.75rem", color: "#8A7E74", textDecoration: "none" }}
-                  onClick={() => trackEvent("section_cta_click")}
-                  onMouseOver={(e) => { e.currentTarget.style.color = "#D2C9B8"; }}
-                  onMouseOut={(e) => { e.currentTarget.style.color = "#8A7E74"; }}
-                >
-                  {f.fullList}
-                </Link>
               </div>
             </div>
+
+            {/* Closing line below cards */}
+            <p
+              className="text-center mt-10"
+              style={{
+                fontSize: "15px",
+                color: "rgba(240, 234, 214, 0.55)",
+                fontStyle: "italic",
+              }}
+            >
+              If I cannot produce a return, I tell you on the call. Before you pay anything.
+            </p>
           </Reveal>
 
           <Reveal delay={0.1}>
