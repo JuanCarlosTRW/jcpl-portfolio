@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -67,14 +67,29 @@ const PROOF_ENTRIES = [
   },
 ];
 
-const AUTO_PLAY_DURATION = 5000;
+const IMAGE_CONTAINER_STYLE: React.CSSProperties = {
+  marginTop: 16,
+  width: "100%",
+  height: 260,
+  borderRadius: 8,
+  border: "1px solid rgba(212,168,83,0.2)",
+  overflow: "hidden",
+  position: "relative",
+};
+
+const LOCK_DURATION = 2000;
 
 export function VerticalTabs() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [, setDirection] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [scrollLocked, setScrollLocked] = useState(true);
+  const [showLockBar, setShowLockBar] = useState(false);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const lockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isInViewRef = useRef(false);
+
+  // Responsive check
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024);
     check();
@@ -82,32 +97,95 @@ export function VerticalTabs() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  const handleNext = useCallback(() => {
-    setDirection(1);
-    setActiveIndex((prev) => (prev + 1) % SERVICES.length);
-  }, []);
+  // IntersectionObserver: detect section enter/leave
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || isMobile) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Section entered viewport — snap to entry 01, lock for 2s
+            isInViewRef.current = true;
+            setActiveIndex(0);
+            setScrollLocked(true);
+            setShowLockBar(true);
+
+            if (lockTimerRef.current) clearTimeout(lockTimerRef.current);
+            lockTimerRef.current = setTimeout(() => {
+              setScrollLocked(false);
+              setShowLockBar(false);
+            }, LOCK_DURATION);
+          } else {
+            // Section left viewport — reset to entry 01
+            isInViewRef.current = false;
+            setActiveIndex(0);
+            setScrollLocked(true);
+            setShowLockBar(false);
+
+            if (lockTimerRef.current) {
+              clearTimeout(lockTimerRef.current);
+              lockTimerRef.current = null;
+            }
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+    return () => {
+      observer.disconnect();
+      if (lockTimerRef.current) clearTimeout(lockTimerRef.current);
+    };
+  }, [isMobile]);
+
+  // Scroll-position-based entry switching (only when unlocked + in view)
+  useEffect(() => {
+    if (isMobile) return;
+
+    const handleScroll = () => {
+      if (scrollLocked || !isInViewRef.current) return;
+      const section = sectionRef.current;
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = rect.height;
+      // How far we've scrolled past the top of the section
+      const scrolled = -rect.top;
+      const progress = scrolled / sectionHeight;
+
+      if (progress < 0.33) {
+        setActiveIndex(0);
+      } else if (progress < 0.66) {
+        setActiveIndex(1);
+      } else {
+        setActiveIndex(2);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrollLocked, isMobile]);
 
   const handleTabClick = (index: number) => {
     if (index === activeIndex) return;
-    setDirection(index > activeIndex ? 1 : -1);
     setActiveIndex(index);
-    setIsPaused(false);
+    // Manual click overrides scroll lock
+    setScrollLocked(false);
+    setShowLockBar(false);
+    if (lockTimerRef.current) {
+      clearTimeout(lockTimerRef.current);
+      lockTimerRef.current = null;
+    }
   };
-
-  useEffect(() => {
-    if (isPaused) return;
-
-    const interval = setInterval(() => {
-      handleNext();
-    }, AUTO_PLAY_DURATION);
-
-    return () => clearInterval(interval);
-  }, [activeIndex, isPaused, handleNext]);
 
   const activeProof = PROOF_ENTRIES[activeIndex];
 
   return (
     <section
+      ref={sectionRef}
       id="services"
       className="w-full border-t"
       style={{
@@ -175,26 +253,11 @@ export function VerticalTabs() {
                     )}
                     style={{ borderColor: "rgba(212,168,83,0.12)" }}
                   >
+                    {/* Left progress bar */}
                     <div
                       className="absolute left-[-16px] md:left-[-24px] top-0 bottom-0 w-[2px]"
                       style={{ background: "rgba(212,168,83,0.12)" }}
-                    >
-                      {isActive && (
-                        <motion.div
-                          key={`progress-${index}-${isPaused}`}
-                          className="absolute top-0 left-0 w-full origin-top"
-                          style={{ background: "#D4A853" }}
-                          initial={{ height: "0%" }}
-                          animate={
-                            isPaused ? { height: "0%" } : { height: "100%" }
-                          }
-                          transition={{
-                            duration: AUTO_PLAY_DURATION / 1000,
-                            ease: "linear",
-                          }}
-                        />
-                      )}
-                    </div>
+                    />
 
                     <span
                       style={{
@@ -225,6 +288,29 @@ export function VerticalTabs() {
                       >
                         {service.title}
                       </span>
+
+                      {/* Lock progress bar — only on Entry 01 during lock */}
+                      {index === 0 && showLockBar && (
+                        <div
+                          style={{
+                            width: "100%",
+                            height: 2,
+                            background: "rgba(212,168,83,0.2)",
+                            borderRadius: 1,
+                            overflow: "hidden",
+                            marginBottom: 4,
+                          }}
+                        >
+                          <div
+                            style={{
+                              height: "100%",
+                              background: "#D4A853",
+                              borderRadius: 1,
+                              animation: "lock-fill 2s linear forwards",
+                            }}
+                          />
+                        </div>
+                      )}
 
                       <p
                         className="max-w-sm pb-2"
@@ -284,11 +370,7 @@ export function VerticalTabs() {
           </div>
 
           {/* Right Column: Dynamic Proof */}
-          <div
-            className="lg:col-span-7 order-1 lg:order-2"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
+          <div className="lg:col-span-7 order-1 lg:order-2">
             {isMobile ? (
               /* Mobile: show all three stacked */
               <div className="flex flex-col gap-8">
@@ -312,6 +394,18 @@ export function VerticalTabs() {
           </div>
         </div>
       </div>
+
+      {/* Lock bar animation keyframes */}
+      <style jsx>{`
+        @keyframes lock-fill {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 }
@@ -360,16 +454,17 @@ function ProofCard({
         {entry.verification}
       </p>
 
-      {/* Image or placeholder */}
+      {/* Image or placeholder — fixed 260px container */}
       {entry.imageSrc ? (
-        <div className="relative" style={{ marginTop: 16 }}>
+        <div style={IMAGE_CONTAINER_STYLE}>
           <img
             src={entry.imageSrc}
             alt={entry.label}
             style={{
               width: "100%",
-              borderRadius: 8,
-              border: "1px solid rgba(212,168,83,0.2)",
+              height: 260,
+              objectFit: "cover",
+              objectPosition: "top",
               display: "block",
             }}
           />
@@ -393,14 +488,12 @@ function ProofCard({
           )}
         </div>
       ) : (
-        /* Placeholder card */
+        /* Placeholder card — same 260px height */
         <div
           style={{
-            marginTop: 16,
+            ...IMAGE_CONTAINER_STYLE,
             background: "rgba(212,168,83,0.06)",
             border: "1px solid rgba(212,168,83,0.15)",
-            borderRadius: 8,
-            height: 200,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
