@@ -132,14 +132,19 @@ export default function PremiumNav() {
           -webkit-backdrop-filter: blur(12px);
         }
 
-        /* ── Mobile: match animation dark zone exactly ── */
+        /* ── Mobile: transparent so hero animation shows through ── */
         @media (max-width: 768px) {
-          .premium-nav,
-          .premium-nav.nav-scrolled {
-            background: #0D0B09 !important;
-            background-color: #0D0B09 !important;
+          .premium-nav {
+            background: transparent !important;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+          }
+          .premium-nav.nav-scrolled {
+            background: rgba(13, 11, 9, 0.85) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
             border-bottom: none !important;
             box-shadow: none !important;
           }

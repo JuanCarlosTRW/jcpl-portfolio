@@ -42,7 +42,7 @@ export default function HeroSection() {
         height: "100svh",
         minHeight: "100svh",
         overflow: "hidden",
-        background: "#0D0B09",
+        background: "transparent",
       }}
       aria-label="Hero"
     >
@@ -59,8 +59,8 @@ export default function HeroSection() {
         <UnicornScene
           projectId="VhaHzIfQSlNqY2QWIadP"
           sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
-          width="100%"
-          height="100%"
+          width="100vw"
+          height="100svh"
         />
       </div>
 
@@ -294,14 +294,22 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* ── Unicorn Studio: fill hero container ── */
+        /* ── Unicorn Studio: force canvas to cover-fill hero ── */
         .hero-animation {
           position: absolute !important;
           inset: 0 !important;
+          overflow: hidden !important;
         }
-        .hero-animation > div {
+        .hero-animation > div,
+        .hero-animation iframe,
+        .hero-animation canvas {
+          position: absolute !important;
+          inset: 0 !important;
           width: 100% !important;
           height: 100% !important;
+          min-width: 100% !important;
+          min-height: 100% !important;
+          object-fit: cover !important;
         }
 
         @media (max-width: 768px) {
