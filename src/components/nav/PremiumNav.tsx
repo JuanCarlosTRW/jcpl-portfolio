@@ -132,12 +132,12 @@ export default function PremiumNav() {
           -webkit-backdrop-filter: blur(12px);
         }
 
-        /* ── Mobile: always transparent ── */
+        /* ── Mobile: match animation dark zone exactly ── */
         @media (max-width: 768px) {
           .premium-nav,
           .premium-nav.nav-scrolled {
-            background: transparent !important;
-            background-color: transparent !important;
+            background: #0D0B09 !important;
+            background-color: #0D0B09 !important;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
             border-bottom: none !important;
