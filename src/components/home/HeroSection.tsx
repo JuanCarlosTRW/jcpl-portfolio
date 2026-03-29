@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import "./hero-responsive.css";
 
 const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
   ssr: false,
@@ -294,7 +295,7 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* ── Unicorn Studio: force canvas to cover-fill hero ── */
+        /* ── Unicorn Studio: desktop — fill hero normally ── */
         .hero-animation {
           position: absolute !important;
           inset: 0 !important;
@@ -307,9 +308,6 @@ export default function HeroSection() {
           inset: 0 !important;
           width: 100% !important;
           height: 100% !important;
-          min-width: 100% !important;
-          min-height: 100% !important;
-          object-fit: cover !important;
         }
 
         @media (max-width: 768px) {
