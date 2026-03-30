@@ -290,24 +290,24 @@ export default function HeroSection() {
           >
             See the Results &rarr;
           </Link>
-        </div>
 
-        {/* Trust line */}
-        <p
-          className="hero-enter hero-trust-line"
-          style={{
-            animationDelay: "0.65s",
-            fontSize: "0.85rem",
-            color: "rgba(255,245,230,0.65)",
-            textAlign: "center",
-            marginTop: 14,
-            letterSpacing: "0.02em",
-            fontFamily: "var(--font-dm-sans), sans-serif",
-            textShadow: "0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8)",
-          }}
-        >
-          One call. No retainer until fit is confirmed. You own everything I build.
-        </p>
+          {/* Trust line — inside CTA row so it sits within the dark backing on mobile */}
+          <p
+            className="hero-enter hero-trust-line"
+            style={{
+              animationDelay: "0.65s",
+              fontSize: "0.85rem",
+              color: "rgba(255,245,230,0.65)",
+              textAlign: "center",
+              marginTop: 14,
+              letterSpacing: "0.02em",
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              textShadow: "0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8)",
+            }}
+          >
+            One call. No retainer until fit is confirmed. You own everything I build.
+          </p>
+        </div>
       </div>
 
       {/* Layer 4: Results ticker — bottom */}
@@ -375,14 +375,15 @@ export default function HeroSection() {
         /* ── Mobile: max-width 768px ── */
         @media (max-width: 768px) {
 
-          /* 1. DARK SCRIM — heavy at top for text, fades by midpoint */
+          /* FIX 2 — Scrim extends through CTA zone */
           .hero-overlay {
             background: linear-gradient(
               to bottom,
               #0D0B09 0%,
-              rgba(13,11,9,0.65) 35%,
-              rgba(13,11,9,0.1) 55%,
-              transparent 70%
+              rgba(13,11,9,0.85) 30%,
+              rgba(13,11,9,0.80) 55%,
+              rgba(13,11,9,0.40) 72%,
+              transparent 85%
             ) !important;
           }
 
@@ -404,7 +405,7 @@ export default function HeroSection() {
             overflow: hidden !important;
           }
 
-          /* Content — centered over scene, z-index above scrim */
+          /* FIX 1 — Content pushed up, headline at ~20-25% from top */
           .hero-content {
             position: absolute !important;
             top: 0 !important;
@@ -412,31 +413,37 @@ export default function HeroSection() {
             right: 0 !important;
             bottom: 0 !important;
             z-index: 2 !important;
-            padding-top: 0 !important;
-            padding-bottom: 48px !important;
+            padding-top: 100px !important;
+            padding-bottom: 0 !important;
             padding-left: 20px !important;
             padding-right: 20px !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
-            justify-content: center !important;
+            justify-content: flex-start !important;
             max-width: 100% !important;
           }
 
-          /* 3. HEADLINE — proper sizing */
+          /* Headline */
           .hero-headline {
             font-size: clamp(2.2rem, 8vw, 3rem) !important;
             line-height: 1.15 !important;
             color: #FFFFFF !important;
             text-shadow: 0 2px 30px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.9) !important;
             text-align: center !important;
+            margin-bottom: 12px !important;
           }
 
-          /* Subhead */
+          /* FIX 4 — Subhead: 2 clean lines, no orphan */
           .hero-subhead {
             color: rgba(255,245,230,0.95) !important;
             text-shadow: 0 2px 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.85) !important;
-            font-size: clamp(0.9rem, 3.8vw, 1.1rem) !important;
+            font-size: 15px !important;
+            line-height: 1.6 !important;
+            max-width: 340px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            margin-bottom: 24px !important;
           }
 
           /* Eyebrow ticker */
@@ -449,13 +456,18 @@ export default function HeroSection() {
             text-shadow: 0 1px 12px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.8) !important;
           }
 
-          /* 4. CTAs — stacked column */
+          /* FIX 3 — CTA block with dark backing */
           .hero-cta-row {
             flex-direction: column !important;
             align-items: center !important;
             gap: 0 !important;
             width: 100% !important;
             max-width: 420px !important;
+            background: rgba(13, 11, 9, 0.45) !important;
+            border-radius: 12px !important;
+            padding: 20px 16px !important;
+            backdrop-filter: blur(2px) !important;
+            -webkit-backdrop-filter: blur(2px) !important;
           }
 
           /* Gold CTA — full width, proper padding */
@@ -469,7 +481,7 @@ export default function HeroSection() {
             border-radius: 8px !important;
           }
 
-          /* 2. Hide ghost button, show text link */
+          /* Hide ghost button, show text link */
           .hero-cta-ghost {
             display: none !important;
           }
@@ -479,7 +491,7 @@ export default function HeroSection() {
             text-align: center !important;
           }
 
-          /* Trust line */
+          /* Trust line — inside CTA backing */
           .hero-trust-line {
             font-size: 11px !important;
             color: rgba(255,245,230,0.8) !important;
@@ -512,6 +524,10 @@ export default function HeroSection() {
           .hero-headline {
             font-size: clamp(1.9rem, 9vw, 2.4rem) !important;
             line-height: 1.1 !important;
+          }
+          .hero-subhead {
+            font-size: 14px !important;
+            max-width: 300px !important;
           }
         }
       `}</style>
