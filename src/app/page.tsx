@@ -39,16 +39,16 @@ export default function HomePage() {
       {/* 8. Who Runs The System */}
       <FounderBlock />
 
-      {/* 9. FAQ */}
-      <FAQ />
-
-      {/* 10. Testimonials — moved ABOVE pricing */}
+      {/* 9. Testimonials — immediately after founder for trust momentum */}
       <TestimonialBlock />
 
-      {/* 11. Pricing */}
+      {/* 10. Pricing */}
       <PricingStatement />
 
-      {/* 12. Unit Economics Calculator — immediately after pricing */}
+      {/* 11. FAQ — after pricing, answers objections at moment of price shock */}
+      <FAQ />
+
+      {/* 12. Unit Economics Calculator */}
       <ROICalculator />
 
       {/* 13. Who This Is For */}

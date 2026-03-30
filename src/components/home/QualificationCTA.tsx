@@ -130,7 +130,7 @@ export default function QualificationCTA() {
               </p>
               <div className="flex flex-col items-center mt-10">
                 <Link
-                  href="#book-call"
+                  href="/services"
                   style={{
                     fontSize: "0.875rem",
                     color: "#D4A853",

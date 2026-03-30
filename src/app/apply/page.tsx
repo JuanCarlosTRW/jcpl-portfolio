@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import ApplyIntakeForm from "@/components/home/ApplyIntakeForm";
 
@@ -144,7 +145,31 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      {/* SECTION 4 — INTAKE FORM */}
+      {/* SECTION 4 — CALENDAR PROOF */}
+      <section className="pb-10" style={{ background: "#0D0B09" }}>
+        <div className="max-w-[540px] mx-auto px-6">
+          <div
+            className="rounded-xl overflow-hidden"
+            style={{ border: "1px solid rgba(212,168,83,0.15)" }}
+          >
+            <Image
+              src="/images/proof/elite-calendar.png"
+              alt="Elite Barbershop booking calendar. Every slot filled. 90 days after system launch."
+              width={540}
+              height={360}
+              className="w-full h-auto"
+              style={{ display: "block" }}
+            />
+            <div className="px-5 py-3" style={{ background: "#131009" }}>
+              <p className="text-[12px]" style={{ color: "#A69D8D" }}>
+                Elite Barbershop. Montreal. 90 days after system launch. Every slot filled.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5 — INTAKE FORM */}
       <ApplyIntakeForm />
 
       {/* SECTION 5 — TRUST SIGNALS */}

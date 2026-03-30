@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
 import { TestimonialSection } from "@/components/ui/testimonials";
@@ -45,10 +46,40 @@ export default function TestimonialBlock() {
       }}
     >
       <TestimonialSection
-        title="What happens when the system runs."
-        subtitle="Every one of these came from the same system. Running continuously."
+        title="Three businesses. Same system. Full calendars."
+        subtitle="Every result below came from the same acquisition system. Running continuously."
         testimonials={testimonialsData}
       />
+
+      {/* Elite Barbershop calendar proof */}
+      <div className="pb-12" style={{ background: "#0D0B09" }}>
+        <div className="max-w-[600px] mx-auto px-6">
+          <div
+            className="rounded-xl overflow-hidden"
+            style={{ border: "1px solid rgba(212,168,83,0.15)" }}
+          >
+            <Image
+              src="/images/proof/elite-calendar.png"
+              alt="Elite Barbershop booking calendar, 90 days after system launch. Every slot filled."
+              width={600}
+              height={400}
+              className="w-full h-auto"
+              style={{ display: "block" }}
+            />
+            <div className="px-5 py-4" style={{ background: "#131009" }}>
+              <p
+                className="text-[13px]"
+                style={{
+                  color: "#D2C9B8",
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                }}
+              >
+                Elite Barbershop. Montreal. 90 days after system launch.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* See Results link */}
       <div className="text-center pb-16" style={{ background: "#0D0B09" }}>
@@ -67,7 +98,7 @@ export default function TestimonialBlock() {
             e.currentTarget.style.color = "#D4A853";
           }}
         >
-          See Results →
+          See all client results →
         </Link>
       </div>
     </section>

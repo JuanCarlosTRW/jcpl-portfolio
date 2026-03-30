@@ -320,7 +320,7 @@ export default function ROICalculator() {
               }}
             >
               <a
-                href="#book-call"
+                href="/results"
                 style={{
                   fontSize: "14px",
                   fontWeight: 500,
@@ -332,7 +332,7 @@ export default function ROICalculator() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5F0E8"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#D4A853"; }}
               >
-                See results →
+                See verified results →
               </a>
             </div>
           </div>
