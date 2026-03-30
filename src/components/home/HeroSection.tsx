@@ -240,10 +240,11 @@ export default function HeroSection() {
             Work with me
           </Link>
 
+          {/* Desktop: ghost button */}
           <Link
             href="/results"
             aria-label="See client case studies"
-            className="hero-cta-secondary"
+            className="hero-cta-secondary hero-cta-ghost"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: "0.9rem",
@@ -264,6 +265,27 @@ export default function HeroSection() {
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = "rgba(255,245,230,0.35)";
               e.currentTarget.style.color = "rgba(255,245,230,0.85)";
+            }}
+          >
+            See the Results &rarr;
+          </Link>
+
+          {/* Mobile: plain text link (replaces ghost button) */}
+          <Link
+            href="/results"
+            aria-label="See client case studies"
+            className="hero-cta-textlink"
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: 13,
+              fontWeight: 500,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "#F5EDD6",
+              textDecoration: "none",
+              textShadow: "0 2px 12px rgba(0,0,0,1)",
+              display: "none",
+              marginTop: 12,
             }}
           >
             See the Results &rarr;
@@ -337,8 +359,20 @@ export default function HeroSection() {
           height: 100% !important;
         }
 
+        /* ── Mobile: max-width 768px ── */
         @media (max-width: 768px) {
-          /* Globe — full viewport coverage */
+
+          /* 1. DARK SCRIM — strong gradient over animation */
+          .hero-overlay {
+            background: linear-gradient(
+              to bottom,
+              #0D0B09 0%,
+              rgba(13,11,9,0.75) 40%,
+              transparent 70%
+            ) !important;
+          }
+
+          /* Globe — full viewport */
           .globe-container {
             bottom: 0 !important;
             left: 0 !important;
@@ -356,15 +390,18 @@ export default function HeroSection() {
             overflow: hidden !important;
           }
 
-          /* Content — vertically centered over the scene */
+          /* Content — centered over scene, z-index above scrim */
           .hero-content {
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
             right: 0 !important;
             bottom: 0 !important;
+            z-index: 2 !important;
             padding-top: 0 !important;
             padding-bottom: 48px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
@@ -372,61 +409,60 @@ export default function HeroSection() {
             max-width: 100% !important;
           }
 
-          /* Overlay — soft vignette, scene visible everywhere */
-          .hero-overlay {
-            background: radial-gradient(
-              ellipse 120% 100% at 50% 40%,
-              rgba(13,11,9,0.55) 0%,
-              rgba(13,11,9,0.3) 40%,
-              rgba(13,11,9,0.1) 70%,
-              rgba(13,11,9,0.0) 100%
-            ) !important;
-          }
-
-          /* Headline */
+          /* 3. HEADLINE — proper sizing */
           .hero-headline {
-            font-size: clamp(2rem, 8vw, 3rem) !important;
+            font-size: clamp(2.2rem, 8vw, 3rem) !important;
+            line-height: 1.15 !important;
             color: #FFFFFF !important;
             text-shadow: 0 2px 30px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.9) !important;
+            text-align: center !important;
           }
 
           /* Subhead */
           .hero-subhead {
             color: rgba(255,245,230,0.95) !important;
             text-shadow: 0 2px 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.85) !important;
+            font-size: clamp(0.9rem, 3.8vw, 1.1rem) !important;
           }
 
-          /* Eyebrow ticker — positioned above centered content */
+          /* Eyebrow ticker */
           .hero-trust-ticker {
             padding-top: 72px !important;
+            z-index: 3 !important;
           }
           .hero-trust-ticker span {
             font-size: 9px !important;
             text-shadow: 0 1px 12px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.8) !important;
           }
 
-          /* CTAs — stacked, full-width */
+          /* 4. CTAs — stacked column */
           .hero-cta-row {
             flex-direction: column !important;
             align-items: center !important;
-            gap: 12px !important;
+            gap: 0 !important;
             width: 100% !important;
+            max-width: 420px !important;
           }
+
+          /* Gold CTA — full width, proper padding */
           .hero-cta-primary {
             width: 100% !important;
-            padding: 16px 0 !important;
+            max-width: 420px !important;
+            padding: 18px 24px !important;
             font-size: 13px !important;
             letter-spacing: 0.10em !important;
             text-align: center !important;
-          }
-          .hero-cta-secondary {
-            width: 100% !important;
-            min-height: 48px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            font-size: 12px !important;
             border-radius: 8px !important;
+          }
+
+          /* 2. Hide ghost button, show text link */
+          .hero-cta-ghost {
+            display: none !important;
+          }
+          .hero-cta-textlink {
+            display: inline-block !important;
+            margin-top: 12px !important;
+            text-align: center !important;
           }
 
           /* Trust line */
@@ -434,7 +470,7 @@ export default function HeroSection() {
             font-size: 11px !important;
             color: rgba(255,245,230,0.8) !important;
             margin-top: 14px !important;
-            max-width: 270px !important;
+            max-width: 300px !important;
             text-shadow: 0 1px 16px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.9) !important;
           }
 
@@ -454,6 +490,14 @@ export default function HeroSection() {
           [role="marquee"] .flex {
             gap: 32px !important;
             padding: 10px 0 !important;
+          }
+        }
+
+        /* ── Small phones: max-width 420px ── */
+        @media (max-width: 420px) {
+          .hero-headline {
+            font-size: clamp(1.9rem, 9vw, 2.4rem) !important;
+            line-height: 1.1 !important;
           }
         }
       `}</style>

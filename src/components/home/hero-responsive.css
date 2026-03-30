@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════════════
    HERO — Responsive + Premium Animations
+   Desktop is untouched. Mobile-only overrides below.
    ═══════════════════════════════════════════════════ */
 
 /* ── Keyframes ── */
@@ -24,7 +25,7 @@
 /* ── Mobile ── */
 @media (max-width: 768px) {
 
-  /* Globe — full coverage, no zoom */
+  /* Globe — full viewport coverage */
   .globe-container {
     bottom: 0 !important;
     width: 100% !important;
@@ -58,12 +59,6 @@
       hero-fade-in-up 0.7s ease-out 0.55s forwards,
       hero-glow-pulse 3s ease-in-out 1.3s infinite !important;
     opacity: 0;
-  }
-
-  /* Secondary CTA — refined ghost button */
-  .hero-cta-secondary {
-    border-radius: 8px !important;
-    transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
   }
 }
 

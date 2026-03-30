@@ -1316,4 +1316,11 @@ body::after {
 
 @media (max-width: 768px) {
   body::after { display: none; }
+
+  /* Nav — lock background to dark on mobile */
+  .nav-bar {
+    background-color: #0D0B09 !important;
+    background: #0D0B09 !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
 }
