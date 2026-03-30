@@ -82,8 +82,8 @@ export default function HeroSection() {
             sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
             width="100%"
             height="100%"
-            dpi={1}
-            scale={0.5}
+            dpi={2}
+            scale={1}
           />
         ) : (
           <UnicornScene
@@ -359,15 +359,29 @@ export default function HeroSection() {
           height: 100% !important;
         }
 
+        /* Sharper canvas on mobile Retina */
+        @media (max-width: 768px) {
+          .globe-container,
+          .globe-container canvas,
+          .globe-container [data-us-project] {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
+          }
+        }
+
         /* ── Mobile: max-width 768px ── */
         @media (max-width: 768px) {
 
-          /* 1. DARK SCRIM — strong gradient over animation */
+          /* 1. DARK SCRIM — heavy at top for text, fades by midpoint */
           .hero-overlay {
             background: linear-gradient(
               to bottom,
               #0D0B09 0%,
-              rgba(13,11,9,0.75) 40%,
+              rgba(13,11,9,0.65) 35%,
+              rgba(13,11,9,0.1) 55%,
               transparent 70%
             ) !important;
           }
