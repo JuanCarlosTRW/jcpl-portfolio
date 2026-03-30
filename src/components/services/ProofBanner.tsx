@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useLocale } from "@/context/LocaleContext";
-import { translations } from "@/lib/translations";
 
 function CountUp({ target, prefix = "", suffix = "", duration = 1800 }: { target: number; prefix?: string; suffix?: string; duration?: number }) {
   const [value, setValue] = useState(target);
@@ -40,9 +38,6 @@ function CountUp({ target, prefix = "", suffix = "", duration = 1800 }: { target
 }
 
 export default function ProofBanner() {
-  const { locale } = useLocale();
-  const pb = translations[locale].services.proofBanner;
-
   return (
     <section className="relative border-y" style={{ borderColor: "#2A2318", background: "#131009" }}>
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 py-10">
@@ -52,7 +47,7 @@ export default function ProofBanner() {
               <CountUp target={41085} prefix="$" />
             </p>
             <p className="mt-1.5 text-sm" style={{ color: "#756D63" }}>
-              {pb.stat1Sub}
+              Revenue generated. One client. First 30 days.
             </p>
           </div>
           <div className="sm:px-8 sm:border-r" style={{ borderColor: "#2A2318" }}>
@@ -60,18 +55,32 @@ export default function ProofBanner() {
               $<CountUp target={33} />
             </p>
             <p className="mt-1.5 text-sm" style={{ color: "#756D63" }}>
-              {pb.stat2Sub}
+              Average cost per qualified call. All active accounts.
             </p>
           </div>
           <div className="sm:pl-8">
             <p className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
-              <CountUp target={11} /> {pb.days}
+              <CountUp target={11} /> days
             </p>
             <p className="mt-1.5 text-sm" style={{ color: "#756D63" }}>
-              {pb.stat3Sub}
+              Median time from signed agreement to first booked call.
             </p>
           </div>
         </div>
+
+        {/* Anchor line */}
+        <p
+          className="mt-8 text-center"
+          style={{
+            color: "#D4A853",
+            fontSize: "0.72rem",
+            fontWeight: 600,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+          }}
+        >
+          Every number is real or it does not get published. All results from live accounts. No projections. No hypotheticals.
+        </p>
       </div>
     </section>
   );

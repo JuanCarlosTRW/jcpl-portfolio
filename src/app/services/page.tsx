@@ -24,15 +24,18 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
+      {/* 1. Hero */}
       <ServicesHero />
+
+      {/* Stats bar */}
       <ProofBanner />
+
+      {/* 2. The System */}
       <ThreeStepProcess />
 
-      {/* ── Verified Results (Proof Section) ── */}
+      {/* 3. Verified Results */}
       <section style={{ background: "#0D0B09", padding: "80px 24px 88px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-
-          {/* Label */}
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <p
             style={{
               color: "#D4A853",
@@ -40,13 +43,12 @@ export default function ServicesPage() {
               fontWeight: 600,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              marginBottom: "12px",
+              marginBottom: 12,
             }}
           >
             VERIFIED RESULTS
           </p>
 
-          {/* Headline */}
           <h2
             style={{
               color: "#FFFFFF",
@@ -60,21 +62,16 @@ export default function ServicesPage() {
             The same system. Every client.
           </h2>
 
-          {/* Cards — side by side on desktop, stacked on mobile */}
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-
-            {/* Card 1 — Google Ads Results */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Card 1: Google Ads Results */}
             <div
               style={{
                 background: "#161209",
                 border: "1px solid #2A2010",
-                borderRadius: "8px",
-                padding: "32px",
+                borderRadius: 8,
+                padding: 32,
               }}
             >
-              {/* Tag */}
               <p
                 style={{
                   color: "#D4A853",
@@ -82,13 +79,12 @@ export default function ServicesPage() {
                   fontWeight: 700,
                   letterSpacing: "0.16em",
                   textTransform: "uppercase",
-                  marginBottom: "16px",
+                  marginBottom: 16,
                 }}
               >
                 RV RENTAL &middot; TEXAS &middot; GOOGLE ADS
               </p>
 
-              {/* Screenshot */}
               <Image
                 src="https://static.wixstatic.com/media/62f926_492fa3904b904883bd7ff2023e2c28a9~mv2.png"
                 alt="Google Ads results: $41,085 revenue in 30 days"
@@ -97,25 +93,17 @@ export default function ServicesPage() {
                 style={{
                   width: "100%",
                   height: "auto",
-                  borderRadius: "6px",
+                  borderRadius: 6,
                   border: "1px solid #2A2010",
-                  maxHeight: "200px",
+                  maxHeight: 200,
                   objectFit: "cover",
                   objectPosition: "top",
-                  marginBottom: "24px",
+                  marginBottom: 24,
                   display: "block",
                 }}
               />
 
-              {/* Stats row */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: "24px",
-                  flexWrap: "wrap",
-                  marginBottom: "20px",
-                }}
-              >
+              <div style={{ display: "flex", gap: 24, flexWrap: "wrap", marginBottom: 20 }}>
                 <div>
                   <p style={{ color: "#D4A853", fontWeight: 700, fontSize: "1.5rem", margin: 0 }}>
                     $41,085
@@ -142,22 +130,23 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Verification line */}
-              <p style={{ color: "#A89880", fontSize: "0.8rem", margin: 0 }}>
+              <p style={{ color: "#A89880", fontSize: "0.8rem", margin: "0 0 12px" }}>
                 Live account. Last verified February 2026.
+              </p>
+              <p style={{ color: "#D2C9B8", fontSize: "0.85rem", fontStyle: "italic", margin: 0 }}>
+                This is a live account. I can walk you through it on the diagnostic call.
               </p>
             </div>
 
-            {/* Card 2 — Auction Insights */}
+            {/* Card 2: Auction Insights */}
             <div
               style={{
                 background: "#161209",
                 border: "1px solid #2A2010",
-                borderRadius: "8px",
-                padding: "32px",
+                borderRadius: 8,
+                padding: 32,
               }}
             >
-              {/* Tag */}
               <p
                 style={{
                   color: "#D4A853",
@@ -165,13 +154,12 @@ export default function ServicesPage() {
                   fontWeight: 700,
                   letterSpacing: "0.16em",
                   textTransform: "uppercase",
-                  marginBottom: "16px",
+                  marginBottom: 16,
                 }}
               >
                 AUCTION INSIGHTS &middot; COMPETITIVE DOMINANCE
               </p>
 
-              {/* Screenshot */}
               <Image
                 src="https://static.wixstatic.com/media/62f926_682a6adfbe824964b8be5e7d1df48c67~mv2.png"
                 alt="Auction Insights: impression share dominance over all competitors"
@@ -180,67 +168,85 @@ export default function ServicesPage() {
                 style={{
                   width: "100%",
                   height: "auto",
-                  borderRadius: "6px",
+                  borderRadius: 6,
                   border: "1px solid #2A2010",
-                  maxHeight: "200px",
+                  maxHeight: 200,
                   objectFit: "cover",
                   objectPosition: "top",
-                  marginBottom: "24px",
+                  marginBottom: 24,
                   display: "block",
                 }}
               />
 
-              {/* Callout */}
               <p
                 style={{
                   color: "#FFFFFF",
                   fontSize: "1rem",
                   fontWeight: 700,
                   lineHeight: 1.5,
-                  marginBottom: "12px",
+                  marginBottom: 12,
                 }}
               >
                 Impression share dominance over every competitor in market.
               </p>
 
-              {/* Detail */}
               <p
                 style={{
                   color: "#A89880",
                   fontSize: "0.875rem",
                   lineHeight: 1.65,
-                  marginBottom: "20px",
+                  marginBottom: 20,
                 }}
               >
                 Auction Insights report from live Google Ads account. Client&apos;s ads appear more
                 frequently than all tracked competitors in their Texas search area.
               </p>
 
-              {/* Verification line */}
               <p style={{ color: "#A89880", fontSize: "0.8rem", margin: 0 }}>
                 Last verified February 2026.
               </p>
             </div>
           </div>
 
-          {/* Link */}
-          <div style={{ textAlign: "center", marginTop: "32px" }}>
+          {/* Mid-page CTA */}
+          <div
+            className="mt-10 p-8 text-center"
+            style={{
+              border: "1px solid rgba(212,168,83,0.2)",
+              borderRadius: 8,
+              background: "rgba(212,168,83,0.03)",
+            }}
+          >
+            <p
+              className="mb-6 text-base"
+              style={{ color: "#F5F0E8", maxWidth: 480, margin: "0 auto 24px" }}
+            >
+              This is the system that produced these numbers. One spot is currently open.
+            </p>
             <Link
-              href="/results"
+              href="/apply"
+              className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-wide transition-all hover:brightness-110"
               style={{
-                color: "#D4A853",
-                textDecoration: "none",
-                fontSize: "0.9rem",
-                fontWeight: 500,
+                background: "#D4A853",
+                color: "#0D0B09",
+                fontFamily: "var(--font-dm-sans), sans-serif",
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
               }}
             >
-              See full client results &rarr;
+              Book a Diagnostic Call &rarr;
             </Link>
+            <p className="mt-3 text-xs" style={{ color: "#756D63" }}>
+              No retainer until I confirm fit.
+            </p>
           </div>
         </div>
       </section>
 
+      {/* 4. Core Acquisition System */}
       <SystemArchitectureSection />
+
+      {/* 5. How I Work + 6. Apply */}
       <ServicesFinalCTA />
     </>
   );

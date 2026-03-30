@@ -4,38 +4,36 @@ import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { Reveal } from "@/components/motion";
 import GuaranteesStrip from "./GuaranteesStrip";
-import { useLocale } from "@/context/LocaleContext";
-import { translations } from "@/lib/translations";
 
 export default function ServicesFinalCTA() {
-  const { lp, locale } = useLocale();
-  const fc = translations[locale].services.finalCta;
-
   return (
-    <section
-      id="apply"
-      style={{ background: "#1A1510" }}
-    >
+    <section id="apply" style={{ background: "#1A1510" }}>
       <SectionWrapper className="relative z-10">
-
         {/* HOW I WORK */}
         <div className="mb-16">
           <Reveal>
             <div className="text-center mb-10">
               <p
-                className="section-label mb-4 text-center"
-                style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
+                style={{
+                  fontSize: 12,
+                  fontWeight: 600,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#D4A853",
+                  marginBottom: 12,
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                }}
               >
-                {fc.howLabel}
+                HOW I WORK
               </p>
               <h2
                 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2 text-center"
                 style={{ color: "#F5F0E8" }}
               >
-                {fc.howHeading}
+                What you know before signing anything.
               </h2>
-              <p className="text-sm max-w-[420px] mx-auto" style={{ color: "#756D63" }}>
-                {fc.howSub}
+              <p className="text-sm max-w-[480px] mx-auto" style={{ color: "#756D63" }}>
+                The terms, the standards, and the protections are set before any retainer is signed.
               </p>
             </div>
           </Reveal>
@@ -55,62 +53,76 @@ export default function ServicesFinalCTA() {
           />
         </div>
 
-        {/* Apply CTA */}
+        {/* APPLY */}
         <div className="max-w-xl mx-auto relative text-center">
-          {/* Orb */}
-          <div
-            className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 w-[500px] h-[400px] rounded-full pointer-events-none z-0 max-md:w-[300px] max-md:h-[240px]"
-            style={{
-              background: "radial-gradient(circle, rgba(212,168,83,0.03) 0%, transparent 70%)",
-              filter: "blur(100px)",
-            }}
-            aria-hidden
-          />
           <div className="relative z-10">
             <Reveal>
               <p
-                className="section-label mb-4"
-                style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853" }}
+                style={{
+                  fontSize: 12,
+                  fontWeight: 600,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#D4A853",
+                  marginBottom: 12,
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                }}
               >
-                {fc.applyLabel}
+                APPLY
               </p>
               <h2
                 className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
                 style={{ color: "#F5F0E8" }}
               >
-                {fc.applyHeading}
+                I Run 3 Partnerships at a Time.
               </h2>
               <p
                 className="text-base leading-relaxed mb-8 max-w-md mx-auto"
                 style={{ color: "#D2C9B8" }}
               >
-                {fc.applyBody}
+                Short application. I review your market before the call. If I can produce a return, you will get a call link within 24 hours. If not, I will tell you directly.
               </p>
             </Reveal>
 
             <Reveal delay={0.05}>
-              {/* Proof strip */}
+              {/* Proof inset */}
               <div
-                className="mb-8 p-4 rounded-lg text-left max-w-md mx-auto"
+                className="mb-6 p-5 rounded-lg text-left max-w-md mx-auto"
                 style={{
                   background: "rgba(212,168,83,0.05)",
                   border: "1px solid rgba(212,168,83,0.14)",
                 }}
               >
                 <p className="text-xs leading-relaxed" style={{ color: "#A69D8D" }}>
-                  {fc.proofText}
+                  Last 3 partnerships: one went live in 9 days. One booked their first qualified call on day 7. One generated $2,716 in month one.
                 </p>
               </div>
 
+              {/* Price line */}
+              <p className="text-sm mb-8" style={{ color: "#D2C9B8" }}>
+                Full engagement starts at{" "}
+                <span style={{ color: "#D4A853", fontWeight: 600 }}>$2,500/month</span>.{" "}
+                No retainer until I confirm fit.
+              </p>
+
               <Link
-                href={lp("/apply")}
-                className="cta-primary inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-bold tracking-wide w-full sm:w-auto"
+                href="/apply"
+                className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-wide w-full sm:w-auto transition-all"
+                style={{
+                  background: "#D4A853",
+                  color: "#0D0B09",
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.1)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.filter = "none"; }}
               >
-                {fc.button}
+                Book a Diagnostic Call &rarr;
               </Link>
 
               <p className="text-xs text-center mt-4" style={{ color: "#756D63" }}>
-                {fc.microcopy}
+                Response within 24 hours. No retainer until I confirm fit.
               </p>
             </Reveal>
           </div>

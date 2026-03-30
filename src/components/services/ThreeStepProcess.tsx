@@ -30,7 +30,7 @@ const steps: Step[] = [
   },
   {
     number: "03",
-    name: "Compound Loop",
+    name: "Ongoing Optimization",
     badge: "Ongoing",
     body: "Every week I review what is working and cut what is not. Every month I report revenue, attribution, and next steps. Cost per call drops as the system learns your market.",
     tags: ["Weekly Performance Report", "Monthly Review Call", "Conversion Improvements"],
