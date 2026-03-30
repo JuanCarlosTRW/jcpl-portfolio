@@ -1,10 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Menu, X } from "lucide-react";
+
+const NAV_LINKS = [
+  { label: "Results", href: "/results" },
+  { label: "Work With Me", href: "/apply", isCta: true },
+];
 
 export default function PremiumNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -12,164 +20,248 @@ export default function PremiumNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
-    <nav
-      aria-label="Main navigation"
-      className={`premium-nav fixed top-0 left-0 w-full z-[100] ${scrolled ? "nav-scrolled" : ""}`}
-    >
-      <div
-        className="flex items-center justify-between"
+    <>
+      <nav
+        aria-label="Main navigation"
+        className="fixed top-0 left-0 w-full z-[100] transition-all duration-300"
         style={{
-          padding: "28px 60px",
+          background: scrolled ? "rgba(13, 11, 9, 0.85)" : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
         }}
       >
-        {/* Left — Work link (hidden on mobile) */}
-        <Link
-          href="/results"
-          aria-label="View our work"
-          className="nav-link hidden md:inline-block"
+        <div
+          className="flex items-center justify-between mx-auto"
           style={{
-            fontFamily: "var(--font-dm-sans), sans-serif",
-            fontSize: 11,
-            fontWeight: 500,
-            textTransform: "uppercase" as const,
-            letterSpacing: "0.12em",
-            color: "rgba(240,234,214,0.45)",
-            textDecoration: "none",
-            transition: "color 0.25s ease",
+            maxWidth: 1280,
+            padding: "20px 48px",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(240,234,214,1)")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(240,234,214,0.45)")}
         >
-          Work
-        </Link>
-
-        {/* Center — Logo (absolute centered on desktop, static left on mobile) */}
-        <Link
-          href="/"
-          aria-label="Client Growth — Home"
-          className="nav-logo md:absolute md:left-1/2 md:-translate-x-1/2"
-          style={{ textDecoration: "none" }}
-        >
-          <span
-            className="nav-logo-text"
-            style={{
-              fontFamily: "var(--font-cormorant), Georgia, serif",
-              fontSize: 22,
-              fontWeight: 400,
-              letterSpacing: "0.02em",
-              color: "#F0EAD6",
-            }}
-          >
-            Client{" "}
-            <span style={{ color: "#D4A853" }}>Growth</span>
-          </span>
-        </Link>
-
-        {/* Right — Results + CTA */}
-        <div className="flex items-center gap-8">
-          <Link
-            href="/results"
-            aria-label="View client results"
-            className="nav-link hidden sm:inline-block"
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 11,
-              fontWeight: 500,
-              textTransform: "uppercase" as const,
-              letterSpacing: "0.12em",
-              color: "rgba(240,234,214,0.45)",
-              textDecoration: "none",
-              transition: "color 0.25s ease",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(240,234,214,1)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(240,234,214,0.45)")}
-          >
-            Results
+          {/* Logo — left */}
+          <Link href="/" aria-label="Client Growth — Home" className="flex-shrink-0">
+            <motion.span
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4 }}
+              style={{
+                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontSize: 22,
+                fontWeight: 400,
+                letterSpacing: "0.02em",
+                color: "#F0EAD6",
+              }}
+            >
+              Client{" "}
+              <span style={{ color: "#D4A853" }}>Growth</span>
+            </motion.span>
           </Link>
 
-          <Link
-            href="/apply"
-            aria-label="Work with me"
-            className="nav-cta-btn"
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 11,
-              fontWeight: 500,
-              textTransform: "uppercase" as const,
-              letterSpacing: "0.1em",
-              background: "#D4A853",
-              color: "#0D0B09",
-              padding: "10px 24px",
-              borderRadius: 0,
-              textDecoration: "none",
-              transition: "filter 0.2s ease, transform 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1.12)";
-              e.currentTarget.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "none";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
+          {/* Desktop links — right */}
+          <div className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map((link, i) =>
+              link.isCta ? (
+                <motion.div
+                  key={link.label}
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 * (i + 1) }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <Link
+                    href={link.href}
+                    aria-label={link.label}
+                    className="inline-flex items-center justify-center transition-all"
+                    style={{
+                      fontFamily: "var(--font-dm-sans), sans-serif",
+                      fontSize: 11,
+                      fontWeight: 500,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      background: "#D4A853",
+                      color: "#0D0B09",
+                      padding: "10px 24px",
+                      textDecoration: "none",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.filter = "brightness(1.12)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.filter = "none";
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={link.label}
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 * (i + 1) }}
+                  whileHover={{ scale: 1.04 }}
+                >
+                  <Link
+                    href={link.href}
+                    aria-label={link.label}
+                    style={{
+                      fontFamily: "var(--font-dm-sans), sans-serif",
+                      fontSize: 11,
+                      fontWeight: 500,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.12em",
+                      color: "rgba(240,234,214,0.45)",
+                      textDecoration: "none",
+                      transition: "color 0.25s ease",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(240,234,214,1)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(240,234,214,0.45)")}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              )
+            )}
+          </div>
+
+          {/* Mobile menu button */}
+          <motion.button
+            className="md:hidden flex items-center justify-center"
+            onClick={() => setMobileOpen(true)}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Open menu"
+            style={{ color: "#F0EAD6" }}
           >
-            Work With Me
-          </Link>
+            <Menu className="h-6 w-6" />
+          </motion.button>
         </div>
-      </div>
+      </nav>
+
+      {/* Mobile overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="fixed inset-0 z-[200] md:hidden flex flex-col"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 28, stiffness: 300 }}
+            style={{ background: "#0D0B09" }}
+          >
+            {/* Mobile header */}
+            <div className="flex items-center justify-between" style={{ padding: "20px 24px" }}>
+              <Link
+                href="/"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  fontFamily: "var(--font-cormorant), Georgia, serif",
+                  fontSize: 20,
+                  fontWeight: 400,
+                  color: "#F0EAD6",
+                  textDecoration: "none",
+                }}
+              >
+                Client <span style={{ color: "#D4A853" }}>Growth</span>
+              </Link>
+              <motion.button
+                onClick={() => setMobileOpen(false)}
+                whileTap={{ scale: 0.9 }}
+                aria-label="Close menu"
+                style={{ color: "#F0EAD6" }}
+              >
+                <X className="h-6 w-6" />
+              </motion.button>
+            </div>
+
+            {/* Mobile links */}
+            <div className="flex flex-col flex-1 justify-center px-8 gap-8">
+              {NAV_LINKS.map((link, i) => (
+                <motion.div
+                  key={link.label}
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 + 0.15 }}
+                  exit={{ opacity: 0, x: 24 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    style={{
+                      fontFamily: "var(--font-dm-sans), sans-serif",
+                      fontSize: 16,
+                      fontWeight: 500,
+                      letterSpacing: "0.06em",
+                      textTransform: "uppercase",
+                      color: link.isCta ? "#D4A853" : "#F0EAD6",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="pt-4"
+              >
+                <Link
+                  href="/apply"
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex items-center justify-center w-full text-center"
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    background: "#D4A853",
+                    color: "#0D0B09",
+                    padding: "16px 32px",
+                    textDecoration: "none",
+                  }}
+                >
+                  Book a Diagnostic Call
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Mobile footer */}
+            <div className="px-8 pb-8">
+              <p
+                style={{
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                  fontSize: 12,
+                  color: "#756D63",
+                  textAlign: "center",
+                }}
+              >
+                Growth infrastructure for local service businesses.
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <style jsx global>{`
-        /* ── Desktop: scrolled state ── */
-        .premium-nav {
-          background: transparent;
-          backdrop-filter: none;
-          transition: background 0.3s ease, backdrop-filter 0.3s ease;
-        }
-        .premium-nav.nav-scrolled {
-          background: rgba(13, 11, 9, 0.85);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-        }
-
-        /* ── Mobile: transparent so hero animation shows through ── */
         @media (max-width: 768px) {
-          .premium-nav {
-            background: transparent !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            border-bottom: none !important;
-            box-shadow: none !important;
-          }
-          .premium-nav.nav-scrolled {
-            background: rgba(13, 11, 9, 0.85) !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
-            border-bottom: none !important;
-            box-shadow: none !important;
-          }
-          .premium-nav > div {
+          nav[aria-label="Main navigation"] > div {
             padding: 16px 20px !important;
-            height: auto !important;
-            box-sizing: border-box !important;
-          }
-          .nav-logo {
-            position: static !important;
-            transform: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-          }
-          .nav-logo-text {
-            font-size: 17px !important;
-          }
-          .nav-cta-btn {
-            flex-shrink: 0 !important;
-            font-size: 11px !important;
-            padding: 9px 16px !important;
-            white-space: nowrap !important;
           }
         }
       `}</style>
-    </nav>
+    </>
   );
 }

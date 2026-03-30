@@ -19,8 +19,16 @@
 
 @media (max-width: 768px) {
   .hero-animation {
-    width: 150vh !important;
-    height: 108% !important;
-    top: -3% !important;
+    width: 170vh !important;
+    height: 115% !important;
+    top: -5% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-animation {
+    width: 200vh !important;
+    height: 120% !important;
+    top: -8% !important;
   }
 }

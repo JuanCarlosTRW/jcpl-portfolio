@@ -20,41 +20,41 @@ const QualificationCTA = dynamic(() => import("@/components/home/QualificationCT
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 
-
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Nav is rendered in ClientAppShell */}
+      {/* 2. Trust ticker + 3. Hero + 4. Results ticker */}
       <HeroSection />
 
-      {/* 2. Proof — verified results */}
+      {/* 5. Proven Outcomes */}
       <FeaturedCaseStudy />
 
-      {/* 3. The Reality + Pain Points */}
+      {/* 6. Pain Points */}
       <ClientReality />
 
-      {/* 4. Acquisition system — Attract → Convert → Compound */}
+      {/* 7. The Acquisition System */}
       <VerticalTabs />
 
-      {/* 5. Who Builds This */}
+      {/* 8. Who Runs The System */}
       <FounderBlock />
 
-      {/* 6. FAQ */}
+      {/* 9. FAQ */}
       <FAQ />
 
-      {/* 7. Testimonials */}
+      {/* 10. Testimonials */}
       <TestimonialBlock />
 
-      {/* 8. Pricing */}
+      {/* 11. Pricing */}
       <PricingStatement />
 
-      {/* 9. ROI Calculator */}
+      {/* 12. Unit Economics Calculator */}
       <ROICalculator />
 
-      {/* 10. Who This Is For */}
+      {/* 13. Who This Is For */}
       <QualificationCTA />
 
-      {/* 11. Final CTA + Form */}
+      {/* 14. Final CTA — Diagnostic */}
       <DiagnosticForm />
     </>
   );

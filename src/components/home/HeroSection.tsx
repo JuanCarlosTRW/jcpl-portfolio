@@ -43,11 +43,11 @@ export default function HeroSection() {
         height: "100svh",
         minHeight: "100svh",
         overflow: "hidden",
-        background: "transparent",
+        background: "#0D0B09",
       }}
       aria-label="Hero"
     >
-      {/* ── Layer 0: Unicorn Studio planet animation ── */}
+      {/* Layer 0: Unicorn Studio planet animation — edge-to-edge, no padding */}
       <div
         aria-hidden="true"
         className="hero-animation"
@@ -58,85 +58,72 @@ export default function HeroSection() {
         }}
       >
         <UnicornScene
-          projectId="VhaHzIfQSlNqY2QWIadP"
+          jsonFilePath="/scenes/hero-planet.json"
           sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
           width="100vw"
           height="100svh"
+          dpi={1.5}
+          scale={1}
         />
       </div>
 
-      {/* ── Layer 1: Minimal overlay — bottom fade only ── */}
+      {/* Layer 1: Subtle bottom fade for text legibility */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(to bottom, rgba(13,11,9,0.0) 0%, rgba(13,11,9,0.0) 60%, rgba(13,11,9,0.7) 100%)",
+          background: "linear-gradient(to bottom, rgba(13,11,9,0.0) 0%, rgba(13,11,9,0.0) 55%, rgba(13,11,9,0.65) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
-      {/* ── Layer 2: Backdrop blur text container ── */}
+      {/* Layer 2: Trust ticker — top */}
+      <div
+        className="hero-trust-ticker"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 20,
+          display: "flex",
+          justifyContent: "center",
+          paddingTop: 88,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 11,
+            fontWeight: 500,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "rgba(212, 168, 83, 0.7)",
+          }}
+        >
+          5 industries &middot; 3 countries &middot; verified results
+        </span>
+      </div>
+
+      {/* Layer 3: Hero content */}
       <div
         className="hero-container"
         style={{
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%, -54%)",
+          transform: "translate(-50%, -50%)",
           zIndex: 10,
-          background: "rgba(13, 11, 9, 0.42)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
-          border: "1px solid rgba(212, 168, 83, 0.08)",
-          borderRadius: 20,
-          padding: "32px 56px 48px",
-          maxWidth: 640,
-          maskImage: "radial-gradient(ellipse 90% 85% at 50% 50%, black 60%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse 90% 85% at 50% 50%, black 60%, transparent 100%)",
           width: "90%",
+          maxWidth: 640,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
         }}
       >
-        {/* Eyebrow */}
-        <div
-          className="hero-enter"
-          style={{
-            animationDelay: "0.1s",
-            marginBottom: 24,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 8,
-          }}
-        >
-          <div
-            className="hero-eyebrow-rule"
-            style={{
-              width: 28,
-              height: 1,
-              background: "#D4A853",
-              flexShrink: 0,
-            }}
-          />
-          <span
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 11,
-              fontWeight: 500,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "#D4A853",
-            }}
-          >
-            5 industries · 3 countries · verified results
-          </span>
-        </div>
-
         {/* Headline */}
         <h1
           className="hero-fadeup"
@@ -144,12 +131,12 @@ export default function HeroSection() {
             fontFamily: "var(--font-cormorant), Georgia, serif",
             fontSize: "clamp(2.4rem, 4vw, 3.6rem)",
             fontWeight: 300,
-            lineHeight: 1.0,
+            lineHeight: 1.05,
             color: "#F0EAD6",
             maxWidth: 560,
             margin: "0 auto",
             marginBottom: 20,
-            textShadow: "0 2px 20px rgba(13,11,9,0.8)",
+            textShadow: "0 2px 24px rgba(13,11,9,0.9)",
           }}
         >
           I build the system that{" "}
@@ -170,6 +157,7 @@ export default function HeroSection() {
             marginBottom: 32,
             animationDelay: "0.4s",
             textAlign: "center",
+            textShadow: "0 1px 12px rgba(13,11,9,0.7)",
           }}
         >
           Websites, Google Ads, SEO, and AI. Built for service businesses that want more customers, not more agencies.
@@ -186,7 +174,6 @@ export default function HeroSection() {
             gap: 24,
           }}
         >
-          {/* Primary CTA */}
           <Link
             href="/apply"
             aria-label="Work with me. Book a call."
@@ -200,7 +187,7 @@ export default function HeroSection() {
               background: "#D4A853",
               color: "#0D0B09",
               padding: "14px 32px",
-              borderRadius: 6,
+              borderRadius: 0,
               border: "none",
             }}
             onMouseEnter={(e) => {
@@ -215,7 +202,6 @@ export default function HeroSection() {
             Work with me
           </Link>
 
-          {/* Secondary CTA */}
           <Link
             href="/results"
             aria-label="See client case studies"
@@ -235,11 +221,11 @@ export default function HeroSection() {
               e.currentTarget.style.color = "rgba(240,234,214,0.6)";
             }}
           >
-            See the Results →
+            See the Results &rarr;
           </Link>
         </div>
 
-        {/* Risk reversal chip */}
+        {/* Trust line */}
         <p
           className="hero-enter hero-risk"
           style={{
@@ -256,7 +242,7 @@ export default function HeroSection() {
         </p>
       </div>
 
-      {/* ── Layer 3: Proof ticker pinned to bottom ── */}
+      {/* Layer 4: Results ticker — bottom */}
       <div
         role="marquee"
         aria-label="Client results ticker"
@@ -280,7 +266,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Keyframes + mobile responsive */}
       <style jsx global>{`
         @keyframes ticker-scroll {
           0% { transform: translateX(0); }
@@ -295,7 +280,7 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* ── Unicorn Studio: desktop — fill hero normally ── */
+        /* Unicorn Studio: edge-to-edge fill */
         .hero-animation {
           position: absolute !important;
           inset: 0 !important;
@@ -311,45 +296,27 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
-          /* ── Text container on mobile ── */
+          .hero-trust-ticker {
+            padding-top: 72px !important;
+          }
+          .hero-trust-ticker span {
+            font-size: 9px !important;
+          }
           .hero-container {
             position: absolute !important;
-            top: 42% !important;
+            top: 46% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
-            width: 88vw !important;
+            width: 92vw !important;
             max-width: 400px !important;
-            padding: 24px 18px 20px 18px !important;
-            background: rgba(13, 11, 9, 0.35) !important;
-            backdrop-filter: blur(6px) !important;
-            -webkit-backdrop-filter: blur(6px) !important;
-            border: none !important;
-            border-radius: 0px !important;
             z-index: 20 !important;
-            mask-image: radial-gradient(ellipse 90% 85% at 50% 48%, black 35%, rgba(0,0,0,0.5) 60%, transparent 100%) !important;
-            -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 48%, black 35%, rgba(0,0,0,0.5) 60%, transparent 100%) !important;
           }
-
-          /* ── Mobile typography ── */
-          /* Eyebrow */
-          .hero-container .hero-enter {
-            margin-bottom: 16px !important;
-          }
-          .hero-container .hero-enter span {
-            font-size: 9px !important;
-            letter-spacing: 0.10em !important;
-          }
-          .hero-eyebrow-rule {
-            display: none !important;
-          }
-          /* FIX 6: Headline */
           .hero-container h1 {
             font-size: clamp(1.75rem, 6vw, 2.1rem) !important;
             line-height: 1.18 !important;
             text-align: center !important;
             margin-bottom: 12px !important;
           }
-          /* FIX 7: Subheadline */
           .hero-sub {
             font-size: 13px !important;
             line-height: 1.5 !important;
@@ -358,7 +325,6 @@ export default function HeroSection() {
             text-align: center !important;
             color: rgba(240,234,214,0.8) !important;
           }
-          /* CTA row */
           .hero-cta-row {
             flex-direction: column !important;
             align-items: center !important;
@@ -371,7 +337,6 @@ export default function HeroSection() {
             font-size: 13px !important;
             letter-spacing: 0.10em !important;
             text-align: center !important;
-            border-radius: 6px !important;
           }
           .hero-cta-row a:not(.hero-cta-primary) {
             display: block !important;
@@ -381,7 +346,6 @@ export default function HeroSection() {
             letter-spacing: 0.08em !important;
             padding: 4px 0 !important;
           }
-          /* Risk reversal chip */
           .hero-risk {
             font-size: 11px !important;
             color: rgba(240,234,214,0.35) !important;
@@ -392,8 +356,6 @@ export default function HeroSection() {
             margin-left: auto !important;
             margin-right: auto !important;
           }
-
-          /* ── STEP 6: Proof ticker on mobile ── */
           [role="marquee"] {
             position: absolute !important;
             bottom: 0 !important;
