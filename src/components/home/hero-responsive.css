@@ -6,21 +6,21 @@
 
 @media (max-width: 1024px) {
   .globe-container {
-    bottom: -20% !important;
-    width: 140% !important;
+    bottom: -10% !important;
+    width: 150% !important;
   }
 }
 
 @media (max-width: 768px) {
   .globe-container {
-    bottom: -25% !important;
-    width: 160% !important;
+    bottom: -5% !important;
+    width: 200% !important;
   }
 }
 
 @media (max-width: 480px) {
   .globe-container {
-    bottom: -30% !important;
-    width: 180% !important;
+    bottom: 0% !important;
+    width: 220% !important;
   }
 }

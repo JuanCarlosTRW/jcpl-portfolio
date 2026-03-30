@@ -217,21 +217,27 @@ export default function HeroSection() {
           <Link
             href="/results"
             aria-label="See client case studies"
+            className="hero-cta-secondary"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 13,
+              fontSize: "0.9rem",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "rgba(240,234,214,0.6)",
+              color: "rgba(255,245,230,0.85)",
               textDecoration: "none",
-              transition: "color 200ms ease",
+              transition: "border-color 0.2s ease, color 0.2s ease",
               textShadow: "0 2px 12px rgba(0,0,0,1)",
+              border: "1px solid rgba(255,245,230,0.35)",
+              padding: "12px 24px",
+              borderRadius: 4,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "rgba(240,234,214,0.9)";
+              e.currentTarget.style.borderColor = "rgba(212,168,83,0.6)";
+              e.currentTarget.style.color = "#D4A853";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "rgba(240,234,214,0.6)";
+              e.currentTarget.style.borderColor = "rgba(255,245,230,0.35)";
+              e.currentTarget.style.color = "rgba(255,245,230,0.85)";
             }}
           >
             See the Results &rarr;
@@ -244,12 +250,12 @@ export default function HeroSection() {
           style={{
             animationDelay: "0.65s",
             fontSize: "0.85rem",
-            color: "rgba(255,245,230,0.6)",
+            color: "rgba(255,245,230,0.65)",
             textAlign: "center",
-            marginTop: 12,
+            marginTop: 14,
             letterSpacing: "0.02em",
             fontFamily: "var(--font-dm-sans), sans-serif",
-            textShadow: "0 2px 12px rgba(0,0,0,1)",
+            textShadow: "0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8)",
           }}
         >
           One call. No retainer until fit is confirmed. You own everything I build.
@@ -306,23 +312,36 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
+          /* FIX 1: Planet visible and dramatic on mobile */
           .globe-container {
-            bottom: -25% !important;
-            width: 160% !important;
+            bottom: -5% !important;
+            width: 200% !important;
             height: 80% !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
           }
+
+          /* FIX 2: Reduce dead space — tighter content */
+          .hero-section {
+            min-height: 100dvh !important;
+          }
+          .hero-content {
+            padding-top: 80px !important;
+            padding-bottom: 0 !important;
+          }
+
+          /* FIX 3: Loosen overlay so planet glow shows */
           .hero-overlay {
             background: linear-gradient(
               to bottom,
               #0D0B09 0%,
-              #0D0B09 45%,
-              rgba(13,11,9,0.8) 65%,
-              rgba(13,11,9,0.0) 85%
+              #0D0B09 30%,
+              rgba(13,11,9,0.65) 50%,
+              rgba(13,11,9,0.1) 75%,
+              rgba(13,11,9,0.0) 100%
             ) !important;
           }
-          .hero-content {
-            padding-top: 120px !important;
-          }
+
           .hero-headline {
             font-size: clamp(2rem, 8vw, 3rem) !important;
           }
@@ -332,6 +351,8 @@ export default function HeroSection() {
           .hero-trust-ticker span {
             font-size: 9px !important;
           }
+
+          /* CTAs stack full-width */
           .hero-cta-row {
             flex-direction: column !important;
             align-items: center !important;
@@ -345,23 +366,22 @@ export default function HeroSection() {
             letter-spacing: 0.10em !important;
             text-align: center !important;
           }
-          .hero-cta-row a:not(.hero-cta-primary) {
+          .hero-cta-secondary {
+            width: 100% !important;
+            min-height: 48px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            text-align: center !important;
             font-size: 12px !important;
-            color: rgba(240,234,214,0.6) !important;
-            letter-spacing: 0.08em !important;
-            padding: 4px 0 !important;
-            width: 100% !important;
-            min-height: 48px !important;
           }
+
           .hero-trust-line {
             font-size: 11px !important;
             margin-top: 14px !important;
             max-width: 270px !important;
           }
+
+          /* FIX 4: Ticker tighter on mobile */
           [role="marquee"] {
             position: absolute !important;
             bottom: 0 !important;
@@ -369,6 +389,14 @@ export default function HeroSection() {
             width: 100% !important;
             z-index: 30 !important;
             background: rgba(13, 11, 9, 0.5) !important;
+            overflow: hidden !important;
+          }
+          [role="marquee"] .hero-ticker {
+            font-size: 0.78rem !important;
+          }
+          [role="marquee"] .flex {
+            gap: 32px !important;
+            padding: 10px 0 !important;
           }
         }
       `}</style>
