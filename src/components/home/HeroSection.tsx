@@ -338,7 +338,7 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
-          /* Globe — full coverage, properly scaled */
+          /* Globe — full viewport coverage */
           .globe-container {
             bottom: 0 !important;
             left: 0 !important;
@@ -347,7 +347,7 @@ export default function HeroSection() {
             height: 100% !important;
           }
 
-          /* Section — flush, no gaps */
+          /* Section — flush, full viewport */
           .hero-section {
             height: 100dvh !important;
             min-height: 100dvh !important;
@@ -356,42 +356,53 @@ export default function HeroSection() {
             overflow: hidden !important;
           }
 
-          /* Content — tight to top, below nav */
+          /* Content — vertically centered over the scene */
           .hero-content {
-            padding-top: 100px !important;
-            padding-bottom: 20px !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 48px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            max-width: 100% !important;
           }
 
-          /* Overlay — lighter so scene shows through */
+          /* Overlay — soft vignette, scene visible everywhere */
           .hero-overlay {
-            background: linear-gradient(
-              to bottom,
-              rgba(13,11,9,0.85) 0%,
-              rgba(13,11,9,0.6) 30%,
-              rgba(13,11,9,0.25) 55%,
-              rgba(13,11,9,0.0) 75%
+            background: radial-gradient(
+              ellipse 120% 100% at 50% 40%,
+              rgba(13,11,9,0.55) 0%,
+              rgba(13,11,9,0.3) 40%,
+              rgba(13,11,9,0.1) 70%,
+              rgba(13,11,9,0.0) 100%
             ) !important;
           }
 
-          /* Headline — max contrast */
+          /* Headline */
           .hero-headline {
             font-size: clamp(2rem, 8vw, 3rem) !important;
             color: #FFFFFF !important;
             text-shadow: 0 2px 30px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.9) !important;
           }
 
-          /* Subhead — stronger visibility */
+          /* Subhead */
           .hero-subhead {
             color: rgba(255,245,230,0.95) !important;
             text-shadow: 0 2px 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.85) !important;
           }
 
-          /* Eyebrow ticker — snug below nav */
+          /* Eyebrow ticker — positioned above centered content */
           .hero-trust-ticker {
             padding-top: 72px !important;
           }
           .hero-trust-ticker span {
             font-size: 9px !important;
+            text-shadow: 0 1px 12px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.8) !important;
           }
 
           /* CTAs — stacked, full-width */
