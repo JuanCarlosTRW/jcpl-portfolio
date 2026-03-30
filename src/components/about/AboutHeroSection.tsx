@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, useEffect, Suspense, lazy } from "react";
+import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 
-const ShaderGradientCanvas = lazy(() =>
-  import("@shadergradient/react").then((m) => ({ default: m.ShaderGradientCanvas }))
-);
-const ShaderGradient = lazy(() =>
-  import("@shadergradient/react").then((m) => ({ default: m.ShaderGradient }))
+const AboutHeroGradient = dynamic(
+  () => import("@/components/about/AboutHeroGradient"),
+  { ssr: false }
 );
 
 const NAV_LINKS = [
@@ -32,56 +31,7 @@ export default function AboutHeroSection() {
     <section className="about-hero-section">
       {/* Layer 0: ShaderGradient background — visible at rounded corners */}
       <div className="about-hero-gradient-bg" aria-hidden="true">
-        <Suspense
-          fallback={
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                background:
-                  "linear-gradient(135deg, #ffe18f 0%, #dbaf63 50%, #e1b16e 100%)",
-              }}
-            />
-          }
-        >
-          <ShaderGradientCanvas
-            style={{ width: "100%", height: "100%", position: "absolute", inset: 0 }}
-            pointerEvents="none"
-          >
-            <ShaderGradient
-              animate="on"
-              brightness={1.2}
-              cAzimuthAngle={180}
-              cDistance={3.6}
-              cPolarAngle={90}
-              cameraZoom={1}
-              color1="#ffe18f"
-              color2="#dbaf63"
-              color3="#e1b16e"
-              envPreset="city"
-              grain="on"
-              lightType="3d"
-              positionX={-1.4}
-              positionY={0}
-              positionZ={0}
-              range="disabled"
-              rangeEnd={40}
-              rangeStart={0}
-              reflection={0.1}
-              rotationX={0}
-              rotationY={10}
-              rotationZ={50}
-              type="plane"
-              uAmplitude={1}
-              uDensity={1.3}
-              uFrequency={5.5}
-              uSpeed={0.4}
-              uStrength={4}
-              uTime={0}
-              wireframe={false}
-            />
-          </ShaderGradientCanvas>
-        </Suspense>
+        <AboutHeroGradient />
       </div>
 
       {/* Layer 1: Photo card */}
