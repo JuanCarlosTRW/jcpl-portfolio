@@ -70,51 +70,48 @@ export default function GuaranteesStrip() {
           </div>
         </div>
 
-        {/* Right: Three cards */}
+        {/* Right: Three buyer-advantage cards */}
         <div className="flex flex-col gap-4">
           <div
             className="rounded-xl p-6"
             style={{
               background: "#1E1A14",
-              border: "1px solid #2A2318",
-              borderLeft: "3px solid rgba(212,168,83,0.35)",
+              border: "1px solid rgba(212,168,83,0.2)",
             }}
           >
-            <p className="text-base font-semibold mb-2" style={{ color: "#F5F0E8" }}>
-              Milestone Delivery
+            <p className="text-base font-semibold mb-2" style={{ color: "#D4A853" }}>
+              You approve before anything ships.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "#A69D8D" }}>
-              Phase 1: market analysis and 90-day roadmap. Phase 2: live site, campaigns, and booking system. You approve before each phase starts. Nothing ships without your sign-off.
+              Phase 1 is the market gap audit and 90-day roadmap. Phase 2 is the live build. You sign off on both before the next phase begins. Nothing moves without your confirmation.
             </p>
           </div>
           <div
             className="rounded-xl p-6"
             style={{
               background: "#1E1A14",
-              border: "1px solid #2A2318",
-              borderLeft: "3px solid rgba(212,168,83,0.35)",
+              border: "1px solid rgba(212,168,83,0.2)",
             }}
           >
-            <p className="text-base font-semibold mb-2" style={{ color: "#F5F0E8" }}>
-              Asset Ownership
+            <p className="text-base font-semibold mb-2" style={{ color: "#D4A853" }}>
+              Everything I build belongs to you.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "#A69D8D" }}>
-              Website, ad accounts, and tracking are yours. Month-to-month after build. Leave with everything.
+              Website, ad accounts, tracking, and analytics. Built in your name, owned by your business. If you ever leave, you take all of it. No agency lock-in.
             </p>
           </div>
           <div
             className="rounded-xl p-6"
             style={{
               background: "#1E1A14",
-              border: "1px solid #2A2318",
-              borderLeft: "3px solid rgba(212,168,83,0.35)",
+              border: "1px solid rgba(212,168,83,0.2)",
             }}
           >
-            <p className="text-base font-semibold mb-2" style={{ color: "#F5F0E8" }}>
-              Pre-Engagement Review
+            <p className="text-base font-semibold mb-2" style={{ color: "#D4A853" }}>
+              I tell you if I can produce a return before you pay anything.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "#A69D8D" }}>
-              I review your market before any agreement. If I cannot produce a return, I tell you directly on the review call. Before you pay anything. I have turned clients down before.
+              I review your market before any agreement is signed. If I cannot produce a measurable return, I say so on the review call. Not after month three. Before you have paid anything. I have turned clients down before.
             </p>
           </div>
         </div>

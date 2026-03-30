@@ -308,23 +308,40 @@ export default function PricingStatement() {
                 style={{ borderTop: "1px solid rgba(212,168,83,0.15)", paddingTop: 20 }}
               >
                 <p
-                  className="font-semibold mb-4"
-                  style={{ fontSize: "0.9rem", color: "#F5F0E8" }}
+                  className="font-semibold mb-5"
+                  style={{ fontSize: "1rem", color: "#F5F0E8" }}
                 >
-                  What you&apos;re actually getting:
+                  What you are actually getting:
                 </p>
-                <div className="space-y-2" style={{ fontSize: "0.8rem", color: "#D2C9B8" }}>
-                  <p>→ A conversion website built for your niche ($3,500 value)</p>
-                  <p>→ Google Ads setup and management ($1,200/mo agency rate)</p>
-                  <p>→ Local SEO + location pages ($800/mo agency rate)</p>
-                  <p>→ Weekly optimization loop (not included anywhere at this price)</p>
-                  <p>→ Monthly revenue reporting with real numbers</p>
-                  <p>→ Direct founder access. No account managers.</p>
+                <div className="space-y-3">
+                  {[
+                    "A conversion website built for your niche ($3,500 value)",
+                    "Google Ads setup and management ($1,200/mo agency rate)",
+                    "Local SEO + location pages ($800/mo agency rate)",
+                    "Weekly optimization loop (not included anywhere at this price)",
+                    "Monthly revenue reporting with real numbers",
+                    "Direct founder access. No account managers.",
+                  ].map((item) => (
+                    <p
+                      key={item}
+                      className="flex items-start gap-3"
+                      style={{
+                        fontSize: "0.9rem",
+                        color: "#D2C9B8",
+                        borderLeft: "2px solid rgba(212,168,83,0.4)",
+                        paddingLeft: 12,
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {item}
+                    </p>
+                  ))}
                 </div>
                 <p
-                  className="mt-4"
+                  className="mt-6"
                   style={{
-                    fontSize: "14px",
+                    fontSize: "1.25rem",
+                    fontWeight: 700,
                     color: "rgba(240,234,214,0.4)",
                     textDecoration: "line-through",
                   }}
@@ -332,8 +349,8 @@ export default function PricingStatement() {
                   Total agency equivalent: $5,500+/month
                 </p>
                 <p
-                  className="mt-1"
-                  style={{ fontSize: "18px", fontWeight: 700, color: "#D4A853" }}
+                  className="mt-2"
+                  style={{ fontSize: "1.5rem", fontWeight: 800, color: "#D4A853" }}
                 >
                   Your investment: $2,500/month
                 </p>

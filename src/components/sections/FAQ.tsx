@@ -91,15 +91,15 @@ export default function FAQ() {
             }}
           >
             <div className="p-6 md:p-8">
-              <h3 className="text-[1.25rem] font-bold text-white leading-tight mb-2">Book a diagnostic call</h3>
+              <h3 className="text-[1.25rem] font-bold text-white leading-tight mb-2">See how other businesses have used this</h3>
               <p className="text-[0.9rem] leading-[1.6] mb-4" style={{ color: "#D2C9B8" }}>
-                I review your market before we speak. I show you exactly where you are losing calls and what fixing it is worth.
+                Same system. Different industries. Every result verified against live account data.
               </p>
               <p className="text-[0.8rem] leading-[1.6] mb-6" style={{ color: "rgba(240,234,214,0.5)" }}>
-                No pitch. No pressure. No retainer until fit is confirmed.
+                $41,085 from $900 in ad spend. 90 new clients in 90 days. Page 1 in under 60 days.
               </p>
               <a
-                href="#book-call"
+                href="/results"
                 style={{
                   fontSize: "0.875rem",
                   color: "#D4A853",
@@ -110,7 +110,7 @@ export default function FAQ() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#F5F0E8"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#D4A853"; }}
               >
-                Get my diagnostic call →
+                See all client results &rarr;
               </a>
               <div className="mt-6">
                 <p className="text-[13px]" style={{ color: "#A69D8D" }}>

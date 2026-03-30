@@ -42,13 +42,13 @@ export default function HomePage() {
       {/* 9. FAQ */}
       <FAQ />
 
-      {/* 10. Testimonials */}
+      {/* 10. Testimonials — moved ABOVE pricing */}
       <TestimonialBlock />
 
       {/* 11. Pricing */}
       <PricingStatement />
 
-      {/* 12. Unit Economics Calculator */}
+      {/* 12. Unit Economics Calculator — immediately after pricing */}
       <ROICalculator />
 
       {/* 13. Who This Is For */}

@@ -33,7 +33,7 @@ export default function ServicesFinalCTA() {
                 What you know before signing anything.
               </h2>
               <p className="text-sm max-w-[480px] mx-auto" style={{ color: "#756D63" }}>
-                The terms, the standards, and the protections are set before any retainer is signed.
+                Every protection is a buyer advantage. Set before any retainer is signed.
               </p>
             </div>
           </Reveal>

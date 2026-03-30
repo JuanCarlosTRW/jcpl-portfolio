@@ -228,8 +228,58 @@ export default function CaseStudiesSection() {
       {/* Section 3: Triple W full case study */}
       {flagship && <ResultsFlagshipCaseStudy cs={flagship} />}
 
+      {/* Mid-page CTA — after Triple W */}
+      <section className="py-6" style={{ background: "#0D0B09" }}>
+        <div className="max-w-[1120px] mx-auto px-6">
+          <div
+            className="rounded-lg px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4"
+            style={{
+              background: "rgba(212,168,83,0.03)",
+              border: "1px solid rgba(212,168,83,0.2)",
+            }}
+          >
+            <p className="text-[15px] text-[#F5F0E8] text-center sm:text-left">
+              This is the same system. One spot is currently open.
+            </p>
+            <div className="flex flex-col items-center sm:items-end gap-1.5 flex-shrink-0">
+              <Link
+                href="/apply"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold tracking-wide"
+                style={{
+                  background: "#D4A853",
+                  color: "#0D0B09",
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Book a Diagnostic Call &rarr;
+              </Link>
+              <p className="text-[11px]" style={{ color: "#756D63" }}>
+                No retainer until I confirm fit. Response within 24 hours.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section 4: Elite Barbershop full case study */}
       {secondary && <ResultsSecondaryCase cs={secondary} />}
+
+      {/* Subtle pull-quote CTA — after Elite */}
+      <section className="py-4" style={{ background: "#0D0B09" }}>
+        <div className="max-w-[1120px] mx-auto px-6 text-center">
+          <p className="text-[16px] font-semibold mb-2" style={{ color: "#D4A853" }}>
+            90 new clients. 90 days. One system.
+          </p>
+          <Link
+            href="/apply"
+            className="text-[14px] hover:underline"
+            style={{ color: "#D2C9B8" }}
+          >
+            Book the diagnostic &rarr;
+          </Link>
+        </div>
+      </section>
 
       {/* Section 5: Culture Barbershop full case study */}
       <CultureCaseStudy />
@@ -246,7 +296,7 @@ export default function CaseStudiesSection() {
         style={{ background: "#1A1510", borderTop: "1px solid rgba(255,255,255,0.04)" }}
       >
         <p className="text-center text-[12px] text-[rgba(255,255,255,0.2)] max-w-[480px] mx-auto px-6 leading-[1.7]">
-          Results shown are from real client engagements. Revenue figures are client-reported. Your results will vary based on market, offer, and execution.
+          Revenue figures verified against live Google Ads account data and GA4 conversion tracking. All results from live accounts. No projections.
         </p>
       </div>
     </>

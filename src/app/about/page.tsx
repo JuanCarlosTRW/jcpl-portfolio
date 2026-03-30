@@ -10,9 +10,9 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const STATS = [
-  { value: "$41,085", label: "Revenue generated", detail: "Triple W Rentals", sub: "Google Ads · First 30 days · $900 ad spend" },
-  { value: "90", label: "New clients acquired", detail: "Elite Barbershop", sub: "Full acquisition system · 90 days · Built from zero" },
-  { value: "Page 1", label: "Google ranking", detail: "Culture Barbershop", sub: "Competitive Montreal market · Under 60 days" },
+  { value: "$41,085", label: "Revenue generated", detail: "Triple W Rentals", sub: "Google Ads. First 30 days. $900 ad spend" },
+  { value: "90", label: "New clients acquired", detail: "Elite Barbershop", sub: "Full acquisition system. 90 days. Built from zero" },
+  { value: "Page 1", label: "Google ranking", detail: "Culture Barbershop", sub: "Competitive Montreal market. Under 60 days" },
 ];
 
 const PROOF_LINES = [
@@ -30,26 +30,29 @@ export default function AboutPage() {
           <p className="text-[11px] uppercase tracking-[0.16em] mb-5" style={{ color: "#D4A853" }}>
             ABOUT
           </p>
-          <h1 className="text-[clamp(28px,4.5vw,46px)] font-extrabold text-white leading-[1.08] mb-6 tracking-[-0.025em]">
+          <h1 className="text-[clamp(28px,4.5vw,46px)] font-extrabold text-white leading-[1.08] mb-4 tracking-[-0.025em]">
             I am 18. I have produced more verified revenue for clients than most agencies twice my size.
           </h1>
+          <p className="text-[15px] text-[#A69D8D] mb-6 max-w-[580px]" style={{ fontStyle: "italic" }}>
+            Three clients. Every system built personally. Measured by calls and revenue, nothing else.
+          </p>
           <p className="text-[17px] text-[#D2C9B8] leading-[1.7] mb-10 max-w-[580px]">
             Not because I work harder. Because I run one connected system, personally, for three clients at a time. No handoffs. No account managers. No dilution.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mb-8">
             <Link
-              href="/apply"
+              href="/results"
               className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-bold"
               style={{ background: "#D4A853", color: "#0D0B09", letterSpacing: "0.06em", textTransform: "uppercase" }}
             >
-              Book a Diagnostic Call &rarr;
+              See the Results &rarr;
             </Link>
             <Link
-              href="/results"
+              href="/services"
               className="inline-flex items-center justify-center px-6 py-3.5 text-sm"
               style={{ color: "rgba(240,234,214,0.5)", border: "1px solid rgba(240,234,214,0.1)" }}
             >
-              See the Results &rarr;
+              How the system works &rarr;
             </Link>
           </div>
           <div className="flex flex-wrap gap-4 text-xs" style={{ color: "#A69D8D" }}>
@@ -68,7 +71,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 2 — THE ORIGIN */}
+      {/* SECTION 2 — ORIGIN STORY */}
       <section className="py-16 md:py-24" style={{ background: "#131009", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
         <div className="max-w-[760px] mx-auto px-6">
           <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>WHY THIS EXISTS</p>
@@ -83,7 +86,10 @@ export default function AboutPage() {
               The work was not the problem. The infrastructure was. Nobody was finding these businesses before they found someone else.
             </p>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
-              I built Client Growth to close that gap. Not as a freelancer who builds websites. As an operator who builds the full system — site, ads, SEO, AI search visibility — and runs it continuously until the pipeline is full. I measure success in qualified calls and revenue. Nothing else gets reported.
+              The moment that confirmed it: I sat across from a contractor who had been in business for 12 years, watching him lose 60% of his market to a two-year-old company that had spent $1,200 on Google Ads the previous month. His work was better. His reputation was better. He was invisible where it mattered. That is the gap I built Client Growth to close.
+            </p>
+            <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
+              Not as a freelancer who builds websites. As an operator who builds the full system and runs it continuously until the pipeline is full. I measure success in qualified calls and revenue. Nothing else gets reported.
             </p>
           </div>
         </div>
@@ -101,7 +107,7 @@ export default function AboutPage() {
               Most agencies grow by adding clients and adding staff. The work gets diluted. A junior account manager runs your campaigns six months in. Your results reflect their learning curve, not the system that produced your first results.
             </p>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
-              I built Client Growth around the opposite constraint. Three active partnerships maximum. Not artificial scarcity — operational reality. More than three live systems and I cannot give each one the weekly attention it needs to compound. I will not take a fourth client until I can serve them at the same standard as the first.
+              I built Client Growth around the opposite constraint. Three active partnerships maximum. Not artificial scarcity. Operational reality. More than three live systems and I cannot give each one the weekly attention it needs to compound. I will not take a fourth client until I can serve them at the same standard as the first.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -117,6 +123,11 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          {/* Rejection story */}
+          <p className="mt-10 text-[15px] text-[#A69D8D] leading-[1.7] max-w-[600px]" style={{ fontStyle: "italic" }}>
+            Last quarter I turned down a dental clinic because their market was too saturated to produce a return I could stand behind. That is not a sales tactic. That is the filter that protects every result on this site.
+          </p>
         </div>
       </section>
 
@@ -131,7 +142,7 @@ export default function AboutPage() {
             {STATS.map((s) => (
               <div key={s.detail} className="p-6 rounded-xl" style={{ background: "#0D0B09", border: "1px solid rgba(212,168,83,0.12)" }}>
                 <p className="text-[36px] font-extrabold text-white tracking-[-0.03em] leading-none mb-2">{s.value}</p>
-                <p className="text-[14px] text-[#D2C9B8] mb-1">{s.label} · {s.detail}</p>
+                <p className="text-[14px] text-[#D2C9B8] mb-1">{s.label}. {s.detail}</p>
                 <p className="text-[12px]" style={{ color: "rgba(255,255,255,0.35)" }}>{s.sub}</p>
               </div>
             ))}
@@ -150,7 +161,7 @@ export default function AboutPage() {
         <div className="max-w-[760px] mx-auto px-6">
           <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>BEFORE YOU SIGN ANYTHING</p>
           <h2 className="text-[clamp(24px,3.5vw,36px)] font-extrabold text-white leading-[1.12] mb-8 tracking-[-0.02em]">
-            If I cannot produce a return, I will tell you before you pay anything.
+            If I cannot produce a return, I tell you before you pay anything.
           </h2>
           <p className="text-[16px] text-[#D2C9B8] leading-[1.75] mb-10 max-w-[600px]">
             I review every business before agreeing to work together. I look at the market, the competition, the search volume, the current funnel. If the numbers do not support a return on $2,500/month, I say that on the review call. I have turned clients down. I will do it again. That is not a sales tactic. It is how I protect the track record that makes this work.
@@ -173,7 +184,7 @@ export default function AboutPage() {
         <div className="max-w-[600px] mx-auto px-6 text-center">
           <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>APPLY</p>
           <h2 className="text-[clamp(26px,3.5vw,38px)] font-extrabold text-white leading-[1.15] mb-6 tracking-[-0.02em]">
-            One spot is open. Book the diagnostic call.
+            One spot is open. See if it is the right fit.
           </h2>
           <p className="text-[16px] text-[#D2C9B8] leading-[1.7] mb-8 max-w-[520px] mx-auto">
             Short application. I review your market before the call. If I can produce a return, you get a call link within 24 hours. If I cannot, I tell you directly. No pitch. No pressure. No retainer until fit is confirmed.
