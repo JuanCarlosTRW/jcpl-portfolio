@@ -1,9 +1,19 @@
 /* ═══════════════════════════════════════════════════
-   HERO GLOBE — Responsive positioning
-   Globe sits in the bottom portion of the viewport.
-   Text lives in the dark space above.
+   HERO — Responsive + Premium Animations
    ═══════════════════════════════════════════════════ */
 
+/* ── Keyframes ── */
+@keyframes hero-glow-pulse {
+  0%, 100% { box-shadow: 0 0 18px rgba(212,168,83,0.2), 0 0 40px rgba(212,168,83,0.08); }
+  50%      { box-shadow: 0 0 28px rgba(212,168,83,0.45), 0 0 60px rgba(212,168,83,0.15); }
+}
+
+@keyframes hero-fade-in-up {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Globe — tablet ── */
 @media (max-width: 1024px) {
   .globe-container {
     bottom: -10% !important;
@@ -11,13 +21,50 @@
   }
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
+
+  /* Globe — balanced, slightly higher */
   .globe-container {
-    bottom: -8% !important;
-    width: 240% !important;
+    bottom: -5% !important;
+    width: 220% !important;
+  }
+
+  /* Staggered entrance animations */
+  .hero-headline {
+    opacity: 0;
+    animation: hero-fade-in-up 0.7s ease-out 0.15s forwards !important;
+  }
+  .hero-subhead {
+    opacity: 0;
+    animation: hero-fade-in-up 0.7s ease-out 0.35s forwards !important;
+  }
+  .hero-cta-row {
+    opacity: 0;
+    animation: hero-fade-in-up 0.7s ease-out 0.55s forwards !important;
+  }
+  .hero-trust-line {
+    opacity: 0;
+    animation: hero-fade-in-up 0.7s ease-out 0.7s forwards !important;
+  }
+
+  /* Primary CTA — breathing gold glow */
+  .hero-cta-primary {
+    border-radius: 8px !important;
+    animation:
+      hero-fade-in-up 0.7s ease-out 0.55s forwards,
+      hero-glow-pulse 3s ease-in-out 1.3s infinite !important;
+    opacity: 0;
+  }
+
+  /* Secondary CTA — refined ghost button */
+  .hero-cta-secondary {
+    border-radius: 8px !important;
+    transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
   }
 }
 
+/* ── Small phones ── */
 @media (max-width: 480px) {
   .globe-container {
     bottom: -5% !important;

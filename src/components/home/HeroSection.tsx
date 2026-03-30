@@ -312,48 +312,58 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
-          /* Globe — bigger, higher, dramatic bottom half */
+          /* Globe — sized via hero-responsive.css */
           .globe-container {
-            bottom: -8% !important;
-            width: 240% !important;
             height: 80% !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
           }
 
-          /* Content — tighter, sits higher */
+          /* Section */
           .hero-section {
             min-height: 100dvh !important;
             overflow: hidden !important;
           }
+
+          /* Content — vertically centered in upper half */
           .hero-content {
-            padding-top: 70px !important;
+            padding-top: 26vh !important;
             padding-bottom: 20px !important;
           }
 
-          /* Overlay — planet glow shows much sooner */
+          /* Overlay — gradual fade so planet glow bleeds through */
           .hero-overlay {
             background: linear-gradient(
               to bottom,
               #0D0B09 0%,
-              #0D0B09 25%,
-              rgba(13,11,9,0.55) 45%,
-              rgba(13,11,9,0.05) 68%,
-              rgba(13,11,9,0.0) 100%
+              rgba(13,11,9,0.92) 18%,
+              rgba(13,11,9,0.5) 42%,
+              rgba(13,11,9,0.0) 68%
             ) !important;
           }
 
+          /* Headline — max contrast */
           .hero-headline {
             font-size: clamp(2rem, 8vw, 3rem) !important;
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 30px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.9) !important;
           }
+
+          /* Subhead — stronger visibility */
+          .hero-subhead {
+            color: rgba(255,245,230,0.95) !important;
+            text-shadow: 0 2px 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.85) !important;
+          }
+
+          /* Eyebrow ticker */
           .hero-trust-ticker {
-            padding-top: 72px !important;
+            padding-top: calc(26vh - 28px) !important;
           }
           .hero-trust-ticker span {
             font-size: 9px !important;
           }
 
-          /* CTAs stack full-width */
+          /* CTAs — stacked, full-width */
           .hero-cta-row {
             flex-direction: column !important;
             align-items: center !important;
@@ -362,7 +372,7 @@ export default function HeroSection() {
           }
           .hero-cta-primary {
             width: 100% !important;
-            padding: 15px 0 !important;
+            padding: 16px 0 !important;
             font-size: 13px !important;
             letter-spacing: 0.10em !important;
             text-align: center !important;
@@ -374,15 +384,19 @@ export default function HeroSection() {
             align-items: center !important;
             justify-content: center !important;
             font-size: 12px !important;
+            border-radius: 8px !important;
           }
 
+          /* Trust line */
           .hero-trust-line {
             font-size: 11px !important;
+            color: rgba(255,245,230,0.8) !important;
             margin-top: 14px !important;
             max-width: 270px !important;
+            text-shadow: 0 1px 16px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.9) !important;
           }
 
-          /* FIX 4: Ticker tighter on mobile */
+          /* Ticker */
           [role="marquee"] {
             position: absolute !important;
             bottom: 0 !important;
