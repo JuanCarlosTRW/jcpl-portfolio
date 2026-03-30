@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import "./hero-responsive.css";
@@ -8,6 +9,18 @@ const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
   ssr: false,
 });
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 const TICKER_ITEMS = [
   { stat: "46x ROAS", detail: "Triple W Rentals", sub: "$41K from $900 in 30 days" },
   { stat: "90 new clients", detail: "Elite Barbershop", sub: "90 days" },
@@ -15,6 +28,8 @@ const TICKER_ITEMS = [
 ];
 
 export default function HeroSection() {
+  const isMobile = useIsMobile();
+
   const tickerContent = (
     <>
       {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
@@ -61,14 +76,25 @@ export default function HeroSection() {
           zIndex: 0,
         }}
       >
-        <UnicornScene
-          jsonFilePath="/scenes/hero-planet.json"
-          sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
-          width="100%"
-          height="100%"
-          dpi={1.5}
-          scale={1}
-        />
+        {isMobile ? (
+          <UnicornScene
+            projectId="VhaHzIfQSlNqY2QWIadP"
+            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+            width="100%"
+            height="100%"
+            dpi={1}
+            scale={0.5}
+          />
+        ) : (
+          <UnicornScene
+            jsonFilePath="/scenes/hero-planet.json"
+            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+            width="100%"
+            height="100%"
+            dpi={1.5}
+            scale={1}
+          />
+        )}
       </div>
 
       {/* Layer 1: Dark overlay — protects text zone */}
