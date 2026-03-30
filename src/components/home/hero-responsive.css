@@ -13,14 +13,14 @@
 
 @media (max-width: 768px) {
   .globe-container {
-    bottom: -5% !important;
-    width: 200% !important;
+    bottom: -8% !important;
+    width: 240% !important;
   }
 }
 
 @media (max-width: 480px) {
   .globe-container {
-    bottom: 0% !important;
-    width: 220% !important;
+    bottom: -5% !important;
+    width: 260% !important;
   }
 }

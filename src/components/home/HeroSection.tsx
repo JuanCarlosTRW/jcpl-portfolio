@@ -312,32 +312,33 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
-          /* FIX 1: Planet visible and dramatic on mobile */
+          /* Globe — bigger, higher, dramatic bottom half */
           .globe-container {
-            bottom: -5% !important;
-            width: 200% !important;
+            bottom: -8% !important;
+            width: 240% !important;
             height: 80% !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
           }
 
-          /* FIX 2: Reduce dead space — tighter content */
+          /* Content — tighter, sits higher */
           .hero-section {
             min-height: 100dvh !important;
+            overflow: hidden !important;
           }
           .hero-content {
-            padding-top: 80px !important;
-            padding-bottom: 0 !important;
+            padding-top: 70px !important;
+            padding-bottom: 20px !important;
           }
 
-          /* FIX 3: Loosen overlay so planet glow shows */
+          /* Overlay — planet glow shows much sooner */
           .hero-overlay {
             background: linear-gradient(
               to bottom,
               #0D0B09 0%,
-              #0D0B09 30%,
-              rgba(13,11,9,0.65) 50%,
-              rgba(13,11,9,0.1) 75%,
+              #0D0B09 25%,
+              rgba(13,11,9,0.55) 45%,
+              rgba(13,11,9,0.05) 68%,
               rgba(13,11,9,0.0) 100%
             ) !important;
           }
