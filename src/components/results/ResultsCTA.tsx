@@ -12,15 +12,20 @@ export default function ResultsCTA() {
       }}
     >
       <div className="max-w-[680px] mx-auto px-6 text-center">
+        {/* Label */}
+        <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>
+          NEXT STEP
+        </p>
+
         {/* Headline */}
         <h2 className="text-[clamp(26px,3.5vw,38px)] font-extrabold text-white leading-[1.15] mb-6 tracking-[-0.02em]">
-          The results are documented. The system is the same one I&apos;d build for you.
+          The results are documented. The system is the same one I build for you.
         </h2>
 
         {/* Body */}
         <p className="text-[16px] text-[#D2C9B8] leading-[1.7] mb-8 max-w-[560px] mx-auto">
-          If you&apos;re generating consistent revenue and your pipeline depends on referrals, that&apos;s the problem I fix. One spot is open this quarter. Book the diagnostic call. I&apos;ll tell you exactly what it&apos;s worth before you pay anything.{" "}
-          <span style={{ color: "#D4A853" }}>Before you pay anything.</span>
+          If you are generating consistent revenue and your pipeline depends on referrals, that is the problem I fix. One spot is open this quarter. Book the diagnostic call. I will tell you exactly what it is worth{" "}
+          <span style={{ color: "#D4A853" }}>before you pay anything.</span>
         </p>
 
         {/* CTAs */}
@@ -59,10 +64,7 @@ export default function ResultsCTA() {
           ))}
         </div>
 
-        {/* Disclaimer */}
-        <p className="text-[0.75rem] text-center mx-auto max-w-[480px]" style={{ color: "rgba(255,255,255,0.2)" }}>
-          Results shown are from real client engagements. Revenue figures are client-reported. Your results will vary based on market, offer, and execution.
-        </p>
+        {/* Disclaimer removed — single instance at page bottom */}
       </div>
     </section>
   );

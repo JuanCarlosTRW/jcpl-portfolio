@@ -2,8 +2,6 @@
 
 import { CaseStudy } from "@/content/caseStudies";
 import CaseStudyCard from "@/components/case-studies/CaseStudyCard";
-import { useLocale } from "@/context/LocaleContext";
-import { translations } from "@/lib/translations";
 
 interface Props {
   recent: CaseStudy[];
@@ -11,9 +9,6 @@ interface Props {
 }
 
 export default function ResultsPortfolioSection({ recent, building }: Props) {
-  const { locale } = useLocale();
-  const rp = translations[locale].results.portfolio;
-
   if (recent.length === 0 && building.length === 0) return null;
 
   return (
@@ -25,22 +20,15 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
       }}
     >
       <div className="max-w-[1120px] mx-auto px-6">
-
-        {/* Recent Delivered — full weight */}
+        {/* Recent Delivered */}
         {recent.length > 0 && (
           <div className="mb-16">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[11px] uppercase tracking-[0.14em] text-[#D4A853]">
-                {rp.recentlyDelivered}
+                RECENTLY DELIVERED
               </span>
-              <span
-                className="flex-1 h-px"
-                style={{ background: "rgba(212,168,83,0.1)" }}
-              />
+              <span className="flex-1 h-px" style={{ background: "rgba(212,168,83,0.1)" }} />
             </div>
-            <p className="text-[14px] text-[rgba(255,255,255,0.35)] mb-10 max-w-[520px] leading-[1.65]">
-              {rp.recentSub}
-            </p>
             <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
               {recent.map((cs) => (
                 <CaseStudyCard key={cs.id} cs={cs} />
@@ -49,23 +37,20 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
           </div>
         )}
 
-        {/* Active Builds — clearly secondary, in progress */}
+        {/* In the Field — muted, visually separated */}
         {building.length > 0 && (
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.3)]">
-                {rp.activeBuilds}
+                IN THE FIELD
               </span>
-              <span
-                className="flex-1 h-px"
-                style={{ background: "rgba(255,255,255,0.05)" }}
-              />
+              <span className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
               <span className="text-[11px] text-[rgba(255,255,255,0.2)] tabular-nums">
-                {building.length} {rp.inProgress}
+                {building.length} in progress
               </span>
             </div>
             <p className="text-[14px] text-[rgba(255,255,255,0.25)] mb-10 max-w-[520px] leading-[1.65]">
-              {rp.activeSub}
+              These systems launched in Q1 2026. Results are tracked monthly and published here when verified.
             </p>
             <div className="grid gap-5 md:gap-7 grid-cols-1 md:grid-cols-3">
               {building.map((cs) => (
@@ -76,7 +61,6 @@ export default function ResultsPortfolioSection({ recent, building }: Props) {
             </div>
           </div>
         )}
-
       </div>
     </section>
   );

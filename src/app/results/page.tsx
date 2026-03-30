@@ -1,6 +1,5 @@
 import CaseStudiesSection from "@/components/case-studies/CaseStudiesSection";
 import ResultsHero from "@/components/results/ResultsHero";
-import CaseStudy3DDeck from "@/components/case-studies/CaseStudy3DDeck";
 import { buildMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -20,7 +19,6 @@ export default function ResultsPage() {
   return (
     <div className="bg-sv-base min-h-screen">
       <ResultsHero />
-      <CaseStudy3DDeck autoPlay />
       <CaseStudiesSection />
     </div>
   );

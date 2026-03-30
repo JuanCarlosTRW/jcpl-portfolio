@@ -239,11 +239,17 @@ export default function CaseStudyDetail({
               <div className="flex justify-center mb-4">
                 <PulseDot size={10} />
               </div>
+              <p className="text-[10px] uppercase tracking-[0.16em] mb-3" style={{ color: "#D4A853" }}>
+                SYSTEM STATUS
+              </p>
               <h3 className="text-[20px] font-bold text-white mb-2.5">
-                System live. Results incoming.
+                Live as of Q1 2026.
               </h3>
-              <p className="text-[15px] text-[rgba(255,255,255,0.5)] leading-[1.7] max-w-[520px] mx-auto">
-                System live, tracking active. Results compiling.
+              <p className="text-[15px] text-[rgba(255,255,255,0.5)] leading-[1.7] max-w-[520px] mx-auto mb-4">
+                Conversion tracking active. Results will be published here when the first full month of data is verified.
+              </p>
+              <p className="text-[13px] leading-[1.6]" style={{ color: "#D4A853", fontStyle: "italic" }}>
+                Every number on this site is real or it does not get published.
               </p>
             </div>
           </div>
