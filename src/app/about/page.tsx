@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
+import AboutHeroSection from "@/components/about/AboutHeroSection";
 
 export const metadata: Metadata = buildMetadata({
   title: "About",
@@ -24,52 +25,8 @@ const PROOF_LINES = [
 export default function AboutPage() {
   return (
     <>
-      {/* SECTION 1 — HERO */}
-      <section className="pt-36 pb-16 md:pb-24" style={{ background: "#0D0B09" }}>
-        <div className="max-w-[760px] mx-auto px-6">
-          <p className="text-[11px] uppercase tracking-[0.16em] mb-5" style={{ color: "#D4A853" }}>
-            ABOUT
-          </p>
-          <h1 className="text-[clamp(28px,4.5vw,46px)] font-extrabold text-white leading-[1.08] mb-4 tracking-[-0.025em]">
-            I am 18. I have produced more verified revenue for clients than most agencies twice my size.
-          </h1>
-          <p className="text-[15px] text-[#A69D8D] mb-6 max-w-[580px]" style={{ fontStyle: "italic" }}>
-            Three clients. Every system built personally. Measured by calls and revenue, nothing else.
-          </p>
-          <p className="text-[17px] text-[#D2C9B8] leading-[1.7] mb-10 max-w-[580px]">
-            Not because I work harder. Because I run one connected system, personally, for three clients at a time. No handoffs. No account managers. No dilution.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 mb-8">
-            <Link
-              href="/results"
-              className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-bold"
-              style={{ background: "#D4A853", color: "#0D0B09", letterSpacing: "0.06em", textTransform: "uppercase" }}
-            >
-              See the Results &rarr;
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center px-6 py-3.5 text-sm"
-              style={{ color: "rgba(240,234,214,0.5)", border: "1px solid rgba(240,234,214,0.1)" }}
-            >
-              How the system works &rarr;
-            </Link>
-          </div>
-          <div className="flex flex-wrap gap-4 text-xs" style={{ color: "#A69D8D" }}>
-            <span>Response within 24h</span>
-            <span style={{ color: "rgba(255,255,255,0.15)" }}>&middot;</span>
-            <span>No retainer until fit is confirmed</span>
-            <span style={{ color: "rgba(255,255,255,0.15)" }}>&middot;</span>
-            <span className="flex items-center gap-1.5">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span style={{ color: "rgb(110,231,183)" }}>One spot currently open</span>
-            </span>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 1 — CINEMATIC HERO */}
+      <AboutHeroSection />
 
       {/* SECTION 2 — ORIGIN STORY */}
       <section className="py-16 md:py-24" style={{ background: "#131009", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
