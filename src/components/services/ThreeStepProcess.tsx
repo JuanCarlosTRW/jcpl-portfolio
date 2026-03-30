@@ -285,7 +285,7 @@ export default function ThreeStepProcess() {
   }, [headIn]);
 
   return (
-    <section style={{ background: BG, padding: "80px 40px", fontFamily: FONT }}>
+    <section id="system" style={{ background: BG, padding: "80px 40px", fontFamily: FONT }}>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         {/* Label + Headline */}
         <div ref={headRef} style={{ marginBottom: 64 }}>

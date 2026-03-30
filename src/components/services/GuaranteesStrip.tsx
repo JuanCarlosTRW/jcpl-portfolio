@@ -16,7 +16,7 @@ export default function GuaranteesStrip() {
             minHeight: 400,
           }}
         >
-          <div className="relative z-10 flex flex-col justify-between h-full gap-10">
+          <div className="relative z-10 flex flex-col justify-between h-full gap-6">
             <div>
               <p
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
@@ -30,10 +30,40 @@ export default function GuaranteesStrip() {
               >
                 Every number is real or it does not get published.
               </h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#D2C9B8" }}>
+              <p className="text-sm leading-relaxed mb-5" style={{ color: "#D2C9B8" }}>
                 All results are from live client accounts. No projections. No hypotheticals.
               </p>
+
+              {/* Micro-proof lines */}
+              <div className="flex flex-col gap-2.5 mb-6">
+                {[
+                  "All results are from live client accounts",
+                  "No projections. No hypotheticals.",
+                  "I have turned clients down when I could not guarantee a return.",
+                ].map((line) => (
+                  <p key={line} className="text-sm flex items-start gap-2.5" style={{ color: "#A69D8D" }}>
+                    <span style={{ color: "#D4A853", flexShrink: 0, marginTop: 1 }}>&middot;</span>
+                    {line}
+                  </p>
+                ))}
+              </div>
+
+              {/* Gold divider */}
+              <div className="h-px w-full mb-5" style={{ background: "rgba(212,168,83,0.2)" }} />
+
+              {/* THE COMMITMENT */}
+              <p
+                className="text-xs font-semibold tracking-[0.18em] uppercase mb-3"
+                style={{ color: "#D4A853" }}
+              >
+                THE COMMITMENT
+              </p>
+              <p className="text-[13px] leading-relaxed" style={{ color: "#D2C9B8" }}>
+                If I cannot produce a return, I tell you before you pay anything.<br />
+                Not after. Not on month three. Before.
+              </p>
             </div>
+
             <p className="text-xs" style={{ color: "#756D63" }}>
               Verified Q1 2026. All results from live accounts.
             </p>

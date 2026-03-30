@@ -32,7 +32,7 @@ const CORE_ITEMS = [
 export default function SystemArchitectureSection() {
   return (
     <section
-      id="system"
+      id="core-system"
       className="w-full py-20 md:py-28 relative overflow-hidden"
       style={{ background: "#131009" }}
     >
