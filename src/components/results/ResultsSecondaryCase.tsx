@@ -76,6 +76,24 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               ))}
             </div>
 
+            {/* Calendar proof image */}
+            <div
+              className="mb-8 rounded-lg overflow-hidden"
+              style={{ border: "1px solid rgba(212,168,83,0.4)", borderRadius: 8 }}
+            >
+              <img
+                src="/images/proof/elite-calendar.png"
+                alt="Fully booked calendar. Elite Barbershop, Montreal. 90 days after system launch."
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+              <p
+                className="px-4 py-3 text-[12px]"
+                style={{ color: "rgba(255,255,255,0.4)", background: "#0D0B09" }}
+              >
+                Fully booked calendar. Elite Barbershop, Montreal. 90 days after system launch.
+              </p>
+            </div>
+
             {/* What was built */}
             <div className="mb-8">
               <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.3)] mb-4">

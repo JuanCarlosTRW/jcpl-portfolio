@@ -1,34 +1,26 @@
 /* ═══════════════════════════════════════════════════
-   HERO ANIMATION — Portrait responsive
-   Force landscape aspect ratio on the WebGL container
-   so the planet fills the viewport instead of leaving
-   a dark void above. overflow:hidden on the hero crops sides.
+   HERO GLOBE — Responsive positioning
+   Globe sits in the bottom portion of the viewport.
+   Text lives in the dark space above.
    ═══════════════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
-  .hero-animation {
-    inset: auto !important;
-    width: 155vh !important;
-    min-width: 100% !important;
-    height: 110% !important;
-    top: -4% !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+  .globe-container {
+    bottom: -20% !important;
+    width: 140% !important;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-animation {
-    width: 170vh !important;
-    height: 115% !important;
-    top: -5% !important;
+  .globe-container {
+    bottom: -25% !important;
+    width: 160% !important;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-animation {
-    width: 200vh !important;
-    height: 120% !important;
-    top: -8% !important;
+  .globe-container {
+    bottom: -30% !important;
+    width: 180% !important;
   }
 }
