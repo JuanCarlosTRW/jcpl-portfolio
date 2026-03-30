@@ -1,40 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
-import Link from "next/link";
 import Image from "next/image";
 
-const AboutHeroGradient = dynamic(
-  () => import("@/components/about/AboutHeroGradient"),
-  { ssr: false }
-);
-
-const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Results", href: "/results" },
-  { label: "Services", href: "/services" },
-];
-
 export default function AboutHeroSection() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
   return (
     <section className="about-hero-section">
-      {/* Layer 0: ShaderGradient background — visible at rounded corners */}
-      <div className="about-hero-gradient-bg" aria-hidden="true">
-        <AboutHeroGradient />
-      </div>
-
-      {/* Layer 1: Photo card */}
+      {/* Photo card */}
       <div className="about-hero-card">
         {/* Headshot photo */}
         <div className="about-hero-photo-wrapper">
@@ -51,7 +22,7 @@ export default function AboutHeroSection() {
           <div className="about-hero-photo-fade" aria-hidden="true" />
         </div>
 
-        {/* Layer 2: Text content */}
+        {/* Text content */}
         <div className="about-hero-content">
           {/* Headline group */}
           <div className="about-hero-headline-group">
@@ -67,81 +38,22 @@ export default function AboutHeroSection() {
             nothing else.
           </p>
         </div>
-
-        {/* Layer 3: Bottom Navigation Bar */}
-        <nav className="about-hero-nav">
-          <div className="about-hero-nav-inner">
-            {/* Left: Avatar */}
-            <Link href="/about" className="about-hero-avatar-link">
-              <Image
-                src="/images/juan-headshot-founder.jpeg"
-                alt="Juan — Founder"
-                width={48}
-                height={48}
-                className="about-hero-avatar"
-              />
-            </Link>
-
-            {/* Center: Nav Links (desktop only) */}
-            {!isMobile && (
-              <div className="about-hero-nav-links">
-                {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="about-hero-nav-link"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {/* Right: CTA (desktop) or MENU (mobile) */}
-            {isMobile ? (
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="about-hero-menu-btn"
-                type="button"
-              >
-                MENU +
-              </button>
-            ) : (
-              <Link href="/apply" className="about-hero-cta-btn">
-                CONTACT +
-              </Link>
-            )}
-          </div>
-        </nav>
       </div>
 
       <style jsx>{`
-        /* ── Section: full viewport with gradient behind ── */
+        /* ── Section ── */
         .about-hero-section {
           position: relative;
           width: 100%;
           min-height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 16px;
-          overflow: hidden;
-        }
-
-        /* ── Gradient background fills entire section ── */
-        .about-hero-gradient-bg {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
+          background: #0D0B09;
         }
 
         /* ── Photo card ── */
         .about-hero-card {
           position: relative;
-          z-index: 1;
           width: 100%;
-          height: calc(100vh - 32px);
-          border-radius: 28px;
+          height: 100vh;
           overflow: hidden;
         }
 
@@ -212,7 +124,7 @@ export default function AboutHeroSection() {
 
         .about-hero-body {
           position: absolute;
-          bottom: 100px;
+          bottom: 60px;
           left: 50%;
           transform: translateX(-50%);
           width: 85%;
@@ -228,115 +140,8 @@ export default function AboutHeroSection() {
             0 2px 24px rgba(0, 0, 0, 0.3);
         }
 
-        /* ── Bottom nav ── */
-        .about-hero-nav {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          z-index: 4;
-          background: rgba(0, 0, 0, 0.45);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 0 0 28px 28px;
-        }
-
-        .about-hero-nav-inner {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 14px 24px;
-          max-width: 1280px;
-          margin: 0 auto;
-        }
-
-        .about-hero-avatar-link {
-          flex-shrink: 0;
-          pointer-events: auto;
-        }
-
-        :global(.about-hero-avatar) {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1.5px solid rgba(255, 255, 255, 0.25);
-          object-fit: cover;
-        }
-
-        .about-hero-nav-links {
-          display: flex;
-          align-items: center;
-          gap: 28px;
-          pointer-events: auto;
-        }
-
-        .about-hero-nav-link {
-          font-family: var(--font-dm-sans), "DM Sans", sans-serif;
-          font-size: 13px;
-          text-transform: uppercase;
-          letter-spacing: 0.12em;
-          color: #fff;
-          text-decoration: none;
-          transition: opacity 0.2s ease;
-        }
-
-        .about-hero-nav-link:hover {
-          opacity: 0.7;
-        }
-
-        .about-hero-cta-btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 10px 24px;
-          background: #fff;
-          color: #0d0b09;
-          border-radius: 999px;
-          font-family: var(--font-dm-sans), "DM Sans", sans-serif;
-          font-size: 13px;
-          font-weight: 600;
-          letter-spacing: 0.06em;
-          text-decoration: none;
-          text-transform: uppercase;
-          transition: opacity 0.2s ease;
-          pointer-events: auto;
-        }
-
-        .about-hero-cta-btn:hover {
-          opacity: 0.85;
-        }
-
-        .about-hero-menu-btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 10px 22px;
-          background: #fff;
-          color: #0d0b09;
-          border-radius: 999px;
-          border: none;
-          cursor: pointer;
-          font-family: var(--font-dm-sans), "DM Sans", sans-serif;
-          font-size: 13px;
-          font-weight: 600;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-          pointer-events: auto;
-        }
-
         /* ── Mobile (<768px) ── */
         @media (max-width: 767px) {
-          .about-hero-section {
-            padding: 12px;
-          }
-
-          .about-hero-card {
-            width: 100%;
-            height: calc(100vh - 24px);
-            border-radius: 24px;
-          }
-
           :global(.about-hero-photo) {
             object-position: center 15%;
           }
@@ -351,56 +156,19 @@ export default function AboutHeroSection() {
           }
 
           .about-hero-body {
-            bottom: 90px;
+            bottom: 40px;
             font-size: 14px;
             width: 88%;
-          }
-
-          :global(.about-hero-avatar) {
-            width: 40px;
-            height: 40px;
-          }
-
-          .about-hero-nav-inner {
-            padding: 12px 16px;
-          }
-
-          .about-hero-nav {
-            border-radius: 0 0 24px 24px;
-          }
-        }
-
-        /* ── Tablet (768–1023px) ── */
-        @media (min-width: 768px) and (max-width: 1023px) {
-          .about-hero-section {
-            padding: 16px;
-          }
-
-          .about-hero-card {
-            border-radius: 28px;
-          }
-
-          .about-hero-nav {
-            border-radius: 0 0 28px 28px;
           }
         }
 
         /* ── Desktop (1024+) ── */
         @media (min-width: 1024px) {
-          .about-hero-section {
-            padding: 20px;
-          }
-
-          .about-hero-card {
-            height: calc(100vh - 40px);
-            border-radius: 32px;
-          }
-
           .about-hero-content {
             flex-direction: row;
             align-items: flex-end;
             justify-content: space-between;
-            padding: 0 5% 130px 5%;
+            padding: 0 5% 80px 5%;
           }
 
           .about-hero-headline-group {
@@ -420,10 +188,6 @@ export default function AboutHeroSection() {
             text-align: left;
             width: auto;
             font-size: 15px;
-          }
-
-          .about-hero-nav {
-            border-radius: 0 0 32px 32px;
           }
         }
       `}</style>
