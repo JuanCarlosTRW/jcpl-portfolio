@@ -24,10 +24,13 @@
 /* ── Mobile ── */
 @media (max-width: 768px) {
 
-  /* Globe — balanced, slightly higher */
+  /* Globe — full coverage, no zoom */
   .globe-container {
-    bottom: -5% !important;
-    width: 220% !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    transform: none !important;
   }
 
   /* Staggered entrance animations */
@@ -67,7 +70,8 @@
 /* ── Small phones ── */
 @media (max-width: 480px) {
   .globe-container {
-    bottom: -5% !important;
-    width: 260% !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 }

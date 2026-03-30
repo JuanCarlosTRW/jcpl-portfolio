@@ -338,33 +338,38 @@ export default function HeroSection() {
         }
 
         @media (max-width: 768px) {
-          /* Globe — sized via hero-responsive.css */
+          /* Globe — full coverage, properly scaled */
           .globe-container {
-            height: 80% !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            transform: none !important;
+            width: 100% !important;
+            height: 100% !important;
           }
 
-          /* Section */
+          /* Section — flush, no gaps */
           .hero-section {
+            height: 100dvh !important;
             min-height: 100dvh !important;
+            margin: 0 !important;
+            padding: 0 !important;
             overflow: hidden !important;
           }
 
-          /* Content — vertically centered in upper half */
+          /* Content — tight to top, below nav */
           .hero-content {
-            padding-top: 26vh !important;
+            padding-top: 100px !important;
             padding-bottom: 20px !important;
           }
 
-          /* Overlay — gradual fade so planet glow bleeds through */
+          /* Overlay — lighter so scene shows through */
           .hero-overlay {
             background: linear-gradient(
               to bottom,
-              #0D0B09 0%,
-              rgba(13,11,9,0.92) 18%,
-              rgba(13,11,9,0.5) 42%,
-              rgba(13,11,9,0.0) 68%
+              rgba(13,11,9,0.85) 0%,
+              rgba(13,11,9,0.6) 30%,
+              rgba(13,11,9,0.25) 55%,
+              rgba(13,11,9,0.0) 75%
             ) !important;
           }
 
@@ -381,9 +386,9 @@ export default function HeroSection() {
             text-shadow: 0 2px 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.85) !important;
           }
 
-          /* Eyebrow ticker */
+          /* Eyebrow ticker — snug below nav */
           .hero-trust-ticker {
-            padding-top: calc(26vh - 28px) !important;
+            padding-top: 72px !important;
           }
           .hero-trust-ticker span {
             font-size: 9px !important;
