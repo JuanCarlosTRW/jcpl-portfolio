@@ -179,7 +179,7 @@ export default function ServicesHero() {
                 }}
               >
                 <Image
-                  src="https://static.wixstatic.com/media/62f926_492fa3904b904883bd7ff2023e2c28a9~mv2.png"
+                  src="/images/proof/triple-w-ads-dashboard.png"
                   alt="Triple W Rentals Google Ads dashboard showing upward performance curve"
                   width={560}
                   height={220}

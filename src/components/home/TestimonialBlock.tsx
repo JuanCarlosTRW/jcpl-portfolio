@@ -12,7 +12,7 @@ const testimonialsData = [
     name: "Mike S.",
     role: "Culture Barbershop · Montreal, QC",
     imageSrc:
-      "https://static.wixstatic.com/media/62f926_1dc693b7cf684246a2646e373b31390f~mv2.png",
+      "/images/testimonials/mike-s.png",
   },
   {
     id: 2,
@@ -21,12 +21,12 @@ const testimonialsData = [
     name: "Tyler W.",
     role: "Triple W Rentals · Texas",
     imageSrc:
-      "https://static.wixstatic.com/media/62f926_1a67b8b17c99467a899c5bacbb26b5bc~mv2.png",
+      "/images/testimonials/tyler-w.png",
   },
   {
     id: 3,
     quote:
-      "90 new clients in 90 days. The system runs itself. Best investment I've made for the shop.",
+      "90 new clients in 90 days. The system runs itself. Best investment I have made for the shop.",
     name: "Alex M.",
     role: "Elite Barbershop · Montreal, QC",
     imageSrc:

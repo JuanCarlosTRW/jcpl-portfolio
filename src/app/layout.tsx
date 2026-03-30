@@ -71,8 +71,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://static.wixstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://static.wixstatic.com" />
+        {/* Images now served locally from /public/images/ */}
         {/* Google Analytics GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FXE32B1KDT"

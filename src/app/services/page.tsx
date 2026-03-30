@@ -86,7 +86,7 @@ export default function ServicesPage() {
               </p>
 
               <Image
-                src="https://static.wixstatic.com/media/62f926_492fa3904b904883bd7ff2023e2c28a9~mv2.png"
+                src="/images/proof/triple-w-ads-dashboard.png"
                 alt="Google Ads results: $41,085 revenue in 30 days"
                 width={600}
                 height={200}
@@ -161,7 +161,7 @@ export default function ServicesPage() {
               </p>
 
               <Image
-                src="https://static.wixstatic.com/media/62f926_682a6adfbe824964b8be5e7d1df48c67~mv2.png"
+                src="/images/proof/auction-insights.png"
                 alt="Auction Insights: impression share dominance over all competitors"
                 width={600}
                 height={200}

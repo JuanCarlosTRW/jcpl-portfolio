@@ -238,7 +238,7 @@ export default function HeroSection() {
             fontFamily: "var(--font-dm-sans), sans-serif",
           }}
         >
-          One call. No retainer until fit is confirmed. You own everything we build.
+          One call. No retainer until fit is confirmed. You own everything I build.
         </p>
       </div>
 

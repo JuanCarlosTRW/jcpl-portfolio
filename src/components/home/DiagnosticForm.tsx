@@ -65,21 +65,6 @@ export default function DiagnosticForm() {
       className="py-20 md:py-28"
       style={{ background: "#1A1510" }}
     >
-      {/* Closing headline */}
-      <div className="mx-auto max-w-2xl px-4 md:px-6 text-center mb-16">
-        <h2
-          className="text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white mb-5"
-        >
-          One call. I&apos;ll tell you exactly what&apos;s costing you calls right now.
-        </h2>
-        <p
-          className="text-base leading-[1.7] mx-auto max-w-lg"
-          style={{ color: "#A69D8D" }}
-        >
-          I review your market before we speak. I show you where you&apos;re losing business and what fixing it is worth. No pitch. No pressure. If I can&apos;t produce a return, I tell you before you pay anything.
-        </p>
-      </div>
-
       <div className="mx-auto max-w-2xl px-4 md:px-6">
         <div
           className="rounded-xl"

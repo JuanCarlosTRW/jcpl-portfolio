@@ -19,8 +19,8 @@ export default function ClientReality() {
 
   const CARDS = [
     { num: "01", title: r.card01Title, body: r.card01Body },
-    { num: "02", title: "Your site is online. It's not working.", body: "Most local service websites exist. They don't convert. No clear offer, no call to action, no reason for a visitor to pick up the phone. Traffic without conversion is just noise." },
-    { num: "03", title: "You're invisible on Google Maps and AI search.", body: "ChatGPT, Google AI overviews, and Maps are where buyers go first. If you're not in those results, the call goes to whoever is. Being invisible is no longer neutral. It's losing." },
+    { num: "02", title: "Your site is online. It is not working.", body: "Most local service websites exist. They do not convert. No clear offer, no call to action, no reason for a visitor to pick up the phone. Traffic without conversion is just noise." },
+    { num: "03", title: "You are invisible on Google Maps and AI search.", body: "ChatGPT, Google AI overviews, and Maps are where buyers go first. If you are not in those results, the call goes to whoever is. Being invisible is no longer neutral. It is losing." },
     { num: "04", title: r.card04Title, body: r.card04Body },
   ];
 

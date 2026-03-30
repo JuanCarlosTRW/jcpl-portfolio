@@ -16,7 +16,7 @@ const SERVICES = [
       { name: "GEO / AI Search", detail: "Visible in ChatGPT and AI answers" },
     ],
     image:
-      "https://static.wixstatic.com/media/62f926_43b8f7b3df514f86a0b0f40ce177ba31~mv2.png",
+      "/images/proof/triple-w-ads-overview.png",
     badge: "LIVE ACCOUNT",
     label: "RV RENTAL · TEXAS",
     stat: "$41,085 revenue · 30 days · $900 ad spend",
@@ -24,16 +24,16 @@ const SERVICES = [
   },
   {
     id: "02",
-    title: "Make them call you",
+    title: "Convert the click into a call",
     description:
-      "A conversion website, persuasion-driven copy, and an AI voice agent that turns every visit into a booked call. Automatically.",
+      "A conversion website built for your niche. Copy that speaks directly to your buyer's problem. One job: make them call. Not a template. Not a brochure. A system built to close.",
     subItems: [
-      { name: "Conversion website", detail: "Built to turn visits into calls" },
-      { name: "Conversion copy", detail: "Language written to close" },
-      { name: "AI voice agent", detail: "Every call answered, 24/7" },
+      { name: "Conversion-first design", detail: "Built to turn visits into calls" },
+      { name: "Niche-specific copy", detail: "Language that speaks to your buyer" },
+      { name: "One clear action", detail: "Every page drives one outcome" },
     ],
     image:
-      "https://static.wixstatic.com/media/62f926_c777df5150064641aa49c6369141af8c~mv2.png",
+      "/images/proof/elite-website.png",
     badge: "BUILT BY CLIENT GROWTH",
     label: "BARBERSHOP · MONTREAL",
     stat: "90 new clients · 90 days · Page 1 Google",
@@ -42,13 +42,13 @@ const SERVICES = [
   },
   {
     id: "03",
-    title: "Keep it full",
+    title: "Keep the pipeline full",
     description:
-      "Weekly optimization, monthly reporting, and expansion layers that compound your growth every single month.",
+      "Weekly optimization. Monthly revenue reporting. Every campaign refined based on what is actually producing calls. Not impressions, not clicks. The system gets cheaper every month it runs.",
     subItems: [
-      { name: "Weekly optimization", detail: "Continuous performance testing" },
-      { name: "Monthly reporting", detail: "Clear revenue and ROI tracking" },
-      { name: "Expansion layers", detail: "New channels as your market grows" },
+      { name: "Weekly optimization loop", detail: "Continuous performance testing" },
+      { name: "Monthly revenue reports", detail: "Clear revenue and ROI tracking" },
+      { name: "Cost per call drops over time", detail: "System compounds as it learns" },
     ],
     image: null, // placeholder — incoming soon
     badge: null,

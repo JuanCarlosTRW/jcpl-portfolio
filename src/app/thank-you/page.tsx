@@ -42,17 +42,17 @@ export default function ThankYouPage() {
               {
                 step: "1",
                 title: "Application Review",
-                desc: "I'll review your answers to understand your business and goals.",
+                desc: "I will review your answers to understand your business and goals.",
               },
               {
                 step: "2",
                 title: "Fit Assessment",
-                desc: "If there's a clear fit, I'll reach out to schedule a strategy call within 24 hours. If not, I'll tell you directly.",
+                desc: "If there is a clear fit, I will reach out to schedule a strategy call within 24 hours. If not, I will tell you directly.",
               },
               {
                 step: "3",
                 title: "Strategy Call",
-                desc: "I'll map out your Growth Architecture and show you exactly what the system would look like. No obligation.",
+                desc: "I will map out your Growth Architecture and show you exactly what the system would look like. No obligation.",
               },
             ].map((item) => (
               <li key={item.step} className="flex gap-4">
