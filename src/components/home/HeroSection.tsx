@@ -2,8 +2,6 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { ShinyButton } from "@/components/ui/shiny-button";
 import "./hero-responsive.css";
 
 const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
@@ -143,61 +141,23 @@ export default function HeroSection() {
           Your competitors are not better than you. They just get found first. I fix that.
         </p>
 
-        {/* CTA row — Fix 1 & Fix 2 */}
+        {/* CTA row */}
         <div
           className="hero-enter hero-cta-row"
           style={{
             animationDelay: "0.55s",
             display: "flex",
-            alignItems: "center",
+            alignItems: "stretch",
             justifyContent: "center",
             gap: 16,
           }}
         >
-          {/* Fix 1: ShimmerButton primary CTA */}
-          <Link href="/apply" className="hero-cta-primary">
-            <ShimmerButton
-              shimmerColor="#D4A853"
-              background="rgba(212, 168, 83, 1)"
-              borderRadius="6px"
-              shimmerSize="0.08em"
-              shimmerDuration="2.5s"
-              className="hero-shimmer-btn"
-              style={{
-                fontFamily: "var(--font-dm-sans), sans-serif",
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase" as const,
-                color: "#0D0B09",
-                padding: "16px 40px",
-                boxShadow: "0 4px 24px rgba(212,168,83,0.2), 0 1px 3px rgba(0,0,0,0.3)",
-              }}
-            >
-              Work with me
-            </ShimmerButton>
+          <Link href="/apply" className="primary-cta">
+            WORK WITH ME
           </Link>
 
-          {/* Fix 2: ShinyButton secondary CTA */}
-          <Link href="/results" className="hero-cta-ghost">
-            <ShinyButton
-              className="hero-shiny-btn"
-              style={{
-                fontFamily: "var(--font-dm-sans), sans-serif",
-                fontSize: 13,
-                fontWeight: 500,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase" as const,
-                color: "#F5F0E8",
-                padding: "16px 32px",
-                borderRadius: 6,
-                border: "1px solid rgba(212, 168, 83, 0.5)",
-                background: "transparent",
-                textShadow: "0 1px 8px rgba(0,0,0,0.8)",
-              }}
-            >
-              See the Results
-            </ShinyButton>
+          <Link href="/results" className="secondary-cta">
+            SEE THE RESULTS &rarr;
           </Link>
         </div>
 
@@ -268,22 +228,104 @@ export default function HeroSection() {
           height: 100% !important;
         }
 
-        /* ShimmerButton text color override */
-        .hero-shimmer-btn,
-        .hero-shimmer-btn span {
-          color: #0D0B09 !important;
+        /* ── Primary CTA — gold with white shimmer sweep ── */
+        .primary-cta {
+          background: #D4A853;
+          color: #0D0B09;
+          border: none;
+          border-radius: 6px;
+          padding: 16px 40px;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          text-decoration: none;
+          text-align: center;
+          min-width: 220px;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .primary-cta:hover {
+          transform: scale(1.02);
+        }
+        .primary-cta::after {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -75%;
+          width: 50%;
+          height: 200%;
+          background: linear-gradient(
+            to right,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0) 100%
+          );
+          transform: skewX(-20deg);
+          animation: shimmer-sweep 3s ease-in-out infinite;
+          pointer-events: none;
         }
 
-        /* ShinyButton text color override */
-        .hero-shiny-btn span {
-          color: #F5F0E8 !important;
-          opacity: 1 !important;
+        @keyframes shimmer-sweep {
+          0% { left: -75%; }
+          100% { left: 125%; }
         }
 
-        /* CTA links reset */
-        .hero-cta-primary,
-        .hero-cta-ghost {
-          text-decoration: none !important;
+        /* ── Secondary CTA — dark with gold shimmer sweep ── */
+        .secondary-cta {
+          background: rgba(26, 21, 16, 0.8);
+          color: #F5F0E8;
+          border: 1px solid rgba(212, 168, 83, 0.5);
+          border-radius: 6px;
+          padding: 16px 40px;
+          font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          text-decoration: none;
+          text-align: center;
+          min-width: 220px;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          transition: border-color 0.2s ease, transform 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .secondary-cta:hover {
+          border-color: rgba(212, 168, 83, 0.9);
+          transform: scale(1.02);
+        }
+        .secondary-cta::after {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -75%;
+          width: 50%;
+          height: 200%;
+          background: linear-gradient(
+            to right,
+            rgba(212,168,83,0) 0%,
+            rgba(212,168,83,0.15) 50%,
+            rgba(212,168,83,0) 100%
+          );
+          transform: skewX(-20deg);
+          animation: shimmer-sweep-gold 3s ease-in-out infinite;
+          animation-delay: 1.5s;
+          pointer-events: none;
+        }
+
+        @keyframes shimmer-sweep-gold {
+          0% { left: -75%; }
+          100% { left: 125%; }
         }
 
         /* ── Mobile: max-width 768px ── */
@@ -355,19 +397,10 @@ export default function HeroSection() {
             max-width: 360px !important;
           }
 
-          .hero-cta-primary,
-          .hero-cta-ghost {
+          .primary-cta,
+          .secondary-cta {
             width: 100% !important;
-          }
-
-          .hero-shimmer-btn {
-            width: 100% !important;
-            padding: 18px 24px !important;
-          }
-
-          .hero-shiny-btn {
-            width: 100% !important;
-            padding: 16px 24px !important;
+            min-width: unset !important;
           }
 
           .hero-trust-line {
