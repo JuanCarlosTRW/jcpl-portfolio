@@ -72,6 +72,18 @@ export default function AboutHeroSection() {
           height: 100% !important;
         }
 
+        /* Desktop: scale the scene down so the portrait is fully visible */
+        @media (min-width: 1024px) {
+          .about-hero-scene-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56vh;
+            height: 100%;
+          }
+        }
+
         /* ── Text overlay ── */
         .about-hero-content {
           position: absolute;
