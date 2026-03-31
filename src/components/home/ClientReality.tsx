@@ -56,7 +56,7 @@ export default function ClientReality() {
         <Reveal className="mx-auto mb-12 max-w-[980px] text-center md:mb-14">
           <SectionLabel label={r.eyebrow} className="mb-5 !text-[#D4A853]" />
           <h2 className="mx-auto mb-5 max-w-[860px] text-[clamp(32px,4.2vw,50px)] font-[800] leading-[1.12] tracking-[-0.026em] text-[#F5F0E8]">
-            Your work is good. Your pipeline shouldn&apos;t be this fragile.
+            Your work is good. Your pipeline should not be this fragile.
           </h2>
           <p className="mx-auto mb-6 max-w-[580px] text-[clamp(15.5px,1.7vw,17.5px)] font-[400] leading-[1.7] text-[#8A7E74]">
             {r.sub}

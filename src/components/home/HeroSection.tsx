@@ -156,8 +156,8 @@ export default function HeroSection() {
             BOOK A DIAGNOSTIC CALL
           </Link>
 
-          <Link href="/results" className="secondary-cta">
-            SEE THE RESULTS &rarr;
+          <Link href="/results" className="hero-text-link">
+            See the results &rarr;
           </Link>
         </div>
 
@@ -277,55 +277,24 @@ export default function HeroSection() {
           100% { left: 125%; }
         }
 
-        /* ── Secondary CTA — dark with gold shimmer sweep ── */
-        .secondary-cta {
-          background: rgba(26, 21, 16, 0.8);
-          color: #F5F0E8;
-          border: 1px solid rgba(212, 168, 83, 0.5);
-          border-radius: 6px;
-          padding: 16px 40px;
+        /* ── Secondary CTA — text link ── */
+        .hero-text-link {
           font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
-          font-size: 13px;
+          font-size: 15px;
           font-weight: 500;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
+          color: rgba(240,234,214,0.7);
           text-decoration: none;
-          text-align: center;
-          min-width: 220px;
-          position: relative;
-          overflow: hidden;
-          cursor: pointer;
-          transition: border-color 0.2s ease, transform 0.2s ease;
+          border-bottom: 1px solid rgba(240,234,214,0.2);
+          padding-bottom: 2px;
+          transition: color 200ms ease, border-color 200ms ease;
+          letter-spacing: 0.02em;
           display: inline-flex;
           align-items: center;
-          justify-content: center;
+          text-shadow: 0 1px 12px rgba(0,0,0,1);
         }
-        .secondary-cta:hover {
-          border-color: rgba(212, 168, 83, 0.9);
-          transform: scale(1.02);
-        }
-        .secondary-cta::after {
-          content: '';
-          position: absolute;
-          top: -50%;
-          left: -75%;
-          width: 50%;
-          height: 200%;
-          background: linear-gradient(
-            to right,
-            rgba(212,168,83,0) 0%,
-            rgba(212,168,83,0.15) 50%,
-            rgba(212,168,83,0) 100%
-          );
-          transform: skewX(-20deg);
-          animation: shimmer-sweep-gold 3s ease-in-out infinite;
-          animation-delay: 1.5s;
-          pointer-events: none;
-        }
-
-        @keyframes shimmer-sweep-gold {
-          0% { left: -75%; }
-          100% { left: 125%; }
+        .hero-text-link:hover {
+          color: #D4A853;
+          border-color: #D4A853;
         }
 
         /* ── Mobile: max-width 768px ── */
@@ -397,8 +366,7 @@ export default function HeroSection() {
             max-width: 360px !important;
           }
 
-          .primary-cta,
-          .secondary-cta {
+          .primary-cta {
             width: 100% !important;
             min-width: unset !important;
           }
