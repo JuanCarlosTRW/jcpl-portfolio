@@ -54,44 +54,30 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
           />
         </div>
 
+        {/* Full-width headline block (Layout B) */}
+        <div className="mb-10">
+          <span className="text-[11px] uppercase tracking-[0.14em] text-[#D4A853] block mb-3">
+            {cs.industry}
+          </span>
+          <h2 className="text-[clamp(30px,4.5vw,52px)] font-extrabold text-white leading-[1.05] tracking-[-0.025em]">
+            {headlineParts[0]}
+            {headlineParts[1] && (
+              <>
+                <br className="hidden md:block" /> {headlineParts[1]}
+              </>
+            )}
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 lg:gap-16 items-start">
           {/* Left: Evidence content */}
           <div>
-            <span className="text-[11px] uppercase tracking-[0.14em] text-[#D4A853] block mb-3">
-              {cs.industry}
-            </span>
-            <h2 className="text-[clamp(26px,3.2vw,38px)] font-extrabold text-white leading-[1.1] mb-5 tracking-[-0.02em]">
-              {headlineParts[0]}
-              {headlineParts[1] && (
-                <>
-                  <br className="hidden md:block" /> {headlineParts[1]}
-                </>
-              )}
-            </h2>
             <div className="mb-8 max-w-[480px]">
               {cs.situation.split("\n\n").map((para, i) => (
                 <p key={i} className="text-[15px] text-[#D2C9B8] leading-[1.75] mb-4 last:mb-0">
                   {para}
                 </p>
               ))}
-            </div>
-
-            {/* Calendar proof image */}
-            <div
-              className="mb-8 rounded-lg overflow-hidden"
-              style={{ border: "1px solid rgba(212,168,83,0.4)", borderRadius: 8 }}
-            >
-              <img
-                src="/images/proof/elite-calendar.png"
-                alt="Fully booked calendar. Elite Barbershop, Montreal. 90 days after system launch."
-                style={{ width: "100%", height: "auto", display: "block" }}
-              />
-              <p
-                className="px-4 py-3 text-[12px]"
-                style={{ color: "rgba(255,255,255,0.4)", background: "#0D0B09" }}
-              >
-                Fully booked calendar. Elite Barbershop, Montreal. 90 days after system launch.
-              </p>
             </div>
 
             {/* What was built */}

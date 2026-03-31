@@ -43,8 +43,8 @@ export default function ResultsCTA() {
 
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
           {[
-            "\u26A1 Response within 24 hours",
-            "\uD83D\uDD12 No commitment to apply",
+            "Response within 24 hours",
+            "No commitment to apply",
             "Founder-led, not an agency intake",
           ].map((item, i) => (
             <span key={i} className="text-[13px] text-[rgba(255,255,255,0.4)] flex items-center gap-2">
@@ -54,7 +54,7 @@ export default function ResultsCTA() {
                   style={{ width: 1, height: 14, background: "rgba(255,255,255,0.08)" }}
                 />
               )}
-              {item}
+              <span style={{ color: "#D4A853" }}>&#10003;</span> {item}
             </span>
           ))}
         </div>

@@ -12,7 +12,7 @@ export default function ResultsHero() {
 
   return (
     <section
-      className="relative pt-36 pb-20 md:pb-28"
+      className="relative pt-36 pb-12 md:pb-16"
       style={{ backgroundColor: "#0D0B09" }}
     >
       {/* GridScan background */}
@@ -43,13 +43,8 @@ export default function ResultsHero() {
         </h1>
 
         {/* Sub */}
-        <p className="text-[17px] text-[#D2C9B8] leading-[1.7] max-w-[560px] mx-auto mb-12">
+        <p className="text-[17px] text-[#D2C9B8] leading-[1.7] max-w-[560px] mx-auto">
           {r.sub}
-        </p>
-
-        {/* Single proof line — stats live in case study cards only */}
-        <p className="text-[13px]" style={{ color: "#756D63" }}>
-          Every number verified against live accounts. No projections. No hypotheticals.
         </p>
       </div>
     </section>
