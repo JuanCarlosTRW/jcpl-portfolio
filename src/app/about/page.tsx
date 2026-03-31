@@ -11,15 +11,16 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const TIMELINE = [
-  { date: "Q4 2025", client: "Triple W Rentals", result: "$41,085 in revenue. 30 days. $900 ad spend." },
-  { date: "Q4 2025", client: "Elite Barbershop", result: "90 new clients in 90 days. Calendar fully booked." },
-  { date: "Q1 2026", client: "Culture Barbershop", result: "Page 1 Google in under 60 days. First booking in 11 days." },
+  { date: "Q4 2025", client: "Triple W Rentals", result: "$41,085 in revenue. 30 days. $900 ad spend.", href: "/results/triple-w-rentals" },
+  { date: "Q4 2025", client: "Elite Barbershop", result: "90 new clients in 90 days. Calendar fully booked.", href: "/results/elite-barbershop" },
+  { date: "Q1 2026", client: "Culture Barbershop", result: "Page 1 Google in under 60 days. First booking in 11 days.", href: "/results/culture-barbershop" },
 ];
 
 export default function AboutPage() {
   return (
     <>
       {/* SECTION 1 — CINEMATIC HERO */}
+      {/* TODO: Juan — replace with new vertical headshot. Keep same layout and glitch treatment. */}
       <AboutHeroSection />
 
       {/* SECTION 2 — ORIGIN STORY */}
@@ -46,10 +47,21 @@ export default function AboutPage() {
               Not as a freelancer who builds websites. As an operator who builds the full system and runs it continuously until the pipeline is full. I measure success in qualified calls and revenue. Nothing else gets reported.
             </p>
           </div>
+
+          {/* Subtle mid-section CTA */}
+          <div className="mt-12 pt-8" style={{ borderTop: "1px solid rgba(212,168,83,0.08)" }}>
+            <Link
+              href="/apply"
+              className="text-[14px] transition-opacity duration-200 hover:opacity-70"
+              style={{ color: "#D4A853", letterSpacing: "0.02em" }}
+            >
+              See if this is the right fit &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* SECTION 3 — THE MODEL */}
+      {/* SECTION 3 — HOW I OPERATE */}
       <section className="py-16 md:py-24" style={{ background: "#0D0B09", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
         <div className="max-w-[760px] mx-auto px-6">
           <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>HOW I OPERATE</p>
@@ -70,7 +82,7 @@ export default function AboutPage() {
               { title: "PERSONALLY BUILT", body: "Every site, campaign, and optimization done by me.", sub: "Not delegated." },
               { title: "DIRECT ACCESS", body: "You message me. I respond.", sub: "No account managers. No tickets." },
             ].map((col) => (
-              <div key={col.title} className="p-6 rounded-xl" style={{ background: "#131009", border: "1px solid rgba(212,168,83,0.12)" }}>
+              <div key={col.title} className="p-6 rounded-lg" style={{ background: "#131009", border: "1px solid rgba(212,168,83,0.12)", borderRadius: 8 }}>
                 <p className="text-[13px] font-bold tracking-[0.1em] uppercase mb-3" style={{ color: "#D4A853" }}>{col.title}</p>
                 <p className="text-[14px] text-white leading-[1.6] mb-1">{col.body}</p>
                 <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.4)" }}>{col.sub}</p>
@@ -85,7 +97,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 4 — PARTNERSHIP TIMELINE (replaces generic stats) */}
+      {/* SECTION 4 — THE RECORD (clickable cards) */}
       <section className="py-16 md:py-24" style={{ background: "#131009", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
         <div className="max-w-[760px] mx-auto px-6">
           <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>THE RECORD</p>
@@ -94,13 +106,13 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6">
             {TIMELINE.map((entry) => (
-              <div
+              <Link
                 key={entry.client}
-                className="flex gap-5 p-6 rounded-xl"
+                href={entry.href}
+                className="flex gap-5 p-6 rounded-lg transition-all duration-300 record-card"
                 style={{
-                  background: "#0D0B09",
-                  border: "1px solid rgba(212,168,83,0.12)",
-                  borderLeft: "2px solid #D4A853",
+                  borderRadius: 8,
+                  textDecoration: "none",
                 }}
               >
                 <div className="flex-shrink-0">
@@ -112,7 +124,7 @@ export default function AboutPage() {
                   <p className="text-[15px] font-bold text-white mb-1">{entry.client}</p>
                   <p className="text-[14px] text-[#A69D8D] leading-[1.6]">{entry.result}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <p className="text-[14px] mt-8" style={{ color: "#D4A853", fontStyle: "italic" }}>
@@ -124,20 +136,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 5 — THE COMMITMENT */}
-      <section className="py-16 md:py-24" style={{ background: "#0D0B09", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
-        <div className="max-w-[760px] mx-auto px-6">
-          <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>BEFORE YOU SIGN ANYTHING</p>
-          <h2 className="text-[clamp(24px,3.5vw,36px)] font-extrabold text-white leading-[1.12] mb-8 tracking-[-0.02em]">
-            If I cannot produce a return, I tell you before you pay anything.
-          </h2>
-          <p className="text-[16px] text-[#D2C9B8] leading-[1.75] mb-10 max-w-[600px]">
-            I review every business before agreeing to work together. I look at the market, the competition, the search volume, the current funnel. If the numbers do not support a return on $2,500/month, I say that on the review call. I have turned clients down. I will do it again. That is not a sales tactic. It is how I protect the track record that makes this work.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 6 — FINAL CTA */}
+      {/* SECTION 5 — FINAL CTA */}
       <section className="py-20 md:py-28" style={{ background: "#1A1510", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
         <div className="max-w-[600px] mx-auto px-6 text-center">
           <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>APPLY</p>

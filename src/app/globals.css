@@ -1464,5 +1464,18 @@ body::after {
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
+}
+
+/* About page — record cards */
+.record-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,83,0.12);
+  border-left: 2px solid #D4A853;
+  cursor: pointer;
+}
+.record-card:hover {
+  border-color: rgba(212,168,83,0.3);
+  background: rgba(212,168,83,0.03);
 }
