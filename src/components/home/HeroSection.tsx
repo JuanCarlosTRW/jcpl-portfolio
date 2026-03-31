@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import "./hero-responsive.css";
@@ -9,18 +8,6 @@ const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
   ssr: false,
 });
 
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia(`(max-width: ${breakpoint}px)`);
-    setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, [breakpoint]);
-  return isMobile;
-}
-
 const TICKER_ITEMS = [
   { stat: "46x ROAS", detail: "Triple W Rentals", sub: "$41K from $900 in 30 days" },
   { stat: "90 new clients", detail: "Elite Barbershop", sub: "90 days" },
@@ -28,8 +15,6 @@ const TICKER_ITEMS = [
 ];
 
 export default function HeroSection() {
-  const isMobile = useIsMobile();
-
   const tickerContent = (
     <>
       {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
@@ -62,39 +47,24 @@ export default function HeroSection() {
       }}
       aria-label="Hero"
     >
-      {/* Layer 0: Globe — pushed to bottom 40% of viewport */}
+      {/* Layer 0: Alcove Hero background — covers full viewport */}
       <div
         aria-hidden="true"
         className="hero-animation globe-container"
         style={{
           position: "absolute",
-          bottom: "-15%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "120%",
-          height: "80%",
+          inset: 0,
           zIndex: 0,
         }}
       >
-        {isMobile ? (
-          <UnicornScene
-            projectId="VhaHzIfQSlNqY2QWIadP"
-            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
-            width="100%"
-            height="100%"
-            dpi={2}
-            scale={1}
-          />
-        ) : (
-          <UnicornScene
-            jsonFilePath="/scenes/hero-planet.json"
-            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
-            width="100%"
-            height="100%"
-            dpi={1.5}
-            scale={1}
-          />
-        )}
+        <UnicornScene
+          jsonFilePath="/scenes/hero-planet.json"
+          sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+          width="100%"
+          height="100%"
+          dpi={1.5}
+          scale={1}
+        />
       </div>
 
       {/* Layer 1: Dark overlay — protects text zone */}
@@ -104,7 +74,7 @@ export default function HeroSection() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(to bottom, #0D0B09 0%, #0D0B09 35%, rgba(13,11,9,0.75) 55%, rgba(13,11,9,0.0) 80%)",
+          background: "linear-gradient(to bottom, rgba(13,11,9,0.85) 0%, rgba(13,11,9,0.5) 30%, rgba(13,11,9,0.15) 55%, transparent 75%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
@@ -349,7 +319,7 @@ export default function HeroSection() {
           animation: hero-fadeup 0.6s ease 0.2s forwards;
         }
 
-        /* Globe container — allow the scene to fill its bounds */
+        /* Scene container — allow the scene to fill its bounds */
         .globe-container > div,
         .globe-container iframe,
         .globe-container canvas {
@@ -359,41 +329,19 @@ export default function HeroSection() {
           height: 100% !important;
         }
 
-        /* Sharper canvas on mobile Retina */
-        @media (max-width: 768px) {
-          .globe-container,
-          .globe-container canvas,
-          .globe-container [data-us-project] {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            transform: translateZ(0);
-            will-change: transform;
-            backface-visibility: hidden;
-          }
-        }
-
         /* ── Mobile: max-width 768px ── */
         @media (max-width: 768px) {
 
-          /* FIX 2 — Scrim extends through CTA zone */
+          /* Overlay — stronger scrim on mobile for text readability */
           .hero-overlay {
             background: linear-gradient(
               to bottom,
-              #0D0B09 0%,
-              rgba(13,11,9,0.85) 30%,
-              rgba(13,11,9,0.80) 55%,
-              rgba(13,11,9,0.40) 72%,
-              transparent 85%
+              rgba(13,11,9,0.9) 0%,
+              rgba(13,11,9,0.7) 30%,
+              rgba(13,11,9,0.45) 55%,
+              rgba(13,11,9,0.15) 75%,
+              transparent 90%
             ) !important;
-          }
-
-          /* Globe — full viewport */
-          .globe-container {
-            bottom: 0 !important;
-            left: 0 !important;
-            transform: none !important;
-            width: 100% !important;
-            height: 100% !important;
           }
 
           /* Section — flush, full viewport */

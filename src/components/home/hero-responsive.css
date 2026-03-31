@@ -14,25 +14,8 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Globe — tablet ── */
-@media (max-width: 1024px) {
-  .globe-container {
-    bottom: -10% !important;
-    width: 150% !important;
-  }
-}
-
 /* ── Mobile ── */
 @media (max-width: 768px) {
-
-  /* Globe — full viewport coverage */
-  .globe-container {
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    left: 0 !important;
-    transform: none !important;
-  }
 
   /* Staggered entrance animations */
   .hero-headline {
@@ -64,9 +47,4 @@
 
 /* ── Small phones ── */
 @media (max-width: 480px) {
-  .globe-container {
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
 }
