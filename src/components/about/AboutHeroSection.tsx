@@ -1,25 +1,26 @@
 "use client";
 
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
+  ssr: false,
+});
 
 export default function AboutHeroSection() {
   return (
     <section className="about-hero-section">
-      {/* Photo card */}
+      {/* Unicorn Studio WebGL scene */}
       <div className="about-hero-card">
-        {/* Headshot photo */}
-        <div className="about-hero-photo-wrapper">
-          <Image
-            src="/images/juan-headshot-founder.jpeg"
-            alt="Juan Carlos Portillo-Laflamme — Founder of Client Growth"
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="about-hero-photo"
+        <div className="about-hero-scene-wrapper" aria-hidden="true">
+          <UnicornScene
+            projectId="bi8sQ4960W9R0aV2JSta"
+            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+            width="100%"
+            height="100%"
+            scale={1}
+            dpi={1.5}
+            lazyLoad={true}
           />
-          {/* Bottom gradient fade for readability */}
-          <div className="about-hero-photo-fade" aria-hidden="true" />
         </div>
 
         {/* Text content */}
@@ -49,7 +50,7 @@ export default function AboutHeroSection() {
           background: #0D0B09;
         }
 
-        /* ── Photo card ── */
+        /* ── Scene card ── */
         .about-hero-card {
           position: relative;
           width: 100%;
@@ -57,31 +58,18 @@ export default function AboutHeroSection() {
           overflow: hidden;
         }
 
-        .about-hero-photo-wrapper {
+        .about-hero-scene-wrapper {
           position: absolute;
           inset: 0;
         }
 
-        :global(.about-hero-photo) {
-          object-fit: cover;
-          object-position: center 20%;
+        .about-hero-scene-wrapper > div,
+        .about-hero-scene-wrapper canvas,
+        .about-hero-scene-wrapper iframe {
+          position: absolute !important;
+          inset: 0 !important;
           width: 100% !important;
           height: 100% !important;
-        }
-
-        .about-hero-photo-fade {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 55%;
-          background: linear-gradient(
-            to top,
-            rgba(0, 0, 0, 0.85) 0%,
-            rgba(0, 0, 0, 0.5) 40%,
-            transparent 100%
-          );
-          pointer-events: none;
         }
 
         /* ── Text overlay ── */
@@ -142,10 +130,6 @@ export default function AboutHeroSection() {
 
         /* ── Mobile (<768px) ── */
         @media (max-width: 767px) {
-          :global(.about-hero-photo) {
-            object-position: center 15%;
-          }
-
           .about-hero-headline {
             font-size: clamp(48px, 14vw, 80px);
           }
