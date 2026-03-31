@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
+/* ── Data ── */
+
 const SERVICES = [
   {
     id: "01",
@@ -17,6 +19,10 @@ const SERVICES = [
       { name: "GEO / AI Search", detail: "Visible in ChatGPT and AI answers" },
     ],
     image: "/images/proof/triple-w-ads-dashboard.png",
+    imageWidth: 1968,
+    imageHeight: 656,
+    frameType: "browser" as const,
+    frameUrl: "ads.google.com",
     badge: "LIVE ACCOUNT",
     label: "RV RENTAL · TEXAS",
     stat: "$41,085 revenue · 30 days · $900 ad spend",
@@ -32,8 +38,11 @@ const SERVICES = [
       { name: "One clear CTA", detail: "Every page engineered to produce a call" },
       { name: "Mobile-optimized", detail: "70% of your buyers are on their phone" },
     ],
-    /* TODO: Juan — take a full-width desktop screenshot of culturemtl.ca and save to /public/images/proof/culture-barbershop-site.png */
-    image: null as string | null,
+    image: "/images/proof/culture-barbershop-site.png",
+    imageWidth: 3316,
+    imageHeight: 1928,
+    frameType: "browser" as const,
+    frameUrl: "culturemtl.ca",
     badge: "BUILT BY CLIENT GROWTH",
     label: "BARBERSHOP · MONTREAL",
     stat: "Page 1 Google · Under 60 days · Competitive market",
@@ -50,6 +59,10 @@ const SERVICES = [
       { name: "Cost per call drops over time", detail: "System compounds as it learns" },
     ],
     image: "/images/proof/elite-calendar.png",
+    imageWidth: 664,
+    imageHeight: 1324,
+    frameType: "phone" as const,
+    frameUrl: "",
     badge: "ACTIVE CLIENT CALENDAR",
     label: "BARBERSHOP · MONTREAL",
     stat: "90 new clients · 90 days · Built from zero online presence",
@@ -58,6 +71,216 @@ const SERVICES = [
 ];
 
 const AUTO_PLAY_DURATION = 5000;
+
+/* ── Browser Frame ── */
+
+function BrowserFrame({
+  url,
+  badge,
+  children,
+}: {
+  url: string;
+  badge: string | null;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      style={{
+        background: "#1a1714",
+        border: "1px solid rgba(212,168,83,0.1)",
+        borderRadius: 12,
+        overflow: "hidden",
+        boxShadow:
+          "0 24px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,168,83,0.05)",
+      }}
+    >
+      {/* Title bar */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          padding: "12px 16px",
+          background: "rgba(255,255,255,0.03)",
+          borderBottom: "1px solid rgba(255,255,255,0.05)",
+        }}
+      >
+        <span
+          style={{
+            width: 10,
+            height: 10,
+            borderRadius: "50%",
+            background: "rgba(255,255,255,0.12)",
+          }}
+        />
+        <span
+          style={{
+            width: 10,
+            height: 10,
+            borderRadius: "50%",
+            background: "rgba(255,255,255,0.12)",
+          }}
+        />
+        <span
+          style={{
+            width: 10,
+            height: 10,
+            borderRadius: "50%",
+            background: "rgba(255,255,255,0.12)",
+          }}
+        />
+        <span
+          style={{
+            marginLeft: 12,
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 12,
+            color: "rgba(240,234,214,0.3)",
+          }}
+        >
+          {url}
+        </span>
+      </div>
+      {/* Content */}
+      <div className="relative">
+        {badge && (
+          <span
+            style={{
+              position: "absolute",
+              top: 12,
+              left: 12,
+              background: "#D4A853",
+              color: "#0D0B09",
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              padding: "4px 10px",
+              borderRadius: 4,
+              zIndex: 2,
+            }}
+          >
+            {badge}
+          </span>
+        )}
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/* ── Phone Frame ── */
+
+function PhoneFrame({
+  badge,
+  children,
+}: {
+  badge: string | null;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      style={{
+        background: "#1a1714",
+        border: "1px solid rgba(212,168,83,0.1)",
+        borderRadius: 32,
+        padding: 12,
+        boxShadow:
+          "0 24px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,168,83,0.05)",
+        maxWidth: 300,
+        margin: "0 auto",
+      }}
+    >
+      {/* Notch */}
+      <div
+        style={{
+          width: 100,
+          height: 4,
+          background: "rgba(255,255,255,0.1)",
+          borderRadius: 2,
+          margin: "0 auto 8px",
+        }}
+      />
+      {/* Screen */}
+      <div
+        className="relative"
+        style={{ borderRadius: 20, overflow: "hidden" }}
+      >
+        {badge && (
+          <span
+            style={{
+              position: "absolute",
+              top: 10,
+              left: 10,
+              background: "#D4A853",
+              color: "#0D0B09",
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              padding: "4px 10px",
+              borderRadius: 4,
+              zIndex: 2,
+            }}
+          >
+            {badge}
+          </span>
+        )}
+        {children}
+      </div>
+      {/* Bottom bar */}
+      <div
+        style={{
+          width: 80,
+          height: 4,
+          background: "rgba(255,255,255,0.08)",
+          borderRadius: 2,
+          margin: "8px auto 0",
+        }}
+      />
+    </div>
+  );
+}
+
+/* ── Framed Image ── */
+
+function FramedImage({
+  service,
+  priority = false,
+}: {
+  service: (typeof SERVICES)[number];
+  priority?: boolean;
+}) {
+  const img = (
+    <Image
+      src={service.image}
+      alt={service.title}
+      width={service.imageWidth}
+      height={service.imageHeight}
+      quality={85}
+      priority={priority}
+      className="block w-full h-auto"
+      sizes="(min-width: 1024px) 55vw, 100vw"
+    />
+  );
+
+  if (service.frameType === "phone") {
+    return (
+      <PhoneFrame badge={service.badge}>
+        {img}
+      </PhoneFrame>
+    );
+  }
+
+  return (
+    <BrowserFrame url={service.frameUrl} badge={service.badge}>
+      {img}
+    </BrowserFrame>
+  );
+}
+
+/* ── Main Component ── */
 
 export function VerticalTabs() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -94,7 +317,7 @@ export function VerticalTabs() {
     >
       <div className="w-full px-4 md:px-8 lg:px-12 xl:px-20 max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-start">
-          {/* Left Column: Content */}
+          {/* ── Left Column: Text ── */}
           <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-4">
             {/* Section header */}
             <div className="mb-12">
@@ -105,7 +328,7 @@ export function VerticalTabs() {
                   fontSize: "11px",
                   fontWeight: 400,
                   textTransform: "uppercase",
-                  letterSpacing: "0.12em",
+                  letterSpacing: "0.15em",
                   color: "#D4A853",
                   marginBottom: 16,
                 }}
@@ -136,17 +359,24 @@ export function VerticalTabs() {
                     <button
                       onClick={() => handleTabClick(index)}
                       className={cn(
-                        "group relative flex items-start gap-4 py-6 md:py-8 text-left transition-all duration-400 border-t first:border-0 w-full",
-                        isActive
-                          ? "text-[#F0EAD6]"
-                          : "text-[rgba(240,234,214,0.3)] hover:text-[rgba(240,234,214,0.6)]"
+                        "group relative flex items-start gap-4 text-left w-full border-t first:border-0",
+                        isActive ? "text-[#F0EAD6]" : "text-[rgba(240,234,214,0.3)] hover:text-[rgba(240,234,214,0.6)]"
                       )}
-                      style={{ borderColor: "rgba(212,168,83,0.12)" }}
+                      style={{
+                        borderColor: "rgba(212,168,83,0.12)",
+                        paddingTop: "clamp(24px, 3vw, 32px)",
+                        paddingBottom: "clamp(24px, 3vw, 32px)",
+                      }}
                     >
                       {/* Gold progress indicator */}
                       <div
                         className="absolute left-[-16px] md:left-[-24px] top-0 bottom-0 w-[2px]"
-                        style={{ background: "rgba(212,168,83,0.12)" }}
+                        style={{
+                          background: isActive
+                            ? "#D4A853"
+                            : "rgba(212,168,83,0.12)",
+                          transition: "background 400ms ease",
+                        }}
                       >
                         {isActive && (
                           <motion.div
@@ -154,9 +384,7 @@ export function VerticalTabs() {
                             className="absolute top-0 left-0 w-full origin-top"
                             style={{ background: "#D4A853" }}
                             initial={{ height: "0%" }}
-                            animate={
-                              isPaused ? { height: "0%" } : { height: "100%" }
-                            }
+                            animate={isPaused ? { height: "0%" } : { height: "100%" }}
                             transition={{
                               duration: AUTO_PLAY_DURATION / 1000,
                               ease: "linear",
@@ -167,14 +395,14 @@ export function VerticalTabs() {
 
                       {/* Entry number */}
                       <span
-                        className="tabular-nums"
+                        className="tabular-nums flex-shrink-0"
                         style={{
                           fontFamily: "var(--font-dm-sans), sans-serif",
                           fontSize: 9,
                           fontWeight: 500,
-                          marginTop: 4,
-                          color: "#D4A853",
-                          opacity: 0.7,
+                          marginTop: 6,
+                          color: isActive ? "#D4A853" : "rgba(212,168,83,0.3)",
+                          transition: "color 400ms ease",
                         }}
                       >
                         /{service.id}
@@ -183,14 +411,14 @@ export function VerticalTabs() {
                       <div className="flex flex-col gap-2 flex-1">
                         {/* Title */}
                         <span
-                          className="transition-colors duration-400"
                           style={{
                             fontFamily: "var(--font-cormorant), Georgia, serif",
                             fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
                             fontWeight: 300,
+                            fontStyle: "italic",
                             letterSpacing: "-0.01em",
-                            color: isActive ? "#F0EAD6" : "rgba(240,234,214,0.35)",
-                            transition: "color 400ms ease",
+                            color: isActive ? "#F0EAD6" : "rgba(240,234,214,0.3)",
+                            transition: "color 400ms ease-in-out",
                           }}
                         >
                           {service.title}
@@ -221,7 +449,7 @@ export function VerticalTabs() {
                                 {service.description}
                               </p>
 
-                              {/* Sub-items / tags */}
+                              {/* Tags */}
                               <div className="flex flex-col gap-1.5 mt-1">
                                 {service.subItems.map((item) => (
                                   <p
@@ -230,7 +458,6 @@ export function VerticalTabs() {
                                       fontFamily: "var(--font-dm-sans), sans-serif",
                                       fontSize: 12,
                                       lineHeight: 1.5,
-                                      color: "rgba(240,234,214,0.4)",
                                     }}
                                   >
                                     <span style={{ color: "#D4A853" }}>·</span>{" "}
@@ -249,98 +476,58 @@ export function VerticalTabs() {
                       </div>
                     </button>
 
-                    {/* Mobile inline image — shown below each entry on mobile only */}
+                    {/* ── Mobile: inline framed image below each active entry ── */}
                     <div className="lg:hidden">
-                      {isActive && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                          className="mb-4"
-                        >
-                          {/* Mobile stats */}
-                          <div className="mb-3">
-                            <p
-                              style={{
-                                fontFamily: "var(--font-dm-sans), sans-serif",
-                                fontSize: 11,
-                                letterSpacing: "0.12em",
-                                textTransform: "uppercase",
-                                color: "#D4A853",
-                              }}
-                            >
-                              {service.label}
-                            </p>
-                            <p
-                              style={{
-                                fontSize: 13,
-                                color: "rgba(240,234,214,0.85)",
-                                fontWeight: 500,
-                                marginTop: 3,
-                              }}
-                            >
-                              {service.stat}
-                            </p>
-                          </div>
-
-                          {/* Mobile image */}
-                          <div
-                            className="relative overflow-hidden"
-                            style={{
-                              borderRadius: 8,
-                              border: "1px solid rgba(212,168,83,0.08)",
-                              aspectRatio: "16 / 11",
-                            }}
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="mb-6"
                           >
-                            {service.image ? (
-                              <>
-                                <Image
-                                  src={service.image}
-                                  alt={service.title}
-                                  fill
-                                  sizes="100vw"
-                                  className="object-cover object-top"
-                                />
-                                {service.badge && (
-                                  <span
-                                    style={{
-                                      position: "absolute",
-                                      top: 10,
-                                      left: 10,
-                                      background: "#D4A853",
-                                      color: "#0D0B09",
-                                      fontSize: 10,
-                                      fontWeight: 600,
-                                      fontFamily: "var(--font-dm-sans), sans-serif",
-                                      padding: "3px 8px",
-                                      borderRadius: 4,
-                                      lineHeight: 1.3,
-                                      zIndex: 10,
-                                    }}
-                                  >
-                                    {service.badge}
-                                  </span>
-                                )}
-                              </>
-                            ) : (
-                              <div
-                                className="absolute inset-0 flex items-center justify-center"
-                                style={{ background: "rgba(212,168,83,0.04)" }}
+                            {/* Stats */}
+                            <div className="mb-3">
+                              <p
+                                style={{
+                                  fontFamily: "var(--font-dm-sans), sans-serif",
+                                  fontSize: 11,
+                                  fontWeight: 600,
+                                  letterSpacing: "0.12em",
+                                  textTransform: "uppercase",
+                                  color: "#D4A853",
+                                }}
                               >
-                                <span
-                                  style={{
-                                    color: "rgba(240,234,214,0.25)",
-                                    fontSize: 13,
-                                    fontStyle: "italic",
-                                  }}
-                                >
-                                  Client site screenshot loading
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
+                                {service.label}
+                              </p>
+                              <p
+                                style={{
+                                  fontFamily: "var(--font-dm-sans), sans-serif",
+                                  fontSize: 13,
+                                  color: "rgba(240,234,214,0.85)",
+                                  fontWeight: 500,
+                                  marginTop: 3,
+                                }}
+                              >
+                                {service.stat}
+                              </p>
+                              <p
+                                style={{
+                                  fontFamily: "var(--font-dm-sans), sans-serif",
+                                  fontSize: 11,
+                                  color: "rgba(240,234,214,0.35)",
+                                  fontStyle: "italic",
+                                  marginTop: 2,
+                                }}
+                              >
+                                {service.verification}
+                              </p>
+                            </div>
+                            <FramedImage service={service} />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </div>
                 );
@@ -348,21 +535,21 @@ export function VerticalTabs() {
             </div>
           </div>
 
-          {/* Right Column: Sticky Image Gallery — desktop only */}
-          <div className="lg:col-span-7 hidden lg:flex flex-col justify-end h-full order-1 lg:order-2">
+          {/* ── Right Column: Sticky framed gallery (desktop only) ── */}
+          <div className="lg:col-span-7 hidden lg:flex flex-col h-full order-1 lg:order-2">
             <div
               className="sticky"
-              style={{ top: "20vh" }}
+              style={{ top: "15vh" }}
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
-              {/* Stats overlay — top */}
-              <div className="mb-3" style={{ minHeight: 56 }}>
+              {/* Stats card */}
+              <div className="mb-4" style={{ minHeight: 60 }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
@@ -370,29 +557,32 @@ export function VerticalTabs() {
                       style={{
                         fontFamily: "var(--font-dm-sans), sans-serif",
                         fontSize: 11,
+                        fontWeight: 600,
                         letterSpacing: "0.12em",
                         textTransform: "uppercase",
                         color: "#D4A853",
+                        marginBottom: 4,
                       }}
                     >
                       {active.label}
                     </p>
                     <p
                       style={{
+                        fontFamily: "var(--font-dm-sans), sans-serif",
                         fontSize: 15,
-                        color: "rgba(240,234,214,0.9)",
                         fontWeight: 500,
-                        marginTop: 4,
+                        color: "rgba(240,234,214,0.9)",
+                        marginBottom: 2,
                       }}
                     >
                       {active.stat}
                     </p>
                     <p
                       style={{
-                        fontSize: 11,
-                        color: "rgba(240,234,214,0.35)",
+                        fontFamily: "var(--font-dm-sans), sans-serif",
+                        fontSize: 12,
+                        color: "rgba(240,234,214,0.4)",
                         fontStyle: "italic",
-                        marginTop: 2,
                       }}
                     >
                       {active.verification}
@@ -401,85 +591,23 @@ export function VerticalTabs() {
                 </AnimatePresence>
               </div>
 
-              {/* Image container with crossfade */}
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  aspectRatio: "16 / 11",
-                  borderRadius: 8,
-                  border: "1px solid rgba(212,168,83,0.08)",
-                  background: "rgba(13,11,9,0.5)",
-                }}
-              >
-                {/* Render all images, crossfade via opacity */}
+              {/* Framed image with crossfade */}
+              <div className="relative" style={{ minHeight: 300 }}>
                 {SERVICES.map((service, index) => (
                   <div
                     key={service.id}
-                    className="absolute inset-0 w-full h-full"
                     style={{
+                      position: index === 0 ? "relative" : "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
                       opacity: activeIndex === index ? 1 : 0,
                       transition: "opacity 300ms ease-in-out",
+                      pointerEvents: activeIndex === index ? "auto" : "none",
                       zIndex: activeIndex === index ? 1 : 0,
                     }}
                   >
-                    {service.image ? (
-                      <>
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          fill
-                          sizes="(min-width: 1024px) 58vw, 100vw"
-                          className="object-cover object-top"
-                          priority={index === 0}
-                        />
-
-                        {/* Badge overlay */}
-                        {service.badge && (
-                          <span
-                            style={{
-                              position: "absolute",
-                              top: 12,
-                              left: 12,
-                              background: "#D4A853",
-                              color: "#0D0B09",
-                              fontSize: 11,
-                              fontWeight: 600,
-                              fontFamily: "var(--font-dm-sans), sans-serif",
-                              padding: "4px 10px",
-                              borderRadius: 4,
-                              lineHeight: 1.3,
-                              zIndex: 10,
-                            }}
-                          >
-                            {service.badge}
-                          </span>
-                        )}
-
-                        {/* Bottom gradient */}
-                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
-                      </>
-                    ) : (
-                      /* Placeholder for missing screenshot */
-                      <div
-                        className="absolute inset-0 flex items-center justify-center"
-                        style={{
-                          background: "rgba(212,168,83,0.04)",
-                          border: "1px solid rgba(212,168,83,0.12)",
-                          borderRadius: 8,
-                        }}
-                      >
-                        {/* TODO: Juan — add screenshot of culturemtl.ca. Save to /public/images/proof/culture-barbershop-site.png */}
-                        <span
-                          style={{
-                            color: "rgba(240,234,214,0.25)",
-                            fontSize: 13,
-                            fontStyle: "italic",
-                          }}
-                        >
-                          Client site screenshot loading
-                        </span>
-                      </div>
-                    )}
+                    <FramedImage service={service} priority={index === 0} />
                   </div>
                 ))}
               </div>
