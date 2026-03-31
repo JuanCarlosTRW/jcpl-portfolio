@@ -80,37 +80,7 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Layer 2: Trust ticker — top */}
-      <div
-        className="hero-trust-ticker"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 20,
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: 88,
-        }}
-      >
-        <span
-          className="hero-ticker"
-          style={{
-            fontFamily: "var(--font-dm-sans), sans-serif",
-            fontSize: 11,
-            fontWeight: 500,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "rgba(212, 168, 83, 0.7)",
-            textShadow: "0 1px 8px rgba(0,0,0,1)",
-          }}
-        >
-          5 industries &middot; 3 countries &middot; verified results
-        </span>
-      </div>
-
-      {/* Layer 3: Hero content — upper portion of viewport */}
+      {/* Layer 2: Hero content — upper portion of viewport */}
       <div
         className="hero-content"
         style={{
@@ -179,104 +149,86 @@ export default function HeroSection() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: 24,
+            gap: 16,
           }}
         >
           <Link
             href="/apply"
             aria-label="Work with me. Book a call."
-            className="group inline-flex items-center justify-center transition-all hero-cta-primary"
+            className="hero-cta-primary"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 14,
+              fontSize: 13,
               fontWeight: 600,
-              letterSpacing: "0.08em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
-              background: "#D4A853",
+              background: "linear-gradient(135deg, #D4A853 0%, #C49A48 50%, #B8903E 100%)",
               color: "#0D0B09",
-              padding: "14px 32px",
-              borderRadius: 0,
-              border: "none",
+              padding: "16px 40px",
+              borderRadius: 2,
+              border: "1px solid rgba(212,168,83,0.4)",
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+              boxShadow: "0 4px 24px rgba(212,168,83,0.15), 0 1px 3px rgba(0,0,0,0.3)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1.1)";
-              e.currentTarget.style.transform = "translateY(-1px)";
+              e.currentTarget.style.boxShadow = "0 8px 40px rgba(212,168,83,0.3), 0 2px 8px rgba(0,0,0,0.4)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.background = "linear-gradient(135deg, #DCBA6A 0%, #D4A853 50%, #C49A48 100%)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "none";
+              e.currentTarget.style.boxShadow = "0 4px 24px rgba(212,168,83,0.15), 0 1px 3px rgba(0,0,0,0.3)";
               e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.background = "linear-gradient(135deg, #D4A853 0%, #C49A48 50%, #B8903E 100%)";
             }}
           >
             Work with me
           </Link>
 
-          {/* Desktop: ghost button */}
           <Link
             href="/results"
             aria-label="See client case studies"
-            className="hero-cta-secondary hero-cta-ghost"
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: "0.9rem",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color: "rgba(255,245,230,0.85)",
-              textDecoration: "none",
-              transition: "border-color 0.2s ease, color 0.2s ease",
-              textShadow: "0 2px 12px rgba(0,0,0,1)",
-              border: "1px solid rgba(255,245,230,0.35)",
-              padding: "12px 24px",
-              borderRadius: 4,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(212,168,83,0.6)";
-              e.currentTarget.style.color = "#D4A853";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,245,230,0.35)";
-              e.currentTarget.style.color = "rgba(255,245,230,0.85)";
-            }}
-          >
-            See the Results &rarr;
-          </Link>
-
-          {/* Mobile: plain text link (replaces ghost button) */}
-          <Link
-            href="/results"
-            aria-label="See client case studies"
-            className="hero-cta-textlink"
+            className="hero-cta-ghost"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: 13,
               fontWeight: 500,
-              letterSpacing: "0.08em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "#F5EDD6",
+              color: "rgba(255,245,230,0.7)",
               textDecoration: "none",
-              textShadow: "0 2px 12px rgba(0,0,0,1)",
-              display: "none",
-              marginTop: 12,
+              padding: "16px 32px",
+              borderRadius: 2,
+              border: "1px solid rgba(212,168,83,0.2)",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+              background: "rgba(212,168,83,0.04)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              textShadow: "0 1px 8px rgba(0,0,0,0.8)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(212,168,83,0.5)";
+              e.currentTarget.style.color = "#D4A853";
+              e.currentTarget.style.background = "rgba(212,168,83,0.08)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 4px 20px rgba(212,168,83,0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(212,168,83,0.2)";
+              e.currentTarget.style.color = "rgba(255,245,230,0.7)";
+              e.currentTarget.style.background = "rgba(212,168,83,0.04)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
             }}
           >
-            See the Results &rarr;
+            See the Results
           </Link>
-
-          {/* Trust line — inside CTA row so it sits within the dark backing on mobile */}
-          <p
-            className="hero-enter hero-trust-line"
-            style={{
-              animationDelay: "0.65s",
-              fontSize: "0.85rem",
-              color: "rgba(255,245,230,0.65)",
-              textAlign: "center",
-              marginTop: 14,
-              letterSpacing: "0.02em",
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              textShadow: "0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8)",
-            }}
-          >
-            One call. No retainer until fit is confirmed. You own everything I build.
-          </p>
         </div>
       </div>
 
@@ -394,58 +346,32 @@ export default function HeroSection() {
             margin-bottom: 24px !important;
           }
 
-          /* Eyebrow ticker */
-          .hero-trust-ticker {
-            padding-top: 72px !important;
-            z-index: 3 !important;
-          }
-          .hero-trust-ticker span {
-            font-size: 9px !important;
-            text-shadow: 0 1px 12px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.8) !important;
-          }
-
-          /* FIX 3 — CTA block with dark backing */
+          /* CTA row — stack vertically on mobile */
           .hero-cta-row {
             flex-direction: column !important;
             align-items: center !important;
-            gap: 0 !important;
+            gap: 12px !important;
             width: 100% !important;
-            max-width: 420px !important;
-            background: rgba(13, 11, 9, 0.45) !important;
-            border-radius: 12px !important;
-            padding: 20px 16px !important;
-            backdrop-filter: blur(2px) !important;
-            -webkit-backdrop-filter: blur(2px) !important;
+            max-width: 360px !important;
           }
 
-          /* Gold CTA — full width, proper padding */
+          /* Gold CTA — full width on mobile */
           .hero-cta-primary {
             width: 100% !important;
-            max-width: 420px !important;
             padding: 18px 24px !important;
             font-size: 13px !important;
-            letter-spacing: 0.10em !important;
+            letter-spacing: 0.12em !important;
             text-align: center !important;
-            border-radius: 8px !important;
+            border-radius: 6px !important;
           }
 
-          /* Hide ghost button, show text link */
+          /* Ghost CTA — full width on mobile */
           .hero-cta-ghost {
-            display: none !important;
-          }
-          .hero-cta-textlink {
-            display: inline-block !important;
-            margin-top: 12px !important;
+            width: 100% !important;
+            padding: 16px 24px !important;
+            font-size: 12px !important;
             text-align: center !important;
-          }
-
-          /* Trust line — inside CTA backing */
-          .hero-trust-line {
-            font-size: 11px !important;
-            color: rgba(255,245,230,0.8) !important;
-            margin-top: 14px !important;
-            max-width: 300px !important;
-            text-shadow: 0 1px 16px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.9) !important;
+            border-radius: 6px !important;
           }
 
           /* Ticker */

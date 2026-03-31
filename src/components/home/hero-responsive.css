@@ -1,12 +1,11 @@
 /* ═══════════════════════════════════════════════════
    HERO — Responsive + Premium Animations
-   Desktop is untouched. Mobile-only overrides below.
    ═══════════════════════════════════════════════════ */
 
 /* ── Keyframes ── */
 @keyframes hero-glow-pulse {
-  0%, 100% { box-shadow: 0 0 18px rgba(212,168,83,0.2), 0 0 40px rgba(212,168,83,0.08); }
-  50%      { box-shadow: 0 0 28px rgba(212,168,83,0.45), 0 0 60px rgba(212,168,83,0.15); }
+  0%, 100% { box-shadow: 0 4px 24px rgba(212,168,83,0.15), 0 1px 3px rgba(0,0,0,0.3); }
+  50%      { box-shadow: 0 8px 40px rgba(212,168,83,0.3), 0 2px 8px rgba(0,0,0,0.4); }
 }
 
 @keyframes hero-fade-in-up {
@@ -30,21 +29,12 @@
     opacity: 0;
     animation: hero-fade-in-up 0.7s ease-out 0.55s forwards !important;
   }
-  .hero-trust-line {
-    opacity: 0;
-    animation: hero-fade-in-up 0.7s ease-out 0.7s forwards !important;
-  }
 
   /* Primary CTA — breathing gold glow */
   .hero-cta-primary {
-    border-radius: 8px !important;
     animation:
       hero-fade-in-up 0.7s ease-out 0.55s forwards,
       hero-glow-pulse 3s ease-in-out 1.3s infinite !important;
     opacity: 0;
   }
-}
-
-/* ── Small phones ── */
-@media (max-width: 480px) {
 }
