@@ -29,8 +29,7 @@ const testimonialsData = [
       "90 new clients in 90 days. The system runs itself. Best investment I have made for the shop.",
     name: "Alex M.",
     role: "Elite Barbershop · Montreal, QC",
-    imageSrc:
-      "https://cdn.shopify.com/s/files/1/0624/6059/2222/files/Facelab_2025-08-18_06-28-56.jpg?v=1755567059",
+    imageSrc: "/images/testimonials/alex-m.png",
   },
 ];
 

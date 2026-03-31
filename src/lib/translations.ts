@@ -12,7 +12,7 @@ const faqEn: FAQItem[] = [
   {
     question: "I ran Google Ads before and lost money. Why would this be different?",
     answer:
-      "Because ads without a conversion system are just expensive traffic. You got clicks. The website that received them was not built to close. The targeting was not built around purchase intent. The landing page was probably your home page.\n\nI've seen this exact story more times than I can count. A business owner spends $500 to $1,000, gets clicks, gets zero calls, and concludes ads don't work in their industry.\n\nThe clicks were real. Everything behind them was not built. I build it first. Then the ads run. When the funnel exists before the traffic, the calls come. The difference between losing money on ads and 46x return on ad spend is the infrastructure that receives the traffic.",
+      "Because ads without a conversion system are just expensive traffic. You got clicks. The website that received them was not built to close. The targeting was not built around purchase intent. The landing page was probably your home page.\n\nI have seen this exact story more times than I can count. A business owner spends $500 to $1,000, gets clicks, gets zero calls, and concludes ads do not work in their industry.\n\nThe clicks were real. Everything behind them was not built. I build it first. Then the ads run. When the funnel exists before the traffic, the calls come. The difference between losing money on ads and 46x return on ad spend is the infrastructure that receives the traffic.",
     featured: true,
   },
   {
@@ -46,9 +46,9 @@ const faqEn: FAQItem[] = [
     featured: false,
   },
   {
-    question: "What if it doesn't work?",
+    question: "What if it does not work?",
     answer:
-      "If I don't produce a measurable result in the first 90 days, I keep working until I do. I don't take clients I don't believe I can help. That's why there's an application. I review your business before agreeing to work with you, not after you have paid.",
+      "If I do not produce a measurable result in the first 90 days, I keep working until I do. I do not take clients I do not believe I can help. That is why there is an application. I review your business before agreeing to work with you, not after you have paid.",
     featured: false,
   },
   {
@@ -637,16 +637,16 @@ export const translations: Record<Locale, TranslationsShape> = {
     faq: {
       eyebrow: "QUESTIONS",
       heading: "Questions Serious Buyers Ask.",
-      subheading: "I'd rather answer the hard ones here than waste your time on a call.",
+      subheading: "I would rather answer the hard ones here than waste your time on a call.",
       mostCommon: "Most common objection",
-      stillQuestion: "Still have a question I didn't answer? Let's talk.",
+      stillQuestion: "Still have a question I did not answer? Let us talk.",
       applyCta: "Book a Diagnostic Call →",
       items: faqEn,
     },
     spots: {
       heading: "I Run 3 Partnerships at a Time.",
       paragraph:
-        "Not because of artificial scarcity. Because more than three active systems and I can't give each one the weekly attention it needs to compound. I will not dilute the work.",
+        "Not because of artificial scarcity. Because more than three active systems and I cannot give each one the weekly attention it needs to compound. I will not dilute the work.",
       lastThree: "The last three clients who applied:",
       proof1: "One went live in 9 days.",
       proof2: "One booked their first qualified call on day 7.",
@@ -660,7 +660,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       noContracts: "No long-term contracts",
       threeSpots: "3 spots per quarter",
       compactHeading: "I run 3 partnerships at a time. One slot currently open.",
-      compactSubline: "If I can help, you'll hear back within 24 hours.",
+      compactSubline: "If I can help, you will hear back within 24 hours.",
       confidential: "100% confidential",
       noCommitment: "No commitment",
     },
@@ -718,7 +718,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         { question: "Do you handle Google Ads?", answer: "Yes. Google Ads, conversion landing pages, and tracking are part of the system. Ad spend goes directly to Google." },
         { question: "Do I own the website and assets?", answer: "Yes. The site, data, and infrastructure are yours. No lock-in." },
         { question: "What happens after launch?", answer: "Weekly optimization, monthly review calls, and ongoing improvements. The system compounds over time." },
-        { question: "What's the minimum ad spend?", answer: "I recommend starting at $500/month in ad spend. Ad spend goes directly to Google, not to me. The right budget is discussed during the fit process." },
+        { question: "What is the minimum ad spend?", answer: "I recommend starting at $500/month in ad spend. Ad spend goes directly to Google, not to me. The right budget is discussed during the fit process." },
       ],
       ctaTitle: "Book a Diagnostic Call",
       ctaBody: "I review your market before the call. I show you exactly where you are losing calls and what fixing it is worth.",
@@ -996,7 +996,7 @@ export const translations: Record<Locale, TranslationsShape> = {
           {
             label: "PAID ACQUISITION LAYER",
             title: "When organic capture alone is not enough.",
-            copy: "When search alone isn't fast enough. Ads targeting active purchase intent, tracked to cost per call.",
+            copy: "When search alone is not fast enough. Ads targeting active purchase intent, tracked to cost per call.",
             items: [
               "Google Ads targeting active buyers in your market",
               "Landing pages per service and city",
@@ -1025,7 +1025,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       techStack: {
         label: "Infrastructure Advantage",
         heading: "Built With Infrastructure. Not Page Builders.",
-        sub: "Page speed, search ranking, and full asset ownership don't happen by accident. They follow from what the infrastructure is built on.",
+        sub: "Page speed, search ranking, and full asset ownership do not happen by accident. They follow from what the infrastructure is built on.",
         items: [
           { name: "Next.js", role: "Page speed", detail: "Sub-second load times globally. Faster pages book more calls." },
           { name: "Vercel", role: "Reliability", detail: "99.99% uptime on a global CDN. No downtime during your busiest season." },
@@ -1102,8 +1102,8 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       cta: {
         eyebrow: "Next step",
-        heading: "The results are documented. The system is the same one I'd build for you.",
-        body: "If you're generating consistent revenue and your pipeline depends on referrals, that's the problem I fix. One spot is open this quarter. Book the diagnostic call. I'll tell you exactly what it's worth before you pay anything.",
+        heading: "The results are documented. The system is the same one I would build for you.",
+        body: "If you are generating consistent revenue and your pipeline depends on referrals, that is the problem I fix. One spot is open this quarter. Book the diagnostic call. I will tell you exactly what it is worth before you pay anything.",
         trust1: "Response within 24 hours",
         trust2: "No commitment to apply",
         trust3: "Founder-led, not an agency intake",

@@ -51,11 +51,11 @@ export const caseStudies: CaseStudy[] = [
     diagnosis: {
       title: "The Hidden Bottleneck",
       paragraphs: [
-        "The problem wasn't demand. The RV rental market in Texas is highly active, especially spring through fall. People were searching. The business simply didn't exist online.",
+        "The problem was not demand. The RV rental market in Texas is highly active, especially spring through fall. People were searching. The business simply did not exist online.",
         "The real issue was architecture. No Google Ads presence, no optimized landing page, no follow-up system. Competitors were capturing every search query this owner should have owned.",
         "Throwing budget at ads without a conversion-ready funnel would have burned cash. I had to build the full system before spending a dollar.",
       ],
-      highlighted: "The market was ready. The infrastructure wasn't.",
+      highlighted: "The market was ready. The infrastructure was not.",
     },
     architecture: {
       layers: [
@@ -90,8 +90,8 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     insight: {
-      quote: "Most businesses don't have a traffic problem. They have a conversion architecture problem.",
-      body: "Running ads to a weak page is burning money. The funnel (page, offer, intent, follow-up) has to be engineered before any dollar is spent on traffic. That's the difference between a campaign that breaks even and one that pays for itself 4x over.",
+      quote: "Most businesses do not have a traffic problem. They have a conversion architecture problem.",
+      body: "Running ads to a weak page is burning money. The funnel (page, offer, intent, follow-up) has to be engineered before any dollar is spent on traffic. That is the difference between a campaign that breaks even and one that pays for itself 4x over.",
     },
     beforeAfter: { before: "$5–8K/mo referral-only", after: "$20K+ Month 1 with paid traffic" },
     whatChanged: [
@@ -123,8 +123,8 @@ export const caseStudies: CaseStudy[] = [
       title: "The Hidden Bottleneck",
       paragraphs: [
         "The barbershop had a real competitive advantage: premium service, loyal clients, great atmosphere. But none of that was visible online. A Google search returned nothing.",
-        "The bottleneck wasn't service quality. It was discoverability and conversion. Potential clients searched, found competitors, and booked elsewhere.",
-        "The fix wasn't just a website. It was a full acquisition funnel, designed to convert strangers into booked appointments without any manual effort from the owner.",
+        "The bottleneck was not service quality. It was discoverability and conversion. Potential clients searched, found competitors, and booked elsewhere.",
+        "The fix was not just a website. It was a full acquisition funnel, designed to convert strangers into booked appointments without any manual effort from the owner.",
       ],
       highlighted: "Great service is invisible without a system to surface it.",
     },
@@ -162,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
     },
     insight: {
       quote: "A referral-only business has a ceiling. A system-driven business has a runway.",
-      body: "Word of mouth is powerful, but it's not scalable. The moment you build a digital acquisition system, you decouple your growth from your personal network. That's when the business becomes an asset, not just a job.",
+      body: "Word of mouth is powerful, but it is not scalable. The moment you build a digital acquisition system, you decouple your growth from your personal network. That is when the business becomes an asset, not just a job.",
     },
     beforeAfter: { before: "100% referral, no digital presence", after: "90 new clients via website funnel in 90 days" },
     whatChanged: [
@@ -186,15 +186,15 @@ export const caseStudies: CaseStudy[] = [
       "How a fully custom, personalized website elevated a barbershop's brand perception and positioned them as the premium choice in their market.",
     situation: {
       who: "Established barbershop with a loyal base but outdated digital presence that undercut their real quality.",
-      problem: "The existing website and branding didn't match the in-person experience. Premium clients were being lost to competitors with better-looking digital presence.",
+      problem: "The existing website and branding did not match the in-person experience. Premium clients were being lost to competitors with better-looking digital presence.",
       revenueStage: "Stable revenue, but premium positioning not reflected online.",
       bottleneck: "Brand perception gap. The digital presence was communicating average when the service was exceptional.",
     },
     diagnosis: {
       title: "The Hidden Bottleneck",
       paragraphs: [
-        "First impressions are made online before the client ever walks in. An outdated website doesn't just look bad. It actively repels the high-value clients you want.",
-        "The issue wasn't the service. It was the signal. Potential premium clients were evaluating the website and choosing competitors who looked more established.",
+        "First impressions are made online before the client ever walks in. An outdated website does not just look bad. It actively repels the high-value clients you want.",
+        "The issue was not the service. It was the signal. Potential premium clients were evaluating the website and choosing competitors who looked more established.",
         "I needed to build a digital presence that matched, and elevated, the real quality of the in-person experience.",
       ],
       highlighted: "Your website is your first handshake. Make it premium.",
@@ -263,7 +263,7 @@ export const caseStudies: CaseStudy[] = [
     diagnosis: {
       title: "The Hidden Bottleneck",
       paragraphs: [
-        "This is the second-stage problem most growth agencies never talk about. You fix acquisition, then operations breaks. The business couldn't scale without either hiring or automating.",
+        "This is the second-stage problem most growth agencies never talk about. You fix acquisition, then operations breaks. The business could not scale without either hiring or automating.",
         "Hiring was premature and expensive at this stage. The answer was an AI voice agent that could handle inbound inquiries 24/7, qualify leads based on trip dates and vehicle fit, and route serious prospects to a booking confirmation.",
         "The system needed to feel human, respond instantly, and never let a lead go cold.",
       ],

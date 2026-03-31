@@ -19,10 +19,10 @@ function XIcon() {
 }
 
 const bestFor = [
-  "Revenue is inconsistent. More demand exists than you're capturing.",
-  "Competitors doing worse work rank above you. You're invisible online.",
+  "Revenue is inconsistent. More demand exists than you are capturing.",
+  "Competitors doing worse work rank above you. You are invisible online.",
   "You want one person who owns the full system, not three specialists pointing at each other.",
-  "You're ready to invest in infrastructure that produces returns.",
+  "You are ready to invest in infrastructure that produces returns.",
 ];
 const notFor = [
   "You'll shop until you find someone who charges less.",

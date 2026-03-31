@@ -88,17 +88,6 @@ export default function QualificationCTA() {
               </div>
             </div>
 
-            {/* Closing line below cards */}
-            <p
-              className="text-center mt-10"
-              style={{
-                fontSize: "15px",
-                color: "rgba(240, 234, 214, 0.7)",
-                fontStyle: "italic",
-              }}
-            >
-              If I cannot produce a return, I tell you on the call. Before you pay anything.
-            </p>
           </Reveal>
 
           <Reveal delay={0.1}>

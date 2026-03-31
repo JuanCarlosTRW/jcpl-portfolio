@@ -8,32 +8,7 @@ const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
   ssr: false,
 });
 
-const TICKER_ITEMS = [
-  { stat: "46x ROAS", detail: "Triple W Rentals", sub: "$41K from $900 in 30 days" },
-  { stat: "90 new clients", detail: "Elite Barbershop", sub: "90 days" },
-  { stat: "Page 1 Google", detail: "Culture Barbershop", sub: "under 60 days" },
-];
-
 export default function HeroSection() {
-  const tickerContent = (
-    <>
-      {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-        <span key={i} className="inline-flex items-center gap-3 whitespace-nowrap hero-ticker">
-          <span
-            className="inline-block w-1 h-1 rounded-full flex-shrink-0"
-            style={{ background: "#D4A853" }}
-          />
-          <span>
-            <span style={{ color: "#D4A853" }}>{item.stat}</span>
-            <span style={{ color: "rgba(240,234,214,0.35)" }}>
-              {" "}/{" "}{item.detail}{" "}/{" "}{item.sub}
-            </span>
-          </span>
-        </span>
-      ))}
-    </>
-  );
-
   return (
     <section
       className="hero-section relative overflow-hidden"
@@ -179,36 +154,7 @@ export default function HeroSection() {
         </p>
       </div>
 
-      {/* Layer 3: Results ticker — bottom */}
-      <div
-        role="marquee"
-        aria-label="Client results ticker"
-        className="absolute bottom-0 left-0 right-0 overflow-hidden"
-        style={{
-          zIndex: 30,
-          background: "rgba(13,11,9,0.6)",
-          borderTop: "1px solid rgba(255,255,255,0.04)",
-        }}
-      >
-        <div
-          className="flex items-center gap-8 py-3 hero-ticker"
-          style={{
-            fontFamily: "var(--font-dm-sans), sans-serif",
-            fontSize: 12,
-            animation: "ticker-scroll 20s linear infinite",
-            width: "max-content",
-            textShadow: "0 1px 8px rgba(0,0,0,1)",
-          }}
-        >
-          {tickerContent}
-        </div>
-      </div>
-
       <style jsx global>{`
-        @keyframes ticker-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
-        }
         @keyframes hero-fadeup {
           0% { opacity: 0; transform: translateY(20px); }
           100% { opacity: 1; transform: translateY(0); }
@@ -377,23 +323,6 @@ export default function HeroSection() {
             text-shadow: 0 1px 16px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.9) !important;
           }
 
-          /* Ticker */
-          [role="marquee"] {
-            position: absolute !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            z-index: 30 !important;
-            background: rgba(13, 11, 9, 0.5) !important;
-            overflow: hidden !important;
-          }
-          [role="marquee"] .hero-ticker {
-            font-size: 0.78rem !important;
-          }
-          [role="marquee"] .flex {
-            gap: 32px !important;
-            padding: 10px 0 !important;
-          }
         }
 
         /* ── Small phones: max-width 420px ── */

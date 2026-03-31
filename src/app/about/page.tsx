@@ -127,9 +127,6 @@ export default function AboutPage() {
               </Link>
             ))}
           </div>
-          <p className="text-[14px] mt-8" style={{ color: "#D4A853", fontStyle: "italic" }}>
-            Every number on this site is real or it does not get published. No projections. No hypotheticals. Live accounts only.
-          </p>
           <Link href="/results" className="text-[14px] font-semibold hover:underline mt-4 inline-block" style={{ color: "#D4A853" }}>
             See full results &rarr;
           </Link>

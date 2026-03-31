@@ -50,10 +50,10 @@ export const problemSection = {
     {
       stat: "$0",
       description:
-        "is what you earn from visitors who can't find you, don't trust you, or can't book you",
+        "is what you earn from visitors who cannot find you, do not trust you, or cannot book you",
     },
   ],
-  body: "Most service businesses don't have a lead generation problem. They have a trust and conversion problem. Your website looks outdated. Your ads lead nowhere. And you're invisible to the AI tools your future clients are already using.",
+  body: "Most service businesses do not have a lead generation problem. They have a trust and conversion problem. Your website looks outdated. Your ads lead nowhere. And you are invisible to the AI tools your future clients are already using.",
 };
 
 /* ─── Growth Architecture System ─── */
@@ -115,27 +115,27 @@ export const resultsPreview = {
 /* ─── Section B: Client Reality (Pain Bullets) ─── */
 export const clientReality = {
   label: "THE REALITY",
-  headline: "Your Work Is Good.\nYour Pipeline Shouldn't Be This Uncertain.",
+  headline: "Your Work Is Good.\nYour Pipeline Should Not Be This Uncertain.",
   pains: [
     {
       icon: "ghost",
-      title: "People in Your City Are Searching. You're Easy to Miss.",
-      detail: "If you're not on Google, Maps, or AI search, that call goes elsewhere, before you knew it existed."
+      title: "People in Your City Are Searching. You Are Easy to Miss.",
+      detail: "If you are not on Google, Maps, or AI search, that call goes elsewhere, before you knew it existed."
     },
     {
       icon: "leak",
-      title: "Your Website Looks Fine. It Doesn't Convert.",
-      detail: "A site that can't answer 'why you, why now' is leakage. Visitors feel nothing and call whoever was clearer."
+      title: "Your Website Looks Fine. It Does Not Convert.",
+      detail: "A site that cannot answer 'why you, why now' is leakage. Visitors feel nothing and call whoever was clearer."
     },
     {
       icon: "clock",
-      title: "You're Doing Marketing on Top of Everything Else.",
+      title: "You Are Doing Marketing on Top of Everything Else.",
       detail: "Inconsistent, reactive, and easy to drop when things get busy. A system tied to your hours cannot compound."
     },
     {
       icon: "scatter",
-      title: "Referrals Keep You Alive. They Don't Build Predictability.",
-      detail: "Good months. Quiet months. No control. If your pipeline depends on word of mouth, you're waiting, not growing."
+      title: "Referrals Keep You Alive. They Do Not Build Predictability.",
+      detail: "Good months. Quiet months. No control. If your pipeline depends on word of mouth, you are waiting, not growing."
     }
   ],
 };
@@ -143,19 +143,19 @@ export const clientReality = {
 /* ─── Section C: Strategic Gap (Truth Blocks) ─── */
 export const strategicGap = {
   label: "THE INSIGHT",
-  headline: "The Businesses Winning Locally\nAren't Working Harder. They're Set Up Better.",
+  headline: "The Businesses Winning Locally\nAre Not Working Harder. They Are Set Up Better.",
   truths: [
     {
-      heading: "Throwing money at ads won't fix a broken funnel.",
-      body: "I've sat across from business owners who spent thousands on Google Ads and had nothing to show for it. Not because ads don't work, but because the page they sent traffic to didn't convert. The ad was fine. The system behind it was broken."
+      heading: "Throwing money at ads will not fix a broken funnel.",
+      body: "I have sat across from business owners who spent thousands on Google Ads and had nothing to show for it. Not because ads do not work, but because the page they sent traffic to did not convert. The ad was fine. The system behind it was broken."
     },
     {
-      heading: "A website that doesn't convert is just a business card.",
-      body: "Design without intent is decoration. Every single element on every page needs a job: move this person one step closer to picking up the phone. If it doesn't do that, it's costing you."
+      heading: "A website that does not convert is just a business card.",
+      body: "Design without intent is decoration. Every single element on every page needs a job: move this person one step closer to picking up the phone. If it does not do that, it is costing you."
     },
     {
-      heading: "When your tools don't connect, leads disappear.",
-      body: "Your site, your ads, your follow-up. If they're not working as one system, you're losing people in the gaps. The businesses dominating your market aren't smarter than you. They're just more connected."
+      heading: "When your tools do not connect, leads disappear.",
+      body: "Your site, your ads, your follow-up. If they are not working as one system, you are losing people in the gaps. The businesses dominating your market are not smarter than you. They are just more connected."
     }
   ],
 };
@@ -409,7 +409,7 @@ export const servicesShowcaseContent = {
 /* ─── Section H: Qualification + Final CTA ─── */
 export const qualification = {
   forYouIf: [
-    "You know the work is out there. You just can't find it online.",
+    "You know the work is out there. You just cannot find it online.",
     "You're generating consistent revenue and ready to invest in infrastructure that compounds.",
     "Your pipeline leans too heavily on referrals.",
     "You're tired of watching competitors rank above you for work you do better.",
@@ -440,12 +440,12 @@ export const whySection = {
     {
       title: "Revenue-Focused, Not Deliverable-Focused",
       description:
-        "I don't hand you a pretty website and disappear. Every piece I build is measured by booked calls and revenue generated.",
+        "I do not hand you a pretty website and disappear. Every piece I build is measured by booked calls and revenue generated.",
     },
     {
       title: "AI-Native From Day One",
       description:
-        "Your competitors aren't optimizing for AI search or using AI receptionists yet. That's your window. I help you seize it.",
+        "Your competitors are not optimizing for AI search or using AI receptionists yet. That is your window. I help you seize it.",
     },
   ],
 };
@@ -644,12 +644,12 @@ export const servicesFAQ = [
     answer: "Access to your Google Business Profile and domain registrar. I handle everything else.",
   },
   {
-    question: "What if it doesn't work?",
-    answer: "If I don't see a path to ROI, I tell you on the diagnostic call. Before you pay anything.",
+    question: "What if it does not work?",
+    answer: "If I do not see a path to ROI, I tell you on the diagnostic call. Before you pay anything.",
   },
   {
     question: "Any contracts or lock-in?",
-    answer: "No long-term contracts. Engagements are milestone-based and transparent. You stay because it works, not because you're locked in.",
+    answer: "No long-term contracts. Engagements are milestone-based and transparent. You stay because it works, not because you are locked in.",
   },
   {
     question: "How do you measure success?",
@@ -657,7 +657,7 @@ export const servicesFAQ = [
   },
   {
     question: "What happens after I apply?",
-    answer: "You'll receive a short qualification review within 24 hours. If there's a good fit, I'll send you a Google Meet link to set up a strategy call.",
+    answer: "You will receive a short qualification review within 24 hours. If there is a good fit, I will send you a Google Meet link to set up a strategy call.",
   },
 ];
 
@@ -697,7 +697,7 @@ export const caseStudies = [
     heroStat: "3x",
     heroLabel: "Online booking increase",
     context:
-      "A high-end barbershop known for exceptional cuts but with a dated website that didn't reflect the quality of their work. Walk-ins were steady, but online bookings were nearly nonexistent.",
+      "A high-end barbershop known for exceptional cuts but with a dated website that did not reflect the quality of their work. Walk-ins were steady, but online bookings were nearly nonexistent.",
     problem:
       "The existing website was a generic template: slow, not mobile-friendly, and with no clear way to book an appointment. Clients were calling instead of booking online, creating scheduling chaos.",
     strategy:
@@ -1167,11 +1167,11 @@ export const servicesFitGuidance: Record<string, { bestFit: string[]; notFit: st
   Growth: {
     bestFit: [
       "You have a decent site but no lead flow",
-      "You're ready to invest in ads",
+      "You are ready to invest in ads",
       "You want automated booking and AI",
     ],
     notFit: [
-      "You don't have product-market fit yet",
+      "You do not have product-market fit yet",
       "Monthly revenue is under $5,000",
     ],
   },

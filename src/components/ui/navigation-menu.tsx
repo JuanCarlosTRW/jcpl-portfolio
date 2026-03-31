@@ -1,8 +1,10 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Navigation, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -46,8 +48,8 @@ const containerVariants = {
 };
 
 const logoVariants = {
-  expanded: { opacity: 1, x: 0, rotate: 0, transition: { type: "spring" as const, damping: 15 } },
-  collapsed: { opacity: 0, x: -25, rotate: -180, transition: { duration: 0.3 } },
+  expanded: { opacity: 1, x: 0, transition: { type: "spring" as const, damping: 15 } },
+  collapsed: { opacity: 0, x: -25, transition: { duration: 0.3 } },
 };
 
 const itemVariants = {
@@ -69,8 +71,14 @@ const collapsedIconVariants = {
   },
 };
 
+function isActivePath(pathname: string, href: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+}
+
 export function AnimatedNavFramer() {
   const [isExpanded, setExpanded] = React.useState(true);
+  const pathname = usePathname();
 
   const { scrollY } = useScroll();
   const lastScrollY = React.useRef(0);
@@ -114,12 +122,21 @@ export function AnimatedNavFramer() {
           !isExpanded && "cursor-pointer justify-center"
         )}
       >
-        <motion.div
+        <motion.a
+          href="/"
           variants={logoVariants}
-          className="flex-shrink-0 flex items-center font-semibold pl-4 pr-2"
+          className="flex-shrink-0 flex items-center pl-4 pr-2"
+          onClick={(e) => e.stopPropagation()}
         >
-          <Navigation className="h-6 w-6" />
-        </motion.div>
+          <Image
+            src="/images/logo-clientgrowth.png"
+            alt="Client Growth"
+            width={100}
+            height={28}
+            style={{ height: 22, width: "auto", objectFit: "contain" }}
+            priority
+          />
+        </motion.a>
 
         <motion.div
           className={cn(
@@ -127,22 +144,27 @@ export function AnimatedNavFramer() {
             !isExpanded && "pointer-events-none"
           )}
         >
-          {navItems.map((item) => (
-            <motion.a
-              key={item.name}
-              href={item.href}
-              variants={itemVariants}
-              onClick={(e) => e.stopPropagation()}
-              className={cn(
-                "text-sm font-medium transition-colors",
-                item.isCta
-                  ? "bg-[#D4A853] text-[#0D0B09] px-4 py-1.5 rounded-md hover:brightness-110 whitespace-nowrap"
-                  : "text-muted-foreground hover:text-foreground px-2 py-1"
-              )}
-            >
-              {item.name}
-            </motion.a>
-          ))}
+          {navItems.map((item) => {
+            const active = isActivePath(pathname, item.href);
+            return (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                variants={itemVariants}
+                onClick={(e) => e.stopPropagation()}
+                className={cn(
+                  "text-sm font-medium transition-colors whitespace-nowrap",
+                  item.isCta
+                    ? "bg-[#D4A853] text-[#0D0B09] px-4 py-1.5 rounded-md hover:brightness-110"
+                    : active
+                      ? "text-[#D4A853] px-2 py-1"
+                      : "text-muted-foreground hover:text-foreground px-2 py-1"
+                )}
+              >
+                {item.name}
+              </motion.a>
+            );
+          })}
         </motion.div>
 
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

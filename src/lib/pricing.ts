@@ -247,12 +247,12 @@ export const pricingFaqs: FaqItem[] = [
   {
     question: "Can I upgrade my plan later?",
     answer:
-      "Absolutely. You can upgrade at any time and I'll credit your existing investment toward the new tier. Most clients start with Growth and scale from there.",
+      "Absolutely. You can upgrade at any time and I will credit your existing investment toward the new tier. Most clients start with Growth and scale from there.",
   },
   {
     question: "Is there a contract or lock-in?",
     answer:
-      "No long-term contracts. Engagements are milestone-based and transparent. You stay because it works, not because you're locked in.",
+      "No long-term contracts. Engagements are milestone-based and transparent. You stay because it works, not because you are locked in.",
   },
   {
     question: "What do you need from me to get started?",
@@ -270,9 +270,9 @@ export const pricingFaqs: FaqItem[] = [
       "I accept all major credit cards (Visa, Mastercard, Amex) and bank transfers. Payments are processed securely via Stripe in CAD or USD.",
   },
   {
-    question: "What if it's not a fit?",
+    question: "What if it is not a fit?",
     answer:
-      "If I'm not the right fit, you'll get honest feedback and recommendations. No hard sell. I'd rather pass than deliver subpar work.",
+      "If I am not the right fit, you will get honest feedback and recommendations. No hard sell. I would rather pass than deliver subpar work.",
   },
   {
     question: "How do you measure success?",
