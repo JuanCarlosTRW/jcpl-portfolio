@@ -313,7 +313,7 @@ export default function HeroSection() {
             right: 0 !important;
             bottom: 0 !important;
             z-index: 2 !important;
-            padding-top: 150px !important;
+            padding-top: 180px !important;
             padding-bottom: 0 !important;
             padding-left: 20px !important;
             padding-right: 20px !important;
