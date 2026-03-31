@@ -6,11 +6,11 @@ import { Navigation, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Results", href: "/results" },
-  { name: "About", href: "/about" },
-  { name: "Apply", href: "/apply" },
+  { name: "Home", href: "/", isCta: false },
+  { name: "Services", href: "/services", isCta: false },
+  { name: "Results", href: "/results", isCta: false },
+  { name: "About", href: "/about", isCta: false },
+  { name: "Book a Diagnostic Call", href: "/apply", isCta: true },
 ];
 
 const EXPAND_SCROLL_THRESHOLD = 80;
@@ -133,7 +133,12 @@ export function AnimatedNavFramer() {
               href={item.href}
               variants={itemVariants}
               onClick={(e) => e.stopPropagation()}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1"
+              className={cn(
+                "text-sm font-medium transition-colors",
+                item.isCta
+                  ? "bg-[#D4A853] text-[#0D0B09] px-4 py-1.5 rounded-md hover:brightness-110 whitespace-nowrap"
+                  : "text-muted-foreground hover:text-foreground px-2 py-1"
+              )}
             >
               {item.name}
             </motion.a>

@@ -106,29 +106,23 @@ export default function DiagnosticForm() {
             if I can help. No pitch. No pressure.
           </p>
 
-          {/* Trust badges */}
-          <div className="flex flex-wrap items-center gap-2 mb-10">
-            {[
-              { icon: "\u26A1", text: "Response within 24h" },
-              { icon: "\uD83D\uDD12", text: "100% confidential" },
-              { icon: "\u2728", text: "Limited spots per quarter" },
-            ].map((badge, i) => (
-              <span key={badge.text} className="inline-flex items-center">
-                {i > 0 && (
-                  <span
-                    className="mx-2 hidden sm:inline-block"
-                    style={{ width: 1, height: 14, background: "rgba(255,255,255,0.08)" }}
-                  />
-                )}
-                <span
-                  className="inline-flex items-center gap-1.5 text-xs"
-                  style={{ color: "#756D63" }}
-                >
-                  <span>{badge.icon}</span>
-                  {badge.text}
-                </span>
-              </span>
-            ))}
+          {/* Testimonial quote */}
+          <div
+            className="rounded-lg p-4 mb-10"
+            style={{
+              background: "rgba(212,168,83,0.04)",
+              borderLeft: "2px solid #D4A853",
+            }}
+          >
+            <p
+              className="text-[14px] italic leading-[1.65]"
+              style={{ color: "#D2C9B8" }}
+            >
+              &ldquo;First call came in 9 days. We had tried two agencies before this. Nothing came close.&rdquo;
+            </p>
+            <p className="text-[12px] mt-2" style={{ color: "#756D63" }}>
+              — Tyler W., Triple W Rentals · Texas
+            </p>
           </div>
 
           {/* Form */}

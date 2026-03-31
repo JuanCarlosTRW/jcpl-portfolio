@@ -5,33 +5,17 @@ import { trackEvent } from "@/lib/analytics";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-const REVENUE_OPTIONS = [
-  "Under $5K/month",
-  "$5K - $15K/month",
-  "$15K - $30K/month",
-  "$30K+/month",
-];
-
-const SOURCE_OPTIONS = [
-  "Google search",
-  "Referral",
-  "Social media",
-  "Saw a client result",
-  "Other",
-];
-
 export default function ApplyIntakeForm() {
   const [firstName, setFirstName] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [websiteUrl, setWebsiteUrl] = useState("");
-  const [monthlyRevenue, setMonthlyRevenue] = useState("");
-  const [pipelineProblem, setPipelineProblem] = useState("");
-  const [source, setSource] = useState("");
+  const [email, setEmail] = useState("");
+  const [growthChallenge, setGrowthChallenge] = useState("");
   const [status, setStatus] = useState<FormStatus>("idle");
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!firstName.trim() || !businessName.trim()) return;
+    if (!firstName.trim() || !businessName.trim() || !email.trim()) return;
 
     setStatus("submitting");
     trackEvent("apply_form_submit");
@@ -44,10 +28,10 @@ export default function ApplyIntakeForm() {
           name: firstName,
           businessName,
           businessWebsite: websiteUrl,
-          monthlyRevenue,
-          goal: pipelineProblem,
-          leadSource: source,
-          email: "",
+          email,
+          goal: growthChallenge,
+          monthlyRevenue: "",
+          leadSource: "",
         }),
       });
 
@@ -77,7 +61,7 @@ export default function ApplyIntakeForm() {
 
   return (
     <section
-      id="book-call"
+      id="apply-form"
       className="py-12 md:py-16"
       style={{ background: "#131009", borderTop: "1px solid rgba(212,168,83,0.07)" }}
     >
@@ -144,13 +128,13 @@ export default function ApplyIntakeForm() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* First name */}
+            {/* Your name */}
             <div>
               <label
                 htmlFor="apply-first-name"
                 className="block text-[13px] font-medium text-[#A69D8D] mb-2"
               >
-                First name <span style={{ color: "#D4A853" }}>*</span>
+                Your name <span style={{ color: "#D4A853" }}>*</span>
               </label>
               <input
                 id="apply-first-name"
@@ -158,7 +142,7 @@ export default function ApplyIntakeForm() {
                 required
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                placeholder="First name"
+                placeholder="Your name"
                 className={inputBase}
                 style={inputStyle}
                 onFocus={handleFocus}
@@ -194,14 +178,14 @@ export default function ApplyIntakeForm() {
                 htmlFor="apply-website"
                 className="block text-[13px] font-medium text-[#A69D8D] mb-2"
               >
-                Website URL
+                Website URL <span className="text-[#756D63]">(optional)</span>
               </label>
               <input
                 id="apply-website"
                 type="text"
                 value={websiteUrl}
                 onChange={(e) => setWebsiteUrl(e.target.value)}
-                placeholder="yourbusiness.com (if you have one)"
+                placeholder="yourbusiness.com"
                 className={inputBase}
                 style={inputStyle}
                 onFocus={handleFocus}
@@ -209,45 +193,41 @@ export default function ApplyIntakeForm() {
               />
             </div>
 
-            {/* Monthly revenue */}
+            {/* Email */}
             <div>
               <label
-                htmlFor="apply-revenue"
+                htmlFor="apply-email"
                 className="block text-[13px] font-medium text-[#A69D8D] mb-2"
               >
-                Monthly revenue (approximate)
+                Email <span style={{ color: "#D4A853" }}>*</span>
               </label>
-              <select
-                id="apply-revenue"
-                value={monthlyRevenue}
-                onChange={(e) => setMonthlyRevenue(e.target.value)}
-                className={`${inputBase} appearance-none`}
+              <input
+                id="apply-email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@yourbusiness.com"
+                className={inputBase}
                 style={inputStyle}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-              >
-                <option value="">Select a range</option>
-                {REVENUE_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
+              />
             </div>
 
-            {/* Biggest pipeline problem */}
+            {/* Growth challenge */}
             <div>
               <label
-                htmlFor="apply-problem"
+                htmlFor="apply-challenge"
                 className="block text-[13px] font-medium text-[#A69D8D] mb-2"
               >
-                Biggest pipeline problem
+                What is your biggest growth challenge right now?
               </label>
               <textarea
-                id="apply-problem"
-                value={pipelineProblem}
-                onChange={(e) => setPipelineProblem(e.target.value)}
-                placeholder="What is the biggest gap in your pipeline right now?"
+                id="apply-challenge"
+                value={growthChallenge}
+                onChange={(e) => setGrowthChallenge(e.target.value)}
+                placeholder="Tell me what is not working"
                 rows={3}
                 className="w-full rounded-xl px-4 py-3.5 text-[#F5F0E8] text-sm placeholder-[#6B6358] focus:outline-none transition-all resize-none"
                 style={inputStyle}
@@ -256,41 +236,16 @@ export default function ApplyIntakeForm() {
               />
             </div>
 
-            {/* How did you find me */}
-            <div>
-              <label
-                htmlFor="apply-source"
-                className="block text-[13px] font-medium text-[#A69D8D] mb-2"
-              >
-                How did you find me
-              </label>
-              <select
-                id="apply-source"
-                value={source}
-                onChange={(e) => setSource(e.target.value)}
-                className={`${inputBase} appearance-none`}
-                style={inputStyle}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-              >
-                <option value="">Select an option</option>
-                {SOURCE_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
-
             {/* Submit */}
             <button
               type="submit"
-              disabled={status === "submitting" || !firstName.trim() || !businessName.trim()}
-              className="w-full rounded-xl px-6 py-4 text-base font-bold transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={status === "submitting" || !firstName.trim() || !businessName.trim() || !email.trim()}
+              className="w-full rounded-xl px-6 py-4 text-[14px] font-bold uppercase tracking-[0.06em] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
               style={{
                 background: "#D4A853",
                 color: "#0D0B09",
                 minHeight: 52,
+                borderRadius: 6,
               }}
               onMouseOver={(e) => {
                 if (status !== "submitting")
@@ -307,7 +262,7 @@ export default function ApplyIntakeForm() {
                   Submitting...
                 </span>
               ) : (
-                "Send my application"
+                <>Get My Diagnostic Call &rarr;</>
               )}
             </button>
 
@@ -316,9 +271,7 @@ export default function ApplyIntakeForm() {
               className="text-center text-[12px] leading-[1.7]"
               style={{ color: "#756D63" }}
             >
-              I review every application personally. Response within 24 hours.
-              No retainer until I confirm fit. If I cannot produce a return for
-              your business, I tell you on the call before you pay anything.
+              Response within 24 hours. No retainer until I confirm fit.
             </p>
           </form>
         )}

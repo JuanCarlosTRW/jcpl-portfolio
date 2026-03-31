@@ -22,6 +22,7 @@ function CaseStudyCardGrid() {
       subStats: "46x ROAS · $900 ad spend · 30 days",
       slug: "triple-w-rentals",
       siteUrl: null as string | null,
+      testimonial: { quote: "First call came in 9 days. We had tried two agencies before this. Nothing came close.", name: "Tyler W.", location: "Texas" },
     },
     {
       label: "FEATURED PARTNERSHIP",
@@ -31,6 +32,7 @@ function CaseStudyCardGrid() {
       subStats: "New clients · 90 days · Built from zero",
       slug: "elite-barbershop",
       siteUrl: "https://elitebyhadi.com/fr/",
+      testimonial: { quote: "90 new clients in 90 days. The system runs itself. Best investment I have made for the shop.", name: "Alex M.", location: "Montreal" },
     },
     {
       label: "RECENTLY DELIVERED",
@@ -40,6 +42,7 @@ function CaseStudyCardGrid() {
       subStats: "Google · Under 60 days · Montreal market",
       slug: "culture-barbershop",
       siteUrl: "https://culturemtl.ca",
+      testimonial: { quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.", name: "Mike S.", location: "Montreal" },
     },
   ];
 
@@ -74,6 +77,22 @@ function CaseStudyCardGrid() {
                 <p className="text-[13px] mb-5" style={{ color: "rgba(255,255,255,0.4)" }}>
                   {card.subStats}
                 </p>
+                {/* Testimonial quote */}
+                <div
+                  className="rounded-lg p-3 mb-5"
+                  style={{
+                    background: "rgba(212,168,83,0.04)",
+                    borderLeft: "2px solid rgba(212,168,83,0.4)",
+                  }}
+                >
+                  <p className="text-[12px] italic leading-[1.6]" style={{ color: "#D2C9B8" }}>
+                    &ldquo;{card.testimonial.quote}&rdquo;
+                  </p>
+                  <p className="text-[11px] mt-1.5" style={{ color: "#756D63" }}>
+                    — {card.testimonial.name}, {card.testimonial.location}
+                  </p>
+                </div>
+
                 <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 mb-5 border border-[rgba(212,168,83,0.25)] bg-[rgba(212,168,83,0.06)]">
                   <span className="text-[11px] font-semibold" style={{ color: "#D4A853" }}>
                     &#10003; Verified
@@ -284,8 +303,7 @@ export default function CaseStudiesSection() {
       {/* Section 5: Culture Barbershop full case study */}
       <CultureCaseStudy />
 
-      {/* Section 6: In the Field (active builds, muted) */}
-      <ResultsPortfolioSection recent={[]} building={building} />
+      {/* In The Field section removed — only verified results on this page */}
 
       {/* Section 8: Final CTA */}
       <ResultsCTA />

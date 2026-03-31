@@ -153,7 +153,7 @@ export default function HeroSection() {
           }}
         >
           <Link href="/apply" className="primary-cta">
-            WORK WITH ME
+            BOOK A DIAGNOSTIC CALL
           </Link>
 
           <Link href="/results" className="secondary-cta">

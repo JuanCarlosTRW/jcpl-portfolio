@@ -8,6 +8,7 @@ import { AnimatedNavFramer } from "@/components/ui/navigation-menu";
 import Footer from "@/components/Footer";
 import SpeedPopup from "@/components/SpeedPopup";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTop from "@/components/ui/BackToTop";
 import SectionLabelAnimator from "@/components/motion/SectionLabelAnimator";
 import { useTranslations } from "@/context/LocaleContext";
 
@@ -36,6 +37,7 @@ export default function ClientAppShell({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Footer />
+        <BackToTop />
         <SpeedPopup />
       </SmoothScrollProvider>
     </LocaleProvider>

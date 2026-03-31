@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { Inter, Playfair_Display, Cormorant_Garamond, DM_Sans, Geist } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import ClientAppShell from "@/components/ClientAppShell";
 import ClarityScript from "@/components/analytics/ClarityScript";
@@ -12,17 +12,7 @@ import {
   generateProfessionalServiceSchema,
   generateFAQSchema,
 } from "@/lib/schema";
-import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-const inter = Inter({ subsets: ["latin"], display: "swap" });
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  display: "swap",
-  style: ["normal", "italic"],
-  variable: "--font-playfair",
-});
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   display: "swap",
@@ -71,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
+    <html lang="en" className={`dark ${cormorant.variable} ${dmSans.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* Images now served locally from /public/images/ */}
@@ -107,7 +97,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} ${playfair.variable} ${cormorant.variable} ${dmSans.variable} antialiased bg-[var(--bg-base)] text-[var(--text-primary)]`}>
+      <body className={`${dmSans.className} antialiased bg-[var(--bg-base)] text-[var(--text-primary)]`}>
         <ClientAppShell>{children}</ClientAppShell>
         <SpeedInsights />
         <Analytics />

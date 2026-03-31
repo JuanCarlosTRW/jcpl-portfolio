@@ -2,30 +2,18 @@
 
 import { Reveal } from "@/components/motion";
 
-const CORE_ITEMS = [
+const OUTCOMES = [
   {
-    title: "Market Analysis",
-    copy: "I map your competitors before writing a line of code. Every build decision follows from what the data shows.",
+    title: "Your market mapped before I write a line of code.",
+    copy: "Competitors, search volume, ad costs, and buyer behavior. Every build decision follows from what the data shows, not assumptions.",
   },
   {
-    title: "Conversion Website",
-    copy: "Hand-coded. Loads in under a second. Built to turn visitors into booked calls, not to look impressive.",
+    title: "A site that makes them call, not just browse.",
+    copy: "Hand-coded for speed and conversion. Loads under a second. Booking flow built in. Every visitor has a clear reason to pick up the phone.",
   },
   {
-    title: "Local Search Visibility",
-    copy: "SEO targeting buyers with intent to book in your city. Compounds from day one and gets stronger every month.",
-  },
-  {
-    title: "Booking Flow",
-    copy: "Calls and forms captured around the clock. No lead slips through while you are on a job.",
-  },
-  {
-    title: "Revenue Tracking",
-    copy: "Every call, form, and booking traced to its source. You see exactly what the system is producing each month.",
-  },
-  {
-    title: "You Own Everything",
-    copy: "Website, ad accounts, analytics, and tracking belong to your business. If you leave, you take all of it.",
+    title: "You own everything. Website, ads, data. If you leave, it comes with you.",
+    copy: "Your ad accounts, analytics, tracking, and website belong to your business. No lock-in. No hostage assets. Full ownership from day one.",
   },
 ];
 
@@ -55,32 +43,35 @@ export default function SystemArchitectureSection() {
             className="text-[clamp(2rem,4.5vw,3.25rem)] font-semibold text-white leading-[1.1] tracking-tight mb-4"
             style={{ maxWidth: 700 }}
           >
-            The Core Acquisition System
+            What the system produces.
           </h2>
           <p
             className="text-[15px] leading-relaxed mb-14"
             style={{ color: "#756D63", maxWidth: 580 }}
           >
-            This is not a menu. Everything below ships with every engagement as one connected system.
+            Not deliverables. Outcomes. Every engagement ships the same connected system.
           </p>
         </Reveal>
 
         <Reveal delay={0.05}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {CORE_ITEMS.map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {OUTCOMES.map((item, i) => (
               <div
-                key={item.title}
-                className="p-6 rounded-xl"
+                key={i}
+                className="p-8 rounded-xl flex flex-col"
                 style={{
                   background: "#1E1A14",
                   border: "1px solid #2A2318",
-                  borderLeft: "3px solid #D4A853",
+                  borderTop: "2px solid #D4A853",
                 }}
               >
-                <p className="text-sm font-semibold mb-2" style={{ color: "#F5F0E8" }}>
+                <p
+                  className="text-[16px] font-bold mb-4 leading-[1.35]"
+                  style={{ color: "#F5F0E8" }}
+                >
                   {item.title}
                 </p>
-                <p className="text-sm leading-relaxed" style={{ color: "#A69D8D" }}>
+                <p className="text-[14px] leading-[1.7] flex-1" style={{ color: "#A69D8D" }}>
                   {item.copy}
                 </p>
               </div>

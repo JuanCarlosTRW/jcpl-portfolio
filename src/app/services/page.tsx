@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import ServicesHero from "@/components/services/ServicesHero";
 import ProofBanner from "@/components/services/ProofBanner";
@@ -29,6 +28,27 @@ export default function ServicesPage() {
 
       {/* Stats bar */}
       <ProofBanner />
+
+      {/* Emotional beat */}
+      <section style={{ background: "#0D0B09", padding: "64px 24px 0" }}>
+        <div style={{ maxWidth: 680, margin: "0 auto" }}>
+          <div
+            className="rounded-xl px-8 py-10"
+            style={{
+              background: "#1A1714",
+              border: "1px solid rgba(212,168,83,0.15)",
+              borderLeft: "3px solid rgba(212,168,83,0.55)",
+            }}
+          >
+            <p className="text-[16px] leading-[1.75]" style={{ color: "#C8BFAE" }}>
+              Every week you run without a system, calls go to the business that
+              shows up first. Not the best business. The most visible one. That gap
+              compounds. The longer it runs, the harder it is to close. The clients
+              you are not getting today are building habits with someone else.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* 2. The System */}
       <ThreeStepProcess />
@@ -208,38 +228,6 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* Mid-page CTA */}
-          <div
-            className="mt-10 p-8 text-center"
-            style={{
-              border: "1px solid rgba(212,168,83,0.2)",
-              borderRadius: 8,
-              background: "rgba(212,168,83,0.03)",
-            }}
-          >
-            <p
-              className="mb-6 text-base"
-              style={{ color: "#F5F0E8", maxWidth: 480, margin: "0 auto 24px" }}
-            >
-              This is the system that produced these numbers. One spot is currently open.
-            </p>
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-wide transition-all hover:brightness-110"
-              style={{
-                background: "#D4A853",
-                color: "#0D0B09",
-                fontFamily: "var(--font-dm-sans), sans-serif",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-              }}
-            >
-              Book a Diagnostic Call &rarr;
-            </Link>
-            <p className="mt-3 text-xs" style={{ color: "#756D63" }}>
-              No retainer until I confirm fit.
-            </p>
-          </div>
         </div>
       </section>
 

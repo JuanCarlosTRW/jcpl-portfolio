@@ -10,16 +10,10 @@ export const metadata: Metadata = buildMetadata({
   path: "/about",
 });
 
-const STATS = [
-  { value: "$41,085", label: "Revenue generated", detail: "Triple W Rentals", sub: "Google Ads. First 30 days. $900 ad spend" },
-  { value: "90", label: "New clients acquired", detail: "Elite Barbershop", sub: "Full acquisition system. 90 days. Built from zero" },
-  { value: "Page 1", label: "Google ranking", detail: "Culture Barbershop", sub: "Competitive Montreal market. Under 60 days" },
-];
-
-const PROOF_LINES = [
-  "One went live in 9 days.",
-  "One booked their first qualified call on day 7.",
-  "One generated $2,716 in revenue in month one.",
+const TIMELINE = [
+  { date: "Q4 2025", client: "Triple W Rentals", result: "$41,085 in revenue. 30 days. $900 ad spend." },
+  { date: "Q4 2025", client: "Elite Barbershop", result: "90 new clients in 90 days. Calendar fully booked." },
+  { date: "Q1 2026", client: "Culture Barbershop", result: "Page 1 Google in under 60 days. First booking in 11 days." },
 ];
 
 export default function AboutPage() {
@@ -44,6 +38,9 @@ export default function AboutPage() {
             </p>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
               The moment that confirmed it: I sat across from a contractor who had been in business for 12 years, watching him lose 60% of his market to a two-year-old company that had spent $1,200 on Google Ads the previous month. His work was better. His reputation was better. He was invisible where it mattered. That is the gap I built Client Growth to close.
+            </p>
+            <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
+              I started building these systems at 16. By the time most people graduate, I will have run more live ad accounts than most agency employees touch in a career. Every system on this site was built and managed personally. The results are public.
             </p>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
               Not as a freelancer who builds websites. As an operator who builds the full system and runs it continuously until the pipeline is full. I measure success in qualified calls and revenue. Nothing else gets reported.
@@ -88,26 +85,40 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 4 — THE RECORD */}
+      {/* SECTION 4 — PARTNERSHIP TIMELINE (replaces generic stats) */}
       <section className="py-16 md:py-24" style={{ background: "#131009", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
         <div className="max-w-[760px] mx-auto px-6">
-          <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>VERIFIED RECORD</p>
+          <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>THE RECORD</p>
           <h2 className="text-[clamp(24px,3.5vw,36px)] font-extrabold text-white leading-[1.12] mb-10 tracking-[-0.02em]">
-            The results are public. Every number tied to a real account.
+            Every partnership. What was built. What it produced.
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {STATS.map((s) => (
-              <div key={s.detail} className="p-6 rounded-xl" style={{ background: "#0D0B09", border: "1px solid rgba(212,168,83,0.12)" }}>
-                <p className="text-[36px] font-extrabold text-white tracking-[-0.03em] leading-none mb-2">{s.value}</p>
-                <p className="text-[14px] text-[#D2C9B8] mb-1">{s.label}. {s.detail}</p>
-                <p className="text-[12px]" style={{ color: "rgba(255,255,255,0.35)" }}>{s.sub}</p>
+          <div className="space-y-6">
+            {TIMELINE.map((entry) => (
+              <div
+                key={entry.client}
+                className="flex gap-5 p-6 rounded-xl"
+                style={{
+                  background: "#0D0B09",
+                  border: "1px solid rgba(212,168,83,0.12)",
+                  borderLeft: "2px solid #D4A853",
+                }}
+              >
+                <div className="flex-shrink-0">
+                  <p className="text-[11px] uppercase tracking-[0.14em] font-bold" style={{ color: "#D4A853" }}>
+                    {entry.date}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[15px] font-bold text-white mb-1">{entry.client}</p>
+                  <p className="text-[14px] text-[#A69D8D] leading-[1.6]">{entry.result}</p>
+                </div>
               </div>
             ))}
           </div>
-          <p className="text-[14px] mb-6" style={{ color: "#D4A853", fontStyle: "italic" }}>
+          <p className="text-[14px] mt-8" style={{ color: "#D4A853", fontStyle: "italic" }}>
             Every number on this site is real or it does not get published. No projections. No hypotheticals. Live accounts only.
           </p>
-          <Link href="/results" className="text-[14px] font-semibold hover:underline" style={{ color: "#D4A853" }}>
+          <Link href="/results" className="text-[14px] font-semibold hover:underline mt-4 inline-block" style={{ color: "#D4A853" }}>
             See full results &rarr;
           </Link>
         </div>
@@ -123,16 +134,6 @@ export default function AboutPage() {
           <p className="text-[16px] text-[#D2C9B8] leading-[1.75] mb-10 max-w-[600px]">
             I review every business before agreeing to work together. I look at the market, the competition, the search volume, the current funnel. If the numbers do not support a return on $2,500/month, I say that on the review call. I have turned clients down. I will do it again. That is not a sales tactic. It is how I protect the track record that makes this work.
           </p>
-          <div className="p-6 rounded-lg max-w-[480px]" style={{ background: "rgba(212,168,83,0.04)", border: "1px solid rgba(212,168,83,0.15)" }}>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.14em] mb-4" style={{ color: "#D4A853" }}>Last 3 partnerships:</p>
-            <ul className="space-y-2">
-              {PROOF_LINES.map((line) => (
-                <li key={line} className="flex items-start gap-2.5 text-[14px]" style={{ color: "#D2C9B8" }}>
-                  <span style={{ color: "#D4A853", flexShrink: 0 }}>&middot;</span>{line}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -148,8 +149,8 @@ export default function AboutPage() {
           </p>
           <Link
             href="/apply"
-            className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold"
-            style={{ background: "#D4A853", color: "#0D0B09", letterSpacing: "0.06em", textTransform: "uppercase" }}
+            className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold transition-all hover:brightness-110"
+            style={{ background: "#D4A853", color: "#0D0B09", letterSpacing: "0.06em", textTransform: "uppercase", borderRadius: 6 }}
           >
             Book a Diagnostic Call &rarr;
           </Link>

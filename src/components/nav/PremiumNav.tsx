@@ -6,8 +6,10 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
+  { label: "Services", href: "/services" },
   { label: "Results", href: "/results" },
-  { label: "Work With Me", href: "/apply", isCta: true },
+  { label: "About", href: "/about" },
+  { label: "Book a Diagnostic Call", href: "/apply", isCta: true },
 ];
 
 export default function PremiumNav() {

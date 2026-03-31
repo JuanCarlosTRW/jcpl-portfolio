@@ -10,13 +10,6 @@ export default function ResultsHero() {
   const { locale } = useLocale();
   const r = translations[locale].results.hero;
 
-  const evidenceStats = [
-    { value: r.stat1Value, label: r.stat1Label, note: r.stat1Note },
-    { value: r.stat2Value, label: r.stat2Label, note: r.stat2Note },
-    { value: r.stat3Value, label: r.stat3Label, note: r.stat3Note },
-    { value: r.stat4Value, label: r.stat4Label, note: r.stat4Note },
-  ];
-
   return (
     <section
       className="relative pt-36 pb-20 md:pb-28"
@@ -54,30 +47,10 @@ export default function ResultsHero() {
           {r.sub}
         </p>
 
-        {/* Evidence stats panel */}
-        <div
-          className="rounded-2xl border p-6 md:p-8"
-          style={{
-            borderColor: "rgba(212,168,83,0.12)",
-            background: "rgba(19,16,9,0.8)",
-          }}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
-            {evidenceStats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-[24px] md:text-[28px] font-extrabold text-white tracking-[-0.02em] leading-none mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-[13px] text-[#D2C9B8] leading-[1.4] mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-[11px] text-[rgba(255,255,255,0.3)]">
-                  {stat.note}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Single proof line — stats live in case study cards only */}
+        <p className="text-[13px]" style={{ color: "#756D63" }}>
+          Every number verified against live accounts. No projections. No hypotheticals.
+        </p>
       </div>
     </section>
   );
