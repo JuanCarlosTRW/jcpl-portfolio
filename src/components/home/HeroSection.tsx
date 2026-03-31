@@ -284,15 +284,14 @@ export default function HeroSection() {
         /* ── Mobile: max-width 768px ── */
         @media (max-width: 768px) {
 
-          /* Overlay — stronger scrim on mobile for text readability */
+          /* Overlay — lighter on mobile so the scene/wisps show through */
           .hero-overlay {
             background: linear-gradient(
               to bottom,
-              rgba(13,11,9,0.9) 0%,
-              rgba(13,11,9,0.7) 30%,
-              rgba(13,11,9,0.45) 55%,
-              rgba(13,11,9,0.15) 75%,
-              transparent 90%
+              rgba(13,11,9,0.8) 0%,
+              rgba(13,11,9,0.45) 25%,
+              rgba(13,11,9,0.1) 45%,
+              transparent 60%
             ) !important;
           }
 
@@ -313,7 +312,7 @@ export default function HeroSection() {
             right: 0 !important;
             bottom: 0 !important;
             z-index: 2 !important;
-            padding-top: 180px !important;
+            padding-top: 120px !important;
             padding-bottom: 0 !important;
             padding-left: 20px !important;
             padding-right: 20px !important;
