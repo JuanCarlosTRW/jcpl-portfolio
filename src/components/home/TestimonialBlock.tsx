@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
 import { TestimonialSection } from "@/components/ui/testimonials";
@@ -50,25 +49,6 @@ export default function TestimonialBlock() {
         subtitle="Every result below came from the same acquisition system. Running continuously."
         testimonials={testimonialsData}
       />
-
-      {/* Elite Barbershop calendar proof */}
-      <div className="pb-12" style={{ background: "#0D0B09" }}>
-        <div className="max-w-[600px] mx-auto px-6">
-          <div
-            className="rounded-xl overflow-hidden"
-            style={{ border: "1px solid rgba(212,168,83,0.15)" }}
-          >
-            <Image
-              src="/images/proof/elite-calendar.png"
-              alt="Elite Barbershop booking calendar. Every slot filled."
-              width={600}
-              height={400}
-              className="w-full h-auto"
-              style={{ display: "block" }}
-            />
-          </div>
-        </div>
-      </div>
 
       {/* See Results link */}
       <div className="text-center pb-16" style={{ background: "#0D0B09" }}>
