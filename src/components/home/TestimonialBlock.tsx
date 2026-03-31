@@ -60,23 +60,12 @@ export default function TestimonialBlock() {
           >
             <Image
               src="/images/proof/elite-calendar.png"
-              alt="Elite Barbershop booking calendar, 90 days after system launch. Every slot filled."
+              alt="Elite Barbershop booking calendar. Every slot filled."
               width={600}
               height={400}
               className="w-full h-auto"
               style={{ display: "block" }}
             />
-            <div className="px-5 py-4" style={{ background: "#131009" }}>
-              <p
-                className="text-[13px]"
-                style={{
-                  color: "#D2C9B8",
-                  fontFamily: "var(--font-dm-sans), sans-serif",
-                }}
-              >
-                Elite Barbershop. Montreal. 90 days after system launch.
-              </p>
-            </div>
           </div>
         </div>
       </div>
