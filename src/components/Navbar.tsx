@@ -33,7 +33,7 @@ export default function Navbar() {
       colors={["transparent", "transparent"]}
       isFixed={true}
       position="right"
-      logoUrl="/images/logo.png"
+      logoUrl="/images/logo-clientgrowth.png"
       menuLabel={t<string>("common.menu")}
       closeLabel={t<string>("common.close")}
     />

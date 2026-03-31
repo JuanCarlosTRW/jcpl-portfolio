@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { translations } from "@/lib/translations";
 import { useLocale } from "@/context/LocaleContext";
 
@@ -46,8 +47,14 @@ export default function Footer() {
         <div className="grid gap-8 md:gap-10 md:grid-cols-4">
           {/* Brand */}
           <div className="space-y-3 md:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold text-white">
-              Client Growth
+            <Link href="/" className="inline-block" style={{ transition: "opacity 200ms ease" }} onMouseOver={(e) => { e.currentTarget.style.opacity = "0.8"; }} onMouseOut={(e) => { e.currentTarget.style.opacity = "1"; }}>
+              <Image
+                src="/images/logo-clientgrowth.png"
+                alt="Client Growth"
+                width={160}
+                height={107}
+                style={{ height: "34px", width: "auto", objectFit: "contain" }}
+              />
             </Link>
             <p className="text-[0.8rem]" style={{ color: "#756D63" }}>
               {footer.tagline}
