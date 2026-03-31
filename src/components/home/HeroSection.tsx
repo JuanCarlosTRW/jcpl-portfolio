@@ -2,6 +2,8 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { ShinyButton } from "@/components/ui/shiny-button";
 import "./hero-responsive.css";
 
 const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
@@ -80,7 +82,7 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Layer 2: Hero content — upper portion of viewport */}
+      {/* Layer 2: Hero content */}
       <div
         className="hero-content"
         style={{
@@ -121,15 +123,15 @@ export default function HeroSection() {
           your calendar.
         </h1>
 
-        {/* Subheadline */}
+        {/* Subheadline — Fix 3 */}
         <p
           className="hero-enter hero-subhead"
           style={{
             fontFamily: "var(--font-dm-sans), sans-serif",
-            fontSize: "clamp(1rem, 1.8vw, 1.2rem)",
+            fontSize: "clamp(1rem, 1.8vw, 1.125rem)",
             lineHeight: 1.65,
             color: "rgba(255,245,230,0.85)",
-            maxWidth: 540,
+            maxWidth: 520,
             margin: "0 auto",
             marginTop: 16,
             marginBottom: 32,
@@ -138,10 +140,10 @@ export default function HeroSection() {
             textShadow: "0 2px 20px rgba(0,0,0,0.95)",
           }}
         >
-          Websites, Google Ads, SEO, and AI. Built for service businesses that want more customers, not more agencies.
+          Your competitors are not better than you. They just get found first. I fix that.
         </p>
 
-        {/* CTA row */}
+        {/* CTA row — Fix 1 & Fix 2 */}
         <div
           className="hero-enter hero-cta-row"
           style={{
@@ -152,87 +154,72 @@ export default function HeroSection() {
             gap: 16,
           }}
         >
-          <Link
-            href="/apply"
-            aria-label="Work with me. Book a call."
-            className="hero-cta-primary"
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 13,
-              fontWeight: 600,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              background: "linear-gradient(135deg, #D4A853 0%, #C49A48 50%, #B8903E 100%)",
-              color: "#0D0B09",
-              padding: "16px 40px",
-              borderRadius: 2,
-              border: "1px solid rgba(212,168,83,0.4)",
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-              boxShadow: "0 4px 24px rgba(212,168,83,0.15), 0 1px 3px rgba(0,0,0,0.3)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = "0 8px 40px rgba(212,168,83,0.3), 0 2px 8px rgba(0,0,0,0.4)";
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.background = "linear-gradient(135deg, #DCBA6A 0%, #D4A853 50%, #C49A48 100%)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = "0 4px 24px rgba(212,168,83,0.15), 0 1px 3px rgba(0,0,0,0.3)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.background = "linear-gradient(135deg, #D4A853 0%, #C49A48 50%, #B8903E 100%)";
-            }}
-          >
-            Work with me
+          {/* Fix 1: ShimmerButton primary CTA */}
+          <Link href="/apply" className="hero-cta-primary">
+            <ShimmerButton
+              shimmerColor="#D4A853"
+              background="rgba(212, 168, 83, 1)"
+              borderRadius="6px"
+              shimmerSize="0.08em"
+              shimmerDuration="2.5s"
+              className="hero-shimmer-btn"
+              style={{
+                fontFamily: "var(--font-dm-sans), sans-serif",
+                fontSize: 13,
+                fontWeight: 600,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase" as const,
+                color: "#0D0B09",
+                padding: "16px 40px",
+                boxShadow: "0 4px 24px rgba(212,168,83,0.2), 0 1px 3px rgba(0,0,0,0.3)",
+              }}
+            >
+              Work with me
+            </ShimmerButton>
           </Link>
 
-          <Link
-            href="/results"
-            aria-label="See client case studies"
-            className="hero-cta-ghost"
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: 13,
-              fontWeight: 500,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "rgba(255,245,230,0.7)",
-              textDecoration: "none",
-              padding: "16px 32px",
-              borderRadius: 2,
-              border: "1px solid rgba(212,168,83,0.2)",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-              background: "rgba(212,168,83,0.04)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
-              textShadow: "0 1px 8px rgba(0,0,0,0.8)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(212,168,83,0.5)";
-              e.currentTarget.style.color = "#D4A853";
-              e.currentTarget.style.background = "rgba(212,168,83,0.08)";
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 4px 20px rgba(212,168,83,0.1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(212,168,83,0.2)";
-              e.currentTarget.style.color = "rgba(255,245,230,0.7)";
-              e.currentTarget.style.background = "rgba(212,168,83,0.04)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            See the Results
+          {/* Fix 2: ShinyButton secondary CTA */}
+          <Link href="/results" className="hero-cta-ghost">
+            <ShinyButton
+              className="hero-shiny-btn"
+              style={{
+                fontFamily: "var(--font-dm-sans), sans-serif",
+                fontSize: 13,
+                fontWeight: 500,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase" as const,
+                color: "#F5F0E8",
+                padding: "16px 32px",
+                borderRadius: 6,
+                border: "1px solid rgba(212, 168, 83, 0.5)",
+                background: "transparent",
+                textShadow: "0 1px 8px rgba(0,0,0,0.8)",
+              }}
+            >
+              See the Results
+            </ShinyButton>
           </Link>
         </div>
+
+        {/* Fix 4: Trust micro-line */}
+        <p
+          className="hero-enter hero-trust-line"
+          style={{
+            animationDelay: "0.65s",
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 13,
+            color: "rgba(255,245,230,0.6)",
+            textAlign: "center",
+            marginTop: 20,
+            letterSpacing: "0.02em",
+            textShadow: "0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8)",
+          }}
+        >
+          One call. No retainer until fit is confirmed. You own everything I build.
+        </p>
       </div>
 
-      {/* Layer 4: Results ticker — bottom */}
+      {/* Layer 3: Results ticker — bottom */}
       <div
         role="marquee"
         aria-label="Client results ticker"
@@ -281,6 +268,24 @@ export default function HeroSection() {
           height: 100% !important;
         }
 
+        /* ShimmerButton text color override */
+        .hero-shimmer-btn,
+        .hero-shimmer-btn span {
+          color: #0D0B09 !important;
+        }
+
+        /* ShinyButton text color override */
+        .hero-shiny-btn span {
+          color: #F5F0E8 !important;
+          opacity: 1 !important;
+        }
+
+        /* CTA links reset */
+        .hero-cta-primary,
+        .hero-cta-ghost {
+          text-decoration: none !important;
+        }
+
         /* ── Mobile: max-width 768px ── */
         @media (max-width: 768px) {
 
@@ -303,7 +308,6 @@ export default function HeroSection() {
             overflow: hidden !important;
           }
 
-          /* FIX 1 — Content pushed up, headline at ~20-25% from top */
           .hero-content {
             position: absolute !important;
             top: 0 !important;
@@ -322,7 +326,6 @@ export default function HeroSection() {
             max-width: 100% !important;
           }
 
-          /* Headline */
           .hero-headline {
             font-size: clamp(2.2rem, 8vw, 3rem) !important;
             line-height: 1.15 !important;
@@ -332,11 +335,10 @@ export default function HeroSection() {
             margin-bottom: 12px !important;
           }
 
-          /* FIX 4 — Subhead: 2 clean lines, no orphan */
           .hero-subhead {
             color: rgba(255,245,230,0.95) !important;
             text-shadow: 0 2px 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.85) !important;
-            font-size: 15px !important;
+            font-size: 16px !important;
             line-height: 1.6 !important;
             max-width: 340px !important;
             margin-left: auto !important;
@@ -353,23 +355,25 @@ export default function HeroSection() {
             max-width: 360px !important;
           }
 
-          /* Gold CTA — full width on mobile */
-          .hero-cta-primary {
-            width: 100% !important;
-            padding: 18px 24px !important;
-            font-size: 13px !important;
-            letter-spacing: 0.12em !important;
-            text-align: center !important;
-            border-radius: 6px !important;
-          }
-
-          /* Ghost CTA — full width on mobile */
+          .hero-cta-primary,
           .hero-cta-ghost {
             width: 100% !important;
+          }
+
+          .hero-shimmer-btn {
+            width: 100% !important;
+            padding: 18px 24px !important;
+          }
+
+          .hero-shiny-btn {
+            width: 100% !important;
             padding: 16px 24px !important;
-            font-size: 12px !important;
-            text-align: center !important;
-            border-radius: 6px !important;
+          }
+
+          .hero-trust-line {
+            font-size: 13px !important;
+            margin-top: 16px !important;
+            text-shadow: 0 1px 16px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.9) !important;
           }
 
           /* Ticker */
