@@ -1,13 +1,18 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const FALLBACK_SRC = "/images/juan-headshot.jpeg";
 
 export default function FounderUnicornProfile() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
     const initUS = () => {
       if (window.UnicornStudio?.init) {
-        window.UnicornStudio.init();
+        window.UnicornStudio.init({ element: el });
       }
     };
 
@@ -17,7 +22,7 @@ export default function FounderUnicornProfile() {
     );
 
     if (window.UnicornStudio?.init) {
-      // Already loaded — re-init to pick up this node
+      // Already loaded — re-init scoped to this container
       setTimeout(initUS, 50);
     } else if (existingScript) {
       // Script loading — wait for it
@@ -35,6 +40,7 @@ export default function FounderUnicornProfile() {
 
   return (
     <div
+      ref={containerRef}
       data-us-project="bi8sQ4960W9R0aV2JSta"
       style={{
         width: "100%",
