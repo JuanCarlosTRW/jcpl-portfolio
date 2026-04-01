@@ -7,8 +7,8 @@ import { useLenis } from "@/context/LenisContext";
 
 /**
  * SpeedPopup — Premium informational modal.
- * Appears 10 seconds after page load, once per session.
- * Glass/dark aesthetic, accessible, keyboard-friendly.
+ * Appears after 45s, once per session.
+ * On close: stays on current scroll position (no jump).
  */
 export default function SpeedPopup() {
   const { locale } = useLocale();
@@ -16,12 +16,10 @@ export default function SpeedPopup() {
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
   const backdropRef = useRef<HTMLDivElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
-  const scrollLockRef = useRef<{ y: number; active: boolean }>({ y: 0, active: false });
   const lenisRef = useLenis();
 
-  /* Show after 10s — once per session */
+  /* Show after 45s, once per session */
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem("speed-popup-shown")) return;
@@ -29,14 +27,13 @@ export default function SpeedPopup() {
     const timer = setTimeout(() => {
       setVisible(true);
       sessionStorage.setItem("speed-popup-shown", "1");
-      // Focus the close button after opening
       requestAnimationFrame(() => closeBtnRef.current?.focus());
     }, 45000);
 
     return () => clearTimeout(timer);
   }, []);
 
-  /* Close handler with exit animation */
+  /* Close handler — simple hide, no scroll manipulation */
   const close = useCallback(() => {
     setClosing(true);
     setTimeout(() => {
@@ -44,6 +41,22 @@ export default function SpeedPopup() {
       setClosing(false);
     }, 300);
   }, []);
+
+  /* Pause/resume Lenis only (no body position hacks) */
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (visible && !closing) {
+      lenis?.stop();
+      document.body.style.overflow = "hidden";
+    } else if (!visible) {
+      document.body.style.overflow = "";
+      lenis?.start();
+    }
+    return () => {
+      document.body.style.overflow = "";
+      lenisRef.current?.start();
+    };
+  }, [visible, closing, lenisRef]);
 
   /* ESC key closes */
   useEffect(() => {
@@ -63,50 +76,6 @@ export default function SpeedPopup() {
     [close]
   );
 
-  /* iOS-safe scroll lock when open — restore only when fully hidden */
-  useEffect(() => {
-    const lenis = lenisRef.current;
-    if (visible) {
-      if (!scrollLockRef.current.active) {
-        const y = lenis ? lenis.scroll : window.scrollY;
-        scrollLockRef.current = { y, active: true };
-        document.body.style.overflow = "hidden";
-        document.body.style.position = "fixed";
-        document.body.style.top = `-${y}px`;
-        document.body.style.width = "100%";
-        lenis?.stop();
-      }
-    } else {
-      if (scrollLockRef.current.active) {
-        const { y } = scrollLockRef.current;
-        scrollLockRef.current.active = false;
-        document.body.style.overflow = "";
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        if (lenis) {
-          lenis.scrollTo(y, { immediate: true });
-          lenis.start();
-        } else {
-          window.scrollTo(0, y);
-        }
-      }
-    }
-    return () => {
-      if (scrollLockRef.current.active) {
-        const { y } = scrollLockRef.current;
-        scrollLockRef.current.active = false;
-        document.body.style.overflow = "";
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        const l = lenisRef.current;
-        if (l) { l.scrollTo(y, { immediate: true }); l.start(); }
-        else window.scrollTo(0, y);
-      }
-    };
-  }, [visible, lenisRef]);
-
   if (!visible) return null;
 
   return (
@@ -118,7 +87,7 @@ export default function SpeedPopup() {
       aria-modal="true"
       aria-labelledby="speed-popup-title"
     >
-      <div ref={panelRef} className="speed-popup-panel">
+      <div className="speed-popup-panel">
         {/* Animated border glow */}
         <div className="speed-popup-glow" aria-hidden="true" />
 

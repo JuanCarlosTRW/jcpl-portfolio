@@ -1,329 +1,282 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
-import AnimatedSection from "@/components/ui/AnimatedSection";
+import { motion, useInView } from "motion/react";
+import { Sparkles } from "@/components/ui/sparkles";
 
 const GROWTH_FEATURES = [
   "Conversion website: custom coded, built to rank and convert",
-  "Google Ads: targeting buyers with purchase intent in your city",
+  "Google Ads: purchase-intent targeting in your city",
   "Local SEO: Google Maps and organic positioning",
-  "AI search visibility: appear when buyers search on ChatGPT, Perplexity, and Google AI",
-  "Weekly campaign optimization: cost per call goes down every month",
+  "AI search visibility: appear in ChatGPT, Perplexity, Google AI",
+  "Weekly campaign optimization",
   "Monthly performance review call",
-  "Full asset ownership: everything is in your name",
+  "Full asset ownership: everything in your name",
 ];
 
 const SCALE_ADDITIONS = [
-  "Higher ad budget management: more spend, more calls, more jobs",
-  "AI lead qualification: automated follow-up qualifies leads before your phone rings",
-  "GEO (Generative Engine Optimization): when someone asks ChatGPT or Perplexity \u201Cbest [service] near me,\u201D your business is the answer. Most competitors do not know this exists yet.",
+  "Higher ad budget management: more spend, more calls",
+  "AI lead qualification: automated follow-up before your phone rings",
+  "GEO (Generative Engine Optimization): when someone asks ChatGPT \"best [service] near me,\" your business is the answer. Most competitors do not know this exists.",
   "Multi-location and multi-channel expansion",
   "Dedicated landing pages per service and per city",
   "Weekly strategy calls: direct line, every week",
 ];
 
+function PricingCard({
+  tag,
+  name,
+  price,
+  intro,
+  features,
+  proof,
+  guarantee,
+  conditions,
+  cta,
+  micro,
+  popular,
+  delay,
+}: {
+  tag: string;
+  name: string;
+  price: string;
+  intro?: string;
+  features: string[];
+  proof: string;
+  guarantee: string;
+  conditions: string;
+  cta: string;
+  micro: string;
+  popular?: boolean;
+  delay: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, delay }}
+      className="relative"
+    >
+      <div
+        className={`relative rounded-2xl p-8 flex flex-col h-full text-white border ${
+          popular
+            ? "border-[#D4A853]/40 shadow-[0px_-13px_200px_0px_rgba(212,168,83,0.15)]"
+            : "border-[#2A2318]"
+        }`}
+        style={{
+          background: popular
+            ? "linear-gradient(160deg, #1E1A14 0%, #1A1510 50%, #1E1A14 100%)"
+            : "linear-gradient(160deg, #1E1A14 0%, #151009 100%)",
+        }}
+      >
+        {/* Tag */}
+        <p
+          className="uppercase mb-3"
+          style={{ fontSize: "0.65rem", letterSpacing: "0.12em", color: "#D4A853" }}
+        >
+          {tag}
+        </p>
+
+        {/* Name */}
+        <h3
+          className="text-[24px] font-bold text-white mb-3"
+          style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+        >
+          {name}
+        </h3>
+
+        {/* Price */}
+        <div className="mb-5">
+          <span className="text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold text-white tracking-tight">
+            {price}
+          </span>
+          <span className="text-[1rem] text-[#756D63] ml-1">/month</span>
+        </div>
+
+        {/* Divider */}
+        <div className="mb-5" style={{ borderTop: "1px solid #2A2318" }} />
+
+        {/* Intro line */}
+        {intro && (
+          <p className="mb-4 text-[0.85rem] text-[#D2C9B8] font-medium">{intro}</p>
+        )}
+
+        {/* Features */}
+        <ul className="space-y-3 mb-6 flex-1">
+          {features.map((f) => (
+            <li key={f} className="flex items-start gap-2.5">
+              <Check className="shrink-0 mt-0.5 w-3.5 h-3.5 text-[#D4A853]" />
+              <span className="text-[0.85rem] text-[#D2C9B8] leading-[1.55]">{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Proof */}
+        <div
+          className="rounded-lg px-4 py-3 mb-5"
+          style={{ background: "rgba(212,168,83,0.04)", borderLeft: "2px solid rgba(212,168,83,0.4)" }}
+        >
+          <p className="text-[0.8rem] text-[#D2C9B8] leading-[1.6] italic">{proof}</p>
+        </div>
+
+        {/* Guarantee */}
+        <p className="mb-2 text-[0.8rem] text-[#A69D8D] leading-[1.6]">{guarantee}</p>
+        <p className="mb-6 text-[0.68rem] leading-[1.7]" style={{ color: "rgba(210,201,184,0.45)" }}>
+          {conditions}
+        </p>
+
+        {/* CTA */}
+        <div className="mt-auto space-y-2">
+          <Link
+            href="/apply"
+            className="flex items-center justify-center w-full font-semibold transition-all hover:brightness-110"
+            style={{
+              backgroundColor: "#D4A853",
+              color: "#0D0B09",
+              borderRadius: 8,
+              padding: "14px 28px",
+              fontSize: "0.9rem",
+            }}
+          >
+            {cta}
+          </Link>
+          <p className="text-center text-[12px]" style={{ color: "rgba(240,234,214,0.5)" }}>
+            {micro}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function PricingStatement() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+
   return (
     <section
       id="pricing"
-      className="px-4"
+      ref={sectionRef}
+      className="relative overflow-hidden"
       style={{
-        background: "#131009",
-        paddingTop: "clamp(64px, 10vw, 140px)",
-        paddingBottom: "clamp(64px, 10vw, 140px)",
+        background: "#0D0B09",
+        paddingTop: "clamp(80px, 12vw, 160px)",
+        paddingBottom: "clamp(80px, 12vw, 160px)",
       }}
     >
-      <div className="mx-auto max-w-[1060px]">
-        {/* Section label */}
-        <p
-          className="text-center uppercase"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.12em",
-            color: "#D4A853",
-            fontFamily: "var(--font-dm-sans), sans-serif",
-            fontWeight: 400,
-            marginBottom: 16,
-          }}
-        >
-          PRICING
-        </p>
+      {/* Sparkle background */}
+      <div className="absolute top-0 left-0 right-0 h-[400px] overflow-hidden" style={{ maskImage: "radial-gradient(50% 50%, white, transparent)" }}>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:70px_80px]" />
+        {isInView && (
+          <Sparkles
+            density={1200}
+            direction="bottom"
+            speed={0.8}
+            color="#D4A853"
+            className="absolute inset-x-0 bottom-0 h-full w-full"
+            opacity={0.6}
+          />
+        )}
+      </div>
 
-        {/* Section headline */}
-        <AnimatedSection direction="up" className="text-center mb-4">
-          <h2
-            className="font-bold text-white"
+      {/* Gold glow */}
+      <div
+        className="absolute top-0 left-[10%] right-[10%] w-[80%] h-full z-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle at center, rgba(212,168,83,0.08) 0%, transparent 70%)",
+          mixBlendMode: "screen",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1060px] px-6">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[11px] uppercase tracking-[0.12em] mb-4"
+            style={{ color: "#D4A853" }}
+          >
+            PRICING
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-bold text-white mb-4"
             style={{
-              fontSize: "clamp(2.2rem, 5.2vw, 4.4rem)",
+              fontSize: "clamp(2.2rem, 5.2vw, 3.5rem)",
               fontFamily: "var(--font-cormorant), Georgia, serif",
             }}
           >
-            One system. Two speeds.
-          </h2>
-        </AnimatedSection>
-
-        {/* Subheadline */}
-        <AnimatedSection direction="up" delay={0.05} className="text-center mb-14">
-          <p
-            style={{
-              fontSize: "0.9375rem",
-              color: "#A69D8D",
-              maxWidth: 520,
-              margin: "0 auto",
-              lineHeight: 1.65,
-            }}
+            One person. Full pipeline.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-[0.9375rem] max-w-md mx-auto"
+            style={{ color: "#A69D8D", lineHeight: 1.65 }}
           >
-            Both tiers include everything needed to fill your calendar. The difference is how fast you want to scale.
-          </p>
-        </AnimatedSection>
-
-        {/* Two-card layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* TIER 1: Growth Architecture */}
-          <AnimatedSection direction="left" delay={0}>
-            <div
-              className="rounded-2xl p-8 flex flex-col depth-card h-full"
-              style={{
-                background: "#1E1A14",
-                border: "1px solid #2A2318",
-                borderTop: "3px solid #D4A853",
-              }}
-            >
-              {/* Tagline */}
-              <p
-                className="uppercase mb-3"
-                style={{ fontSize: "0.65rem", letterSpacing: "0.12em", color: "#D4A853" }}
-              >
-                Get the phone ringing
-              </p>
-
-              {/* Tier name */}
-              <h3
-                className="text-[22px] font-bold text-white mb-3"
-              >
-                Growth Architecture
-              </h3>
-
-              {/* Price */}
-              <div className="mb-5">
-                <span
-                  className="font-extrabold text-white"
-                  style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}
-                >
-                  $2,500
-                </span>
-                <span
-                  className="align-middle ml-1"
-                  style={{ fontSize: "1rem", color: "#756D63", fontWeight: 400 }}
-                >
-                  / month
-                </span>
-              </div>
-
-              {/* Divider */}
-              <div className="mb-5" style={{ borderTop: "1px solid #2A2318" }} />
-
-              {/* Features */}
-              <ul className="space-y-3 mb-6">
-                {GROWTH_FEATURES.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5">
-                    <Check
-                      className="shrink-0 mt-0.5"
-                      size={14}
-                      style={{ color: "#D4A853" }}
-                    />
-                    <span style={{ fontSize: "0.85rem", color: "#D2C9B8", lineHeight: 1.55 }}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Proof anchor */}
-              <div
-                className="rounded-lg px-4 py-3 mb-5"
-                style={{
-                  background: "rgba(212,168,83,0.04)",
-                  borderLeft: "2px solid rgba(212,168,83,0.4)",
-                }}
-              >
-                <p style={{ fontSize: "0.8rem", color: "#D2C9B8", lineHeight: 1.6, fontStyle: "italic" }}>
-                  Triple W Rentals started here. $41,085 in revenue. $900 in ad spend. 30 days.
-                </p>
-              </div>
-
-              {/* Risk reversal */}
-              <p
-                className="mb-2"
-                style={{ fontSize: "0.8rem", color: "#A69D8D", lineHeight: 1.6 }}
-              >
-                If your phone does not ring in the first 30 days, I refund the management fee for that period.
-              </p>
-              <p className="mb-6" style={{ fontSize: "0.7rem", color: "rgba(210,201,184,0.5)", lineHeight: 1.7 }}>
-                Guarantee conditions: tracking must be fully in place before launch / minimum ad spend must be met / client must complete onboarding within 5 days / applies to markets where Google Ads inventory exists for your service category
-              </p>
-
-              {/* CTA */}
-              <div className="mt-auto space-y-2">
-                <Link
-                  href="/apply"
-                  className="flex items-center justify-center w-full text-base"
-                  style={{
-                    backgroundColor: "#D4A853",
-                    color: "#0D0B09",
-                    fontWeight: 600,
-                    border: "none",
-                    borderRadius: 6,
-                    padding: "14px 28px",
-                    fontSize: "0.9rem",
-                    transition: "background-color 200ms",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.backgroundColor = "#C49A2A";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.backgroundColor = "#D4A853";
-                  }}
-                >
-                  Apply to be a Partner &rarr;
-                </Link>
-                <p
-                  className="text-center"
-                  style={{ fontSize: "12px", color: "rgba(240,234,214,0.5)" }}
-                >
-                  I review every application within 24 hours.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* TIER 2: Scale Architecture */}
-          <AnimatedSection direction="right" delay={0.15}>
-            <div
-              className="rounded-2xl p-8 flex flex-col depth-card h-full"
-              style={{
-                background: "#1E1A14",
-                border: "1px solid #2A2318",
-                borderTop: "3px solid #D4A853",
-              }}
-            >
-              {/* Tagline */}
-              <p
-                className="uppercase mb-3"
-                style={{ fontSize: "0.65rem", letterSpacing: "0.12em", color: "#D4A853" }}
-              >
-                Saturate your market
-              </p>
-
-              {/* Tier name */}
-              <h3
-                className="text-[22px] font-bold text-white mb-3"
-              >
-                Scale Architecture
-              </h3>
-
-              {/* Price */}
-              <div className="mb-5">
-                <span
-                  className="font-extrabold text-white"
-                  style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}
-                >
-                  $4,500
-                </span>
-                <span
-                  className="align-middle ml-1"
-                  style={{ fontSize: "1rem", color: "#756D63", fontWeight: 400 }}
-                >
-                  / month
-                </span>
-              </div>
-
-              {/* Divider */}
-              <div className="mb-5" style={{ borderTop: "1px solid #2A2318" }} />
-
-              {/* Intro line */}
-              <p
-                className="mb-4"
-                style={{ fontSize: "0.85rem", color: "#D2C9B8", fontWeight: 500 }}
-              >
-                Everything in Growth Architecture, plus:
-              </p>
-
-              {/* Features */}
-              <ul className="space-y-3 mb-6">
-                {SCALE_ADDITIONS.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5">
-                    <Check
-                      className="shrink-0 mt-0.5"
-                      size={14}
-                      style={{ color: "#D4A853" }}
-                    />
-                    <span style={{ fontSize: "0.85rem", color: "#D2C9B8", lineHeight: 1.55 }}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Proof anchor */}
-              <div
-                className="rounded-lg px-4 py-3 mb-5"
-                style={{
-                  background: "rgba(212,168,83,0.04)",
-                  borderLeft: "2px solid rgba(212,168,83,0.4)",
-                }}
-              >
-                <p style={{ fontSize: "0.8rem", color: "#D2C9B8", lineHeight: 1.6, fontStyle: "italic" }}>
-                  This is the tier where a single city becomes a category you own.
-                </p>
-              </div>
-
-              {/* Risk reversal */}
-              <p
-                className="mb-2"
-                style={{ fontSize: "0.8rem", color: "#A69D8D", lineHeight: 1.6 }}
-              >
-                If your phone does not ring in the first 30 days, I refund the management fee for that period.
-              </p>
-              <p className="mb-6" style={{ fontSize: "0.7rem", color: "rgba(210,201,184,0.5)", lineHeight: 1.7 }}>
-                Guarantee conditions: tracking must be fully in place before launch / minimum ad spend must be met / client must complete onboarding within 5 days / applies to markets where Google Ads inventory exists for your service category
-              </p>
-
-              {/* CTA */}
-              <div className="mt-auto space-y-2">
-                <Link
-                  href="/apply"
-                  className="flex items-center justify-center w-full text-base"
-                  style={{
-                    backgroundColor: "#D4A853",
-                    color: "#0D0B09",
-                    fontWeight: 600,
-                    border: "none",
-                    borderRadius: 6,
-                    padding: "14px 28px",
-                    fontSize: "0.9rem",
-                    transition: "background-color 200ms",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.backgroundColor = "#C49A2A";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.backgroundColor = "#D4A853";
-                  }}
-                >
-                  Apply to be a Partner &rarr;
-                </Link>
-                <p
-                  className="text-center"
-                  style={{ fontSize: "12px", color: "rgba(240,234,214,0.5)" }}
-                >
-                  3 active partnerships maximum. I review in 24 hours.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
+            Two speeds. Same operator. Same accountability.
+          </motion.p>
         </div>
+
+        {/* Two-card grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+          <PricingCard
+            tag="Get the phone ringing"
+            name="Growth Architecture"
+            price="$2,500"
+            features={GROWTH_FEATURES}
+            proof="Triple W Rentals started here. $41,085. $900 ad spend. 30 days."
+            guarantee="If your phone does not ring in the first 30 days, I refund the management fee for that period."
+            conditions="Conditions: tracking in place before launch · minimum ad spend met · onboarding completed within 5 days · applies where Google Ads inventory exists"
+            cta="Apply to be a Partner →"
+            micro="I review every application within 24 hours."
+            popular
+            delay={0.1}
+          />
+          <PricingCard
+            tag="Saturate your market"
+            name="Scale Architecture"
+            price="$4,500"
+            intro="Everything in Growth Architecture, plus:"
+            features={SCALE_ADDITIONS}
+            proof="This is the tier where a single city becomes a category you own."
+            guarantee="If your phone does not ring in the first 30 days, I refund the management fee for that period."
+            conditions="Conditions: tracking in place before launch · minimum ad spend met · onboarding completed within 5 days · applies where Google Ads inventory exists"
+            cta="Apply to be a Partner →"
+            micro="3 active partnerships maximum. I review in 24 hours."
+            delay={0.25}
+          />
+        </div>
+
+        {/* Trust badges */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="text-center"
+        >
+          <p className="text-[14px] text-[#D2C9B8] mb-6">
+            No payment before fit. I confirm strategic fit on the call before you pay anything.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {["90-day initial term", "You own everything", "No account managers"].map((badge) => (
+              <span key={badge} className="text-[12px] flex items-center gap-2" style={{ color: "#756D63" }}>
+                <span style={{ color: "#D4A853" }}>&#10003;</span> {badge}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
