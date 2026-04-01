@@ -1,23 +1,27 @@
 "use client";
 
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import FounderUnicornProfile from "@/components/ui/FounderUnicornProfile";
 
 export default function AboutSection() {
   return (
     <section id="about" style={{ background: "#131009", paddingTop: "clamp(64px,10vw,120px)", paddingBottom: "clamp(64px,10vw,120px)" }}>
       <div className="max-w-[1060px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: Unicorn Studio animated portrait */}
+          {/* Left: animation placeholder */}
           <AnimatedSection direction="left">
             <div
               className="rounded-xl overflow-hidden"
               style={{
                 maxWidth: 480,
                 aspectRatio: "4/5",
+                background: "linear-gradient(135deg, #1E1A14 0%, #0D0B09 100%)",
+                border: "1px solid #2A2318",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <FounderUnicornProfile />
+              <p className="text-[13px]" style={{ color: "#756D63" }}>CG</p>
             </div>
           </AnimatedSection>
 
