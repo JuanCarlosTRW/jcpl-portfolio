@@ -153,7 +153,7 @@ export default function FeaturedCaseStudy() {
             fontWeight: 600,
           }}
         >
-          LEAD RESULT
+          LEAD RESULT — VERIFIED REVENUE
         </p>
       </Reveal>
 
@@ -164,7 +164,7 @@ export default function FeaturedCaseStudy() {
             className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card case-study-card-primary"
             style={{
               background: "rgba(212, 168, 83, 0.05)",
-              border: "1px solid rgba(212, 168, 83, 0.6)",
+              border: "1px solid rgba(212, 168, 83, 0.4)",
             }}
           >
             <p

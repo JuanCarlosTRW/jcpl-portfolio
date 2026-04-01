@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -70,8 +70,6 @@ const SERVICES = [
   },
 ];
 
-const AUTO_PLAY_DURATION = 5000;
-
 /* ── Browser Frame ── */
 
 function BrowserFrame({
@@ -94,7 +92,6 @@ function BrowserFrame({
           "0 24px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,168,83,0.05)",
       }}
     >
-      {/* Title bar */}
       <div
         style={{
           display: "flex",
@@ -105,30 +102,9 @@ function BrowserFrame({
           borderBottom: "1px solid rgba(255,255,255,0.05)",
         }}
       >
-        <span
-          style={{
-            width: 10,
-            height: 10,
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.12)",
-          }}
-        />
-        <span
-          style={{
-            width: 10,
-            height: 10,
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.12)",
-          }}
-        />
-        <span
-          style={{
-            width: 10,
-            height: 10,
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.12)",
-          }}
-        />
+        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "rgba(255,255,255,0.12)" }} />
+        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "rgba(255,255,255,0.12)" }} />
+        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "rgba(255,255,255,0.12)" }} />
         <span
           style={{
             marginLeft: 12,
@@ -140,7 +116,6 @@ function BrowserFrame({
           {url}
         </span>
       </div>
-      {/* Content */}
       <div className="relative">
         {badge && (
           <span
@@ -191,21 +166,8 @@ function PhoneFrame({
         margin: "0 auto",
       }}
     >
-      {/* Notch */}
-      <div
-        style={{
-          width: 100,
-          height: 4,
-          background: "rgba(255,255,255,0.1)",
-          borderRadius: 2,
-          margin: "0 auto 8px",
-        }}
-      />
-      {/* Screen */}
-      <div
-        className="relative"
-        style={{ borderRadius: 20, overflow: "hidden" }}
-      >
+      <div style={{ width: 100, height: 4, background: "rgba(255,255,255,0.1)", borderRadius: 2, margin: "0 auto 8px" }} />
+      <div className="relative" style={{ borderRadius: 20, overflow: "hidden" }}>
         {badge && (
           <span
             style={{
@@ -229,16 +191,7 @@ function PhoneFrame({
         )}
         {children}
       </div>
-      {/* Bottom bar */}
-      <div
-        style={{
-          width: 80,
-          height: 4,
-          background: "rgba(255,255,255,0.08)",
-          borderRadius: 2,
-          margin: "8px auto 0",
-        }}
-      />
+      <div style={{ width: 80, height: 4, background: "rgba(255,255,255,0.08)", borderRadius: 2, margin: "8px auto 0" }} />
     </div>
   );
 }
@@ -266,42 +219,16 @@ function FramedImage({
   );
 
   if (service.frameType === "phone") {
-    return (
-      <PhoneFrame badge={service.badge}>
-        {img}
-      </PhoneFrame>
-    );
+    return <PhoneFrame badge={service.badge}>{img}</PhoneFrame>;
   }
 
-  return (
-    <BrowserFrame url={service.frameUrl} badge={service.badge}>
-      {img}
-    </BrowserFrame>
-  );
+  return <BrowserFrame url={service.frameUrl} badge={service.badge}>{img}</BrowserFrame>;
 }
 
-/* ── Main Component ── */
+/* ── Main Component — Click-only tab navigation ── */
 
 export function VerticalTabs() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const handleNext = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % SERVICES.length);
-  }, []);
-
-  const handleTabClick = (index: number) => {
-    if (index === activeIndex) return;
-    setActiveIndex(index);
-    setIsPaused(false);
-  };
-
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(handleNext, AUTO_PLAY_DURATION);
-    return () => clearInterval(interval);
-  }, [activeIndex, isPaused, handleNext]);
-
   const active = SERVICES[activeIndex];
 
   return (
@@ -316,51 +243,50 @@ export function VerticalTabs() {
       }}
     >
       <div className="w-full px-4 md:px-8 lg:px-12 xl:px-20 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-start">
-          {/* ── Left Column: Text ── */}
-          <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-4">
-            {/* Section header */}
-            <div className="mb-12">
-              <span
-                className="block"
-                style={{
-                  fontFamily: "var(--font-dm-sans), sans-serif",
-                  fontSize: "11px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.15em",
-                  color: "#D4A853",
-                  marginBottom: 16,
-                }}
-              >
-                THE ACQUISITION SYSTEM
-              </span>
-              <h2
-                className="tracking-tight text-balance"
-                style={{
-                  fontFamily: "var(--font-cormorant), Georgia, serif",
-                  fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                  fontWeight: 300,
-                  lineHeight: 1.1,
-                  color: "#F0EAD6",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                The system that fills your calendar.
-              </h2>
-            </div>
+        {/* Section header */}
+        <div className="mb-12">
+          <span
+            className="block"
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "11px",
+              fontWeight: 400,
+              textTransform: "uppercase",
+              letterSpacing: "0.15em",
+              color: "#D4A853",
+              marginBottom: 16,
+            }}
+          >
+            THE ACQUISITION SYSTEM
+          </span>
+          <h2
+            className="tracking-tight text-balance"
+            style={{
+              fontFamily: "var(--font-cormorant), Georgia, serif",
+              fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
+              fontWeight: 300,
+              lineHeight: 1.1,
+              color: "#F0EAD6",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            The system that fills your calendar.
+          </h2>
+        </div>
 
-            {/* Entries */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-start">
+          {/* ── Left Column: Tab buttons + content ── */}
+          <div className="lg:col-span-5 flex flex-col order-2 lg:order-1">
+            {/* Tab buttons */}
             <div className="flex flex-col space-y-0">
               {SERVICES.map((service, index) => {
                 const isActive = activeIndex === index;
                 return (
                   <div key={service.id}>
                     <button
-                      onClick={() => handleTabClick(index)}
+                      onClick={() => setActiveIndex(index)}
                       className={cn(
-                        "group relative flex items-start gap-4 text-left w-full border-t first:border-0",
-                        isActive ? "text-[#F0EAD6]" : "text-[rgba(240,234,214,0.3)] hover:text-[rgba(240,234,214,0.6)]"
+                        "group relative flex items-start gap-4 text-left w-full border-t first:border-0 cursor-pointer"
                       )}
                       style={{
                         borderColor: "rgba(212,168,83,0.12)",
@@ -368,30 +294,14 @@ export function VerticalTabs() {
                         paddingBottom: "clamp(24px, 3vw, 32px)",
                       }}
                     >
-                      {/* Gold progress indicator */}
+                      {/* Gold left border — active indicator */}
                       <div
-                        className="absolute left-[-16px] md:left-[-24px] top-0 bottom-0 w-[2px]"
+                        className="absolute left-[-16px] md:left-[-24px] top-0 bottom-0 w-[3px]"
                         style={{
-                          background: isActive
-                            ? "#D4A853"
-                            : "rgba(212,168,83,0.12)",
-                          transition: "background 400ms ease",
+                          background: isActive ? "#D4A853" : "transparent",
+                          transition: "background 0.3s ease",
                         }}
-                      >
-                        {isActive && (
-                          <motion.div
-                            key={`progress-${index}-${isPaused}`}
-                            className="absolute top-0 left-0 w-full origin-top"
-                            style={{ background: "#D4A853" }}
-                            initial={{ height: "0%" }}
-                            animate={isPaused ? { height: "0%" } : { height: "100%" }}
-                            transition={{
-                              duration: AUTO_PLAY_DURATION / 1000,
-                              ease: "linear",
-                            }}
-                          />
-                        )}
-                      </div>
+                      />
 
                       {/* Entry number */}
                       <span
@@ -402,7 +312,7 @@ export function VerticalTabs() {
                           fontWeight: 500,
                           marginTop: 6,
                           color: isActive ? "#D4A853" : "rgba(212,168,83,0.3)",
-                          transition: "color 400ms ease",
+                          transition: "color 0.3s ease",
                         }}
                       >
                         /{service.id}
@@ -417,24 +327,22 @@ export function VerticalTabs() {
                             fontWeight: 300,
                             fontStyle: "italic",
                             letterSpacing: "-0.01em",
-                            color: isActive ? "#F0EAD6" : "rgba(240,234,214,0.3)",
-                            transition: "color 400ms ease-in-out",
+                            color: isActive ? "#F0EAD6" : "rgba(240,234,214,0.4)",
+                            opacity: isActive ? 1 : 0.4,
+                            transition: "color 0.3s ease, opacity 0.3s ease",
                           }}
                         >
                           {service.title}
                         </span>
 
-                        {/* Expandable content */}
+                        {/* Expandable content — only shown for active tab */}
                         <AnimatePresence mode="wait">
                           {isActive && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
-                              transition={{
-                                duration: 0.3,
-                                ease: [0.23, 1, 0.32, 1],
-                              }}
+                              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                               className="overflow-hidden"
                             >
                               <p
@@ -449,7 +357,6 @@ export function VerticalTabs() {
                                 {service.description}
                               </p>
 
-                              {/* Tags */}
                               <div className="flex flex-col gap-1.5 mt-1">
                                 {service.subItems.map((item) => (
                                   <p
@@ -476,7 +383,7 @@ export function VerticalTabs() {
                       </div>
                     </button>
 
-                    {/* ── Mobile: inline framed image below each active entry ── */}
+                    {/* ── Mobile: inline framed image below active tab ── */}
                     <div className="lg:hidden">
                       <AnimatePresence>
                         {isActive && (
@@ -487,7 +394,6 @@ export function VerticalTabs() {
                             transition={{ duration: 0.3 }}
                             className="mb-6"
                           >
-                            {/* Stats */}
                             <div className="mb-3">
                               <p
                                 style={{
@@ -535,14 +441,9 @@ export function VerticalTabs() {
             </div>
           </div>
 
-          {/* ── Right Column: Sticky framed gallery (desktop only) ── */}
+          {/* ── Right Column: Framed gallery (desktop only) ── */}
           <div className="lg:col-span-7 hidden lg:flex flex-col h-full order-1 lg:order-2">
-            <div
-              className="sticky"
-              style={{ top: "15vh" }}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
+            <div className="sticky" style={{ top: "15vh" }}>
               {/* Stats card */}
               <div className="mb-4" style={{ minHeight: 60 }}>
                 <AnimatePresence mode="wait">

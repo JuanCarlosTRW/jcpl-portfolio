@@ -717,7 +717,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         { question: "How fast can this go live?", answer: "Build time is 11 days median. Full system live within 2 to 4 weeks depending on onboarding speed." },
         { question: "Do you handle Google Ads?", answer: "Yes. Google Ads is built into every engagement. I handle campaign setup, keyword targeting, ad copy, and ongoing optimization. Every campaign targets purchase-intent searches only. People actively looking to hire, not browsers. Cost per call is tracked from day one." },
         { question: "Do I own the website and assets?", answer: "Everything built belongs to your business. The website, ad accounts, analytics, and tracking are all in your name. If you ever leave, you take everything with you. Nothing is held by me as leverage." },
-        { question: "What happens after launch?", answer: "Every week I review what is working and cut what is not. Every month I send a revenue report with real numbers: calls generated, cost per call, revenue attributed to the system. The system compounds. Your cost per call goes down the longer it runs." },
+        { question: "What happens after launch?", answer: "Every week I review what is working and cut what is not. Every month I send a revenue report with real numbers: calls generated, cost per call, revenue attributed to the system. The system compounds: your cost per call goes down the longer it runs." },
         { question: "What is the minimum ad spend?", answer: "I recommend starting at $500/month in ad spend. Ad spend goes directly to Google, not to me. The right budget is discussed during the fit process." },
       ],
       ctaTitle: "Apply to be a Partner",
