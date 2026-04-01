@@ -96,48 +96,6 @@ export default function QualificationCTA() {
               style={{ borderColor: "#2A2318" }}
             >
               {/* Gold accent line */}
-              <div
-                aria-hidden="true"
-                style={{
-                  width: 32,
-                  height: 2,
-                  background: "linear-gradient(to right, #D4A853, transparent)",
-                  margin: "0 auto 24px",
-                }}
-              />
-              <p
-                className="text-center font-bold"
-                style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.375rem)", color: "#F5F0E8" }}
-              >
-                {f.closingBold}
-              </p>
-              <p
-                className="text-center mt-2"
-                style={{ fontSize: "clamp(1rem, 1.3vw, 1.125rem)", color: "#5E5650" }}
-              >
-                {f.closingSub}
-              </p>
-              <div className="flex flex-col items-center mt-10">
-                <Link
-                  href="/services"
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "#D4A853",
-                    textDecoration: "none",
-                    transition: "color 180ms ease",
-                  }}
-                  onMouseOver={(e) => { e.currentTarget.style.color = "#F5F0E8"; }}
-                  onMouseOut={(e) => { e.currentTarget.style.color = "#D4A853"; }}
-                >
-                  How the system works &rarr;
-                </Link>
-                <p
-                  className="mt-3 text-center max-w-xs"
-                  style={{ fontSize: "0.875rem", color: "#5E5650", lineHeight: 1.65 }}
-                >
-                  {f.belowCta}
-                </p>
-              </div>
             </div>
           </Reveal>
         </div>

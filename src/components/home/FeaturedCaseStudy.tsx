@@ -271,6 +271,21 @@ export default function FeaturedCaseStudy() {
               BARBERSHOP · MONTREAL · WEB DESIGN
             </p>
 
+            {/* Delivered badge */}
+            <div className="flex items-center gap-2 mb-4">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+                style={{
+                  background: "rgba(166,157,141,0.08)",
+                  border: "1px solid rgba(166,157,141,0.25)",
+                }}
+              >
+                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#A69D8D", textTransform: "uppercase" }}>
+                  DELIVERED
+                </span>
+              </span>
+            </div>
+
             <p
               style={{
                 fontSize: "0.7rem",
