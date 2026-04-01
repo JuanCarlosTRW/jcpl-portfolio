@@ -1,11 +1,16 @@
 "use client";
 
 import { useRef } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { Sparkles } from "@/components/ui/sparkles";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
+
+const MagicRings = dynamic(() => import("@/components/ui/MagicRings"), {
+  ssr: false,
+});
 
 const GROWTH_FEATURES = [
   "Conversion website: custom coded, built to rank and convert",
@@ -178,29 +183,39 @@ export default function PricingStatement() {
         paddingBottom: "clamp(80px, 12vw, 160px)",
       }}
     >
-      {/* ── BACKGROUND LAYER 1: Glowing gradient ellipses ── */}
+      {/* ── BACKGROUND LAYER 1: MagicRings WebGL effect ── */}
       <motion.div
-        className="absolute left-0 right-0 top-[-200px] h-[2000px] flex items-start justify-center overflow-hidden pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         variants={glowEntrance}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
+        style={{ zIndex: 0 }}
       >
-        <div
-          className="absolute left-[-400px] right-[-400px] top-0 h-[1800px] rounded-full"
-          style={{
-            border: "180px solid rgba(212,168,83,0.06)",
-            filter: "blur(100px)",
-            WebkitFilter: "blur(100px)",
-          }}
-        />
-        <div
-          className="absolute left-[-300px] right-[-300px] top-[100px] h-[1600px] rounded-full"
-          style={{
-            border: "150px solid rgba(212,168,83,0.04)",
-            filter: "blur(80px)",
-            WebkitFilter: "blur(80px)",
-          }}
-        />
+        {isInView && (
+          <MagicRings
+            color="#D4A853"
+            colorTwo="#8B7535"
+            ringCount={6}
+            speed={0.6}
+            attenuation={10}
+            lineThickness={2}
+            baseRadius={0.35}
+            radiusStep={0.1}
+            scaleRate={0.1}
+            opacity={0.5}
+            blur={0}
+            noiseAmount={0.05}
+            rotation={0}
+            ringGap={1.5}
+            fadeIn={0.7}
+            fadeOut={0.5}
+            followMouse={false}
+            mouseInfluence={0.2}
+            hoverScale={1.2}
+            parallax={0.05}
+            clickBurst={false}
+          />
+        )}
       </motion.div>
 
       {/* ── BACKGROUND LAYER 2: Sparkles + grid ── */}
