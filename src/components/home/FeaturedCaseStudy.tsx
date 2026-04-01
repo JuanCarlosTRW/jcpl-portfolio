@@ -286,6 +286,7 @@ export default function FeaturedCaseStudy() {
               </span>
             </div>
 
+            {/* Deliverable label */}
             <p
               style={{
                 fontSize: "0.7rem",
@@ -300,12 +301,12 @@ export default function FeaturedCaseStudy() {
             </p>
             <div
               className="text-[#F5F0E8] font-extrabold mb-2"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 3.5rem)", lineHeight: 1 }}
+              style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
             >
               Full custom website
             </div>
             <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
-              Designed and coded to convert visitors into booked appointments
+              Fully custom coded conversion website. Designed and built to convert visitors into booked appointments. Mobile-optimized booking flow included.
             </p>
 
             <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>

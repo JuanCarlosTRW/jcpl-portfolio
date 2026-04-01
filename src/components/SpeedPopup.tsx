@@ -63,10 +63,10 @@ export default function SpeedPopup() {
     [close]
   );
 
-  /* iOS-safe scroll lock when open */
+  /* iOS-safe scroll lock when open — restore only when fully hidden */
   useEffect(() => {
     const lenis = lenisRef.current;
-    if (visible && !closing) {
+    if (visible) {
       if (!scrollLockRef.current.active) {
         const y = lenis ? lenis.scroll : window.scrollY;
         scrollLockRef.current = { y, active: true };
@@ -105,7 +105,7 @@ export default function SpeedPopup() {
         else window.scrollTo(0, y);
       }
     };
-  }, [visible, closing, lenisRef]);
+  }, [visible, lenisRef]);
 
   if (!visible) return null;
 
