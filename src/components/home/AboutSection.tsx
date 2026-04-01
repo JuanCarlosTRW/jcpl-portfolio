@@ -15,7 +15,7 @@ export default function AboutSection() {
           {/* Left: Unicorn Studio animated portrait */}
           <AnimatedSection direction="left">
             <div
-              className="rounded-xl overflow-hidden"
+              className="rounded-xl overflow-hidden max-h-[280px] lg:max-h-none"
               style={{
                 maxWidth: 480,
                 aspectRatio: "4/5",

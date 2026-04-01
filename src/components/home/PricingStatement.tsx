@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { Sparkles } from "@/components/ui/sparkles";
-import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 const GROWTH_FEATURES = [
   "Conversion website: custom coded, built to rank and convert",
@@ -245,31 +244,19 @@ export default function PricingStatement() {
             PRICING
           </motion.p>
 
-          {isInView && (
-            <h2
-              className="font-bold text-white mb-4"
-              style={{
-                fontSize: "clamp(2.2rem, 5.2vw, 3.5rem)",
-                fontFamily: "var(--font-cormorant), Georgia, serif",
-              }}
-            >
-              <VerticalCutReveal
-                splitBy="words"
-                staggerDuration={0.12}
-                staggerFrom="first"
-                reverse={true}
-                containerClassName="justify-center"
-                transition={{
-                  type: "spring",
-                  stiffness: 250,
-                  damping: 40,
-                  delay: 0,
-                }}
-              >
-                One person. Full pipeline.
-              </VerticalCutReveal>
-            </h2>
-          )}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-bold text-white mb-4"
+            style={{
+              fontSize: "clamp(2.2rem, 5.2vw, 3.5rem)",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
+            }}
+          >
+            One person. Full pipeline.
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0 }}

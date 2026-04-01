@@ -8,6 +8,32 @@ html { scroll-behavior: smooth; }
 
 .testimonial-slider::-webkit-scrollbar { display: none; }
 
+@keyframes blurIn {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px);
+  }
+}
+
+.blur-word {
+  display: inline-block;
+  opacity: 0;
+  animation: blurIn 0.5s ease forwards;
+}
+
+.blur-line {
+  opacity: 0;
+}
+.blur-line.animate {
+  animation: blurIn 0.6s ease forwards;
+}
+
 /* ═══════════════════════════════════════════════════
    TAILWIND v4 THEME — Sapphire Veil Design Tokens
    These register as standard Tailwind utilities:

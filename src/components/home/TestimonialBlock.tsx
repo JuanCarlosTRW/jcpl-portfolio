@@ -12,19 +12,19 @@ const testimonialsData = [
     name: "Tobari",
     role: "Culture Barbershop · Montreal, QC",
     context: "Barbershop: full custom website delivered",
-    imageSrc:
-      "/images/testimonials/mike-s.png",
+    imageSrc: "",
+    monogram: "T",
   },
   {
     id: 2,
     quote:
-      "First call came in 9 days. We had tried two agencies before this. Nothing came close.",
+      "First call came in 9 days. I had tried two agencies before this. Nothing came close.",
     name: "Westin Wayne Walker",
     role: "Triple W Rentals · Texas",
     context: "RV rental: Texas market, Google Ads, first call in 11 days",
     caseStudyHref: "/results/triple-w-rentals",
-    imageSrc:
-      "/images/testimonials/tyler-w.png",
+    imageSrc: "",
+    monogram: "W",
   },
   {
     id: 3,
@@ -33,7 +33,8 @@ const testimonialsData = [
     name: "Hadi",
     role: "Elite Barbershop · Montreal, QC",
     context: "Barbershop: local market, SEO campaign in progress",
-    imageSrc: "/images/testimonials/alex-m.png",
+    imageSrc: "",
+    monogram: "H",
   },
   {
     id: 4,

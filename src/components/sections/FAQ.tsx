@@ -54,9 +54,8 @@ export default function FAQ() {
         {/* Accordion */}
         <div className="mt-12">
           <Accordion
-            type="single"
-            collapsible
-            defaultValue="item-0"
+            type="multiple"
+            defaultValue={["item-0", "item-4"]}
             className="w-full rounded-2xl border px-6 py-3 sm:px-8"
             style={{
               background: "#1E1A14",

@@ -74,7 +74,7 @@ export default function HeroSection() {
       >
         {/* Headline */}
         <h1
-          className="hero-fadeup hero-headline"
+          className="hero-headline"
           style={{
             fontFamily: "var(--font-cormorant), Georgia, serif",
             fontSize: "clamp(2.8rem, 5.5vw, 5rem)",
@@ -87,13 +87,22 @@ export default function HeroSection() {
             textShadow: "0 2px 40px rgba(0,0,0,0.9), 0 0 80px rgba(0,0,0,0.7)",
           }}
         >
-          I build the system that{" "}
-          <em style={{
+          {["I", "build", "the", "system", "that"].map((word, i) => (
+            <span key={word} className="blur-word" style={{ animationDelay: `${i * 0.08}s` }}>
+              {word}{" "}
+            </span>
+          ))}
+          <em className="blur-word" style={{
+            animationDelay: "0.40s",
             color: "#D4A853",
             fontStyle: "italic",
             textShadow: "0 2px 40px rgba(0,0,0,0.9), 0 0 60px rgba(212,168,83,0.3)",
           }}>fills</em>{" "}
-          your calendar.
+          {["your", "calendar."].map((word, i) => (
+            <span key={word} className="blur-word" style={{ animationDelay: `${0.48 + i * 0.08}s` }}>
+              {word}{i === 0 ? " " : ""}
+            </span>
+          ))}
         </h1>
 
         {/* Subheadline — Fix 3 */}
@@ -128,7 +137,7 @@ export default function HeroSection() {
           }}
         >
           <Link href="/apply" className="primary-cta">
-            BOOK A DIAGNOSTIC CALL
+            Apply to be a Partner →
           </Link>
 
           <Link href="/results" className="hero-text-link">

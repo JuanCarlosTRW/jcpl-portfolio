@@ -9,6 +9,7 @@ interface Testimonial {
   name: string;
   role: string;
   imageSrc: string;
+  monogram?: string;
 }
 
 interface TestimonialSectionProps {
@@ -142,13 +143,39 @@ export const TestimonialSection = ({
                 className="relative w-full overflow-hidden"
                 style={{ aspectRatio: "3/4" }}
               >
-                <img
-                  src={testimonial.imageSrc}
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover object-top pointer-events-none"
-                  style={{ borderRadius: "12px 12px 0 0" }}
-                  draggable={false}
-                />
+                {testimonial.monogram ? (
+                  <div
+                    className="w-full h-full flex items-center justify-center"
+                    style={{ background: "#1A1510" }}
+                  >
+                    <div
+                      style={{
+                        width: 80,
+                        height: 80,
+                        borderRadius: "50%",
+                        background: "#1A1510",
+                        border: "1px solid rgba(212,168,83,0.4)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontFamily: "var(--font-cormorant), Georgia, serif",
+                        fontSize: 32,
+                        color: "#D4A853",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {testimonial.monogram}
+                    </div>
+                  </div>
+                ) : (
+                  <img
+                    src={testimonial.imageSrc}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover object-top pointer-events-none"
+                    style={{ borderRadius: "12px 12px 0 0" }}
+                    draggable={false}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
               </div>
 

@@ -324,9 +324,145 @@ export default function FeaturedCaseStudy() {
         </div>
       </Reveal>
 
+      {/* — PAINTING: Absolute Painting (Wesley) — Website Delivered */}
+      <Reveal delay={0.25}>
+        <div className="max-w-3xl mx-auto mb-6">
+          <div
+            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card"
+            style={{
+              background: "#1E1A14",
+              border: "1px solid #2A2318",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "#756D63",
+                textTransform: "uppercase",
+                marginBottom: 16,
+              }}
+            >
+              PAINTING CONTRACTOR · DALLAS-FORT WORTH · WEB DESIGN
+            </p>
+
+            <div className="flex items-center gap-2 mb-4">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+                style={{
+                  background: "rgba(166,157,141,0.08)",
+                  border: "1px solid rgba(166,157,141,0.25)",
+                }}
+              >
+                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#A69D8D", textTransform: "uppercase" }}>
+                  IN THE FIELD
+                </span>
+              </span>
+            </div>
+
+            <div
+              className="text-[#F5F0E8] font-extrabold mb-2"
+              style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
+            >
+              Live
+            </div>
+            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
+              Conversion website. DFW market. Tracking active.
+            </p>
+
+            <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>
+              <p
+                style={{
+                  fontSize: "0.72rem",
+                  color: "#756D63",
+                  fontStyle: "italic",
+                }}
+              >
+                Wesley, Absolute Painting · absolutepainting.vercel.app
+              </p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* — DENTAL: Centre Dentaire Saint-Élzéar (Dre Benyoucef) — Website Delivered */}
+      <Reveal delay={0.3}>
+        <div className="max-w-3xl mx-auto mb-6">
+          <div
+            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card"
+            style={{
+              background: "#1E1A14",
+              border: "1px solid #2A2318",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "#756D63",
+                textTransform: "uppercase",
+                marginBottom: 16,
+              }}
+            >
+              DENTAL CLINIC · LAVAL · WEB DESIGN
+            </p>
+
+            <div className="flex items-center gap-2 mb-4">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+                style={{
+                  background: "rgba(166,157,141,0.08)",
+                  border: "1px solid rgba(166,157,141,0.25)",
+                }}
+              >
+                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#A69D8D", textTransform: "uppercase" }}>
+                  IN THE FIELD
+                </span>
+              </span>
+            </div>
+
+            <div
+              className="text-[#F5F0E8] font-extrabold mb-2"
+              style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
+            >
+              Live
+            </div>
+            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
+              Full custom website. Booking funnel built.
+            </p>
+
+            <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>
+              <p
+                style={{
+                  fontSize: "0.72rem",
+                  color: "#756D63",
+                  fontStyle: "italic",
+                }}
+              >
+                Dre Benyoucef, Centre Dentaire Saint-Élzéar · as.centredentairese.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Revenue summary */}
+      <Reveal delay={0.35}>
+        <p
+          className="text-center mt-4 mb-6"
+          style={{
+            fontSize: "0.85rem",
+            color: "#D4A853",
+            fontFamily: "var(--font-dm-sans), sans-serif",
+          }}
+        >
+          $60K+ in tracked revenue across active partnerships. Updated as results are verified.
+        </p>
+      </Reveal>
+
       {/* See all results */}
-      <Reveal delay={0.2}>
-        <div className="text-center mt-10">
+      <Reveal delay={0.4}>
+        <div className="text-center mt-4">
           <Link
             href={lp("/results")}
             style={{

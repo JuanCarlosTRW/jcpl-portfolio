@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { Reveal } from "@/components/motion";
 
@@ -35,6 +36,29 @@ const POINTS = [
 ];
 
 export default function TheReality() {
+  const hookRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = hookRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.querySelectorAll(".blur-line").forEach((line) => {
+            line.classList.add("animate");
+          });
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Map non-empty lines to stagger delays
+  const lineDelays = [0, 0.15, 0.30, 0.45, 0.60, 0.75, 0.90];
+
   return (
     <SectionWrapper id="reality" style={{ background: "#0D0B09" }}>
       <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
@@ -45,6 +69,7 @@ export default function TheReality() {
       <Reveal delay={0.1}>
         <div className="max-w-xl mx-auto mb-16">
           <div
+            ref={hookRef}
             className="rounded-xl p-8 md:p-10"
             style={{
               background: "#111009",
@@ -55,23 +80,28 @@ export default function TheReality() {
               7:12 AM · TODAY
             </p>
             <div className="space-y-3">
-              {HOOK_LINES.map((line, i) =>
-                line === "" ? (
-                  <div key={i} style={{ height: 12 }} />
-                ) : (
-                  <p
-                    key={i}
-                    style={{
-                      fontSize: "1.0625rem",
-                      color: i >= 7 ? "#F5F0E8" : "#D2C9B8",
-                      fontWeight: i >= 7 ? 600 : 400,
-                      lineHeight: 1.65,
-                    }}
-                  >
-                    {line}
-                  </p>
-                )
-              )}
+              {(() => {
+                let delayIdx = 0;
+                return HOOK_LINES.map((line, i) =>
+                  line === "" ? (
+                    <div key={i} style={{ height: 12 }} />
+                  ) : (
+                    <p
+                      key={i}
+                      className="blur-line"
+                      style={{
+                        fontSize: "1.0625rem",
+                        color: i >= 7 ? "#F5F0E8" : "#D2C9B8",
+                        fontWeight: i >= 7 ? 600 : 400,
+                        lineHeight: 1.65,
+                        animationDelay: `${lineDelays[delayIdx++] ?? 0}s`,
+                      }}
+                    >
+                      {line}
+                    </p>
+                  )
+                );
+              })()}
             </div>
           </div>
         </div>
