@@ -677,7 +677,7 @@ img {
   line-height: 1;
 }
 
-/* ── Proof metric ($41,084.85 number) ── */
+/* ── Proof metric ($41,085 number) ── */
 .proof-metric {
   font-size: 88px;
   font-weight: 900;
@@ -867,7 +867,7 @@ img {
   border-top: 3px solid rgba(212, 168, 83, 0.42);
 }
 
-/* Stat radial glow (key numbers: $27, $41,084.85, 11 days) */
+/* Stat radial glow (key numbers: $27, $41,085, 11 days) */
 .stat-glow {
   position: relative;
 }

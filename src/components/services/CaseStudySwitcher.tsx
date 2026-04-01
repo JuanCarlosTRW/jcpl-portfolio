@@ -6,7 +6,7 @@ const caseStudies = [
     index: "01",
     name: "Triple W Rentals",
     tag: "RV Rental · Texas",
-    metric: "$41,084.85",
+    metric: "$41,085",
     metricLabel: "revenue. 30 days. $900 ad spend.",
     description:
       "Zero presence to regional leader. Site, ads, and AI voice: live in 11 days median.",

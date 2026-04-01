@@ -4,12 +4,13 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Results", href: "/results" },
   { label: "About", href: "/about" },
-  { label: "Apply for a Diagnostic Call", href: "/apply", isCta: true },
+  { label: "Apply", href: "/apply", isCta: true },
 ];
 
 export default function PremiumNav() {
@@ -133,6 +134,7 @@ export default function PremiumNav() {
                 </motion.div>
               )
             )}
+            <LanguageSwitcher className="ml-2" />
           </div>
 
           {/* Mobile menu button */}
@@ -185,7 +187,7 @@ export default function PremiumNav() {
             </div>
 
             {/* Mobile links */}
-            <div className="flex flex-col flex-1 justify-center px-8 gap-8">
+            <div className="flex flex-col flex-1 justify-center px-8 gap-3">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.label}
@@ -238,6 +240,11 @@ export default function PremiumNav() {
                   Apply for a Diagnostic Call
                 </Link>
               </motion.div>
+            </div>
+
+            {/* Language toggle */}
+            <div className="px-8 pt-4" style={{ borderTop: "1px solid rgba(240,234,214,0.08)" }}>
+              <LanguageSwitcher />
             </div>
 
             {/* Mobile footer */}

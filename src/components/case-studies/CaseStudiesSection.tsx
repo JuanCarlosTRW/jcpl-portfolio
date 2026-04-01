@@ -18,7 +18,7 @@ function CaseStudyCardGrid() {
       label: "LEAD PARTNERSHIP",
       niche: "RV RENTAL, TEXAS",
       client: "Triple W Rentals",
-      stat: "$41,084.85",
+      stat: "$41,085",
       subStats: "46x ROAS · $900 ad spend · 30 days",
       slug: "triple-w-rentals",
       anchor: "#triple-w",

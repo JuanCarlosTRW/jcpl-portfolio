@@ -132,7 +132,7 @@ export default function CaseStudyDetail({
               {cs.id === "triple-w-rentals" && (
                 <>
                   <span className="block text-[13px] text-sv-primary font-semibold -mt-5 mb-2">
-                    $900 in ad spend generated $41,084.85 in revenue.
+                    $900 in ad spend generated $41,085 in revenue.
                   </span>
                   <span className="block text-[13px] text-sv-text-sub font-medium mb-8">
                     Project is still going

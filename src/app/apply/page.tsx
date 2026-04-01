@@ -82,7 +82,7 @@ export default function ApplyPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
-                stat: "$41,084.85",
+                stat: "$41,085",
                 sub: "revenue",
                 client: "Triple W Rentals",
                 owner: "Westin Wayne Walker",

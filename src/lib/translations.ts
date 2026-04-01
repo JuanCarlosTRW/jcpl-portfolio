@@ -684,7 +684,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       eyebrow: "My Promise",
       title: "SPEED",
       body: "I respect your time as much as I respect mine. This is why ",
-      highlight: "99% of my projects launch within the first week.",
+      highlight: "most systems launch within two weeks.",
       closeLabel: "Close popup",
     },
     benefits: {
@@ -740,7 +740,7 @@ export const translations: Record<Locale, TranslationsShape> = {
     homepage: {
       hero: {
         eyebrow: "Growth Infrastructure • Service Businesses",
-        h1Line1: "$41,084.85 from $900 in ad spend.",
+        h1Line1: "$41,085 from $900 in ad spend.",
         h1Line2: "30 days.",
         subHeadline: "I build the system. You answer the phone.",
         body: "Google Ads, SEO, and conversion websites. One system, one owner, zero handoffs.",
@@ -787,9 +787,9 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       provenOutcomes: {
         eyebrow: "PROVEN OUTCOMES",
-        h2: "$41,084.85 from $900 in ad spend. Page 1 in under 60 days.",
-        h2Main: "$41,084.85 from $900 in ad spend.",
-        h2Italic: "Page 1 in under 60 days.",
+        h2: "$41,085 from $900 in ad spend. 11 days to the first call.",
+        h2Main: "$41,085 from $900 in ad spend.",
+        h2Italic: "11 days to the first call.",
         sub: "Revenue, qualified calls, and search visibility. Not three separate wins. The same connected system, running continuously.",
         card1Label: "RV RENTAL · TEXAS · GOOGLE ADS",
         card1Revenue: "in revenue. First 30 days.",
@@ -953,7 +953,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         h1: "One system. Every qualified call tracked.",
         body1: "Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. Built as one connected system, run by one person. Live in 11 days median. Timeline depends on asset approvals.",
         body2: "Every layer feeds the next. The longer it runs, the less each call costs.",
-        microResult: "Most recent result: $41,084.85 from $900 in ad spend. 30 days.",
+        microResult: "Most recent result: $41,085 from $900 in ad spend. 30 days.",
         cta1: "Apply for a Diagnostic Call →",
         cta2: "See how the system works",
         trust1: "Response within 24 hours",
@@ -1062,9 +1062,9 @@ export const translations: Record<Locale, TranslationsShape> = {
     results: {
       hero: {
         eyebrow: "Client Results: Verified Record",
-        h1: "$41,084.85 in revenue. SEO campaigns active. Built on the same system.",
+        h1: "$41,085 in revenue. SEO campaigns active. Built on the same system.",
         sub: "A structured record from live partnerships. Starting conditions, what was built, and what resulted. Every figure tied to a real account.",
-        stat1Value: "$41,084.85",
+        stat1Value: "$41,085",
         stat1Label: "Revenue generated",
         stat1Note: "Google Ads · 30 days",
         stat2Value: "90",
@@ -1223,7 +1223,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       eyebrow: "Ma Promesse",
       title: "RAPIDITÉ",
       body: "Je respecte votre temps autant que le mien. C'est pourquoi ",
-      highlight: "99 % de mes projets sont lancés dans la première semaine.",
+      highlight: "la plupart des systèmes sont lancés en deux semaines.",
       closeLabel: "Fermer le popup",
     },
     benefits: {

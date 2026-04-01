@@ -128,7 +128,7 @@ function ProofLine() {
   return (
     <div className="cb-proof-line mt-4 mb-2 text-[15px] font-medium tracking-wide text-[rgba(220,230,240,0.82)] flex items-center gap-3 justify-center" style={{ letterSpacing: "0.01em" }}>
       <span className="inline-block text-[13px] font-semibold uppercase tracking-widest text-[rgba(80,200,120,0.38)]">Live Result</span>
-      <span className="font-bold text-[18px] text-[rgba(255,255,255,0.92)]">$41,084.85</span>
+      <span className="font-bold text-[18px] text-[rgba(255,255,255,0.92)]">$41,085</span>
       <span className="opacity-60 text-[13px]">Revenue, 30 days, $900 ad spend</span>
       <span className="hidden md:inline-block opacity-40 text-[13px]">· 46x ROAS · 11 days to first call · Texas RV market</span>
     </div>

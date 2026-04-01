@@ -148,7 +148,7 @@ export default function PricingStatement() {
                 }}
               >
                 <p style={{ fontSize: "0.8rem", color: "#D2C9B8", lineHeight: 1.6, fontStyle: "italic" }}>
-                  Triple W Rentals started here. $41,084.85 in revenue. $900 in ad spend. 30 days.
+                  Triple W Rentals started here. $41,085 in revenue. $900 in ad spend. 30 days.
                 </p>
               </div>
 

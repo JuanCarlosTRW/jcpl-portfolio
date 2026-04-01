@@ -6,7 +6,7 @@ import Link from "next/link";
 const campaignMetrics = [
   { number: "46x", label: "Return on ad spend" },
   { number: "$900", label: "Total ad spend" },
-  { number: "30 days", label: "Time to $41,084.85 revenue" },
+  { number: "30 days", label: "Time to $41,085 revenue" },
 ];
 
 /* ─── Bullets ─── */
@@ -75,7 +75,7 @@ export default function InfrastructureTiers() {
             }}
           >
             <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
-              $41,084.85 revenue
+              $41,085 revenue
             </span>
             <span style={{ color: "#1E3A5F" }}>|</span>
             <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
@@ -281,7 +281,7 @@ export default function InfrastructureTiers() {
                 className="font-semibold text-base leading-snug mb-1"
                 style={{ color: "#FFFFFF" }}
               >
-                $900 spent. $41,084.85 returned.
+                $900 spent. $41,085 returned.
               </p>
               <p
                 className="text-sm"

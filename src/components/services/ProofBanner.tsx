@@ -44,7 +44,7 @@ export default function ProofBanner() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0">
           <div className="sm:pr-8 sm:border-r" style={{ borderColor: "#2A2318" }}>
             <p className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
-              <CountUp target={41084.85} prefix="$" />
+              <CountUp target={41085} prefix="$" />
             </p>
             <p className="mt-1.5 text-sm" style={{ color: "#756D63" }}>
               Revenue generated. One client. First 30 days.

@@ -51,9 +51,9 @@ export default function Footer() {
               <Image
                 src="/images/logo-clientgrowth.png"
                 alt="Client Growth"
-                width={160}
-                height={107}
-                style={{ height: "34px", width: "auto", objectFit: "contain" }}
+                width={400}
+                height={267}
+                style={{ height: "85px", width: "auto", objectFit: "contain" }}
               />
             </Link>
             <p className="text-[0.8rem]" style={{ color: "#756D63" }}>

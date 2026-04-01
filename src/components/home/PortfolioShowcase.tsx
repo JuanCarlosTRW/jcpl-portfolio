@@ -31,7 +31,7 @@ const websiteProjects: Project[] = [
     niche: "RV Rentals",
     city: "Texas",
     result: "First booking in 11 days of going live",
-    resultMetric: "$41,084.85 revenue · 30 days · $900 ad spend",
+    resultMetric: "$41,085 revenue · 30 days · $900 ad spend",
     logo: "/images/portfolio/triplew-logo.png",
     heroScreenshot: "/images/portfolio/triplew-hero.png",
     slides: [

@@ -25,7 +25,7 @@ const SERVICES = [
     frameUrl: "ads.google.com",
     badge: "LIVE ACCOUNT",
     label: "RV RENTAL · TEXAS",
-    stat: "$41,084.85 revenue · 30 days · $900 ad spend",
+    stat: "$41,085 revenue · 30 days · $900 ad spend",
     verification: "Live Google Ads account · Verified February 2026",
   },
   {
