@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 
 interface Testimonial {
@@ -25,18 +25,53 @@ export const TestimonialSection = ({
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
 
+  // Track active dot on scroll
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
     const onScroll = () => {
-      const scrollLeft = el.scrollLeft;
-      const cardWidth = el.firstElementChild
-        ? (el.firstElementChild as HTMLElement).offsetWidth
-        : 1;
-      setActiveIdx(Math.round(scrollLeft / (cardWidth + 16)));
+      const child = el.firstElementChild as HTMLElement | null;
+      if (!child) return;
+      const gap = 16;
+      const cardWidth = child.offsetWidth + gap;
+      setActiveIdx(Math.round(el.scrollLeft / cardWidth));
     };
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Mouse drag to scroll (desktop swipe)
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollStart = useRef(0);
+
+  const onPointerDown = useCallback((e: React.PointerEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isDragging.current = true;
+    startX.current = e.clientX;
+    scrollStart.current = el.scrollLeft;
+    el.setPointerCapture(e.pointerId);
+    el.style.scrollSnapType = "none";
+    el.style.cursor = "grabbing";
+  }, []);
+
+  const onPointerMove = useCallback((e: React.PointerEvent) => {
+    if (!isDragging.current) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    const dx = e.clientX - startX.current;
+    el.scrollLeft = scrollStart.current - dx;
+  }, []);
+
+  const onPointerUp = useCallback((e: React.PointerEvent) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    const el = scrollRef.current;
+    if (!el) return;
+    el.releasePointerCapture(e.pointerId);
+    el.style.scrollSnapType = "x mandatory";
+    el.style.cursor = "";
   }, []);
 
   const scrollTo = (idx: number) => {
@@ -74,20 +109,21 @@ export const TestimonialSection = ({
           {subtitle}
         </p>
 
-        {/* Horizontal slider */}
+        {/* Horizontal slider — touch + mouse drag */}
         <div
           ref={scrollRef}
-          className="mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory"
+          className="testimonial-slider mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory cursor-grab select-none"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
             WebkitOverflowScrolling: "touch",
             paddingBottom: 4,
           }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
         >
-          <style jsx>{`
-            div::-webkit-scrollbar { display: none; }
-          `}</style>
           {testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.id}
@@ -109,8 +145,9 @@ export const TestimonialSection = ({
                 <img
                   src={testimonial.imageSrc}
                   alt={testimonial.name}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top pointer-events-none"
                   style={{ borderRadius: "12px 12px 0 0" }}
+                  draggable={false}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
               </div>

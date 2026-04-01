@@ -6,6 +6,8 @@
 
 html { scroll-behavior: smooth; }
 
+.testimonial-slider::-webkit-scrollbar { display: none; }
+
 /* ═══════════════════════════════════════════════════
    TAILWIND v4 THEME — Sapphire Veil Design Tokens
    These register as standard Tailwind utilities:
