@@ -316,7 +316,7 @@ export default function CaseStudyDetail({
             href="/apply"
             className="inline-block bg-sv-primary text-white px-9 py-4 rounded-[10px] font-bold text-[16px] tracking-[-0.01em] hover:bg-sv-primary-hov hover:-translate-y-[1px] transition-all duration-200 shadow-[0_4px_24px_rgba(212,168,83,0.25)] hover:shadow-[0_8px_32px_rgba(212,168,83,0.35)]"
           >
-            Apply for a Diagnostic Call →
+            Apply to be a Partner →
           </Link>
           <p className="text-[13px] text-[rgba(255,255,255,0.3)] mt-[14px]">
             Short application. I&apos;ll personally review it within 24 hours.

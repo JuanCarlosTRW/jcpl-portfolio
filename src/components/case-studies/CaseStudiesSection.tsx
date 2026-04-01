@@ -317,7 +317,7 @@ export default function CaseStudiesSection() {
                   textTransform: "uppercase",
                 }}
               >
-                Apply for a Diagnostic Call &rarr;
+                Apply to be a Partner &rarr;
               </Link>
               <p className="text-[11px]" style={{ color: "#756D63" }}>
                 No retainer until I confirm fit. Response within 24 hours.

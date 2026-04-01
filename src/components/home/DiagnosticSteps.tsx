@@ -137,7 +137,7 @@ export default function DiagnosticSteps() {
           onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}
           onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#D4A853"; }}
         >
-          Book a 20-Minute Diagnostic Call
+          Apply to be a Partner
           <span aria-hidden="true">→</span>
         </Link>
         <p

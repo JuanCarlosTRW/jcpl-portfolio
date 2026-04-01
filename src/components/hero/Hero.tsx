@@ -172,7 +172,7 @@ export default function Hero() {
 
 						<div ref={ctaRef} className="cb-cta-wrap hero-cta-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
 							<DemoCallButton
-								label="Book a 20-Minute Diagnostic Call"
+								label="Apply to be a Partner"
 								href="#book-call"
 							/>
 							<span className="demo-cta-risk">

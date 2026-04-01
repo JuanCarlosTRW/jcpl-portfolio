@@ -118,7 +118,7 @@ export default function ServicesFinalCTA() {
                 onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.1)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.filter = "none"; }}
               >
-                Apply for a Diagnostic Call &rarr;
+                Apply to be a Partner &rarr;
               </Link>
 
               <p className="text-xs text-center mt-4" style={{ color: "#756D63" }}>

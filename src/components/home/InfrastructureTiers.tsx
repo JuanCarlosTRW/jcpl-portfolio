@@ -186,7 +186,7 @@ export default function InfrastructureTiers() {
                 className="text-sm font-medium transition-colors hover:text-slate-200"
                 style={{ color: "#64748B", textDecoration: "underline", textUnderlineOffset: "3px" }}
               >
-                Apply for a Diagnostic Call →
+                Apply to be a Partner →
               </a>
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function InfrastructureTiers() {
                 boxShadow: "0 4px 24px rgba(37,99,235,0.35)",
               }}
             >
-              Apply for a Diagnostic Call →
+              Apply to be a Partner →
             </a>
             <p
               className="text-[11px] text-center mt-3 leading-relaxed"
@@ -448,7 +448,7 @@ export default function InfrastructureTiers() {
                 className="text-sm font-medium transition-colors hover:text-amber-400"
                 style={{ color: "rgba(245,158,11,0.70)", textDecoration: "underline", textUnderlineOffset: "3px" }}
               >
-                Apply for a Diagnostic Call →
+                Apply to be a Partner →
               </a>
             </div>
           </div>

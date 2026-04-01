@@ -7,9 +7,9 @@ import { Menu, X } from "lucide-react";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 const NAV_LINKS = [
-  { label: "Services", href: "/services" },
-  { label: "Results", href: "/results" },
-  { label: "About", href: "/about" },
+  { label: "Results", href: "/#outcomes" },
+  { label: "How it works", href: "/#system" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Apply", href: "/apply", isCta: true },
 ];
 
@@ -237,7 +237,7 @@ export default function PremiumNav() {
                     textDecoration: "none",
                   }}
                 >
-                  Apply for a Diagnostic Call
+                  Apply to be a Partner
                 </Link>
               </motion.div>
             </div>

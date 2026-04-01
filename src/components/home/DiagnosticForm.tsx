@@ -287,7 +287,7 @@ export default function DiagnosticForm() {
                     Submitting...
                   </span>
                 ) : (
-                  "Apply for a Diagnostic Call →"
+                  "Apply to be a Partner →"
                 )}
               </button>
 

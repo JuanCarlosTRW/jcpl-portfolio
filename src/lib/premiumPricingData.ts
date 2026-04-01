@@ -46,7 +46,7 @@ export const tiers: TierConfig[] = [
       "Infrastructure documentation. You own it.",
     ],
     note: "Most clients graduate to Performance Engine within 60 days.",
-    ctaLabel: "Apply for a Diagnostic Call →",
+    ctaLabel: "Apply to be a Partner →",
     ctaHref: "/apply",
   },
   {
@@ -72,7 +72,7 @@ export const tiers: TierConfig[] = [
       "Monthly report showing revenue attributed to the system",
     ],
     note: "Ad spend separate from partnership fee\nMinimum $500/month\n90-day initial term",
-    ctaLabel: "Apply for a Diagnostic Call →",
+    ctaLabel: "Apply to be a Partner →",
     ctaSubtext: "Short application. I only book a call if I think I can help.",
     ctaHref: "/apply",
     badge: "MOST SELECTED",
@@ -98,7 +98,7 @@ export const tiers: TierConfig[] = [
     ],
     scarcityNote:
       "Two slots per niche per city. If your competitor applies first, this tier closes for your market.",
-    ctaLabel: "Apply for a Diagnostic Call →",
+    ctaLabel: "Apply to be a Partner →",
     ctaHref: "/apply",
     badge: "BY APPLICATION ONLY",
   },

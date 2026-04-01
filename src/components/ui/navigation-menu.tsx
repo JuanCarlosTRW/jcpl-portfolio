@@ -1,18 +1,16 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Home", href: "/", isCta: false },
-  { name: "Services", href: "/services", isCta: false },
-  { name: "Results", href: "/results", isCta: false },
-  { name: "About", href: "/about", isCta: false },
-  { name: "Apply for a Diagnostic Call", href: "/apply", isCta: true },
+  { name: "Results", href: "/#outcomes", isCta: false },
+  { name: "How it works", href: "/#system", isCta: false },
+  { name: "Pricing", href: "/#pricing", isCta: false },
+  { name: "Apply", href: "/apply", isCta: true },
 ];
 
 const EXPAND_SCROLL_THRESHOLD = 80;
@@ -127,15 +125,16 @@ export function AnimatedNavFramer() {
           variants={logoVariants}
           className="flex-shrink-0 flex items-center pl-4 pr-2"
           onClick={(e) => e.stopPropagation()}
+          style={{
+            fontFamily: "var(--font-cormorant), Georgia, serif",
+            fontSize: 18,
+            fontWeight: 400,
+            color: "#F0EAD6",
+            textDecoration: "none",
+            letterSpacing: "0.02em",
+          }}
         >
-          <Image
-            src="/images/logo-clientgrowth.png"
-            alt="Client Growth"
-            width={100}
-            height={28}
-            style={{ height: 22, width: "auto", objectFit: "contain" }}
-            priority
-          />
+          Client <span style={{ color: "#D4A853" }}>Growth</span>
         </motion.a>
 
         <motion.div

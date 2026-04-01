@@ -13,7 +13,7 @@ export interface PrimaryCTAProps {
 
 export default function PrimaryCTA({
   href = "#book-call",
-  children = "Book a 15-Minute Diagnostic Call",
+  children = "Apply to be a Partner",
   showRiskReversal = true,
   className = "",
 }: PrimaryCTAProps) {

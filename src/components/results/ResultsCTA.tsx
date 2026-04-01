@@ -31,7 +31,7 @@ export default function ResultsCTA() {
             className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold w-full sm:w-auto"
             style={{ background: "#D4A853", color: "#0A0F1E" }}
           >
-            Apply for a Diagnostic Call &rarr;
+            Apply to be a Partner &rarr;
           </Link>
           <Link
             href="/services"

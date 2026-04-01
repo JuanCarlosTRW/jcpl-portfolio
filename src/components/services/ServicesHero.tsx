@@ -92,7 +92,7 @@ export default function ServicesHero() {
                 onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.1)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.filter = "none"; }}
               >
-                Apply for a Diagnostic Call &rarr;
+                Apply to be a Partner &rarr;
               </Link>
               <a
                 href="#system"

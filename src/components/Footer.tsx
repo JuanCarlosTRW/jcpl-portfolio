@@ -9,9 +9,10 @@ export default function Footer() {
   const { locale } = useLocale();
   const { nav, footer } = translations[locale];
   const navItems = [
-    { href: "/services", label: nav.services },
-    { href: "/results", label: nav.results },
-    { href: "/about", label: nav.about },
+    { href: "/#system", label: "How it works" },
+    { href: "/#outcomes", label: nav.results },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/apply", label: nav.apply },
   ];
   return (
     <footer

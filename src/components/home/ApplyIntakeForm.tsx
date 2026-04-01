@@ -262,7 +262,7 @@ export default function ApplyIntakeForm() {
                   Submitting...
                 </span>
               ) : (
-                <>Apply for a Diagnostic Call &rarr;</>
+                <>Apply to be a Partner &rarr;</>
               )}
             </button>
 

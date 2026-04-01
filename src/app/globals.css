@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html { scroll-behavior: smooth; }
+
 /* ═══════════════════════════════════════════════════
    TAILWIND v4 THEME — Sapphire Veil Design Tokens
    These register as standard Tailwind utilities:

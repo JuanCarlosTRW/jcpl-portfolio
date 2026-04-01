@@ -23,7 +23,7 @@ export default function HeroCTAButtons() {
           data-analytics="hero-cta"
           onClick={() => trackEvent("hero_primary_cta_click")}
         >
-          Apply for a Diagnostic Call&nbsp;&rarr;
+          Apply to be a Partner&nbsp;&rarr;
         </a>
 
         {/* Secondary */}

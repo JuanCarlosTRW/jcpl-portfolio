@@ -26,6 +26,7 @@ const SCALE_ADDITIONS = [
 export default function PricingStatement() {
   return (
     <section
+      id="pricing"
       className="px-4"
       style={{
         background: "#131009",
@@ -185,7 +186,7 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Apply for a Diagnostic Call &rarr;
+                  Apply to be a Partner &rarr;
                 </Link>
                 <p
                   className="text-center"
@@ -311,7 +312,7 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Apply for a Diagnostic Call &rarr;
+                  Apply to be a Partner &rarr;
                 </Link>
                 <p
                   className="text-center"

@@ -82,7 +82,7 @@ export default function FeaturedCaseStudy() {
   }, []);
 
   return (
-    <SectionWrapper ref={sectionRef} id="proof" style={{ background: "#131009" }}>
+    <SectionWrapper ref={sectionRef} id="outcomes" style={{ background: "#131009" }}>
       {/* Section header */}
       <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
         <SectionLabel label={po.eyebrow} className="mb-5 !text-[#D4A853]" />

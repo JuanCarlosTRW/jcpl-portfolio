@@ -9,7 +9,7 @@ interface DemoCallButtonProps {
 }
 
 export function DemoCallButton({
-  label = 'Book a 20-Minute Diagnostic Call',
+  label = 'Apply to be a Partner',
   href,
   onClick,
 }: DemoCallButtonProps) {

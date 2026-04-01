@@ -38,7 +38,7 @@ export default function CaseStudyFinalCTA({ study }: { study: CaseStudy }) {
             href="/apply"
             className="inline-flex items-center justify-center gap-2 bg-[#D4A853] text-[#0D0B09] font-bold text-sm px-8 py-4 rounded-full hover:bg-[#C49A2A] transition-all hover:scale-[1.02]"
           >
-            Apply for a Diagnostic Call →
+            Apply to be a Partner →
           </Link>
           <Link
             href="https://clientgrowth.ca/results"

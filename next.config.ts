@@ -30,6 +30,12 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  async redirects() {
+    return [
+      { source: "/services", destination: "/#system", permanent: false },
+      { source: "/about", destination: "/#about", permanent: false },
+    ];
+  },
   async headers() {
     return [
       {

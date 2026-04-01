@@ -306,7 +306,7 @@ export function VerticalTabs() {
 
   return (
     <section
-      id="services"
+      id="system"
       className="w-full border-t"
       style={{
         background: "#0D0B09",

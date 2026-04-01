@@ -18,9 +18,9 @@ export const navigation = [
 ] as const;
 
 export const ctaCopy = {
-  primary: "Apply for a Diagnostic Call",
+  primary: "Apply to be a Partner",
   secondary: "See Results →",
-  tertiary: "Apply for a Diagnostic Call",
+  tertiary: "Apply to be a Partner",
   href: "/apply",
 };
 
@@ -30,7 +30,7 @@ export const hero = {
   headline: "Your Business Deserves\nto Be the First Name\nThey See.",
   subheadline:
     "Right now, buyers in your city are searching your exact service. Most of them will call your competitor. Not because their work is better. Because their infrastructure exists and yours does not. I build the system that changes that.",
-  cta: "Apply for a Diagnostic Call →",
+  cta: "Apply to be a Partner →",
   ctaSecondary: "See Real Results",
 };
 
@@ -456,7 +456,7 @@ export const servicesHero = {
   headline: "Turn inconsistent leads into a predictable booking system.",
   subheadline:
     "Positioning + conversion architecture + acquisition, engineered as a system.",
-  primaryCTA: "Apply for a Diagnostic Call",
+  primaryCTA: "Apply to be a Partner",
   secondaryCTA: "View Results",
   trustItems: [
     "Response within 24h",

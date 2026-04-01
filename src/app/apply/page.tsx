@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ApplyIntakeForm from "@/components/home/ApplyIntakeForm";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Apply for a Diagnostic Call | Client Growth",
+  title: "Apply to be a Partner | Client Growth",
   description:
     "This is not a discovery call. It is an actual audit. I review your pipeline, your competitors, and your current traffic sources before we speak.",
   path: "/apply",
