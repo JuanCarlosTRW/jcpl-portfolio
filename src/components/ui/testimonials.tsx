@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface Testimonial {
@@ -21,13 +22,31 @@ export const TestimonialSection = ({
   subtitle,
   testimonials,
 }: TestimonialSectionProps) => {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const scrollLeft = el.scrollLeft;
+      const cardWidth = el.firstElementChild
+        ? (el.firstElementChild as HTMLElement).offsetWidth
+        : 1;
+      setActiveIdx(Math.round(scrollLeft / (cardWidth + 16)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollTo = (idx: number) => {
+    const el = scrollRef.current;
+    if (!el || !el.children[idx]) return;
+    (el.children[idx] as HTMLElement).scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
   };
 
   const itemVariants = {
@@ -35,10 +54,7 @@ export const TestimonialSection = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut" as const,
-      },
+      transition: { duration: 0.5, ease: "easeOut" as const },
     },
   };
 
@@ -58,19 +74,33 @@ export const TestimonialSection = ({
           {subtitle}
         </p>
 
-        <motion.div
-          className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+        {/* Horizontal slider */}
+        <div
+          ref={scrollRef}
+          className="mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+            paddingBottom: 4,
+          }}
         >
+          <style jsx>{`
+            div::-webkit-scrollbar { display: none; }
+          `}</style>
           {testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.id}
-              className="relative overflow-hidden rounded-lg shadow-sm"
-              style={{ background: "#1E1A14", border: "1px solid #2A2318" }}
+              className="relative overflow-hidden rounded-lg shadow-sm snap-center shrink-0"
+              style={{
+                background: "#1E1A14",
+                border: "1px solid #2A2318",
+                width: "min(300px, 80vw)",
+              }}
               variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
             >
               <div
                 className="relative w-full overflow-hidden"
@@ -114,7 +144,27 @@ export const TestimonialSection = ({
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-6">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              aria-label={`Go to testimonial ${i + 1}`}
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: "50%",
+                border: "none",
+                cursor: "pointer",
+                background: i === activeIdx ? "#D4A853" : "#2A2318",
+                transition: "background 200ms ease",
+              }}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
