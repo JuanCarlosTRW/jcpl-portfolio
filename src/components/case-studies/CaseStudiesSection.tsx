@@ -53,6 +53,36 @@ function CaseStudyCardGrid() {
       badgeColor: "#A69D8D",
       testimonial: { quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.", name: "Tobari", location: "Montreal" },
     },
+    {
+      label: "WEBSITE DELIVERED",
+      niche: "PAINTING CONTRACTOR, DALLAS-FORT WORTH",
+      client: "Absolute Painting",
+      stat: "Full custom website",
+      subStats: "Fully custom coded website built from scratch",
+      slug: "absolute-painting",
+      anchor: "#absolute",
+      siteUrl: "https://absolutepainting.vercel.app/quote",
+      badge: "DELIVERED \u2014 WEBSITE",
+      badgeColor: "#A69D8D",
+      ownerPhoto: "/images/owners/wesley-absolute-painting.png",
+      ownerName: "Wesley, Absolute Painting",
+      testimonial: { quote: "Professional website that represents the brand. Built exactly what was needed.", name: "Wesley", location: "Dallas-Fort Worth" },
+    },
+    {
+      label: "WEBSITE DELIVERED",
+      niche: "DENTAL CLINIC, QUEBEC",
+      client: "Centre Dentaire Saint-\u00C9lz\u00E9ar",
+      stat: "Full custom website",
+      subStats: "Fully custom coded dental clinic website",
+      slug: "centre-dentaire-saint-elzear",
+      anchor: "#dentaire",
+      siteUrl: "https://as.centredentairese.com",
+      badge: "DELIVERED \u2014 WEBSITE",
+      badgeColor: "#A69D8D",
+      ownerPhoto: "/images/owners/dre-benyoucef-centre-dentaire.png",
+      ownerName: "Dre Benyoucef, Centre Dentaire Saint-\u00C9lz\u00E9ar",
+      testimonial: { quote: "The site establishes credibility from the first visit. Patients book directly from search.", name: "Dre Benyoucef", location: "Quebec" },
+    },
   ];
 
   return (
@@ -108,9 +138,19 @@ function CaseStudyCardGrid() {
                   <p className="text-[12px] italic leading-[1.6]" style={{ color: "#D2C9B8" }}>
                     &ldquo;{card.testimonial.quote}&rdquo;
                   </p>
-                  <p className="text-[11px] mt-1.5" style={{ color: "#756D63" }}>
-                    — {card.testimonial.name}, {card.testimonial.location}
-                  </p>
+                  <div className="flex items-center gap-2 mt-1.5">
+                    {card.ownerPhoto && (
+                      <img
+                        src={card.ownerPhoto}
+                        alt={card.ownerName || card.testimonial.name}
+                        className="w-6 h-6 rounded-full object-cover"
+                        style={{ filter: "grayscale(100%)" }}
+                      />
+                    )}
+                    <p className="text-[11px]" style={{ color: "#756D63" }}>
+                      {card.ownerName || `${card.testimonial.name}, ${card.testimonial.location}`}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 border border-[rgba(212,168,83,0.25)] bg-[rgba(212,168,83,0.06)]">
@@ -125,7 +165,7 @@ function CaseStudyCardGrid() {
 
         {/* Legend */}
         <p className="text-[12px] text-center mt-8" style={{ color: "rgba(255,255,255,0.3)" }}>
-          VERIFIED = tracked from live ad account. IN PROGRESS = campaign active, results pending. DELIVERED = system built and handed over.
+          VERIFIED = tracked from live ad account. IN PROGRESS = campaign active, results pending. DELIVERED = fully custom website built and handed over.
         </p>
       </div>
     </section>

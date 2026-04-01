@@ -113,26 +113,12 @@ export default function DiagnosticForm() {
             >
               You leave the call with:
             </p>
-            <ol className="space-y-2.5 mb-4">
-              {[
-                "A gap map showing exactly where you are losing calls right now",
-                "A competitor breakdown for your specific market and service area",
-                "A 30-day sprint plan: what gets built, in what order, and why",
-                "A budget model with projected cost per call for your niche",
-                "A clear yes or no on whether I can produce a return for your business",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span
-                    className="flex-shrink-0 mt-1 text-[13px] font-bold"
-                    style={{ color: "#D4A853" }}
-                  >
-                    {i + 1}.
-                  </span>
-                  <span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>
-                    {item}
-                  </span>
-                </li>
-              ))}
+            <ol className="space-y-2.5 mb-4 list-none p-0 m-0">
+              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>1.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A gap map showing exactly where you are losing calls right now</span></li>
+              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>2.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A competitor breakdown for your specific market and service area</span></li>
+              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>3.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A 30-day sprint plan: what gets built, in what order, and why</span></li>
+              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>4.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A budget model with projected cost per call for your niche</span></li>
+              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>5.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A clear yes or no on whether I can produce a return for your business</span></li>
             </ol>
             <p className="text-[12px]" style={{ color: "#756D63" }}>
               If the answer is no, I tell you on the call. You will not be asked to pay anything.

@@ -27,12 +27,26 @@ export default function AboutPage() {
       <section className="py-16 md:py-24" style={{ background: "#131009", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
         <div className="max-w-[760px] mx-auto px-6">
           <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>WHO I AM</p>
+
+          {/* Stat bar */}
+          <p
+            className="mb-8"
+            style={{
+              fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
+              color: "#D4A853",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
+              letterSpacing: "0.02em",
+            }}
+          >
+            5 systems shipped &nbsp;|&nbsp; Markets: Canada + United States &nbsp;|&nbsp; 1 operator
+          </p>
+
           <h2 className="text-[clamp(24px,3.5vw,36px)] font-extrabold text-white leading-[1.12] mb-8 tracking-[-0.02em]">
             I watched good businesses lose to worse ones. The difference was never the work.
           </h2>
           <div className="space-y-5 max-w-[600px]">
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
-              I have built acquisition systems for service businesses across Canada and the United States. Every system I run is tracked to a single metric: qualified calls on the calendar. I run a maximum of 3 active partnerships at a time. By design, not by accident.
+              I have built acquisition systems and conversion websites for service businesses across Canada and the United States: barbershops, dental clinics, painting contractors, RV rental operators. Every engagement is tracked to one metric: qualified calls on the calendar. I run a maximum of 3 active partnerships at a time, by design.
             </p>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
               I started noticing the gap at 16. A painter in my city doing exceptional work, losing jobs to a competitor with a mediocre crew and a $400 website that ranked on Page 1. A barbershop with a lineup out the door on Saturdays, invisible online. Contractors with years of reputation getting undercut by operations half their quality because the other guy had Google Ads running.

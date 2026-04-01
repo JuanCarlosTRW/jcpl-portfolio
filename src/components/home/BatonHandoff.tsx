@@ -6,17 +6,17 @@ const steps = [
   {
     number: "1",
     title: "You apply",
-    body: "Fill out the form. Takes under 2 minutes.",
+    body: "Fill out the form. It takes under 2 minutes.",
   },
   {
     number: "2",
     title: "I review your business",
-    body: "I look at your market, your competitors, and your current setup. I do this before we speak so the call is not a sales pitch. It is a diagnosis.",
+    body: "I look at your market, your competitors, and your current setup before we speak. The call is a diagnosis, not a pitch.",
   },
   {
     number: "3",
-    title: "You get an answer in 24 hours",
-    body: "I email you directly. If I know I can move the needle, I tell you how. If I cannot, I tell you that too. Before you pay anything.",
+    title: "You get an answer within 24 hours",
+    body: "I email you directly. If I can move the needle, I tell you exactly how. If I cannot, I tell you that too. Before you pay anything.",
   },
 ];
 

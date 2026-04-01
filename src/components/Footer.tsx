@@ -134,10 +134,15 @@ export default function Footer() {
         </div>
 
         <div
-          className="mt-8 pt-6 border-t text-center text-[13px]"
-          style={{ borderColor: "#2A2318", color: "#756D63" }}
+          className="mt-8 pt-6 border-t text-center"
+          style={{ borderColor: "#2A2318" }}
         >
-          © {new Date().getFullYear()} Client Growth. {footer.rights}.
+          <p className="text-[12px] mb-2" style={{ color: "#756D63" }}>
+            Operated from Quebec, Canada. Founder-led. juan@clientgrowth.ca
+          </p>
+          <p className="text-[13px]" style={{ color: "#756D63" }}>
+            © {new Date().getFullYear()} Client Growth. {footer.rights}.
+          </p>
         </div>
       </div>
     </footer>

@@ -15,7 +15,7 @@ const CARDS = [
   { icon: Users, title: "One Partner, One System", desc: "No vendors to coordinate. No handoffs. One person owns the full pipeline from day one." },
   { icon: Zap, title: "Engineered to Convert", desc: "Every page built to answer why you, why now within 10 seconds and move visitors toward a booked call." },
   { icon: BarChart3, title: "Tracked From Click to Revenue", desc: "Every call traced back to its source. Cost per call updated weekly. No vanity metrics." },
-  { icon: Clock, title: "Launch in Weeks, Not Months", desc: "Median 11 days from signed agreement to live system. Not 8 weeks of onboarding." },
+  { icon: Clock, title: "Launch in Weeks, Not Months", desc: "Median 11 days from signed agreement to live system. Timeline depends on asset approvals." },
   { icon: FileCheck, title: "You Own Everything", desc: "Site, data, accounts, creative. If you decide to leave, you leave with a working system. Nothing held hostage." },
 ];
 

@@ -9,7 +9,7 @@ const caseStudies = [
     metric: "$41,084.85",
     metricLabel: "revenue. 30 days. $900 ad spend.",
     description:
-      "Zero presence to regional leader. Site, ads, and AI voice: live in 11 days.",
+      "Zero presence to regional leader. Site, ads, and AI voice: live in 11 days median.",
     deliverables: ["Website", "Google Ads", "AI Voice Agent", "SEO"],
     status: "active" as const,
     link: "/results#triplew",

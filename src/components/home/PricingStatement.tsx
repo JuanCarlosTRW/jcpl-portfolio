@@ -8,18 +8,19 @@ const GROWTH_FEATURES = [
   "Conversion website: custom coded, built to rank and convert",
   "Google Ads: targeting buyers with purchase intent in your city",
   "Local SEO: Google Maps and organic positioning",
-  "AI search visibility: appear in ChatGPT, Perplexity, and AI answer results",
+  "AI search visibility: appear when buyers search on ChatGPT, Perplexity, and Google AI",
   "Weekly campaign optimization: cost per call goes down every month",
   "Monthly performance review call",
+  "Full asset ownership: everything is in your name",
 ];
 
 const SCALE_ADDITIONS = [
   "Higher ad budget management: more spend, more calls, more jobs",
-  "AI lead qualification: automated follow-up that qualifies leads before your phone rings",
+  "AI lead qualification: automated follow-up qualifies leads before your phone rings",
+  "GEO (Generative Engine Optimization): when someone asks ChatGPT or Perplexity \u201Cbest [service] near me,\u201D your business is the answer. Most competitors do not know this exists yet.",
   "Multi-location and multi-channel expansion",
   "Dedicated landing pages per service and per city",
   "Weekly strategy calls: direct line, every week",
-  "GEO (Generative Engine Optimization): the new SEO. When someone asks ChatGPT, Perplexity, or Google AI \u201Cbest [service] near me,\u201D your business is the answer. Most competitors do not know this exists yet.",
 ];
 
 export default function PricingStatement() {
@@ -72,7 +73,7 @@ export default function PricingStatement() {
               lineHeight: 1.65,
             }}
           >
-            Both tiers include everything needed to fill your calendar. The difference is how fast you want to grow.
+            Both tiers include everything needed to fill your calendar. The difference is how fast you want to scale.
           </p>
         </AnimatedSection>
 
@@ -88,34 +89,23 @@ export default function PricingStatement() {
                 borderTop: "3px solid #D4A853",
               }}
             >
-              {/* Tag */}
-              <div className="flex items-center gap-2 mb-4">
-                <span
-                  className="text-[10px] font-bold tracking-[0.14em] uppercase px-3 py-1 rounded-full"
-                  style={{
-                    background: "rgba(212,168,83,0.1)",
-                    color: "#D4A853",
-                    border: "1px solid rgba(212,168,83,0.25)",
-                  }}
-                >
-                  Most popular
-                </span>
-              </div>
-
-              {/* Tier name */}
+              {/* Tagline */}
               <p
-                className="uppercase mb-2"
-                style={{
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.12em",
-                  color: "#D4A853",
-                }}
+                className="uppercase mb-3"
+                style={{ fontSize: "0.65rem", letterSpacing: "0.12em", color: "#D4A853" }}
               >
-                GROWTH ARCHITECTURE
+                Get the phone ringing
               </p>
 
+              {/* Tier name */}
+              <h3
+                className="text-[22px] font-bold text-white mb-3"
+              >
+                Growth Architecture
+              </h3>
+
               {/* Price */}
-              <div className="mb-2">
+              <div className="mb-5">
                 <span
                   className="font-extrabold text-white"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}
@@ -129,14 +119,6 @@ export default function PricingStatement() {
                   / month
                 </span>
               </div>
-
-              {/* Headline */}
-              <p
-                className="font-semibold text-white mb-5"
-                style={{ fontSize: "1.125rem" }}
-              >
-                Get the phone ringing.
-              </p>
 
               {/* Divider */}
               <div className="mb-5" style={{ borderTop: "1px solid #2A2318" }} />
@@ -175,10 +157,10 @@ export default function PricingStatement() {
                 className="mb-2"
                 style={{ fontSize: "0.8rem", color: "#A69D8D", lineHeight: 1.6 }}
               >
-                If your phone does not ring in the first 30 days, I refund the difference. No negotiation.
+                If your phone does not ring in the first 30 days, I refund the management fee for that period.
               </p>
               <p className="mb-6" style={{ fontSize: "0.7rem", color: "rgba(210,201,184,0.5)", lineHeight: 1.7 }}>
-                Guarantee conditions: Tracking must be fully in place before launch. Minimum recommended ad spend must be met for the duration. Client must complete the onboarding session within 5 days of agreement. Applies to markets where Google Ads inventory exists for your service category.
+                Guarantee conditions: tracking must be fully in place before launch / minimum ad spend must be met / client must complete onboarding within 5 days / applies to markets where Google Ads inventory exists for your service category
               </p>
 
               {/* CTA */}
@@ -225,34 +207,23 @@ export default function PricingStatement() {
                 borderTop: "3px solid #D4A853",
               }}
             >
-              {/* Tag */}
-              <div className="flex items-center gap-2 mb-4">
-                <span
-                  className="text-[10px] font-bold tracking-[0.14em] uppercase px-3 py-1 rounded-full"
-                  style={{
-                    background: "rgba(212,168,83,0.1)",
-                    color: "#D4A853",
-                    border: "1px solid rgba(212,168,83,0.25)",
-                  }}
-                >
-                  For operators ready to dominate
-                </span>
-              </div>
-
-              {/* Tier name */}
+              {/* Tagline */}
               <p
-                className="uppercase mb-2"
-                style={{
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.12em",
-                  color: "#D4A853",
-                }}
+                className="uppercase mb-3"
+                style={{ fontSize: "0.65rem", letterSpacing: "0.12em", color: "#D4A853" }}
               >
-                SCALE ARCHITECTURE
+                Saturate your market
               </p>
 
+              {/* Tier name */}
+              <h3
+                className="text-[22px] font-bold text-white mb-3"
+              >
+                Scale Architecture
+              </h3>
+
               {/* Price */}
-              <div className="mb-2">
+              <div className="mb-5">
                 <span
                   className="font-extrabold text-white"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}
@@ -266,14 +237,6 @@ export default function PricingStatement() {
                   / month
                 </span>
               </div>
-
-              {/* Headline */}
-              <p
-                className="font-semibold text-white mb-5"
-                style={{ fontSize: "1.125rem" }}
-              >
-                Saturate your market.
-              </p>
 
               {/* Divider */}
               <div className="mb-5" style={{ borderTop: "1px solid #2A2318" }} />
@@ -320,10 +283,10 @@ export default function PricingStatement() {
                 className="mb-2"
                 style={{ fontSize: "0.8rem", color: "#A69D8D", lineHeight: 1.6 }}
               >
-                Same guarantee. If the phone does not ring in 30 days, I refund the difference.
+                If your phone does not ring in the first 30 days, I refund the management fee for that period.
               </p>
               <p className="mb-6" style={{ fontSize: "0.7rem", color: "rgba(210,201,184,0.5)", lineHeight: 1.7 }}>
-                Guarantee conditions: Tracking must be fully in place before launch. Minimum recommended ad spend must be met for the duration. Client must complete the onboarding session within 5 days of agreement. Applies to markets where Google Ads inventory exists for your service category.
+                Guarantee conditions: tracking must be fully in place before launch / minimum ad spend must be met / client must complete onboarding within 5 days / applies to markets where Google Ads inventory exists for your service category
               </p>
 
               {/* CTA */}
@@ -354,7 +317,7 @@ export default function PricingStatement() {
                   className="text-center"
                   style={{ fontSize: "12px", color: "rgba(240,234,214,0.5)" }}
                 >
-                  I run a maximum of 3 active partnerships at a time. I review in 24 hours.
+                  3 active partnerships maximum. I review in 24 hours.
                 </p>
               </div>
             </div>

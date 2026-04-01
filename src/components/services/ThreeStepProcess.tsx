@@ -24,7 +24,7 @@ const steps: Step[] = [
     number: "02",
     name: "System Launch",
     badge: "11 days median",
-    body: "Site, ads, tracking, booking flow, and AI qualification. All built, all connected, all live. You approve each component before it ships. Median time to first booked call: 11 days.",
+    body: "Site, ads, tracking, booking flow, and AI qualification. All built, all connected, all live. You approve each component before it ships. Median time to first booked call: 11 days. Timeline depends on asset approvals.",
     tags: ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
     outcome: "Your phone starts ringing. Every call tracked to its source.",
   },
@@ -316,7 +316,7 @@ export default function ThreeStepProcess() {
               transition: "opacity 500ms ease 100ms, transform 500ms ease 100ms",
             }}
           >
-            Three steps. Live in 11 days.
+            Three steps. Live in 11 days median.
           </h2>
         </div>
 

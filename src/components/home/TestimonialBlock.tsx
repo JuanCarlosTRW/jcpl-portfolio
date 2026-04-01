@@ -11,6 +11,7 @@ const testimonialsData = [
       "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.",
     name: "Tobari",
     role: "Culture Barbershop · Montreal, QC",
+    context: "Barbershop: full custom website delivered",
     imageSrc:
       "/images/testimonials/mike-s.png",
   },
@@ -20,6 +21,8 @@ const testimonialsData = [
       "First call came in 9 days. We had tried two agencies before this. Nothing came close.",
     name: "Westin Wayne Walker",
     role: "Triple W Rentals · Texas",
+    context: "RV rental: Texas market, Google Ads, first call in 11 days",
+    caseStudyHref: "/results/triple-w-rentals",
     imageSrc:
       "/images/testimonials/tyler-w.png",
   },
@@ -29,7 +32,26 @@ const testimonialsData = [
       "The website and SEO campaign changed the game. Clients find me on Google now. Best investment I have made for the shop.",
     name: "Hadi",
     role: "Elite Barbershop · Montreal, QC",
+    context: "Barbershop: local market, SEO campaign in progress",
     imageSrc: "/images/testimonials/alex-m.png",
+  },
+  {
+    id: 4,
+    quote:
+      "Professional website that represents the brand. Built exactly what was needed.",
+    name: "Wesley",
+    role: "Absolute Painting · Dallas-Fort Worth",
+    context: "Painting contractor: full custom website delivered",
+    imageSrc: "/images/owners/wesley-absolute-painting.png",
+  },
+  {
+    id: 5,
+    quote:
+      "The site establishes credibility from the first visit. Patients book directly from search.",
+    name: "Dre Benyoucef",
+    role: "Centre Dentaire Saint-Élzéar",
+    context: "Dental clinic: full custom website delivered",
+    imageSrc: "/images/owners/dre-benyoucef-centre-dentaire.png",
   },
 ];
 
@@ -44,8 +66,8 @@ export default function TestimonialBlock() {
       }}
     >
       <TestimonialSection
-        title="Three businesses. Same system. Full calendars."
-        subtitle="Every result below came from the same acquisition system. Running continuously."
+        title="Five businesses. Same system. Real outcomes."
+        subtitle="Every result below came from the same acquisition system."
         testimonials={testimonialsData}
       />
 

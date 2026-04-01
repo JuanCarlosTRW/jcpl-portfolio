@@ -164,7 +164,7 @@ export const strategicGap = {
 export const growthArchitecture = {
   label: "THE SYSTEM",
   headline: "The Growth Architecture™",
-  subheadline: "Four integrated layers. Each one makes the others stronger. Built as one connected system in 2 to 4 weeks. Most clients see their first booked call within 11 days of going live.",
+  subheadline: "Four integrated layers. Each one makes the others stronger. Built as one connected system in 2 to 4 weeks. Most clients see their first booked call within 11 days of going live. Timeline depends on onboarding speed.",
   pillars: [
     {
       id: "authority",
@@ -260,7 +260,7 @@ export const howWeWork = {
 export const marbleSystemSection = {
   label: "THE SYSTEM",
   headline: "Market Gap Report. System Launch. Compound Loop.",
-  subheadline: "Three steps. Live in 11 days.",
+  subheadline: "Three steps. Live in 11 days median.",
   steps: [
     {
       title: "Market Gap Report",
@@ -270,7 +270,7 @@ export const marbleSystemSection = {
     },
     {
       title: "System Launch",
-      copy: "Site, ads, tracking, booking flow, and AI qualification. All built, all connected, all live. You approve each component before it ships. Median time to first booked call: 11 days.",
+      copy: "Site, ads, tracking, booking flow, and AI qualification. All built, all connected, all live. You approve each component before it ships. Median time to first booked call: 11 days. Timeline depends on asset approvals.",
       timeline: "11 days median",
       deliverables: ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
     },
