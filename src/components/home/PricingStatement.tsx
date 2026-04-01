@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { Sparkles } from "@/components/ui/sparkles";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 const GROWTH_FEATURES = [
   "Conversion website: custom coded, built to rank and convert",
@@ -156,6 +157,16 @@ export default function PricingStatement() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
+  const glowEntrance = {
+    hidden: { opacity: 0, y: -20, filter: "blur(10px)" },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    },
+  };
+
   return (
     <section
       id="pricing"
@@ -167,8 +178,36 @@ export default function PricingStatement() {
         paddingBottom: "clamp(80px, 12vw, 160px)",
       }}
     >
-      {/* Sparkle background */}
-      <div className="absolute top-0 left-0 right-0 h-[400px] overflow-hidden" style={{ maskImage: "radial-gradient(50% 50%, white, transparent)" }}>
+      {/* ── BACKGROUND LAYER 1: Glowing gradient ellipses ── */}
+      <motion.div
+        className="absolute left-0 right-0 top-[-200px] h-[2000px] flex items-start justify-center overflow-hidden pointer-events-none"
+        variants={glowEntrance}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        <div
+          className="absolute left-[-400px] right-[-400px] top-0 h-[1800px] rounded-full"
+          style={{
+            border: "180px solid rgba(212,168,83,0.06)",
+            filter: "blur(100px)",
+            WebkitFilter: "blur(100px)",
+          }}
+        />
+        <div
+          className="absolute left-[-300px] right-[-300px] top-[100px] h-[1600px] rounded-full"
+          style={{
+            border: "150px solid rgba(212,168,83,0.04)",
+            filter: "blur(80px)",
+            WebkitFilter: "blur(80px)",
+          }}
+        />
+      </motion.div>
+
+      {/* ── BACKGROUND LAYER 2: Sparkles + grid ── */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[400px] overflow-hidden"
+        style={{ maskImage: "radial-gradient(50% 50%, white, transparent)" }}
+      >
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:70px_80px]" />
         {isInView && (
           <Sparkles
@@ -182,17 +221,19 @@ export default function PricingStatement() {
         )}
       </div>
 
-      {/* Gold glow */}
+      {/* ── BACKGROUND LAYER 3: Radial gold overlay ── */}
       <div
         className="absolute top-0 left-[10%] right-[10%] w-[80%] h-full z-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle at center, rgba(212,168,83,0.08) 0%, transparent 70%)",
+          backgroundImage:
+            "radial-gradient(circle at center, rgba(212,168,83,0.08) 0%, transparent 70%)",
           mixBlendMode: "screen",
         }}
       />
 
+      {/* ── CONTENT ── */}
       <div className="relative z-10 mx-auto max-w-[1060px] px-6">
-        {/* Header */}
+        {/* Header with VerticalCutReveal */}
         <div className="text-center mb-14">
           <motion.p
             initial={{ opacity: 0, y: -10 }}
@@ -203,24 +244,38 @@ export default function PricingStatement() {
           >
             PRICING
           </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-bold text-white mb-4"
-            style={{
-              fontSize: "clamp(2.2rem, 5.2vw, 3.5rem)",
-              fontFamily: "var(--font-cormorant), Georgia, serif",
-            }}
-          >
-            One person. Full pipeline.
-          </motion.h2>
+
+          {isInView && (
+            <h2
+              className="font-bold text-white mb-4"
+              style={{
+                fontSize: "clamp(2.2rem, 5.2vw, 3.5rem)",
+                fontFamily: "var(--font-cormorant), Georgia, serif",
+              }}
+            >
+              <VerticalCutReveal
+                splitBy="words"
+                staggerDuration={0.12}
+                staggerFrom="first"
+                reverse={true}
+                containerClassName="justify-center"
+                transition={{
+                  type: "spring",
+                  stiffness: 250,
+                  damping: 40,
+                  delay: 0,
+                }}
+              >
+                One person. Full pipeline.
+              </VerticalCutReveal>
+            </h2>
+          )}
+
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.4 }}
             className="text-[0.9375rem] max-w-md mx-auto"
             style={{ color: "#A69D8D", lineHeight: 1.65 }}
           >
