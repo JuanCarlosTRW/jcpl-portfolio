@@ -1,26 +1,28 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import AnimatedSection from "@/components/ui/AnimatedSection";
 import { Check } from "lucide-react";
-import { useLocale } from "@/context/LocaleContext";
-import { translations } from "@/lib/translations";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
-const JUAN_IMG_SRC = "/images/juan-headshot.jpeg";
+const GROWTH_FEATURES = [
+  "Conversion website \u2014 custom coded, built to rank and convert",
+  "Google Ads \u2014 targeting buyers with purchase intent in your city",
+  "Local SEO \u2014 Google Maps and organic positioning",
+  "AI search visibility \u2014 appear in ChatGPT, Perplexity, and AI answer results",
+  "Weekly campaign optimization \u2014 cost per call goes down every month",
+  "Monthly performance review call",
+];
+
+const SCALE_ADDITIONS = [
+  "Higher ad budget management \u2014 more spend, more calls, more jobs",
+  "AI lead qualification \u2014 automated follow-up that qualifies leads before your phone rings",
+  "Multi-location and multi-channel expansion",
+  "Dedicated landing pages per service and per city",
+  "Weekly strategy calls \u2014 direct line, every week",
+  "GEO (Generative Engine Optimization) \u2014 the new SEO. When someone asks ChatGPT, Perplexity, or Google AI \u201Cbest [service] near me,\u201D your business is the answer. Most competitors do not know this exists yet.",
+];
 
 export default function PricingStatement() {
-  const { locale, lp } = useLocale();
-  const p = translations[locale].homepage.pricing;
-
-  const FEATURES_ACQUISITION = [p.item1, p.item2, p.item3, p.item4];
-  const FEATURES_OWNERSHIP = [p.item5, p.item6, p.item7, p.item8];
-  const ASSURANCES = [
-    { title: p.term1Title, body: p.term1Sub },
-    { title: p.term2Title, body: p.term2Sub },
-    { title: p.term3Title, body: p.term3Sub },
-  ];
-
   return (
     <section
       className="px-4"
@@ -30,7 +32,7 @@ export default function PricingStatement() {
         paddingBottom: "clamp(64px, 10vw, 140px)",
       }}
     >
-      <div className="mx-auto max-w-[960px]">
+      <div className="mx-auto max-w-[1060px]">
         {/* Section label */}
         <p
           className="text-center uppercase"
@@ -43,115 +45,144 @@ export default function PricingStatement() {
             marginBottom: 16,
           }}
         >
-          {p.eyebrow}
+          PRICING
         </p>
 
-        {/* Section h2 */}
+        {/* Section headline */}
         <AnimatedSection direction="up" className="text-center mb-4">
           <h2
             className="font-bold text-white"
-            style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.4rem)" }}
+            style={{
+              fontSize: "clamp(2.2rem, 5.2vw, 4.4rem)",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
+            }}
           >
-            One person. Full pipeline.
+            One system. Two speeds.
           </h2>
         </AnimatedSection>
 
-        {/* Section framing line */}
-        <AnimatedSection direction="up" delay={0.05} className="text-center mb-12">
+        {/* Subheadline */}
+        <AnimatedSection direction="up" delay={0.05} className="text-center mb-14">
           <p
             style={{
               fontSize: "0.9375rem",
               color: "#A69D8D",
-              maxWidth: 420,
+              maxWidth: 520,
               margin: "0 auto",
               lineHeight: 1.65,
             }}
           >
-            {p.sub}
+            Both tiers include everything needed to fill your calendar. The difference is how fast you want to grow.
           </p>
         </AnimatedSection>
 
-        {/* Two-column core zone */}
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Left — Founder trust panel */}
-          <AnimatedSection direction="left" delay={0} className="flex-1 min-w-0 md:flex-none md:w-[43%]">
+        {/* Two-card layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* TIER 1: Growth Architecture */}
+          <AnimatedSection direction="left" delay={0}>
             <div
-              className="relative rounded-2xl overflow-hidden pricing-left-card"
-              style={{ minHeight: 520 }}
+              className="rounded-2xl p-8 flex flex-col depth-card h-full"
+              style={{
+                background: "#1E1A14",
+                border: "1px solid #2A2318",
+                borderTop: "3px solid #D4A853",
+              }}
             >
-              {/* Photo */}
-              <div
-                className="founder-photo-wrapper pricing-photo-wrapper absolute inset-0 z-0"
-                style={{ position: "absolute" }}
-              >
-                <Image
-                  src={JUAN_IMG_SRC}
-                  alt="Juan Carlos Portillo-Laflamme"
-                  fill
-                  quality={80}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="block w-full h-full object-cover object-top"
-                  style={{ borderRadius: 16, filter: "brightness(0.87)" }}
-                />
+              {/* Tag */}
+              <div className="flex items-center gap-2 mb-4">
+                <span
+                  className="text-[10px] font-bold tracking-[0.14em] uppercase px-3 py-1 rounded-full"
+                  style={{
+                    background: "rgba(212,168,83,0.1)",
+                    color: "#D4A853",
+                    border: "1px solid rgba(212,168,83,0.25)",
+                  }}
+                >
+                  Most popular
+                </span>
               </div>
 
-              {/* Gradient overlay */}
-              <div
-                className="absolute inset-0 pointer-events-none z-[1]"
+              {/* Tier name */}
+              <p
+                className="uppercase mb-2"
                 style={{
-                  background:
-                    "linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(26,21,16,0.4) 68%, #1A1510 100%)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.12em",
+                  color: "#D4A853",
                 }}
-              />
+              >
+                GROWTH ARCHITECTURE
+              </p>
 
-              {/* Content at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 z-[2] p-8">
-                <p
-                  className="uppercase mb-2"
-                  style={{
-                    fontSize: "0.7rem",
-                    letterSpacing: "0.15em",
-                    color: "#D4A853",
-                  }}
+              {/* Price */}
+              <div className="mb-2">
+                <span
+                  className="font-extrabold text-white"
+                  style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}
                 >
-                  {p.byApplication}
-                </p>
-                <p
-                  className="font-extrabold text-white mb-1"
-                  style={{
-                    fontSize: "clamp(1.4rem, 2.5vw, 1.75rem)",
-                    lineHeight: 1.2,
-                  }}
+                  $2,500
+                </span>
+                <span
+                  className="align-middle ml-1"
+                  style={{ fontSize: "1rem", color: "#756D63", fontWeight: 400 }}
                 >
-                  {p.workDirectly}
+                  / month
+                </span>
+              </div>
+
+              {/* Headline */}
+              <p
+                className="font-semibold text-white mb-5"
+                style={{ fontSize: "1.125rem" }}
+              >
+                Get the phone ringing.
+              </p>
+
+              {/* Divider */}
+              <div className="mb-5" style={{ borderTop: "1px solid #2A2318" }} />
+
+              {/* Features */}
+              <ul className="space-y-3 mb-6">
+                {GROWTH_FEATURES.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5">
+                    <Check
+                      className="shrink-0 mt-0.5"
+                      size={14}
+                      style={{ color: "#D4A853" }}
+                    />
+                    <span style={{ fontSize: "0.85rem", color: "#D2C9B8", lineHeight: 1.55 }}>
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Proof anchor */}
+              <div
+                className="rounded-lg px-4 py-3 mb-5"
+                style={{
+                  background: "rgba(212,168,83,0.04)",
+                  borderLeft: "2px solid rgba(212,168,83,0.4)",
+                }}
+              >
+                <p style={{ fontSize: "0.8rem", color: "#D2C9B8", lineHeight: 1.6, fontStyle: "italic" }}>
+                  Triple W Rentals started here. $41,084 in revenue. $900 in ad spend. 30 days.
                 </p>
-                <p
-                  className="mb-5"
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "#D2C9B8",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {p.noAccountManagers}
-                </p>
-                <div className="flex items-center mb-5" style={{ gap: 8 }}>
-                  <span
-                    className="inline-block rounded-full availability-pulse-dot"
-                    style={{
-                      width: 8,
-                      height: 8,
-                      backgroundColor: "#22c55e",
-                      flexShrink: 0,
-                    }}
-                  />
-                  <span style={{ fontSize: "0.8rem", color: "#A69D8D" }}>
-                    {p.spotOpen}
-                  </span>
-                </div>
+              </div>
+
+              {/* Risk reversal */}
+              <p
+                className="mb-6"
+                style={{ fontSize: "0.8rem", color: "#A69D8D", lineHeight: 1.6 }}
+              >
+                If your phone does not ring in the first 30 days, I refund the difference. No negotiation.
+              </p>
+
+              {/* CTA */}
+              <div className="mt-auto space-y-2">
                 <Link
-                  href={lp("/apply")}
-                  className="flex items-center justify-center w-full transition-colors"
+                  href="/apply"
+                  className="flex items-center justify-center w-full text-base"
                   style={{
                     backgroundColor: "#D4A853",
                     color: "#0D0B09",
@@ -160,6 +191,7 @@ export default function PricingStatement() {
                     borderRadius: 6,
                     padding: "14px 28px",
                     fontSize: "0.9rem",
+                    transition: "background-color 200ms",
                   }}
                   onMouseOver={(e) => {
                     e.currentTarget.style.backgroundColor = "#C49A2A";
@@ -168,200 +200,141 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Book a Diagnostic Call →
+                  Apply for Growth Partnership &rarr;
                 </Link>
+                <p
+                  className="text-center"
+                  style={{ fontSize: "12px", color: "rgba(240,234,214,0.5)" }}
+                >
+                  I review every application within 24 hours.
+                </p>
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Right — Pricing and scope */}
-          <AnimatedSection
-            direction="right"
-            delay={0.15}
-            className="flex-1 min-w-0"
-          >
+          {/* TIER 2: Scale Architecture */}
+          <AnimatedSection direction="right" delay={0.15}>
             <div
-              className="rounded-2xl p-8 flex flex-col depth-card"
+              className="rounded-2xl p-8 flex flex-col depth-card h-full"
               style={{
-                minHeight: 520,
                 background: "#1E1A14",
                 border: "1px solid #2A2318",
                 borderTop: "3px solid #D4A853",
               }}
             >
-              {/* Card label */}
+              {/* Tag */}
+              <div className="flex items-center gap-2 mb-4">
+                <span
+                  className="text-[10px] font-bold tracking-[0.14em] uppercase px-3 py-1 rounded-full"
+                  style={{
+                    background: "rgba(212,168,83,0.1)",
+                    color: "#D4A853",
+                    border: "1px solid rgba(212,168,83,0.25)",
+                  }}
+                >
+                  For operators ready to dominate
+                </span>
+              </div>
+
+              {/* Tier name */}
               <p
-                className="uppercase mb-3"
+                className="uppercase mb-2"
                 style={{
                   fontSize: "0.65rem",
                   letterSpacing: "0.12em",
                   color: "#D4A853",
                 }}
               >
-                {p.growthPartnership}
+                SCALE ARCHITECTURE
               </p>
 
               {/* Price */}
-              <div className="mb-2 stat-glow" style={{ position: "relative" }}>
+              <div className="mb-2">
                 <span
                   className="font-extrabold text-white"
-                  style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
+                  style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}
                 >
-                  $2,500
+                  $4,500
                 </span>
                 <span
                   className="align-middle ml-1"
-                  style={{
-                    fontSize: "1rem",
-                    color: "#756D63",
-                    fontWeight: 400,
-                  }}
+                  style={{ fontSize: "1rem", color: "#756D63", fontWeight: 400 }}
                 >
-                  /month
+                  / month
                 </span>
               </div>
 
-              {/* Subcopy */}
+              {/* Headline */}
               <p
-                className="mb-5"
-                style={{
-                  fontSize: "0.8rem",
-                  color: "#A69D8D",
-                  lineHeight: 1.55,
-                }}
+                className="font-semibold text-white mb-5"
+                style={{ fontSize: "1.125rem" }}
               >
-                {p.description}
+                Saturate your market.
               </p>
 
               {/* Divider */}
-              <div
-                className="mb-6"
-                style={{ borderTop: "1px solid #2A2318" }}
-              />
+              <div className="mb-5" style={{ borderTop: "1px solid #2A2318" }} />
 
-              {/* Grouped features */}
-              <div className="mb-6 space-y-4">
-                {/* Acquisition System */}
-                <div>
-                  <p
-                    className="uppercase mb-3"
-                    style={{
-                      fontSize: "0.62rem",
-                      letterSpacing: "0.1em",
-                      color: "#756D63",
-                    }}
-                  >
-                    {p.acquisitionSystem}
-                  </p>
-                  <ul className="space-y-2">
-                    {FEATURES_ACQUISITION.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2.5">
-                        <Check
-                          className="shrink-0 mt-0.5"
-                          size={14}
-                          style={{ color: "#D4A853" }}
-                        />
-                        <span
-                          style={{ fontSize: "0.85rem", color: "#D2C9B8" }}
-                        >
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Ownership & Optimization */}
-                <div>
-                  <p
-                    className="uppercase mb-3"
-                    style={{
-                      fontSize: "0.62rem",
-                      letterSpacing: "0.1em",
-                      color: "#756D63",
-                    }}
-                  >
-                    {p.ownershipOptimization}
-                  </p>
-                  <ul className="space-y-2">
-                    {FEATURES_OWNERSHIP.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2.5">
-                        <Check
-                          className="shrink-0 mt-0.5"
-                          size={14}
-                          style={{ color: "#D4A853" }}
-                        />
-                        <span
-                          style={{ fontSize: "0.85rem", color: "#D2C9B8" }}
-                        >
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Value stack */}
-              <div
-                className="mb-6"
-                style={{ borderTop: "1px solid rgba(212,168,83,0.15)", paddingTop: 20 }}
+              {/* Intro line */}
+              <p
+                className="mb-4"
+                style={{ fontSize: "0.85rem", color: "#D2C9B8", fontWeight: 500 }}
               >
-                <p
-                  className="font-semibold mb-5"
-                  style={{ fontSize: "1rem", color: "#F5F0E8" }}
-                >
-                  What you are actually getting:
-                </p>
-                <div className="space-y-3">
-                  {[
-                    "A conversion website built for your niche ($3,500 value)",
-                    "Google Ads setup and management ($1,200/mo agency rate)",
-                    "Local SEO + location pages ($800/mo agency rate)",
-                    "Weekly optimization loop (not included anywhere at this price)",
-                    "Monthly revenue reporting with real numbers",
-                    "Direct founder access. No account managers.",
-                  ].map((item) => (
-                    <p
-                      key={item}
-                      className="flex items-start gap-3"
-                      style={{
-                        fontSize: "0.9rem",
-                        color: "#D2C9B8",
-                        borderLeft: "2px solid rgba(212,168,83,0.4)",
-                        paddingLeft: 12,
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {item}
-                    </p>
-                  ))}
-                </div>
-                <p
-                  className="mt-6"
-                  style={{
-                    fontSize: "1.25rem",
-                    fontWeight: 700,
-                    color: "rgba(240,234,214,0.4)",
-                    textDecoration: "line-through",
-                  }}
-                >
-                  Total agency equivalent: $5,500+/month
-                </p>
-                <p
-                  className="mt-2"
-                  style={{ fontSize: "1.5rem", fontWeight: 800, color: "#D4A853" }}
-                >
-                  Your investment: $2,500/month
+                Everything in Growth Architecture, plus:
+              </p>
+
+              {/* Features */}
+              <ul className="space-y-3 mb-6">
+                {SCALE_ADDITIONS.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5">
+                    <Check
+                      className="shrink-0 mt-0.5"
+                      size={14}
+                      style={{ color: "#D4A853" }}
+                    />
+                    <span style={{ fontSize: "0.85rem", color: "#D2C9B8", lineHeight: 1.55 }}>
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Proof anchor */}
+              <div
+                className="rounded-lg px-4 py-3 mb-5"
+                style={{
+                  background: "rgba(212,168,83,0.04)",
+                  borderLeft: "2px solid rgba(212,168,83,0.4)",
+                }}
+              >
+                <p style={{ fontSize: "0.8rem", color: "#D2C9B8", lineHeight: 1.6, fontStyle: "italic" }}>
+                  This is the tier where a single city becomes a category you own.
                 </p>
               </div>
+
+              {/* Risk reversal */}
+              <p
+                className="mb-6"
+                style={{ fontSize: "0.8rem", color: "#A69D8D", lineHeight: 1.6 }}
+              >
+                Same guarantee. If the phone does not ring in 30 days, I refund the difference.
+              </p>
 
               {/* CTA */}
               <div className="mt-auto space-y-2">
                 <Link
-                  href="#book-call"
-                  className="flex items-center justify-center w-full text-base cta-primary cta-button"
-                  style={{ backgroundColor: "#D4A853", color: "#0D0B09", fontWeight: 600, border: "none", borderRadius: 6, padding: "14px 28px" }}
+                  href="/apply"
+                  className="flex items-center justify-center w-full text-base"
+                  style={{
+                    backgroundColor: "#D4A853",
+                    color: "#0D0B09",
+                    fontWeight: 600,
+                    border: "none",
+                    borderRadius: 6,
+                    padding: "14px 28px",
+                    fontSize: "0.9rem",
+                    transition: "background-color 200ms",
+                  }}
                   onMouseOver={(e) => {
                     e.currentTarget.style.backgroundColor = "#C49A2A";
                   }}
@@ -369,54 +342,17 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Book a Diagnostic Call →
+                  Apply for Growth Partnership &rarr;
                 </Link>
                 <p
                   className="text-center"
-                  style={{ fontSize: "13px", color: "rgba(240, 234, 214, 0.5)" }}
+                  style={{ fontSize: "12px", color: "rgba(240,234,214,0.5)" }}
                 >
-                  No payment before fit. I confirm strategic fit on the call before you pay anything.
+                  3 partnership slots available. I review in 24 hours.
                 </p>
               </div>
             </div>
           </AnimatedSection>
-        </div>
-
-        {/* Confidence strip */}
-        <div
-          style={{
-            borderTop: "1px solid #2A2318",
-            marginTop: "clamp(28px, 4vw, 40px)",
-            paddingTop: "clamp(28px, 4vw, 40px)",
-          }}
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-            {ASSURANCES.map((item, i) => (
-              <AnimatedSection
-                key={item.title}
-                direction="up"
-                delay={0.1 + i * 0.07}
-              >
-                <div className="flex flex-col" style={{ gap: 4 }}>
-                  <p
-                    className="font-semibold text-white"
-                    style={{ fontSize: "0.9rem" }}
-                  >
-                    {item.title}
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "#A69D8D",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {item.body}
-                  </p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
       </div>
     </section>

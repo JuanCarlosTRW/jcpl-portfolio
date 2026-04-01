@@ -186,7 +186,7 @@ export default function InfrastructureTiers() {
                 className="text-sm font-medium transition-colors hover:text-slate-200"
                 style={{ color: "#64748B", textDecoration: "underline", textUnderlineOffset: "3px" }}
               >
-                Apply for Foundation Architecture →
+                Apply for Growth Partnership →
               </a>
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function InfrastructureTiers() {
                 boxShadow: "0 4px 24px rgba(37,99,235,0.35)",
               }}
             >
-              Apply for Performance Engine →
+              Apply for Growth Partnership →
             </a>
             <p
               className="text-[11px] text-center mt-3 leading-relaxed"
@@ -448,7 +448,7 @@ export default function InfrastructureTiers() {
                 className="text-sm font-medium transition-colors hover:text-amber-400"
                 style={{ color: "rgba(245,158,11,0.70)", textDecoration: "underline", textUnderlineOffset: "3px" }}
               >
-                Apply for this tier →
+                Apply for Growth Partnership →
               </a>
             </div>
           </div>
@@ -512,7 +512,7 @@ export default function InfrastructureTiers() {
             <p className="text-xs mt-5" style={{ color: "#475569" }}>Barbershop. Montreal. Local SEO + website rebuild.</p>
           </div>
 
-          {/* Block 2: Named Testimonial — Mike S. */}
+          {/* Block 2: Named Testimonial — Tobari */}
           <div
             className="relative rounded-2xl p-6 overflow-hidden"
             style={{
@@ -533,7 +533,7 @@ export default function InfrastructureTiers() {
               >
                 <img
                   src="/images/testimonials/mike-s.png"
-                  alt="Mike S., Culture Barbershop"
+                  alt="Tobari, Culture Barbershop"
                   className="w-full h-full object-cover"
                   onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
@@ -550,7 +550,7 @@ export default function InfrastructureTiers() {
                 </svg>
               </div>
               <div>
-                <p className="text-[14px] font-[700] text-white opacity-[1.0]">Mike S.</p>
+                <p className="text-[14px] font-[700] text-white opacity-[1.0]">Tobari</p>
                 <p className="text-[13px] font-[400] opacity-[0.50]">Culture Barbershop, Montreal, QC</p>
               </div>
             </div>

@@ -15,6 +15,7 @@ const VerticalTabs = dynamic(() => import("@/components/ui/vertical-tabs"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
+const BatonHandoff = dynamic(() => import("@/components/home/BatonHandoff"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 
@@ -39,8 +40,11 @@ export default function HomePage() {
       {/* 6. Testimonials */}
       <TestimonialBlock />
 
-      {/* 7. Pricing — single card with value stack */}
+      {/* 7. Pricing — two-tier layout */}
       <PricingStatement />
+
+      {/* 7b. What happens next — baton handoff */}
+      <BatonHandoff />
 
       {/* 8. FAQ */}
       <FAQ />

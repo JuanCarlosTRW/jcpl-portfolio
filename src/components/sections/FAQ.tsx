@@ -96,7 +96,7 @@ export default function FAQ() {
                 Same system. Different industries. Every result verified against live account data.
               </p>
               <p className="text-[0.8rem] leading-[1.6] mb-6" style={{ color: "rgba(240,234,214,0.5)" }}>
-                $41,085 from $900 in ad spend. 90 new clients in 90 days. Page 1 in under 60 days.
+                $41,085 from $900 in ad spend. SEO campaigns active. Custom websites delivered.
               </p>
               <a
                 href="/results"

@@ -25,47 +25,17 @@ export default function ThankYouPage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          Application Received
+          Application received.
         </h1>
 
-        <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-lg mx-auto">
-          I review every application personally. If there&apos;s a clear fit,
-          you&apos;ll hear from me within{" "}
-          <strong className="text-white">24 hours</strong>.
-        </p>
-
-        {/* Next steps */}
         <div className="gradient-border rounded-2xl bg-[var(--bg-surface)] p-8 md:p-10 mb-10 text-left">
-          <h2 className="text-lg font-bold text-white mb-6">What Happens Next</h2>
-          <ol className="space-y-4">
-            {[
-              {
-                step: "1",
-                title: "Application Review",
-                desc: "I will review your answers to understand your business and goals.",
-              },
-              {
-                step: "2",
-                title: "Fit Assessment",
-                desc: "If there is a clear fit, I will reach out to schedule a strategy call within 24 hours. If not, I will tell you directly.",
-              },
-              {
-                step: "3",
-                title: "Strategy Call",
-                desc: "I will map out your Growth Architecture and show you exactly what the system would look like. No obligation.",
-              },
-            ].map((item) => (
-              <li key={item.step} className="flex gap-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--brand-accent)] text-sm font-bold text-white">
-                  {item.step}
-                </span>
-                <div>
-                  <p className="font-semibold text-white">{item.title}</p>
-                  <p className="text-sm text-[var(--text-secondary)]">{item.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <p className="text-base text-[var(--text-secondary)] leading-[1.75]">
+            I will review your business within 24 hours and email you directly.
+            What I am looking at: your market, your competitors, what you are
+            currently running, and whether I can produce a measurable return for
+            you. If the answer is yes, my email will include exactly what that
+            looks like. Check your inbox, including spam, within one business day.
+          </p>
         </div>
 
         {/* Actions */}

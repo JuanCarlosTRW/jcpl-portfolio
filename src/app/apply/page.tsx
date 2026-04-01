@@ -50,6 +50,29 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      {/* ══ FRICTION-REDUCTION BLOCK ══ */}
+      <section className="pb-6 md:pb-8" style={{ background: "#0D0B09" }}>
+        <div className="max-w-[540px] mx-auto px-6">
+          <div
+            className="rounded-xl p-6 md:p-8"
+            style={{
+              background: "#131009",
+              border: "1px solid rgba(212,168,83,0.12)",
+            }}
+          >
+            <h2
+              className="text-[20px] font-bold text-white mb-4"
+              style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+            >
+              This is not a sales form.
+            </h2>
+            <p className="text-[14px] text-[#D2C9B8] leading-[1.75]">
+              Fill this out and I will review your business, your market, and your pipeline before we speak. You will hear from me within 24 hours, by email, directly from me. No assistant. No automated sequence. If I can produce a return for your business, I will tell you exactly how. If I cannot, I will tell you that too. You will not be asked to pay anything on this form.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ══ THE FORM ══ */}
       <ApplyIntakeForm />
 
@@ -62,22 +85,22 @@ export default function ApplyPage() {
                 stat: "$41,085",
                 sub: "revenue",
                 client: "Triple W Rentals",
-                owner: "Westin Wayne",
+                owner: "Westin Wayne Walker",
                 time: "30 days",
               },
               {
-                stat: "90",
-                sub: "new clients",
+                stat: "Targeting #1",
+                sub: "SEO campaign active",
                 client: "Elite Barbershop",
                 owner: "Hadi",
-                time: "90 days",
+                time: "In progress",
               },
               {
-                stat: "Page 1",
-                sub: "Google",
+                stat: "Website",
+                sub: "Full custom build",
                 client: "Culture Barbershop",
                 owner: "Tobari",
-                time: "<60 days",
+                time: "Delivered",
               },
             ].map((card) => (
               <div
@@ -127,7 +150,7 @@ export default function ApplyPage() {
               &ldquo;First call came in 9 days. We had tried two agencies before this. Nothing came close.&rdquo;
             </p>
             <p className="text-[13px]" style={{ color: "#756D63" }}>
-              — Tyler W., Triple W Rentals, Texas
+              — Westin Wayne Walker, Triple W Rentals, Texas
             </p>
           </div>
         </div>

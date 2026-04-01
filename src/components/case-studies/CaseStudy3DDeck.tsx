@@ -35,7 +35,7 @@ const defaultCaseStudies: CaseStudyCard[] = [
   },
   {
     id: "2",
-    headline: "90 Clients",
+    headline: "SEO Active",
     subtext: "new bookings in 3 months",
     businessType: "Premium Barbershop",
     adSpend: "$0",

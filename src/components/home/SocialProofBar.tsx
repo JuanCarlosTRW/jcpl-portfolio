@@ -12,7 +12,7 @@ const clients = [
   {
     name: "Elite Barbershop",
     industry: "Premium Barbershop · Montreal",
-    result: "90 new clients in 90 days",
+    result: "SEO campaign active",
     logo: "/images/logos/elite.png",
   },
   {

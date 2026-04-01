@@ -121,7 +121,7 @@ export default function DiagnosticForm() {
               &ldquo;First call came in 9 days. We had tried two agencies before this. Nothing came close.&rdquo;
             </p>
             <p className="text-[12px] mt-2" style={{ color: "#756D63" }}>
-              — Tyler W., Triple W Rentals · Texas
+              — Westin Wayne Walker, Triple W Rentals · Texas
             </p>
           </div>
 

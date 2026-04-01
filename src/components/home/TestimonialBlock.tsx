@@ -9,7 +9,7 @@ const testimonialsData = [
     id: 1,
     quote:
       "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.",
-    name: "Mike S.",
+    name: "Tobari",
     role: "Culture Barbershop · Montreal, QC",
     imageSrc:
       "/images/testimonials/mike-s.png",
@@ -18,7 +18,7 @@ const testimonialsData = [
     id: 2,
     quote:
       "First call came in 9 days. We had tried two agencies before this. Nothing came close.",
-    name: "Tyler W.",
+    name: "Westin Wayne Walker",
     role: "Triple W Rentals · Texas",
     imageSrc:
       "/images/testimonials/tyler-w.png",
@@ -26,8 +26,8 @@ const testimonialsData = [
   {
     id: 3,
     quote:
-      "90 new clients in 90 days. The system runs itself. Best investment I have made for the shop.",
-    name: "Alex M.",
+      "The website and SEO campaign changed the game. Clients find me on Google now. Best investment I have made for the shop.",
+    name: "Hadi",
     role: "Elite Barbershop · Montreal, QC",
     imageSrc: "/images/testimonials/alex-m.png",
   },

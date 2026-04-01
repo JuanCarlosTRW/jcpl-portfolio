@@ -139,33 +139,42 @@ export default function ResultsSecondaryCase({ cs }: { cs: CaseStudy }) {
               {rs.outcome}
             </p>
 
-            {/* Primary metric — dominant */}
+            {/* Status badge */}
+            <div className="flex items-center gap-2 mb-5">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+                style={{
+                  background: "rgba(212,168,83,0.08)",
+                  border: "1px solid rgba(212,168,83,0.25)",
+                }}
+              >
+                <span
+                  className="inline-block w-2 h-2 rounded-full"
+                  style={{ background: "#D4A853", animation: "pulse 2s ease-in-out infinite" }}
+                />
+                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase" }}>
+                  IN PROGRESS
+                </span>
+              </span>
+            </div>
+
+            {/* Primary metric — SEO target */}
             <div
               className="pb-5 mb-5 border-b"
               style={{ borderColor: "rgba(255,255,255,0.06)" }}
             >
-              <div className="text-[52px] font-extrabold text-white tracking-[-0.03em] leading-none mb-2">
-                90
+              <div className="text-[11px] uppercase tracking-[0.12em] text-[#D4A853] mb-2 font-semibold">
+                SEO CAMPAIGN ACTIVE
               </div>
-              <div className="text-[14px] text-[#D2C9B8]">{rs.newClients}</div>
+              <div className="text-[42px] font-extrabold text-white tracking-[-0.03em] leading-none mb-2">
+                Targeting #1
+              </div>
+              <div className="text-[14px] text-[#D2C9B8]">Local SEO campaign launched</div>
             </div>
 
-            {/* Secondary metric */}
-            <div
-              className="pb-5 mb-5 border-b"
-              style={{ borderColor: "rgba(255,255,255,0.06)" }}
-            >
-              <div className="text-[28px] font-extrabold text-white tracking-[-0.02em] leading-none mb-1">
-                90 {rs.days}
-              </div>
-              <div className="text-[12px] text-[rgba(255,255,255,0.4)]">
-                {rs.timeframe}
-              </div>
-            </div>
-
-            {/* Commercial context note */}
+            {/* Context note */}
             <p className="text-[13px] text-[rgba(255,255,255,0.4)] leading-[1.65]">
-              {rs.contextNote}
+              Competing for top position in Google for barbershop searches in the Montreal market. Custom website and booking system delivered. SEO results compiling.
             </p>
           </div>
         </div>

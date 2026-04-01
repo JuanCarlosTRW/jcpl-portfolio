@@ -12,7 +12,7 @@ export const metadata: Metadata = buildMetadata({
 
 const TIMELINE = [
   { date: "Q4 2025", client: "Triple W Rentals", result: "$41,085 in revenue. 30 days. $900 ad spend.", href: "/results/triple-w-rentals" },
-  { date: "Q4 2025", client: "Elite Barbershop", result: "90 new clients in 90 days. Calendar fully booked.", href: "/results/elite-barbershop" },
+  { date: "Q4 2025", client: "Elite Barbershop", result: "SEO campaign launched. Targeting #1 in local search.", href: "/results/elite-barbershop" },
   { date: "Q1 2026", client: "Culture Barbershop", result: "Page 1 Google in under 60 days. First booking in 11 days.", href: "/results/culture-barbershop" },
 ];
 

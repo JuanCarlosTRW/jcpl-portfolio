@@ -68,7 +68,7 @@ export default function ApplyIntakeForm() {
       <div className="mx-auto max-w-[540px] px-6">
         {status === "success" ? (
           <div
-            className="rounded-xl p-8 text-center"
+            className="rounded-xl p-8"
             style={{
               background: "#1E1A14",
               border: "1px solid rgba(212,168,83,0.25)",
@@ -84,11 +84,11 @@ export default function ApplyIntakeForm() {
             >
               &#10003;
             </span>
-            <p className="text-lg font-semibold text-white mb-2">
+            <h2 className="text-xl font-bold text-white mb-4">
               Application received.
-            </p>
-            <p className="text-sm" style={{ color: "#A69D8D" }}>
-              I review every application personally. Response within 24 hours.
+            </h2>
+            <p className="text-[14px] leading-[1.75] mb-0" style={{ color: "#D2C9B8" }}>
+              I will review your business within 24 hours and email you directly. What I am looking at: your market, your competitors, what you are currently running, and whether I can produce a measurable return for you. If the answer is yes, my email will include exactly what that looks like. Check your inbox, including spam, within one business day.
             </p>
           </div>
         ) : status === "error" ? (

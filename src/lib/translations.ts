@@ -877,7 +877,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       testimonial: {
         quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.",
-        name: "Mike S.",
+        name: "Tobari",
         business: "Culture Barbershop · Montreal, QC",
         below: "Every result on this page came from the same acquisition system.",
         seeResults: "See Results →",
@@ -953,7 +953,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         h1: "One system. Every qualified call tracked.",
         body1: "Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. Built as one connected system, run by one person. Live in 11 days.",
         body2: "Every layer feeds the next. The longer it runs, the less each call costs.",
-        microResult: "Most recent result: 90 new clients in 90 days. Page 1 in under 60 days.",
+        microResult: "Most recent result: $41,084 from $900 in ad spend. 30 days.",
         cta1: "Book a Diagnostic Call →",
         cta2: "See how the system works",
         trust1: "Response within 24 hours",
@@ -1062,7 +1062,7 @@ export const translations: Record<Locale, TranslationsShape> = {
     results: {
       hero: {
         eyebrow: "Client Results: Verified Record",
-        h1: "$41,085 in revenue. 90 new clients. Built on the same system.",
+        h1: "$41,085 in revenue. SEO campaigns active. Built on the same system.",
         sub: "A structured record from live partnerships. Starting conditions, what was built, and what resulted. Every figure tied to a real account.",
         stat1Value: "$41,085",
         stat1Label: "Revenue generated",
@@ -1090,7 +1090,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       secondary: {
         sectionMarker: "Featured partnership",
-        headline: "90 new clients in 90 days.\nBuilt from zero online presence.",
+        headline: "SEO campaign active.\nTargeting #1 in local search.",
         infrastructureBuilt: "Infrastructure built",
         verified: "Verified",
         viewCaseStudy: "View full case study →",
@@ -1416,7 +1416,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       testimonial: {
         quote: "Juan a complètement refait notre présence en ligne depuis zéro. La première réservation est arrivée en 11 jours. Le calendrier n'a plus eu un seul créneau vide depuis.",
-        name: "Mike S.",
+        name: "Tobari",
         business: "Culture Barbershop · Montréal, QC",
         below: "Chaque résultat sur cette page provient du même système d'acquisition.",
         seeResults: "Voir les résultats →",

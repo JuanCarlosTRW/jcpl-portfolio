@@ -110,7 +110,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Premium Barbershop",
     industry: "Beauty / Personal Care",
     location: "Canada",
-    headline: "From Walk-Ins Only to 90 New Clients in 3 Months",
+    headline: "From Walk-Ins Only to a Full Acquisition System",
     subtext:
       "How a premium website funnel transformed a barbershop's client acquisition. Generating 90 booked appointments in 90 days without referrals.",
     situation: {
@@ -164,7 +164,7 @@ export const caseStudies: CaseStudy[] = [
       quote: "A referral-only business has a ceiling. A system-driven business has a runway.",
       body: "Word of mouth is powerful, but it is not scalable. The moment you build a digital acquisition system, you decouple your growth from your personal network. That is when the business becomes an asset, not just a job.",
     },
-    beforeAfter: { before: "100% referral, no digital presence", after: "90 new clients via website funnel in 90 days" },
+    beforeAfter: { before: "100% referral, no digital presence", after: "SEO campaign active. Targeting #1 in local search." },
     whatChanged: [
       "Premium website built with full booking integration",
       "Google Maps and local SEO optimized from day one",
@@ -342,7 +342,7 @@ export const caseStudiesContent = {
   secondaryCases: [
     {
       client: "Premium Barbershop",
-      metric: "+90 New Clients / 3 Months",
+      metric: "SEO Campaign Active",
       summary: "Website funnel for a barbershop with zero digital presence.",
       bullets: [
         "90 new booked clients in 90 days",

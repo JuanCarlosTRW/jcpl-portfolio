@@ -65,7 +65,7 @@ const SERVICES = [
     frameUrl: "",
     badge: "ACTIVE CLIENT CALENDAR",
     label: "BARBERSHOP · MONTREAL",
-    stat: "90 new clients · 90 days · Built from zero online presence",
+    stat: "SEO campaign active · Targeting #1 · Local search",
     verification: "Full acquisition system · Calendar fully booked since launch",
   },
 ];

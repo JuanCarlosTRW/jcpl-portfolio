@@ -408,7 +408,7 @@ function ActiveSystemsSection() {
             <span className="font-semibold text-white text-lg">Elite Barbershop</span>
           </div>
           <div className="text-[13px] text-[rgba(220,230,240,0.62)] mb-2">Premium Barbershop · Montreal</div>
-          <div className="text-[15px] font-bold text-[rgba(80,200,120,0.82)] mb-1">90 new clients in 90 days</div>
+          <div className="text-[15px] font-bold text-[rgba(80,200,120,0.82)] mb-1">SEO campaign active</div>
         </div>
         {/* Culture Barbershop */}
         <div className="bg-[rgba(20,24,32,0.82)] rounded-xl p-6 flex flex-col items-start shadow-lg">

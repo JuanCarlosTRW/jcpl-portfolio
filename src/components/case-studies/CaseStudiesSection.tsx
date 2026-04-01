@@ -23,29 +23,29 @@ function CaseStudyCardGrid() {
       slug: "triple-w-rentals",
       anchor: "#triple-w",
       siteUrl: null as string | null,
-      testimonial: { quote: "First call came in 9 days. We had tried two agencies before this. Nothing came close.", name: "Tyler W.", location: "Texas" },
+      testimonial: { quote: "First call came in 9 days. We had tried two agencies before this. Nothing came close.", name: "Westin Wayne Walker", location: "Texas" },
     },
     {
-      label: "FEATURED PARTNERSHIP",
+      label: "SEO CAMPAIGN ACTIVE",
       niche: "PREMIUM BARBERSHOP, MONTREAL",
       client: "Elite Barbershop",
-      stat: "90",
-      subStats: "New clients · 90 days · Built from zero",
+      stat: "Targeting #1",
+      subStats: "SEO campaign active · Local search · In progress",
       slug: "elite-barbershop",
       anchor: "#elite",
       siteUrl: "https://elitebyhadi.com/fr/",
-      testimonial: { quote: "90 new clients in 90 days. The system runs itself. Best investment I have made for the shop.", name: "Alex M.", location: "Montreal" },
+      testimonial: { quote: "The website and SEO campaign changed the game. Clients find me on Google now.", name: "Hadi", location: "Montreal" },
     },
     {
-      label: "RECENTLY DELIVERED",
+      label: "WEBSITE DELIVERED",
       niche: "BARBERSHOP, MONTREAL",
       client: "Culture Barbershop",
-      stat: "Page 1",
-      subStats: "Google · Under 60 days · Montreal market",
+      stat: "Full custom website",
+      subStats: "Conversion website built from scratch",
       slug: "culture-barbershop",
       anchor: "#culture",
       siteUrl: "https://culturemtl.ca",
-      testimonial: { quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.", name: "Mike S.", location: "Montreal" },
+      testimonial: { quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.", name: "Tobari", location: "Montreal" },
     },
   ];
 
@@ -144,12 +144,12 @@ function CultureCaseStudy() {
             Culture Barbershop
           </h2>
           <p className="text-[16px] text-[#D2C9B8] leading-[1.6] mb-6">
-            Page 1 in under 60 days. Montreal market.
+            Conversion website built from scratch. Designed and coded to convert visitors into booked appointments.
           </p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {["Page 1", "SEO", "<60 days", "Montreal Market"].map((tag) => (
+            {["Custom Website", "Conversion Design", "Booking Flow", "Montreal Market"].map((tag) => (
               <span
                 key={tag}
                 className="text-[11px] px-3 py-1 rounded-full"
@@ -162,7 +162,7 @@ function CultureCaseStudy() {
 
           {/* Condensed narrative */}
           <p className="text-[15px] text-[#D2C9B8] leading-[1.75] mb-8 max-w-[640px]">
-            Culture Barbershop needed a digital presence that matched their identity and reputation in the Montreal market. Custom website with strong brand positioning, copy engineered to convert first-time visitors into booked appointments, and local SEO targeting competitive Montreal barbershop searches. Page 1 achieved in under 60 days.
+            Culture Barbershop needed a digital presence that matched their identity and reputation in the Montreal market. I built a custom website with strong brand positioning, copy engineered to convert first-time visitors into booked appointments, and a mobile-optimized booking flow. The site was designed and coded from scratch to serve as the foundation for all future growth.
           </p>
 
           {/* Infrastructure + Outcome row */}
@@ -190,7 +190,7 @@ function CultureCaseStudy() {
                 OUTCOME
               </p>
               <p className="text-[15px] text-white font-semibold">
-                Page 1 Google · &lt;60 days · Competitive Montreal market
+                Full custom website · Conversion-engineered · Montreal market
               </p>
             </div>
           </div>

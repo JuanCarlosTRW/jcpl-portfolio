@@ -168,7 +168,7 @@ export default function FeaturedCaseStudy() {
         </div>
       </Reveal>
 
-      {/* — BARBERSHOP: Elite Barbershop — */}
+      {/* — BARBERSHOP: Elite Barbershop (Hadi) — SEO In Progress */}
       <Reveal delay={0.15}>
         <div className="max-w-3xl mx-auto mb-6">
           <div
@@ -191,31 +191,47 @@ export default function FeaturedCaseStudy() {
               BARBERSHOP · MONTREAL · LOCAL SEO
             </p>
 
-            {/* Two-stat row */}
-            <div className="flex flex-wrap items-end gap-x-10 gap-y-4 mb-5">
-              <div>
-                <div
-                  className="text-[#F5F0E8] font-extrabold"
-                  style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
-                >
-                  90
-                </div>
-                <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginTop: 5 }}>
-                  new clients. In the first 90 days.
-                </p>
-              </div>
-              <div>
-                <div
-                  className="text-[#F5F0E8] font-extrabold"
-                  style={{ fontSize: "clamp(2.5rem, 6vw, 3.5rem)", lineHeight: 1 }}
-                >
-                  Page 1 Google
-                </div>
-                <p style={{ fontSize: "0.9rem", color: "#A69D8D", marginTop: 5 }}>
-                  Competitive Montreal market. Under 60 days.
-                </p>
-              </div>
+            {/* In-progress badge */}
+            <div className="flex items-center gap-2 mb-4">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+                style={{
+                  background: "rgba(212,168,83,0.08)",
+                  border: "1px solid rgba(212,168,83,0.25)",
+                }}
+              >
+                <span
+                  className="inline-block w-2 h-2 rounded-full"
+                  style={{ background: "#D4A853", animation: "pulse 2s ease-in-out infinite" }}
+                />
+                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase" }}>
+                  IN PROGRESS
+                </span>
+              </span>
             </div>
+
+            {/* SEO Campaign headline */}
+            <p
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.12em",
+                color: "#D4A853",
+                textTransform: "uppercase",
+                marginBottom: 8,
+                fontWeight: 600,
+              }}
+            >
+              SEO CAMPAIGN ACTIVE
+            </p>
+            <div
+              className="text-[#F5F0E8] font-extrabold mb-2"
+              style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
+            >
+              Targeting #1
+            </div>
+            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
+              Local SEO campaign launched. Competing for top position in Google for barbershop searches in market.
+            </p>
 
             <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>
               <p
@@ -225,7 +241,67 @@ export default function FeaturedCaseStudy() {
                   fontStyle: "italic",
                 }}
               >
-                Custom site and booking funnel delivered. Last verified Q1 2026.
+                Hadi, Elite Barbershop
+              </p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* — BARBERSHOP: Culture Barbershop (Tobari) — Website Deliverable */}
+      <Reveal delay={0.2}>
+        <div className="max-w-3xl mx-auto mb-6">
+          <div
+            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card"
+            style={{
+              background: "#1E1A14",
+              border: "1px solid #2A2318",
+              borderTop: "3px solid #D4A853",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "#756D63",
+                textTransform: "uppercase",
+                marginBottom: 16,
+              }}
+            >
+              BARBERSHOP · MONTREAL · WEB DESIGN
+            </p>
+
+            <p
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.12em",
+                color: "#D4A853",
+                textTransform: "uppercase",
+                marginBottom: 8,
+                fontWeight: 600,
+              }}
+            >
+              DELIVERABLE
+            </p>
+            <div
+              className="text-[#F5F0E8] font-extrabold mb-2"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 3.5rem)", lineHeight: 1 }}
+            >
+              Full custom website
+            </div>
+            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
+              Designed and coded to convert visitors into booked appointments
+            </p>
+
+            <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>
+              <p
+                style={{
+                  fontSize: "0.72rem",
+                  color: "#756D63",
+                  fontStyle: "italic",
+                }}
+              >
+                Tobari, Culture Barbershop
               </p>
             </div>
           </div>
