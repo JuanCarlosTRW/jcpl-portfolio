@@ -11,6 +11,21 @@ html { scroll-behavior: smooth; }
    These register as standard Tailwind utilities:
    bg-sv-base, text-sv-text, bg-sv-primary, etc.
    ═══════════════════════════════════════════════════ */
+@theme inline {
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
 @theme {
   --color-sv-base:        #0D0B09;
   --color-sv-surface:     #131009;
