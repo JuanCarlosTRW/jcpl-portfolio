@@ -24,7 +24,7 @@ function ChevronIcon({ open }: { open: boolean }) {
 
 export default function FAQ() {
   const t = useTranslations();
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0, 4]));
   const reduced = usePrefersReducedMotionSafe();
 
   const faqBooking = t("faqBooking") as {
@@ -40,7 +40,11 @@ export default function FAQ() {
   };
 
   const toggle = useCallback(
-    (i: number) => setActiveIndex((prev) => (prev === i ? null : i)),
+    (i: number) => setOpenIndices((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i); else next.add(i);
+      return next;
+    }),
     []
   );
 
@@ -96,7 +100,7 @@ export default function FAQ() {
                 Same system. Different industries. Every result verified against live account data.
               </p>
               <p className="text-[0.8rem] leading-[1.6] mb-6" style={{ color: "rgba(240,234,214,0.5)" }}>
-                $41,085 from $900 in ad spend. SEO campaigns active. Custom websites delivered.
+                $41,084.85 from $900 in ad spend. SEO campaigns active. Custom websites delivered.
               </p>
               <a
                 href="/results"
@@ -132,7 +136,7 @@ export default function FAQ() {
         <div className="order-3 lg:col-start-1 lg:row-start-2">
           <div role="list" className="space-y-0">
             {faqBooking.items.map((item, i) => {
-              const isOpen = activeIndex === i;
+              const isOpen = openIndices.has(i);
               return (
                 <Reveal key={i} delay={0.02 * i}>
                   <div

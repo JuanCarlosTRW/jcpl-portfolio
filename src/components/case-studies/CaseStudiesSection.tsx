@@ -18,11 +18,13 @@ function CaseStudyCardGrid() {
       label: "LEAD PARTNERSHIP",
       niche: "RV RENTAL, TEXAS",
       client: "Triple W Rentals",
-      stat: "$41,085",
+      stat: "$41,084.85",
       subStats: "46x ROAS · $900 ad spend · 30 days",
       slug: "triple-w-rentals",
       anchor: "#triple-w",
       siteUrl: null as string | null,
+      badge: "VERIFIED \u2014 REVENUE",
+      badgeColor: "#D4A853",
       testimonial: { quote: "First call came in 9 days. We had tried two agencies before this. Nothing came close.", name: "Westin Wayne Walker", location: "Texas" },
     },
     {
@@ -34,6 +36,8 @@ function CaseStudyCardGrid() {
       slug: "elite-barbershop",
       anchor: "#elite",
       siteUrl: "https://elitebyhadi.com/fr/",
+      badge: "IN PROGRESS \u2014 LOCAL SEO",
+      badgeColor: "#B8963E",
       testimonial: { quote: "The website and SEO campaign changed the game. Clients find me on Google now.", name: "Hadi", location: "Montreal" },
     },
     {
@@ -45,6 +49,8 @@ function CaseStudyCardGrid() {
       slug: "culture-barbershop",
       anchor: "#culture",
       siteUrl: "https://culturemtl.ca",
+      badge: "DELIVERED \u2014 WEBSITE",
+      badgeColor: "#A69D8D",
       testimonial: { quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.", name: "Tobari", location: "Montreal" },
     },
   ];
@@ -73,6 +79,10 @@ function CaseStudyCardGrid() {
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(212,168,83,0.12)"; }}
             >
               <div className="p-6">
+                {/* Proof type badge */}
+                <p className="text-[9px] font-bold tracking-[0.16em] uppercase mb-3" style={{ color: card.badgeColor }}>
+                  {card.badge}
+                </p>
                 <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-3" style={{ color: "#D4A853" }}>
                   {card.label}
                 </p>
@@ -112,6 +122,11 @@ function CaseStudyCardGrid() {
             </a>
           ))}
         </div>
+
+        {/* Legend */}
+        <p className="text-[12px] text-center mt-8" style={{ color: "rgba(255,255,255,0.3)" }}>
+          VERIFIED = tracked from live ad account. IN PROGRESS = campaign active, results pending. DELIVERED = system built and handed over.
+        </p>
       </div>
     </section>
   );
@@ -262,7 +277,7 @@ export default function CaseStudiesSection() {
                   textTransform: "uppercase",
                 }}
               >
-                Book a Diagnostic Call &rarr;
+                Apply for a Diagnostic Call &rarr;
               </Link>
               <p className="text-[11px]" style={{ color: "#756D63" }}>
                 No retainer until I confirm fit. Response within 24 hours.

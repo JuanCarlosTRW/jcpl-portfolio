@@ -18,9 +18,9 @@ export const navigation = [
 ] as const;
 
 export const ctaCopy = {
-  primary: "Book a Diagnostic Call",
+  primary: "Apply for a Diagnostic Call",
   secondary: "See Results →",
-  tertiary: "Book a Diagnostic Call",
+  tertiary: "Apply for a Diagnostic Call",
   href: "/apply",
 };
 
@@ -30,7 +30,7 @@ export const hero = {
   headline: "Your Business Deserves\nto Be the First Name\nThey See.",
   subheadline:
     "Right now, buyers in your city are searching your exact service. Most of them will call your competitor. Not because their work is better. Because their infrastructure exists and yours does not. I build the system that changes that.",
-  cta: "Apply for Growth Partnership →",
+  cta: "Apply for a Diagnostic Call →",
   ctaSecondary: "See Real Results",
 };
 
@@ -100,7 +100,7 @@ export const systemSteps = [
 export const resultsPreview = {
   label: "REAL RESULTS",
   featured: {
-  stat: "$41,085",
+  stat: "$41,084.85",
     context: "generated in month one",
     client: "RV Rental Company",
     method: "Google Ads Funnel",
@@ -215,10 +215,10 @@ export const growthArchitecture = {
 /* ─── Section E: Featured Case Study ─── */
 export const featuredCase = {
   label: "PROOF",
-  headline: "$41,085 from $900 in ad spend. Page 1 in under 60 days.",
+  headline: "$41,084.85 from $900 in ad spend. Page 1 in under 60 days.",
   slug: "rv-rental-texas",
   client: "RV RENTAL COMPANY, TEXAS",
-  result: "$41,085",
+  result: "$41,084.85",
   resultLabel: "in revenue. First 30 days.",
   timeframe: "$900 IN AD SPEND · GOOGLE ADS FUNNEL · 30 DAYS",
   supporting: [
@@ -456,7 +456,7 @@ export const servicesHero = {
   headline: "Turn inconsistent leads into a predictable booking system.",
   subheadline:
     "Positioning + conversion architecture + acquisition, engineered as a system.",
-  primaryCTA: "Apply for Growth Partnership",
+  primaryCTA: "Apply for a Diagnostic Call",
   secondaryCTA: "View Results",
   trustItems: [
     "Response within 24h",
@@ -668,10 +668,10 @@ export const caseStudies = [
     title: "Triple W Rentals",
     client: "RV RENTALS",
     industry: "RV Rentals",
-  heroStat: "$41,085",
+  heroStat: "$41,084.85",
     heroLabel: "Revenue in first 30 days",
     context:
-  "From zero online presence to $41,085 in revenue in the first 30 days. $900 in ad spend.",
+  "From zero online presence to $41,084.85 in revenue in the first 30 days. $900 in ad spend.",
     problem:
       "No online presence beyond a basic listing. No paid advertising. No way to capture or qualify leads digitally. Competitors were running Google Ads and dominating search results.",
     strategy:
@@ -684,9 +684,9 @@ export const caseStudies = [
       "Implemented automated follow-up sequences for unconverted leads",
     ],
     outcome:
-  "$41,085 in confirmed bookings within the first 30 days. $900 in ad spend.",
+  "$41,084.85 in confirmed bookings within the first 30 days. $900 in ad spend.",
     takeaway:
-  "From zero online presence to $41,085 in revenue in the first 30 days. $900 in ad spend.",
+  "From zero online presence to $41,084.85 in revenue in the first 30 days. $900 in ad spend.",
     tags: ["Google Ads", "Landing Pages", "Conversion Funnel", "Lead Generation"],
   },
   {
@@ -985,7 +985,7 @@ export const aboutPrinciples = [
   },
   {
     title: "Selective partnerships",
-    description: "Max 3 active partnerships per quarter. Focus is the product.",
+    description: "I run a maximum of 3 active partnerships at a time.",
   },
 ];
 

@@ -74,10 +74,10 @@ export default function TermsPage() {
             <p className="text-sm text-sv-text-sub leading-relaxed">
               Questions about these terms?{" "}
               <a
-                href="mailto:hello@clientgrowth.ca"
+                href="mailto:juan@clientgrowth.ca"
                 className="text-sv-primary hover:underline"
               >
-                hello@clientgrowth.ca
+                juan@clientgrowth.ca
               </a>
             </p>
           </section>

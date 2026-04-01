@@ -46,7 +46,7 @@ export const tiers: TierConfig[] = [
       "Infrastructure documentation. You own it.",
     ],
     note: "Most clients graduate to Performance Engine within 60 days.",
-    ctaLabel: "Apply for Growth Partnership →",
+    ctaLabel: "Apply for a Diagnostic Call →",
     ctaHref: "/apply",
   },
   {
@@ -59,7 +59,7 @@ export const tiers: TierConfig[] = [
       "Strong work. Still waiting on the phone. No predictable way to get new clients this week.",
     proofBlock: {
       label: "VERIFIED RESULT",
-      headline: "$900 spent → $41,085 returned",
+      headline: "$900 spent → $41,084.85 returned",
       subtext:
         "Triple W Rentals, Texas. 30 days. They now own the RV rental market in their region.",
     },
@@ -72,7 +72,7 @@ export const tiers: TierConfig[] = [
       "Monthly report showing revenue attributed to the system",
     ],
     note: "Ad spend separate from partnership fee\nMinimum $500/month\n90-day initial term",
-    ctaLabel: "Apply for Growth Partnership →",
+    ctaLabel: "Apply for a Diagnostic Call →",
     ctaSubtext: "Short application. I only book a call if I think I can help.",
     ctaHref: "/apply",
     badge: "MOST SELECTED",
@@ -98,7 +98,7 @@ export const tiers: TierConfig[] = [
     ],
     scarcityNote:
       "Two slots per niche per city. If your competitor applies first, this tier closes for your market.",
-    ctaLabel: "Apply for Growth Partnership →",
+    ctaLabel: "Apply for a Diagnostic Call →",
     ctaHref: "/apply",
     badge: "BY APPLICATION ONLY",
   },

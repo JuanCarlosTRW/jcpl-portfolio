@@ -26,7 +26,7 @@ const HEADLINE_L2 = "for Service Businesses";
 const SUBHEADLINE =
   "I build your Growth Architecture™: premium digital presence, AI-assisted qualification, and a traffic engine that drives qualified demand without adding chaos.";
 
-const CTA_PRIMARY = { label: "Apply for Growth Partnership", href: "/apply" };
+const CTA_PRIMARY = { label: "Apply for a Diagnostic Call", href: "/apply" };
 const CTA_SECONDARY = { label: "See Results", href: "/results" };
 
 const PROOF_ITEMS = [

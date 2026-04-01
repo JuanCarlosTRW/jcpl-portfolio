@@ -106,6 +106,39 @@ export default function DiagnosticForm() {
             if I can help. No pitch. No pressure.
           </p>
 
+          {/* Deliverable clarity block */}
+          <div className="mb-8">
+            <p
+              className="text-[15px] font-semibold text-white mb-4"
+            >
+              You leave the call with:
+            </p>
+            <ol className="space-y-2.5 mb-4">
+              {[
+                "A gap map showing exactly where you are losing calls right now",
+                "A competitor breakdown for your specific market and service area",
+                "A 30-day sprint plan: what gets built, in what order, and why",
+                "A budget model with projected cost per call for your niche",
+                "A clear yes or no on whether I can produce a return for your business",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span
+                    className="flex-shrink-0 mt-1 text-[13px] font-bold"
+                    style={{ color: "#D4A853" }}
+                  >
+                    {i + 1}.
+                  </span>
+                  <span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <p className="text-[12px]" style={{ color: "#756D63" }}>
+              If the answer is no, I tell you on the call. You will not be asked to pay anything.
+            </p>
+          </div>
+
           {/* Testimonial quote */}
           <div
             className="rounded-lg p-4 mb-10"
@@ -268,7 +301,7 @@ export default function DiagnosticForm() {
                     Submitting...
                   </span>
                 ) : (
-                  "Get My Diagnostic Call →"
+                  "Apply for a Diagnostic Call →"
                 )}
               </button>
 

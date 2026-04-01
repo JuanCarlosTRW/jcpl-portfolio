@@ -144,7 +144,7 @@ export default function Hero() {
 								marginBottom: 8,
 							}}
 						>
-							{["$41,085", "in", "revenue", "from", "$900", "in", "ad", "spend."].map((word, i) => (
+							{["$41,084.85", "in", "revenue", "from", "$900", "in", "ad", "spend."].map((word, i) => (
 								<span key={i} className="hero-word" style={{ display: "inline-block", marginRight: "0.25em", fontWeight: 800 }}>
 									{word}
 								</span>

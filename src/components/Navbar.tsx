@@ -15,9 +15,9 @@ export default function Navbar() {
     { label: t<string>("nav.results"), link: `${p}/results`, ariaLabel: t<string>("nav.results") },
     { label: t<string>("nav.about"), link: `${p}/about`, ariaLabel: t<string>("nav.about") },
     {
-      label: "Book a Diagnostic Call",
+      label: "Apply for a Diagnostic Call",
       link: "/apply",
-      ariaLabel: "Book a Diagnostic Call",
+      ariaLabel: "Apply for a Diagnostic Call",
       onClick: () => trackEvent("nav_cta_clicked"),
       isCta: true,
     },

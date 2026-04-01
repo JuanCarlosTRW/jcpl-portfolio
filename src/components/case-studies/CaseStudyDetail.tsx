@@ -132,7 +132,7 @@ export default function CaseStudyDetail({
               {cs.id === "triple-w-rentals" && (
                 <>
                   <span className="block text-[13px] text-sv-primary font-semibold -mt-5 mb-2">
-                    $900 in ad spend generated $41,085 in revenue.
+                    $900 in ad spend generated $41,084.85 in revenue.
                   </span>
                   <span className="block text-[13px] text-sv-text-sub font-medium mb-8">
                     Project is still going
@@ -309,14 +309,14 @@ export default function CaseStudyDetail({
             Want results like this?
           </h2>
           <p className="text-[16px] text-[rgba(255,255,255,0.5)] leading-[1.65] mb-9">
-            I take on a maximum of 3 active partnerships per quarter. If
+            I run a maximum of 3 active partnerships at a time. If
             there&apos;s a fit, I&apos;ll tell you within 24 hours.
           </p>
           <Link
             href="/apply"
             className="inline-block bg-sv-primary text-white px-9 py-4 rounded-[10px] font-bold text-[16px] tracking-[-0.01em] hover:bg-sv-primary-hov hover:-translate-y-[1px] transition-all duration-200 shadow-[0_4px_24px_rgba(212,168,83,0.25)] hover:shadow-[0_8px_32px_rgba(212,168,83,0.35)]"
           >
-            Book a Diagnostic Call →
+            Apply for a Diagnostic Call →
           </Link>
           <p className="text-[13px] text-[rgba(255,255,255,0.3)] mt-[14px]">
             Short application. I&apos;ll personally review it within 24 hours.

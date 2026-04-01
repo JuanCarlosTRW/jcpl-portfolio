@@ -5,21 +5,21 @@ import { Check } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const GROWTH_FEATURES = [
-  "Conversion website \u2014 custom coded, built to rank and convert",
-  "Google Ads \u2014 targeting buyers with purchase intent in your city",
-  "Local SEO \u2014 Google Maps and organic positioning",
-  "AI search visibility \u2014 appear in ChatGPT, Perplexity, and AI answer results",
-  "Weekly campaign optimization \u2014 cost per call goes down every month",
+  "Conversion website: custom coded, built to rank and convert",
+  "Google Ads: targeting buyers with purchase intent in your city",
+  "Local SEO: Google Maps and organic positioning",
+  "AI search visibility: appear in ChatGPT, Perplexity, and AI answer results",
+  "Weekly campaign optimization: cost per call goes down every month",
   "Monthly performance review call",
 ];
 
 const SCALE_ADDITIONS = [
-  "Higher ad budget management \u2014 more spend, more calls, more jobs",
-  "AI lead qualification \u2014 automated follow-up that qualifies leads before your phone rings",
+  "Higher ad budget management: more spend, more calls, more jobs",
+  "AI lead qualification: automated follow-up that qualifies leads before your phone rings",
   "Multi-location and multi-channel expansion",
   "Dedicated landing pages per service and per city",
-  "Weekly strategy calls \u2014 direct line, every week",
-  "GEO (Generative Engine Optimization) \u2014 the new SEO. When someone asks ChatGPT, Perplexity, or Google AI \u201Cbest [service] near me,\u201D your business is the answer. Most competitors do not know this exists yet.",
+  "Weekly strategy calls: direct line, every week",
+  "GEO (Generative Engine Optimization): the new SEO. When someone asks ChatGPT, Perplexity, or Google AI \u201Cbest [service] near me,\u201D your business is the answer. Most competitors do not know this exists yet.",
 ];
 
 export default function PricingStatement() {
@@ -166,16 +166,19 @@ export default function PricingStatement() {
                 }}
               >
                 <p style={{ fontSize: "0.8rem", color: "#D2C9B8", lineHeight: 1.6, fontStyle: "italic" }}>
-                  Triple W Rentals started here. $41,084 in revenue. $900 in ad spend. 30 days.
+                  Triple W Rentals started here. $41,084.85 in revenue. $900 in ad spend. 30 days.
                 </p>
               </div>
 
               {/* Risk reversal */}
               <p
-                className="mb-6"
+                className="mb-2"
                 style={{ fontSize: "0.8rem", color: "#A69D8D", lineHeight: 1.6 }}
               >
                 If your phone does not ring in the first 30 days, I refund the difference. No negotiation.
+              </p>
+              <p className="mb-6" style={{ fontSize: "0.7rem", color: "rgba(210,201,184,0.5)", lineHeight: 1.7 }}>
+                Guarantee conditions: Tracking must be fully in place before launch. Minimum recommended ad spend must be met for the duration. Client must complete the onboarding session within 5 days of agreement. Applies to markets where Google Ads inventory exists for your service category.
               </p>
 
               {/* CTA */}
@@ -200,7 +203,7 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Apply for Growth Partnership &rarr;
+                  Apply for a Diagnostic Call &rarr;
                 </Link>
                 <p
                   className="text-center"
@@ -314,10 +317,13 @@ export default function PricingStatement() {
 
               {/* Risk reversal */}
               <p
-                className="mb-6"
+                className="mb-2"
                 style={{ fontSize: "0.8rem", color: "#A69D8D", lineHeight: 1.6 }}
               >
                 Same guarantee. If the phone does not ring in 30 days, I refund the difference.
+              </p>
+              <p className="mb-6" style={{ fontSize: "0.7rem", color: "rgba(210,201,184,0.5)", lineHeight: 1.7 }}>
+                Guarantee conditions: Tracking must be fully in place before launch. Minimum recommended ad spend must be met for the duration. Client must complete the onboarding session within 5 days of agreement. Applies to markets where Google Ads inventory exists for your service category.
               </p>
 
               {/* CTA */}
@@ -342,13 +348,13 @@ export default function PricingStatement() {
                     e.currentTarget.style.backgroundColor = "#D4A853";
                   }}
                 >
-                  Apply for Growth Partnership &rarr;
+                  Apply for a Diagnostic Call &rarr;
                 </Link>
                 <p
                   className="text-center"
                   style={{ fontSize: "12px", color: "rgba(240,234,214,0.5)" }}
                 >
-                  3 partnership slots available. I review in 24 hours.
+                  I run a maximum of 3 active partnerships at a time. I review in 24 hours.
                 </p>
               </div>
             </div>

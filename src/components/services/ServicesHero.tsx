@@ -5,7 +5,7 @@ import Link from "next/link";
 import GradientBarsBackground from "@/components/ui/gradient-bars-background";
 
 const STAT_CHIPS = [
-  { value: "$41,085", label: "Revenue · 30 days" },
+  { value: "$41,084.85", label: "Revenue · 30 days" },
   { value: "46x", label: "ROAS" },
   { value: "$33", label: "Cost per call" },
 ];
@@ -92,7 +92,7 @@ export default function ServicesHero() {
                 onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.1)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.filter = "none"; }}
               >
-                Book a Diagnostic Call &rarr;
+                Apply for a Diagnostic Call &rarr;
               </Link>
               <a
                 href="#system"

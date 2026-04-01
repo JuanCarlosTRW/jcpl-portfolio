@@ -11,7 +11,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const TIMELINE = [
-  { date: "Q4 2025", client: "Triple W Rentals", result: "$41,085 in revenue. 30 days. $900 ad spend.", href: "/results/triple-w-rentals" },
+  { date: "Q4 2025", client: "Triple W Rentals", result: "$41,084.85 in revenue. 30 days. $900 ad spend.", href: "/results/triple-w-rentals" },
   { date: "Q4 2025", client: "Elite Barbershop", result: "SEO campaign launched. Targeting #1 in local search.", href: "/results/elite-barbershop" },
   { date: "Q1 2026", client: "Culture Barbershop", result: "Page 1 Google in under 60 days. First booking in 11 days.", href: "/results/culture-barbershop" },
 ];
@@ -26,13 +26,16 @@ export default function AboutPage() {
       {/* SECTION 2 — ORIGIN STORY */}
       <section className="py-16 md:py-24" style={{ background: "#131009", borderTop: "1px solid rgba(212,168,83,0.07)" }}>
         <div className="max-w-[760px] mx-auto px-6">
-          <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>WHY THIS EXISTS</p>
+          <p className="text-[11px] uppercase tracking-[0.16em] mb-4" style={{ color: "#D4A853" }}>WHO I AM</p>
           <h2 className="text-[clamp(24px,3.5vw,36px)] font-extrabold text-white leading-[1.12] mb-8 tracking-[-0.02em]">
             I watched good businesses lose to worse ones. The difference was never the work.
           </h2>
           <div className="space-y-5 max-w-[600px]">
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
-              I started noticing it at 16. A painter in my city doing exceptional work, losing jobs to a competitor with a mediocre crew and a $400 website that ranked on Page 1. A barbershop with a lineup out the door on Saturdays, invisible online. Contractors with years of reputation getting undercut by operations half their quality because the other guy had Google Ads running.
+              I have built acquisition systems for service businesses across Canada and the United States. Every system I run is tracked to a single metric: qualified calls on the calendar. I run a maximum of 3 active partnerships at a time. By design, not by accident.
+            </p>
+            <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
+              I started noticing the gap at 16. A painter in my city doing exceptional work, losing jobs to a competitor with a mediocre crew and a $400 website that ranked on Page 1. A barbershop with a lineup out the door on Saturdays, invisible online. Contractors with years of reputation getting undercut by operations half their quality because the other guy had Google Ads running.
             </p>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
               The work was not the problem. The infrastructure was. Nobody was finding these businesses before they found someone else.
@@ -73,12 +76,12 @@ export default function AboutPage() {
               Most agencies grow by adding clients and adding staff. The work gets diluted. A junior account manager runs your campaigns six months in. Your results reflect their learning curve, not the system that produced your first results.
             </p>
             <p className="text-[16px] text-[#D2C9B8] leading-[1.75]">
-              I built Client Growth around the opposite constraint. Three active partnerships maximum. Not artificial scarcity. Operational reality. More than three live systems and I cannot give each one the weekly attention it needs to compound. I will not take a fourth client until I can serve them at the same standard as the first.
+              I built Client Growth around the opposite constraint. I run a maximum of 3 active partnerships at a time. Not artificial scarcity. Operational reality. More than three live systems and I cannot give each one the weekly attention it needs to compound. I will not take a fourth client until I can serve them at the same standard as the first.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { title: "3 MAX", body: "Active partnerships at any time.", sub: "Every system gets full weekly attention." },
+              { title: "3 ACTIVE MAX", body: "I run a maximum of 3 active partnerships at a time.", sub: "Every system gets full weekly attention." },
               { title: "PERSONALLY BUILT", body: "Every site, campaign, and optimization done by me.", sub: "Not delegated." },
               { title: "DIRECT ACCESS", body: "You message me. I respond.", sub: "No account managers. No tickets." },
             ].map((col) => (
@@ -148,7 +151,7 @@ export default function AboutPage() {
             className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold transition-all hover:brightness-110"
             style={{ background: "#D4A853", color: "#0D0B09", letterSpacing: "0.06em", textTransform: "uppercase", borderRadius: 6 }}
           >
-            Book a Diagnostic Call &rarr;
+            Apply for a Diagnostic Call &rarr;
           </Link>
           <p className="mt-4 text-[13px]" style={{ color: "#756D63" }}>
             Response within 24 hours. Full engagement starts at $2,500/month.

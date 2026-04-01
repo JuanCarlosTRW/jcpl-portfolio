@@ -87,7 +87,7 @@ export default function FeaturedCaseStudy() {
       <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
         <SectionLabel label={po.eyebrow} className="mb-5 !text-[#D4A853]" />
         <h2 className="text-[clamp(30px,4.5vw,46px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto text-white">
-          $41,085 from $900 in ad spend. Page 1 in under 60 days.
+          $41,084.85 from $900 in ad spend. Page 1 in under 60 days.
         </h2>
         <p
           className="mt-5 max-w-md mx-auto"
@@ -127,7 +127,7 @@ export default function FeaturedCaseStudy() {
                 className="text-[#F5F0E8] font-extrabold mb-2 stat-41085-proof stat-41085"
                 style={{ fontSize: "clamp(3.5rem, 8vw, 5rem)", lineHeight: 1 }}
               >
-                <CountUpRevenue to={41085} prefix="$" />
+                <CountUpRevenue to={41084.85} prefix="$" />
               </div>
             </div>
             <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>

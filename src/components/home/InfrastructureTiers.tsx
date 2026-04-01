@@ -6,7 +6,7 @@ import Link from "next/link";
 const campaignMetrics = [
   { number: "46x", label: "Return on ad spend" },
   { number: "$900", label: "Total ad spend" },
-  { number: "30 days", label: "Time to $41,085 revenue" },
+  { number: "30 days", label: "Time to $41,084.85 revenue" },
 ];
 
 /* ─── Bullets ─── */
@@ -75,7 +75,7 @@ export default function InfrastructureTiers() {
             }}
           >
             <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
-              $41,085 revenue
+              $41,084.85 revenue
             </span>
             <span style={{ color: "#1E3A5F" }}>|</span>
             <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
@@ -186,7 +186,7 @@ export default function InfrastructureTiers() {
                 className="text-sm font-medium transition-colors hover:text-slate-200"
                 style={{ color: "#64748B", textDecoration: "underline", textUnderlineOffset: "3px" }}
               >
-                Apply for Growth Partnership →
+                Apply for a Diagnostic Call →
               </a>
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function InfrastructureTiers() {
                 className="font-semibold text-base leading-snug mb-1"
                 style={{ color: "#FFFFFF" }}
               >
-                $900 spent. $41,085 returned.
+                $900 spent. $41,084.85 returned.
               </p>
               <p
                 className="text-sm"
@@ -330,7 +330,7 @@ export default function InfrastructureTiers() {
                 boxShadow: "0 4px 24px rgba(37,99,235,0.35)",
               }}
             >
-              Apply for Growth Partnership →
+              Apply for a Diagnostic Call →
             </a>
             <p
               className="text-[11px] text-center mt-3 leading-relaxed"
@@ -448,7 +448,7 @@ export default function InfrastructureTiers() {
                 className="text-sm font-medium transition-colors hover:text-amber-400"
                 style={{ color: "rgba(245,158,11,0.70)", textDecoration: "underline", textUnderlineOffset: "3px" }}
               >
-                Apply for Growth Partnership →
+                Apply for a Diagnostic Call →
               </a>
             </div>
           </div>

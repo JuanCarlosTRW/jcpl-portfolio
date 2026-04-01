@@ -10,7 +10,7 @@ import { caseStudyLogos } from "@/components/hero/LogoLoopData";
 const proofCards = [
   {
     ...caseStudyLogos[1], // Absolute Painting
-    proof: "Booked 17 calls in 30 days. $41,085 revenue from $900 ad spend.",
+    proof: "Booked 17 calls in 30 days. $41,084.85 revenue from $900 ad spend.",
   },
   {
     ...caseStudyLogos[0], // Elite Barbershop

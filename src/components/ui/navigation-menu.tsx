@@ -12,7 +12,7 @@ const navItems = [
   { name: "Services", href: "/services", isCta: false },
   { name: "Results", href: "/results", isCta: false },
   { name: "About", href: "/about", isCta: false },
-  { name: "Book a Diagnostic Call", href: "/apply", isCta: true },
+  { name: "Apply for a Diagnostic Call", href: "/apply", isCta: true },
 ];
 
 const EXPAND_SCROLL_THRESHOLD = 80;

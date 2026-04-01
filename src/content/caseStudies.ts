@@ -22,10 +22,10 @@ export const caseStudies: CaseStudy[] = [
     title: "Triple W Rentals",
     industry: "RV RENTAL, TEXAS",
     outcome:
-      "$41,085 in revenue generated in month one. $900 in total ad spend.",
+      "$41,084.85 in revenue generated in month one. $900 in total ad spend.",
     resultTag: "$41K revenue, 30 days",
     metrics: [
-      { label: "Revenue", value: "$41,085" },
+      { label: "Revenue", value: "$41,084.85" },
       { label: "Ad spend", value: "$900" },
       { label: "ROAS", value: "46x" },
       { label: "Timeline", value: "30 days" },
@@ -39,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
     situation:
       "Triple W Rentals had vehicles available but zero online acquisition. Revenue was entirely referral-dependent and unpredictable. The Texas RV rental market had strong search demand that was completely untapped. A full Google Ads funnel was built from scratch and deployed within weeks.",
     narrative:
-      "Triple W Rentals entered the Texas RV rental market with no website, no online presence, and no inbound lead flow. They had the inventory and the operation. They had no digital infrastructure to let anyone find them.\n\nI built the conversion site, launched the Google Ads campaign, configured GA4 event tracking for call and booking attribution, and had the full system live in 11 days. The ads went live targeting high-intent RV rental searches across their Texas service area.\n\nIn the first 30 days on $900 in ad spend, the system generated $41,085 in tracked revenue. $46 returned for every $1 spent. Average cost per qualified call: $33. They now hold dominant search visibility across their primary Texas market.",
+      "Triple W Rentals entered the Texas RV rental market with no website, no online presence, and no inbound lead flow. They had the inventory and the operation. They had no digital infrastructure to let anyone find them.\n\nI built the conversion site, launched the Google Ads campaign, configured GA4 event tracking for call and booking attribution, and had the full system live in 11 days. The ads went live targeting high-intent RV rental searches across their Texas service area.\n\nIn the first 30 days on $900 in ad spend, the system generated $41,084.85 in tracked revenue. $46 returned for every $1 spent. Average cost per qualified call: $33. They now hold dominant search visibility across their primary Texas market.",
     deliverables: [
       "Google Ads funnel with RV rental intent keywords",
       "Conversion landing pages optimized for bookings",

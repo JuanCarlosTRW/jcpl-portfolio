@@ -98,7 +98,7 @@ export default async function Image() {
               letterSpacing: "-0.01em",
             }}
           >
-            <span style={{ color: "#D4A853", fontWeight: 700 }}>$41,085</span>
+            <span style={{ color: "#D4A853", fontWeight: 700 }}>$41,084.85</span>
             {" "}generated from{" "}
             <span style={{ color: "#C8A05A", fontWeight: 500 }}>$900</span>
             {" "}in ad spend, within 30 days.

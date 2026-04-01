@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ApplyIntakeForm from "@/components/home/ApplyIntakeForm";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Book a Diagnostic Call | Client Growth",
+  title: "Apply for a Diagnostic Call | Client Growth",
   description:
     "This is not a discovery call. It is an actual audit. I review your pipeline, your competitors, and your current traffic sources before we speak.",
   path: "/apply",
@@ -82,7 +82,7 @@ export default function ApplyPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
-                stat: "$41,085",
+                stat: "$41,084.85",
                 sub: "revenue",
                 client: "Triple W Rentals",
                 owner: "Westin Wayne Walker",

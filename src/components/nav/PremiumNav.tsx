@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Results", href: "/results" },
   { label: "About", href: "/about" },
-  { label: "Book a Diagnostic Call", href: "/apply", isCta: true },
+  { label: "Apply for a Diagnostic Call", href: "/apply", isCta: true },
 ];
 
 export default function PremiumNav() {
@@ -235,7 +235,7 @@ export default function PremiumNav() {
                     textDecoration: "none",
                   }}
                 >
-                  Book a Diagnostic Call
+                  Apply for a Diagnostic Call
                 </Link>
               </motion.div>
             </div>

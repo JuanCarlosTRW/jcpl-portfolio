@@ -100,7 +100,7 @@ export default function ServicesPage() {
 
               <Image
                 src="/images/proof/triple-w-ads-dashboard.png"
-                alt="Google Ads results: $41,085 revenue in 30 days"
+                alt="Google Ads results: $41,084.85 revenue in 30 days"
                 width={1968}
                 height={656}
                 style={{
@@ -116,7 +116,7 @@ export default function ServicesPage() {
               <div style={{ display: "flex", gap: 24, flexWrap: "wrap", marginBottom: 20 }}>
                 <div>
                   <p className="tabular-nums" style={{ color: "#D4A853", fontWeight: 700, fontSize: "1.5rem", margin: 0 }}>
-                    $41,085
+                    $41,084.85
                   </p>
                   <p style={{ color: "#A89880", fontSize: "0.75rem", margin: "2px 0 0" }}>
                     Revenue &middot; 30 days
@@ -257,7 +257,7 @@ export default function ServicesPage() {
                 borderRadius: 6,
               }}
             >
-              Book a Diagnostic Call &rarr;
+              Apply for a Diagnostic Call &rarr;
             </Link>
             <p
               style={{
@@ -413,7 +413,7 @@ export default function ServicesPage() {
               borderRadius: 6,
             }}
           >
-            Book a Diagnostic Call &rarr;
+            Apply for a Diagnostic Call &rarr;
           </Link>
 
           <p className="text-xs text-center mt-4" style={{ color: "#756D63" }}>
