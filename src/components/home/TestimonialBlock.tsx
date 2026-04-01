@@ -12,8 +12,7 @@ const testimonialsData = [
     name: "Tobari",
     role: "Culture Barbershop · Montreal, QC",
     context: "Barbershop: full custom website delivered",
-    imageSrc: "",
-    monogram: "T",
+    imageSrc: "/images/testimonials/mike-s.png",
   },
   {
     id: 2,
@@ -23,8 +22,7 @@ const testimonialsData = [
     role: "Triple W Rentals · Texas",
     context: "RV rental: Texas market, Google Ads, first call in 11 days",
     caseStudyHref: "/results/triple-w-rentals",
-    imageSrc: "",
-    monogram: "W",
+    imageSrc: "/images/testimonials/tyler-w.png",
   },
   {
     id: 3,
@@ -33,8 +31,7 @@ const testimonialsData = [
     name: "Hadi",
     role: "Elite Barbershop · Montreal, QC",
     context: "Barbershop: local market, SEO campaign in progress",
-    imageSrc: "",
-    monogram: "H",
+    imageSrc: "/images/testimonials/alex-m.png",
   },
   {
     id: 4,
