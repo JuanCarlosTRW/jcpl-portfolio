@@ -136,13 +136,13 @@ export default function HeroSection() {
             gap: 16,
           }}
         >
-          <Link href="/apply" className="primary-cta">
+          <Link href="/#book-call" className="primary-cta">
             Apply to be a Partner →
           </Link>
 
-          <Link href="/results" className="hero-text-link">
+          <a href="#outcomes" className="hero-text-link">
             See the results &rarr;
-          </Link>
+          </a>
         </div>
 
         {/* Fix 4: Trust micro-line */}

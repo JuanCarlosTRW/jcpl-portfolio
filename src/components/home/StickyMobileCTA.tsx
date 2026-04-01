@@ -26,7 +26,7 @@ export default function StickyMobileCTA() {
     >
       <span className="text-[12px]" style={{ color: "#D4A853" }}>1 spot open</span>
       <Link
-        href="/apply"
+        href="/#book-call"
         className="text-[13px] font-semibold"
         style={{
           background: "#D4A853",

@@ -23,8 +23,12 @@ html { scroll-behavior: smooth; }
 
 .blur-word {
   display: inline-block;
+  margin-right: 0.25em;
   opacity: 0;
   animation: blurIn 0.5s ease forwards;
+}
+.blur-word:last-child {
+  margin-right: 0;
 }
 
 .blur-line {

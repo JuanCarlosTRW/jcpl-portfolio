@@ -7,7 +7,7 @@ export default function BackToTop() {
 
   useEffect(() => {
     const onScroll = () => {
-      setVisible(window.scrollY > 800);
+      setVisible(window.scrollY > 400);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -23,7 +23,7 @@ export default function BackToTop() {
     <button
       onClick={scrollToTop}
       aria-label="Back to top"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-10 h-10 rounded-full transition-opacity duration-300"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-[52px] h-[52px] rounded-full transition-opacity duration-300"
       style={{
         background: "#D4A853",
         color: "#0D0B09",

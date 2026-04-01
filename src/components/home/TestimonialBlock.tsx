@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
 import { TestimonialSection } from "@/components/ui/testimonials";
 
@@ -21,7 +20,6 @@ const testimonialsData = [
     name: "Westin Wayne Walker",
     role: "Triple W Rentals · Texas",
     context: "RV rental: Texas market, Google Ads, first call in 11 days",
-    caseStudyHref: "/results/triple-w-rentals",
     imageSrc: "/images/testimonials/tyler-w.png",
   },
   {
@@ -47,14 +45,14 @@ const testimonialsData = [
     quote:
       "The site establishes credibility from the first visit. Patients book directly from search.",
     name: "Dre Benyoucef",
-    role: "Centre Dentaire Saint-Élzéar",
+    role: "Centre Dentaire Saint-Élzéar · Quebec",
     context: "Dental clinic: full custom website delivered",
     imageSrc: "/images/owners/dre-benyoucef-centre-dentaire.png",
   },
 ];
 
 export default function TestimonialBlock() {
-  const { lp } = useLocale();
+  useLocale();
 
   return (
     <section
@@ -71,8 +69,8 @@ export default function TestimonialBlock() {
 
       {/* See Results link */}
       <div className="text-center pb-16" style={{ background: "#0D0B09" }}>
-        <Link
-          href={lp("/results")}
+        <a
+          href="#outcomes"
           style={{
             fontSize: "0.85rem",
             color: "#D4A853",
@@ -87,7 +85,7 @@ export default function TestimonialBlock() {
           }}
         >
           See all client results →
-        </Link>
+        </a>
       </div>
     </section>
   );

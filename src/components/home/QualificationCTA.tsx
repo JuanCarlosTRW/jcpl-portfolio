@@ -91,11 +91,29 @@ export default function QualificationCTA() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div
-              className="border-t pt-12 pb-10"
-              style={{ borderColor: "#2A2318" }}
+            <p
+              className="text-center text-[15px] mb-8"
+              style={{ color: "#D2C9B8" }}
             >
-              {/* Gold accent line */}
+              If I cannot produce a return, I tell you on the call. Before you pay anything.
+            </p>
+            <div className="text-center">
+              <Link
+                href="/#book-call"
+                className="inline-block rounded-md px-10 py-4 text-[13px] font-medium uppercase tracking-[0.15em] transition-transform hover:scale-[1.02]"
+                style={{
+                  background: "#D4A853",
+                  color: "#0D0B09",
+                }}
+              >
+                Apply to be a Partner →
+              </Link>
+              <p
+                className="mt-3 text-[13px]"
+                style={{ color: "#756D63" }}
+              >
+                Response within 24 hours.
+              </p>
             </div>
           </Reveal>
         </div>

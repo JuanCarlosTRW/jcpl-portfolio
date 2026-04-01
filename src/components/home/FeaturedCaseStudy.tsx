@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper from "@/components/ui/SectionWrapper";
@@ -55,19 +54,64 @@ function CountUpRevenue({ to, prefix = "" }: { to: number; prefix?: string }) {
   );
 }
 
+const compactClients = [
+  {
+    badge: "IN PROGRESS",
+    badgeBg: "rgba(212,168,83,0.08)",
+    badgeBorder: "rgba(212,168,83,0.25)",
+    badgeColor: "#D4A853",
+    pulse: true,
+    niche: "BARBERSHOP · MONTREAL · LOCAL SEO",
+    name: "Hadi, Elite Barbershop",
+    stat: "Targeting #1",
+    detail: "Local SEO campaign launched. Competing for top position in Google.",
+  },
+  {
+    badge: "DELIVERED",
+    badgeBg: "rgba(166,157,141,0.08)",
+    badgeBorder: "rgba(166,157,141,0.25)",
+    badgeColor: "#A69D8D",
+    pulse: false,
+    niche: "BARBERSHOP · MONTREAL · WEB DESIGN",
+    name: "Tobari, Culture Barbershop",
+    stat: "Full custom website",
+    detail: "Conversion website designed and built. Mobile-optimized booking flow included.",
+  },
+  {
+    badge: "IN THE FIELD",
+    badgeBg: "rgba(166,157,141,0.08)",
+    badgeBorder: "rgba(166,157,141,0.25)",
+    badgeColor: "#A69D8D",
+    pulse: false,
+    niche: "PAINTING CONTRACTOR · DALLAS-FORT WORTH",
+    name: "Wesley, Absolute Painting",
+    stat: "Live",
+    detail: "Conversion website. DFW market. Tracking active.",
+  },
+  {
+    badge: "IN THE FIELD",
+    badgeBg: "rgba(166,157,141,0.08)",
+    badgeBorder: "rgba(166,157,141,0.25)",
+    badgeColor: "#A69D8D",
+    pulse: false,
+    niche: "DENTAL CLINIC · LAVAL · WEB DESIGN",
+    name: "Dre Benyoucef, Centre Dentaire Saint-Élzéar",
+    stat: "Live",
+    detail: "Full custom website. Booking funnel built.",
+  },
+];
+
 export default function FeaturedCaseStudy() {
-  const tripleWRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const { locale, lp } = useLocale();
+  const { locale } = useLocale();
   const po = translations[locale].homepage.provenOutcomes;
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
     const ctx = gsap.context(() => {
       gsap.from(".proof-cards .case-study-card", {
         opacity: 0,
-        y: isMobile ? 0 : 22,
+        y: 22,
         stagger: 0.09,
         duration: 0.55,
         ease: "power2.out",
@@ -97,18 +141,32 @@ export default function FeaturedCaseStudy() {
         </p>
       </Reveal>
 
-      {/* — FLAGSHIP: Triple W Rentals — */}
+      {/* LEAD RESULT label */}
+      <Reveal delay={0.05}>
+        <p
+          className="text-center mb-3"
+          style={{
+            fontSize: "0.65rem",
+            letterSpacing: "0.18em",
+            color: "#D4A853",
+            textTransform: "uppercase",
+            fontWeight: 600,
+          }}
+        >
+          LEAD RESULT
+        </p>
+      </Reveal>
+
+      {/* HERO CARD — Triple W Rentals */}
       <Reveal delay={0.1}>
-        <div ref={tripleWRef} className="max-w-3xl mx-auto mb-6 proof-cards">
+        <div className="max-w-3xl mx-auto mb-10 proof-cards">
           <div
             className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card case-study-card-primary"
             style={{
-              background: "#1E1A14",
-              border: "1px solid #2A2318",
-              borderTop: "3px solid #D4A853",
+              background: "rgba(212, 168, 83, 0.05)",
+              border: "1px solid rgba(212, 168, 83, 0.6)",
             }}
           >
-            {/* Niche / location / channel */}
             <p
               style={{
                 fontSize: "0.7rem",
@@ -121,7 +179,6 @@ export default function FeaturedCaseStudy() {
               {po.card1Label}
             </p>
 
-            {/* Core result */}
             <div className="stat-glow" style={{ position: "relative" }}>
               <div
                 className="text-[#F5F0E8] font-extrabold mb-2 stat-41085-proof stat-41085"
@@ -134,10 +191,9 @@ export default function FeaturedCaseStudy() {
               {po.card1Revenue}
             </p>
 
-            {/* ROAS */}
             <div
               style={{
-                borderTop: "1px solid #2A2318",
+                borderTop: "1px solid rgba(212, 168, 83, 0.15)",
                 paddingTop: 16,
                 marginBottom: 16,
               }}
@@ -154,7 +210,6 @@ export default function FeaturedCaseStudy() {
               </div>
             </div>
 
-            {/* Verification */}
             <p
               style={{
                 fontSize: "0.72rem",
@@ -168,72 +223,68 @@ export default function FeaturedCaseStudy() {
         </div>
       </Reveal>
 
-      {/* — BARBERSHOP: Elite Barbershop (Hadi) — SEO In Progress */}
+      {/* COMPACT GRID — 4 remaining clients */}
       <Reveal delay={0.15}>
-        <div className="max-w-3xl mx-auto mb-6">
-          <div
-            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card"
-            style={{
-              background: "#1E1A14",
-              border: "1px solid #2A2318",
-              borderTop: "3px solid #D4A853",
-            }}
-          >
-            <p
+        <div className="max-w-3xl mx-auto mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {compactClients.map((client) => (
+            <div
+              key={client.name}
+              className="rounded-lg case-study-card"
               style={{
-                fontSize: "0.7rem",
-                letterSpacing: "0.15em",
-                color: "#756D63",
-                textTransform: "uppercase",
-                marginBottom: 16,
+                padding: 24,
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: 8,
               }}
             >
-              BARBERSHOP · MONTREAL · LOCAL SEO
-            </p>
-
-            {/* In-progress badge */}
-            <div className="flex items-center gap-2 mb-4">
-              <span
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
-                style={{
-                  background: "rgba(212,168,83,0.08)",
-                  border: "1px solid rgba(212,168,83,0.25)",
-                }}
-              >
+              {/* Badge */}
+              <div className="flex items-center gap-2 mb-3">
                 <span
-                  className="inline-block w-2 h-2 rounded-full"
-                  style={{ background: "#D4A853", animation: "pulse 2s ease-in-out infinite" }}
-                />
-                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#D4A853", textTransform: "uppercase" }}>
-                  IN PROGRESS
+                  className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+                  style={{
+                    background: client.badgeBg,
+                    border: `1px solid ${client.badgeBorder}`,
+                  }}
+                >
+                  {client.pulse && (
+                    <span
+                      className="inline-block w-2 h-2 rounded-full"
+                      style={{ background: "#D4A853", animation: "pulse 2s ease-in-out infinite" }}
+                    />
+                  )}
+                  <span style={{ fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.1em", color: client.badgeColor, textTransform: "uppercase" }}>
+                    {client.badge}
+                  </span>
                 </span>
-              </span>
-            </div>
+              </div>
 
-            {/* SEO Campaign headline */}
-            <p
-              style={{
-                fontSize: "0.7rem",
-                letterSpacing: "0.12em",
-                color: "#D4A853",
-                textTransform: "uppercase",
-                marginBottom: 8,
-                fontWeight: 600,
-              }}
-            >
-              SEO CAMPAIGN ACTIVE
-            </p>
-            <div
-              className="text-[#F5F0E8] font-extrabold mb-2"
-              style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
-            >
-              Targeting #1
-            </div>
-            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
-              Local SEO campaign launched. Competing for top position in Google for barbershop searches in market.
-            </p>
+              {/* Niche label */}
+              <p
+                style={{
+                  fontSize: "0.6rem",
+                  letterSpacing: "0.12em",
+                  color: "#756D63",
+                  textTransform: "uppercase",
+                  marginBottom: 8,
+                }}
+              >
+                {client.niche}
+              </p>
 
-            <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>
+              {/* Stat */}
+              <div
+                className="text-[#F5F0E8] font-extrabold mb-1"
+                style={{ fontSize: "1.5rem", lineHeight: 1.2 }}
+              >
+                {client.stat}
+              </div>
+
+              {/* Detail */}
+              <p style={{ fontSize: "0.85rem", color: "#A69D8D", marginBottom: 12, lineHeight: 1.5 }}>
+                {client.detail}
+              </p>
+
+              {/* Attribution */}
               <p
                 style={{
                   fontSize: "0.72rem",
@@ -241,213 +292,15 @@ export default function FeaturedCaseStudy() {
                   fontStyle: "italic",
                 }}
               >
-                Hadi, Elite Barbershop
+                {client.name}
               </p>
             </div>
-          </div>
-        </div>
-      </Reveal>
-
-      {/* — BARBERSHOP: Culture Barbershop (Tobari) — Website Deliverable */}
-      <Reveal delay={0.2}>
-        <div className="max-w-3xl mx-auto mb-6">
-          <div
-            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card"
-            style={{
-              background: "#1E1A14",
-              border: "1px solid #2A2318",
-              borderTop: "3px solid #D4A853",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "0.7rem",
-                letterSpacing: "0.15em",
-                color: "#756D63",
-                textTransform: "uppercase",
-                marginBottom: 16,
-              }}
-            >
-              BARBERSHOP · MONTREAL · WEB DESIGN
-            </p>
-
-            {/* Delivered badge */}
-            <div className="flex items-center gap-2 mb-4">
-              <span
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
-                style={{
-                  background: "rgba(166,157,141,0.08)",
-                  border: "1px solid rgba(166,157,141,0.25)",
-                }}
-              >
-                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#A69D8D", textTransform: "uppercase" }}>
-                  DELIVERED
-                </span>
-              </span>
-            </div>
-
-            {/* Deliverable label */}
-            <p
-              style={{
-                fontSize: "0.7rem",
-                letterSpacing: "0.12em",
-                color: "#D4A853",
-                textTransform: "uppercase",
-                marginBottom: 8,
-                fontWeight: 600,
-              }}
-            >
-              DELIVERABLE
-            </p>
-            <div
-              className="text-[#F5F0E8] font-extrabold mb-2"
-              style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
-            >
-              Full custom website
-            </div>
-            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
-              Fully custom coded conversion website. Designed and built to convert visitors into booked appointments. Mobile-optimized booking flow included.
-            </p>
-
-            <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>
-              <p
-                style={{
-                  fontSize: "0.72rem",
-                  color: "#756D63",
-                  fontStyle: "italic",
-                }}
-              >
-                Tobari, Culture Barbershop
-              </p>
-            </div>
-          </div>
-        </div>
-      </Reveal>
-
-      {/* — PAINTING: Absolute Painting (Wesley) — Website Delivered */}
-      <Reveal delay={0.25}>
-        <div className="max-w-3xl mx-auto mb-6">
-          <div
-            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card"
-            style={{
-              background: "#1E1A14",
-              border: "1px solid #2A2318",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "0.7rem",
-                letterSpacing: "0.15em",
-                color: "#756D63",
-                textTransform: "uppercase",
-                marginBottom: 16,
-              }}
-            >
-              PAINTING CONTRACTOR · DALLAS-FORT WORTH · WEB DESIGN
-            </p>
-
-            <div className="flex items-center gap-2 mb-4">
-              <span
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
-                style={{
-                  background: "rgba(166,157,141,0.08)",
-                  border: "1px solid rgba(166,157,141,0.25)",
-                }}
-              >
-                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#A69D8D", textTransform: "uppercase" }}>
-                  IN THE FIELD
-                </span>
-              </span>
-            </div>
-
-            <div
-              className="text-[#F5F0E8] font-extrabold mb-2"
-              style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
-            >
-              Live
-            </div>
-            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
-              Conversion website. DFW market. Tracking active.
-            </p>
-
-            <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>
-              <p
-                style={{
-                  fontSize: "0.72rem",
-                  color: "#756D63",
-                  fontStyle: "italic",
-                }}
-              >
-                Wesley, Absolute Painting · absolutepainting.vercel.app
-              </p>
-            </div>
-          </div>
-        </div>
-      </Reveal>
-
-      {/* — DENTAL: Centre Dentaire Saint-Élzéar (Dre Benyoucef) — Website Delivered */}
-      <Reveal delay={0.3}>
-        <div className="max-w-3xl mx-auto mb-6">
-          <div
-            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card"
-            style={{
-              background: "#1E1A14",
-              border: "1px solid #2A2318",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "0.7rem",
-                letterSpacing: "0.15em",
-                color: "#756D63",
-                textTransform: "uppercase",
-                marginBottom: 16,
-              }}
-            >
-              DENTAL CLINIC · LAVAL · WEB DESIGN
-            </p>
-
-            <div className="flex items-center gap-2 mb-4">
-              <span
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
-                style={{
-                  background: "rgba(166,157,141,0.08)",
-                  border: "1px solid rgba(166,157,141,0.25)",
-                }}
-              >
-                <span style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", color: "#A69D8D", textTransform: "uppercase" }}>
-                  IN THE FIELD
-                </span>
-              </span>
-            </div>
-
-            <div
-              className="text-[#F5F0E8] font-extrabold mb-2"
-              style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", lineHeight: 1 }}
-            >
-              Live
-            </div>
-            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
-              Full custom website. Booking funnel built.
-            </p>
-
-            <div style={{ borderTop: "1px solid #2A2318", paddingTop: 16 }}>
-              <p
-                style={{
-                  fontSize: "0.72rem",
-                  color: "#756D63",
-                  fontStyle: "italic",
-                }}
-              >
-                Dre Benyoucef, Centre Dentaire Saint-Élzéar · as.centredentairese.com
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </Reveal>
 
       {/* Revenue summary */}
-      <Reveal delay={0.35}>
+      <Reveal delay={0.2}>
         <p
           className="text-center mt-4 mb-6"
           style={{
@@ -461,10 +314,10 @@ export default function FeaturedCaseStudy() {
       </Reveal>
 
       {/* See all results */}
-      <Reveal delay={0.4}>
+      <Reveal delay={0.25}>
         <div className="text-center mt-4">
-          <Link
-            href={lp("/results")}
+          <a
+            href="#system"
             style={{
               fontSize: "0.85rem",
               color: "#D4A853",
@@ -479,7 +332,7 @@ export default function FeaturedCaseStudy() {
             }}
           >
             See all client results →
-          </Link>
+          </a>
         </div>
       </Reveal>
     </SectionWrapper>

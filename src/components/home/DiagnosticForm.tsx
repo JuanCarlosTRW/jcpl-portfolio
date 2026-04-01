@@ -163,7 +163,7 @@ export default function DiagnosticForm() {
                 Application received.
               </p>
               <p className="text-sm" style={{ color: "#A69D8D" }}>
-                I&apos;ll review your market and respond within 24 hours.
+                I will review your business within 24 hours and email you directly.
               </p>
             </div>
           ) : status === "error" ? (

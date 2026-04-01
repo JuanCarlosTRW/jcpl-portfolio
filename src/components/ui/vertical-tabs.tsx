@@ -45,7 +45,7 @@ const SERVICES = [
     frameUrl: "culturemtl.ca",
     badge: "BUILT BY CLIENT GROWTH",
     label: "BARBERSHOP · MONTREAL",
-    stat: "Page 1 Google · Under 60 days · Competitive market",
+    stat: "Custom conversion site · Built and launched by Client Growth",
     verification: "Custom conversion site · Built and launched by Client Growth",
   },
   {

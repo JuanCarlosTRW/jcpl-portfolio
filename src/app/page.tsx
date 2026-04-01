@@ -13,6 +13,7 @@ const StatsBar = dynamic(() => import("@/components/home/StatsBar"));
 const TheReality = dynamic(() => import("@/components/home/TheReality"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const VerticalTabs = dynamic(() => import("@/components/ui/vertical-tabs"));
+const ServicesGrid = dynamic(() => import("@/components/home/ServicesGrid"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const AboutSection = dynamic(() => import("@/components/home/AboutSection"));
@@ -21,6 +22,17 @@ const BatonHandoff = dynamic(() => import("@/components/home/BatonHandoff"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 const StickyMobileCTA = dynamic(() => import("@/components/home/StickyMobileCTA"));
+
+function SectionDivider() {
+  return (
+    <div
+      style={{
+        borderTop: "1px solid rgba(212, 168, 83, 0.08)",
+        width: "100%",
+      }}
+    />
+  );
+}
 
 export default function HomePage() {
   return (
@@ -31,32 +43,55 @@ export default function HomePage() {
       {/* 2. Stats bar */}
       <StatsBar />
 
-      {/* 3. The Reality — cinematic hook + 4 problem points */}
+      {/* 3. The Reality */}
       <TheReality />
 
-      {/* 4. Proven Outcomes — client cards */}
+      <SectionDivider />
+
+      {/* 4. Proven Outcomes */}
       <FeaturedCaseStudy />
 
-      {/* 5. The Acquisition System — 3-step system */}
+      <SectionDivider />
+
+      {/* 5. The Acquisition System */}
       <VerticalTabs />
+
+      <SectionDivider />
+
+      {/* 5.5. Services */}
+      <ServicesGrid />
+
+      <SectionDivider />
 
       {/* 6. Who This Is For */}
       <QualificationCTA />
 
+      <SectionDivider />
+
       {/* 7. Testimonials */}
       <TestimonialBlock />
 
-      {/* 8. About — short founder block */}
+      <SectionDivider />
+
+      {/* 8. About */}
       <AboutSection />
 
-      {/* 9. Pricing — two tiers */}
+      <SectionDivider />
+
+      {/* 9. Pricing */}
       <PricingStatement />
+
+      <SectionDivider />
 
       {/* 10. What Happens Next */}
       <BatonHandoff />
 
+      <SectionDivider />
+
       {/* 11. FAQ */}
       <FAQ />
+
+      <SectionDivider />
 
       {/* 12. Closing CTA — diagnostic form */}
       <DiagnosticForm />

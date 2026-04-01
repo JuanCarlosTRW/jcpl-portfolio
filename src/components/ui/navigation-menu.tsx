@@ -9,8 +9,9 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { name: "Results", href: "/#outcomes", isCta: false },
   { name: "How it works", href: "/#system", isCta: false },
+  { name: "Services", href: "/#services", isCta: false },
   { name: "Pricing", href: "/#pricing", isCta: false },
-  { name: "Apply", href: "/apply", isCta: true },
+  { name: "Apply", href: "/#book-call", isCta: true },
 ];
 
 const EXPAND_SCROLL_THRESHOLD = 80;

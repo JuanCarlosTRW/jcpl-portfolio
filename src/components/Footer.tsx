@@ -10,9 +10,10 @@ export default function Footer() {
   const { nav, footer } = translations[locale];
   const navItems = [
     { href: "/#system", label: "How it works" },
+    { href: "/#services", label: "Services" },
     { href: "/#outcomes", label: nav.results },
     { href: "/#pricing", label: "Pricing" },
-    { href: "/apply", label: nav.apply },
+    { href: "/#book-call", label: "Apply" },
   ];
   return (
     <footer
@@ -54,7 +55,7 @@ export default function Footer() {
                 alt="Client Growth"
                 width={400}
                 height={267}
-                style={{ height: "85px", width: "auto", objectFit: "contain" }}
+                style={{ width: "200px", height: "auto", objectFit: "contain" }}
               />
             </Link>
             <p className="text-[0.8rem]" style={{ color: "#756D63" }}>
