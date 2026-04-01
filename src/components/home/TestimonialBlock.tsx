@@ -29,7 +29,7 @@ const testimonialsData = [
   {
     id: 3,
     quote:
-      "The website and SEO campaign changed the game. Clients find me on Google now. Best investment I have made for the shop.",
+      "The website looks exactly like us. First booking came in before the first week was done.",
     name: "Hadi",
     role: "Elite Barbershop · Montreal, QC",
     context: "Barbershop: local market, SEO campaign in progress",

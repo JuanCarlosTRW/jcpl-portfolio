@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | ${siteConfig.title}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: "Websites, Google Ads, SEO, and AI for local service businesses. Results-driven marketing by Juan — ClientGrowth.ca",
+  description: "Websites, Google Ads, SEO, and AI for local service businesses. Acquisition systems built by Juan. ClientGrowth.ca",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

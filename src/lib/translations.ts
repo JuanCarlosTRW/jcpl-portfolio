@@ -858,8 +858,8 @@ export const translations: Record<Locale, TranslationsShape> = {
         websiteCalloutBody: "No templates. No guesswork. You describe it, I make it real.",
       },
       logoTicker: {
-        label: "CURRENT CLIENTS GENERATING QUALIFIED CALLS RIGHT NOW",
-        footer: "Five industries. One growth system.",
+        label: "SYSTEMS BUILT FOR",
+        footer: "Five industries. One acquisition system.",
       },
       oneOperator: {
         eyebrow: "WHO RUNS THE SYSTEM",
@@ -1169,7 +1169,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       services: "Services",
       results: "Résultats",
       about: "À propos",
-      apply: "Réserver un appel diagnostic",
+      apply: "Postuler pour un appel diagnostic",
       seeResults: "Voir les résultats",
     },
     faq: {
@@ -1179,7 +1179,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         "Je préfère répondre aux questions difficiles ici plutôt que de vous faire perdre du temps en appel.",
       mostCommon: "Objection la plus courante",
       stillQuestion: "Une question sans réponse? Parlons-en.",
-      applyCta: "Réserver un appel diagnostic →",
+      applyCta: "Postuler pour un appel diagnostic →",
       items: faqFr,
     },
     spots: {
@@ -1193,7 +1193,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       oneSpot: "Une place est ouverte en ce moment.",
       applyParagraph:
         "Postulez maintenant et j'examinerai votre entreprise sous 24 heures. Si je ne peux pas faire avancer les choses, je vous le dirai lors de l'appel de revue, pas après avoir payé.",
-      applyCta: "Réserver un appel diagnostic",
+      applyCta: "Postuler pour un appel diagnostic",
       seeResults: "Voir les résultats →",
       reply24: "Réponse sous 24 heures",
       noContracts: "Pas de contrats à long terme",
@@ -1204,7 +1204,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       noCommitment: "Sans engagement",
     },
     finalCta: {
-      button: "Réserver un appel diagnostic",
+      button: "Postuler pour un appel diagnostic",
     },
     footer: {
       navigation: "Navigation",
@@ -1261,7 +1261,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       ],
       ctaTitle: "Réservez un appel stratégie de 15 min",
       ctaBody: "J'examinerai votre marché et vous dirai directement si ce système peut faire la différence.",
-      ctaButton: "Réserver un appel stratégie →",
+      ctaButton: "Postuler pour un appel diagnostic →",
       ctaEmail: "juan@clientgrowth.ca",
       ctaEmailLabel: "Préférez le courriel?",
     },
@@ -1273,7 +1273,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       bullet1: "15 minutes",
       bullet2: "Prochaines étapes claires",
       bullet3: "Pas de processus commercial lourd",
-      cta: "Réserver un appel diagnostic",
+      cta: "Postuler pour un appel diagnostic",
       notice: "Je fais un nombre limité d'appels diagnostiques par semaine. Pour une réponse plus rapide, écrivez à juan@clientgrowth.ca pour une réponse le jour même.",
     },
     homepage: {
@@ -1283,7 +1283,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         h1Line2: "30 jours.",
         subHeadline: "Je bâtis le système. Vous répondez au téléphone.",
         body: "Google Ads, SEO et sites de conversion. Un système, un opérateur, zéro intermédiaire.",
-        cta: "Réserver un appel diagnostic",
+        cta: "Postuler pour un appel diagnostic",
         microCopy: "Un appel. Je vous dis si je peux vous aider.",
         seeResults: "Voir les résultats →",
       },
@@ -1326,9 +1326,9 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       provenOutcomes: {
         eyebrow: "RÉSULTATS PROUVÉS",
-        h2: "$41 085 avec $900 en publicité. Page 1 en moins de 60 jours.",
+        h2: "$41 085 avec $900 en publicité. 11 jours jusqu'au premier appel.",
         h2Main: "$41 085 avec $900 en publicité.",
-        h2Italic: "Page 1 en moins de 60 jours.",
+        h2Italic: "11 jours jusqu'au premier appel.",
         sub: "Revenus, appels qualifiés et visibilité de recherche. Pas trois victoires séparées. Le même système connecté, en continu.",
         card1Label: "LOCATION DE VR · TEXAS · GOOGLE ADS",
         card1Revenue: "en revenus. Premiers 30 jours.",
@@ -1360,7 +1360,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         projectedRevenue: "Revenus mensuels projetés",
         returnOnLeadCost: "Retour sur coût d'acquisition",
         returnSuffix: "× retour",
-        cta: "Réserver un appel diagnostic →",
+        cta: "Postuler pour un appel diagnostic →",
       },
       acquisitionSystem: {
         eyebrow: "LE SYSTÈME D'ACQUISITION",
@@ -1444,7 +1444,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         item8: "Couches d'expansion au fur et à mesure que votre marché grandit",
         shortApplication: "Candidature courte. J'évalue chaque compatibilité personnellement.",
         seeInvestment: "Voir ce qui influence l'investissement mensuel →",
-        cta: "Réserver un appel diagnostic →",
+        cta: "Postuler pour un appel diagnostic →",
         term1Title: "Terme initial de 90 jours",
         term1Sub: "Mois par mois par la suite.",
         term2Title: "Aucun paiement avant confirmation",
@@ -1471,7 +1471,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         closingBold: "Les opérateurs sérieux bâtissent des infrastructures.",
         closingSub: "Les autres attendent que le téléphone sonne.",
         belowCta: "Si je ne peux pas produire un retour, je vous le dis lors de l'appel. Avant que vous ne payiez quoi que ce soit.",
-        cta: "Réserver un appel diagnostic →",
+        cta: "Postuler pour un appel diagnostic →",
         fullList: "Liste complète →",
       },
       diagnostic: {
@@ -1483,7 +1483,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         step3: "Je vous dis si je peux aider. Aucun pitch. Aucune pression.",
         note: "Je fais un nombre limité d'appels diagnostiques par semaine. Pour une réponse plus rapide, écrivez à juan@clientgrowth.ca pour une réponse le jour même.",
         loading: "Chargement du calendrier...",
-        iframeTitle: "Réserver un appel",
+        iframeTitle: "Postuler pour un appel diagnostic",
       },
     },
     services: {
@@ -1492,8 +1492,8 @@ export const translations: Record<Locale, TranslationsShape> = {
         h1: "Un système d'acquisition.",
         body1: "Site de conversion. SEO local. Google Ads avec coût par appel suivi. IA qui qualifie les leads après les heures. Construit comme un système connecté, géré par une personne. En ligne en 11 jours.",
         body2: "Chaque couche alimente la suivante. Plus il roule longtemps, moins chaque appel coûte cher.",
-        microResult: "Résultat le plus récent : 90 nouveaux clients en 90 jours. Page 1 en moins de 60 jours.",
-        cta1: "Réserver un appel diagnostic →",
+        microResult: "Résultat le plus récent : $41 085 avec $900 en publicité. 11 jours jusqu'au premier appel.",
+        cta1: "Postuler pour un appel diagnostic →",
         cta2: "Voir comment le système fonctionne",
         trust1: "Réponse dans les 24 heures",
         trust2: "Aucun acompte avant confirmation",
@@ -1582,7 +1582,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         applyHeading: "Je gère 3 partenariats à la fois.",
         applyBody: "Candidature courte. J'examine votre marché avant qu'on parle. Si je peux produire un retour, vous recevrez un lien d'appel dans les 24 heures. Sinon, je vous le dirai directement.",
         proofText: "3 derniers partenariats : l'un était en ligne en 9 jours. L'un a réservé son premier appel qualifié le jour 7. L'un a généré 2 716 $ le premier mois.",
-        button: "Réserver un appel diagnostic →",
+        button: "Postuler pour un appel diagnostic →",
         microcopy: "Réponse dans les 24 heures. Aucun acompte avant confirmation.",
       },
       guarantees: {
@@ -1601,7 +1601,7 @@ export const translations: Record<Locale, TranslationsShape> = {
     results: {
       hero: {
         eyebrow: "Résultats clients : dossier vérifié",
-        h1: "$41 085 en revenus. 90 nouveaux clients. Construit sur le même système.",
+        h1: "$41 085 en revenus. Campagnes SEO actives. Construit sur le même système.",
         sub: "Un dossier structuré de partenariats actifs. Conditions de départ, ce qui a été construit et les résultats obtenus. Chaque chiffre lié à un compte réel.",
         stat1Value: "$41 085",
         stat1Label: "Revenus générés",
@@ -1629,7 +1629,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       secondary: {
         sectionMarker: "Partenariat vedette",
-        headline: "90 nouveaux clients en 90 jours.\nConstruit depuis zéro présence en ligne.",
+        headline: "Campagne SEO active.\nCiblant la position #1 en recherche locale.",
         infrastructureBuilt: "Infrastructure construite",
         verified: "Vérifié",
         viewCaseStudy: "Voir l'étude de cas complète →",
@@ -1646,7 +1646,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         trust1: "Réponse dans les 24 heures",
         trust2: "Aucun engagement pour postuler",
         trust3: "Fondateur, pas une agence",
-        button: "Réserver un appel diagnostic",
+        button: "Postuler pour un appel diagnostic",
         link: "Comment le système d'acquisition fonctionne →",
       },
       portfolio: {
@@ -1668,7 +1668,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         bullet1: "Stratégie, construction et optimisation gérées par une seule personne",
         bullet2: "Aucun gestionnaire de compte entre vous et le travail",
         bullet3: "Mesuré par les appels qualifiés et les revenus, rien d'autre",
-        cta1: "Réserver un appel diagnostic",
+        cta1: "Postuler pour un appel diagnostic",
         cta2: "Voir les résultats →",
         trust1: "Réponse sous 24h",
         trust2: "100% confidentiel",
@@ -1688,7 +1688,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         headline: "Votre pipeline ne se construira pas tout seul.",
         sub: "Postulez pour un appel diagnostic. Je révise votre entreprise, votre marché et votre pipeline avant qu'on parle. Lors de l'appel, je vous montre exactement où vous perdez des appels et ce que ça vaut de corriger.",
         guarantee: "Si je ne peux pas produire un retour, je vous le dis lors de l'appel. Avant que vous payiez quoi que ce soit.",
-        primary: "Réserver un appel diagnostic",
+        primary: "Postuler pour un appel diagnostic",
         secondary: "Voir les résultats →",
         trust1: "Réponse sous 24 heures",
         trust2: "100% confidentiel",

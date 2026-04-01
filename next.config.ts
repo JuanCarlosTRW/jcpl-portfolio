@@ -4,6 +4,7 @@ import path from "path";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   compress: true,
+  poweredByHeader: false,
   productionBrowserSourceMaps: false,
   turbopack: {
     root: path.resolve(__dirname),
