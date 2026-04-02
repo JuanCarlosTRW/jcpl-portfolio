@@ -25,6 +25,8 @@ html { scroll-behavior: smooth; }
   display: inline-block;
   margin-right: 0.25em;
   opacity: 0;
+  overflow: visible;
+  line-height: 1.2;
   animation: blurIn 0.5s ease forwards;
 }
 .blur-word:last-child {

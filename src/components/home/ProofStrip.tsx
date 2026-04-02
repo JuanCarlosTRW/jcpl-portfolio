@@ -1,9 +1,9 @@
 "use client";
 
 const STATS = [
-  { value: "$41,085", label: "revenue in 30 days" },
-  { value: "11 days", label: "median to first call" },
-  { value: "5", label: "systems shipped" },
+  { value: "$41,085", label: "revenue in 30 days", sub: "Triple W Rentals" },
+  { value: "11 days", label: "to your first booked call", sub: "" },
+  { value: "$60K+", label: "tracked revenue", sub: "active accounts" },
 ];
 
 export default function ProofStrip() {
@@ -47,6 +47,19 @@ export default function ProofStrip() {
             >
               {stat.label}
             </p>
+            {stat.sub && (
+              <p
+                style={{
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                  fontSize: "0.7rem",
+                  color: "rgba(240,234,214,0.3)",
+                  marginTop: 2,
+                  marginBottom: 0,
+                }}
+              >
+                {stat.sub}
+              </p>
+            )}
           </div>
         ))}
       </div>

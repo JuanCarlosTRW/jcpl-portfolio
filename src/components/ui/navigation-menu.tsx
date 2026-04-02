@@ -6,10 +6,10 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Results", href: "/results", isCta: false },
-  { name: "How it works", href: "/#system", isCta: false },
-  { name: "Pricing", href: "/#pricing", isCta: false },
-  { name: "Apply", href: "/apply", isCta: true },
+  { name: "Results", href: "/results", anchor: "", isCta: false },
+  { name: "How it works", href: "/#system", anchor: "system", isCta: false },
+  { name: "Pricing", href: "/#pricing", anchor: "pricing", isCta: false },
+  { name: "Apply", href: "/apply", anchor: "", isCta: true },
 ];
 
 function isActivePath(pathname: string, href: string): boolean {
@@ -19,6 +19,17 @@ function isActivePath(pathname: string, href: string): boolean {
 
 export function AnimatedNavFramer() {
   const pathname = usePathname();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
+    if (!anchor) return;
+    // Only intercept on the homepage
+    if (pathname !== "/") return;
+    const el = document.getElementById(anchor);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-4 nav-wrapper" style={{ transition: "all 0.3s ease" }}>
@@ -45,6 +56,7 @@ export function AnimatedNavFramer() {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleClick(e, item.anchor)}
                 className={cn(
                   "nav-link-item text-sm font-medium transition-colors whitespace-nowrap",
                   item.isCta

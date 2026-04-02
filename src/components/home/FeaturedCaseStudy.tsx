@@ -243,7 +243,7 @@ export default function FeaturedCaseStudy() {
                     fontStyle: "italic",
                   }}
                 >
-                  Live account. Last verified February 2026.
+                  Verified Feb 2026
                 </p>
               </div>
 
@@ -287,27 +287,8 @@ export default function FeaturedCaseStudy() {
                     </div>
                   </div>
 
-                  {/* Screenshot + badge */}
-                  <div style={{ position: "relative" }}>
-                    <span
-                      style={{
-                        position: "absolute",
-                        top: 10,
-                        left: 10,
-                        zIndex: 2,
-                        background: "#D4A853",
-                        color: "#0D0B09",
-                        fontFamily: "var(--font-dm-sans), sans-serif",
-                        fontSize: "0.55rem",
-                        fontWeight: 700,
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        padding: "4px 10px",
-                        borderRadius: 4,
-                      }}
-                    >
-                      LIVE ACCOUNT
-                    </span>
+                  {/* Screenshot */}
+                  <div>
                     <Image
                       src="/images/proof/triple-w-ads-dashboard.png"
                       alt="Google Ads dashboard showing $41,085 in revenue for Triple W Rentals"
@@ -315,6 +296,28 @@ export default function FeaturedCaseStudy() {
                       height={400}
                       style={{ width: "100%", height: "auto", display: "block" }}
                     />
+                  </div>
+
+                  {/* Badge below image */}
+                  <div style={{ padding: "8px 14px", display: "flex", alignItems: "center", gap: 8 }}>
+                    <span
+                      style={{
+                        background: "#D4A853",
+                        color: "#0D0B09",
+                        fontFamily: "var(--font-dm-sans), sans-serif",
+                        fontSize: "0.55rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        padding: "3px 8px",
+                        borderRadius: 3,
+                      }}
+                    >
+                      LIVE ACCOUNT
+                    </span>
+                    <span style={{ fontSize: "0.6rem", color: "#756D63", fontFamily: "var(--font-dm-sans), sans-serif" }}>
+                      ads.google.com
+                    </span>
                   </div>
                 </div>
               </div>
@@ -346,7 +349,8 @@ export default function FeaturedCaseStudy() {
                 style={{
                   fontFamily: "var(--font-dm-sans), sans-serif",
                   fontSize: "0.75rem",
-                  color: "#756D63",
+                  color: "#ffffff",
+                  fontWeight: 600,
                   marginTop: 10,
                   marginBottom: 0,
                 }}
@@ -355,6 +359,24 @@ export default function FeaturedCaseStudy() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Case study link */}
+        <div className="max-w-3xl mx-auto mt-4 mb-2">
+          <a
+            href="/results"
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "0.8rem",
+              color: "#D4A853",
+              textDecoration: "none",
+              transition: "text-decoration 180ms ease",
+            }}
+            onMouseOver={(e) => { e.currentTarget.style.textDecoration = "underline"; }}
+            onMouseOut={(e) => { e.currentTarget.style.textDecoration = "none"; }}
+          >
+            View full case study →
+          </a>
         </div>
       </Reveal>
 
@@ -441,12 +463,13 @@ export default function FeaturedCaseStudy() {
         <p
           className="text-center mt-4 mb-6"
           style={{
-            fontSize: "0.85rem",
+            fontSize: "1rem",
             color: "#D4A853",
+            fontWeight: 600,
             fontFamily: "var(--font-dm-sans), sans-serif",
           }}
         >
-          $60K+ in tracked revenue across active partnerships. Updated as results are verified.
+          $60K+ in tracked revenue across active partnerships.
         </p>
       </Reveal>
 

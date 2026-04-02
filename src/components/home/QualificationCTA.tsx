@@ -39,9 +39,6 @@ export default function QualificationCTA() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
               This is not for everyone. Here is who it is for.
             </h2>
-            <p className="text-[#A69D8D] text-base md:text-lg text-center">
-              {f.sub}
-            </p>
           </div>
 
           <Reveal>

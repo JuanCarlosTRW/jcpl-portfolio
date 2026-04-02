@@ -690,9 +690,9 @@ export const translations: Record<Locale, TranslationsShape> = {
     },
     speedPopup: {
       eyebrow: "My Promise",
-      title: "SPEED",
-      body: "I respect your time as much as I respect mine. This is why ",
-      highlight: "most systems launch within two weeks.",
+      title: "BUILT FAST. BUILT RIGHT.",
+      body: "11-day median from signed agreement to live system. Speed does not mean shortcuts. It means I have done this enough to move without wasting your time. ",
+      highlight: "Live in 11 days. Custom coded. Nothing templated.",
       closeLabel: "Close popup",
     },
     benefits: {
@@ -957,10 +957,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       about: {
         label: "WHO I AM",
         headline: "I watched good businesses lose to worse ones. The difference was never the work.",
-        p1: "I build acquisition systems for local service businesses \u2014 conversion website, Google Ads, local SEO, and AI search visibility. Every system I run is tracked to one metric: money in for your business. I only take on clients I am confident I can move the needle for.",
+        p1: "I build acquisition systems for local service businesses \u2014 conversion website, Google Ads, local SEO, and AI search visibility. Every system tracked to one metric: qualified calls on the calendar.",
         p2: "I started building these systems at 16. I am 18 now. By the time most people finish their first internship, I will have run more live ad accounts than most agency employees touch in a career.",
-        p3: "The work was never the problem. The infrastructure was. That is the gap I built Client Growth to close.",
-        stats: "$41,085 tracked  \u00b7  5 systems live  \u00b7  Canada + United States",
+        p3: "The work was never the problem. The infrastructure was.",
+        stats: "",
       },
     },
     services: {
@@ -1237,9 +1237,9 @@ export const translations: Record<Locale, TranslationsShape> = {
     },
     speedPopup: {
       eyebrow: "Ma Promesse",
-      title: "RAPIDITÉ",
-      body: "Je respecte votre temps autant que le mien. C'est pourquoi ",
-      highlight: "la plupart des systèmes sont lancés en deux semaines.",
+      title: "CONSTRUIT VITE. CONSTRUIT BIEN.",
+      body: "11 jours en m\u00e9diane entre la signature et le syst\u00e8me en ligne. La rapidit\u00e9 ne veut pas dire de raccourcis. Cela veut dire que je l\u2019ai fait assez souvent pour avancer sans perdre votre temps. ",
+      highlight: "En ligne en 11 jours. Code sur mesure. Rien de template.",
       closeLabel: "Fermer le popup",
     },
     benefits: {
@@ -1504,10 +1504,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       about: {
         label: "QUI JE SUIS",
         headline: "J\u2019ai vu de bonnes entreprises perdre face \u00e0 de moins bonnes. La diff\u00e9rence n\u2019\u00e9tait jamais le travail.",
-        p1: "Je construis des syst\u00e8mes d\u2019acquisition pour les entreprises de services locaux \u2014 site de conversion, Google Ads, r\u00e9f\u00e9rencement local et visibilit\u00e9 IA. Chaque syst\u00e8me que je g\u00e8re est mesur\u00e9 \u00e0 une seule m\u00e9trique : des appels qualifi\u00e9s dans le calendrier. Je ne prends que les clients pour lesquels je suis certain de pouvoir bouger l\u2019aiguille.",
+        p1: "Je construis des syst\u00e8mes d\u2019acquisition pour les entreprises de services locaux \u2014 site de conversion, Google Ads, r\u00e9f\u00e9rencement local et visibilit\u00e9 IA. Chaque syst\u00e8me suivi \u00e0 une seule m\u00e9trique : des appels qualifi\u00e9s dans le calendrier.",
         p2: "J\u2019ai commenc\u00e9 \u00e0 construire ces syst\u00e8mes \u00e0 16 ans. J\u2019en ai 18 maintenant. Le temps que la plupart des gens finissent leur premier stage, j\u2019aurai g\u00e9r\u00e9 plus de comptes publicitaires en direct que la plupart des employ\u00e9s d\u2019agence n\u2019en touchent dans toute leur carri\u00e8re.",
-        p3: "Le travail n\u2019a jamais \u00e9t\u00e9 le probl\u00e8me. L\u2019infrastructure l\u2019\u00e9tait. C\u2019est cet \u00e9cart que j\u2019ai construit Client Growth pour combler.",
-        stats: "$41,085 suivis  \u00b7  5 syst\u00e8mes actifs  \u00b7  Canada + \u00c9tats-Unis",
+        p3: "Le travail n\u2019a jamais \u00e9t\u00e9 le probl\u00e8me. L\u2019infrastructure l\u2019\u00e9tait.",
+        stats: "",
       },
     },
     services: {

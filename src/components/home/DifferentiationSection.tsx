@@ -3,14 +3,12 @@
 const LEFT_ITEMS = [
   "A junior account manager you never chose",
   "Recycled templates adapted to your logo",
-  "A retainer that runs whether it works or not",
   "You rent the results. Leave and you start from zero.",
 ];
 
 const RIGHT_ITEMS = [
   "One operator. I build the system myself.",
   "Custom coded. Your site, your ads account, your data.",
-  "No payment before fit. Refund if the phone does not ring.",
   "You own everything. If you leave, it all goes with you.",
 ];
 
@@ -99,7 +97,7 @@ export default function DifferentiationSection() {
                 >
                   <span
                     style={{
-                      color: "rgba(240,234,214,0.25)",
+                      color: "#EF4444",
                       fontSize: 14,
                       flexShrink: 0,
                       marginTop: 2,

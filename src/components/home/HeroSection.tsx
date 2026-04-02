@@ -97,7 +97,7 @@ export default function HeroSection() {
             color: "#D4A853",
             fontStyle: "italic",
             textShadow: "0 2px 40px rgba(0,0,0,0.9), 0 0 60px rgba(212,168,83,0.3)",
-          }}>fills</em>{" "}
+          }}>books</em>{" "}
           {["your", "calendar."].map((word, i) => (
             <span key={word} className="blur-word" style={{ animationDelay: `${0.48 + i * 0.08}s` }}>
               {word}{i === 0 ? " " : ""}

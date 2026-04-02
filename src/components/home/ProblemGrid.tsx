@@ -57,7 +57,7 @@ export default function ProblemGrid() {
           style={{
             fontFamily: "var(--font-cormorant), Georgia, serif",
             fontSize: "clamp(18px, 3vw, 24px)",
-            color: "rgba(240,234,214,0.5)",
+            color: "#ffffff",
             fontStyle: "italic",
             marginTop: 8,
           }}
