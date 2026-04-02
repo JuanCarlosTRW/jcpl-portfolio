@@ -94,7 +94,7 @@ function PricingCard({
 
         {/* Price */}
         <div className="mb-5">
-          <span className="text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold text-white tracking-tight">
+          <span className="text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold text-white tracking-tight" style={{ fontFamily: "var(--font-cormorant), Georgia, serif", letterSpacing: "-0.02em" }}>
             {price}
           </span>
           <span className="text-[1rem] text-[#756D63] ml-1">/month</span>

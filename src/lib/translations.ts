@@ -689,10 +689,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       close: "Close",
     },
     speedPopup: {
-      eyebrow: "My Promise",
-      title: "BUILT FAST. BUILT RIGHT.",
-      body: "11-day median from signed agreement to live system. Speed does not mean shortcuts. It means I have done this enough to move without wasting your time. ",
-      highlight: "Live in 11 days. Custom coded. Nothing templated.",
+      eyebrow: "Without cutting corners.",
+      title: "Speed.",
+      body: "11-day median build time. Custom coded. Nothing templated. Every system built personally. Not handed to a junior.",
+      highlight: "",
       closeLabel: "Close popup",
     },
     benefits: {
@@ -1236,10 +1236,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       close: "Fermer",
     },
     speedPopup: {
-      eyebrow: "Ma Promesse",
-      title: "CONSTRUIT VITE. CONSTRUIT BIEN.",
-      body: "11 jours en m\u00e9diane entre la signature et le syst\u00e8me en ligne. La rapidit\u00e9 ne veut pas dire de raccourcis. Cela veut dire que je l\u2019ai fait assez souvent pour avancer sans perdre votre temps. ",
-      highlight: "En ligne en 11 jours. Code sur mesure. Rien de template.",
+      eyebrow: "Sans couper les coins.",
+      title: "Rapidit\u00e9.",
+      body: "11 jours en m\u00e9diane. Code sur mesure. Rien de template. Chaque syst\u00e8me construit personnellement. Pas d\u00e9l\u00e9gu\u00e9 \u00e0 un junior.",
+      highlight: "",
       closeLabel: "Fermer le popup",
     },
     benefits: {

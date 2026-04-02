@@ -105,21 +105,68 @@ export default function SpeedPopup() {
           </svg>
         </button>
 
-        {/* Eyebrow */}
-        <p className="speed-popup-eyebrow">{sp.eyebrow}</p>
-
-        {/* Title */}
-        <h2 id="speed-popup-title" className="speed-popup-title">
+        {/* Title — large Cormorant */}
+        <h2
+          id="speed-popup-title"
+          className="speed-popup-title"
+          style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+        >
           {sp.title}
         </h2>
+
+        {/* Gold subline */}
+        <p
+          style={{
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 13,
+            color: "#D4A853",
+            letterSpacing: "0.08em",
+            marginTop: 8,
+            marginBottom: 16,
+          }}
+        >
+          {sp.eyebrow}
+        </p>
 
         {/* Accent line */}
         <div className="speed-popup-accent" aria-hidden="true" />
 
         {/* Body text */}
-        <p className="speed-popup-body">
-          {sp.body}<strong className="speed-popup-highlight">{sp.highlight}</strong>
+        <p
+          className="speed-popup-body"
+          style={{
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 14,
+            lineHeight: 1.7,
+          }}
+        >
+          {sp.body}
         </p>
+
+        {/* CTA */}
+        <a
+          href="/apply"
+          onClick={close}
+          style={{
+            display: "inline-block",
+            marginTop: 20,
+            padding: "12px 28px",
+            background: "#D4A853",
+            color: "#0D0B09",
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 13,
+            fontWeight: 600,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            textDecoration: "none",
+            borderRadius: 6,
+            transition: "transform 150ms ease",
+          }}
+          onMouseOver={(e) => { e.currentTarget.style.transform = "scale(1.02)"; }}
+          onMouseOut={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+        >
+          Apply to be a Partner →
+        </a>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AboutFull from "@/components/about/AboutFull";
+import AboutSection from "@/components/home/AboutSection";
 
 export const metadata: Metadata = {
   title: "About | Client Growth",
@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <div style={{ background: "#0D0B09", minHeight: "100vh" }}>
       <div className="pt-24 md:pt-28">
-        <AboutFull />
+        <AboutSection />
       </div>
     </div>
   );
