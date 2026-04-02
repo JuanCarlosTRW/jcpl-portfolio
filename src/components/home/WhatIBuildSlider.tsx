@@ -151,7 +151,7 @@ export default function WhatIBuildSlider() {
               </span>
             )}
             {/* Image area */}
-            <div className="card-image-container">
+            <div className="card-image-container card-image-contain">
               {s.image ? (
                 <Image src={s.image} alt={s.alt} width={760} height={500} quality={80} loading="lazy" style={{ objectPosition: (s as any).objectPosition || "center top" }} />
               ) : (

@@ -1568,6 +1568,11 @@ body::after {
   object-fit: cover;
   object-position: center top;
 }
+.apple-slider-card .card-image-contain img {
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
+}
 @media (min-width: 768px) and (max-width: 1023px) {
   .apple-slider-card { width: 340px; min-height: 420px; }
 }
