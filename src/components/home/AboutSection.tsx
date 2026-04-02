@@ -41,8 +41,8 @@ export default function AboutSection() {
           }}
         >
           <UnicornScene
-            jsonFilePath="/scenes/hero-planet.json"
-            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+            projectId="bi8sQ4960W9R0aV2JSta"
+            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.6/dist/unicornStudio.umd.js"
             width="100%"
             height="100%"
             dpi={1.5}
