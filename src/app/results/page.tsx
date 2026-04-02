@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-
 export const metadata: Metadata = {
   title: "Results — Client Growth",
   description: "Verified results from real client accounts. $41,085 in revenue from $900 in ad spend. See what the acquisition system produces.",
@@ -137,17 +135,6 @@ export default function ResultsPage() {
               className="relative"
               style={{ background: "#141210", border: "1px solid rgba(212,168,83,0.1)", borderRadius: 16, padding: 32 }}
             >
-              {/* Owner photo */}
-              {client.ownerImage && (
-                <Image
-                  src={client.ownerImage}
-                  alt="Client"
-                  width={48}
-                  height={48}
-                  className="absolute"
-                  style={{ top: 24, right: 24, borderRadius: "50%", objectFit: "cover", border: "2px solid rgba(212,168,83,0.2)" }}
-                />
-              )}
 
               {/* Badge */}
               <span
