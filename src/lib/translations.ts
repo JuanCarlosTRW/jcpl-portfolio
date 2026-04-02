@@ -957,10 +957,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       about: {
         label: "WHO I AM",
         headline: "I watched good businesses lose to worse ones. The difference was never the work.",
-        p1: "I build acquisition systems for local service businesses across Canada and the United States. Every engagement is tracked to one metric: qualified calls on the calendar. I run a maximum of 3 active partnerships at a time, by design.",
-        p2: "I started noticing the gap at 16. Good operators losing jobs to competitors half their quality because the other guy had a $400 website on Page 1 and Google Ads running.",
+        p1: "I build acquisition systems for local service businesses \u2014 conversion website, Google Ads, local SEO, and AI search visibility. Every system I run is tracked to one metric: qualified calls on the calendar. I only take on clients I am confident I can move the needle for.",
+        p2: "I started building these systems at 16. I am 18 now. By the time most people finish their first internship, I will have run more live ad accounts than most agency employees touch in a career.",
         p3: "The work was never the problem. The infrastructure was. That is the gap I built Client Growth to close.",
-        stats: "5 systems shipped  \u00b7  Canada + United States  \u00b7  1 operator",
+        stats: "$41,085 tracked  \u00b7  5 systems live  \u00b7  Canada + United States",
       },
     },
     services: {
@@ -1504,10 +1504,10 @@ export const translations: Record<Locale, TranslationsShape> = {
       about: {
         label: "QUI JE SUIS",
         headline: "J\u2019ai vu de bonnes entreprises perdre face \u00e0 de moins bonnes. La diff\u00e9rence n\u2019\u00e9tait jamais le travail.",
-        p1: "Je construis des syst\u00e8mes d\u2019acquisition pour les entreprises de services locaux au Canada et aux \u00c9tats-Unis. Chaque engagement est mesur\u00e9 \u00e0 une seule m\u00e9trique : des appels qualifi\u00e9s dans le calendrier. Je g\u00e8re un maximum de 3 partenariats actifs \u00e0 la fois, par choix.",
-        p2: "J\u2019ai commenc\u00e9 \u00e0 remarquer l\u2019\u00e9cart \u00e0 16 ans. De bons op\u00e9rateurs perdant des contrats face \u00e0 des concurrents deux fois moins comp\u00e9tents parce que l\u2019autre avait un site \u00e0 400$ en premi\u00e8re page et Google Ads qui tournait.",
+        p1: "Je construis des syst\u00e8mes d\u2019acquisition pour les entreprises de services locaux \u2014 site de conversion, Google Ads, r\u00e9f\u00e9rencement local et visibilit\u00e9 IA. Chaque syst\u00e8me que je g\u00e8re est mesur\u00e9 \u00e0 une seule m\u00e9trique : des appels qualifi\u00e9s dans le calendrier. Je ne prends que les clients pour lesquels je suis certain de pouvoir bouger l\u2019aiguille.",
+        p2: "J\u2019ai commenc\u00e9 \u00e0 construire ces syst\u00e8mes \u00e0 16 ans. J\u2019en ai 18 maintenant. Le temps que la plupart des gens finissent leur premier stage, j\u2019aurai g\u00e9r\u00e9 plus de comptes publicitaires en direct que la plupart des employ\u00e9s d\u2019agence n\u2019en touchent dans toute leur carri\u00e8re.",
         p3: "Le travail n\u2019a jamais \u00e9t\u00e9 le probl\u00e8me. L\u2019infrastructure l\u2019\u00e9tait. C\u2019est cet \u00e9cart que j\u2019ai construit Client Growth pour combler.",
-        stats: "5 syst\u00e8mes livr\u00e9s  \u00b7  Canada + \u00c9tats-Unis  \u00b7  1 op\u00e9rateur",
+        stats: "$41,085 suivis  \u00b7  5 syst\u00e8mes actifs  \u00b7  Canada + \u00c9tats-Unis",
       },
     },
     services: {
