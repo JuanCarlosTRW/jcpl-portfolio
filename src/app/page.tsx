@@ -17,6 +17,7 @@ const AcquisitionSlider = dynamic(() => import("@/components/home/AcquisitionSli
 const WhatIBuildSlider = dynamic(() => import("@/components/home/WhatIBuildSlider"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"));
 const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
@@ -76,6 +77,11 @@ export default function HomePage() {
 
       {/* 9. Testimonials (id="testimonials") */}
       <TestimonialBlock />
+
+      <SectionDivider />
+
+      {/* 9.5. Who I Am (id="about") */}
+      <AboutSection />
 
       <SectionDivider />
 
