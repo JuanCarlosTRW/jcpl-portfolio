@@ -139,17 +139,17 @@ export default function DiagnosticForm() {
             }}
           >
             <div>
-              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 300 }}>1</span>
+              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 300, letterSpacing: "0.05em" }}>I</span>
               <h4 style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "15px", color: "#F0EAD6", margin: "8px 0 4px", fontWeight: 600 }}>You apply</h4>
               <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "13px", color: "rgba(240,234,214,0.5)", margin: 0 }}>Fill out the form. It takes under 2 minutes.</p>
             </div>
             <div>
-              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 300 }}>2</span>
+              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 300, letterSpacing: "0.05em" }}>II</span>
               <h4 style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "15px", color: "#F0EAD6", margin: "8px 0 4px", fontWeight: 600 }}>I review your business</h4>
               <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "13px", color: "rgba(240,234,214,0.5)", margin: 0 }}>I look at your market, your competitors, and your current setup before we speak. The call is a diagnosis, not a pitch.</p>
             </div>
             <div>
-              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 300 }}>3</span>
+              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 300, letterSpacing: "0.05em" }}>III</span>
               <h4 style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "15px", color: "#F0EAD6", margin: "8px 0 4px", fontWeight: 600 }}>You get an answer within 24 hours</h4>
               <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "13px", color: "rgba(240,234,214,0.5)", margin: 0 }}>I email you directly. If I can move the needle, I tell you exactly how. If I cannot, I tell you that too. Before you pay anything.</p>
             </div>
