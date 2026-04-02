@@ -179,7 +179,7 @@ export default function WhatIBuildSlider() {
       <div className="text-center" style={{ marginTop: 32 }}>
         <p style={{ fontSize: 14, color: "rgba(240, 234, 214, 0.35)", fontFamily: "var(--font-dm-sans), sans-serif" }}>Every service above is included. Nothing sold separately.</p>
         <div style={{ marginTop: 20 }}>
-          <a href="#book-call" className="inline-block rounded-md px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] transition-transform hover:scale-[1.02]" style={{ background: "#D4A853", color: "#0D0B09", borderRadius: 6 }}>Apply to be a Partner →</a>
+          <a href="/apply" className="inline-block rounded-md px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] transition-transform hover:scale-[1.02]" style={{ background: "#D4A853", color: "#0D0B09", borderRadius: 6 }}>Apply to be a Partner →</a>
         </div>
       </div>
     </section>

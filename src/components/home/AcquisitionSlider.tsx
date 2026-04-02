@@ -140,7 +140,7 @@ export default function AcquisitionSlider() {
       </div>
 
       <div className="text-center" style={{ marginTop: 40 }}>
-        <a href="#book-call" className="inline-block rounded-md px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] transition-transform hover:scale-[1.02]" style={{ background: "#D4A853", color: "#0D0B09", borderRadius: 6 }}>
+        <a href="/apply" className="inline-block rounded-md px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] transition-transform hover:scale-[1.02]" style={{ background: "#D4A853", color: "#0D0B09", borderRadius: 6 }}>
           Apply to be a Partner →
         </a>
       </div>

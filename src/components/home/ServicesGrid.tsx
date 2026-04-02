@@ -218,7 +218,7 @@ export default function ServicesGrid() {
         <Reveal delay={0.3}>
           <div className="text-center">
             <Link
-              href="/#book-call"
+              href="/apply"
               className="inline-block rounded-md px-10 py-4 text-[13px] font-medium uppercase tracking-[0.15em] transition-transform hover:scale-[1.02]"
               style={{
                 background: "#D4A853",

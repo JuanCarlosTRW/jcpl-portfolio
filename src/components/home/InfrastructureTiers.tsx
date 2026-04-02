@@ -182,7 +182,7 @@ export default function InfrastructureTiers() {
                 Most clients graduate to Performance Engine within 60 days.
               </p>
               <a
-                href="/#book-call"
+                href="/apply"
                 className="text-sm font-medium transition-colors hover:text-slate-200"
                 style={{ color: "#64748B", textDecoration: "underline", textUnderlineOffset: "3px" }}
               >
@@ -322,7 +322,7 @@ export default function InfrastructureTiers() {
               Ad spend is separate from the partnership fee. Minimum $500/month. 90-day initial term.
             </p>
             <a
-              href="/#book-call"
+              href="/apply"
               className="block w-full text-sm font-bold py-3.5 rounded-xl tracking-wide transition-all duration-150 hover:brightness-110 text-center"
               style={{
                 background: "linear-gradient(90deg, var(--brand-accent), #3B82F6)",
@@ -444,7 +444,7 @@ export default function InfrastructureTiers() {
                 </p>
               </div>
               <a
-                href="/#book-call"
+                href="/apply"
                 className="text-sm font-medium transition-colors hover:text-amber-400"
                 style={{ color: "rgba(245,158,11,0.70)", textDecoration: "underline", textUnderlineOffset: "3px" }}
               >

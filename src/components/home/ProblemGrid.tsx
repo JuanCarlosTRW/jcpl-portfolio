@@ -22,7 +22,7 @@ const PROBLEMS = [
 
 export default function ProblemGrid() {
   return (
-    <section className="py-16 md:py-24" style={{ background: "#0D0B09" }}>
+    <section id="reality" className="py-16 md:py-24" style={{ background: "#0D0B09" }}>
       {/* Header */}
       <div className="text-center px-6">
         <span

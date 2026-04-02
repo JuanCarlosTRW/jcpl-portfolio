@@ -16,7 +16,7 @@ const RIGHT_ITEMS = [
 
 export default function DifferentiationSection() {
   return (
-    <section className="py-16 md:py-24" style={{ background: "#0D0B09" }}>
+    <section id="different" className="py-16 md:py-24" style={{ background: "#0D0B09" }}>
       <div className="max-w-[960px] mx-auto px-6">
         {/* Label */}
         <p

@@ -2,7 +2,7 @@
 
 const STATS = [
   { value: "$41,085", label: "revenue in 30 days" },
-  { value: "9 days", label: "to the first call" },
+  { value: "11 days", label: "median to first call" },
   { value: "5", label: "systems shipped" },
 ];
 

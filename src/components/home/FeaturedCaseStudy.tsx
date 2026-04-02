@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionWrapper from "@/components/ui/SectionWrapper";
@@ -64,7 +65,7 @@ const compactClients = [
     niche: "BARBERSHOP · MONTREAL · LOCAL SEO",
     name: "Hadi, Elite Barbershop",
     stat: "Targeting #1",
-    detail: "Local SEO campaign launched. Competing for top position in Google.",
+    detail: "Local SEO campaign active. Competing for top position in Google.",
   },
   {
     badge: "DELIVERED",
@@ -74,11 +75,11 @@ const compactClients = [
     pulse: false,
     niche: "BARBERSHOP · MONTREAL · WEB DESIGN",
     name: "Tobari, Culture Barbershop",
-    stat: "Full custom website",
-    detail: "Conversion website designed and built. Mobile-optimized booking flow included.",
+    stat: "Live",
+    detail: "Full custom website. Mobile-optimized booking flow.",
   },
   {
-    badge: "IN THE FIELD",
+    badge: "DELIVERED",
     badgeBg: "rgba(166,157,141,0.08)",
     badgeBorder: "rgba(166,157,141,0.25)",
     badgeColor: "#A69D8D",
@@ -89,12 +90,12 @@ const compactClients = [
     detail: "Conversion website. DFW market. Tracking active.",
   },
   {
-    badge: "IN THE FIELD",
+    badge: "DELIVERED",
     badgeBg: "rgba(166,157,141,0.08)",
     badgeBorder: "rgba(166,157,141,0.25)",
     badgeColor: "#A69D8D",
     pulse: false,
-    niche: "DENTAL CLINIC · LAVAL · WEB DESIGN",
+    niche: "DENTAL CLINIC · LAVAL",
     name: "Dre Benyoucef, Centre Dentaire Saint-Élzéar",
     stat: "Live",
     detail: "Full custom website. Booking funnel built.",
@@ -130,14 +131,22 @@ export default function FeaturedCaseStudy() {
       {/* Section header */}
       <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
         <SectionLabel label={po.eyebrow} className="mb-5 !text-[#D4A853]" />
-        <h2 className="text-[clamp(30px,4.5vw,46px)] font-[800] leading-[1.15] tracking-[-0.03em] max-w-2xl mx-auto text-white">
+        <h2
+          style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+          className="text-[clamp(30px,4.5vw,46px)] font-light leading-[1.15] tracking-[-0.01em] max-w-2xl mx-auto text-[#F0EAD6]"
+        >
           $41,085 from $900 in ad spend. 11 days to the first call.
         </h2>
         <p
-          className="mt-5 max-w-md mx-auto"
-          style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "#756D63", lineHeight: 1.6 }}
+          className="mt-5 max-w-lg mx-auto"
+          style={{
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
+            color: "rgba(240,234,214,0.5)",
+            lineHeight: 1.6,
+          }}
         >
-          {po.sub}
+          Revenue, qualified calls, and search visibility. Not three separate wins. The same connected system, running continuously.
         </p>
       </Reveal>
 
@@ -146,6 +155,7 @@ export default function FeaturedCaseStudy() {
         <p
           className="text-center mb-3"
           style={{
+            fontFamily: "var(--font-dm-sans), sans-serif",
             fontSize: "0.65rem",
             letterSpacing: "0.18em",
             color: "#D4A853",
@@ -159,66 +169,191 @@ export default function FeaturedCaseStudy() {
 
       {/* HERO CARD — Triple W Rentals */}
       <Reveal delay={0.1}>
-        <div className="max-w-3xl mx-auto mb-10 proof-cards">
+        <div className="max-w-3xl mx-auto mb-6 proof-cards">
           <div
-            className="rounded-[14px] px-8 sm:px-10 py-10 sm:py-12 overflow-hidden lift-card case-study-card case-study-card-primary"
+            className="rounded-[14px] overflow-hidden case-study-card case-study-card-primary"
             style={{
               background: "rgba(212, 168, 83, 0.05)",
               border: "1px solid rgba(212, 168, 83, 0.4)",
+              padding: "40px 48px",
             }}
           >
-            <p
-              style={{
-                fontSize: "0.7rem",
-                letterSpacing: "0.15em",
-                color: "#756D63",
-                textTransform: "uppercase",
-                marginBottom: 16,
-              }}
-            >
-              {po.card1Label}
-            </p>
+            {/* Two-column layout */}
+            <div className="hero-card-columns" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, alignItems: "start" }}>
+              <style>{`@media (max-width: 767px) { .hero-card-columns { grid-template-columns: 1fr !important; } }`}</style>
 
-            <div className="stat-glow" style={{ position: "relative" }}>
-              <div
-                className="text-[#F5F0E8] font-extrabold mb-2 stat-41085-proof stat-41085"
-                style={{ fontSize: "clamp(3.5rem, 8vw, 5rem)", lineHeight: 1 }}
-              >
-                <CountUpRevenue to={41085} prefix="$" />
+              {/* Left column — stats */}
+              <div>
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.15em",
+                    color: "#756D63",
+                    textTransform: "uppercase",
+                    marginBottom: 16,
+                  }}
+                >
+                  RV RENTAL · TEXAS · GOOGLE ADS
+                </p>
+
+                <div style={{ position: "relative" }}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-cormorant), Georgia, serif",
+                      fontSize: "clamp(3.5rem, 8vw, 4.5rem)",
+                      fontWeight: 300,
+                      lineHeight: 1,
+                      color: "#F5F0E8",
+                      marginBottom: 8,
+                    }}
+                  >
+                    <CountUpRevenue to={41085} prefix="$" />
+                  </div>
+                </div>
+
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: "1rem",
+                    color: "rgba(240,234,214,0.5)",
+                    marginBottom: 20,
+                  }}
+                >
+                  in revenue. First 30 days.
+                </p>
+
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: "1.1rem",
+                    fontWeight: 600,
+                    color: "#F5F0E8",
+                    marginBottom: 20,
+                  }}
+                >
+                  $46 returned per $1 of ad spend.
+                </p>
+
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: "0.72rem",
+                    color: "#756D63",
+                    fontStyle: "italic",
+                  }}
+                >
+                  Live account. Last verified February 2026.
+                </p>
+              </div>
+
+              {/* Right column — dashboard screenshot */}
+              <div>
+                <div
+                  style={{
+                    background: "#1A1510",
+                    borderRadius: 8,
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Browser chrome */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "10px 14px",
+                      borderBottom: "1px solid rgba(255,255,255,0.06)",
+                    }}
+                  >
+                    <div style={{ display: "flex", gap: 5 }}>
+                      <span style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.12)" }} />
+                      <span style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.12)" }} />
+                      <span style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.12)" }} />
+                    </div>
+                    <div
+                      style={{
+                        flex: 1,
+                        background: "rgba(255,255,255,0.04)",
+                        borderRadius: 4,
+                        padding: "4px 10px",
+                        fontSize: "0.65rem",
+                        color: "#756D63",
+                        fontFamily: "var(--font-dm-sans), sans-serif",
+                      }}
+                    >
+                      ads.google.com
+                    </div>
+                  </div>
+
+                  {/* Screenshot + badge */}
+                  <div style={{ position: "relative" }}>
+                    <span
+                      style={{
+                        position: "absolute",
+                        top: 10,
+                        left: 10,
+                        zIndex: 2,
+                        background: "#D4A853",
+                        color: "#0D0B09",
+                        fontFamily: "var(--font-dm-sans), sans-serif",
+                        fontSize: "0.55rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        padding: "4px 10px",
+                        borderRadius: 4,
+                      }}
+                    >
+                      LIVE ACCOUNT
+                    </span>
+                    <Image
+                      src="/images/proof/triple-w-ads-dashboard.png"
+                      alt="Google Ads dashboard showing $41,085 in revenue for Triple W Rentals"
+                      width={600}
+                      height={400}
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-            <p style={{ fontSize: "1.0625rem", color: "#A69D8D", marginBottom: 22 }}>
-              {po.card1Revenue}
-            </p>
 
+            {/* Testimonial quote below columns */}
             <div
               style={{
-                borderTop: "1px solid rgba(212, 168, 83, 0.15)",
-                paddingTop: 16,
-                marginBottom: 16,
+                marginTop: 32,
+                paddingTop: 24,
+                borderTop: "1px solid rgba(212,168,83,0.15)",
+                paddingLeft: 20,
+                borderLeft: "3px solid #D4A853",
               }}
             >
-              <div
+              <p
                 style={{
-                  fontSize: "1.3125rem",
-                  fontWeight: 700,
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                  fontSize: "0.95rem",
+                  fontStyle: "italic",
                   color: "#D2C9B8",
-                  lineHeight: 1.3,
+                  lineHeight: 1.65,
+                  margin: 0,
                 }}
               >
-                {po.card1Return}
-              </div>
+                &ldquo;Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.&rdquo;
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-dm-sans), sans-serif",
+                  fontSize: "0.75rem",
+                  color: "#756D63",
+                  marginTop: 10,
+                  marginBottom: 0,
+                }}
+              >
+                Westin Wayne Walker, Triple W Rentals · Texas
+              </p>
             </div>
-
-            <p
-              style={{
-                fontSize: "0.72rem",
-                color: "#756D63",
-                fontStyle: "italic",
-              }}
-            >
-              {po.card1Verified}
-            </p>
           </div>
         </div>
       </Reveal>
@@ -261,6 +396,7 @@ export default function FeaturedCaseStudy() {
               {/* Niche label */}
               <p
                 style={{
+                  fontFamily: "var(--font-dm-sans), sans-serif",
                   fontSize: "0.6rem",
                   letterSpacing: "0.12em",
                   color: "#756D63",
@@ -280,13 +416,14 @@ export default function FeaturedCaseStudy() {
               </div>
 
               {/* Detail */}
-              <p style={{ fontSize: "0.85rem", color: "#A69D8D", marginBottom: 12, lineHeight: 1.5 }}>
+              <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.85rem", color: "#A69D8D", marginBottom: 12, lineHeight: 1.5 }}>
                 {client.detail}
               </p>
 
               {/* Attribution */}
               <p
                 style={{
+                  fontFamily: "var(--font-dm-sans), sans-serif",
                   fontSize: "0.72rem",
                   color: "#756D63",
                   fontStyle: "italic",
@@ -317,8 +454,9 @@ export default function FeaturedCaseStudy() {
       <Reveal delay={0.25}>
         <div className="text-center mt-4">
           <a
-            href="#system"
+            href="/results"
             style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: "0.85rem",
               color: "#D4A853",
               textDecoration: "none",
@@ -331,7 +469,7 @@ export default function FeaturedCaseStudy() {
               e.currentTarget.style.color = "#D4A853";
             }}
           >
-            See all client results →
+            See full case studies →
           </a>
         </div>
       </Reveal>

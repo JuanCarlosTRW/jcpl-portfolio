@@ -40,6 +40,15 @@ const testimonialsData = [
     context: "Painting contractor: full custom website delivered",
     imageSrc: "/images/owners/wesley-absolute-painting.png",
   },
+  {
+    id: 5,
+    quote:
+      "The site establishes credibility from the first visit. Patients book directly from search.",
+    name: "Dre Benyoucef",
+    role: "Centre Dentaire Saint-Élzéar · Quebec",
+    context: "Dental clinic: full custom website with booking funnel",
+    imageSrc: "/images/owners/dre-benyoucef-centre-dentaire.png",
+  },
 ];
 
 export default function TestimonialBlock() {
@@ -47,13 +56,14 @@ export default function TestimonialBlock() {
 
   return (
     <section
+      id="testimonials"
       style={{
         borderTop: "1px solid #2A2318",
         borderBottom: "1px solid #2A2318",
       }}
     >
       <TestimonialSection
-        title="Four businesses. Same system. Real outcomes."
+        title="Five businesses. Same system. Real outcomes."
         subtitle="Every result below came from the same acquisition system."
         testimonials={testimonialsData}
       />

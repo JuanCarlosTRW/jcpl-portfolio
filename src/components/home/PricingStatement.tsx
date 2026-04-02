@@ -138,7 +138,7 @@ function PricingCard({
         {/* CTA */}
         <div className="mt-auto space-y-2">
           <Link
-            href="/#book-call"
+            href="/apply"
             className="flex items-center justify-center w-full font-semibold transition-all hover:brightness-110"
             style={{
               backgroundColor: "#D4A853",

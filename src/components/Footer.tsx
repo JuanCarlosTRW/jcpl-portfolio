@@ -12,7 +12,7 @@ export default function Footer() {
     { href: "/#system", label: "How it works" },
     { href: "/results", label: nav.results },
     { href: "/#pricing", label: "Pricing" },
-    { href: "/#book-call", label: "Apply" },
+    { href: "/apply", label: "Apply" },
   ];
   return (
     <footer

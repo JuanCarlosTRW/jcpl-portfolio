@@ -39,7 +39,7 @@ export default function StickyMobileCTA() {
       }}
     >
       <Link
-        href="/#book-call"
+        href="/apply"
         className="text-[13px] font-semibold"
         style={{
           background: "#D4A853",

@@ -446,6 +446,14 @@ export type TranslationsShape = {
       loading: string;
       iframeTitle: string;
     };
+    about: {
+      label: string;
+      headline: string;
+      p1: string;
+      p2: string;
+      p3: string;
+      stats: string;
+    };
   };
   services: {
     hero: {
@@ -945,6 +953,14 @@ export const translations: Record<Locale, TranslationsShape> = {
         note: "I run a limited number of diagnostic calls per week. For a faster response, email juan@clientgrowth.ca for a same-day reply.",
         loading: "Loading calendar...",
         iframeTitle: "Book a call",
+      },
+      about: {
+        label: "WHO I AM",
+        headline: "I watched good businesses lose to worse ones. The difference was never the work.",
+        p1: "I build acquisition systems for local service businesses across Canada and the United States. Every engagement is tracked to one metric: qualified calls on the calendar. I run a maximum of 3 active partnerships at a time, by design.",
+        p2: "I started noticing the gap at 16. Good operators losing jobs to competitors half their quality because the other guy had a $400 website on Page 1 and Google Ads running.",
+        p3: "The work was never the problem. The infrastructure was. That is the gap I built Client Growth to close.",
+        stats: "5 systems shipped  \u00b7  Canada + United States  \u00b7  1 operator",
       },
     },
     services: {
@@ -1485,11 +1501,19 @@ export const translations: Record<Locale, TranslationsShape> = {
         loading: "Chargement du calendrier...",
         iframeTitle: "Devenir partenaire",
       },
+      about: {
+        label: "QUI JE SUIS",
+        headline: "J\u2019ai vu de bonnes entreprises perdre face \u00e0 de moins bonnes. La diff\u00e9rence n\u2019\u00e9tait jamais le travail.",
+        p1: "Je construis des syst\u00e8mes d\u2019acquisition pour les entreprises de services locaux au Canada et aux \u00c9tats-Unis. Chaque engagement est mesur\u00e9 \u00e0 une seule m\u00e9trique : des appels qualifi\u00e9s dans le calendrier. Je g\u00e8re un maximum de 3 partenariats actifs \u00e0 la fois, par choix.",
+        p2: "J\u2019ai commenc\u00e9 \u00e0 remarquer l\u2019\u00e9cart \u00e0 16 ans. De bons op\u00e9rateurs perdant des contrats face \u00e0 des concurrents deux fois moins comp\u00e9tents parce que l\u2019autre avait un site \u00e0 400$ en premi\u00e8re page et Google Ads qui tournait.",
+        p3: "Le travail n\u2019a jamais \u00e9t\u00e9 le probl\u00e8me. L\u2019infrastructure l\u2019\u00e9tait. C\u2019est cet \u00e9cart que j\u2019ai construit Client Growth pour combler.",
+        stats: "5 syst\u00e8mes livr\u00e9s  \u00b7  Canada + \u00c9tats-Unis  \u00b7  1 op\u00e9rateur",
+      },
     },
     services: {
       hero: {
         eyebrow: "SERVICES",
-        h1: "Un système d'acquisition.",
+        h1: "Un syst\u00e8me d\u2019acquisition.",
         body1: "Site de conversion. SEO local. Google Ads avec coût par appel suivi. IA qui qualifie les leads après les heures. Construit comme un système connecté, géré par une personne. En ligne en 11 jours.",
         body2: "Chaque couche alimente la suivante. Plus il roule longtemps, moins chaque appel coûte cher.",
         microResult: "Résultat le plus récent : $41 085 avec $900 en publicité. 11 jours jusqu'au premier appel.",

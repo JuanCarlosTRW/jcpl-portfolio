@@ -136,7 +136,7 @@ export default function HeroSection() {
             gap: 16,
           }}
         >
-          <Link href="/#book-call" className="primary-cta">
+          <Link href="/apply" className="primary-cta">
             Apply to be a Partner →
           </Link>
 

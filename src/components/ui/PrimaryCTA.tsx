@@ -12,7 +12,7 @@ export interface PrimaryCTAProps {
 }
 
 export default function PrimaryCTA({
-  href = "#book-call",
+  href = "/apply",
   children = "Apply to be a Partner",
   showRiskReversal = true,
   className = "",

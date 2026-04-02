@@ -111,7 +111,7 @@ export default function FinalConvictionSection() {
 
       {/* ── Single CTA — anchored directly below the knight ── */}
       <div className="flex justify-center px-4 py-12 md:py-16">
-        <CTAButton href="/#book-call" size="lg">
+        <CTAButton href="/apply" size="lg">
           {t<string>("finalCta.button")}
         </CTAButton>
       </div>

@@ -31,7 +31,7 @@ export default function QualificationCTA() {
   const notForYouIf = [f.notFit1, f.notFit2, f.notFit3];
 
   return (
-    <section id="qualify" className="relative overflow-hidden py-16 border-b border-[#2A2318]" style={{ background: "#0D0B09" }}>
+    <section id="fit" className="relative overflow-hidden py-16 border-b border-[#2A2318]" style={{ background: "#0D0B09" }}>
       <SectionWrapper className="relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-12">
@@ -105,7 +105,7 @@ export default function QualificationCTA() {
             </p>
             <div className="text-center">
               <Link
-                href="/#book-call"
+                href="/apply"
                 className="inline-block rounded-md px-10 py-4 text-[13px] font-medium uppercase tracking-[0.15em] transition-transform hover:scale-[1.02]"
                 style={{
                   background: "#D4A853",

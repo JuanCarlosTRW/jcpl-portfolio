@@ -131,7 +131,7 @@ export default function DiagnosticSteps() {
 
       <div className="flex flex-col items-center">
         <Link
-          href="#book-call"
+          href="/apply"
           className="inline-flex items-center justify-center gap-2 font-semibold text-[#0A0E1A] rounded-lg cta-primary cta-button"
           style={{ background: "#D4A853", padding: "16px 32px" }}
           onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#C49A2A"; }}

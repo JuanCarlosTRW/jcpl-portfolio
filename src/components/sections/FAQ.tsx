@@ -92,7 +92,7 @@ export default function FAQ() {
             <p className="text-[14px]" style={{ color: "#A69D8D" }}>
               Still have questions?{" "}
               <Link
-                href="/#book-call"
+                href="/apply"
                 className="font-medium hover:underline"
                 style={{ color: "#D4A853" }}
               >

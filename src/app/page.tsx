@@ -9,16 +9,18 @@ export const metadata: Metadata = {
 };
 
 /* Dynamic imports — everything below the fold */
-const AcquisitionSlider = dynamic(() => import("@/components/home/AcquisitionSlider"));
-const DifferentiationSection = dynamic(() => import("@/components/home/DifferentiationSection"));
 const ProofStrip = dynamic(() => import("@/components/home/ProofStrip"));
-const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
+const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const ProblemGrid = dynamic(() => import("@/components/home/ProblemGrid"));
+const DifferentiationSection = dynamic(() => import("@/components/home/DifferentiationSection"));
+const AcquisitionSlider = dynamic(() => import("@/components/home/AcquisitionSlider"));
 const WhatIBuildSlider = dynamic(() => import("@/components/home/WhatIBuildSlider"));
-const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
-const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
+const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"));
+const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
+const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const StickyMobileCTA = dynamic(() => import("@/components/home/StickyMobileCTA"));
 
 function SectionDivider() {
@@ -38,51 +40,63 @@ export default function HomePage() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. The Acquisition System (Apple slider — 3 cards) */}
-      <AcquisitionSlider />
-
-      <SectionDivider />
-
-      {/* 3. Why This Is Different */}
-      <DifferentiationSection />
-
-      <SectionDivider />
-
-      {/* 4. Proof Strip */}
+      {/* 2. Proof Strip — stats bar */}
       <ProofStrip />
 
-      {/* 5. Testimonials */}
-      <TestimonialBlock />
+      <SectionDivider />
+
+      {/* 3. Proven Outcomes (id="outcomes") */}
+      <FeaturedCaseStudy />
 
       <SectionDivider />
 
-      {/* 4. The Problem — 6-card grid */}
+      {/* 4. The Problem (id="reality") */}
       <ProblemGrid />
 
       <SectionDivider />
 
-      {/* 5. What I Build (Apple slider — 6 cards) */}
+      {/* 5. Why This Is Different (id="different") */}
+      <DifferentiationSection />
+
+      <SectionDivider />
+
+      {/* 6. The Acquisition System (id="system") */}
+      <AcquisitionSlider />
+
+      <SectionDivider />
+
+      {/* 7. What I Build (id="services") */}
       <WhatIBuildSlider />
 
       <SectionDivider />
 
-      {/* 6. Pricing */}
-      <PricingStatement />
-
-      <SectionDivider />
-
-      {/* 7. FAQ */}
-      <FAQ />
-
-      <SectionDivider />
-
-      {/* 8. Who This Is For */}
+      {/* 8. Who This Is For (id="fit") */}
       <QualificationCTA />
 
       <SectionDivider />
 
-      {/* 9. Diagnostic form */}
+      {/* 9. Testimonials (id="testimonials") */}
+      <TestimonialBlock />
+
+      <SectionDivider />
+
+      {/* 9.5. Who I Am (id="about") — no nav link */}
+      <AboutSection />
+
+      <SectionDivider />
+
+      {/* 10. Pricing (id="pricing") */}
+      <PricingStatement />
+
+      <SectionDivider />
+
+      {/* 11. The Diagnostic + Form (id="book-call") */}
       <DiagnosticForm />
+
+      <SectionDivider />
+
+      {/* 12. FAQ (id="faq") */}
+      <FAQ />
 
       {/* Sticky mobile CTA bar */}
       <StickyMobileCTA />

@@ -37,7 +37,7 @@ export default function BookCallCard({
   title,
   body,
   buttonText,
-  buttonHref = "#book-call",
+  buttonHref = "/apply",
   emailLabel,
   email,
   className = "",

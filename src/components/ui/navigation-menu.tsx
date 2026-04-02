@@ -9,7 +9,7 @@ const navItems = [
   { name: "Results", href: "/results", isCta: false },
   { name: "How it works", href: "/#system", isCta: false },
   { name: "Pricing", href: "/#pricing", isCta: false },
-  { name: "Apply", href: "/#book-call", isCta: true },
+  { name: "Apply", href: "/apply", isCta: true },
 ];
 
 function isActivePath(pathname: string, href: string): boolean {
