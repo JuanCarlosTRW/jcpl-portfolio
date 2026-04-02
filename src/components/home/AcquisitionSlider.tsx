@@ -27,7 +27,8 @@ const STEPS = [
     proof: "Fully booked calendar · Elite Barbershop · Montreal",
     image: "https://static.wixstatic.com/media/62f926_4d3dacc6a96e4998a10933a2c9076573~mv2.png",
     alt: "Elite Barbershop fully booked calendar",
-    imagePosition: "top" as const,
+    imagePosition: "custom" as const,
+    objectPosition: "left 40%",
   },
 ];
 
@@ -117,7 +118,7 @@ export default function AcquisitionSlider() {
                 height={500}
                 quality={80}
                 loading="lazy"
-                style={{ objectPosition: step.imagePosition === "top" ? "top left" : "center top" }}
+                style={{ objectPosition: (step as any).objectPosition || "center top" }}
               />
             </div>
             <div style={{ padding: "20px 24px 24px" }}>

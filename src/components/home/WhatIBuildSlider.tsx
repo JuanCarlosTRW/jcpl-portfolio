@@ -11,6 +11,7 @@ const SERVICES = [
     stat: "VISITORS BECOME CALLS.",
     image: "https://static.wixstatic.com/media/62f926_c777df5150064641aa49c6369141af8c~mv2.png",
     alt: "Culture Barbershop website built by Client Growth",
+    objectPosition: "center top",
   },
   {
     num: "02",
@@ -19,6 +20,7 @@ const SERVICES = [
     stat: "$33 AVERAGE COST PER QUALIFIED CALL ACROSS ACTIVE ACCOUNTS.",
     image: "https://static.wixstatic.com/media/62f926_b625e6d3a49844feb398b5af2ad8ed31~mv2.png",
     alt: "Google Ads and Meta Ads dashboard showing campaign performance",
+    objectPosition: "center 50%",
   },
   {
     num: "03",
@@ -27,6 +29,7 @@ const SERVICES = [
     stat: "PAGE 1 POSITIONING IN YOUR CITY.",
     image: "https://static.wixstatic.com/media/62f926_89f31d5c8a8d40bf81a89126c4969979~mv2.png",
     alt: "Local SEO rankings and Google Maps positioning",
+    objectPosition: "center 60%",
   },
   {
     num: "04",
@@ -35,6 +38,7 @@ const SERVICES = [
     stat: "VISIBLE BEFORE YOUR COMPETITORS KNOW THIS EXISTS.",
     image: "https://static.wixstatic.com/media/62f926_a22866474ed343dca8aed45202b5d05b~mv2.png",
     alt: "AI search visibility in ChatGPT and Google AI",
+    objectPosition: "center 55%",
   },
   {
     num: "05",
@@ -53,6 +57,7 @@ const SERVICES = [
     image: "https://static.wixstatic.com/media/62f926_a8b917792ec049f28cbae257c67f7737~mv2.png",
     alt: "Email marketing campaigns and sequences",
     badge: "SCALE",
+    objectPosition: "center 55%",
   },
   {
     num: "07",
@@ -147,7 +152,7 @@ export default function WhatIBuildSlider() {
             {/* Image area */}
             <div className="card-image-container">
               {s.image ? (
-                <Image src={s.image} alt={s.alt} width={760} height={500} quality={80} loading="lazy" style={{ objectPosition: "center top" }} />
+                <Image src={s.image} alt={s.alt} width={760} height={500} quality={80} loading="lazy" style={{ objectPosition: (s as any).objectPosition || "center top" }} />
               ) : (
                 <CardPlaceholder label={(s as any).placeholder || s.title} />
               )}
