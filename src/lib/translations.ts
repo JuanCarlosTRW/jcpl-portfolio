@@ -876,7 +876,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         videoSoon: "Video coming soon",
       },
       testimonial: {
-        quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.",
+        quote: "Juan built the website exactly how I wanted it. Highly recommend.",
         name: "Tobari",
         business: "Culture Barbershop · Montreal, QC",
         below: "Every result on this page came from the same acquisition system.",

@@ -7,7 +7,7 @@ const testimonialsData = [
   {
     id: 1,
     quote:
-      "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.",
+      "Juan built the website exactly how I wanted it. Highly recommend.",
     name: "Tobari",
     role: "Culture Barbershop · Montreal, QC",
     context: "Barbershop: full custom website delivered",
@@ -16,7 +16,7 @@ const testimonialsData = [
   {
     id: 2,
     quote:
-      "First call came in 9 days. I had tried two agencies before this. Nothing came close.",
+      "Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.",
     name: "Westin Wayne Walker",
     role: "Triple W Rentals · Texas",
     context: "RV rental: Texas market, Google Ads, first call in 11 days",
@@ -25,7 +25,7 @@ const testimonialsData = [
   {
     id: 3,
     quote:
-      "The website looks exactly like us. First booking came in before the first week was done.",
+      "I love it. Very nice and professional.",
     name: "Hadi",
     role: "Elite Barbershop · Montreal, QC",
     context: "Barbershop: local market, SEO campaign in progress",
@@ -40,15 +40,6 @@ const testimonialsData = [
     context: "Painting contractor: full custom website delivered",
     imageSrc: "/images/owners/wesley-absolute-painting.png",
   },
-  {
-    id: 5,
-    quote:
-      "The site establishes credibility from the first visit. Patients book directly from search.",
-    name: "Dre Benyoucef",
-    role: "Centre Dentaire Saint-Élzéar · Quebec",
-    context: "Dental clinic: full custom website delivered",
-    imageSrc: "/images/owners/dre-benyoucef-centre-dentaire.png",
-  },
 ];
 
 export default function TestimonialBlock() {
@@ -62,7 +53,7 @@ export default function TestimonialBlock() {
       }}
     >
       <TestimonialSection
-        title="Five businesses. Same system. Real outcomes."
+        title="Four businesses. Same system. Real outcomes."
         subtitle="Every result below came from the same acquisition system."
         testimonials={testimonialsData}
       />

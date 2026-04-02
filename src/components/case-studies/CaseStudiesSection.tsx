@@ -25,7 +25,7 @@ function CaseStudyCardGrid() {
       siteUrl: null as string | null,
       badge: "VERIFIED \u2014 REVENUE",
       badgeColor: "#D4A853",
-      testimonial: { quote: "First call came in 9 days. We had tried two agencies before this. Nothing came close.", name: "Westin Wayne Walker", location: "Texas" },
+      testimonial: { quote: "Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.", name: "Westin Wayne Walker", location: "Texas" },
     },
     {
       label: "SEO CAMPAIGN ACTIVE",
@@ -38,7 +38,7 @@ function CaseStudyCardGrid() {
       siteUrl: "https://elitebyhadi.com/fr/",
       badge: "IN PROGRESS \u2014 LOCAL SEO",
       badgeColor: "#B8963E",
-      testimonial: { quote: "The website and SEO campaign changed the game. Clients find me on Google now.", name: "Hadi", location: "Montreal" },
+      testimonial: { quote: "I love it. Very nice and professional.", name: "Hadi", location: "Montreal" },
     },
     {
       label: "WEBSITE DELIVERED",
@@ -51,7 +51,7 @@ function CaseStudyCardGrid() {
       siteUrl: "https://culturemtl.ca",
       badge: "DELIVERED \u2014 WEBSITE",
       badgeColor: "#A69D8D",
-      testimonial: { quote: "Juan rebuilt our entire online presence from scratch. First booking came in 11 days. Calendar has not had a gap since.", name: "Tobari", location: "Montreal" },
+      testimonial: { quote: "Juan built the website exactly how I wanted it. Highly recommend.", name: "Tobari", location: "Montreal" },
     },
     {
       label: "WEBSITE DELIVERED",
@@ -81,7 +81,7 @@ function CaseStudyCardGrid() {
       badgeColor: "#A69D8D",
       ownerPhoto: "/images/owners/dre-benyoucef-centre-dentaire.png",
       ownerName: "Dre Benyoucef, Centre Dentaire Saint-\u00C9lz\u00E9ar",
-      testimonial: { quote: "The site establishes credibility from the first visit. Patients book directly from search.", name: "Dre Benyoucef", location: "Quebec" },
+      testimonial: null,
     },
   ];
 
@@ -128,6 +128,7 @@ function CaseStudyCardGrid() {
                 </p>
 
                 {/* Testimonial quote */}
+                {card.testimonial && (
                 <div
                   className="rounded-lg p-3 mb-5"
                   style={{
@@ -152,6 +153,7 @@ function CaseStudyCardGrid() {
                     </p>
                   </div>
                 </div>
+                )}
 
                 <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 border border-[rgba(212,168,83,0.25)] bg-[rgba(212,168,83,0.06)]">
                   <span className="text-[11px] font-semibold" style={{ color: "#D4A853" }}>
