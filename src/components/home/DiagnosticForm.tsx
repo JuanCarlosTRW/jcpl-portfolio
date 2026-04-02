@@ -44,15 +44,15 @@ export default function DiagnosticForm() {
   }
 
   const inputClass =
-    "w-full rounded-xl px-4 py-3 text-[#F5F0E8] text-sm placeholder-[#6B6358] focus:outline-none transition-all";
+    "w-full rounded-md px-4 py-3 text-[#F5F0E8] text-sm placeholder-[#6B6358] focus:outline-none transition-all";
   const inputStyle = {
-    background: "#181410",
-    border: "1px solid #2A2318",
+    background: "rgba(255, 255, 255, 0.04)",
+    border: "1px solid rgba(212, 168, 83, 0.2)",
   };
 
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.currentTarget.style.borderColor = "#D4A853";
-    e.currentTarget.style.boxShadow = "0 0 0 1px #D4A853";
+    e.currentTarget.style.boxShadow = "0 0 0 2px rgba(212, 168, 83, 0.1)";
   };
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     e.currentTarget.style.borderColor = "#2A2318";

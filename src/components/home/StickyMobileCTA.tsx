@@ -5,26 +5,39 @@ import Link from "next/link";
 
 export default function StickyMobileCTA() {
   const [visible, setVisible] = useState(false);
+  const [nearForm, setNearForm] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 600);
+    const onScroll = () => {
+      setVisible(window.scrollY > 600);
+
+      const formEl = document.getElementById("book-call");
+      if (formEl) {
+        const rect = formEl.getBoundingClientRect();
+        setNearForm(rect.top < window.innerHeight + 100);
+      } else {
+        setNearForm(false);
+      }
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const show = visible && !nearForm;
+
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[999] md:hidden flex items-center justify-between px-5 transition-all duration-300"
+      className="fixed bottom-0 left-0 right-0 z-[999] md:hidden flex items-center px-5 transition-all duration-300"
       style={{
-        background: "#0D0B09",
-        borderTop: "1px solid rgba(212,168,83,0.3)",
-        height: 60,
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(100%)",
-        pointerEvents: visible ? "auto" : "none",
+        background: "rgba(13, 11, 9, 0.96)",
+        backdropFilter: "blur(8px)",
+        borderTop: "1px solid rgba(212,168,83,0.12)",
+        padding: "12px 16px",
+        opacity: show ? 1 : 0,
+        transform: show ? "translateY(0)" : "translateY(100%)",
+        pointerEvents: show ? "auto" : "none",
       }}
     >
-      <span className="text-[12px]" style={{ color: "#D4A853" }}>1 spot open</span>
       <Link
         href="/#book-call"
         className="text-[13px] font-semibold"
@@ -34,6 +47,8 @@ export default function StickyMobileCTA() {
           borderRadius: 6,
           padding: "10px 20px",
           textDecoration: "none",
+          flex: 1,
+          textAlign: "center",
         }}
       >
         Apply to be a Partner →

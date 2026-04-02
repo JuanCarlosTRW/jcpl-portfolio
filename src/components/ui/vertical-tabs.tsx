@@ -516,6 +516,17 @@ export function VerticalTabs() {
           </div>
         </div>
       </div>
+
+      {/* Mid-section CTA */}
+      <div className="text-center mt-16">
+        <a
+          href="#book-call"
+          className="inline-block rounded-md px-10 py-4 text-[13px] font-medium uppercase tracking-[0.15em] transition-transform hover:scale-[1.02]"
+          style={{ background: "#D4A853", color: "#0D0B09" }}
+        >
+          Apply to be a Partner →
+        </a>
+      </div>
     </section>
   );
 }

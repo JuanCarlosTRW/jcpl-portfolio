@@ -9,17 +9,12 @@ export const metadata: Metadata = {
 };
 
 /* Dynamic imports — everything below the fold */
-const StatsBar = dynamic(() => import("@/components/home/StatsBar"));
-const TheReality = dynamic(() => import("@/components/home/TheReality"));
-const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const VerticalTabs = dynamic(() => import("@/components/ui/vertical-tabs"));
-const ServicesGrid = dynamic(() => import("@/components/home/ServicesGrid"));
-const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
-const AboutSection = dynamic(() => import("@/components/home/AboutSection"));
+const TheReality = dynamic(() => import("@/components/home/TheReality"));
 const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
-const BatonHandoff = dynamic(() => import("@/components/home/BatonHandoff"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
+const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 const StickyMobileCTA = dynamic(() => import("@/components/home/StickyMobileCTA"));
 
@@ -40,60 +35,37 @@ export default function HomePage() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Stats bar */}
-      <StatsBar />
-
-      {/* 3. The Reality */}
-      <TheReality />
-
-      <SectionDivider />
-
-      {/* 4. Proven Outcomes */}
-      <FeaturedCaseStudy />
-
-      <SectionDivider />
-
-      {/* 5. The Acquisition System */}
+      {/* 2. Acquisition System */}
       <VerticalTabs />
 
       <SectionDivider />
 
-      {/* 5.5. Services */}
-      <ServicesGrid />
-
-      <SectionDivider />
-
-      {/* 6. Who This Is For */}
-      <QualificationCTA />
-
-      <SectionDivider />
-
-      {/* 7. Testimonials */}
+      {/* 3. Testimonials */}
       <TestimonialBlock />
 
       <SectionDivider />
 
-      {/* 8. About */}
-      <AboutSection />
+      {/* 4. Pain section */}
+      <TheReality />
 
       <SectionDivider />
 
-      {/* 9. Pricing */}
+      {/* 5. Pricing */}
       <PricingStatement />
 
       <SectionDivider />
 
-      {/* 10. What Happens Next */}
-      <BatonHandoff />
-
-      <SectionDivider />
-
-      {/* 11. FAQ */}
+      {/* 6. FAQ */}
       <FAQ />
 
       <SectionDivider />
 
-      {/* 12. Closing CTA — diagnostic form */}
+      {/* 7. Who This Is For */}
+      <QualificationCTA />
+
+      <SectionDivider />
+
+      {/* 8. Diagnostic form */}
       <DiagnosticForm />
 
       {/* Sticky mobile CTA bar */}

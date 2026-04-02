@@ -18,18 +18,22 @@ const HOOK_LINES = [
 
 const POINTS = [
   {
+    number: "01",
     title: "People in your city are searching. You are easy to miss.",
     body: "If you are not on Google, Maps, or AI search, that call goes elsewhere before you knew it existed.",
   },
   {
+    number: "02",
     title: "Your site is online. It is not working.",
     body: "Most local service websites exist. They do not convert. No clear offer, no call to action, no reason for a visitor to pick up the phone. Traffic without conversion is just noise.",
   },
   {
+    number: "03",
     title: "You are invisible on Google Maps and AI search.",
     body: "ChatGPT, Google AI overviews, and Maps are where buyers go first. If you are not in those results, the call goes to whoever is.",
   },
   {
+    number: "04",
     title: "Referrals keep you alive. They do not build predictability.",
     body: "Good months. Quiet months. No control. If your pipeline depends on word of mouth, you are waiting, not growing.",
   },
@@ -125,6 +129,7 @@ export default function TheReality() {
               className="rounded-xl p-6"
               style={{ background: "#131009", border: "1px solid #2A2318" }}
             >
+              <span className="block text-[11px] font-medium uppercase tracking-[0.15em] mb-2" style={{ color: "#D4A853" }}>{point.number}</span>
               <p className="text-[15px] font-semibold text-white mb-2 leading-snug">{point.title}</p>
               <p className="text-[14px] leading-[1.7]" style={{ color: "#A69D8D" }}>{point.body}</p>
             </div>

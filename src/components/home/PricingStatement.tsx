@@ -38,6 +38,7 @@ function PricingCard({
   micro,
   popular,
   delay,
+  valueStack,
 }: {
   tag: string;
   name: string;
@@ -51,6 +52,7 @@ function PricingCard({
   micro: string;
   popular?: boolean;
   delay: number;
+  valueStack?: React.ReactNode;
 }) {
   return (
     <motion.div
@@ -113,6 +115,9 @@ function PricingCard({
             </li>
           ))}
         </ul>
+
+        {/* Value stack */}
+        {valueStack}
 
         {/* Proof */}
         <div
@@ -282,6 +287,38 @@ export default function PricingStatement() {
             conditions="Conditions: tracking in place before launch · minimum ad spend met · onboarding completed within 5 days · applies where Google Ads inventory exists"
             cta="Apply to be a Partner →"
             micro="I review every application within 24 hours."
+            valueStack={
+              <div className="mb-5 rounded-lg p-5" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                <p className="text-[0.75rem] uppercase tracking-[0.1em] mb-3" style={{ color: "#756D63" }}>
+                  What this would cost from a traditional agency:
+                </p>
+                <div className="space-y-1.5 mb-4">
+                  {[
+                    ["Conversion website build", "$3,500+ one-time"],
+                    ["Google Ads management", "$1,200/month"],
+                    ["Local SEO retainer", "$800/month"],
+                    ["AI search optimization", "$500/month"],
+                    ["Weekly optimization", "included (agencies charge per hour)"],
+                    ["Direct founder access", "not available at agencies"],
+                  ].map(([item, cost]) => (
+                    <div key={item} className="flex justify-between text-[0.78rem]">
+                      <span style={{ color: "#A69D8D" }}>{item}</span>
+                      <span style={{ color: "#756D63" }}>{cost}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="border-t pt-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                  <div className="flex justify-between text-[0.82rem] mb-1">
+                    <span style={{ color: "#A69D8D" }}>Total agency equivalent:</span>
+                    <span style={{ color: "#756D63", textDecoration: "line-through" }}>$6,000+/month</span>
+                  </div>
+                  <div className="flex justify-between text-[0.9rem] font-bold">
+                    <span style={{ color: "#D4A853" }}>Your investment:</span>
+                    <span style={{ color: "#D4A853" }}>$2,500/month</span>
+                  </div>
+                </div>
+              </div>
+            }
             popular
             delay={0.1}
           />
@@ -313,7 +350,7 @@ export default function PricingStatement() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {["90-day initial term", "You own everything", "No account managers"].map((badge) => (
-              <span key={badge} className="text-[12px] flex items-center gap-2" style={{ color: "#756D63" }}>
+              <span key={badge} className="text-[13px] flex items-center gap-2" style={{ color: "rgba(240, 234, 214, 0.5)" }}>
                 <span style={{ color: "#D4A853" }}>&#10003;</span> {badge}
               </span>
             ))}

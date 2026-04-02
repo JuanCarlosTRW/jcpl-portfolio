@@ -140,7 +140,7 @@ export default function HeroSection() {
             Apply to be a Partner →
           </Link>
 
-          <a href="#outcomes" className="hero-text-link">
+          <a href="#system" className="hero-text-link">
             See the results &rarr;
           </a>
         </div>
@@ -152,7 +152,7 @@ export default function HeroSection() {
             animationDelay: "0.65s",
             fontFamily: "var(--font-dm-sans), sans-serif",
             fontSize: 13,
-            color: "rgba(255,245,230,0.6)",
+            color: "rgba(240, 234, 214, 0.45)",
             textAlign: "center",
             marginTop: 20,
             letterSpacing: "0.02em",
@@ -160,6 +160,20 @@ export default function HeroSection() {
           }}
         >
           One call. No retainer until fit is confirmed. You own everything I build.
+        </p>
+        <p
+          className="hero-enter"
+          style={{
+            animationDelay: "0.75s",
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            fontSize: 12,
+            color: "rgba(240, 234, 214, 0.3)",
+            textAlign: "center",
+            marginTop: 8,
+            textShadow: "0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8)",
+          }}
+        >
+          Full system starts at $2,500/month.
         </p>
       </div>
 
@@ -235,13 +249,13 @@ export default function HeroSection() {
         /* ── Secondary CTA — text link ── */
         .hero-text-link {
           font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
-          font-size: 15px;
+          font-size: 14px;
           font-weight: 500;
           color: rgba(240,234,214,0.7);
           text-decoration: none;
-          border-bottom: 1px solid rgba(240,234,214,0.2);
-          padding-bottom: 2px;
-          transition: color 200ms ease, border-color 200ms ease;
+          border: none;
+          padding: 0;
+          transition: color 200ms ease;
           letter-spacing: 0.02em;
           display: inline-flex;
           align-items: center;
@@ -249,7 +263,6 @@ export default function HeroSection() {
         }
         .hero-text-link:hover {
           color: #D4A853;
-          border-color: #D4A853;
         }
 
         /* ── Mobile: max-width 768px ── */

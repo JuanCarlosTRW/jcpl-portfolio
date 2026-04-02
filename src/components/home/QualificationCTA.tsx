@@ -92,8 +92,14 @@ export default function QualificationCTA() {
 
           <Reveal delay={0.1}>
             <p
-              className="text-center text-[15px] mb-8"
-              style={{ color: "#D2C9B8" }}
+              className="text-center mb-8"
+              style={{
+                fontSize: "15px",
+                color: "rgba(240, 234, 214, 0.5)",
+                fontStyle: "italic",
+                fontFamily: "var(--font-cormorant), Georgia, serif",
+                textAlign: "center",
+              }}
             >
               If I cannot produce a return, I tell you on the call. Before you pay anything.
             </p>

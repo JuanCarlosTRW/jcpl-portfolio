@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useCallback } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface Testimonial {
@@ -24,24 +25,8 @@ export const TestimonialSection = ({
   testimonials,
 }: TestimonialSectionProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIdx, setActiveIdx] = useState(0);
 
-  // Track active dot on scroll
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const onScroll = () => {
-      const child = el.firstElementChild as HTMLElement | null;
-      if (!child) return;
-      const gap = 16;
-      const cardWidth = child.offsetWidth + gap;
-      setActiveIdx(Math.round(el.scrollLeft / cardWidth));
-    };
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Mouse drag to scroll (desktop swipe)
+  // Mouse drag to scroll (mobile swipe)
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollStart = useRef(0);
@@ -61,8 +46,7 @@ export const TestimonialSection = ({
     if (!isDragging.current) return;
     const el = scrollRef.current;
     if (!el) return;
-    const dx = e.clientX - startX.current;
-    el.scrollLeft = scrollStart.current - dx;
+    el.scrollLeft = scrollStart.current - (e.clientX - startX.current);
   }, []);
 
   const onPointerUp = useCallback((e: React.PointerEvent) => {
@@ -74,16 +58,6 @@ export const TestimonialSection = ({
     el.style.scrollSnapType = "x mandatory";
     el.style.cursor = "";
   }, []);
-
-  const scrollTo = (idx: number) => {
-    const el = scrollRef.current;
-    if (!el || !el.children[idx]) return;
-    (el.children[idx] as HTMLElement).scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest",
-    });
-  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -110,29 +84,29 @@ export const TestimonialSection = ({
           {subtitle}
         </p>
 
-        {/* Horizontal slider — touch + mouse drag */}
+        {/* Desktop: grid, Mobile: horizontal scroll */}
         <div
           ref={scrollRef}
-          className="testimonial-slider mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory cursor-grab select-none"
+          className="testimonial-track mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory cursor-grab select-none md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:cursor-default"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
             WebkitOverflowScrolling: "touch",
-            paddingBottom: 4,
+            padding: "0 20px",
           }}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
         >
-          {testimonials.map((testimonial) => (
+          {testimonials.slice(0, 4).map((testimonial) => (
             <motion.div
               key={testimonial.id}
-              className="relative overflow-hidden rounded-lg shadow-sm snap-center shrink-0"
+              className="testimonial-card relative overflow-hidden rounded-lg shadow-sm snap-start shrink-0 md:shrink md:snap-align-none"
               style={{
                 background: "#1E1A14",
                 border: "1px solid #2A2318",
-                width: "min(300px, 80vw)",
+                minWidth: 280,
               }}
               variants={itemVariants}
               initial="hidden"
@@ -168,11 +142,14 @@ export const TestimonialSection = ({
                     </div>
                   </div>
                 ) : (
-                  <img
+                  <Image
                     src={testimonial.imageSrc}
                     alt={testimonial.name}
+                    width={300}
+                    height={400}
                     className="w-full h-full object-cover object-top pointer-events-none"
                     style={{ borderRadius: "12px 12px 0 0" }}
+                    loading="lazy"
                     draggable={false}
                   />
                 )}
@@ -207,26 +184,6 @@ export const TestimonialSection = ({
                 </figcaption>
               </div>
             </motion.div>
-          ))}
-        </div>
-
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-6">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollTo(i)}
-              aria-label={`Go to testimonial ${i + 1}`}
-              style={{
-                width: 8,
-                height: 8,
-                borderRadius: "50%",
-                border: "none",
-                cursor: "pointer",
-                background: i === activeIdx ? "#D4A853" : "#2A2318",
-                transition: "background 200ms ease",
-              }}
-            />
           ))}
         </div>
       </div>
