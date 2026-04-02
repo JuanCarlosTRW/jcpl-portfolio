@@ -45,9 +45,9 @@ const SERVICES = [
     title: "AI integration",
     description: "Voice agents and chatbots that answer, qualify, and follow up with leads automatically. Your phone does not need to ring for a lead to be captured. The system works while you are on a job.",
     stat: "AUTOMATED FOLLOW-UP BEFORE YOU PICK UP THE PHONE.",
-    image: null,
-    alt: "AI voice agents and chatbots",
-    placeholder: "AI Integration",
+    image: "https://static.wixstatic.com/media/62f926_e9658dd24b3044a3aef6c5f38ea4ce9b~mv2.png",
+    alt: "AI workflow tools and automation",
+    objectPosition: "center 50%",
   },
   {
     num: "06",
@@ -64,9 +64,9 @@ const SERVICES = [
     title: "Weekly optimization + reporting",
     description: "Every week I review the data and cut what is not working. Every month I send a revenue report with real numbers. The longer the system runs, the cheaper each call gets.",
     stat: "COST PER CALL DROPS EVERY MONTH.",
-    image: null,
-    alt: "Weekly optimization and monthly reporting",
-    placeholder: "Performance Dashboard",
+    image: "https://static.wixstatic.com/media/62f926_d50d59a0a06543fe8baa6786a41cb2ec~mv2.png",
+    alt: "Weekly optimization and performance reporting",
+    objectPosition: "center 50%",
   },
 ];
 
