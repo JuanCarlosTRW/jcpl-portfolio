@@ -109,7 +109,7 @@ export default function AcquisitionSlider() {
       <div ref={scrollRef} className="apple-slider-container" style={{ willChange: "transform" }}>
         {STEPS.map((step, i) => (
           <div key={step.id} ref={(el) => { cardRefs.current[i] = el; }} className="apple-slider-card">
-            <div style={{ height: "65%", overflow: "hidden", position: "relative", background: "#0D0B09" }}>
+            <div className="card-image-container">
               <Image
                 src={step.image}
                 alt={step.alt}
@@ -117,8 +117,7 @@ export default function AcquisitionSlider() {
                 height={500}
                 quality={80}
                 loading="lazy"
-                className="w-full h-full"
-                style={{ objectFit: "cover", objectPosition: step.imagePosition === "top" ? "top" : "center" }}
+                style={{ objectPosition: step.imagePosition === "top" ? "top left" : "center top" }}
               />
             </div>
             <div style={{ padding: "20px 24px 24px" }}>
