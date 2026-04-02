@@ -308,8 +308,8 @@ export default function ApplyPage() {
                 margin: 0,
               }}
             >
-              &ldquo;Since Juan came on, we have been getting way more quality
-              leads. Business is doing extremely well in the city now.&rdquo;
+              &ldquo;First call came in 9 days. We had tried two agencies
+              before this. Nothing came close.&rdquo;
             </p>
             <p
               style={{
