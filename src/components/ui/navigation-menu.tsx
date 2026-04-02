@@ -23,21 +23,22 @@ export function AnimatedNavFramer() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-4 nav-wrapper" style={{ transition: "all 0.3s ease" }}>
       <nav
-        className="nav-bar flex items-center overflow-hidden rounded-full border shadow-lg backdrop-blur-md h-12"
+        className="nav-bar flex items-center overflow-hidden rounded-full border shadow-lg backdrop-blur-md h-14"
         style={{ background: "rgba(13,11,9,0.95)", borderColor: "rgba(212,168,83,0.12)" }}
       >
-        <a href="/" className="flex-shrink-0 flex items-center pl-4 pr-2">
+        <a href="/" className="flex-shrink-0 flex items-center pl-4 pr-3 sm:pr-4">
           <Image
             src="https://static.wixstatic.com/media/62f926_5324879084e1438391f656f8121a391a~mv2.png"
             alt="Client Growth"
-            width={120}
-            height={36}
+            width={160}
+            height={48}
             priority
-            style={{ height: 36, width: "auto" }}
+            className="nav-logo"
+            style={{ height: 44, width: "auto" }}
           />
         </a>
 
-        <div className="flex items-center gap-1 sm:gap-4 pr-4">
+        <div className="nav-links flex items-center gap-1 sm:gap-4 pr-3 sm:pr-4">
           {navItems.map((item) => {
             const active = isActivePath(pathname, item.href);
             return (
@@ -45,7 +46,7 @@ export function AnimatedNavFramer() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors whitespace-nowrap",
+                  "nav-link-item text-sm font-medium transition-colors whitespace-nowrap",
                   item.isCta
                     ? "bg-[#D4A853] text-[#0D0B09] px-4 py-1.5 rounded-md hover:brightness-110"
                     : active
@@ -59,6 +60,30 @@ export function AnimatedNavFramer() {
           })}
         </div>
       </nav>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .nav-bar {
+            width: calc(100% - 24px) !important;
+            max-width: 100% !important;
+          }
+          .nav-logo {
+            height: 32px !important;
+          }
+          .nav-links {
+            gap: 2px !important;
+          }
+          .nav-link-item {
+            font-size: 12px !important;
+            padding-left: 6px !important;
+            padding-right: 6px !important;
+          }
+          .nav-link-item.bg-\\[\\#D4A853\\] {
+            padding-left: 12px !important;
+            padding-right: 12px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
