@@ -177,7 +177,7 @@ export default function DifferentiationSection() {
             marginTop: 40,
           }}
         >
-          3 active partnerships at a time. No junior team. No outsourced work.
+          No junior team. No outsourced work. Every system built personally.
         </p>
       </div>
     </section>

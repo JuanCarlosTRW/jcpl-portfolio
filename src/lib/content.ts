@@ -970,7 +970,7 @@ export const aboutTrustStrip = [
   { metric: "6+", label: "Systems built" },
   { metric: "2–4 wks", label: "Typical launch timeline" },
   { metric: "4", label: "Niches served" },
-  { metric: "3", label: "Active partnerships" },
+  { metric: "$60K+", label: "Tracked revenue" },
 ];
 
 /* ─── About: Operating Principles ─── */
@@ -985,7 +985,7 @@ export const aboutPrinciples = [
   },
   {
     title: "Selective partnerships",
-    description: "I run a maximum of 3 active partnerships at a time.",
+    description: "Every system built and optimized personally. No handoffs.",
   },
 ];
 

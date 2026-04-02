@@ -57,7 +57,6 @@ export default function CaseStudyDetail({
 
   const trustPoints = [
     "No long-term contracts",
-    "Max 3 partnerships / quarter",
     "Response within 24h",
   ];
 
@@ -309,8 +308,7 @@ export default function CaseStudyDetail({
             Want results like this?
           </h2>
           <p className="text-[16px] text-[rgba(255,255,255,0.5)] leading-[1.65] mb-9">
-            I run a maximum of 3 active partnerships at a time. If
-            there&apos;s a fit, I&apos;ll tell you within 24 hours.
+            If there&apos;s a fit, I&apos;ll tell you within 24 hours.
           </p>
           <Link
             href="/apply"

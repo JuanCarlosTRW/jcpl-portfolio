@@ -74,7 +74,7 @@ export default function ServicesFinalCTA() {
                 className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
                 style={{ color: "#F5F0E8" }}
               >
-                I Run 3 Partnerships at a Time.
+                Ready to Build Your System?
               </h2>
               <p
                 className="text-base leading-relaxed mb-8 max-w-md mx-auto"
@@ -94,7 +94,7 @@ export default function ServicesFinalCTA() {
                 }}
               >
                 <p className="text-xs leading-relaxed" style={{ color: "#A69D8D" }}>
-                  Last 3 partnerships: one went live in 9 days. One booked their first qualified call on day 7. One generated $2,716 in month one.
+                  Recent results: one system went live in 9 days. One booked their first qualified call on day 7. One generated $2,716 in month one.
                 </p>
               </div>
 

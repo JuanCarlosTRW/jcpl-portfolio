@@ -44,7 +44,7 @@ export default function AboutSection() {
             </h2>
             <div className="space-y-4">
               <p className="text-[15px] text-[#D2C9B8] leading-[1.75]">
-                I build acquisition systems for local service businesses across Canada and the United States. Every engagement is tracked to one metric: qualified calls on the calendar. I run a maximum of 3 active partnerships at a time, by design.
+                I build acquisition systems for local service businesses across Canada and the United States. Every engagement is tracked to one metric: qualified calls on the calendar. Every system built and optimized personally.
               </p>
               <p className="text-[15px] text-[#D2C9B8] leading-[1.75]">
                 I started noticing the gap at 16. Good operators losing jobs to competitors half their quality because the other guy had a $400 website on Page 1 and Google Ads running.

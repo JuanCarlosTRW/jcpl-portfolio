@@ -16,12 +16,6 @@ export default function StatsBar() {
           <p className="text-[13px] text-[#D2C9B8] mb-0.5">Active client systems running</p>
           <p className="text-[11px] text-[#756D63]">Updated April 2026</p>
         </div>
-        <div style={{ width: 1, height: 48, background: "#2A2318" }} className="hidden sm:block" />
-        <div>
-          <p className="text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold text-white tracking-tight leading-none mb-1">3 max</p>
-          <p className="text-[13px] text-[#D2C9B8] mb-0.5">Partnerships I take at a time</p>
-          <p className="text-[11px] text-[#756D63]">1 spot currently open</p>
-        </div>
       </div>
       <p className="text-[11px] text-center mt-4" style={{ color: "#756D63" }}>Last updated: April 2026</p>
     </section>

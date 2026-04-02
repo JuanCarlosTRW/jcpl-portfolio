@@ -4,7 +4,6 @@ const STATS = [
   { value: "$41,085", label: "revenue in 30 days" },
   { value: "9 days", label: "to the first call" },
   { value: "5", label: "systems shipped" },
-  { value: "3 max", label: "active partnerships" },
 ];
 
 export default function ProofStrip() {
@@ -15,7 +14,7 @@ export default function ProofStrip() {
         className="proof-strip-grid"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateColumns: "repeat(3, 1fr)",
           gap: "24px 16px",
           maxWidth: 900,
           margin: "0 auto",

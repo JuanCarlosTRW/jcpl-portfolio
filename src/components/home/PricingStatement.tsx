@@ -334,7 +334,7 @@ export default function PricingStatement() {
             guarantee="If your phone does not ring in the first 30 days, I refund the management fee for that period."
             conditions="Conditions: tracking in place before launch · minimum ad spend met · onboarding completed within 5 days · applies where Google Ads inventory exists"
             cta="Apply to be a Partner →"
-            micro="3 active partnerships maximum. I review in 24 hours."
+            micro="I review every application within 24 hours."
             delay={0.25}
           />
         </div>
