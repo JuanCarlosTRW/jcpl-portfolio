@@ -9,9 +9,10 @@ export const metadata: Metadata = {
 };
 
 /* Dynamic imports — everything below the fold */
-const VerticalTabs = dynamic(() => import("@/components/ui/vertical-tabs"));
+const AcquisitionSlider = dynamic(() => import("@/components/home/AcquisitionSlider"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const TheReality = dynamic(() => import("@/components/home/TheReality"));
+const WhatIBuildSlider = dynamic(() => import("@/components/home/WhatIBuildSlider"));
 const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
@@ -35,8 +36,8 @@ export default function HomePage() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Acquisition System */}
-      <VerticalTabs />
+      {/* 2. The Acquisition System (Apple slider — 3 cards) */}
+      <AcquisitionSlider />
 
       <SectionDivider />
 
@@ -50,22 +51,27 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* 5. Pricing */}
+      {/* 5. What I Build (Apple slider — 6 cards) */}
+      <WhatIBuildSlider />
+
+      <SectionDivider />
+
+      {/* 6. Pricing */}
       <PricingStatement />
 
       <SectionDivider />
 
-      {/* 6. FAQ */}
+      {/* 7. FAQ */}
       <FAQ />
 
       <SectionDivider />
 
-      {/* 7. Who This Is For */}
+      {/* 8. Who This Is For */}
       <QualificationCTA />
 
       <SectionDivider />
 
-      {/* 8. Diagnostic form */}
+      {/* 9. Diagnostic form */}
       <DiagnosticForm />
 
       {/* Sticky mobile CTA bar */}

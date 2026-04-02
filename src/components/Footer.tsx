@@ -50,7 +50,7 @@ export default function Footer() {
           <div className="space-y-3 md:col-span-2">
             <Link href="/" className="inline-block" style={{ transition: "opacity 200ms ease" }} onMouseOver={(e) => { e.currentTarget.style.opacity = "0.8"; }} onMouseOut={(e) => { e.currentTarget.style.opacity = "1"; }}>
               <Image
-                src="/images/logo-clientgrowth.png"
+                src="https://static.wixstatic.com/media/62f926_5324879084e1438391f656f8121a391a~mv2.png"
                 alt="Client Growth"
                 width={400}
                 height={267}

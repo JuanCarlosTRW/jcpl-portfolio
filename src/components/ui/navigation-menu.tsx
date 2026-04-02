@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -25,19 +26,12 @@ export function AnimatedNavFramer() {
         className="nav-bar flex items-center overflow-hidden rounded-full border shadow-lg backdrop-blur-md h-12"
         style={{ background: "rgba(13,11,9,0.95)", borderColor: "rgba(212,168,83,0.12)" }}
       >
-        <a
-          href="/"
-          className="flex-shrink-0 flex items-center pl-4 pr-2"
-          style={{
-            fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: 18,
-            fontWeight: 400,
-            color: "#F0EAD6",
-            textDecoration: "none",
-            letterSpacing: "0.02em",
-          }}
-        >
-          Client <span style={{ color: "#D4A853" }}>Growth</span>
+        <a href="/" className="flex-shrink-0 flex items-center pl-4 pr-2">
+          <img
+            src="https://static.wixstatic.com/media/62f926_5324879084e1438391f656f8121a391a~mv2.png"
+            alt="Client Growth"
+            style={{ height: 28, width: "auto" }}
+          />
         </a>
 
         <div className="flex items-center gap-1 sm:gap-4 pr-4">
