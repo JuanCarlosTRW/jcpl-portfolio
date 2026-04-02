@@ -26,9 +26,11 @@ export default function ProofStrip() {
           <div key={stat.label}>
             <p
               style={{
-                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontFamily: "'Cormorant Garamond', var(--font-cormorant), Georgia, serif",
                 fontSize: "clamp(2rem, 4vw, 3rem)",
-                fontWeight: 300,
+                fontWeight: 400,
+                fontStyle: "normal",
+                letterSpacing: "-0.02em",
                 color: "#D4A853",
                 lineHeight: 1,
                 margin: 0,
