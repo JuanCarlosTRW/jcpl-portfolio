@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 const STEPS = [
   {
@@ -29,6 +29,40 @@ const STEPS = [
   },
 ];
 
+function SliderArrow({ direction, onClick }: { direction: "left" | "right"; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={`Scroll ${direction}`}
+      className="slider-arrow"
+      style={{
+        width: 44,
+        height: 44,
+        borderRadius: "50%",
+        border: "none",
+        background: "rgba(255,255,255,0.08)",
+        backdropFilter: "blur(8px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        transition: "background 0.2s ease, transform 0.2s ease",
+        flexShrink: 0,
+      }}
+      onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; }}
+      onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
+    >
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        {direction === "left" ? (
+          <path d="M11 4L6 9L11 14" stroke="rgba(240,234,214,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        ) : (
+          <path d="M7 4L12 9L7 14" stroke="rgba(240,234,214,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        )}
+      </svg>
+    </button>
+  );
+}
+
 export default function AcquisitionSlider() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
@@ -52,6 +86,11 @@ export default function AcquisitionSlider() {
 
     cards.forEach((card) => observer.observe(card));
     return () => observer.disconnect();
+  }, []);
+
+  const scrollTo = useCallback((idx: number) => {
+    const clamped = Math.max(0, Math.min(idx, STEPS.length - 1));
+    cardRefs.current[clamped]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }, []);
 
   return (
@@ -94,101 +133,114 @@ export default function AcquisitionSlider() {
         </p>
       </div>
 
-      {/* Slider */}
-      <div
-        ref={scrollRef}
-        className="apple-slider-container"
-        style={{ willChange: "transform" }}
-      >
-        {STEPS.map((step, i) => (
-          <div
-            key={step.id}
-            ref={(el) => { cardRefs.current[i] = el; }}
-            className="apple-slider-card"
-          >
-            {/* Image area */}
-            <div
-              style={{
-                height: "65%",
-                background: "linear-gradient(145deg, #0D0B09 0%, #141210 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 8,
-                overflow: "hidden",
-                position: "relative",
-              }}
-            >
-              <span style={{ color: "#D4A853", fontSize: 18 }}>◆</span>
-              <span
-                style={{
-                  color: "rgba(212,168,83,0.25)",
-                  fontSize: 12,
-                  fontFamily: "var(--font-dm-sans), sans-serif",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {step.placeholder}
-              </span>
-            </div>
+      {/* Slider with arrows */}
+      <div className="relative">
+        {/* Left arrow */}
+        <div className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10">
+          <SliderArrow direction="left" onClick={() => scrollTo(activeIdx - 1)} />
+        </div>
 
-            {/* Text area */}
-            <div style={{ padding: "20px 24px 24px" }}>
-              <span
-                style={{
-                  color: "#D4A853",
-                  fontFamily: "var(--font-cormorant), Georgia, serif",
-                  fontSize: 14,
-                  fontStyle: "italic",
-                }}
-              >
-                /{step.id}
-              </span>
-              <h3
-                style={{
-                  fontFamily: "var(--font-cormorant), Georgia, serif",
-                  fontSize: 22,
-                  color: "#F0EAD6",
-                  margin: "4px 0 8px",
-                  fontWeight: 400,
-                }}
-              >
-                {step.title}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "var(--font-dm-sans), sans-serif",
-                  fontSize: 14,
-                  color: "rgba(240,234,214,0.55)",
-                  lineHeight: 1.5,
-                  margin: 0,
-                }}
-              >
-                {step.description}
-              </p>
+        {/* Cards */}
+        <div
+          ref={scrollRef}
+          className="apple-slider-container"
+          style={{ willChange: "transform" }}
+        >
+          {STEPS.map((step, i) => (
+            <div
+              key={step.id}
+              ref={(el) => { cardRefs.current[i] = el; }}
+              className="apple-slider-card"
+            >
+              {/* Image area */}
               <div
                 style={{
-                  borderTop: "1px solid rgba(212,168,83,0.1)",
-                  marginTop: 16,
-                  paddingTop: 12,
+                  height: "65%",
+                  background: "linear-gradient(145deg, #0D0B09 0%, #141210 100%)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 8,
+                  overflow: "hidden",
+                  position: "relative",
                 }}
               >
+                <span style={{ color: "#D4A853", fontSize: 18 }}>◆</span>
                 <span
                   style={{
-                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    color: "rgba(212,168,83,0.25)",
                     fontSize: 12,
-                    color: "#D4A853",
-                    letterSpacing: "0.02em",
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
                   }}
                 >
-                  {step.proof}
+                  {step.placeholder}
                 </span>
               </div>
+
+              {/* Text area */}
+              <div style={{ padding: "20px 24px 24px" }}>
+                <span
+                  style={{
+                    color: "#D4A853",
+                    fontFamily: "var(--font-cormorant), Georgia, serif",
+                    fontSize: 14,
+                    fontStyle: "italic",
+                  }}
+                >
+                  /{step.id}
+                </span>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-cormorant), Georgia, serif",
+                    fontSize: 22,
+                    color: "#F0EAD6",
+                    margin: "4px 0 8px",
+                    fontWeight: 400,
+                  }}
+                >
+                  {step.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: 14,
+                    color: "rgba(240,234,214,0.55)",
+                    lineHeight: 1.5,
+                    margin: 0,
+                  }}
+                >
+                  {step.description}
+                </p>
+                <div
+                  style={{
+                    borderTop: "1px solid rgba(212,168,83,0.1)",
+                    marginTop: 16,
+                    paddingTop: 12,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-dm-sans), sans-serif",
+                      fontSize: 12,
+                      color: "#D4A853",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {step.proof}
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Right arrow */}
+        <div className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10">
+          <SliderArrow direction="right" onClick={() => scrollTo(activeIdx + 1)} />
+        </div>
       </div>
 
       {/* Dots */}
@@ -198,9 +250,7 @@ export default function AcquisitionSlider() {
             key={i}
             className={`slider-dot${i === activeIdx ? " active" : ""}`}
             aria-label={`Go to slide ${i + 1}`}
-            onClick={() => {
-              cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-            }}
+            onClick={() => scrollTo(i)}
           />
         ))}
       </div>

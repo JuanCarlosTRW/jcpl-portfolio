@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 const SERVICES = [
   {
@@ -47,6 +47,39 @@ const SERVICES = [
   },
 ];
 
+function SliderArrow({ direction, onClick }: { direction: "left" | "right"; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={`Scroll ${direction}`}
+      style={{
+        width: 44,
+        height: 44,
+        borderRadius: "50%",
+        border: "none",
+        background: "rgba(255,255,255,0.08)",
+        backdropFilter: "blur(8px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        transition: "background 0.2s ease",
+        flexShrink: 0,
+      }}
+      onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; }}
+      onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
+    >
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        {direction === "left" ? (
+          <path d="M11 4L6 9L11 14" stroke="rgba(240,234,214,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        ) : (
+          <path d="M7 4L12 9L7 14" stroke="rgba(240,234,214,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        )}
+      </svg>
+    </button>
+  );
+}
+
 export default function WhatIBuildSlider() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
@@ -70,6 +103,11 @@ export default function WhatIBuildSlider() {
 
     cards.forEach((card) => observer.observe(card));
     return () => observer.disconnect();
+  }, []);
+
+  const scrollTo = useCallback((idx: number) => {
+    const clamped = Math.max(0, Math.min(idx, SERVICES.length - 1));
+    cardRefs.current[clamped]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }, []);
 
   return (
@@ -112,12 +150,18 @@ export default function WhatIBuildSlider() {
         </p>
       </div>
 
-      {/* Slider */}
-      <div
-        ref={scrollRef}
-        className="apple-slider-container"
-        style={{ willChange: "transform" }}
-      >
+      {/* Slider with arrows */}
+      <div className="relative">
+        {/* Left arrow */}
+        <div className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10">
+          <SliderArrow direction="left" onClick={() => scrollTo(activeIdx - 1)} />
+        </div>
+
+        <div
+          ref={scrollRef}
+          className="apple-slider-container"
+          style={{ willChange: "transform" }}
+        >
         {SERVICES.map((s, i) => (
           <div
             key={s.num}
@@ -210,6 +254,12 @@ export default function WhatIBuildSlider() {
         ))}
       </div>
 
+        {/* Right arrow */}
+        <div className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10">
+          <SliderArrow direction="right" onClick={() => scrollTo(activeIdx + 1)} />
+        </div>
+      </div>
+
       {/* Dots */}
       <div className="slider-dots">
         {SERVICES.map((_, i) => (
@@ -217,9 +267,7 @@ export default function WhatIBuildSlider() {
             key={i}
             className={`slider-dot${i === activeIdx ? " active" : ""}`}
             aria-label={`Go to slide ${i + 1}`}
-            onClick={() => {
-              cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-            }}
+            onClick={() => scrollTo(i)}
           />
         ))}
       </div>
