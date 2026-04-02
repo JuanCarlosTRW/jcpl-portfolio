@@ -146,35 +146,6 @@ export default function HeroSection() {
         </div>
 
         {/* Fix 4: Trust micro-line */}
-        <p
-          className="hero-enter hero-trust-line"
-          style={{
-            animationDelay: "0.65s",
-            fontFamily: "var(--font-dm-sans), sans-serif",
-            fontSize: 13,
-            color: "rgba(240, 234, 214, 0.45)",
-            textAlign: "center",
-            marginTop: 20,
-            letterSpacing: "0.02em",
-            textShadow: "0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8)",
-          }}
-        >
-          One call. No retainer until fit is confirmed. You own everything I build.
-        </p>
-        <p
-          className="hero-enter"
-          style={{
-            animationDelay: "0.75s",
-            fontFamily: "var(--font-dm-sans), sans-serif",
-            fontSize: 12,
-            color: "rgba(240, 234, 214, 0.3)",
-            textAlign: "center",
-            marginTop: 8,
-            textShadow: "0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8)",
-          }}
-        >
-          Full system starts at $2,500/month.
-        </p>
       </div>
 
       <style jsx global>{`
