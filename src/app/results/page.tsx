@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 export const metadata: Metadata = {
   title: "Results — Client Growth",
   description: "Verified results from real client accounts. $41,085 in revenue from $900 in ad spend. See what the acquisition system produces.",
