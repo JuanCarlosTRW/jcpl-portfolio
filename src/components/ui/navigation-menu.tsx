@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +15,8 @@ const navItems = [
 
 function isActivePath(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
-  return pathname.startsWith(href);
+  if (href.startsWith("/#")) return false;
+  return pathname === href;
 }
 
 export function AnimatedNavFramer() {
@@ -22,7 +24,6 @@ export function AnimatedNavFramer() {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
     if (!anchor) return;
-    // Only intercept on the homepage
     if (pathname !== "/") return;
     const el = document.getElementById(anchor);
     if (el) {
@@ -37,7 +38,7 @@ export function AnimatedNavFramer() {
         className="nav-bar flex items-center overflow-hidden rounded-full border shadow-lg backdrop-blur-md h-14"
         style={{ background: "rgba(13,11,9,0.95)", borderColor: "rgba(212,168,83,0.12)" }}
       >
-        <a href="/" className="flex-shrink-0 flex items-center pl-4 pr-3 sm:pr-4">
+        <Link href="/" className="flex-shrink-0 flex items-center pl-4 pr-3 sm:pr-4">
           <Image
             src="https://static.wixstatic.com/media/62f926_5324879084e1438391f656f8121a391a~mv2.png"
             alt="Client Growth"
@@ -47,16 +48,19 @@ export function AnimatedNavFramer() {
             className="nav-logo"
             style={{ height: 44, width: "auto" }}
           />
-        </a>
+        </Link>
 
         <div className="nav-links flex items-center gap-1 sm:gap-4 pr-3 sm:pr-4">
           {navItems.map((item) => {
             const active = isActivePath(pathname, item.href);
+            // Use plain <a> for anchor links (/#pricing), Link for pages
+            const isAnchor = item.href.startsWith("/#");
+            const Tag = isAnchor ? "a" : Link;
             return (
-              <a
+              <Tag
                 key={item.name}
                 href={item.href}
-                onClick={(e) => handleClick(e, item.anchor)}
+                onClick={isAnchor ? (e: React.MouseEvent<HTMLAnchorElement>) => handleClick(e as React.MouseEvent<HTMLAnchorElement>, item.anchor) : undefined}
                 className={cn(
                   "nav-link-item text-sm font-medium transition-colors whitespace-nowrap",
                   item.isCta
@@ -67,7 +71,7 @@ export function AnimatedNavFramer() {
                 )}
               >
                 {item.name}
-              </a>
+              </Tag>
             );
           })}
         </div>

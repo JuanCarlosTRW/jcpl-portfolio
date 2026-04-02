@@ -305,18 +305,18 @@ export default function PricingStatement() {
                   ].map(([item, cost]) => (
                     <div key={item} className="flex justify-between text-[0.78rem]">
                       <span style={{ color: "#A69D8D" }}>{item}</span>
-                      <span style={{ color: "#756D63" }}>{cost}</span>
+                      <span style={{ color: "#756D63", fontFamily: "var(--font-cormorant), Georgia, serif" }}>{cost}</span>
                     </div>
                   ))}
                 </div>
                 <div className="border-t pt-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
                   <div className="flex justify-between text-[0.82rem] mb-1">
                     <span style={{ color: "#A69D8D" }}>Total agency equivalent:</span>
-                    <span style={{ color: "#756D63", textDecoration: "line-through" }}>$6,000+/month</span>
+                    <span style={{ color: "#756D63", textDecoration: "line-through", fontFamily: "var(--font-cormorant), Georgia, serif" }}>$6,000+/month</span>
                   </div>
                   <div className="flex justify-between text-[0.9rem] font-bold">
                     <span style={{ color: "#D4A853" }}>Your investment:</span>
-                    <span style={{ color: "#D4A853" }}>$2,500/month</span>
+                    <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif" }}>$2,500/month</span>
                   </div>
                 </div>
               </div>
