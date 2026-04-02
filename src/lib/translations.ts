@@ -957,7 +957,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       about: {
         label: "WHO I AM",
         headline: "I watched good businesses lose to worse ones. The difference was never the work.",
-        p1: "I build acquisition systems for local service businesses \u2014 conversion website, Google Ads, local SEO, and AI search visibility. Every system I run is tracked to one metric: qualified calls on the calendar. I only take on clients I am confident I can move the needle for.",
+        p1: "I build acquisition systems for local service businesses \u2014 conversion website, Google Ads, local SEO, and AI search visibility. Every system I run is tracked to one metric: money in for your business. I only take on clients I am confident I can move the needle for.",
         p2: "I started building these systems at 16. I am 18 now. By the time most people finish their first internship, I will have run more live ad accounts than most agency employees touch in a career.",
         p3: "The work was never the problem. The infrastructure was. That is the gap I built Client Growth to close.",
         stats: "$41,085 tracked  \u00b7  5 systems live  \u00b7  Canada + United States",
