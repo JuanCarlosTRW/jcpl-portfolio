@@ -34,10 +34,10 @@ export default function AboutSection() {
         <div
           className="about-animation"
           style={{
-            maxWidth: 480,
+            maxWidth: 380,
             borderRadius: 12,
             overflow: "hidden",
-            height: 400,
+            aspectRatio: "3 / 4",
           }}
         >
           <UnicornScene
@@ -145,7 +145,7 @@ export default function AboutSection() {
           .about-animation {
             width: 100% !important;
             max-width: 100% !important;
-            height: 280px !important;
+            aspect-ratio: 3 / 4 !important;
           }
         }
       `}</style>
