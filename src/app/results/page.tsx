@@ -46,7 +46,6 @@ const CLIENTS = [
     testimonial: null,
     attribution: null,
     link: "https://as.centredentairese.com",
-    ownerImage: "https://static.wixstatic.com/media/62f926_acfce4c5f2b54e88b9f994f56e927c73~mv2.png",
   },
 ];
 
