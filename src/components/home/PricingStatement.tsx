@@ -23,6 +23,8 @@ const SCALE_ADDITIONS = [
   "Multi-location and multi-channel expansion",
   "Dedicated landing pages per service and per city",
   "Weekly strategy calls: direct line, every week",
+  "CRM setup + full lead organization: your pipeline visible and managed",
+  "Email marketing: nurture sequences, reactivation, past-lead follow-up",
 ];
 
 function PricingCard({

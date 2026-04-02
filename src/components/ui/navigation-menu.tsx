@@ -6,7 +6,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Results", href: "/#system", isCta: false },
+  { name: "Results", href: "/results", isCta: false },
   { name: "How it works", href: "/#system", isCta: false },
   { name: "Pricing", href: "/#pricing", isCta: false },
   { name: "Apply", href: "/#book-call", isCta: true },

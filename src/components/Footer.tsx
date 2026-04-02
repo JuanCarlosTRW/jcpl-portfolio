@@ -10,7 +10,7 @@ export default function Footer() {
   const { nav, footer } = translations[locale];
   const navItems = [
     { href: "/#system", label: "How it works" },
-    { href: "/#system", label: nav.results },
+    { href: "/results", label: nav.results },
     { href: "/#pricing", label: "Pricing" },
     { href: "/#book-call", label: "Apply" },
   ];
