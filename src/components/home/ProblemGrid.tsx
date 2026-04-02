@@ -1,37 +1,22 @@
 "use client";
 
-import { Globe, Search, PhoneMissed, RefreshCw, Target, Sparkles } from "lucide-react";
+import { Search, Globe, RefreshCw } from "lucide-react";
 
 const PROBLEMS = [
   {
-    icon: Globe,
-    headline: "Your website is a brochure, not a system.",
-    description: "It looks fine. It does not convert. No offer, no booking flow, no reason for a visitor to call. Traffic without conversion is wasted money.",
-  },
-  {
     icon: Search,
-    headline: "You are invisible where buyers actually search.",
-    description: "Google Maps, AI answers, organic results. If you are not there, the call goes to whoever is. Your competitors are not better. They just show up first.",
+    headline: "You are not getting found first.",
+    description: "Google, Maps, AI search. If you are not in those results, the call goes to whoever is.",
   },
   {
-    icon: PhoneMissed,
-    headline: "Every missed call is a lost customer.",
-    description: "No follow-up. No automation. A lead calls once, gets voicemail, and books with the next business that picks up. You are losing revenue you never even see.",
+    icon: Globe,
+    headline: "Your website is not converting.",
+    description: "Traffic without conversion is wasted money. No clear offer, no call to action, no reason to pick up the phone.",
   },
   {
     icon: RefreshCw,
-    headline: "Referrals keep you alive. They do not build a pipeline.",
-    description: "Good months. Quiet months. No control. If your calendar depends on word of mouth, you are waiting, not growing.",
-  },
-  {
-    icon: Target,
-    headline: "You are spending on ads with no system behind them.",
-    description: "Ads without a conversion website, a booking flow, and follow-up is just paying Google to send people to a dead end.",
-  },
-  {
-    icon: Sparkles,
-    headline: "AI is already changing how people find businesses. You are not in it yet.",
-    description: "ChatGPT, Google AI overviews, Perplexity. Buyers are asking AI for recommendations. If your business is not optimized for it, you do not exist in that channel.",
+    headline: "Your pipeline depends on referrals.",
+    description: "Good months. Quiet months. No control. Referrals keep you alive. They do not build predictability.",
   },
 ];
 

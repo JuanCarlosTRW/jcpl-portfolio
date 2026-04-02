@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 
 /* Dynamic imports — everything below the fold */
 const AcquisitionSlider = dynamic(() => import("@/components/home/AcquisitionSlider"));
+const DifferentiationSection = dynamic(() => import("@/components/home/DifferentiationSection"));
+const ProofStrip = dynamic(() => import("@/components/home/ProofStrip"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const ProblemGrid = dynamic(() => import("@/components/home/ProblemGrid"));
 const WhatIBuildSlider = dynamic(() => import("@/components/home/WhatIBuildSlider"));
@@ -41,7 +43,15 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* 3. Testimonials */}
+      {/* 3. Why This Is Different */}
+      <DifferentiationSection />
+
+      <SectionDivider />
+
+      {/* 4. Proof Strip */}
+      <ProofStrip />
+
+      {/* 5. Testimonials */}
       <TestimonialBlock />
 
       <SectionDivider />
