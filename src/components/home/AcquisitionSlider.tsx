@@ -90,6 +90,7 @@ export default function AcquisitionSlider() {
 
   const scrollTo = useCallback((idx: number) => {
     const clamped = Math.max(0, Math.min(idx, STEPS.length - 1));
+    setActiveIdx(clamped);
     cardRefs.current[clamped]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }, []);
 
