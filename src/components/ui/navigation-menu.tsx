@@ -30,7 +30,7 @@ export function AnimatedNavFramer() {
           <img
             src="https://static.wixstatic.com/media/62f926_5324879084e1438391f656f8121a391a~mv2.png"
             alt="Client Growth"
-            style={{ height: 28, width: "auto" }}
+            style={{ height: 36, width: "auto" }}
           />
         </a>
 

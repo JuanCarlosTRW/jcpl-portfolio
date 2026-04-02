@@ -150,18 +150,12 @@ export default function WhatIBuildSlider() {
         </p>
       </div>
 
-      {/* Slider with arrows */}
-      <div className="relative">
-        {/* Left arrow */}
-        <div className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10">
-          <SliderArrow direction="left" onClick={() => scrollTo(activeIdx - 1)} />
-        </div>
-
-        <div
-          ref={scrollRef}
-          className="apple-slider-container"
-          style={{ willChange: "transform" }}
-        >
+      {/* Slider */}
+      <div
+        ref={scrollRef}
+        className="apple-slider-container"
+        style={{ willChange: "transform" }}
+      >
         {SERVICES.map((s, i) => (
           <div
             key={s.num}
@@ -254,22 +248,10 @@ export default function WhatIBuildSlider() {
         ))}
       </div>
 
-        {/* Right arrow */}
-        <div className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10">
-          <SliderArrow direction="right" onClick={() => scrollTo(activeIdx + 1)} />
-        </div>
-      </div>
-
-      {/* Dots */}
-      <div className="slider-dots">
-        {SERVICES.map((_, i) => (
-          <button
-            key={i}
-            className={`slider-dot${i === activeIdx ? " active" : ""}`}
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => scrollTo(i)}
-          />
-        ))}
+      {/* Centered arrows */}
+      <div className="flex justify-center items-center gap-4 mt-6">
+        <SliderArrow direction="left" onClick={() => scrollTo(activeIdx - 1)} />
+        <SliderArrow direction="right" onClick={() => scrollTo(activeIdx + 1)} />
       </div>
 
       {/* Footer text + CTA */}

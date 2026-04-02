@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -19,12 +19,46 @@ interface TestimonialSectionProps {
   testimonials: Testimonial[];
 }
 
+function SliderArrow({ direction, onClick }: { direction: "left" | "right"; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={`Scroll ${direction}`}
+      style={{
+        width: 44,
+        height: 44,
+        borderRadius: "50%",
+        border: "none",
+        background: "rgba(255,255,255,0.08)",
+        backdropFilter: "blur(8px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        transition: "background 0.2s ease",
+        flexShrink: 0,
+      }}
+      onMouseOver={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; }}
+      onMouseOut={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
+    >
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        {direction === "left" ? (
+          <path d="M11 4L6 9L11 14" stroke="rgba(240,234,214,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        ) : (
+          <path d="M7 4L12 9L7 14" stroke="rgba(240,234,214,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        )}
+      </svg>
+    </button>
+  );
+}
+
 export const TestimonialSection = ({
   title,
   subtitle,
   testimonials,
 }: TestimonialSectionProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
 
   // Mouse drag to scroll (mobile swipe)
   const isDragging = useRef(false);
@@ -185,6 +219,32 @@ export const TestimonialSection = ({
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Centered arrows — mobile only (desktop is a grid) */}
+        <div className="flex md:hidden justify-center items-center gap-4 mt-6">
+          <SliderArrow
+            direction="left"
+            onClick={() => {
+              const el = scrollRef.current;
+              if (!el) return;
+              const next = Math.max(0, activeIdx - 1);
+              setActiveIdx(next);
+              const child = el.children[next] as HTMLElement;
+              child?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+            }}
+          />
+          <SliderArrow
+            direction="right"
+            onClick={() => {
+              const el = scrollRef.current;
+              if (!el) return;
+              const max = Math.min(testimonials.length - 1, activeIdx + 1);
+              setActiveIdx(max);
+              const child = el.children[max] as HTMLElement;
+              child?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+            }}
+          />
         </div>
       </div>
     </section>
