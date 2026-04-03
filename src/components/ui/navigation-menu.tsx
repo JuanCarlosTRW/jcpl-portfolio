@@ -53,25 +53,33 @@ export function AnimatedNavFramer() {
         <div className="nav-links flex items-center gap-1 sm:gap-4 pr-3 sm:pr-4">
           {navItems.map((item) => {
             const active = isActivePath(pathname, item.href);
-            // Use plain <a> for anchor links (/#pricing), Link for pages
             const isAnchor = item.href.startsWith("/#");
-            const Tag = isAnchor ? "a" : Link;
+            const classes = cn(
+              "nav-link-item text-sm font-medium transition-colors whitespace-nowrap",
+              item.isCta
+                ? "bg-[#D4A853] text-[#0D0B09] px-4 py-1.5 rounded-md hover:brightness-110"
+                : active
+                  ? "text-[#D4A853] px-2 py-1"
+                  : "text-muted-foreground hover:text-foreground px-2 py-1"
+            );
+
+            if (isAnchor) {
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleClick(e, item.anchor)}
+                  className={classes}
+                >
+                  {item.name}
+                </a>
+              );
+            }
+
             return (
-              <Tag
-                key={item.name}
-                href={item.href}
-                onClick={isAnchor ? (e: React.MouseEvent<HTMLAnchorElement>) => handleClick(e as React.MouseEvent<HTMLAnchorElement>, item.anchor) : undefined}
-                className={cn(
-                  "nav-link-item text-sm font-medium transition-colors whitespace-nowrap",
-                  item.isCta
-                    ? "bg-[#D4A853] text-[#0D0B09] px-4 py-1.5 rounded-md hover:brightness-110"
-                    : active
-                      ? "text-[#D4A853] px-2 py-1"
-                      : "text-muted-foreground hover:text-foreground px-2 py-1"
-                )}
-              >
+              <Link key={item.name} href={item.href} className={classes}>
                 {item.name}
-              </Tag>
+              </Link>
             );
           })}
         </div>

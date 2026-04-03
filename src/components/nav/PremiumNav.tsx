@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { label: "Results", href: "/#outcomes" },
   { label: "How it works", href: "/#system" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "About", href: "/about" },
   { label: "Apply", href: "/apply", isCta: true },
 ];
 
