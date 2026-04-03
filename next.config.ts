@@ -33,7 +33,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/services", destination: "/#services", permanent: false },
-      { source: "/about", destination: "/", permanent: false },
     ];
   },
   async headers() {
