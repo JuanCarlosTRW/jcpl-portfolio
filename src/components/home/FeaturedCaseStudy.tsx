@@ -132,7 +132,7 @@ export default function FeaturedCaseStudy() {
       <Reveal className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
         <SectionLabel label={po.eyebrow} className="mb-5 !text-[#D4A853]" />
         <h2
-          style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }}
+          style={{ fontFamily: "'Cormorant Garamond', var(--font-cormorant), Georgia, serif", fontFeatureSettings: '"lnum"' }}
           className="text-[clamp(30px,4.5vw,46px)] font-light leading-[1.15] tracking-[-0.01em] max-w-2xl mx-auto text-[#F0EAD6]"
         >
           $41,085 from $900 in ad spend. 11 days to the first call.
@@ -200,9 +200,11 @@ export default function FeaturedCaseStudy() {
                 <div style={{ position: "relative" }}>
                   <div
                     style={{
-                      fontFamily: "var(--font-cormorant), Georgia, serif",
+                      fontFamily: "'Cormorant Garamond', var(--font-cormorant), Georgia, serif",
                       fontSize: "clamp(3.5rem, 8vw, 4.5rem)",
-                      fontWeight: 300,
+                      fontWeight: 400,
+                      fontFeatureSettings: '"lnum"',
+                      letterSpacing: "-0.02em",
                       lineHeight: 1,
                       color: "#F5F0E8",
                       marginBottom: 8,
