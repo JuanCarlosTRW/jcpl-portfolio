@@ -18,7 +18,7 @@ const proofCards = [
   },
   {
     ...caseStudyLogos[4], // Centre Dentaire
-    proof: "$33 avg cost per qualified call. 11 days to first booking.",
+    proof: "$33 avg cost per qualified call.",
   },
 ];
 

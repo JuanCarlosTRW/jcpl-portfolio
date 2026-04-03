@@ -81,10 +81,6 @@ export default function InfrastructureTiers() {
             <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
               $33 cost per call
             </span>
-            <span style={{ color: "#1E3A5F" }}>|</span>
-            <span style={{ color: "#E2F0FF", fontWeight: 600, fontSize: "15px" }}>
-              11 days to first call
-            </span>
           </div>
         </div>
 
@@ -119,13 +115,6 @@ export default function InfrastructureTiers() {
             >
               Built before you run a single ad. Paid traffic without this fails.
             </p>
-            <div className="mb-5">
-              <div className="flex items-baseline gap-2 mb-1">
-                <span style={{ fontSize: "46px", fontWeight: 900, color: "#CBD5E1", letterSpacing: "-0.02em" }}>$2,500</span>
-                <span style={{ fontSize: "13px", color: "#475569" }}>one-time build</span>
-              </div>
-              <p style={{ fontSize: "12px", color: "#263050" }}>+ $1,200/month to maintain</p>
-            </div>
             <span
               className="block rounded-lg px-4 py-3 mb-4 leading-relaxed"
               style={{
@@ -242,13 +231,6 @@ export default function InfrastructureTiers() {
             >
               Predictable booked calls. Tracked cost per call.
             </p>
-            <div className="mb-5">
-              <div className="flex items-baseline gap-2 mb-1">
-                <span style={{ fontSize: "46px", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.02em" }}>$2,500</span>
-                <span style={{ fontSize: "13px", color: "#93C5FD" }}>/month</span>
-              </div>
-              <p style={{ fontSize: "12px", color: "#4D7090" }}>+ ad spend. Minimum $500/month.</p>
-            </div>
             <span
               className="block rounded-lg px-4 py-3 mb-4 leading-relaxed"
               style={{
@@ -383,13 +365,6 @@ export default function InfrastructureTiers() {
             >
               Limit competition structurally.
             </p>
-            <div className="mb-5">
-              <div className="flex items-baseline gap-2 mb-1">
-                <span style={{ fontSize: "46px", fontWeight: 900, color: "#FDE68A", letterSpacing: "-0.02em" }}>$4,000</span>
-                <span style={{ fontSize: "13px", color: "rgba(245,158,11,0.60)" }}>/month</span>
-              </div>
-              <p style={{ fontSize: "12px", color: "rgba(245,158,11,0.40)" }}>+ ad spend. Minimum $1,500/month.</p>
-            </div>
             <span
               className="block rounded-lg px-4 py-3 mb-7 leading-relaxed"
               style={{
@@ -510,100 +485,6 @@ export default function InfrastructureTiers() {
               </div>
             </div>
             <p className="text-xs mt-5" style={{ color: "#475569" }}>Barbershop. Montreal. Local SEO + website rebuild.</p>
-          </div>
-
-          {/* Block 2: Named Testimonial — Tobari */}
-          <div
-            className="relative rounded-2xl p-6 overflow-hidden"
-            style={{
-              background: "#0F1A2E",
-              borderLeft: "4px solid rgba(52,211,153,0.6)",
-              border: "1px solid rgba(52,211,153,0.15)",
-              borderLeftWidth: "4px",
-              borderLeftColor: "rgba(52,211,153,0.6)",
-            }}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className="w-12 h-12 rounded-full overflow-hidden shrink-0 flex items-center justify-center relative"
-                style={{
-                  background: "rgba(52,211,153,0.12)",
-                  border: "1px solid rgba(52,211,153,0.35)",
-                }}
-              >
-                <img
-                  src="/images/testimonials/mike-s.png"
-                  alt="Tobari, Culture Barbershop"
-                  className="w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.style.display = "none"; }}
-                />
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  className="absolute inset-0 m-auto opacity-70"
-                  aria-hidden
-                >
-                  <circle cx="10" cy="7" r="4" stroke="#34D399" strokeWidth="1.3" />
-                  <path d="M3 18c0-4 3.13-7 7-7s7 3 7 7" stroke="#34D399" strokeWidth="1.3" strokeLinecap="round" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-[14px] font-[700] text-white opacity-[1.0]">Tobari</p>
-                <p className="text-[13px] font-[400] opacity-[0.50]">Culture Barbershop, Montreal, QC</p>
-              </div>
-            </div>
-
-            <blockquote className="text-[17px] italic font-[400] leading-[1.75] opacity-[0.90] mb-4">
-              &ldquo;Juan rebuilt the entire booking system from the ground up. Three weeks later, clients who had never heard of the business were finding it on Google and booking online. The calendar has not had a gap since.&rdquo;
-            </blockquote>
-
-            <p
-              className="text-[12px] font-semibold"
-              style={{ color: "#34D399" }}
-            >
-              Result: Page 1 SEO, 60 days.
-            </p>
-          </div>
-
-          {/* Block 2b: Triple W Rentals testimonial */}
-          <div
-            className="relative rounded-2xl p-6 overflow-hidden"
-            style={{
-              background: "#0F1A2E",
-              borderLeft: "4px solid rgba(52,211,153,0.6)",
-              border: "1px solid rgba(52,211,153,0.15)",
-              borderLeftWidth: "4px",
-              borderLeftColor: "rgba(52,211,153,0.6)",
-            }}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
-                style={{
-                  background: "rgba(52,211,153,0.12)",
-                  border: "1px solid rgba(52,211,153,0.35)",
-                }}
-              >
-                <img src="/images/logos/triplew.png" alt="Triple W Rentals" className="w-8 h-8 object-contain" />
-              </div>
-              <div>
-                <p className="text-[14px] font-[700] text-white opacity-[1.0]">Triple W Rentals</p>
-                <p className="text-[13px] font-[400] opacity-[0.50]">RV Rental, Texas</p>
-              </div>
-            </div>
-
-            <blockquote className="text-[17px] italic font-[400] leading-[1.75] opacity-[0.90] mb-4">
-              &ldquo;First booking came in 11 days. Best money I have spent on the business.&rdquo;
-            </blockquote>
-
-            <p
-              className="text-[12px] font-semibold"
-              style={{ color: "#34D399" }}
-            >
-              Result: $41K revenue, 30 days.
-            </p>
           </div>
 
           {/* Block 3: Campaign Metrics */}

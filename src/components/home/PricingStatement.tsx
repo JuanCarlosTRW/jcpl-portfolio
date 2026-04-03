@@ -92,13 +92,7 @@ function PricingCard({
           {name}
         </h3>
 
-        {/* Price */}
-        <div className="mb-5">
-          <span className="text-[clamp(2.5rem,5vw,3.5rem)] text-white" style={{ fontFamily: "'Cormorant Garamond', var(--font-cormorant), Georgia, serif", fontWeight: 400, fontStyle: "normal", fontFeatureSettings: '"lnum"', letterSpacing: "-0.02em" }}>
-            {price}
-          </span>
-          <span className="text-[1rem] text-[#756D63] ml-1">/month</span>
-        </div>
+        {/* Price removed — application-based */}
 
         {/* Divider */}
         <div className="mb-5" style={{ borderTop: "1px solid #2A2318" }} />
@@ -282,52 +276,20 @@ export default function PricingStatement() {
           <PricingCard
             tag="Get the phone ringing"
             name="Growth Architecture"
-            price="$2,500"
+            price=""
             features={GROWTH_FEATURES}
             proof="Triple W Rentals started here. $41,085. $900 ad spend. 30 days."
             guarantee="If your phone does not ring in the first 30 days, I refund the management fee for that period."
             conditions="Conditions: tracking in place before launch · minimum ad spend met · onboarding completed within 5 days · applies where Google Ads inventory exists"
             cta="Apply to be a Partner →"
             micro="I review every application within 24 hours."
-            valueStack={
-              <div className="mb-5 rounded-lg p-5" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <p className="text-[0.75rem] uppercase tracking-[0.1em] mb-3" style={{ color: "#756D63" }}>
-                  What this would cost from a traditional agency:
-                </p>
-                <div className="space-y-1.5 mb-4">
-                  {[
-                    ["Conversion website build", "$3,500+ one-time"],
-                    ["Google Ads management", "$1,200/month"],
-                    ["Local SEO retainer", "$800/month"],
-                    ["AI search optimization", "$500/month"],
-                    ["Weekly optimization", "included (agencies charge per hour)"],
-                    ["Direct founder access", "not available at agencies"],
-                  ].map(([item, cost]) => (
-                    <div key={item} className="flex justify-between text-[0.78rem]">
-                      <span style={{ color: "#A69D8D" }}>{item}</span>
-                      <span style={{ color: "#756D63", fontFamily: "var(--font-cormorant), Georgia, serif" }}>{cost}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="border-t pt-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-                  <div className="flex justify-between text-[0.82rem] mb-1">
-                    <span style={{ color: "#A69D8D" }}>Total agency equivalent:</span>
-                    <span style={{ color: "#756D63", textDecoration: "line-through", fontFamily: "var(--font-cormorant), Georgia, serif" }}>$6,000+/month</span>
-                  </div>
-                  <div className="flex justify-between text-[0.9rem] font-bold">
-                    <span style={{ color: "#D4A853" }}>Your investment:</span>
-                    <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif" }}>$2,500/month</span>
-                  </div>
-                </div>
-              </div>
-            }
             popular
             delay={0.1}
           />
           <PricingCard
             tag="Saturate your market"
             name="Scale Architecture"
-            price="$4,500"
+            price=""
             intro="Everything in Growth Architecture, plus:"
             features={SCALE_ADDITIONS}
             proof="This is the tier where a single city becomes a category you own."

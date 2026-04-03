@@ -61,7 +61,7 @@ export default function ServicesHero() {
                 marginBottom: 16,
               }}
             >
-              Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. Built as one connected system, run by one person. Live in 11 days.
+              Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. Built as one connected system, run by one person.
             </p>
 
             <p

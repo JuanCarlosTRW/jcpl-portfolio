@@ -19,7 +19,7 @@ const testimonialsData = [
       "Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.",
     name: "Westin Wayne Walker",
     role: "Triple W Rentals · Texas",
-    context: "RV rental: Texas market, Google Ads, first call in 11 days",
+    context: "RV rental: Texas market, Google Ads",
     imageSrc: "/images/testimonials/tyler-w.png",
   },
   {

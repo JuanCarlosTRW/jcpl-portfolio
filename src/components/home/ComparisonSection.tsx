@@ -12,7 +12,7 @@ export default function ComparisonSection() {
     {
       dimension: "Speed",
       agency: "8 to 12 weeks. Endless revision cycles.",
-      you: "Live system in 2 to 4 weeks. First call in 11 days.",
+      you: "Live system in 2 to 4 weeks.",
     },
     {
       dimension: "After launch",
@@ -76,7 +76,6 @@ export default function ComparisonSection() {
         </div>
 
         <p className="mt-8 text-sm text-zinc-600">
-          Median build time from signed agreement to live system: 11 days.
           Average agency onboarding: 6 to 8 weeks.
         </p>
       </div>

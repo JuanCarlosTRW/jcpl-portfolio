@@ -130,7 +130,7 @@ function ProofLine() {
       <span className="inline-block text-[13px] font-semibold uppercase tracking-widest text-[rgba(80,200,120,0.38)]">Live Result</span>
       <span className="font-bold text-[18px] text-[rgba(255,255,255,0.92)]">$41,085</span>
       <span className="opacity-60 text-[13px]">Revenue, 30 days, $900 ad spend</span>
-      <span className="hidden md:inline-block opacity-40 text-[13px]">· 46x ROAS · 11 days to first call · Texas RV market</span>
+      <span className="hidden md:inline-block opacity-40 text-[13px]">· 46x ROAS · Texas RV market</span>
     </div>
   );
 }

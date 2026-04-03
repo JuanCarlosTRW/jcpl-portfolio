@@ -164,7 +164,7 @@ export const strategicGap = {
 export const growthArchitecture = {
   label: "THE SYSTEM",
   headline: "The Growth Architecture™",
-  subheadline: "Four integrated layers. Each one makes the others stronger. Built as one connected system in 2 to 4 weeks. Most clients see their first booked call within 11 days of going live. Timeline depends on onboarding speed.",
+  subheadline: "Four integrated layers. Each one makes the others stronger. Built as one connected system in 2 to 4 weeks. Timeline depends on onboarding speed.",
   pillars: [
     {
       id: "authority",
@@ -215,7 +215,7 @@ export const growthArchitecture = {
 /* ─── Section E: Featured Case Study ─── */
 export const featuredCase = {
   label: "PROOF",
-  headline: "$41,085 from $900 in ad spend. 11 days to the first call.",
+  headline: "$41,085 from $900 in ad spend.",
   slug: "rv-rental-texas",
   client: "RV RENTAL COMPANY, TEXAS",
   result: "$41,085",
@@ -245,7 +245,7 @@ export const howWeWork = {
       number: "02",
       title: "System Launch",
       description: "Site, ads, tracking, automation. All live. All connected.",
-      duration: "11 days median"
+      duration: "2–4 weeks"
     },
     {
       number: "03",
@@ -260,7 +260,7 @@ export const howWeWork = {
 export const marbleSystemSection = {
   label: "THE SYSTEM",
   headline: "Market Gap Report. System Launch. Compound Loop.",
-  subheadline: "Three steps. Live in 11 days median.",
+  subheadline: "Three steps. Built to get you live fast.",
   steps: [
     {
       title: "Market Gap Report",
@@ -270,8 +270,8 @@ export const marbleSystemSection = {
     },
     {
       title: "System Launch",
-      copy: "Site, ads, tracking, booking flow, and AI qualification. All built, all connected, all live. You approve each component before it ships. Median time to first booked call: 11 days. Timeline depends on asset approvals.",
-      timeline: "11 days median",
+      copy: "Site, ads, tracking, booking flow, and AI qualification. All built, all connected, all live. You approve each component before it ships. Timeline depends on asset approvals.",
+      timeline: "2–4 weeks",
       deliverables: ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
     },
     {
@@ -637,7 +637,7 @@ export const servicesFAQ = [
   },
   {
     question: "How fast can this go live?",
-    answer: "Median 11 days from signed agreement to live system. That includes the diagnostic audit, full website build, and campaign setup. Most clients see their first inbound call within 2 weeks of going live.",
+    answer: "Fast build from signed agreement to live system. That includes the diagnostic audit, full website build, and campaign setup. Most clients see their first inbound call within weeks of going live.",
   },
   {
     question: "What do I need to provide?",
@@ -811,7 +811,7 @@ export const workingWithMe = {
     },
     {
       title: "Days 4–11",
-      desc: "System build. Website, funnel, tracking, and ads architecture. Median launch: 11 days from kickoff.",
+      desc: "System build. Website, funnel, tracking, and ads architecture.",
     },
     {
       title: "Days 12–30",

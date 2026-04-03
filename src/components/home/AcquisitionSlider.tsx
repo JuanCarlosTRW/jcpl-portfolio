@@ -16,7 +16,7 @@ const STEPS = [
     id: "02",
     title: "Convert the click into a call",
     description: "A conversion website custom-coded for your niche. Built around one outcome: the visitor calls or books. Not a template. Not WordPress.",
-    proof: "First booking in 11 days · Culture Barbershop · Montreal",
+    proof: "First booking · Culture Barbershop · Montreal",
     image: "https://static.wixstatic.com/media/62f926_c777df5150064641aa49c6369141af8c~mv2.png",
     alt: "Culture Barbershop conversion website built by Client Growth",
   },

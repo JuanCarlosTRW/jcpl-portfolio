@@ -918,7 +918,7 @@ img {
   border-top: 3px solid rgba(212, 168, 83, 0.42);
 }
 
-/* Stat radial glow (key numbers: $27, $41,085, 11 days) */
+/* Stat radial glow (key numbers: $27, $41,085) */
 .stat-glow {
   position: relative;
 }

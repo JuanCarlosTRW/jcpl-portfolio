@@ -24,7 +24,7 @@ const faqEn: FAQItem[] = [
   {
     question: "How fast will I see results?",
     answer:
-      "Median 11 days from signed agreement to live system. That includes the diagnostic audit, full website build, and campaign setup. Most clients see their first inbound call within 2 weeks of going live. The full system reaches peak efficiency at 60 to 90 days as the SEO compounds and the ad campaigns optimize. The tracking dashboard shows you every call, every cost, and every source from day one.",
+      "Fast build from signed agreement to live system. That includes the diagnostic audit, full website build, and campaign setup. Most clients see their first inbound call within weeks of going live. The full system reaches peak efficiency at 60 to 90 days as the SEO compounds and the ad campaigns optimize. The tracking dashboard shows you every call, every cost, and every source from day one.",
     featured: false,
   },
   {
@@ -722,7 +722,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       headlineItalic: "Answered.",
       supportingLine: "Get clear answers before you apply.",
       items: [
-        { question: "How fast can this go live?", answer: "Build time is 11 days median. Full system live within 2 to 4 weeks depending on onboarding speed." },
+        { question: "How fast can this go live?", answer: "Full system live within 2 to 4 weeks depending on onboarding speed." },
         { question: "Do you handle Google Ads?", answer: "Yes. Google Ads is built into every engagement. I handle campaign setup, keyword targeting, ad copy, and ongoing optimization. Every campaign targets purchase-intent searches only. People actively looking to hire, not browsers. Cost per call is tracked from day one." },
         { question: "Do I own the website and assets?", answer: "Everything built belongs to your business. The website, ad accounts, analytics, and tracking are all in your name. If you ever leave, you take everything with you. Nothing is held by me as leverage." },
         { question: "What happens after launch?", answer: "Every week I review what is working and cut what is not. Every month I send a revenue report with real numbers: calls generated, cost per call, revenue attributed to the system. The system compounds: your cost per call goes down the longer it runs." },
@@ -795,9 +795,9 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       provenOutcomes: {
         eyebrow: "PROVEN OUTCOMES",
-        h2: "$41,085 from $900 in ad spend. 11 days to the first call.",
+        h2: "$41,085 from $900 in ad spend.",
         h2Main: "$41,085 from $900 in ad spend.",
-        h2Italic: "11 days to the first call.",
+        h2Italic: "",
         sub: "Revenue, qualified calls, and search visibility. Not three separate wins. The same connected system, running continuously.",
         card1Label: "RV RENTAL · TEXAS · GOOGLE ADS",
         card1Revenue: "in revenue. First 30 days.",
@@ -967,7 +967,7 @@ export const translations: Record<Locale, TranslationsShape> = {
       hero: {
         eyebrow: "SERVICES",
         h1: "One system. Every qualified call tracked.",
-        body1: "Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. Built as one connected system, run by one person. Live in 11 days median. Timeline depends on asset approvals.",
+        body1: "Conversion site. Local SEO. Google Ads with tracked cost per call. AI that qualifies leads after hours. Built as one connected system, run by one person. Timeline depends on asset approvals.",
         body2: "Every layer feeds the next. The longer it runs, the less each call costs.",
         microResult: "Most recent result: $41,085 from $900 in ad spend. 30 days.",
         cta1: "Apply to be a Partner →",
@@ -1157,7 +1157,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         phase1Title: "Days 1–3",
         phase1Desc: "Discovery call, market gap audit, and 90-day roadmap. I define what success looks like and lock the offer.",
         phase2Title: "Days 4–11",
-        phase2Desc: "System build. Website, funnel, tracking, and ads architecture. Median launch: 11 days from kickoff. Timeline depends on asset approvals.",
+        phase2Desc: "System build. Website, funnel, tracking, and ads architecture. Timeline depends on asset approvals.",
         phase3Title: "Days 12–30",
         phase3Desc: "Optimization and first calls. I iterate on conversion and cost per call. You start seeing booked appointments.",
       },

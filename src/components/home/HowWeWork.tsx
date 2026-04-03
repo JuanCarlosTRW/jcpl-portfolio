@@ -69,7 +69,7 @@ export default function HowWeWork() {
                   {/* Kicker line for System Launch phase */}
                   {step.title === "System Launch" && (
                     <p className="mt-4 text-[14px] font-bold text-emerald-400 leading-snug">
-                      Most clients see their first booked call within 11 days median. Timeline depends on onboarding speed.
+                      Most clients see their first booked call within weeks of going live. Timeline depends on onboarding speed.
                     </p>
                   )}
                 </div>

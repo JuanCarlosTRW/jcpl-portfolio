@@ -2,7 +2,6 @@
 
 const STATS = [
   { value: "$41,085", label: "revenue in 30 days", sub: "Triple W Rentals" },
-  { value: "11 days", label: "to your first booked call", sub: "" },
   { value: "$60K+", label: "tracked revenue", sub: "active accounts" },
 ];
 
@@ -10,11 +9,12 @@ export default function ProofStrip() {
   return (
     <section className="py-12 md:py-16" style={{ background: "#0D0B09" }}>
       <style>{`@media (max-width: 767px) { .proof-strip-grid { grid-template-columns: 1fr 1fr !important; } }`}</style>
+      {/* 2 stats → 2-col grid on all sizes */}
       <div
         className="proof-strip-grid"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(2, 1fr)",
           gap: "24px 16px",
           maxWidth: 900,
           margin: "0 auto",

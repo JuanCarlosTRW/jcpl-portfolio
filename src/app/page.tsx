@@ -15,7 +15,6 @@ const ProblemGrid = dynamic(() => import("@/components/home/ProblemGrid"));
 const DifferentiationSection = dynamic(() => import("@/components/home/DifferentiationSection"));
 const AcquisitionSlider = dynamic(() => import("@/components/home/AcquisitionSlider"));
 const WhatIBuildSlider = dynamic(() => import("@/components/home/WhatIBuildSlider"));
-const QualificationCTA = dynamic(() => import("@/components/home/QualificationCTA"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
@@ -66,11 +65,6 @@ export default function HomePage() {
 
       {/* 7. What I Build (id="services") */}
       <WhatIBuildSlider />
-
-      <SectionDivider />
-
-      {/* 8. Who This Is For (id="fit") */}
-      <QualificationCTA />
 
       <SectionDivider />
 

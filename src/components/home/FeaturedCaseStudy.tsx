@@ -135,7 +135,7 @@ export default function FeaturedCaseStudy() {
           style={{ fontFamily: "'Cormorant Garamond', var(--font-cormorant), Georgia, serif", fontFeatureSettings: '"lnum"' }}
           className="text-[clamp(30px,4.5vw,46px)] font-light leading-[1.15] tracking-[-0.01em] max-w-2xl mx-auto text-[#F0EAD6]"
         >
-          $41,085 from $900 in ad spend. 11 days to the first call.
+          $41,085 from $900 in ad spend.
         </h2>
         <p
           className="mt-5 max-w-lg mx-auto"

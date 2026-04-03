@@ -155,25 +155,6 @@ export default function DiagnosticForm() {
             </div>
           </div>
 
-          {/* Testimonial quote */}
-          <div
-            className="rounded-lg p-4 mb-10"
-            style={{
-              background: "rgba(212,168,83,0.04)",
-              borderLeft: "2px solid #D4A853",
-            }}
-          >
-            <p
-              className="text-[14px] italic leading-[1.65]"
-              style={{ color: "#D2C9B8" }}
-            >
-              &ldquo;Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.&rdquo;
-            </p>
-            <p className="text-[12px] mt-2" style={{ color: "#756D63" }}>
-              — Westin Wayne Walker, Triple W Rentals · Texas
-            </p>
-          </div>
-
           {/* Form */}
           {status === "success" ? (
             <div
