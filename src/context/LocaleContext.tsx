@@ -54,17 +54,10 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [locale, setLocaleState] = useState<Locale>("en");
 
-  // Sync locale from URL path — URL is the source of truth
+  // Force English — no /fr routes exist; ignore stale localStorage values
   useEffect(() => {
-    const fromPath = getLocaleFromPath(pathname);
-    if (fromPath) {
-      setLocaleState(fromPath);
-      try { localStorage.setItem(STORAGE_KEY, fromPath); } catch { /* ignore */ }
-    } else {
-      // EN path: check localStorage for preference, default to "en"
-      const stored = getStoredLocale();
-      setLocaleState(stored ?? "en");
-    }
+    setLocaleState("en");
+    try { localStorage.setItem(STORAGE_KEY, "en"); } catch { /* ignore */ }
   }, [pathname]);
 
   useEffect(() => {
