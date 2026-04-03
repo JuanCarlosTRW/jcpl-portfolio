@@ -121,7 +121,7 @@ export const TestimonialSection = ({
         {/* Desktop: grid, Mobile: horizontal scroll */}
         <div
           ref={scrollRef}
-          className="testimonial-track mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory cursor-grab select-none md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:cursor-default"
+          className="testimonial-track mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory cursor-grab select-none md:grid md:grid-cols-2 lg:grid-cols-5 md:overflow-visible md:cursor-default"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
@@ -133,7 +133,7 @@ export const TestimonialSection = ({
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
         >
-          {testimonials.slice(0, 4).map((testimonial) => (
+          {testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.id}
               className="testimonial-card relative overflow-hidden rounded-lg shadow-sm snap-start shrink-0 md:shrink md:snap-align-none"
