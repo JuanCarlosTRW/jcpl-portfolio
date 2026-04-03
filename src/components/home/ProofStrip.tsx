@@ -30,6 +30,7 @@ export default function ProofStrip() {
                 fontSize: "clamp(2rem, 4vw, 3rem)",
                 fontWeight: 400,
                 fontStyle: "normal",
+                fontFeatureSettings: '"lnum"',
                 letterSpacing: "-0.02em",
                 color: "#D4A853",
                 lineHeight: 1,
@@ -40,8 +41,9 @@ export default function ProofStrip() {
             </p>
             <p
               style={{
-                fontFamily: "var(--font-dm-sans), sans-serif",
-                fontSize: "clamp(0.8rem, 1.5vw, 0.9rem)",
+                fontFamily: "'Cormorant Garamond', var(--font-cormorant), Georgia, serif",
+                fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
+                fontWeight: 400,
                 color: "rgba(240,234,214,0.5)",
                 marginTop: 6,
                 marginBottom: 0,
@@ -52,8 +54,9 @@ export default function ProofStrip() {
             {stat.sub && (
               <p
                 style={{
-                  fontFamily: "var(--font-dm-sans), sans-serif",
-                  fontSize: "0.7rem",
+                  fontFamily: "'Cormorant Garamond', var(--font-cormorant), Georgia, serif",
+                  fontSize: "0.75rem",
+                  fontWeight: 400,
                   color: "rgba(240,234,214,0.3)",
                   marginTop: 2,
                   marginBottom: 0,
