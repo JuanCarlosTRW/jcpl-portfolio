@@ -47,7 +47,7 @@ const testimonialsData = [
     name: "Dre Benyoucef",
     role: "Centre Dentaire Saint-Élzéar · Quebec",
     context: "Dental clinic: full custom website with booking funnel",
-    imageSrc: "/images/owners/dre-benyoucef-centre-dentaire.png",
+    imageSrc: "https://static.wixstatic.com/media/62f926_acfce4c5f2b54e88b9f994f56e927c73~mv2.png",
   },
 ];
 
