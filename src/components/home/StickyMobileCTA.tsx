@@ -2,8 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function StickyMobileCTA() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage;
   const [visible, setVisible] = useState(false);
   const [nearForm, setNearForm] = useState(false);
 
@@ -51,7 +55,7 @@ export default function StickyMobileCTA() {
           textAlign: "center",
         }}
       >
-        Apply to be a Partner →
+        {t.stickyMobileCta}
       </Link>
     </div>
   );

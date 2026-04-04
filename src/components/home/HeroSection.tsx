@@ -3,12 +3,16 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import "./hero-responsive.css";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
   ssr: false,
 });
 
 export default function HeroSection() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.heroSection;
   return (
     <section
       className="hero-section relative overflow-hidden"
@@ -87,20 +91,20 @@ export default function HeroSection() {
             textShadow: "0 2px 40px rgba(0,0,0,0.9), 0 0 80px rgba(0,0,0,0.7)",
           }}
         >
-          {["I", "build", "the", "system", "that"].map((word, i) => (
-            <span key={word} className="blur-word" style={{ animationDelay: `${i * 0.08}s` }}>
+          {t.headlineBefore.split(" ").map((word, i) => (
+            <span key={`${word}-${i}`} className="blur-word" style={{ animationDelay: `${i * 0.08}s` }}>
               {word}{" "}
             </span>
           ))}
           <em className="blur-word" style={{
-            animationDelay: "0.40s",
+            animationDelay: `${t.headlineBefore.split(" ").length * 0.08}s`,
             color: "#D4A853",
             fontStyle: "italic",
             textShadow: "0 2px 40px rgba(0,0,0,0.9), 0 0 60px rgba(212,168,83,0.3)",
-          }}>books</em>{" "}
-          {["your", "calendar."].map((word, i) => (
-            <span key={word} className="blur-word" style={{ animationDelay: `${0.48 + i * 0.08}s` }}>
-              {word}{i === 0 ? " " : ""}
+          }}>{t.accentWord}</em>{" "}
+          {t.headlineAfter.split(" ").map((word, i) => (
+            <span key={`${word}-${i}`} className="blur-word" style={{ animationDelay: `${(t.headlineBefore.split(" ").length + 1) * 0.08 + i * 0.08}s` }}>
+              {word}{i < t.headlineAfter.split(" ").length - 1 ? " " : ""}
             </span>
           ))}
         </h1>
@@ -122,7 +126,7 @@ export default function HeroSection() {
             textShadow: "0 2px 20px rgba(0,0,0,0.95)",
           }}
         >
-          Your competitors are not better than you. They just get found first. I fix that.
+          {t.subtitle}
         </p>
 
         {/* CTA row */}
@@ -137,11 +141,11 @@ export default function HeroSection() {
           }}
         >
           <Link href="/apply" className="primary-cta">
-            Apply to be a Partner →
+            {t.ctaPrimary}
           </Link>
 
           <a href="#system" className="hero-text-link">
-            See the results &rarr;
+            {t.ctaSecondary}
           </a>
         </div>
 

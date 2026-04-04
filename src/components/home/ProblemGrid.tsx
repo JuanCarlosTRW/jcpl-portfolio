@@ -1,26 +1,18 @@
 "use client";
 
 import { Search, Globe, RefreshCw } from "lucide-react";
-
-const PROBLEMS = [
-  {
-    icon: Search,
-    headline: "You are not getting found first.",
-    description: "Google, Maps, AI search. If you are not in those results, the call goes to whoever is.",
-  },
-  {
-    icon: Globe,
-    headline: "Your website is not converting.",
-    description: "Traffic without conversion is wasted money. No clear offer, no call to action, no reason to pick up the phone.",
-  },
-  {
-    icon: RefreshCw,
-    headline: "Your pipeline depends on referrals.",
-    description: "Good months. Quiet months. No control. Referrals keep you alive. They do not build predictability.",
-  },
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function ProblemGrid() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.problemGrid;
+
+  const PROBLEMS = [
+    { icon: Search, headline: t.problem1Title, description: t.problem1Desc },
+    { icon: Globe, headline: t.problem2Title, description: t.problem2Desc },
+    { icon: RefreshCw, headline: t.problem3Title, description: t.problem3Desc },
+  ];
   return (
     <section id="reality" className="py-16 md:py-24" style={{ background: "#0D0B09" }}>
       {/* Header */}
@@ -40,7 +32,7 @@ export default function ProblemGrid() {
             border: "1px solid rgba(212,168,83,0.15)",
           }}
         >
-          THE PROBLEM
+          {t.eyebrow}
         </span>
         <h2
           style={{
@@ -51,7 +43,7 @@ export default function ProblemGrid() {
             marginTop: 20,
           }}
         >
-          You are losing money every single day.
+          {t.heading}
         </h2>
         <p
           style={{
@@ -62,7 +54,7 @@ export default function ProblemGrid() {
             marginTop: 8,
           }}
         >
-          and you do not even see it yet.
+          {t.subtitle}
         </p>
       </div>
 
@@ -113,7 +105,7 @@ export default function ProblemGrid() {
           marginTop: 40,
         }}
       >
-        Serious operators build <span style={{ color: "#D4A853" }}>infrastructure</span>. Everyone else waits for the phone to ring.
+        {t.closingBefore}<span style={{ color: "#D4A853" }}>{t.closingAccent}</span>{t.closingAfter}
       </p>
     </section>
   );

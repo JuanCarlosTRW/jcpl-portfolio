@@ -2,35 +2,8 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-
-const STEPS = [
-  {
-    id: "01",
-    title: "Pull in buyers",
-    description: "Google Ads, Meta Ads, Local SEO, and geo-targeted AI campaigns that put your business in front of the right people at the right time.",
-    proof: "$41,085 revenue · $900 ad spend · 30 days",
-    image: "https://static.wixstatic.com/media/62f926_682a6adfbe824964b8be5e7d1df48c67~mv2.png",
-    alt: "Google Ads impression share dominating Tyler, Texas market",
-  },
-  {
-    id: "02",
-    title: "Convert the click into a call",
-    description: "A conversion website custom-coded for your niche. Built around one outcome: the visitor calls or books. Not a template. Not WordPress.",
-    proof: "First booking · Culture Barbershop · Montreal",
-    image: "https://static.wixstatic.com/media/62f926_c777df5150064641aa49c6369141af8c~mv2.png",
-    alt: "Culture Barbershop conversion website built by Client Growth",
-  },
-  {
-    id: "03",
-    title: "Keep the pipeline full",
-    description: "Missed-call follow-up, automated booking flow, and weekly optimization. Every month the system runs, your cost per call drops and your pipeline compounds.",
-    proof: "Fully booked calendar · Elite Barbershop · Montreal",
-    image: "https://static.wixstatic.com/media/62f926_4d3dacc6a96e4998a10933a2c9076573~mv2.png",
-    alt: "Elite Barbershop fully booked calendar",
-    imagePosition: "custom" as const,
-    objectPosition: "left 40%",
-  },
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 function SliderArrow({ direction, onClick }: { direction: "left" | "right"; onClick: () => void }) {
   return (
@@ -66,6 +39,38 @@ function SliderArrow({ direction, onClick }: { direction: "left" | "right"; onCl
 }
 
 export default function AcquisitionSlider() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.acquisitionSlider;
+
+  const STEPS = [
+    {
+      id: "01",
+      title: t.step1Title,
+      description: t.step1Desc,
+      proof: t.step1Proof,
+      image: "https://static.wixstatic.com/media/62f926_682a6adfbe824964b8be5e7d1df48c67~mv2.png",
+      alt: "Google Ads impression share dominating Tyler, Texas market",
+    },
+    {
+      id: "02",
+      title: t.step2Title,
+      description: t.step2Desc,
+      proof: t.step2Proof,
+      image: "https://static.wixstatic.com/media/62f926_c777df5150064641aa49c6369141af8c~mv2.png",
+      alt: "Culture Barbershop conversion website built by Client Growth",
+    },
+    {
+      id: "03",
+      title: t.step3Title,
+      description: t.step3Desc,
+      proof: t.step3Proof,
+      image: "https://static.wixstatic.com/media/62f926_4d3dacc6a96e4998a10933a2c9076573~mv2.png",
+      alt: "Elite Barbershop fully booked calendar",
+      imagePosition: "custom" as const,
+      objectPosition: "left 40%",
+    },
+  ];
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -98,13 +103,13 @@ export default function AcquisitionSlider() {
     <section id="system" className="py-16 md:py-24" style={{ background: "#0D0B09" }}>
       <div className="text-center mb-12 px-6">
         <p className="uppercase mb-4" style={{ fontSize: 12, letterSpacing: "0.15em", color: "#D4A853", fontFamily: "var(--font-dm-sans), sans-serif" }}>
-          THE ACQUISITION SYSTEM
+          {t.eyebrow}
         </p>
         <h2 style={{ fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 300, color: "#F0EAD6", lineHeight: 1.1 }}>
-          The system that fills your calendar.
+          {t.heading}
         </h2>
         <p className="mt-4 mx-auto" style={{ maxWidth: 600, fontSize: 16, color: "rgba(240, 234, 214, 0.6)", lineHeight: 1.6, fontFamily: "var(--font-dm-sans), sans-serif" }}>
-          Three layers. One connected pipeline. Every result on this page came from this exact system.
+          {t.subtitle}
         </p>
       </div>
 
@@ -141,7 +146,7 @@ export default function AcquisitionSlider() {
 
       <div className="text-center" style={{ marginTop: 40 }}>
         <a href="/apply" className="inline-block rounded-md px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] transition-transform hover:scale-[1.02]" style={{ background: "#D4A853", color: "#0D0B09", borderRadius: 6 }}>
-          Apply to be a Partner →
+          {t.cta}
         </a>
       </div>
     </section>

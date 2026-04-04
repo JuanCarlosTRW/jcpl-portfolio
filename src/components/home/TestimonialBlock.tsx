@@ -1,58 +1,20 @@
 "use client";
 
 import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 import { TestimonialSection } from "@/components/ui/testimonials";
 
-const testimonialsData = [
-  {
-    id: 1,
-    quote:
-      "Juan built the website exactly how I wanted it. Highly recommend.",
-    name: "Tobari",
-    role: "Culture Barbershop · Montreal, QC",
-    context: "Barbershop: full custom website delivered",
-    imageSrc: "/images/testimonials/mike-s.png",
-  },
-  {
-    id: 2,
-    quote:
-      "Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.",
-    name: "Westin Wayne Walker",
-    role: "Triple W Rentals · Texas",
-    context: "RV rental: Texas market, Google Ads",
-    imageSrc: "/images/testimonials/tyler-w.png",
-  },
-  {
-    id: 3,
-    quote:
-      "I love it. Very nice and professional.",
-    name: "Hadi",
-    role: "Elite Barbershop · Montreal, QC",
-    context: "Barbershop: local market, SEO campaign in progress",
-    imageSrc: "/images/testimonials/alex-m.png",
-  },
-  {
-    id: 4,
-    quote:
-      "Professional website that represents the brand. Built exactly what was needed.",
-    name: "Wesley",
-    role: "Absolute Painting · Dallas-Fort Worth",
-    context: "Painting contractor: full custom website delivered",
-    imageSrc: "/images/owners/wesley-absolute-painting.png",
-  },
-  {
-    id: 5,
-    quote:
-      "The site establishes credibility from the first visit. Patients book directly from search.",
-    name: "Dre Benyoucef",
-    role: "Centre Dentaire Saint-Élzéar · Quebec",
-    context: "Dental clinic: full custom website with booking funnel",
-    imageSrc: "https://static.wixstatic.com/media/62f926_acfce4c5f2b54e88b9f994f56e927c73~mv2.png",
-  },
-];
-
 export default function TestimonialBlock() {
-  useLocale();
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.testimonialBlock;
+
+  const testimonialsData = [
+    { id: 1, quote: t.quote1, name: "Tobari", role: "Culture Barbershop \u00b7 Montreal, QC", context: "Barbershop: full custom website delivered", imageSrc: "/images/testimonials/mike-s.png" },
+    { id: 2, quote: t.quote2, name: "Westin Wayne Walker", role: "Triple W Rentals \u00b7 Texas", context: "RV rental: Texas market, Google Ads", imageSrc: "/images/testimonials/tyler-w.png" },
+    { id: 3, quote: t.quote3, name: "Hadi", role: "Elite Barbershop \u00b7 Montreal, QC", context: "Barbershop: local market, SEO campaign in progress", imageSrc: "/images/testimonials/alex-m.png" },
+    { id: 4, quote: t.quote4, name: "Wesley", role: "Absolute Painting \u00b7 Dallas-Fort Worth", context: "Painting contractor: full custom website delivered", imageSrc: "/images/owners/wesley-absolute-painting.png" },
+    { id: 5, quote: t.quote5, name: "Dre Benyoucef", role: "Centre Dentaire Saint-\u00c9lz\u00e9ar \u00b7 Quebec", context: "Dental clinic: full custom website with booking funnel", imageSrc: "https://static.wixstatic.com/media/62f926_acfce4c5f2b54e88b9f994f56e927c73~mv2.png" },
+  ];
 
   return (
     <section
@@ -63,8 +25,8 @@ export default function TestimonialBlock() {
       }}
     >
       <TestimonialSection
-        title="Five businesses. Same system. Real outcomes."
-        subtitle="Every result below came from the same acquisition system."
+        title={t.title}
+        subtitle={t.subtitle}
         testimonials={testimonialsData}
       />
 
@@ -85,7 +47,7 @@ export default function TestimonialBlock() {
             e.currentTarget.style.color = "#D4A853";
           }}
         >
-          See all client results →
+          {t.seeAllResults}
         </a>
       </div>
     </section>

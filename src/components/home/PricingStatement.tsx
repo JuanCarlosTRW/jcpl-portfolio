@@ -5,27 +5,8 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { Sparkles } from "@/components/ui/sparkles";
-
-const GROWTH_FEATURES = [
-  "Conversion website: custom coded, built to rank and convert",
-  "Google Ads: purchase-intent targeting in your city",
-  "Local SEO: Google Maps and organic positioning",
-  "AI search visibility: appear in ChatGPT, Perplexity, Google AI",
-  "Weekly campaign optimization",
-  "Monthly performance review call",
-  "Full asset ownership: everything in your name",
-];
-
-const SCALE_ADDITIONS = [
-  "Higher ad budget management: more spend, more calls",
-  "AI lead qualification: automated follow-up before your phone rings",
-  "GEO (Generative Engine Optimization): when someone asks ChatGPT \"best [service] near me,\" your business is the answer. Most competitors do not know this exists.",
-  "Multi-location and multi-channel expansion",
-  "Dedicated landing pages per service and per city",
-  "Weekly strategy calls: direct line, every week",
-  "CRM setup + full lead organization: your pipeline visible and managed",
-  "Email marketing: nurture sequences, reactivation, past-lead follow-up",
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 function PricingCard({
   tag,
@@ -154,6 +135,11 @@ function PricingCard({
 }
 
 export default function PricingStatement() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.pricingStatement;
+  const GROWTH_FEATURES = t.growthFeatures;
+  const SCALE_ADDITIONS = t.scaleAdditions;
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
@@ -242,7 +228,7 @@ export default function PricingStatement() {
             className="text-[11px] uppercase tracking-[0.12em] mb-4"
             style={{ color: "#D4A853" }}
           >
-            PRICING
+            {t.eyebrow}
           </motion.p>
 
           <motion.h2
@@ -256,7 +242,7 @@ export default function PricingStatement() {
               fontFamily: "var(--font-cormorant), Georgia, serif",
             }}
           >
-            One person. Full pipeline.
+            {t.heading}
           </motion.h2>
 
           <motion.p
@@ -267,36 +253,36 @@ export default function PricingStatement() {
             className="text-[0.9375rem] max-w-md mx-auto"
             style={{ color: "#A69D8D", lineHeight: 1.65 }}
           >
-            Two speeds. Same operator. Same accountability.
+            {t.subtitle}
           </motion.p>
         </div>
 
         {/* Two-card grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
           <PricingCard
-            tag="Get the phone ringing"
-            name="Growth Architecture"
+            tag={t.growthTag}
+            name={t.growthName}
             price=""
             features={GROWTH_FEATURES}
-            proof="Triple W Rentals started here. $41,085. $900 ad spend. 30 days."
-            guarantee="If your phone does not ring in the first 30 days, I refund the management fee for that period."
-            conditions="Conditions: tracking in place before launch · minimum ad spend met · onboarding completed within 5 days · applies where Google Ads inventory exists"
-            cta="Apply to be a Partner →"
-            micro="I review every application within 24 hours."
+            proof={t.growthProof}
+            guarantee={t.growthGuarantee}
+            conditions={t.growthConditions}
+            cta={t.growthCta}
+            micro={t.growthMicro}
             popular
             delay={0.1}
           />
           <PricingCard
-            tag="Saturate your market"
-            name="Scale Architecture"
+            tag={t.scaleTag}
+            name={t.scaleName}
             price=""
-            intro="Everything in Growth Architecture, plus:"
+            intro={t.scaleIntro}
             features={SCALE_ADDITIONS}
-            proof="This is the tier where a single city becomes a category you own."
-            guarantee="If your phone does not ring in the first 30 days, I refund the management fee for that period."
-            conditions="Conditions: tracking in place before launch · minimum ad spend met · onboarding completed within 5 days · applies where Google Ads inventory exists"
-            cta="Apply to be a Partner →"
-            micro="I review every application within 24 hours."
+            proof={t.scaleProof}
+            guarantee={t.scaleGuarantee}
+            conditions={t.scaleConditions}
+            cta={t.scaleCta}
+            micro={t.scaleMicro}
             delay={0.25}
           />
         </div>
@@ -310,10 +296,10 @@ export default function PricingStatement() {
           className="text-center"
         >
           <p className="text-[14px] text-[#D2C9B8] mb-6">
-            No payment before fit. I confirm strategic fit on the call before you pay anything.
+            {t.trustLine}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            {["90-day initial term", "You own everything", "No account managers"].map((badge) => (
+            {[t.badge1, t.badge2, t.badge3].map((badge) => (
               <span key={badge} className="text-[13px] flex items-center gap-2" style={{ color: "rgba(240, 234, 214, 0.5)" }}>
                 <span style={{ color: "#D4A853" }}>&#10003;</span> {badge}
               </span>

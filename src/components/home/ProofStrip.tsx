@@ -1,11 +1,16 @@
 "use client";
 
-const STATS = [
-  { value: "$41,085", label: "revenue in 30 days", sub: "Triple W Rentals" },
-  { value: "$60K+", label: "tracked revenue", sub: "active accounts" },
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function ProofStrip() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.proofStrip;
+
+  const STATS = [
+    { value: "$41,085", label: t.stat1Label, sub: t.stat1Sub },
+    { value: "$60K+", label: t.stat2Label, sub: t.stat2Sub },
+  ];
   return (
     <section className="py-12 md:py-16" style={{ background: "#0D0B09" }}>
       <style>{`@media (max-width: 767px) { .proof-strip-grid { grid-template-columns: 1fr 1fr !important; } }`}</style>

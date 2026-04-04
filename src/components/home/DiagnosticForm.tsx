@@ -2,10 +2,14 @@
 
 import { useState, FormEvent } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function DiagnosticForm() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.diagnosticForm;
   const [fullName, setFullName] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [website, setWebsite] = useState("");
@@ -85,14 +89,14 @@ export default function DiagnosticForm() {
               fontWeight: 600,
             }}
           >
-            THE DIAGNOSTIC
+            {t.sectionLabel}
           </p>
 
           {/* Headline */}
           <h2
             className="text-[clamp(1.75rem,3.5vw,2.25rem)] font-bold leading-tight text-white mb-3"
           >
-            Book your diagnostic. I will tell you if I can help.
+            {t.heading}
           </h2>
 
           {/* Subtext */}
@@ -100,10 +104,7 @@ export default function DiagnosticForm() {
             className="text-sm leading-relaxed mb-6"
             style={{ color: "#A69D8D", maxWidth: 540 }}
           >
-            This is not a discovery call. It is an actual audit. I review your
-            pipeline, your competitors, and your current traffic sources. I show
-            you where you are losing calls and what fixing it is worth. I tell you
-            if I can help. No pitch. No pressure.
+            {t.body}
           </p>
 
           {/* Deliverable clarity block */}
@@ -111,17 +112,15 @@ export default function DiagnosticForm() {
             <p
               className="text-[15px] font-semibold text-white mb-4"
             >
-              You leave the call with:
+              {t.deliverablesTitle}
             </p>
             <ol className="space-y-2.5 mb-4 list-none p-0 m-0">
-              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>1.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A gap map showing exactly where you are losing calls right now</span></li>
-              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>2.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A competitor breakdown for your specific market and service area</span></li>
-              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>3.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A 30-day sprint plan: what gets built, in what order, and why</span></li>
-              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>4.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A budget model with projected cost per call for your niche</span></li>
-              <li className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>5.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>A clear yes or no on whether I can produce a return for your business</span></li>
+              {[t.deliverable1, t.deliverable2, t.deliverable3, t.deliverable4, t.deliverable5].map((d, i) => (
+                <li key={i} className="flex items-start gap-3"><span className="flex-shrink-0 mt-0.5 text-[13px] font-bold" style={{ color: "#D4A853" }}>{i + 1}.</span><span className="text-[14px] leading-[1.6]" style={{ color: "#D2C9B8" }}>{d}</span></li>
+              ))}
             </ol>
             <p className="text-[12px]" style={{ color: "#756D63" }}>
-              If the answer is no, I tell you on the call. You will not be asked to pay anything.
+              {t.deliverablesNote}
             </p>
           </div>
 
@@ -138,21 +137,17 @@ export default function DiagnosticForm() {
               borderBottom: "1px solid rgba(212, 168, 83, 0.1)",
             }}
           >
-            <div>
-              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 400, letterSpacing: "-0.02em" }}>1</span>
-              <h4 style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "15px", color: "#F0EAD6", margin: "8px 0 4px", fontWeight: 600 }}>You apply</h4>
-              <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "13px", color: "rgba(240,234,214,0.5)", margin: 0 }}>Fill out the form. It takes under 2 minutes.</p>
-            </div>
-            <div>
-              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 400, letterSpacing: "-0.02em" }}>2</span>
-              <h4 style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "15px", color: "#F0EAD6", margin: "8px 0 4px", fontWeight: 600 }}>I review your business</h4>
-              <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "13px", color: "rgba(240,234,214,0.5)", margin: 0 }}>I look at your market, your competitors, and your current setup before we speak. The call is a diagnosis, not a pitch.</p>
-            </div>
-            <div>
-              <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 400, letterSpacing: "-0.02em" }}>3</span>
-              <h4 style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "15px", color: "#F0EAD6", margin: "8px 0 4px", fontWeight: 600 }}>You get an answer within 24 hours</h4>
-              <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "13px", color: "rgba(240,234,214,0.5)", margin: 0 }}>I email you directly. If I can move the needle, I tell you exactly how. If I cannot, I tell you that too. Before you pay anything.</p>
-            </div>
+            {[
+              { num: "1", title: t.step1Title, desc: t.step1Desc },
+              { num: "2", title: t.step2Title, desc: t.step2Desc },
+              { num: "3", title: t.step3Title, desc: t.step3Desc },
+            ].map((step) => (
+              <div key={step.num}>
+                <span style={{ color: "#D4A853", fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: "24px", fontWeight: 400, letterSpacing: "-0.02em" }}>{step.num}</span>
+                <h4 style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "15px", color: "#F0EAD6", margin: "8px 0 4px", fontWeight: 600 }}>{step.title}</h4>
+                <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "13px", color: "rgba(240,234,214,0.5)", margin: 0 }}>{step.desc}</p>
+              </div>
+            ))}
           </div>
 
           {/* Form */}
@@ -171,10 +166,10 @@ export default function DiagnosticForm() {
                 ✓
               </span>
               <p className="text-lg font-semibold text-white mb-2">
-                Application received.
+                {t.successTitle}
               </p>
               <p className="text-sm" style={{ color: "#A69D8D" }}>
-                I will review your business within 24 hours and email you directly.
+                {t.successBody}
               </p>
             </div>
           ) : status === "error" ? (
@@ -186,10 +181,10 @@ export default function DiagnosticForm() {
               }}
             >
               <p className="text-lg font-semibold text-white mb-2">
-                Something went wrong.
+                {t.errorTitle}
               </p>
               <p className="text-sm mb-4" style={{ color: "#A69D8D" }}>
-                Email{" "}
+                {t.errorBody}{" "}
                 <a
                   href="mailto:juan@clientgrowth.ca"
                   className="underline"
@@ -209,7 +204,7 @@ export default function DiagnosticForm() {
                   border: "1px solid #2A2318",
                 }}
               >
-                Try again
+                {t.tryAgain}
               </button>
             </div>
           ) : (
@@ -220,7 +215,7 @@ export default function DiagnosticForm() {
                   type="text"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder="Your name"
+                  placeholder={t.placeholderName}
                   className={inputClass}
                   style={inputStyle}
                   onFocus={handleFocus}
@@ -234,7 +229,7 @@ export default function DiagnosticForm() {
                   type="text"
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
-                  placeholder="Your business name"
+                  placeholder={t.placeholderBusiness}
                   className={inputClass}
                   style={inputStyle}
                   onFocus={handleFocus}
@@ -248,7 +243,7 @@ export default function DiagnosticForm() {
                   type="text"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
-                  placeholder="yourwebsite.com (if you have one)"
+                  placeholder={t.placeholderWebsite}
                   className={inputClass}
                   style={inputStyle}
                   onFocus={handleFocus}
@@ -263,7 +258,7 @@ export default function DiagnosticForm() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@yourbusiness.com"
+                  placeholder={t.placeholderEmail}
                   className={inputClass}
                   style={inputStyle}
                   onFocus={handleFocus}
@@ -295,10 +290,10 @@ export default function DiagnosticForm() {
                     <span
                       className="inline-block w-4 h-4 border-2 border-[#0A0F1E] border-t-transparent rounded-full animate-spin"
                     />
-                    Submitting...
+                    {t.submittingText}
                   </span>
                 ) : (
-                  "Apply to be a Partner →"
+                  t.submitText
                 )}
               </button>
 
@@ -307,8 +302,7 @@ export default function DiagnosticForm() {
                 className="text-center text-xs"
                 style={{ color: "#756D63", lineHeight: 1.6 }}
               >
-                I review your market before the call. Response within 24 hours. No
-                retainer until I confirm fit.
+                {t.microcopy}
               </p>
             </form>
           )}

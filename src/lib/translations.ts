@@ -87,7 +87,7 @@ const faqFr: FAQItem[] = [
   {
     question: "En combien de temps verrai-je des résultats?",
     answer:
-      "Médiane de 11 jours entre la signature et le système en ligne. Cela inclut l'audit diagnostique, la construction complète du site et la configuration des campagnes. La plupart des clients reçoivent leur premier appel dans les 2 semaines suivant le lancement. Le système atteint son efficacité maximale en 60 à 90 jours.",
+      "Construction rapide entre la signature et le système en ligne. Cela inclut l'audit diagnostique, la construction complète du site et la configuration des campagnes. La plupart des clients reçoivent leur premier appel dans les semaines suivant le lancement. Le système atteint son efficacité maximale en 60 à 90 jours.",
     featured: false,
   },
   {
@@ -141,6 +141,7 @@ export type TranslationsShape = {
     results: string;
     about: string;
     apply: string;
+    pricing: string;
     seeResults: string;
   };
   faq: {
@@ -454,6 +455,191 @@ export type TranslationsShape = {
       p3: string;
       stats: string;
     };
+    heroSection: {
+      headlineBefore: string;
+      accentWord: string;
+      headlineAfter: string;
+      subtitle: string;
+      ctaPrimary: string;
+      ctaSecondary: string;
+    };
+    proofStrip: {
+      stat1Label: string;
+      stat1Sub: string;
+      stat2Label: string;
+      stat2Sub: string;
+    };
+    problemGrid: {
+      eyebrow: string;
+      heading: string;
+      subtitle: string;
+      problem1Title: string;
+      problem1Desc: string;
+      problem2Title: string;
+      problem2Desc: string;
+      problem3Title: string;
+      problem3Desc: string;
+      closingBefore: string;
+      closingAccent: string;
+      closingAfter: string;
+    };
+    differentiationSection: {
+      eyebrow: string;
+      heading: string;
+      leftHeader: string;
+      leftItem1: string;
+      leftItem2: string;
+      leftItem3: string;
+      rightHeader: string;
+      rightItem1: string;
+      rightItem2: string;
+      rightItem3: string;
+      closingLine: string;
+    };
+    acquisitionSlider: {
+      eyebrow: string;
+      heading: string;
+      subtitle: string;
+      step1Title: string;
+      step1Desc: string;
+      step1Proof: string;
+      step2Title: string;
+      step2Desc: string;
+      step2Proof: string;
+      step3Title: string;
+      step3Desc: string;
+      step3Proof: string;
+      cta: string;
+    };
+    whatIBuildSlider: {
+      eyebrow: string;
+      heading: string;
+      subtitle: string;
+      svc1Title: string;
+      svc1Desc: string;
+      svc1Stat: string;
+      svc2Title: string;
+      svc2Desc: string;
+      svc2Stat: string;
+      svc3Title: string;
+      svc3Desc: string;
+      svc3Stat: string;
+      svc4Title: string;
+      svc4Desc: string;
+      svc4Stat: string;
+      svc5Title: string;
+      svc5Desc: string;
+      svc5Stat: string;
+      svc6Title: string;
+      svc6Desc: string;
+      svc6Stat: string;
+      svc6Badge: string;
+      svc7Title: string;
+      svc7Desc: string;
+      svc7Stat: string;
+      closingLine: string;
+      cta: string;
+    };
+    testimonialBlock: {
+      title: string;
+      subtitle: string;
+      seeAllResults: string;
+      quote1: string;
+      quote2: string;
+      quote3: string;
+      quote4: string;
+      quote5: string;
+    };
+    pricingStatement: {
+      eyebrow: string;
+      heading: string;
+      subtitle: string;
+      growthFeatures: string[];
+      scaleAdditions: string[];
+      growthTag: string;
+      growthName: string;
+      growthProof: string;
+      growthGuarantee: string;
+      growthConditions: string;
+      growthCta: string;
+      growthMicro: string;
+      scaleTag: string;
+      scaleName: string;
+      scaleIntro: string;
+      scaleProof: string;
+      scaleGuarantee: string;
+      scaleConditions: string;
+      scaleCta: string;
+      scaleMicro: string;
+      trustLine: string;
+      badge1: string;
+      badge2: string;
+      badge3: string;
+    };
+    diagnosticForm: {
+      sectionLabel: string;
+      heading: string;
+      body: string;
+      deliverablesTitle: string;
+      deliverable1: string;
+      deliverable2: string;
+      deliverable3: string;
+      deliverable4: string;
+      deliverable5: string;
+      deliverablesNote: string;
+      step1Title: string;
+      step1Desc: string;
+      step2Title: string;
+      step2Desc: string;
+      step3Title: string;
+      step3Desc: string;
+      placeholderName: string;
+      placeholderBusiness: string;
+      placeholderWebsite: string;
+      placeholderEmail: string;
+      submitText: string;
+      submittingText: string;
+      successTitle: string;
+      successBody: string;
+      errorTitle: string;
+      errorBody: string;
+      tryAgain: string;
+      microcopy: string;
+    };
+    stickyMobileCta: string;
+    howWeWork: {
+      phaseChips: Record<string, string[]>;
+      kickerLine: string;
+    };
+    featuredCaseStudy: {
+      leadResultLabel: string;
+      revenueLine: string;
+      returnLine: string;
+      verifiedDate: string;
+      liveAccount: string;
+      testimonialQuote: string;
+      testimonialAttribution: string;
+      viewCaseStudy: string;
+      compactClients: Array<{
+        badge: string;
+        niche: string;
+        stat: string;
+        detail: string;
+      }>;
+      revenueSummary: string;
+      seeFullCaseStudies: string;
+    };
+    footerExtra: {
+      howItWorks: string;
+      pricing: string;
+      apply: string;
+      operatedFrom: string;
+    };
+    faqHeading: string;
+    faqHeadingItalic: string;
+    faqStillQuestions: string;
+    faqApplyCta: string;
+    faqPreferEmail: string;
   };
   services: {
     hero: {
@@ -630,6 +816,66 @@ export type TranslationsShape = {
       updated: string;
     };
   };
+  aboutPage: {
+    operatorHeading: string;
+    card1Title: string;
+    card1Body: string;
+    card2Title: string;
+    card2Body: string;
+    card3Title: string;
+    card3Body: string;
+    ctaHeading: string;
+    ctaSub: string;
+    ctaButton: string;
+    ctaTrust: string;
+  };
+  applyPage: {
+    heading: string;
+    sub: string;
+    placeholderName: string;
+    placeholderBusiness: string;
+    placeholderWebsite: string;
+    placeholderEmail: string;
+    submitButton: string;
+    submitting: string;
+    trustLine: string;
+    proofQuote: string;
+    successTitle: string;
+    successBody: string;
+    errorTitle: string;
+    tryAgain: string;
+  };
+  resultsPage: {
+    eyebrow: string;
+    heading: string;
+    sub: string;
+    revenueLine: string;
+    returnLine: string;
+    verifiedLine: string;
+    testimonialQuote: string;
+    whatWasBuilt: string;
+    deliverables: string;
+    viewLiveSite: string;
+    ctaHeading: string;
+    ctaSub: string;
+    ctaButton: string;
+    ctaTrust: string;
+    client1Badge: string;
+    client1Title: string;
+    client1Desc: string;
+    client1Testimonial: string;
+    client2Badge: string;
+    client2Title: string;
+    client2Desc: string;
+    client2Testimonial: string;
+    client3Badge: string;
+    client3Title: string;
+    client3Desc: string;
+    client3Testimonial: string;
+    client4Badge: string;
+    client4Title: string;
+    client4Desc: string;
+  };
 };
 
 export const translations: Record<Locale, TranslationsShape> = {
@@ -639,7 +885,8 @@ export const translations: Record<Locale, TranslationsShape> = {
       services: "Services",
       results: "Results",
       about: "About",
-      apply: "Apply to be a Partner",
+      apply: "Apply",
+      pricing: "Pricing",
       seeResults: "See Results",
     },
     faq: {
@@ -962,6 +1209,212 @@ export const translations: Record<Locale, TranslationsShape> = {
         p3: "The work was never the problem. The infrastructure was.",
         stats: "",
       },
+      heroSection: {
+        headlineBefore: "I build the system that",
+        accentWord: "books",
+        headlineAfter: "your calendar.",
+        subtitle: "Your competitors are not better than you. They just get found first. I fix that.",
+        ctaPrimary: "Apply to be a Partner \u2192",
+        ctaSecondary: "See the results \u2192",
+      },
+      proofStrip: {
+        stat1Label: "revenue in 30 days",
+        stat1Sub: "Triple W Rentals",
+        stat2Label: "tracked revenue",
+        stat2Sub: "active accounts",
+      },
+      problemGrid: {
+        eyebrow: "THE PROBLEM",
+        heading: "You are losing money every single day.",
+        subtitle: "and you do not even see it yet.",
+        problem1Title: "You are not getting found first.",
+        problem1Desc: "Google, Maps, AI search. If you are not in those results, the call goes to whoever is.",
+        problem2Title: "Your website is not converting.",
+        problem2Desc: "Traffic without conversion is wasted money. No clear offer, no call to action, no reason to pick up the phone.",
+        problem3Title: "Your pipeline depends on referrals.",
+        problem3Desc: "Good months. Quiet months. No control. Referrals keep you alive. They do not build predictability.",
+        closingBefore: "Serious operators build ",
+        closingAccent: "infrastructure",
+        closingAfter: ". Everyone else waits for the phone to ring.",
+      },
+      differentiationSection: {
+        eyebrow: "WHY THIS IS DIFFERENT",
+        heading: "This is not another agency.",
+        leftHeader: "What most agencies sell you",
+        leftItem1: "A junior account manager you never chose",
+        leftItem2: "Recycled templates adapted to your logo",
+        leftItem3: "You rent the results. Leave and you start from zero.",
+        rightHeader: "What I build",
+        rightItem1: "One operator. I build the system myself.",
+        rightItem2: "Custom coded. Your site, your ads account, your data.",
+        rightItem3: "You own everything. If you leave, it all goes with you.",
+        closingLine: "No junior team. No outsourced work. Every system built personally.",
+      },
+      acquisitionSlider: {
+        eyebrow: "THE ACQUISITION SYSTEM",
+        heading: "The system that fills your calendar.",
+        subtitle: "Three layers. One connected pipeline. Every result on this page came from this exact system.",
+        step1Title: "Pull in buyers",
+        step1Desc: "Google Ads, Meta Ads, Local SEO, and geo-targeted AI campaigns that put your business in front of the right people at the right time.",
+        step1Proof: "$41,085 revenue \u00b7 $900 ad spend \u00b7 30 days",
+        step2Title: "Convert the click into a call",
+        step2Desc: "A conversion website custom-coded for your niche. Built around one outcome: the visitor calls or books. Not a template. Not WordPress.",
+        step2Proof: "First booking \u00b7 Culture Barbershop \u00b7 Montreal",
+        step3Title: "Keep the pipeline full",
+        step3Desc: "Missed-call follow-up, automated booking flow, and weekly optimization. Every month the system runs, your cost per call drops and your pipeline compounds.",
+        step3Proof: "Fully booked calendar \u00b7 Elite Barbershop \u00b7 Montreal",
+        cta: "Apply to be a Partner \u2192",
+      },
+      whatIBuildSlider: {
+        eyebrow: "WHAT I BUILD",
+        heading: "Seven layers. One connected system.",
+        subtitle: "Not a menu. Everything below is included in every engagement, built and run as one unit.",
+        svc1Title: "Conversion website",
+        svc1Desc: "Custom coded. Loads in under a second. Built around one outcome: the visitor calls or books. Not a template. Not WordPress. Built for your niche, your market, your offer.",
+        svc1Stat: "VISITORS BECOME CALLS.",
+        svc2Title: "Google Ads / Meta Ads",
+        svc2Desc: "Purchase-intent targeting only. I find the buyers in your city who are ready to hire today and place your business in front of them first. Every dollar tracked to a call.",
+        svc2Stat: "$33 AVERAGE COST PER QUALIFIED CALL ACROSS ACTIVE ACCOUNTS.",
+        svc3Title: "Local SEO",
+        svc3Desc: "Google Maps and organic rankings for your service area. Compounds from day one. Every month it runs, your position gets stronger and your cost per call goes down.",
+        svc3Stat: "PAGE 1 POSITIONING IN YOUR CITY.",
+        svc4Title: "GEO / AI search",
+        svc4Desc: "When someone asks ChatGPT, Perplexity, or Google AI \"best [service] near me,\" your business needs to be the answer. This is the new SEO. Most competitors do not have it yet.",
+        svc4Stat: "VISIBLE BEFORE YOUR COMPETITORS KNOW THIS EXISTS.",
+        svc5Title: "AI integration",
+        svc5Desc: "Voice agents and chatbots that answer, qualify, and follow up with leads automatically. Your phone does not need to ring for a lead to be captured. The system works while you are on a job.",
+        svc5Stat: "AUTOMATED FOLLOW-UP BEFORE YOU PICK UP THE PHONE.",
+        svc6Title: "Email marketing",
+        svc6Desc: "Nurture sequences, reactivation campaigns, and automated follow-ups that keep your business top of mind. Turn past leads into future bookings.",
+        svc6Stat: "STAY TOP OF MIND. REACTIVATE PAST LEADS.",
+        svc6Badge: "SCALE",
+        svc7Title: "Weekly optimization + reporting",
+        svc7Desc: "Every week I review the data and cut what is not working. Every month I send a revenue report with real numbers. The longer the system runs, the cheaper each call gets.",
+        svc7Stat: "COST PER CALL DROPS EVERY MONTH.",
+        closingLine: "Every service above is included. Nothing sold separately.",
+        cta: "Apply to be a Partner \u2192",
+      },
+      testimonialBlock: {
+        title: "Five businesses. Same system. Real outcomes.",
+        subtitle: "Every result below came from the same acquisition system.",
+        seeAllResults: "See all client results \u2192",
+        quote1: "Juan built the website exactly how I wanted it. Highly recommend.",
+        quote2: "Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.",
+        quote3: "I love it. Very nice and professional.",
+        quote4: "Professional website that represents the brand. Built exactly what was needed.",
+        quote5: "The site establishes credibility from the first visit. Patients book directly from search.",
+      },
+      pricingStatement: {
+        eyebrow: "PRICING",
+        heading: "One person. Full pipeline.",
+        subtitle: "Two speeds. Same operator. Same accountability.",
+        growthFeatures: [
+          "Conversion website: custom coded, built to rank and convert",
+          "Google Ads: purchase-intent targeting in your city",
+          "Local SEO: Google Maps and organic positioning",
+          "AI search visibility: appear in ChatGPT, Perplexity, Google AI",
+          "Weekly campaign optimization",
+          "Monthly performance review call",
+          "Full asset ownership: everything in your name",
+        ],
+        scaleAdditions: [
+          "Higher ad budget management: more spend, more calls",
+          "AI lead qualification: automated follow-up before your phone rings",
+          "GEO (Generative Engine Optimization): when someone asks ChatGPT \"best [service] near me,\" your business is the answer. Most competitors do not know this exists.",
+          "Multi-location and multi-channel expansion",
+          "Dedicated landing pages per service and per city",
+          "Weekly strategy calls: direct line, every week",
+          "CRM setup + full lead organization: your pipeline visible and managed",
+          "Email marketing: nurture sequences, reactivation, past-lead follow-up",
+        ],
+        growthTag: "Get the phone ringing",
+        growthName: "Growth Architecture",
+        growthProof: "Triple W Rentals started here. $41,085. $900 ad spend. 30 days.",
+        growthGuarantee: "If your phone does not ring in the first 30 days, I refund the management fee for that period.",
+        growthConditions: "Conditions: tracking in place before launch \u00b7 minimum ad spend met \u00b7 onboarding completed within 5 days \u00b7 applies where Google Ads inventory exists",
+        growthCta: "Apply to be a Partner \u2192",
+        growthMicro: "I review every application within 24 hours.",
+        scaleTag: "Saturate your market",
+        scaleName: "Scale Architecture",
+        scaleIntro: "Everything in Growth Architecture, plus:",
+        scaleProof: "This is the tier where a single city becomes a category you own.",
+        scaleGuarantee: "If your phone does not ring in the first 30 days, I refund the management fee for that period.",
+        scaleConditions: "Conditions: tracking in place before launch \u00b7 minimum ad spend met \u00b7 onboarding completed within 5 days \u00b7 applies where Google Ads inventory exists",
+        scaleCta: "Apply to be a Partner \u2192",
+        scaleMicro: "I review every application within 24 hours.",
+        trustLine: "No payment before fit. I confirm strategic fit on the call before you pay anything.",
+        badge1: "90-day initial term",
+        badge2: "You own everything",
+        badge3: "No account managers",
+      },
+      diagnosticForm: {
+        sectionLabel: "THE DIAGNOSTIC",
+        heading: "Book your diagnostic. I will tell you if I can help.",
+        body: "This is not a discovery call. It is an actual audit. I review your pipeline, your competitors, and your current traffic sources. I show you where you are losing calls and what fixing it is worth. I tell you if I can help. No pitch. No pressure.",
+        deliverablesTitle: "You leave the call with:",
+        deliverable1: "A gap map showing exactly where you are losing calls right now",
+        deliverable2: "A competitor breakdown for your specific market and service area",
+        deliverable3: "A 30-day sprint plan: what gets built, in what order, and why",
+        deliverable4: "A budget model with projected cost per call for your niche",
+        deliverable5: "A clear yes or no on whether I can produce a return for your business",
+        deliverablesNote: "If the answer is no, I tell you on the call. You will not be asked to pay anything.",
+        step1Title: "You apply",
+        step1Desc: "Fill out the form. It takes under 2 minutes.",
+        step2Title: "I review your business",
+        step2Desc: "I look at your market, your competitors, and your current setup before we speak. The call is a diagnosis, not a pitch.",
+        step3Title: "You get an answer within 24 hours",
+        step3Desc: "I email you directly. If I can move the needle, I tell you exactly how. If I cannot, I tell you that too. Before you pay anything.",
+        placeholderName: "Your name",
+        placeholderBusiness: "Your business name",
+        placeholderWebsite: "yourwebsite.com (if you have one)",
+        placeholderEmail: "you@yourbusiness.com",
+        submitText: "Apply to be a Partner \u2192",
+        submittingText: "Submitting...",
+        successTitle: "Application received.",
+        successBody: "I will review your business within 24 hours and email you directly.",
+        errorTitle: "Something went wrong.",
+        errorBody: "Email directly.",
+        tryAgain: "Try again",
+        microcopy: "I review your market before the call. Response within 24 hours. No retainer until I confirm fit.",
+      },
+      stickyMobileCta: "Apply to be a Partner \u2192",
+      howWeWork: {
+        phaseChips: {
+          "Market Gap Report": ["Market Gap Report", "Funnel Audit", "90-Day Roadmap"],
+          "System Launch": ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
+          "Compound Loop": ["Weekly Performance Report", "Monthly Review Call", "Conversion Improvements"],
+        },
+        kickerLine: "Most clients see their first booked call within weeks of going live. Timeline depends on onboarding speed.",
+      },
+      featuredCaseStudy: {
+        leadResultLabel: "LEAD RESULT \u2014 VERIFIED REVENUE",
+        revenueLine: "in revenue. First 30 days.",
+        returnLine: "$46 returned per $1 of ad spend.",
+        verifiedDate: "Verified Feb 2026",
+        liveAccount: "LIVE ACCOUNT",
+        testimonialQuote: "Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.",
+        testimonialAttribution: "Westin Wayne Walker, Triple W Rentals \u00b7 Texas",
+        viewCaseStudy: "View full case study \u2192",
+        compactClients: [
+          { badge: "IN PROGRESS", niche: "BARBERSHOP \u00b7 MONTREAL \u00b7 LOCAL SEO", stat: "Targeting #1", detail: "Local SEO campaign active. Competing for top position in Google." },
+          { badge: "DELIVERED", niche: "BARBERSHOP \u00b7 MONTREAL \u00b7 WEB DESIGN", stat: "Live", detail: "Full custom website. Mobile-optimized booking flow." },
+          { badge: "DELIVERED", niche: "PAINTING CONTRACTOR \u00b7 DALLAS-FORT WORTH", stat: "Live", detail: "Conversion website. DFW market. Tracking active." },
+          { badge: "DELIVERED", niche: "DENTAL CLINIC \u00b7 LAVAL", stat: "Live", detail: "Full custom website. Booking funnel built." },
+        ],
+        revenueSummary: "$60K+ in tracked revenue across active partnerships.",
+        seeFullCaseStudies: "See full case studies \u2192",
+      },
+      footerExtra: {
+        howItWorks: "How it works",
+        pricing: "Pricing",
+        apply: "Apply",
+        operatedFrom: "Operated from Quebec, Canada. Founder-led. juan@clientgrowth.ca",
+      },
+      faqHeading: "Every question I hear before someone signs.",
+      faqHeadingItalic: "Answered.",
+      faqStillQuestions: "Still have questions?",
+      faqApplyCta: "Apply to be a Partner \u2192",
+      faqPreferEmail: "Prefer email?",
     },
     services: {
       hero: {
@@ -1178,6 +1631,66 @@ export const translations: Record<Locale, TranslationsShape> = {
         updated: "UPDATED AS RESULTS COME IN.",
       },
     },
+    aboutPage: {
+      operatorHeading: "One operator. Full accountability.",
+      card1Title: "Personally built",
+      card1Body: "Every site, campaign, and optimization is done by me. Not delegated.",
+      card2Title: "Direct access",
+      card2Body: "You message me. I respond. No account managers. No tickets.",
+      card3Title: "Selective by design",
+      card3Body: "I only take on clients I know I can produce a return for.",
+      ctaHeading: "Ready to see what this system can do for your business?",
+      ctaSub: "One call. I review your market before we speak. No pitch. No pressure.",
+      ctaButton: "Apply to be a Partner →",
+      ctaTrust: "Response within 24 hours.",
+    },
+    applyPage: {
+      heading: "Apply to be a partner",
+      sub: "I review your market, competitors, and current setup before we speak. If I can move the needle, I tell you exactly how. If I cannot, I tell you that too.",
+      placeholderName: "Full name",
+      placeholderBusiness: "Business name",
+      placeholderWebsite: "Website URL (if you have one)",
+      placeholderEmail: "Email",
+      submitButton: "Submit application",
+      submitting: "Submitting...",
+      trustLine: "No payment before fit is confirmed. I respond within 24 hours.",
+      proofQuote: "First call came in 9 days. We had tried two agencies before this. Nothing came close.",
+      successTitle: "Application received.",
+      successBody: "I will review your business within 24 hours and email you directly.",
+      errorTitle: "Something went wrong.",
+      tryAgain: "Try again",
+    },
+    resultsPage: {
+      eyebrow: "PROVEN OUTCOMES",
+      heading: "Five businesses. Same system. Real outcomes.",
+      sub: "Every result below came from the same acquisition system. One operator. Verified numbers.",
+      revenueLine: "in revenue. First 30 days.",
+      returnLine: "$46 returned per $1 of ad spend.",
+      verifiedLine: "Live account. Last verified February 2026.",
+      testimonialQuote: "Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.",
+      whatWasBuilt: "What was built:",
+      deliverables: "Google Ads  ·  Conversion Website  ·  Booking Flow  ·  Weekly Optimization",
+      viewLiveSite: "View live site →",
+      ctaHeading: "Ready to see what this system can do for your business?",
+      ctaSub: "One call. I review your market before we speak. No pitch. No pressure.",
+      ctaButton: "Apply to be a Partner →",
+      ctaTrust: "Response within 24 hours. No retainer until I confirm fit.",
+      client1Badge: "DELIVERED",
+      client1Title: "Full custom website + booking flow",
+      client1Desc: "Conversion website designed and built. Mobile-optimized booking flow included.",
+      client1Testimonial: "\"Juan built the website exactly how I wanted it. Highly recommend.\"",
+      client2Badge: "IN PROGRESS",
+      client2Title: "Custom website + local SEO campaign",
+      client2Desc: "Conversion website designed and built. Local SEO campaign launched, competing for top position in Google.",
+      client2Testimonial: "\"I love it. Very nice and professional.\"",
+      client3Badge: "DELIVERED",
+      client3Title: "Conversion website",
+      client3Desc: "Full custom website built for the DFW painting market. Designed for quote requests.",
+      client3Testimonial: "\"Professional website that represents the brand. Built exactly what was needed.\"",
+      client4Badge: "DELIVERED",
+      client4Title: "Custom website + booking funnel",
+      client4Desc: "Full custom website designed and built. Booking funnel included.",
+    },
   },
   fr: {
     nav: {
@@ -1185,7 +1698,8 @@ export const translations: Record<Locale, TranslationsShape> = {
       services: "Services",
       results: "Résultats",
       about: "À propos",
-      apply: "Devenir partenaire",
+      apply: "Postuler",
+      pricing: "Tarifs",
       seeResults: "Voir les résultats",
     },
     faq: {
@@ -1342,9 +1856,9 @@ export const translations: Record<Locale, TranslationsShape> = {
       },
       provenOutcomes: {
         eyebrow: "RÉSULTATS PROUVÉS",
-        h2: "$41 085 avec $900 en publicité. 11 jours jusqu'au premier appel.",
+        h2: "$41 085 avec $900 en publicité.",
         h2Main: "$41 085 avec $900 en publicité.",
-        h2Italic: "11 jours jusqu'au premier appel.",
+        h2Italic: "",
         sub: "Revenus, appels qualifiés et visibilité de recherche. Pas trois victoires séparées. Le même système connecté, en continu.",
         card1Label: "LOCATION DE VR · TEXAS · GOOGLE ADS",
         card1Revenue: "en revenus. Premiers 30 jours.",
@@ -1431,7 +1945,7 @@ export const translations: Record<Locale, TranslationsShape> = {
         videoSoon: "Vidéo bientôt disponible",
       },
       testimonial: {
-        quote: "Juan a complètement refait notre présence en ligne depuis zéro. La première réservation est arrivée en 11 jours. Le calendrier n'a plus eu un seul créneau vide depuis.",
+        quote: "Juan a complètement refait notre présence en ligne depuis zéro. Le calendrier n'a plus eu un seul créneau vide depuis.",
         name: "Tobari",
         business: "Culture Barbershop · Montréal, QC",
         below: "Chaque résultat sur cette page provient du même système d'acquisition.",
@@ -1509,14 +2023,220 @@ export const translations: Record<Locale, TranslationsShape> = {
         p3: "Le travail n\u2019a jamais \u00e9t\u00e9 le probl\u00e8me. L\u2019infrastructure l\u2019\u00e9tait.",
         stats: "",
       },
+      heroSection: {
+        headlineBefore: "Je construis le syst\u00e8me qui",
+        accentWord: "remplit",
+        headlineAfter: "votre calendrier.",
+        subtitle: "Vos concurrents ne sont pas meilleurs que vous. Ils sont simplement trouv\u00e9s en premier. Je corrige \u00e7a.",
+        ctaPrimary: "Devenir partenaire \u2192",
+        ctaSecondary: "Voir les r\u00e9sultats \u2192",
+      },
+      proofStrip: {
+        stat1Label: "revenus en 30 jours",
+        stat1Sub: "Triple W Rentals",
+        stat2Label: "revenus suivis",
+        stat2Sub: "comptes actifs",
+      },
+      problemGrid: {
+        eyebrow: "LE PROBL\u00c8ME",
+        heading: "Vous perdez de l\u2019argent chaque jour.",
+        subtitle: "et vous ne le voyez pas encore.",
+        problem1Title: "On ne vous trouve pas en premier.",
+        problem1Desc: "Google, Maps, recherche IA. Si vous n\u2019\u00eates pas dans ces r\u00e9sultats, l\u2019appel va \u00e0 celui qui y est.",
+        problem2Title: "Votre site ne convertit pas.",
+        problem2Desc: "Du trafic sans conversion, c\u2019est de l\u2019argent gaspill\u00e9. Aucune offre claire, aucun appel \u00e0 l\u2019action, aucune raison de d\u00e9crocher le t\u00e9l\u00e9phone.",
+        problem3Title: "Votre pipeline d\u00e9pend des r\u00e9f\u00e9rences.",
+        problem3Desc: "Bons mois. Mois tranquilles. Aucun contr\u00f4le. Les r\u00e9f\u00e9rences vous gardent en vie. Elles ne cr\u00e9ent pas de pr\u00e9visibilit\u00e9.",
+        closingBefore: "Les op\u00e9rateurs s\u00e9rieux construisent une ",
+        closingAccent: "infrastructure",
+        closingAfter: ". Les autres attendent que le t\u00e9l\u00e9phone sonne.",
+      },
+      differentiationSection: {
+        eyebrow: "POURQUOI C\u2019EST DIFF\u00c9RENT",
+        heading: "Ce n\u2019est pas une agence de plus.",
+        leftHeader: "Ce que la plupart des agences vous vendent",
+        leftItem1: "Un charg\u00e9 de compte junior que vous n\u2019avez jamais choisi",
+        leftItem2: "Des templates recycl\u00e9s adapt\u00e9s \u00e0 votre logo",
+        leftItem3: "Vous louez les r\u00e9sultats. Partez et vous repartez de z\u00e9ro.",
+        rightHeader: "Ce que je construis",
+        rightItem1: "Un seul op\u00e9rateur. Je construis le syst\u00e8me moi-m\u00eame.",
+        rightItem2: "Code sur mesure. Votre site, votre compte pub, vos donn\u00e9es.",
+        rightItem3: "Vous \u00eates propri\u00e9taire de tout. Si vous partez, tout part avec vous.",
+        closingLine: "Pas d\u2019\u00e9quipe junior. Pas de sous-traitance. Chaque syst\u00e8me construit personnellement.",
+      },
+      acquisitionSlider: {
+        eyebrow: "LE SYST\u00c8ME D\u2019ACQUISITION",
+        heading: "Le syst\u00e8me qui remplit votre calendrier.",
+        subtitle: "Trois couches. Un seul pipeline connect\u00e9. Chaque r\u00e9sultat sur cette page vient de ce syst\u00e8me exact.",
+        step1Title: "Attirer les acheteurs",
+        step1Desc: "Google Ads, Meta Ads, SEO local et campagnes IA g\u00e9olocalis\u00e9es qui placent votre entreprise devant les bonnes personnes au bon moment.",
+        step1Proof: "$41,085 revenus \u00b7 $900 en pub \u00b7 30 jours",
+        step2Title: "Convertir le clic en appel",
+        step2Desc: "Un site de conversion cod\u00e9 sur mesure pour votre niche. Construit autour d\u2019un seul r\u00e9sultat : le visiteur appelle ou r\u00e9serve. Pas un template. Pas WordPress.",
+        step2Proof: "Premi\u00e8re r\u00e9servation \u00b7 Culture Barbershop \u00b7 Montr\u00e9al",
+        step3Title: "Garder le pipeline plein",
+        step3Desc: "Suivi d\u2019appels manqu\u00e9s, flux de r\u00e9servation automatis\u00e9 et optimisation hebdomadaire. Chaque mois o\u00f9 le syst\u00e8me tourne, votre co\u00fbt par appel baisse et votre pipeline se renforce.",
+        step3Proof: "Calendrier complet \u00b7 Elite Barbershop \u00b7 Montr\u00e9al",
+        cta: "Devenir partenaire \u2192",
+      },
+      whatIBuildSlider: {
+        eyebrow: "CE QUE JE CONSTRUIS",
+        heading: "Sept couches. Un syst\u00e8me connect\u00e9.",
+        subtitle: "Pas un menu. Tout ce qui suit est inclus dans chaque engagement, construit et g\u00e9r\u00e9 comme un tout.",
+        svc1Title: "Site de conversion",
+        svc1Desc: "Code sur mesure. Charge en moins d\u2019une seconde. Construit autour d\u2019un seul r\u00e9sultat : le visiteur appelle ou r\u00e9serve. Pas un template. Pas WordPress. Construit pour votre niche, votre march\u00e9, votre offre.",
+        svc1Stat: "LES VISITEURS DEVIENNENT DES APPELS.",
+        svc2Title: "Google Ads / Meta Ads",
+        svc2Desc: "Ciblage par intention d\u2019achat uniquement. Je trouve les acheteurs dans votre ville pr\u00eats \u00e0 embaucher aujourd\u2019hui et je place votre entreprise devant eux en premier. Chaque dollar suivi jusqu\u2019\u00e0 l\u2019appel.",
+        svc2Stat: "$33 CO\u00dbT MOYEN PAR APPEL QUALIFI\u00c9 SUR LES COMPTES ACTIFS.",
+        svc3Title: "SEO local",
+        svc3Desc: "Google Maps et classements organiques pour votre zone de service. Se renforce d\u00e8s le premier jour. Chaque mois, votre position s\u2019am\u00e9liore et votre co\u00fbt par appel diminue.",
+        svc3Stat: "POSITIONNEMENT PAGE 1 DANS VOTRE VILLE.",
+        svc4Title: "GEO / Recherche IA",
+        svc4Desc: "Quand quelqu\u2019un demande \u00e0 ChatGPT, Perplexity ou Google AI \"meilleur [service] pr\u00e8s de moi\", votre entreprise doit \u00eatre la r\u00e9ponse. C\u2019est le nouveau SEO. La plupart des concurrents ne le savent pas encore.",
+        svc4Stat: "VISIBLE AVANT QUE VOS CONCURRENTS SACHENT QUE \u00c7A EXISTE.",
+        svc5Title: "Int\u00e9gration IA",
+        svc5Desc: "Agents vocaux et chatbots qui r\u00e9pondent, qualifient et assurent le suivi automatiquement. Votre t\u00e9l\u00e9phone n\u2019a pas besoin de sonner pour capturer un lead. Le syst\u00e8me travaille pendant que vous \u00eates en intervention.",
+        svc5Stat: "SUIVI AUTOMATIS\u00c9 AVANT M\u00caME QUE VOUS D\u00c9CROCHIEZ.",
+        svc6Title: "Marketing par courriel",
+        svc6Desc: "S\u00e9quences de nurturing, campagnes de r\u00e9activation et suivis automatis\u00e9s qui gardent votre entreprise en t\u00eate. Transformez les anciens leads en futures r\u00e9servations.",
+        svc6Stat: "RESTEZ EN T\u00caTE. R\u00c9ACTIVEZ LES ANCIENS LEADS.",
+        svc6Badge: "SCALE",
+        svc7Title: "Optimisation + rapports hebdomadaires",
+        svc7Desc: "Chaque semaine, j\u2019analyse les donn\u00e9es et coupe ce qui ne fonctionne pas. Chaque mois, j\u2019envoie un rapport de revenus avec de vrais chiffres. Plus le syst\u00e8me tourne, moins chaque appel co\u00fbte.",
+        svc7Stat: "LE CO\u00dbT PAR APPEL BAISSE CHAQUE MOIS.",
+        closingLine: "Chaque service ci-dessus est inclus. Rien vendu s\u00e9par\u00e9ment.",
+        cta: "Devenir partenaire \u2192",
+      },
+      testimonialBlock: {
+        title: "Cinq entreprises. M\u00eame syst\u00e8me. De vrais r\u00e9sultats.",
+        subtitle: "Chaque r\u00e9sultat ci-dessous vient du m\u00eame syst\u00e8me d\u2019acquisition.",
+        seeAllResults: "Voir tous les r\u00e9sultats clients \u2192",
+        quote1: "Juan a construit le site exactement comme je le voulais. Je recommande fortement.",
+        quote2: "Depuis que Juan est arriv\u00e9, on re\u00e7oit beaucoup plus de leads de qualit\u00e9. L\u2019entreprise va extr\u00eamement bien dans la ville maintenant.",
+        quote3: "J\u2019adore. Tr\u00e8s beau et professionnel.",
+        quote4: "Un site professionnel qui repr\u00e9sente la marque. Exactement ce qu\u2019il fallait.",
+        quote5: "Le site \u00e9tablit la cr\u00e9dibilit\u00e9 d\u00e8s la premi\u00e8re visite. Les patients r\u00e9servent directement depuis la recherche.",
+      },
+      pricingStatement: {
+        eyebrow: "TARIFICATION",
+        heading: "Une personne. Pipeline complet.",
+        subtitle: "Deux vitesses. M\u00eame op\u00e9rateur. M\u00eame responsabilit\u00e9.",
+        growthFeatures: [
+          "Site de conversion : code sur mesure, construit pour le r\u00e9f\u00e9rencement et la conversion",
+          "Google Ads : ciblage par intention d\u2019achat dans votre ville",
+          "SEO local : Google Maps et positionnement organique",
+          "Visibilit\u00e9 IA : appara\u00eetre dans ChatGPT, Perplexity, Google AI",
+          "Optimisation hebdomadaire des campagnes",
+          "Appel mensuel de revue de performance",
+          "Propri\u00e9t\u00e9 compl\u00e8te des actifs : tout \u00e0 votre nom",
+        ],
+        scaleAdditions: [
+          "Gestion de budget publicitaire \u00e9largi : plus de d\u00e9penses, plus d\u2019appels",
+          "Qualification IA des leads : suivi automatis\u00e9 avant que votre t\u00e9l\u00e9phone ne sonne",
+          "GEO (Generative Engine Optimization) : quand quelqu\u2019un demande \u00e0 ChatGPT \"meilleur [service] pr\u00e8s de moi\", votre entreprise est la r\u00e9ponse. La plupart des concurrents ne savent pas que \u00e7a existe.",
+          "Expansion multi-emplacements et multi-canaux",
+          "Pages d\u2019atterrissage d\u00e9di\u00e9es par service et par ville",
+          "Appels strat\u00e9giques hebdomadaires : ligne directe, chaque semaine",
+          "Configuration CRM + organisation compl\u00e8te des leads : votre pipeline visible et g\u00e9r\u00e9",
+          "Marketing par courriel : s\u00e9quences de nurturing, r\u00e9activation, suivi des anciens leads",
+        ],
+        growthTag: "Faire sonner le t\u00e9l\u00e9phone",
+        growthName: "Growth Architecture",
+        growthProof: "Triple W Rentals a commenc\u00e9 ici. $41,085. $900 en pub. 30 jours.",
+        growthGuarantee: "Si votre t\u00e9l\u00e9phone ne sonne pas dans les 30 premiers jours, je rembourse les frais de gestion pour cette p\u00e9riode.",
+        growthConditions: "Conditions : suivi en place avant le lancement \u00b7 d\u00e9pense publicitaire minimum respect\u00e9e \u00b7 onboarding compl\u00e9t\u00e9 en 5 jours \u00b7 applicable l\u00e0 o\u00f9 l\u2019inventaire Google Ads existe",
+        growthCta: "Devenir partenaire \u2192",
+        growthMicro: "J\u2019examine chaque candidature en moins de 24 heures.",
+        scaleTag: "Dominer votre march\u00e9",
+        scaleName: "Scale Architecture",
+        scaleIntro: "Tout ce qui est dans Growth Architecture, plus :",
+        scaleProof: "C\u2019est le niveau o\u00f9 une seule ville devient une cat\u00e9gorie que vous poss\u00e9dez.",
+        scaleGuarantee: "Si votre t\u00e9l\u00e9phone ne sonne pas dans les 30 premiers jours, je rembourse les frais de gestion pour cette p\u00e9riode.",
+        scaleConditions: "Conditions : suivi en place avant le lancement \u00b7 d\u00e9pense publicitaire minimum respect\u00e9e \u00b7 onboarding compl\u00e9t\u00e9 en 5 jours \u00b7 applicable l\u00e0 o\u00f9 l\u2019inventaire Google Ads existe",
+        scaleCta: "Devenir partenaire \u2192",
+        scaleMicro: "J\u2019examine chaque candidature en moins de 24 heures.",
+        trustLine: "Aucun paiement avant confirmation. Je confirme l\u2019ad\u00e9quation strat\u00e9gique lors de l\u2019appel avant que vous ne payiez quoi que ce soit.",
+        badge1: "Terme initial de 90 jours",
+        badge2: "Vous \u00eates propri\u00e9taire de tout",
+        badge3: "Pas de charg\u00e9s de compte",
+      },
+      diagnosticForm: {
+        sectionLabel: "LE DIAGNOSTIC",
+        heading: "R\u00e9servez votre diagnostic. Je vous dis si je peux aider.",
+        body: "Ce n\u2019est pas un appel d\u00e9couverte. C\u2019est un vrai audit. J\u2019examine votre pipeline, vos concurrents et vos sources de trafic actuelles. Je vous montre o\u00f9 vous perdez des appels et ce que corriger le probl\u00e8me vaut. Je vous dis si je peux aider. Pas de pitch. Pas de pression.",
+        deliverablesTitle: "Vous repartez de l\u2019appel avec :",
+        deliverable1: "Une carte des failles montrant exactement o\u00f9 vous perdez des appels en ce moment",
+        deliverable2: "Une analyse concurrentielle pour votre march\u00e9 et zone de service sp\u00e9cifiques",
+        deliverable3: "Un plan sprint de 30 jours : ce qui est construit, dans quel ordre, et pourquoi",
+        deliverable4: "Un mod\u00e8le budg\u00e9taire avec le co\u00fbt par appel projet\u00e9 pour votre niche",
+        deliverable5: "Un oui ou non clair sur ma capacit\u00e9 \u00e0 produire un retour pour votre entreprise",
+        deliverablesNote: "Si la r\u00e9ponse est non, je vous le dis lors de l\u2019appel. On ne vous demandera pas de payer quoi que ce soit.",
+        step1Title: "Vous postulez",
+        step1Desc: "Remplissez le formulaire. Cela prend moins de 2 minutes.",
+        step2Title: "J\u2019examine votre entreprise",
+        step2Desc: "J\u2019analyse votre march\u00e9, vos concurrents et votre configuration actuelle avant qu\u2019on se parle. L\u2019appel est un diagnostic, pas un pitch.",
+        step3Title: "Vous recevez une r\u00e9ponse en 24 heures",
+        step3Desc: "Je vous \u00e9cris directement. Si je peux faire bouger les choses, je vous explique exactement comment. Si je ne peux pas, je vous le dis aussi. Avant que vous ne payiez quoi que ce soit.",
+        placeholderName: "Votre nom",
+        placeholderBusiness: "Le nom de votre entreprise",
+        placeholderWebsite: "votresite.com (si vous en avez un)",
+        placeholderEmail: "vous@votreentreprise.com",
+        submitText: "Devenir partenaire \u2192",
+        submittingText: "Envoi en cours...",
+        successTitle: "Candidature re\u00e7ue.",
+        successBody: "J\u2019examinerai votre entreprise en moins de 24 heures et vous \u00e9crirai directement.",
+        errorTitle: "Une erreur est survenue.",
+        errorBody: "\u00c9crivez directement.",
+        tryAgain: "R\u00e9essayer",
+        microcopy: "J\u2019examine votre march\u00e9 avant l\u2019appel. R\u00e9ponse en 24 heures. Aucun acompte avant confirmation.",
+      },
+      stickyMobileCta: "Devenir partenaire \u2192",
+      howWeWork: {
+        phaseChips: {
+          "Market Gap Report": ["Rapport d\u2019\u00e9cart march\u00e9", "Audit d\u2019entonnoir", "Feuille de route 90 jours"],
+          "System Launch": ["Site en ligne", "Campagne publicitaire", "Syst\u00e8me de r\u00e9servation", "Tableau de bord"],
+          "Compound Loop": ["Rapport de performance hebdomadaire", "Appel de revue mensuel", "Am\u00e9liorations de conversion"],
+        },
+        kickerLine: "La plupart des clients voient leur premier appel r\u00e9serv\u00e9 dans les semaines suivant le lancement. Le d\u00e9lai d\u00e9pend de la vitesse d\u2019onboarding.",
+      },
+      featuredCaseStudy: {
+        leadResultLabel: "R\u00c9SULTAT PRINCIPAL \u2014 REVENUS V\u00c9RIFI\u00c9S",
+        revenueLine: "en revenus. Les 30 premiers jours.",
+        returnLine: "$46 retourn\u00e9s par $1 investi en publicit\u00e9.",
+        verifiedDate: "V\u00e9rifi\u00e9 f\u00e9vrier 2026",
+        liveAccount: "COMPTE ACTIF",
+        testimonialQuote: "Depuis que Juan est arriv\u00e9, on re\u00e7oit beaucoup plus de leads de qualit\u00e9. L\u2019entreprise va extr\u00eamement bien dans la ville maintenant.",
+        testimonialAttribution: "Westin Wayne Walker, Triple W Rentals \u00b7 Texas",
+        viewCaseStudy: "Voir l\u2019\u00e9tude de cas compl\u00e8te \u2192",
+        compactClients: [
+          { badge: "EN COURS", niche: "BARBERSHOP \u00b7 MONTR\u00c9AL \u00b7 SEO LOCAL", stat: "Ciblant #1", detail: "Campagne SEO local active. En comp\u00e9tition pour la premi\u00e8re position sur Google." },
+          { badge: "LIVR\u00c9", niche: "BARBERSHOP \u00b7 MONTR\u00c9AL \u00b7 WEB DESIGN", stat: "En ligne", detail: "Site sur mesure complet. Flux de r\u00e9servation optimis\u00e9 mobile." },
+          { badge: "LIVR\u00c9", niche: "PEINTRE \u00b7 DALLAS-FORT WORTH", stat: "En ligne", detail: "Site de conversion. March\u00e9 DFW. Suivi actif." },
+          { badge: "LIVR\u00c9", niche: "CLINIQUE DENTAIRE \u00b7 LAVAL", stat: "En ligne", detail: "Site sur mesure complet. Entonnoir de r\u00e9servation construit." },
+        ],
+        revenueSummary: "$60K+ en revenus suivis \u00e0 travers les partenariats actifs.",
+        seeFullCaseStudies: "Voir les \u00e9tudes de cas compl\u00e8tes \u2192",
+      },
+      footerExtra: {
+        howItWorks: "Comment \u00e7a fonctionne",
+        pricing: "Tarification",
+        apply: "Postuler",
+        operatedFrom: "Op\u00e9r\u00e9 depuis le Qu\u00e9bec, Canada. Dirig\u00e9 par le fondateur. juan@clientgrowth.ca",
+      },
+      faqHeading: "Chaque question que j\u2019entends avant qu\u2019un client signe.",
+      faqHeadingItalic: "R\u00e9pondue.",
+      faqStillQuestions: "Encore des questions?",
+      faqApplyCta: "Devenir partenaire \u2192",
+      faqPreferEmail: "Pr\u00e9f\u00e9rez le courriel?",
     },
     services: {
       hero: {
         eyebrow: "SERVICES",
         h1: "Un syst\u00e8me d\u2019acquisition.",
-        body1: "Site de conversion. SEO local. Google Ads avec coût par appel suivi. IA qui qualifie les leads après les heures. Construit comme un système connecté, géré par une personne. En ligne en 11 jours.",
+        body1: "Site de conversion. SEO local. Google Ads avec coût par appel suivi. IA qui qualifie les leads après les heures. Construit comme un système connecté, géré par une personne.",
         body2: "Chaque couche alimente la suivante. Plus il roule longtemps, moins chaque appel coûte cher.",
-        microResult: "Résultat le plus récent : $41 085 avec $900 en publicité. 11 jours jusqu'au premier appel.",
+        microResult: "Résultat le plus récent : $41 085 avec $900 en publicité.",
         cta1: "Devenir partenaire →",
         cta2: "Voir comment le système fonctionne",
         trust1: "Réponse dans les 24 heures",
@@ -1703,8 +2423,8 @@ export const translations: Record<Locale, TranslationsShape> = {
         headline: "Les 30 premiers jours",
         phase1Title: "Jours 1–3",
         phase1Desc: "Appel de découverte, audit des lacunes du marché et feuille de route de 90 jours. Je définis ce à quoi ressemble le succès et verrouille l'offre.",
-        phase2Title: "Jours 4–11",
-        phase2Desc: "Construction du système. Site web, tunnel, suivi et architecture des annonces. Lancement médian : 11 jours après le démarrage.",
+        phase2Title: "Jours 4–14",
+        phase2Desc: "Construction du système. Site web, tunnel, suivi et architecture des annonces.",
         phase3Title: "Jours 12–30",
         phase3Desc: "Optimisation et premiers appels. J'itère sur la conversion et le coût par appel. Vous commencez à voir des rendez-vous réservés.",
       },
@@ -1724,6 +2444,66 @@ export const translations: Record<Locale, TranslationsShape> = {
         label3: "Délai typique entre signature et système en ligne",
         updated: "MIS À JOUR AU FIL DES RÉSULTATS.",
       },
+    },
+    aboutPage: {
+      operatorHeading: "Un seul opérateur. Responsabilité totale.",
+      card1Title: "Construit personnellement",
+      card1Body: "Chaque site, campagne et optimisation est fait par moi. Jamais délégué.",
+      card2Title: "Accès direct",
+      card2Body: "Vous m'écrivez. Je réponds. Pas de gestionnaire de compte. Pas de tickets.",
+      card3Title: "Sélectif par choix",
+      card3Body: "Je ne prends que des clients pour qui je sais que je peux produire un retour.",
+      ctaHeading: "Prêt à voir ce que ce système peut faire pour votre entreprise?",
+      ctaSub: "Un appel. J'examine votre marché avant qu'on parle. Pas de pitch. Pas de pression.",
+      ctaButton: "Devenir partenaire →",
+      ctaTrust: "Réponse dans les 24 heures.",
+    },
+    applyPage: {
+      heading: "Devenir partenaire",
+      sub: "J'examine votre marché, vos concurrents et votre configuration actuelle avant qu'on parle. Si je peux faire bouger les choses, je vous dis exactement comment. Sinon, je vous le dis aussi.",
+      placeholderName: "Nom complet",
+      placeholderBusiness: "Nom de l'entreprise",
+      placeholderWebsite: "URL du site web (si vous en avez un)",
+      placeholderEmail: "Courriel",
+      submitButton: "Soumettre la candidature",
+      submitting: "Envoi en cours...",
+      trustLine: "Aucun paiement avant confirmation. Je réponds dans les 24 heures.",
+      proofQuote: "Le premier appel est arrivé en 9 jours. On avait essayé deux agences avant. Rien ne s'en approchait.",
+      successTitle: "Candidature reçue.",
+      successBody: "J'examinerai votre entreprise dans les 24 heures et je vous écrirai directement.",
+      errorTitle: "Une erreur est survenue.",
+      tryAgain: "Réessayer",
+    },
+    resultsPage: {
+      eyebrow: "RÉSULTATS PROUVÉS",
+      heading: "Cinq entreprises. Même système. Résultats réels.",
+      sub: "Chaque résultat ci-dessous provient du même système d'acquisition. Un seul opérateur. Chiffres vérifiés.",
+      revenueLine: "de revenus. Premiers 30 jours.",
+      returnLine: "46 $ retournés pour chaque 1 $ investi en publicité.",
+      verifiedLine: "Compte actif. Dernière vérification février 2026.",
+      testimonialQuote: "Depuis que Juan est arrivé, on reçoit beaucoup plus de prospects qualifiés. L'entreprise va extrêmement bien dans la ville maintenant.",
+      whatWasBuilt: "Ce qui a été construit :",
+      deliverables: "Google Ads  ·  Site de conversion  ·  Système de réservation  ·  Optimisation hebdomadaire",
+      viewLiveSite: "Voir le site →",
+      ctaHeading: "Prêt à voir ce que ce système peut faire pour votre entreprise?",
+      ctaSub: "Un appel. J'examine votre marché avant qu'on parle. Pas de pitch. Pas de pression.",
+      ctaButton: "Devenir partenaire →",
+      ctaTrust: "Réponse dans les 24 heures. Aucun contrat avant confirmation.",
+      client1Badge: "LIVRÉ",
+      client1Title: "Site web sur mesure + système de réservation",
+      client1Desc: "Site de conversion conçu et construit. Système de réservation mobile inclus.",
+      client1Testimonial: "\"Juan a construit le site exactement comme je le voulais. Je recommande.\"",
+      client2Badge: "EN COURS",
+      client2Title: "Site web sur mesure + campagne SEO locale",
+      client2Desc: "Site de conversion conçu et construit. Campagne SEO locale lancée, en compétition pour la première position Google.",
+      client2Testimonial: "\"J'adore. Très beau et professionnel.\"",
+      client3Badge: "LIVRÉ",
+      client3Title: "Site de conversion",
+      client3Desc: "Site web sur mesure construit pour le marché de la peinture à DFW. Conçu pour les demandes de soumission.",
+      client3Testimonial: "\"Un site professionnel qui représente la marque. Exactement ce qu'il fallait.\"",
+      client4Badge: "LIVRÉ",
+      client4Title: "Site web sur mesure + entonnoir de réservation",
+      client4Desc: "Site web sur mesure conçu et construit. Entonnoir de réservation inclus.",
     },
   },
 };

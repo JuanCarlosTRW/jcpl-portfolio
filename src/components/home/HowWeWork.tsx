@@ -4,14 +4,13 @@ import { howWeWork } from "@/lib/content";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion";
-
-const PHASE_CHIPS: Record<string, string[]> = {
-  "Market Gap Report": ["Market Gap Report", "Funnel Audit", "90-Day Roadmap"],
-  "System Launch": ["Live Website", "Ads Campaign", "Booking System", "Tracking Dashboard"],
-  "Compound Loop": ["Weekly Performance Report", "Monthly Review Call", "Conversion Improvements"],
-};
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function HowWeWork() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.howWeWork;
+  const PHASE_CHIPS: Record<string, string[]> = t.phaseChips;
   return (
     <SectionWrapper id="process" variant="alt">
       <Reveal className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
@@ -69,7 +68,7 @@ export default function HowWeWork() {
                   {/* Kicker line for System Launch phase */}
                   {step.title === "System Launch" && (
                     <p className="mt-4 text-[14px] font-bold text-emerald-400 leading-snug">
-                      Most clients see their first booked call within weeks of going live. Timeline depends on onboarding speed.
+                      {t.kickerLine}
                     </p>
                   )}
                 </div>

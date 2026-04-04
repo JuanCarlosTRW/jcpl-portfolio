@@ -55,57 +55,21 @@ function CountUpRevenue({ to, prefix = "" }: { to: number; prefix?: string }) {
   );
 }
 
-const compactClients = [
-  {
-    badge: "IN PROGRESS",
-    badgeBg: "rgba(212,168,83,0.08)",
-    badgeBorder: "rgba(212,168,83,0.25)",
-    badgeColor: "#D4A853",
-    pulse: true,
-    niche: "BARBERSHOP · MONTREAL · LOCAL SEO",
-    name: "Hadi, Elite Barbershop",
-    stat: "Targeting #1",
-    detail: "Local SEO campaign active. Competing for top position in Google.",
-  },
-  {
-    badge: "DELIVERED",
-    badgeBg: "rgba(166,157,141,0.08)",
-    badgeBorder: "rgba(166,157,141,0.25)",
-    badgeColor: "#A69D8D",
-    pulse: false,
-    niche: "BARBERSHOP · MONTREAL · WEB DESIGN",
-    name: "Tobari, Culture Barbershop",
-    stat: "Live",
-    detail: "Full custom website. Mobile-optimized booking flow.",
-  },
-  {
-    badge: "DELIVERED",
-    badgeBg: "rgba(166,157,141,0.08)",
-    badgeBorder: "rgba(166,157,141,0.25)",
-    badgeColor: "#A69D8D",
-    pulse: false,
-    niche: "PAINTING CONTRACTOR · DALLAS-FORT WORTH",
-    name: "Wesley, Absolute Painting",
-    stat: "Live",
-    detail: "Conversion website. DFW market. Tracking active.",
-  },
-  {
-    badge: "DELIVERED",
-    badgeBg: "rgba(166,157,141,0.08)",
-    badgeBorder: "rgba(166,157,141,0.25)",
-    badgeColor: "#A69D8D",
-    pulse: false,
-    niche: "DENTAL CLINIC · LAVAL",
-    name: "Dre Benyoucef, Centre Dentaire Saint-Élzéar",
-    stat: "Live",
-    detail: "Full custom website. Booking funnel built.",
-  },
-];
+// compactClients is built dynamically inside the component using translations
 
 export default function FeaturedCaseStudy() {
   const sectionRef = useRef<HTMLElement>(null);
   const { locale } = useLocale();
   const po = translations[locale].homepage.provenOutcomes;
+  const fc = translations[locale].homepage.featuredCaseStudy;
+
+  const compactClientsMeta = [
+    { badgeBg: "rgba(212,168,83,0.08)", badgeBorder: "rgba(212,168,83,0.25)", badgeColor: "#D4A853", pulse: true, name: "Hadi, Elite Barbershop" },
+    { badgeBg: "rgba(166,157,141,0.08)", badgeBorder: "rgba(166,157,141,0.25)", badgeColor: "#A69D8D", pulse: false, name: "Tobari, Culture Barbershop" },
+    { badgeBg: "rgba(166,157,141,0.08)", badgeBorder: "rgba(166,157,141,0.25)", badgeColor: "#A69D8D", pulse: false, name: "Wesley, Absolute Painting" },
+    { badgeBg: "rgba(166,157,141,0.08)", badgeBorder: "rgba(166,157,141,0.25)", badgeColor: "#A69D8D", pulse: false, name: "Dre Benyoucef, Centre Dentaire Saint-\u00c9lz\u00e9ar" },
+  ];
+  const compactClients = fc.compactClients.map((c, i) => ({ ...compactClientsMeta[i], ...c }));
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
@@ -135,7 +99,7 @@ export default function FeaturedCaseStudy() {
           style={{ fontFamily: "'Cormorant Garamond', var(--font-cormorant), Georgia, serif", fontFeatureSettings: '"lnum"' }}
           className="text-[clamp(30px,4.5vw,46px)] font-light leading-[1.15] tracking-[-0.01em] max-w-2xl mx-auto text-[#F0EAD6]"
         >
-          $41,085 from $900 in ad spend.
+          {po.h2}
         </h2>
         <p
           className="mt-5 max-w-lg mx-auto"
@@ -146,7 +110,7 @@ export default function FeaturedCaseStudy() {
             lineHeight: 1.6,
           }}
         >
-          Revenue, qualified calls, and search visibility. Not three separate wins. The same connected system, running continuously.
+          {po.sub}
         </p>
       </Reveal>
 
@@ -163,7 +127,7 @@ export default function FeaturedCaseStudy() {
             fontWeight: 600,
           }}
         >
-          LEAD RESULT — VERIFIED REVENUE
+          {fc.leadResultLabel}
         </p>
       </Reveal>
 
@@ -222,7 +186,7 @@ export default function FeaturedCaseStudy() {
                     marginBottom: 20,
                   }}
                 >
-                  in revenue. First 30 days.
+                  {fc.revenueLine}
                 </p>
 
                 <p
@@ -234,7 +198,7 @@ export default function FeaturedCaseStudy() {
                     marginBottom: 20,
                   }}
                 >
-                  $46 returned per $1 of ad spend.
+                  {fc.returnLine}
                 </p>
 
                 <p
@@ -245,7 +209,7 @@ export default function FeaturedCaseStudy() {
                     fontStyle: "italic",
                   }}
                 >
-                  Verified Feb 2026
+                  {fc.verifiedDate}
                 </p>
               </div>
 
@@ -315,7 +279,7 @@ export default function FeaturedCaseStudy() {
                         borderRadius: 3,
                       }}
                     >
-                      LIVE ACCOUNT
+                      {fc.liveAccount}
                     </span>
                     <span style={{ fontSize: "0.6rem", color: "#756D63", fontFamily: "var(--font-dm-sans), sans-serif" }}>
                       ads.google.com
@@ -345,7 +309,7 @@ export default function FeaturedCaseStudy() {
                   margin: 0,
                 }}
               >
-                &ldquo;Since Juan came on, we have been getting way more quality leads. Business is doing extremely well in the city now.&rdquo;
+                &ldquo;{fc.testimonialQuote}&rdquo;
               </p>
               <p
                 style={{
@@ -357,7 +321,7 @@ export default function FeaturedCaseStudy() {
                   marginBottom: 0,
                 }}
               >
-                Westin Wayne Walker, Triple W Rentals · Texas
+                {fc.testimonialAttribution}
               </p>
             </div>
           </div>
@@ -377,7 +341,7 @@ export default function FeaturedCaseStudy() {
             onMouseOver={(e) => { e.currentTarget.style.textDecoration = "underline"; }}
             onMouseOut={(e) => { e.currentTarget.style.textDecoration = "none"; }}
           >
-            View full case study →
+            {fc.viewCaseStudy}
           </a>
         </div>
       </Reveal>
@@ -471,7 +435,7 @@ export default function FeaturedCaseStudy() {
             fontFamily: "var(--font-dm-sans), sans-serif",
           }}
         >
-          $60K+ in tracked revenue across active partnerships.
+          {fc.revenueSummary}
         </p>
       </Reveal>
 
@@ -494,7 +458,7 @@ export default function FeaturedCaseStudy() {
               e.currentTarget.style.color = "#D4A853";
             }}
           >
-            See full case studies →
+            {fc.seeFullCaseStudies}
           </a>
         </div>
       </Reveal>

@@ -8,26 +8,17 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { usePathname } from "next/navigation";
 import { translations, type Locale } from "@/lib/translations";
 
 const STORAGE_KEY = "locale";
 
-function getLocaleFromPath(path: string): Locale | null {
-  if (path === "/fr" || path.startsWith("/fr/")) return "fr";
-  return null;
-}
-
-function getStoredLocale(): Locale | null {
-  if (typeof window === "undefined") return null;
+function readStoredLocale(): Locale {
+  if (typeof window === "undefined") return "en";
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === "en" || stored === "fr") return stored;
-    localStorage.setItem(STORAGE_KEY, "en");
-  } catch {
-    // ignore
-  }
-  return null;
+    const v = localStorage.getItem(STORAGE_KEY);
+    if (v === "fr") return "fr";
+  } catch { /* ignore */ }
+  return "en";
 }
 
 type LocaleContextValue = {
@@ -51,14 +42,7 @@ function getByPath(obj: unknown, path: string): unknown {
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
-  const [locale, setLocaleState] = useState<Locale>("en");
-
-  // Force English — no /fr routes exist; ignore stale localStorage values
-  useEffect(() => {
-    setLocaleState("en");
-    try { localStorage.setItem(STORAGE_KEY, "en"); } catch { /* ignore */ }
-  }, [pathname]);
+  const [locale, setLocaleState] = useState<Locale>(readStoredLocale);
 
   useEffect(() => {
     if (typeof document !== "undefined") {
@@ -85,13 +69,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   );
 
   const lp = useCallback(
-    (path: string): string => {
-      if (locale === "fr") {
-        return `/fr${path === "/" ? "" : path}`;
-      }
-      return path;
-    },
-    [locale]
+    (path: string): string => path,
+    []
   );
 
   const value: LocaleContextValue = {

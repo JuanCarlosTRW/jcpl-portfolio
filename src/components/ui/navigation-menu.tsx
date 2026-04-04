@@ -5,13 +5,9 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-  { name: "Results", href: "/results", anchor: "", isCta: false },
-  { name: "About", href: "/about", anchor: "", isCta: false },
-  { name: "Pricing", href: "/#pricing", anchor: "pricing", isCta: false },
-  { name: "Apply", href: "/apply", anchor: "", isCta: true },
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 function isActivePath(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
@@ -21,6 +17,14 @@ function isActivePath(pathname: string, href: string): boolean {
 
 export function AnimatedNavFramer() {
   const pathname = usePathname();
+  const { locale } = useLocale();
+  const nav = translations[locale].nav;
+  const navItems = [
+    { name: nav.results, href: "/results", anchor: "", isCta: false },
+    { name: nav.about, href: "/about", anchor: "", isCta: false },
+    { name: nav.pricing, href: "/#pricing", anchor: "pricing", isCta: false },
+    { name: nav.apply, href: "/apply", anchor: "", isCta: true },
+  ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
     if (!anchor) return;
@@ -50,7 +54,7 @@ export function AnimatedNavFramer() {
           />
         </Link>
 
-        <div className="nav-links flex items-center gap-1 sm:gap-4 pr-3 sm:pr-4">
+        <div className="nav-links flex items-center gap-1 sm:gap-4 pr-1 sm:pr-2">
           {navItems.map((item) => {
             const active = isActivePath(pathname, item.href);
             const isAnchor = item.href.startsWith("/#");
@@ -82,6 +86,9 @@ export function AnimatedNavFramer() {
               </Link>
             );
           })}
+          <div className="pl-1 sm:pl-2 pr-1 sm:pr-2" style={{ borderLeft: "1px solid rgba(212,168,83,0.15)" }}>
+            <LanguageSwitcher />
+          </div>
         </div>
       </nav>
 

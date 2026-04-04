@@ -7,12 +7,13 @@ import { useLocale } from "@/context/LocaleContext";
 
 export default function Footer() {
   const { locale } = useLocale();
-  const { nav, footer } = translations[locale];
+  const { nav, footer, homepage } = translations[locale];
+  const fe = homepage.footerExtra;
   const navItems = [
-    { href: "/#system", label: "How it works" },
+    { href: "/#system", label: fe.howItWorks },
     { href: "/results", label: nav.results },
-    { href: "/#pricing", label: "Pricing" },
-    { href: "/apply", label: "Apply" },
+    { href: "/#pricing", label: fe.pricing },
+    { href: "/apply", label: fe.apply },
   ];
   return (
     <footer
@@ -124,7 +125,7 @@ export default function Footer() {
           style={{ borderColor: "#2A2318" }}
         >
           <p className="text-[12px] mb-2" style={{ color: "#756D63" }}>
-            Operated from Quebec, Canada. Founder-led. juan@clientgrowth.ca
+            {fe.operatedFrom}
           </p>
           <p className="text-[13px]" style={{ color: "#756D63" }}>
             © {new Date().getFullYear()} Client Growth. {footer.rights}.

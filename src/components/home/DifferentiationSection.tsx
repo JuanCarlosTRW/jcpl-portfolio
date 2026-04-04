@@ -1,18 +1,14 @@
 "use client";
 
-const LEFT_ITEMS = [
-  "A junior account manager you never chose",
-  "Recycled templates adapted to your logo",
-  "You rent the results. Leave and you start from zero.",
-];
-
-const RIGHT_ITEMS = [
-  "One operator. I build the system myself.",
-  "Custom coded. Your site, your ads account, your data.",
-  "You own everything. If you leave, it all goes with you.",
-];
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function DifferentiationSection() {
+  const { locale } = useLocale();
+  const t = translations[locale].homepage.differentiationSection;
+
+  const LEFT_ITEMS = [t.leftItem1, t.leftItem2, t.leftItem3];
+  const RIGHT_ITEMS = [t.rightItem1, t.rightItem2, t.rightItem3];
   return (
     <section id="different" className="py-16 md:py-24" style={{ background: "#0D0B09" }}>
       <div className="max-w-[960px] mx-auto px-6">
@@ -29,7 +25,7 @@ export default function DifferentiationSection() {
             textAlign: "center",
           }}
         >
-          WHY THIS IS DIFFERENT
+          {t.eyebrow}
         </p>
 
         {/* Heading */}
@@ -44,7 +40,7 @@ export default function DifferentiationSection() {
             marginBottom: 48,
           }}
         >
-          This is not another agency.
+          {t.heading}
         </h2>
 
         {/* Two columns */}
@@ -78,7 +74,7 @@ export default function DifferentiationSection() {
                 marginBottom: 20,
               }}
             >
-              What most agencies sell you
+              {t.leftHeader}
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {LEFT_ITEMS.map((item) => (
@@ -131,7 +127,7 @@ export default function DifferentiationSection() {
                 marginBottom: 20,
               }}
             >
-              What I build
+              {t.rightHeader}
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {RIGHT_ITEMS.map((item) => (
@@ -175,7 +171,7 @@ export default function DifferentiationSection() {
             marginTop: 40,
           }}
         >
-          No junior team. No outsourced work. Every system built personally.
+          {t.closingLine}
         </p>
       </div>
     </section>

@@ -1,26 +1,17 @@
 "use client";
 
-import { ctaCopy } from "@/lib/content";
-import { useTranslations, useLocale } from "@/context/LocaleContext";
+import { useTranslations } from "@/context/LocaleContext";
 import { trackEvent } from "@/lib/analytics";
 import StaggeredMenu from "@/components/nav/StaggeredMenu";
 import type { StaggeredMenuItem } from "@/components/nav/StaggeredMenu";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 export default function Navbar() {
   const t = useTranslations();
-  const { locale } = useLocale();
-  const p = locale === "fr" ? "/fr" : "";
   const staggeredMenuItems: StaggeredMenuItem[] = [
-    { label: t<string>("nav.services"), link: `${p}/services`, ariaLabel: t<string>("nav.services") },
-    { label: t<string>("nav.results"), link: `${p}/results`, ariaLabel: t<string>("nav.results") },
-    { label: t<string>("nav.about"), link: `${p}/about`, ariaLabel: t<string>("nav.about") },
-    {
-      label: "Apply",
-      link: "/apply",
-      ariaLabel: "Apply to be a Partner",
-      onClick: () => trackEvent("nav_cta_clicked"),
-      isCta: true,
-    },
+    { label: t<string>("nav.results"), link: "/results", ariaLabel: t<string>("nav.results") },
+    { label: t<string>("nav.about"), link: "/about", ariaLabel: t<string>("nav.about") },
+    { label: t<string>("nav.apply"), link: "/apply", ariaLabel: t<string>("nav.apply"), onClick: () => trackEvent("nav_cta_clicked"), isCta: true },
   ];
 
   return (
@@ -36,6 +27,8 @@ export default function Navbar() {
       logoUrl="/images/logo-clientgrowth.png"
       menuLabel={t<string>("common.menu")}
       closeLabel={t<string>("common.close")}
+      languageSwitcher={<LanguageSwitcher />}
+      languageSwitcherPanel={<LanguageSwitcher />}
     />
   );
 }

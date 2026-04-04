@@ -1,8 +1,19 @@
 "use client";
 
 import AboutSection from "@/components/home/AboutSection";
+import { useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function AboutPage() {
+  const { locale } = useLocale();
+  const t = translations[locale].aboutPage;
+
+  const cards = [
+    { title: t.card1Title, body: t.card1Body },
+    { title: t.card2Title, body: t.card2Body },
+    { title: t.card3Title, body: t.card3Body },
+  ];
+
   return (
     <div style={{ background: "#0D0B09", minHeight: "100vh" }}>
       {/* Spacer for fixed nav */}
@@ -23,26 +34,13 @@ export default function AboutPage() {
               color: "#F0EAD6",
             }}
           >
-            One operator. Full accountability.
+            {t.operatorHeading}
           </h2>
 
           <div
             className="about-cards-grid grid grid-cols-1 md:grid-cols-3 gap-5"
           >
-            {[
-              {
-                title: "Personally built",
-                body: "Every site, campaign, and optimization is done by me. Not delegated.",
-              },
-              {
-                title: "Direct access",
-                body: "You message me. I respond. No account managers. No tickets.",
-              },
-              {
-                title: "Selective by design",
-                body: "I only take on clients I know I can produce a return for.",
-              },
-            ].map((card) => (
+            {cards.map((card) => (
               <div
                 key={card.title}
                 style={{
@@ -87,7 +85,7 @@ export default function AboutPage() {
             color: "#F0EAD6",
           }}
         >
-          Ready to see what this system can do for your business?
+          {t.ctaHeading}
         </h2>
         <p
           className="mt-3"
@@ -97,7 +95,7 @@ export default function AboutPage() {
             color: "rgba(240,234,214,0.5)",
           }}
         >
-          One call. I review your market before we speak. No pitch. No pressure.
+          {t.ctaSub}
         </p>
         <div className="mt-6">
           <a
@@ -105,7 +103,7 @@ export default function AboutPage() {
             className="inline-block rounded-md px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.12em] transition-transform hover:scale-[1.02]"
             style={{ background: "#D4A853", color: "#0D0B09", borderRadius: 6 }}
           >
-            Apply to be a Partner →
+            {t.ctaButton}
           </a>
         </div>
         <p
@@ -116,7 +114,7 @@ export default function AboutPage() {
             color: "rgba(240,234,214,0.35)",
           }}
         >
-          Response within 24 hours.
+          {t.ctaTrust}
         </p>
       </section>
     </div>

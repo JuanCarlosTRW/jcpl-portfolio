@@ -7,10 +7,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
-import { useTranslations } from "@/context/LocaleContext";
+import { useTranslations, useLocale } from "@/context/LocaleContext";
+import { translations } from "@/lib/translations";
 
 export default function FAQ() {
   const t = useTranslations();
+  const { locale } = useLocale();
+  const hp = translations[locale].homepage;
 
   const faqBooking = t("faqBooking") as {
     heading: string;
@@ -40,8 +43,8 @@ export default function FAQ() {
               fontFamily: "var(--font-cormorant), Georgia, serif",
             }}
           >
-            Every question I hear before someone signs.{" "}
-            <em style={{ color: "#D4A853" }}>Answered.</em>
+            {hp.faqHeading}{" "}
+            <em style={{ color: "#D4A853" }}>{hp.faqHeadingItalic}</em>
           </h2>
           <p
             className="text-[16px] md:text-[17px] leading-[1.5]"
@@ -90,17 +93,17 @@ export default function FAQ() {
           {/* CTA row */}
           <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <p className="text-[14px]" style={{ color: "#A69D8D" }}>
-              Still have questions?{" "}
+              {hp.faqStillQuestions}{" "}
               <Link
                 href="/apply"
                 className="font-medium hover:underline"
                 style={{ color: "#D4A853" }}
               >
-                Apply to be a Partner →
+                {hp.faqApplyCta}
               </Link>
             </p>
             <p className="text-[13px]" style={{ color: "#A69D8D" }}>
-              Prefer email?{" "}
+              {hp.faqPreferEmail}{" "}
               <a
                 href={`mailto:${faqBooking.ctaEmail}`}
                 className="font-medium underline underline-offset-2"
