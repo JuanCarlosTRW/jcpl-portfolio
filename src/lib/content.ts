@@ -1199,7 +1199,7 @@ export const marketingShowcase = {
   subline:
     "Three moves that separate the operators from the agencies. Diagnose the funnel, bring in qualified calls, and close them with a site engineered to sell.",
   cards: [
-    { eyebrow: "01 · Diagnose", title: "Your funnel, mapped in 48 hours." },
+    { eyebrow: "01 · Unlock", title: "The key to predictable demand." },
     { eyebrow: "02 · Reach", title: "Systems that scale across any market." },
     { eyebrow: "03 · Rank", title: "Climb the map where your buyers search." },
   ],

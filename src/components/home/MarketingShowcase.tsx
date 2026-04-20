@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import FeatureCard from "@/components/ui/FeatureCard";
-import Mock1TrafficDiagnosis from "./marketing-mocks/Mock1TrafficDiagnosis";
+import PadlockEmbed from "./marketing-mocks/PadlockEmbed";
 import EarthEmbed from "./marketing-mocks/EarthEmbed";
 import MapsSeoEmbed from "./marketing-mocks/MapsSeoEmbed";
 import { marketingShowcase } from "@/lib/content";
@@ -47,7 +47,7 @@ export default function MarketingShowcase() {
   const { eyebrow, rotatingPhrases, subline, cards } = marketingShowcase;
 
   const visuals = [
-    <Mock1TrafficDiagnosis key="m1" />,
+    <PadlockEmbed key="m1" />,
     <EarthEmbed key="m2" />,
     <MapsSeoEmbed key="m3" />,
   ];
