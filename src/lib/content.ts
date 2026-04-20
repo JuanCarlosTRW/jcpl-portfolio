@@ -1201,6 +1201,6 @@ export const marketingShowcase = {
   cards: [
     { eyebrow: "01 · Diagnose", title: "Your funnel, mapped in 48 hours." },
     { eyebrow: "02 · Reach", title: "Systems that scale across any market." },
-    { eyebrow: "03 · Close", title: "Sites engineered to sell." },
+    { eyebrow: "03 · Rank", title: "Climb the map where your buyers search." },
   ],
 };

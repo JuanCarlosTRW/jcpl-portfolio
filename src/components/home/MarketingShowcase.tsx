@@ -6,7 +6,7 @@ import Reveal from "@/components/motion/Reveal";
 import FeatureCard from "@/components/ui/FeatureCard";
 import Mock1TrafficDiagnosis from "./marketing-mocks/Mock1TrafficDiagnosis";
 import EarthEmbed from "./marketing-mocks/EarthEmbed";
-import Mock3ConvertingSite from "./marketing-mocks/Mock3ConvertingSite";
+import MapsSeoEmbed from "./marketing-mocks/MapsSeoEmbed";
 import { marketingShowcase } from "@/lib/content";
 
 const ROTATION_MS = 3200;
@@ -49,7 +49,7 @@ export default function MarketingShowcase() {
   const visuals = [
     <Mock1TrafficDiagnosis key="m1" />,
     <EarthEmbed key="m2" />,
-    <Mock3ConvertingSite key="m3" />,
+    <MapsSeoEmbed key="m3" />,
   ];
 
   return (
