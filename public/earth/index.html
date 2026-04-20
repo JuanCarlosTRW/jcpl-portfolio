@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Earth</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+  html,body{margin:0;padding:0;height:100%;background:#000;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Helvetica Neue",sans-serif}
+  body{background:radial-gradient(1400px 900px at 50% 50%, #1a1208 0%, #0e0a04 60%, #050301 100%)}
+  canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+
+  .pills{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+  .pill{
+    position:absolute; transform:translate(-50%,-100%);
+    display:flex; align-items:center; gap:8px;
+    padding:7px 12px 7px 7px;
+    background:#ffffff;
+    border-radius:999px;
+    box-shadow:0 6px 20px rgba(10,20,40,0.25), 0 1px 2px rgba(10,20,40,0.15);
+    color:#0b1020;
+    font-size:13px; font-weight:500; letter-spacing:-0.005em;
+    white-space:nowrap;
+    opacity:0; transition:opacity 420ms ease;
+    will-change:left,top,opacity;
+  }
+  .pill.show{opacity:1}
+  .pill .icon{
+    width:22px; height:22px; border-radius:50%;
+    background:linear-gradient(135deg,#1a2340,#0b1020);
+    display:inline-flex; align-items:center; justify-content:center;
+    color:#dfe8ff; font-size:11px; font-weight:700; letter-spacing:0;
+    flex:0 0 22px;
+  }
+  .pill .label{color:#4a5775; font-weight:500}
+  .pill .name{color:#0b1020; font-weight:600}
+  .pill .tail{
+    position:absolute; left:50%; bottom:-6px; transform:translateX(-50%);
+    width:10px; height:10px; background:#fff; border-radius:2px;
+    box-shadow:0 6px 20px rgba(10,20,40,0.25);
+    clip-path:polygon(0 0, 100% 0, 50% 100%);
+  }
+
+  .pin{
+    position:absolute; width:14px; height:14px; border-radius:50%;
+    transform:translate(-50%,-50%);
+    background:transparent;
+    border:1.5px solid rgba(255,255,255,0.85);
+    box-shadow:0 0 16px rgba(180,215,255,0.55), inset 0 0 6px rgba(180,215,255,0.35);
+    opacity:0; transition:opacity 400ms ease;
+    pointer-events:none;
+  }
+  .pin.show{opacity:1}
+  .pin::after{
+    content:''; position:absolute; inset:3px; border-radius:50%;
+    background:#eaf2ff;
+  }
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+<div class="pills" id="pills"></div>
+<script>
+const canvas = document.getElementById('stage');
+const ctx = canvas.getContext('2d', { alpha: true });
+let W=0,H=0,DPR=Math.min(window.devicePixelRatio||1,2);
+function resize(){
+  W = canvas.clientWidth = window.innerWidth;
+  H = canvas.clientHeight = window.innerHeight;
+  canvas.width=W*DPR; canvas.height=H*DPR;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+}
+window.addEventListener('resize', ()=>{ resize(); build(); });
+
+const MAP_W=2048, MAP_H=1024;
+const mC=document.createElement('canvas'); mC.width=MAP_W; mC.height=MAP_H;
+const mX=mC.getContext('2d');
+let LAND=null;
+
+function loadImg(src){return new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.src=src;});}
+async function rasterize(){
+  const img = await loadImg('earth-hd.png');
+  mX.clearRect(0,0,MAP_W,MAP_H);
+  mX.drawImage(img,0,0,MAP_W,MAP_H);
+  const d = mX.getImageData(0,0,MAP_W,MAP_H).data;
+  LAND = new Uint8Array(MAP_W*MAP_H);
+  for(let i=0,j=0;i<d.length;i+=4,j++) LAND[j] = (d[i]+d[i+1]+d[i+2])>300 ? 1 : 0;
+}
+function isLand(lat,lon){
+  const u=(lon+180)/360, v=(90-lat)/180;
+  const xi=Math.max(0,Math.min(MAP_W-1,Math.floor(u*MAP_W)));
+  const yi=Math.max(0,Math.min(MAP_H-1,Math.floor(v*MAP_H)));
+  return LAND[yi*MAP_W+xi]===1;
+}
+
+// Particles
+let LAND_P=[];
+function build(){
+  LAND_P=[];
+  const target = 22000;
+  let att=0;
+  while(LAND_P.length<target && att<target*20){
+    att++;
+    const u=Math.random(), v=Math.random();
+    const theta=2*Math.PI*u;
+    const phi=Math.acos(2*v-1);
+    const lat=90-(phi*180/Math.PI);
+    const lon=(theta*180/Math.PI)-180;
+    if(!isLand(lat,lon)) continue;
+    const la=lat*Math.PI/180, lo=lon*Math.PI/180;
+    const x=Math.cos(la)*Math.cos(lo), y=Math.sin(la), z=Math.cos(la)*Math.sin(lo);
+    LAND_P.push({ x,y,z, s: 0.34 + Math.random()*0.32, b: 0.55 + Math.random()*0.45, hot:0 });
+  }
+  // Extra dense particles inside hotspot radii — smooth density ramp
+  const EXTRA = 9000;
+  let added=0, tries=0;
+  while(added<EXTRA && tries<EXTRA*40){
+    tries++;
+    const u=Math.random(), v=Math.random();
+    const theta=2*Math.PI*u;
+    const phi=Math.acos(2*v-1);
+    const lat=90-(phi*180/Math.PI);
+    const lon=(theta*180/Math.PI)-180;
+    if(!isLand(lat,lon)) continue;
+    const la=lat*Math.PI/180, lo=lon*Math.PI/180;
+    const x=Math.cos(la)*Math.cos(lo), y=Math.sin(la), z=Math.cos(la)*Math.sin(lo);
+    const k = hotBoost(x,y,z);
+    if(k < 0.05) continue;
+    // accept with prob proportional to k (keeps a smooth gradient)
+    if(Math.random() > k) continue;
+    LAND_P.push({ x,y,z, s: 0.32 + Math.random()*0.35, b: 0.65 + Math.random()*0.35, hot:k });
+    added++;
+  }
+  // Tag base particles with hot value too (for brightness lift only)
+  for(const p of LAND_P){ if(p.hot===0) p.hot = hotBoost(p.x,p.y,p.z); }
+}
+
+// Hotspots — boosted density + brightness. Smooth Gaussian falloff (radians of arc).
+const HOTSPOTS = [
+  { name:'Dallas, Texas',     lat:32.7767, lon:-96.7970, r:0.05 },
+  { name:'Austin, Texas',     lat:30.2672, lon:-97.7431, r:0.05 },
+  { name:'Tyler, Texas',      lat:32.3513, lon:-95.3011, r:0.05 },
+  { name:'Montreal, Quebec',  lat:45.5019, lon:-73.5674, r:0.05 },
+  { name:'Rome, Italy',       lat:41.9028, lon:12.4964,  r:0.05 },
+  { name:'Moscow, Russia',    lat:55.7558, lon:37.6173,  r:0.05 },
+  { name:'Mexico City',       lat:19.4326, lon:-99.1332, r:0.05 },
+  { name:'Tokyo, Japan',      lat:35.6762, lon:139.6503, r:0.05 },
+  { name:'Cairo, Egypt',      lat:30.0444, lon:31.2357,  r:0.05 },
+  { name:'São Paulo, Brazil', lat:-23.5505,lon:-46.6333, r:0.05 },
+  { name:'Sydney, Australia', lat:-33.8688,lon:151.2093, r:0.05 },
+  { name:'Cape Town, S. Africa', lat:-33.9249,lon:18.4241,r:0.05 },
+  { name:'Mumbai, India',     lat:19.0760, lon:72.8777,  r:0.05 },
+];
+function ll2v(lat,lon){
+  const la=lat*Math.PI/180, lo=lon*Math.PI/180;
+  return {x:Math.cos(la)*Math.cos(lo), y:Math.sin(la), z:Math.cos(la)*Math.sin(lo)};
+}
+const HOT_V = HOTSPOTS.map(h=>({...h, v:ll2v(h.lat,h.lon)}));
+function hotBoost(x,y,z){
+  // returns additive boost 0..~1.2 based on Gaussian falloff of angular distance
+  let b = 0;
+  for(const h of HOT_V){
+    const dot = Math.max(-1, Math.min(1, x*h.v.x + y*h.v.y + z*h.v.z));
+    const ang = Math.acos(dot);
+    const k = Math.exp(-(ang*ang)/(2*h.r*h.r));
+    b = Math.max(b, k);
+  }
+  return b;
+}
+
+// Signal arcs between cities
+const CITIES = [
+  {lat:40.7,  lon:-74.0},   // NYC
+  {lat:51.5,  lon:-0.12},   // London
+  {lat:35.68, lon:139.69},  // Tokyo
+  {lat:-33.87,lon:151.21},  // Sydney
+  {lat:48.86, lon:2.35},    // Paris
+  {lat:-23.55,lon:-46.63},  // São Paulo
+  {lat:6.45,  lon:3.4},     // Lagos
+  {lat:19.07, lon:72.87},   // Mumbai
+  {lat:1.35,  lon:103.82},  // Singapore
+  {lat:55.75, lon:37.62},   // Moscow
+  {lat:34.05, lon:-118.24}, // LA
+  {lat:25.2,  lon:55.27},   // Dubai
+  {lat:-34.6, lon:-58.38},  // Buenos Aires
+  {lat:-33.9, lon:18.42},   // Cape Town
+  {lat:37.77, lon:-122.42}, // SF
+  {lat:22.3,  lon:114.17},  // Hong Kong
+];
+function ll2c(lat,lon){
+  const la=lat*Math.PI/180, lo=lon*Math.PI/180;
+  return {x:Math.cos(la)*Math.cos(lo), y:Math.sin(la), z:Math.cos(la)*Math.sin(lo)};
+}
+let ARCS=[];
+function newArc(t){
+  // Bias: one endpoint from HOTSPOTS, other from global cities
+  const hs = HOTSPOTS[Math.floor(Math.random()*HOTSPOTS.length)];
+  const a = ll2c(hs.lat, hs.lon);
+  const city = CITIES[Math.floor(Math.random()*CITIES.length)];
+  const b = ll2c(city.lat, city.lon);
+  // randomly flip direction
+  const flip = Math.random()<0.5;
+  ARCS.push({ a: flip?b:a, b: flip?a:b, t0:t, dur:3.5+Math.random()*2.0 });
+}
+
+const AXIAL_TILT = 23.4*Math.PI/180;
+let rotY=0, last=performance.now(), t=0;
+const SPEED = 0.08;
+
+// ----- Pill / pin DOM per hotspot -----
+const pillsRoot = document.getElementById('pills');
+function abbr(name){
+  // pick first two letters of first word, uppercase
+  return name.replace(/[^A-Za-z]/g,'').slice(0,2).toUpperCase();
+}
+for(const h of HOT_V){
+  const pin = document.createElement('div');
+  pin.className = 'pin';
+  pillsRoot.appendChild(pin);
+
+  const pill = document.createElement('div');
+  pill.className = 'pill';
+  pill.innerHTML = `
+    <span class="icon">${abbr(h.name)}</span>
+    <span class="label">Location</span>
+    <span class="name" data-name></span>
+    <span class="tail"></span>
+  `;
+  pillsRoot.appendChild(pill);
+
+  h._pin = pin;
+  h._pill = pill;
+  h._pillName = pill.querySelector('[data-name]');
+  h._state = 'hidden'; // 'hidden' | 'pinned' | 'named'
+  h._stateSince = 0;
+}
+
+function fmtCity(h){
+  // Short form: "Dallas, TX", "Montreal, QC"
+  return h.name;
+}
+
+function globeRadius(){ return Math.min(W,H)*0.32; }
+
+function project(p, cY, sY, cT, sT){
+  let x=p.x*cY + p.z*sY;
+  let z=-p.x*sY + p.z*cY;
+  let y=p.y;
+  const y2=y*cT - z*sT;
+  const z2=y*sT + z*cT;
+  const r=globeRadius();
+  const focal=1800;
+  const persp=focal/(focal - z2*r*0.35);
+  return { x:W/2 + x*r*persp, y:H/2 + y2*r*persp, z:z2, d:(z2+1)/2 };
+}
+
+// Slerp along great circle
+function slerp(a,b,t){
+  const dot=Math.max(-1,Math.min(1, a.x*b.x+a.y*b.y+a.z*b.z));
+  const om=Math.acos(dot);
+  const so=Math.sin(om);
+  if(so<0.0001) return a;
+  const f1=Math.sin((1-t)*om)/so, f2=Math.sin(t*om)/so;
+  // elevate off surface for arc
+  const h = 1 + 0.22*Math.sin(t*Math.PI);
+  return { x:(a.x*f1+b.x*f2)*h, y:(a.y*f1+b.y*f2)*h, z:(a.z*f1+b.z*f2)*h };
+}
+
+function render(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now; t+=dt;
+  rotY += dt*SPEED;
+
+  // Trails — subtle, so dots read crisp
+  ctx.globalCompositeOperation='source-over';
+  ctx.fillStyle='rgba(0,2,8,0.35)';
+  ctx.fillRect(0,0,W,H);
+
+  const cY=Math.cos(rotY), sY=Math.sin(rotY);
+  const cT=Math.cos(AXIAL_TILT), sT=Math.sin(AXIAL_TILT);
+  const r=globeRadius();
+
+  // Outer atmosphere glow
+  ctx.globalCompositeOperation='lighter';
+  const g = ctx.createRadialGradient(W/2,H/2,r*0.92,W/2,H/2,r*1.35);
+  g.addColorStop(0,'rgba(212,175,90,0.22)');
+  g.addColorStop(0.5,'rgba(180,140,70,0.10)');
+  g.addColorStop(1,'rgba(40,25,5,0)');
+  ctx.fillStyle=g;
+  ctx.beginPath(); ctx.arc(W/2,H/2,r*1.35,0,Math.PI*2); ctx.fill();
+
+  // Directional light vector in world space (camera-relative)
+  // Light from upper-left front
+  const L={x:-0.55, y:0.55, z:0.7};
+  const Ln=Math.hypot(L.x,L.y,L.z);
+  L.x/=Ln; L.y/=Ln; L.z/=Ln;
+
+  // Land particles
+  for(const p of LAND_P){
+    const pr=project(p,cY,sY,cT,sT);
+    if(pr.z<0.02) continue;
+    // rotated normal (same transform as point but p is already unit)
+    // recompute normal via same math
+    let nx=p.x*cY + p.z*sY;
+    let nz=-p.x*sY + p.z*cY;
+    let ny=p.y;
+    const ny2=ny*cT - nz*sT;
+    const nz2=ny*sT + nz*cT;
+    const dotL = Math.max(0, nx*L.x + ny2*L.y + nz2*L.z);
+    const lam = 0.25 + 0.75*dotL; // lambert with ambient
+    const limb = Math.pow(pr.d, 0.6);
+    const hotLift = 1 + 1.6*p.hot;
+    const a = Math.min(1, p.b * lam * limb * hotLift);
+    // Color: cool white with slight blue; warm tint when highlighted
+    const warm = p.hot;
+    const rr = Math.round(245 + 10*warm);
+    const gg = Math.round(220 + 15*warm);
+    const bb = Math.round(165 + 20*warm);
+    ctx.fillStyle=`rgba(${rr},${gg},${bb},${a.toFixed(3)})`;
+    ctx.beginPath();
+    ctx.arc(pr.x,pr.y, p.s*(0.85+pr.d*0.35)*(1+0.35*p.hot), 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  // Rim light
+  ctx.globalCompositeOperation='lighter';
+  const rim = ctx.createRadialGradient(W/2,H/2,r*0.98,W/2,H/2,r*1.04);
+  rim.addColorStop(0,'rgba(220,180,110,0.00)');
+  rim.addColorStop(0.5,'rgba(240,210,150,0.30)');
+  rim.addColorStop(1,'rgba(240,210,150,0)');
+  ctx.fillStyle=rim;
+  ctx.beginPath(); ctx.arc(W/2,H/2,r*1.05,0,Math.PI*2); ctx.fill();
+
+  // Hotspot halos — gentle breathing glow at each highlight center
+  ctx.globalCompositeOperation='lighter';
+  for(const h of HOT_V){
+    const pr = project(h.v, cY, sY, cT, sT);
+    if(pr.z<0.02) continue;
+    const pulse = 0.75 + 0.25*Math.sin(t*1.6 + (h.lat+h.lon)*0.1);
+    const radius = (h.r*r*1.2) * (1+0.15*Math.sin(t*1.2));
+    const hg = ctx.createRadialGradient(pr.x, pr.y, 0, pr.x, pr.y, radius);
+    hg.addColorStop(0, `rgba(255,230,200,${(0.35*pulse*pr.d).toFixed(3)})`);
+    hg.addColorStop(0.4, `rgba(255,215,170,${(0.12*pulse*pr.d).toFixed(3)})`);
+    hg.addColorStop(1, 'rgba(255,200,150,0)');
+    ctx.fillStyle = hg;
+    ctx.beginPath(); ctx.arc(pr.x, pr.y, radius, 0, Math.PI*2); ctx.fill();
+    // core dot
+    ctx.fillStyle = `rgba(255,240,220,${(0.9*pulse*pr.d).toFixed(3)})`;
+    ctx.beginPath(); ctx.arc(pr.x, pr.y, 1.6, 0, Math.PI*2); ctx.fill();
+  }
+
+  // Arcs
+  if(ARCS.length<5 && Math.random()<0.03) newArc(t);
+  ARCS = ARCS.filter(a => t - a.t0 < a.dur);
+  ctx.globalCompositeOperation='lighter';
+  for(const arc of ARCS){
+    const local = (t-arc.t0)/arc.dur;
+    const HEAD = Math.min(1, local*1.2);
+    const TAIL = Math.max(0, HEAD - 0.28);
+    ctx.lineCap='round';
+    // draw segments between TAIL..HEAD
+    const steps = 26;
+    let prev=null;
+    for(let i=0;i<=steps;i++){
+      const u = TAIL + (HEAD-TAIL)*(i/steps);
+      if(u<0 || u>1) { prev=null; continue; }
+      const pt = slerp(arc.a, arc.b, u);
+      const pr = project(pt, cY, sY, cT, sT);
+      if(pr.z<-0.05){ prev=null; continue; }
+      if(prev){
+        const alpha = (0.2 + 0.8*((u-TAIL)/(HEAD-TAIL+0.001))) * Math.min(1, pr.d*2);
+        ctx.strokeStyle = `rgba(180,215,255,${(alpha*0.9).toFixed(3)})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(prev.x,prev.y); ctx.lineTo(pr.x,pr.y); ctx.stroke();
+      }
+      prev=pr;
+    }
+    // Head dot
+    const head = slerp(arc.a, arc.b, HEAD);
+    const hp = project(head,cY,sY,cT,sT);
+    if(hp.z>0){
+      ctx.fillStyle='rgba(220,240,255,0.95)';
+      ctx.beginPath(); ctx.arc(hp.x,hp.y,1.8,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='rgba(180,215,255,0.22)';
+      ctx.beginPath(); ctx.arc(hp.x,hp.y,5,0,Math.PI*2); ctx.fill();
+    }
+  }
+
+  // ---- Update pill / pin anchors per hotspot ----
+  for(const h of HOT_V){
+    const pr = project(h.v, cY, sY, cT, sT);
+    const visible = pr.z > 0.2;
+    const onscreen = pr.x > -40 && pr.x < W+40 && pr.y > -40 && pr.y < H+40;
+
+    if(visible && onscreen){
+      h._pin.style.left = pr.x + 'px';
+      h._pin.style.top  = pr.y + 'px';
+      h._pill.style.left = pr.x + 'px';
+      h._pill.style.top  = (pr.y - 14) + 'px';
+      h._pin.classList.add('show');
+      // Show the pill with the city name immediately as the particle comes into view
+      if(!h._pillName.textContent) h._pillName.textContent = fmtCity(h);
+      h._pill.classList.add('show');
+    } else {
+      h._pin.classList.remove('show');
+      h._pill.classList.remove('show');
+    }
+  }
+
+  requestAnimationFrame(render);
+}
+
+async function init(){
+  resize();
+  await rasterize();
+  build();
+  ctx.fillStyle='#000'; ctx.fillRect(0,0,W,H);
+  requestAnimationFrame(render);
+}
+init();
+</script>
+</body>
+</html>

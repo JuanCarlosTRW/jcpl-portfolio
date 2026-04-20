@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 /* Dynamic imports — everything below the fold */
+const MarketingShowcase = dynamic(() => import("@/components/home/MarketingShowcase"));
 const ProofStrip = dynamic(() => import("@/components/home/ProofStrip"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const ProblemGrid = dynamic(() => import("@/components/home/ProblemGrid"));
@@ -37,6 +38,11 @@ export default function HomePage() {
     <>
       {/* 1. Hero */}
       <HeroSection />
+
+      {/* 1b. Marketing Showcase — Stripe-style feature row */}
+      <MarketingShowcase />
+
+      <SectionDivider />
 
       {/* 2. Proof Strip — stats bar */}
       <ProofStrip />

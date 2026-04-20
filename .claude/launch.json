@@ -7,6 +7,13 @@
       "runtimeArgs": ["/opt/homebrew/bin/npm", "run", "dev"],
       "env": { "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin" },
       "port": 3000
+    },
+    {
+      "name": "prod",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "cd /Users/jcpl/jcpl-portfolio && /opt/homebrew/bin/npm run build && /opt/homebrew/bin/npm run start"],
+      "env": { "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin" },
+      "port": 3000
     }
   ]
 }

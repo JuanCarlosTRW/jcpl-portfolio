@@ -1187,3 +1187,20 @@ export const servicesFitGuidance: Record<string, { bestFit: string[]; notFit: st
     ],
   },
 };
+
+export const marketingShowcase = {
+  eyebrow: "The standard",
+  rotatingPhrases: [
+    "Here is how marketing should be.",
+    "Here is how ads should convert.",
+    "Here is how sites should sell.",
+    "Here is how offers should close.",
+  ],
+  subline:
+    "Three moves that separate the operators from the agencies. Diagnose the funnel, bring in qualified calls, and close them with a site engineered to sell.",
+  cards: [
+    { eyebrow: "01 · Diagnose", title: "Your funnel, mapped in 48 hours." },
+    { eyebrow: "02 · Reach", title: "Systems that scale across any market." },
+    { eyebrow: "03 · Close", title: "Sites engineered to sell." },
+  ],
+};
