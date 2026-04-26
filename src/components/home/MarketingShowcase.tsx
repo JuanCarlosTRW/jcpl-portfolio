@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import Reveal from "@/components/motion/Reveal";
 import FeatureCard from "@/components/ui/FeatureCard";
 import PadlockEmbed from "./marketing-mocks/PadlockEmbed";

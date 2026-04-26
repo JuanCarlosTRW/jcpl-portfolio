@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { servicesComparison } from "@/lib/content";
 import { Reveal } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { stickyMobileCTA } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
 import Link from "next/link";

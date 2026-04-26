@@ -5,35 +5,35 @@ import { useEffect, useRef } from "react";
 
 const LOGOS = [
   {
-    src: "/images/logos/elite.png",
+    src: "/images/logos/elite.webp",
     alt: "Elite Barbershop",
     name: "Elite Barbershop",
     city: "Montreal, QC",
     service: "Barbershop",
   },
   {
-    src: "/images/logos/absolute.png",
+    src: "/images/logos/absolute.webp",
     alt: "Absolute Painting",
     name: "Absolute Painting",
     city: "Dallas, TX",
     service: "Painting Contractor",
   },
   {
-    src: "/images/logos/culture.png",
+    src: "/images/logos/culture.webp",
     alt: "Culture Barbershop",
     name: "Culture Barbershop",
     city: "Montreal, QC",
     service: "Barbershop",
   },
   {
-    src: "/images/logos/triplew.png",
+    src: "/images/logos/triplew.webp",
     alt: "Triple W Rentals",
     name: "Triple W Rentals",
     city: "Texas",
     service: "RV Rental",
   },
   {
-    src: "/images/logos/dentaire.png",
+    src: "/images/logos/dentaire.webp",
     alt: "Centre Dentaire Saint-Élzéar",
     name: "Centre Dentaire Saint-Élzéar",
     city: "Montreal, QC",

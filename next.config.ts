@@ -28,7 +28,14 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react"],
+    optimizePackageImports: [
+      "lucide-react",
+      "motion",
+      "gsap",
+      "@react-three/fiber",
+      "@react-three/drei",
+      "three",
+    ],
   },
   async redirects() {
     return [

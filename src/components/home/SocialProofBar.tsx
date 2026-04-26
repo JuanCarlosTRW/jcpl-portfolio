@@ -7,19 +7,19 @@ const clients = [
     name: "Triple W Rentals",
     industry: "RV Rental · Texas",
     result: "$41K revenue in 30 days",
-    logo: "/images/logos/triplew.png",
+    logo: "/images/logos/triplew.webp",
   },
   {
     name: "Elite Barbershop",
     industry: "Premium Barbershop · Montreal",
     result: "SEO campaign active",
-    logo: "/images/logos/elite.png",
+    logo: "/images/logos/elite.webp",
   },
   {
     name: "Culture Barbershop",
     industry: "Barbershop · Montreal",
     result: "Page 1 SEO in 60 days",
-    logo: "/images/logos/culture.png",
+    logo: "/images/logos/culture.webp",
   },
 ];
 

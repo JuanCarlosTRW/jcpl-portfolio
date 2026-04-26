@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, User } from "lucide-react";
 import { DemoCallButton } from "@/components/DemoCallButton";
 
-const KNIGHT_AVATAR = "/images/avatar-knight.png";
+const KNIGHT_AVATAR = "/images/avatar-knight.webp";
 
 function KnightAvatar() {
   const [imgError, setImgError] = useState(false);

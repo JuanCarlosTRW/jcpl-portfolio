@@ -41,7 +41,7 @@ export default function HeroSection() {
           sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
           width="100%"
           height="100%"
-          dpi={1.5}
+          dpi={1}
           scale={1}
         />
       </div>

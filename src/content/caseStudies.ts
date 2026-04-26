@@ -31,9 +31,9 @@ export const caseStudies: CaseStudy[] = [
       { label: "Timeline", value: "30 days" },
     ],
     websiteUrl: null,
-    logoUrl: "/images/logos/triplew.png",
+    logoUrl: "/images/logos/triplew.webp",
     metricsImageUrl:
-      "/images/case-study-screenshot.png",
+      "/images/case-study-screenshot.webp",
     caseStudySlug: "triple-w-rentals",
     inProgress: false,
     situation:
@@ -58,7 +58,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Target", value: "#1 Local" },
     ],
     websiteUrl: "https://elitebyhadi.com/fr/",
-    logoUrl: "/images/logos/elite.png",
+    logoUrl: "/images/logos/elite.webp",
     caseStudySlug: "elite-barbershop",
     inProgress: true,
     situation:
@@ -81,7 +81,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Market", value: "Dallas-Fort Worth" },
     ],
     websiteUrl: "https://absolutepainting.vercel.app/quote",
-    logoUrl: "/images/logos/absolute.png",
+    logoUrl: "/images/logos/absolute.webp",
     caseStudySlug: "absolute-painting",
     inProgress: false,
     situation:
@@ -104,7 +104,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Purpose", value: "Convert visitors to bookings" },
     ],
     websiteUrl: "https://culturemtl.ca",
-    logoUrl: "/images/logos/culture.png",
+    logoUrl: "/images/logos/culture.webp",
     caseStudySlug: "culture-barbershop",
     inProgress: false,
     situation:
@@ -127,7 +127,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Purpose", value: "Credibility + bookings" },
     ],
     websiteUrl: "https://as.centredentairese.com",
-    logoUrl: "/images/logos/dentaire.png",
+    logoUrl: "/images/logos/dentaire.webp",
     caseStudySlug: "centre-dentaire-saint-elzear",
     inProgress: false,
     situation:

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import type { Plan, BillingInterval } from "@/lib/pricing";
 import { Reveal } from "@/components/motion";
 import CTAButton from "@/components/ui/CTAButton";

@@ -179,7 +179,7 @@ export default function ServicesHero() {
                 }}
               >
                 <Image
-                  src="/images/proof/triple-w-ads-dashboard.png"
+                  src="/images/proof/triple-w-ads-dashboard.webp"
                   alt="Triple W Rentals Google Ads dashboard showing upward performance curve"
                   width={560}
                   height={220}

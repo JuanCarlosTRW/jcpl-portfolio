@@ -395,7 +395,7 @@ function ActiveSystemsSection() {
         {/* Triple W Rentals */}
         <div className="bg-[rgba(20,24,32,0.82)] rounded-xl p-6 flex flex-col items-start shadow-lg">
           <div className="flex items-center gap-2 mb-2">
-            <img src="/images/logos/triplew.png" alt="Triple W Rentals" className="h-8 w-auto" />
+            <img src="/images/logos/triplew.webp" alt="Triple W Rentals" className="h-8 w-auto" />
             <span className="font-semibold text-white text-lg">Triple W Rentals</span>
           </div>
           <div className="text-[13px] text-[rgba(220,230,240,0.62)] mb-2">RV Rental · Texas</div>
@@ -404,7 +404,7 @@ function ActiveSystemsSection() {
         {/* Elite Barbershop */}
         <div className="bg-[rgba(20,24,32,0.82)] rounded-xl p-6 flex flex-col items-start shadow-lg">
           <div className="flex items-center gap-2 mb-2">
-            <img src="/images/logos/elite.png" alt="Elite Barbershop" className="h-8 w-auto" />
+            <img src="/images/logos/elite.webp" alt="Elite Barbershop" className="h-8 w-auto" />
             <span className="font-semibold text-white text-lg">Elite Barbershop</span>
           </div>
           <div className="text-[13px] text-[rgba(220,230,240,0.62)] mb-2">Premium Barbershop · Montreal</div>
@@ -413,7 +413,7 @@ function ActiveSystemsSection() {
         {/* Culture Barbershop */}
         <div className="bg-[rgba(20,24,32,0.82)] rounded-xl p-6 flex flex-col items-start shadow-lg">
           <div className="flex items-center gap-2 mb-2">
-            <img src="/images/logos/culture.png" alt="Culture Barbershop" className="h-8 w-auto" />
+            <img src="/images/logos/culture.webp" alt="Culture Barbershop" className="h-8 w-auto" />
             <span className="font-semibold text-white text-lg">Culture Barbershop</span>
           </div>
           <div className="text-[13px] text-[rgba(220,230,240,0.62)] mb-2">Barbershop · Montreal</div>

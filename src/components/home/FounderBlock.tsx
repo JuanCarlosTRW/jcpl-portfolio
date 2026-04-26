@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
 import { translations } from "@/lib/translations";
 
-const JUAN_IMG_SRC = "/images/juan-headshot-founder.jpeg";
+const JUAN_IMG_SRC = "/images/juan-headshot-founder.webp";
 
 export default function FounderBlock() {
   const { locale, lp } = useLocale();

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
-const FALLBACK_SRC = "/images/juan-headshot.jpeg";
+const FALLBACK_SRC = "/images/juan-headshot.webp";
 
 export default function FounderUnicornProfile() {
   useEffect(() => {

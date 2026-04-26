@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { servicesMicroQuiz } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
 import CTAButton from "@/components/ui/CTAButton";

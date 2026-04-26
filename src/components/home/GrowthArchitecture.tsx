@@ -13,28 +13,28 @@ const tiles = [
     headline: "Show Up First.",
     body: "I position you on Google and AI tools like ChatGPT at the exact moment buyers in your city are ready to call. Before your competitors know this exists.",
     tags: ["Conversion website", "Local SEO", "GEO content"],
-    screenshotSrc: "/images/system/card-seo.png",
+    screenshotSrc: "/images/system/card-seo.webp",
   },
   {
     number: "02",
     headline: "Turn Visitors Into Calls.",
     body: "95% of website visitors leave without doing anything. I build a booking flow that captures people who are already interested in hiring you, without you lifting a finger.",
     tags: ["Booking flow", "AI lead qualifier", "Trust signals"],
-    screenshotSrc: "/images/system/card-website.png",
+    screenshotSrc: "/images/system/card-website.webp",
   },
   {
     number: "03",
     headline: "Get in Front of Buyers Now.",
     body: "Google Ads targeting people with purchase intent, not browsers. Every campaign built around one goal: more calls from people ready to hire you today.",
     tags: ["Paid traffic", "Dedicated landing pages", "Tracked cost per call"],
-    screenshotSrc: "/images/system/card-ads.png",
+    screenshotSrc: "/images/system/card-ads.webp",
   },
   {
     number: "04",
     headline: "Results Get Better Every Week.",
     body: "I look at the numbers every week and cut what is not working. The system compounds. Your cost per lead goes down every month it runs.",
     tags: ["Weekly optimization", "Monthly review call", "Conversion improvements"],
-    screenshotSrc: "/images/system/card-analytics.png",
+    screenshotSrc: "/images/system/card-analytics.webp",
   },
 ];
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import {
   servicesShowcaseContent,
@@ -204,7 +204,7 @@ export default function ServicesShowcase({ impactRevealed = false, goldTheme = f
                     <>
                       <div className="mt-4 flex justify-center">
                         <Image
-                          src="/images/juan-headshot.jpeg"
+                          src="/images/juan-headshot.webp"
                           alt="BY APPLICATION ONLY"
                           width={120}
                           height={120}

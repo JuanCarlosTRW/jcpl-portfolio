@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { servicesQuiz } from "@/lib/content";
 import CTAButton from "@/components/ui/CTAButton";
 import { trackEvent } from "@/lib/analytics";

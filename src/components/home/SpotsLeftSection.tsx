@@ -40,7 +40,7 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
         <div className="max-w-xl mx-auto px-4">
           <div className="flex items-center justify-center gap-5 flex-wrap">
             <Image
-              src="/images/juan-headshot.jpeg"
+              src="/images/juan-headshot.webp"
               alt="Juan, Client Growth"
               width={80}
               height={80}
@@ -80,7 +80,7 @@ export default function SpotsLeftSection({ background, variant = "default" }: Sp
       <div className="max-w-xl mx-auto px-4">
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "28px", gap: 24 }}>
           <Image
-            src="/images/juan-headshot.jpeg"
+            src="/images/juan-headshot.webp"
             alt="Juan, Client Growth"
             width={120}
             height={120}

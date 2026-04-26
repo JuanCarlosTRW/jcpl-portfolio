@@ -24,7 +24,7 @@ export default function Navbar() {
       colors={["transparent", "transparent"]}
       isFixed={true}
       position="right"
-      logoUrl="/images/logo-clientgrowth.png"
+      logoUrl="/images/logo-clientgrowth.webp"
       menuLabel={t<string>("common.menu")}
       closeLabel={t<string>("common.close")}
       languageSwitcher={<LanguageSwitcher />}

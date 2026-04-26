@@ -331,7 +331,7 @@ export const servicesShowcaseContent = {
       description:
         "A premium site engineered to turn clicks into booked calls. Fast, clean, persuasive.",
       imageUrl:
-        "/images/showcase-website.png",
+        "/images/showcase-website.webp",
       imageAlt: "Conversion website showcase",
       accentColor: "#F97316",
       hoverAccentColor: "#F97316",
@@ -346,7 +346,7 @@ export const servicesShowcaseContent = {
       description:
         "Technical + content SEO that compounds. Get found when buyers are searching.",
       imageUrl:
-        "/images/showcase-seo.png",
+        "/images/showcase-seo.webp",
       imageAlt: "SEO presence showcase",
       accentColor: "#22C55E",
       hoverAccentColor: "#22C55E",
@@ -361,7 +361,7 @@ export const servicesShowcaseContent = {
       description:
         "Get recommended inside AI answers with structured authority signals.",
       imageUrl:
-        "/images/showcase-geo.png",
+        "/images/showcase-geo.webp",
       imageAlt: "GEO AI search presence showcase",
       accentColor: "#A855F7",
       hoverAccentColor: "#A855F7",
@@ -378,7 +378,7 @@ export const servicesShowcaseContent = {
       description:
         "Messaging, offers, and landing-page copy built to convert cold traffic into revenue.",
       imageUrl:
-          "/images/showcase-copy.png",
+          "/images/showcase-copy.webp",
       imageAlt: "Copywriting showcase",
       accentColor: "#FACC15",
       hoverAccentColor: "#FACC15",
@@ -393,7 +393,7 @@ export const servicesShowcaseContent = {
       description:
         "Intent-driven campaigns engineered to turn search demand into qualified booked calls.",
       imageUrl:
-        "/images/showcase-ads.png",
+        "/images/showcase-ads.webp",
       imageAlt: "Google Ads campaigns showcase",
       accentColor: "#3B82F6",
       hoverAccentColor: "#3B82F6",

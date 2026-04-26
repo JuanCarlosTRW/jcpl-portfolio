@@ -10,7 +10,7 @@ export type LogoWithIndustry = {
 
 export const caseStudyLogos: LogoWithIndustry[] = [
   {
-    src: "/images/logos/elite.png",
+    src: "/images/logos/elite.webp",
     alt: "Elite Barbershop",
     name: "Elite Barbershop",
     city: "Montreal, QC",
@@ -18,7 +18,7 @@ export const caseStudyLogos: LogoWithIndustry[] = [
     industryLabel: "BARBERSHOP · MONTREAL",
   },
   {
-    src: "/images/logos/absolute.png",
+    src: "/images/logos/absolute.webp",
     alt: "Absolute Painting",
     name: "Absolute Painting",
     city: "Dallas, TX",
@@ -26,7 +26,7 @@ export const caseStudyLogos: LogoWithIndustry[] = [
     industryLabel: "PAINTING · DFW",
   },
   {
-    src: "/images/logos/culture.png",
+    src: "/images/logos/culture.webp",
     alt: "Culture Barbershop",
     name: "Culture Barbershop",
     city: "Montreal, QC",
@@ -34,7 +34,7 @@ export const caseStudyLogos: LogoWithIndustry[] = [
     industryLabel: "BARBERSHOP · MONTREAL",
   },
   {
-    src: "/images/logos/triplew.png",
+    src: "/images/logos/triplew.webp",
     alt: "Triple W Rentals",
     name: "Triple W Rentals",
     city: "Texas",
@@ -42,7 +42,7 @@ export const caseStudyLogos: LogoWithIndustry[] = [
     industryLabel: "RV RENTAL · TEXAS",
   },
   {
-    src: "/images/logos/dentaire.png",
+    src: "/images/logos/dentaire.webp",
     alt: "Centre Dentaire Saint-Élzéar",
     name: "Centre Dentaire Saint-Élzéar",
     city: "Montreal, QC",

@@ -256,7 +256,7 @@ export default function FeaturedCaseStudy() {
                   {/* Screenshot */}
                   <div>
                     <Image
-                      src="/images/proof/triple-w-ads-dashboard.png"
+                      src="/images/proof/triple-w-ads-dashboard.webp"
                       alt="Google Ads dashboard showing $41,085 in revenue for Triple W Rentals"
                       width={600}
                       height={400}
