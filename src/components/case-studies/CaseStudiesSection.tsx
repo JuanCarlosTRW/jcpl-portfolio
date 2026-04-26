@@ -141,7 +141,7 @@ function CaseStudyCardGrid() {
                   </p>
                   <div className="flex items-center gap-2 mt-1.5">
                     {card.ownerPhoto && (
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={card.ownerPhoto}
                         alt={card.ownerName || card.testimonial.name}
                         className="w-6 h-6 rounded-full object-cover"

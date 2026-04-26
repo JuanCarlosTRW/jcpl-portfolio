@@ -22,7 +22,10 @@ export default function HeroSection() {
         height: "100svh",
         minHeight: "100svh",
         overflow: "hidden",
-        background: "#0D0B09",
+        // Instant-paint placeholder gradient — mimics the planet glow
+        // so the hero looks alive before WebGL finishes loading.
+        background:
+          "radial-gradient(ellipse 60% 55% at 50% 55%, rgba(212,168,83,0.22) 0%, rgba(196,154,42,0.12) 25%, rgba(13,11,9,0.95) 65%, #0D0B09 100%), #0D0B09",
       }}
       aria-label="Hero"
     >

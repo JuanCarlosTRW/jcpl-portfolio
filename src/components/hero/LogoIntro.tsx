@@ -100,7 +100,7 @@ const LogoIntro = forwardRef<LogoIntroHandle>((_, ref) => {
 
         {/* Logo image - use img for GSAP ref compatibility */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <img loading="lazy" decoding="async"
           ref={imgRef}
           src="/jcpl-signature.svg"
           alt=""

@@ -42,7 +42,7 @@ export default function ProofOrbitSection() {
             style={{ minHeight: 320 }}
           >
             <div className="w-16 h-16 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-5">
-              <img src={card.src} alt={card.name} className="w-10 h-10 object-contain opacity-80" />
+              <img loading="lazy" decoding="async" src={card.src} alt={card.name} className="w-10 h-10 object-contain opacity-80" />
             </div>
             <div className="text-lg font-semibold text-white mb-1 text-center">{card.name}</div>
             <div className="text-xs uppercase tracking-widest text-zinc-500 mb-3 text-center">{card.industryLabel}</div>

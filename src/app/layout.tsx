@@ -73,6 +73,9 @@ export default function RootLayout({
     <html lang="en" className={`dark ${cormorant.variable} ${dmSans.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Preload hero WebGL assets so they download in parallel with HTML parse */}
+        <link rel="preload" as="script" href="/unicornStudio.umd.js" />
+        <link rel="preload" as="fetch" href="/scenes/hero-planet.json" crossOrigin="anonymous" />
         {/* Images now served locally from /public/images/ */}
         {/* Google Analytics GA4 */}
         <Script

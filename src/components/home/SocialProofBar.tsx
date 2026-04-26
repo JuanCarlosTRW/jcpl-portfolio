@@ -98,7 +98,7 @@ export default function SocialProofBar() {
                     marginBottom: "0.9rem",
                   }}
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={client.logo}
                     alt={client.name}
                     style={{ width: 20, height: 20, objectFit: "contain", opacity: 0.65 }}
