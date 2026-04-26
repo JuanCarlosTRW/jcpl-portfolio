@@ -8,7 +8,7 @@ export default function CaseStudiesHero() {
     >
       <UnicornScene
         projectId="hU6U4mKRHf6q7lApTLwx"
-        sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js"
+        sdkUrl="/unicornStudio.umd.js"
         width="100%"
         height="100%"
         production={true}

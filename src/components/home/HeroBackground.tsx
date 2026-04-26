@@ -8,7 +8,7 @@ export default function HeroBackground() {
     <div className="absolute inset-0 z-0" style={{ width: "100%", height: "100vh" }}>
       <UnicornScene
         projectId="UykNLkYklTyqyIZODvIi"
-        sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.3/dist/unicornStudio.umd.js"
+        sdkUrl="/unicornStudio.umd.js"
         width="100%"
         height="100vh"
         production

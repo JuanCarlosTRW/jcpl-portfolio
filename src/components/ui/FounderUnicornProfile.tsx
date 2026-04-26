@@ -27,7 +27,7 @@ export default function FounderUnicornProfile() {
       window.UnicornStudio = { isInitialized: false } as any;
       const s = document.createElement("script");
       s.src =
-        "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
+        "/unicornStudio.umd.js";
       s.onload = () => setTimeout(initUS, 50);
       document.body.appendChild(s);
     }

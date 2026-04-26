@@ -14,7 +14,7 @@ export default function AboutHeroSection() {
         <div className="about-hero-scene-wrapper" aria-hidden="true">
           <UnicornScene
             projectId="bi8sQ4960W9R0aV2JSta"
-            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+            sdkUrl="/unicornStudio.umd.js"
             width="100%"
             height="100%"
             scale={1}

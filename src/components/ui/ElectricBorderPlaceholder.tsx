@@ -22,7 +22,7 @@ export default function ElectricBorderPlaceholder({
         const script = document.createElement("script");
         script.id = "unicornstudio-script";
         script.src =
-          "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
+          "/unicornStudio.umd.js";
         script.onload = () => {
           window.UnicornStudio?.init();
         };

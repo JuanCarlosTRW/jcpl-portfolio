@@ -38,10 +38,10 @@ export default function HeroSection() {
       >
         <UnicornScene
           jsonFilePath="/scenes/hero-planet.json"
-          sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+          sdkUrl="/unicornStudio.umd.js"
           width="100%"
           height="100%"
-          dpi={1}
+          dpi={1.5}
           scale={1}
         />
       </div>

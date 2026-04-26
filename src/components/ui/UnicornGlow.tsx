@@ -57,7 +57,7 @@ export default function UnicornGlow({
         >
           <UnicornScene
             projectId="KgQLt1oeZGOzxz1T0OLX"
-            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js"
+            sdkUrl="/unicornStudio.umd.js"
             width="100%"
             height="100%"
             production={true}

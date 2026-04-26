@@ -11,7 +11,7 @@ export default function ServicesUnicornEmbed() {
     <section className="w-full" aria-hidden="true">
       <UnicornScene
         projectId="dyHEFIsGA1gwshhB9NPf"
-        sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.3/dist/unicornStudio.umd.js"
+        sdkUrl="/unicornStudio.umd.js"
         width="100%"
         height="400px"
         production={false}

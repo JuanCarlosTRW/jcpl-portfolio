@@ -19,7 +19,7 @@ export default function FinalConvictionSection() {
     } else {
       win.UnicornStudio = { isInitialized: false };
       const s = document.createElement("script");
-      s.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
+      s.src = "/unicornStudio.umd.js";
       s.onload = () => { win.UnicornStudio.init(); };
       (document.head || document.body).appendChild(s);
     }

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 
 const SDK_URL =
-  "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.4/dist/unicornStudio.umd.js";
+  "/unicornStudio.umd.js";
 const SCRIPT_ID = "unicornstudio-footer-sdk";
 
 export default function UnicornStudioEmbed() {

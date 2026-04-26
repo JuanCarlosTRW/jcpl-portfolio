@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 const SDK_URL =
-	"https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.5/dist/unicornStudio.umd.js";
+	"/unicornStudio.umd.js";
 const SCRIPT_ID = "unicornstudio-embed";
 const PROJECT_ID = "UykNLkYklTyqyIZODvIi";
 
