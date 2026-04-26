@@ -12,11 +12,22 @@ import { translations, type Locale } from "@/lib/translations";
 
 const STORAGE_KEY = "locale";
 
+function detectBrowserLocale(): Locale {
+  try {
+    const lang = navigator.language || (navigator.languages && navigator.languages[0]) || "";
+    if (lang.toLowerCase().startsWith("fr")) return "fr";
+  } catch { /* ignore */ }
+  return "en";
+}
+
 function readStoredLocale(): Locale {
   if (typeof window === "undefined") return "en";
   try {
     const v = localStorage.getItem(STORAGE_KEY);
     if (v === "fr") return "fr";
+    if (v === "en") return "en";
+    // No stored preference — fall back to browser language
+    return detectBrowserLocale();
   } catch { /* ignore */ }
   return "en";
 }

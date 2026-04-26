@@ -7,7 +7,7 @@ import FeatureCard from "@/components/ui/FeatureCard";
 import PadlockEmbed from "./marketing-mocks/PadlockEmbed";
 import EarthEmbed from "./marketing-mocks/EarthEmbed";
 import MapsSeoEmbed from "./marketing-mocks/MapsSeoEmbed";
-import { marketingShowcase } from "@/lib/content";
+import { useTranslations } from "@/context/LocaleContext";
 
 const ROTATION_MS = 3200;
 
@@ -44,7 +44,11 @@ function RotatingHeadline({ phrases }: { phrases: string[] }) {
 }
 
 export default function MarketingShowcase() {
-  const { eyebrow, rotatingPhrases, subline, cards } = marketingShowcase;
+  const t = useTranslations();
+  const eyebrow = t<string>("homepage.marketingShowcase.eyebrow");
+  const rotatingPhrases = t<string[]>("homepage.marketingShowcase.rotatingPhrases");
+  const subline = t<string>("homepage.marketingShowcase.subline");
+  const cards = t<Array<{ eyebrow: string; title: string }>>("homepage.marketingShowcase.cards");
 
   const visuals = [
     <PadlockEmbed key="m1" />,

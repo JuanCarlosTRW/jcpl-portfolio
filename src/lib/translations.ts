@@ -469,6 +469,12 @@ export type TranslationsShape = {
       stat2Label: string;
       stat2Sub: string;
     };
+    marketingShowcase: {
+      eyebrow: string;
+      rotatingPhrases: string[];
+      subline: string;
+      cards: Array<{ eyebrow: string; title: string }>;
+    };
     problemGrid: {
       eyebrow: string;
       heading: string;
@@ -1222,6 +1228,22 @@ export const translations: Record<Locale, TranslationsShape> = {
         stat1Sub: "Triple W Rentals",
         stat2Label: "tracked revenue",
         stat2Sub: "active accounts",
+      },
+      marketingShowcase: {
+        eyebrow: "The standard",
+        rotatingPhrases: [
+          "Here is how marketing should be.",
+          "Here is how ads should convert.",
+          "Here is how sites should sell.",
+          "Here is how offers should close.",
+        ],
+        subline:
+          "Three moves that separate the operators from the agencies. Diagnose the funnel, bring in qualified calls, and close them with a site engineered to sell.",
+        cards: [
+          { eyebrow: "01 · Unlock", title: "The key to predictable demand." },
+          { eyebrow: "02 · Reach", title: "Systems that scale across any market." },
+          { eyebrow: "03 · Rank", title: "Climb the map where your buyers search." },
+        ],
       },
       problemGrid: {
         eyebrow: "THE PROBLEM",
@@ -2036,6 +2058,22 @@ export const translations: Record<Locale, TranslationsShape> = {
         stat1Sub: "Triple W Rentals",
         stat2Label: "revenus suivis",
         stat2Sub: "comptes actifs",
+      },
+      marketingShowcase: {
+        eyebrow: "La norme",
+        rotatingPhrases: [
+          "Voici comment le marketing devrait fonctionner.",
+          "Voici comment les annonces devraient convertir.",
+          "Voici comment les sites devraient vendre.",
+          "Voici comment les offres devraient conclure.",
+        ],
+        subline:
+          "Trois actions qui séparent les opérateurs des agences. Diagnostiquer l'entonnoir, obtenir des appels qualifiés, et les conclure avec un site conçu pour vendre.",
+        cards: [
+          { eyebrow: "01 · Déverrouiller", title: "La clé d'une demande prévisible." },
+          { eyebrow: "02 · Atteindre", title: "Des systèmes qui s'adaptent à n'importe quel marché." },
+          { eyebrow: "03 · Classer", title: "Montez dans les résultats où vos acheteurs cherchent." },
+        ],
       },
       problemGrid: {
         eyebrow: "LE PROBL\u00c8ME",
