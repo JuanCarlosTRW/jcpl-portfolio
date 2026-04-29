@@ -4,7 +4,7 @@ import { type ReactNode } from "react";
 import { LocaleProvider } from "@/context/LocaleContext";
 import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
 import RouteScrollManager from "@/components/system/RouteScrollManager";
-import { AnimatedNavFramer } from "@/components/ui/navigation-menu";
+import SiteNav from "@/components/ui/SiteNav";
 import Footer from "@/components/Footer";
 import SpeedPopup from "@/components/SpeedPopup";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
@@ -32,7 +32,7 @@ export default function ClientAppShell({ children }: { children: ReactNode }) {
       <SectionLabelAnimator />
       <SmoothScrollProvider>
         <RouteScrollManager />
-        <AnimatedNavFramer />
+        <SiteNav />
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
