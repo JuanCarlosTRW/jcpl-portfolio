@@ -66,23 +66,26 @@ export default function SiteNav() {
           gridTemplateColumns: "1fr auto 1fr",
         }}
       >
-        <div className="flex items-center pl-6">
+        <div
+          className="nav-col-left flex items-center"
+          style={{ borderRight: `1px solid ${GOLD_BORDER}` }}
+        >
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
             aria-expanded={menuOpen}
             aria-controls="site-menu-panel"
-            className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[var(--brand-accent)] rounded-sm"
-            style={{ background: "none", border: "none", cursor: "pointer", padding: "8px 4px" }}
+            className="flex items-center group focus-visible:outline-2 focus-visible:outline-[var(--brand-accent)] rounded-sm"
+            style={{ background: "none", border: "none", cursor: "pointer", padding: 0, gap: 10 }}
           >
             <span
               aria-hidden="true"
               style={{ display: "inline-flex", flexDirection: "column", gap: 4, width: 18 }}
             >
-              <span style={{ display: "block", height: 1, width: "100%", background: "#F5F0E8" }} />
-              <span style={{ display: "block", height: 1, width: "100%", background: "#F5F0E8" }} />
-              <span style={{ display: "block", height: 1, width: "100%", background: "#F5F0E8" }} />
+              <span style={{ display: "block", height: 1, width: "100%", background: "rgba(255,255,255,0.7)" }} />
+              <span style={{ display: "block", height: 1, width: "100%", background: "rgba(255,255,255,0.7)" }} />
+              <span style={{ display: "block", height: 1, width: "100%", background: "rgba(255,255,255,0.7)" }} />
             </span>
             <span
               style={{
@@ -90,7 +93,7 @@ export default function SiteNav() {
                 fontSize: 11,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "#F5F0E8",
+                color: "rgba(255,255,255,0.75)",
                 fontWeight: 500,
               }}
             >
@@ -101,26 +104,60 @@ export default function SiteNav() {
 
         <Link
           href="/"
-          className="brand-lockup flex items-center"
+          className="brand-lockup-link flex items-center justify-center"
           aria-label="Client Growth — home"
-          style={{ borderLeft: `1px solid ${GOLD_BORDER}`, borderRight: `1px solid ${GOLD_BORDER}` }}
+          style={{ borderRight: `1px solid ${GOLD_BORDER}` }}
         >
-          <KnightLogo size={36} spinInterval={8000} />
-          <span
-            className="brand-text"
-            style={{
-              fontFamily: "var(--font-cormorant), Georgia, serif",
-              color: "#F5F0E8",
-              textTransform: "uppercase",
-              fontWeight: 500,
-              whiteSpace: "nowrap",
-            }}
-          >
-            CLIENT GROWTH
+          <span className="brand-lockup" style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+            <KnightLogo size={36} spinInterval={8000} />
+            <span
+              className="brand-stack"
+              style={{
+                display: "inline-flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                lineHeight: 1,
+                fontFamily: "var(--font-cormorant), Georgia, serif",
+                textTransform: "uppercase",
+              }}
+            >
+              <span
+                className="brand-the"
+                style={{
+                  fontSize: 9,
+                  letterSpacing: "0.38em",
+                  color: "rgba(212,168,83,0.6)",
+                }}
+              >
+                The
+              </span>
+              <span
+                className="brand-name"
+                style={{
+                  fontSize: 17,
+                  fontWeight: 400,
+                  letterSpacing: "0.2em",
+                  color: "#FFFFFF",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Client Growth
+              </span>
+              <span
+                className="brand-agency"
+                style={{
+                  fontSize: 9,
+                  letterSpacing: "0.3em",
+                  color: "rgba(212,168,83,0.55)",
+                }}
+              >
+                Agency
+              </span>
+            </span>
           </span>
         </Link>
 
-        <div className="flex items-center justify-end pr-6">
+        <div className="nav-col-right flex items-center justify-end">
           <Link
             href="/apply"
             style={{
@@ -128,9 +165,9 @@ export default function SiteNav() {
               fontSize: 11,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#F5F0E8",
+              color: "rgba(255,255,255,0.75)",
               fontWeight: 500,
-              padding: "8px 4px",
+              padding: 0,
             }}
           >
             CONTACT
@@ -259,40 +296,55 @@ export default function SiteNav() {
       </AnimatePresence>
 
       <style>{`
-        .brand-lockup {
-          gap: 14px;
+        .nav-col-left {
           padding: 0 32px;
         }
-        .brand-text {
-          font-size: 22px;
-          letter-spacing: 0.2em;
+        .nav-col-right {
+          padding: 0 32px;
+        }
+        .brand-lockup-link {
+          padding: 0 48px;
         }
         @media (max-width: 1024px) {
-          .brand-lockup {
-            gap: 12px;
+          .nav-col-left,
+          .nav-col-right {
             padding: 0 22px;
           }
-          .brand-text {
-            font-size: 18px;
-            letter-spacing: 0.18em;
+          .brand-lockup-link {
+            padding: 0 32px;
+          }
+          .brand-name {
+            font-size: 15px !important;
+            letter-spacing: 0.18em !important;
           }
         }
         @media (max-width: 640px) {
-          .brand-lockup {
-            gap: 10px;
+          .nav-col-left,
+          .nav-col-right {
             padding: 0 14px;
           }
-          .brand-text {
-            font-size: 14px;
-            letter-spacing: 0.16em;
+          .brand-lockup-link {
+            padding: 0 16px;
+          }
+          .brand-name {
+            font-size: 13px !important;
+            letter-spacing: 0.14em !important;
+          }
+          .brand-the,
+          .brand-agency {
+            font-size: 8px !important;
+            letter-spacing: 0.28em !important;
           }
           .menu-panel {
             width: 100vw !important;
           }
         }
-        @media (max-width: 380px) {
-          .brand-text {
-            display: none;
+        @media (max-width: 420px) {
+          .brand-stack {
+            display: none !important;
+          }
+          .brand-lockup {
+            gap: 0 !important;
           }
         }
       `}</style>

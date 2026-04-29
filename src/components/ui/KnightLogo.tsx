@@ -22,10 +22,10 @@ interface KnightLogoProps {
   spinInterval?: number;
 }
 
-const SPIN_DURATION_MS = 1400;
+const SPIN_DURATION_MS = 1800;
 
-function easeInOutCubic(t: number): number {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+function easeInOutQuad(t: number): number {
+  return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 }
 
 export default function KnightLogo({ size = 36, spinInterval = 8000 }: KnightLogoProps) {
@@ -38,8 +38,9 @@ export default function KnightLogo({ size = 36, spinInterval = 8000 }: KnightLog
 
     const scene = new THREE.Scene();
 
-    const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
-    camera.position.set(0, 0, 4);
+    const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
+    camera.position.set(0, 0, 4.2);
+    camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -55,8 +56,10 @@ export default function KnightLogo({ size = 36, spinInterval = 8000 }: KnightLog
       if (i === 0) shape.moveTo(x, fy);
       else shape.lineTo(x, fy);
     });
+    shape.closePath();
 
     const geometry = new THREE.ExtrudeGeometry(shape, {
+      steps: 2,
       depth: 0.12,
       bevelEnabled: true,
       bevelThickness: 0.018,
@@ -64,46 +67,65 @@ export default function KnightLogo({ size = 36, spinInterval = 8000 }: KnightLog
       bevelSegments: 12,
     });
     geometry.center();
+    geometry.computeVertexNormals();
 
     const material = new THREE.MeshStandardMaterial({
       color: 0xd4a030,
-      metalness: 1.0,
-      roughness: 0.12,
       emissive: 0x7a4a00,
       emissiveIntensity: 0.55,
+      metalness: 1.0,
+      roughness: 0.12,
     });
 
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+    const knight = new THREE.Mesh(geometry, material);
+    knight.scale.set(1.4, 1.4, 1.4);
+    scene.add(knight);
 
-    const ambient = new THREE.AmbientLight(0xffffff, 0.35);
-    const key = new THREE.DirectionalLight(0xffffff, 1.6);
-    key.position.set(2, 3, 4);
-    const rim = new THREE.DirectionalLight(0xffd28b, 0.8);
-    rim.position.set(-2, -1, 3);
-    scene.add(ambient, key, rim);
+    const ambient = new THREE.AmbientLight(0xffcc55, 1.8);
+    const keyLight = new THREE.DirectionalLight(0xfff5d0, 5.0);
+    keyLight.position.set(-3, 5, 4);
+    const rimLight = new THREE.DirectionalLight(0xddeeff, 3.0);
+    rimLight.position.set(4, 2, -3);
+    const fillLight = new THREE.DirectionalLight(0xffd580, 2.5);
+    fillLight.position.set(0, 1, 6);
+    const sparkle = new THREE.PointLight(0xffe090, 5.0, 8);
+    scene.add(ambient, keyLight, rimLight, fillLight, sparkle);
 
     let rafId = 0;
     let lastSpinAt = performance.now();
     let spinning = false;
     let spinStart = 0;
+    let spinFrom = 0;
+    let baseRotY = 0;
+    let t = 0;
 
     const tick = (now: number) => {
+      t += 0.012;
+
       if (!reducedMotion) {
         if (!spinning && now - lastSpinAt >= spinInterval) {
           spinning = true;
           spinStart = now;
+          spinFrom = baseRotY;
+          lastSpinAt = now;
         }
         if (spinning) {
-          const t = Math.min((now - spinStart) / SPIN_DURATION_MS, 1);
-          mesh.rotation.y = easeInOutCubic(t) * Math.PI * 2;
-          if (t >= 1) {
+          const progress = Math.min((now - spinStart) / SPIN_DURATION_MS, 1);
+          baseRotY = spinFrom + easeInOutQuad(progress) * Math.PI * 2;
+          if (progress >= 1) {
+            baseRotY = spinFrom + Math.PI * 2;
             spinning = false;
-            mesh.rotation.y = 0;
-            lastSpinAt = now;
           }
         }
+        knight.rotation.y = baseRotY;
+        knight.rotation.x = Math.sin(t * 0.4) * 0.03;
+        sparkle.position.set(
+          Math.sin(t * 0.7) * 2.5,
+          1.5 + Math.sin(t * 0.4) * 0.8,
+          Math.cos(t * 0.7) * 2.5 + 1
+        );
       }
+
       renderer.render(scene, camera);
       rafId = requestAnimationFrame(tick);
     };
