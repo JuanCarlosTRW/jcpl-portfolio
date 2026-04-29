@@ -13,8 +13,6 @@ const MarketingShowcase = dynamic(() => import("@/components/home/MarketingShowc
 const ProofStrip = dynamic(() => import("@/components/home/ProofStrip"));
 const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const ProblemGrid = dynamic(() => import("@/components/home/ProblemGrid"));
-const DifferentiationSection = dynamic(() => import("@/components/home/DifferentiationSection"));
-const AcquisitionSlider = dynamic(() => import("@/components/home/AcquisitionSlider"));
 const WhatIBuildSlider = dynamic(() => import("@/components/home/WhatIBuildSlider"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
 const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
@@ -59,17 +57,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* 5. Why This Is Different (id="different") */}
-      <DifferentiationSection />
-
-      <SectionDivider />
-
-      {/* 6. The Acquisition System (id="system") */}
-      <AcquisitionSlider />
-
-      <SectionDivider />
-
-      {/* 7. What I Build (id="services") */}
+      {/* 5. What I Build (id="services") */}
       <WhatIBuildSlider />
 
       <SectionDivider />
