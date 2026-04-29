@@ -5,38 +5,14 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
   type ReactNode,
 } from "react";
 import { translations, type Locale } from "@/lib/translations";
-
-const STORAGE_KEY = "locale";
-
-function detectBrowserLocale(): Locale {
-  try {
-    const lang = navigator.language || (navigator.languages && navigator.languages[0]) || "";
-    if (lang.toLowerCase().startsWith("fr")) return "fr";
-  } catch { /* ignore */ }
-  return "en";
-}
-
-function readStoredLocale(): Locale {
-  if (typeof window === "undefined") return "en";
-  try {
-    const v = localStorage.getItem(STORAGE_KEY);
-    if (v === "fr") return "fr";
-    if (v === "en") return "en";
-    // No stored preference — fall back to browser language
-    return detectBrowserLocale();
-  } catch { /* ignore */ }
-  return "en";
-}
 
 type LocaleContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: <T = string>(path: string) => T;
-  /** Build a locale-aware internal path: lp("/results") → "/fr/results" in FR */
   lp: (path: string) => string;
 };
 
@@ -52,40 +28,32 @@ function getByPath(obj: unknown, path: string): unknown {
   return current;
 }
 
-export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(readStoredLocale);
+const FIXED_LOCALE: Locale = "en";
 
+export function LocaleProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof document !== "undefined") {
-      document.documentElement.lang = locale;
+      document.documentElement.lang = FIXED_LOCALE;
     }
-  }, [locale]);
+  }, []);
 
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    try {
-      localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // ignore
-    }
+  const setLocale = useCallback((_next: Locale) => {
+    // English-only site — locale switching is intentionally a no-op.
   }, []);
 
   const t = useCallback(
     <T = string>(path: string): T => {
-      const obj = translations[locale];
+      const obj = translations[FIXED_LOCALE];
       const value = getByPath(obj, path);
       return (value ?? "") as T;
     },
-    [locale]
-  );
-
-  const lp = useCallback(
-    (path: string): string => path,
     []
   );
 
+  const lp = useCallback((path: string): string => path, []);
+
   const value: LocaleContextValue = {
-    locale,
+    locale: FIXED_LOCALE,
     setLocale,
     t,
     lp,

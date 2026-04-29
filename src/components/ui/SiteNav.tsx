@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import KnightLogo from "@/components/ui/KnightLogo";
-import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { useLocale } from "@/context/LocaleContext";
 import { translations } from "@/lib/translations";
 import { usePrefersReducedMotionSafe } from "@/components/motion/usePrefersReducedMotionSafe";
@@ -108,51 +107,22 @@ export default function SiteNav() {
           aria-label="Client Growth — home"
           style={{ borderRight: `1px solid ${GOLD_BORDER}` }}
         >
-          <span className="brand-lockup" style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
-            <KnightLogo size={36} spinInterval={8000} />
+          <span className="brand-lockup" style={{ display: "inline-flex", alignItems: "center", gap: 14 }}>
+            <KnightLogo size={40} spinInterval={8000} />
             <span
-              className="brand-stack"
+              className="brand-name"
               style={{
-                display: "inline-flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                lineHeight: 1,
                 fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontSize: 26,
+                fontWeight: 500,
+                letterSpacing: "0.18em",
+                color: "#FFFFFF",
                 textTransform: "uppercase",
+                whiteSpace: "nowrap",
+                lineHeight: 1,
               }}
             >
-              <span
-                className="brand-the"
-                style={{
-                  fontSize: 9,
-                  letterSpacing: "0.38em",
-                  color: "rgba(212,168,83,0.6)",
-                }}
-              >
-                The
-              </span>
-              <span
-                className="brand-name"
-                style={{
-                  fontSize: 17,
-                  fontWeight: 400,
-                  letterSpacing: "0.2em",
-                  color: "#FFFFFF",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Client Growth
-              </span>
-              <span
-                className="brand-agency"
-                style={{
-                  fontSize: 9,
-                  letterSpacing: "0.3em",
-                  color: "rgba(212,168,83,0.55)",
-                }}
-              >
-                Agency
-              </span>
+              Client Growth
             </span>
           </span>
         </Link>
@@ -281,15 +251,6 @@ export default function SiteNav() {
                 })}
               </nav>
 
-              <div
-                className="mt-auto flex items-center"
-                style={{
-                  padding: "20px 24px",
-                  borderTop: `1px solid ${GOLD_BORDER}`,
-                }}
-              >
-                <LanguageSwitcher />
-              </div>
             </motion.aside>
           </>
         ) : null}
@@ -314,8 +275,8 @@ export default function SiteNav() {
             padding: 0 32px;
           }
           .brand-name {
-            font-size: 15px !important;
-            letter-spacing: 0.18em !important;
+            font-size: 22px !important;
+            letter-spacing: 0.16em !important;
           }
         }
         @media (max-width: 640px) {
@@ -327,20 +288,18 @@ export default function SiteNav() {
             padding: 0 16px;
           }
           .brand-name {
-            font-size: 13px !important;
+            font-size: 16px !important;
             letter-spacing: 0.14em !important;
           }
-          .brand-the,
-          .brand-agency {
-            font-size: 8px !important;
-            letter-spacing: 0.28em !important;
+          .brand-lockup {
+            gap: 10px !important;
           }
           .menu-panel {
             width: 100vw !important;
           }
         }
         @media (max-width: 420px) {
-          .brand-stack {
+          .brand-name {
             display: none !important;
           }
           .brand-lockup {
