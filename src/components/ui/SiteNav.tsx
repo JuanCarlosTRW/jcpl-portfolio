@@ -87,6 +87,7 @@ export default function SiteNav() {
               <span style={{ display: "block", height: 1, width: "100%", background: "rgba(255,255,255,0.7)" }} />
             </span>
             <span
+              className="nav-label-text"
               style={{
                 fontFamily: "var(--font-dm-sans), sans-serif",
                 fontSize: 11,
@@ -108,7 +109,9 @@ export default function SiteNav() {
           style={{ borderRight: `1px solid ${GOLD_BORDER}` }}
         >
           <span className="brand-lockup" style={{ display: "inline-flex", alignItems: "center", gap: 14 }}>
-            <KnightLogo size={40} spinInterval={8000} />
+            <span className="brand-knight">
+              <KnightLogo size={40} spinInterval={8000} />
+            </span>
             <span
               className="brand-name"
               style={{
@@ -130,6 +133,7 @@ export default function SiteNav() {
         <div className="nav-col-right flex items-center justify-end">
           <Link
             href="/apply"
+            className="nav-contact"
             style={{
               fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: 11,
@@ -257,54 +261,74 @@ export default function SiteNav() {
       </AnimatePresence>
 
       <style>{`
-        .nav-col-left {
-          padding: 0 32px;
-        }
-        .nav-col-right {
-          padding: 0 32px;
-        }
-        .brand-lockup-link {
-          padding: 0 48px;
-        }
+        .nav-col-left { padding: 0 32px; }
+        .nav-col-right { padding: 0 32px; }
+        .brand-lockup-link { padding: 0 48px; }
+        .brand-knight { display: inline-flex; }
+        .brand-knight > div { width: 40px !important; height: 40px !important; }
+        .brand-knight canvas { width: 40px !important; height: 40px !important; }
+
         @media (max-width: 1024px) {
           .nav-col-left,
-          .nav-col-right {
-            padding: 0 22px;
-          }
-          .brand-lockup-link {
-            padding: 0 32px;
-          }
+          .nav-col-right { padding: 0 22px; }
+          .brand-lockup-link { padding: 0 28px; }
           .brand-name {
             font-size: 22px !important;
             letter-spacing: 0.16em !important;
           }
         }
-        @media (max-width: 640px) {
-          .nav-col-left,
-          .nav-col-right {
-            padding: 0 14px;
-          }
-          .brand-lockup-link {
-            padding: 0 16px;
-          }
+
+        @media (max-width: 768px) {
+          .brand-lockup-link { padding: 0 18px; }
           .brand-name {
-            font-size: 16px !important;
+            font-size: 18px !important;
             letter-spacing: 0.14em !important;
           }
-          .brand-lockup {
-            gap: 10px !important;
+          .brand-knight > div,
+          .brand-knight canvas {
+            width: 34px !important;
+            height: 34px !important;
           }
-          .menu-panel {
-            width: 100vw !important;
+          .brand-lockup { gap: 10px !important; }
+        }
+
+        @media (max-width: 560px) {
+          .nav-col-left,
+          .nav-col-right { padding: 0 14px; }
+          .brand-lockup-link { padding: 0 12px; }
+          .brand-name {
+            font-size: 15px !important;
+            letter-spacing: 0.12em !important;
+          }
+          .brand-knight > div,
+          .brand-knight canvas {
+            width: 30px !important;
+            height: 30px !important;
+          }
+          .brand-lockup { gap: 8px !important; }
+          .nav-label-text,
+          .nav-contact {
+            font-size: 10px !important;
+            letter-spacing: 0.18em !important;
+          }
+          .menu-panel { width: 100vw !important; }
+        }
+
+        @media (max-width: 420px) {
+          .nav-col-left,
+          .nav-col-right { padding: 0 10px; }
+          .brand-lockup-link { padding: 0 8px; }
+          .nav-label-text { display: none; }
+          .brand-name {
+            font-size: 13px !important;
+            letter-spacing: 0.1em !important;
           }
         }
-        @media (max-width: 420px) {
-          .brand-name {
-            display: none !important;
-          }
-          .brand-lockup {
-            gap: 0 !important;
-          }
+
+        @media (max-width: 360px) {
+          .brand-name { display: none !important; }
+          .brand-lockup { gap: 0 !important; }
+          .nav-contact { font-size: 9px !important; }
         }
       `}</style>
     </>
