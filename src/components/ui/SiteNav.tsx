@@ -101,26 +101,22 @@ export default function SiteNav() {
 
         <Link
           href="/"
-          className="flex items-center gap-3 px-8"
+          className="brand-lockup flex items-center"
           aria-label="Client Growth — home"
           style={{ borderLeft: `1px solid ${GOLD_BORDER}`, borderRight: `1px solid ${GOLD_BORDER}` }}
         >
           <KnightLogo size={36} spinInterval={8000} />
           <span
-            className="brand-lockup"
+            className="brand-text"
             style={{
-              display: "inline-flex",
-              flexDirection: "column",
               fontFamily: "var(--font-cormorant), Georgia, serif",
               color: "#F5F0E8",
               textTransform: "uppercase",
-              lineHeight: 1.0,
-              letterSpacing: "0.18em",
+              fontWeight: 500,
+              whiteSpace: "nowrap",
             }}
           >
-            <span style={{ fontSize: 9, fontWeight: 400, opacity: 0.85 }}>THE</span>
-            <span style={{ fontSize: 14, fontWeight: 600, letterSpacing: "0.16em" }}>CLIENT GROWTH</span>
-            <span style={{ fontSize: 9, fontWeight: 400, opacity: 0.85 }}>AGENCY</span>
+            CLIENT GROWTH
           </span>
         </Link>
 
@@ -263,16 +259,40 @@ export default function SiteNav() {
       </AnimatePresence>
 
       <style>{`
-        @media (max-width: 640px) {
-          .brand-lockup span:nth-child(1),
-          .brand-lockup span:nth-child(3) {
-            font-size: 8px !important;
+        .brand-lockup {
+          gap: 14px;
+          padding: 0 32px;
+        }
+        .brand-text {
+          font-size: 22px;
+          letter-spacing: 0.2em;
+        }
+        @media (max-width: 1024px) {
+          .brand-lockup {
+            gap: 12px;
+            padding: 0 22px;
           }
-          .brand-lockup span:nth-child(2) {
-            font-size: 12px !important;
+          .brand-text {
+            font-size: 18px;
+            letter-spacing: 0.18em;
+          }
+        }
+        @media (max-width: 640px) {
+          .brand-lockup {
+            gap: 10px;
+            padding: 0 14px;
+          }
+          .brand-text {
+            font-size: 14px;
+            letter-spacing: 0.16em;
           }
           .menu-panel {
             width: 100vw !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .brand-text {
+            display: none;
           }
         }
       `}</style>
