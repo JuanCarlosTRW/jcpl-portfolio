@@ -12,7 +12,7 @@ export default function ProofStrip() {
     { value: "$60K+", label: t.stat2Label, sub: t.stat2Sub },
   ];
   return (
-    <section className="py-12 md:py-16" style={{ background: "#0D0B09" }}>
+    <section className="py-12 md:py-16">
       <style>{`@media (max-width: 767px) { .proof-strip-grid { grid-template-columns: 1fr 1fr !important; } }`}</style>
       {/* 2 stats → 2-col grid on all sizes */}
       <div

@@ -247,7 +247,42 @@ html {
 }
 
 body {
-  background: var(--bg-deepest);
+  /* Premium ambient gradient atmosphere — champagne gold + bronze + cream
+     painted directly on the body so it stays anchored to the viewport
+     (background-attachment: fixed) and shows through any section that
+     doesn't paint its own opaque background. background-color (not the
+     shorthand) keeps background-image from being clobbered. */
+  background-color: var(--bg-deepest);
+  background-image:
+    /* Left edge — warm gold halo */
+    radial-gradient(
+      62vw 78vh at 0% 32%,
+      rgba(212, 168, 83, 0.13) 0%,
+      rgba(212, 168, 83, 0.04) 28%,
+      transparent 68%
+    ),
+    /* Right edge — soft cream highlight, opposing vertical for balance */
+    radial-gradient(
+      55vw 70vh at 100% 70%,
+      rgba(245, 240, 232, 0.075) 0%,
+      rgba(245, 240, 232, 0.02) 30%,
+      transparent 65%
+    ),
+    /* Bottom-left — bronze depth, anchors the page */
+    radial-gradient(
+      50vw 50vh at 8% 100%,
+      rgba(122, 74, 0, 0.12) 0%,
+      rgba(122, 74, 0, 0.04) 32%,
+      transparent 65%
+    ),
+    /* Top centre — subtle gold halo behind the hero */
+    radial-gradient(
+      40vw 35vh at 50% -4%,
+      rgba(212, 168, 83, 0.045) 0%,
+      transparent 60%
+    );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--text-primary);
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -256,6 +291,50 @@ body {
   position: relative;
   overflow-x: clip; /* clip instead of hidden — prevents body from becoming the scroll container, preserving position:sticky and Lenis smooth scroll */
   min-height: 100dvh;
+}
+
+@media (max-width: 1024px) {
+  body {
+    background-image:
+      radial-gradient(
+        80vw 60vh at 0% 28%,
+        rgba(212, 168, 83, 0.11) 0%,
+        rgba(212, 168, 83, 0.035) 30%,
+        transparent 65%
+      ),
+      radial-gradient(
+        70vw 55vh at 100% 72%,
+        rgba(245, 240, 232, 0.06) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        60vw 45vh at 10% 100%,
+        rgba(122, 74, 0, 0.10) 0%,
+        transparent 60%
+      );
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-image:
+      radial-gradient(
+        100vw 45vh at 0% 22%,
+        rgba(212, 168, 83, 0.095) 0%,
+        rgba(212, 168, 83, 0.03) 30%,
+        transparent 60%
+      ),
+      radial-gradient(
+        95vw 40vh at 100% 76%,
+        rgba(245, 240, 232, 0.05) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        80vw 35vh at 0% 100%,
+        rgba(122, 74, 0, 0.085) 0%,
+        transparent 60%
+      );
+  }
 }
 
 /* Subtle grain texture overlay */
@@ -269,102 +348,8 @@ body::before {
   opacity: 0.25;
 }
 
-/* ══ Ambient gradient atmosphere — champagne edge glow ══
-   Two fixed-position layers rendered as <div>s in ClientAppShell:
-   - .ambient-gradient-back: behind content (z-index: -1), provides the
-     full-bleed warm gradient backdrop
-   - .ambient-gradient-front: above content (z-index: 9999) with
-     mix-blend-mode: screen so the halo shines through any solid section
-     background without darkening text. pointer-events: none on both. */
-.ambient-gradient-back,
-.ambient-gradient-front {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-}
-.ambient-gradient-back {
-  z-index: -1;
-  background:
-    radial-gradient(
-      55vw 70vh at 0% 32%,
-      rgba(212, 168, 83, 0.10) 0%,
-      rgba(212, 168, 83, 0.028) 30%,
-      transparent 65%
-    ),
-    radial-gradient(
-      52vw 65vh at 100% 70%,
-      rgba(245, 240, 232, 0.055) 0%,
-      rgba(245, 240, 232, 0.018) 30%,
-      transparent 65%
-    ),
-    radial-gradient(
-      40vw 45vh at 50% -8%,
-      rgba(212, 168, 83, 0.04) 0%,
-      transparent 55%
-    );
-}
-/* No screen-blend overlay: a viewport-wide mix-blend-mode forces a full
-   composite repaint on every scroll event, which is the biggest single
-   cost on lower-end devices. The back-layer gradient alone delivers the
-   ambient warmth at near-zero render cost. */
-.ambient-gradient-front { display: none; }
-@media (max-width: 1024px) {
-  .ambient-gradient-back {
-    background:
-      radial-gradient(
-        70vw 55vh at 0% 28%,
-        rgba(212, 168, 83, 0.085) 0%,
-        rgba(212, 168, 83, 0.025) 30%,
-        transparent 62%
-      ),
-      radial-gradient(
-        65vw 50vh at 100% 72%,
-        rgba(245, 240, 232, 0.045) 0%,
-        transparent 62%
-      );
-  }
-  .ambient-gradient-front {
-    background:
-      radial-gradient(
-        65vw 50vh at -8% 26%,
-        rgba(212, 168, 83, 0.04) 0%,
-        transparent 55%
-      ),
-      radial-gradient(
-        60vw 45vh at 108% 74%,
-        rgba(245, 240, 232, 0.03) 0%,
-        transparent 55%
-      );
-  }
-}
-@media (max-width: 640px) {
-  .ambient-gradient-back {
-    background:
-      radial-gradient(
-        90vw 45vh at 0% 22%,
-        rgba(212, 168, 83, 0.075) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        85vw 42vh at 100% 78%,
-        rgba(245, 240, 232, 0.04) 0%,
-        transparent 60%
-      );
-  }
-  .ambient-gradient-front {
-    background:
-      radial-gradient(
-        80vw 42vh at -12% 24%,
-        rgba(212, 168, 83, 0.035) 0%,
-        transparent 55%
-      ),
-      radial-gradient(
-        75vw 40vh at 112% 76%,
-        rgba(245, 240, 232, 0.025) 0%,
-        transparent 55%
-      );
-  }
-}
+/* Ambient gradient is painted directly on body{} above with
+   background-attachment: fixed. No additional layers needed. */
 
 ::selection {
   background: var(--brand-accent);

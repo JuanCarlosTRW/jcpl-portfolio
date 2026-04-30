@@ -14,7 +14,7 @@ export default function ProblemGrid() {
     { icon: RefreshCw, headline: t.problem3Title, description: t.problem3Desc },
   ];
   return (
-    <section id="reality" className="py-16 md:py-24" style={{ background: "#0D0B09" }}>
+    <section id="reality" className="py-16 md:py-24">
       {/* Header */}
       <div className="text-center px-6">
         <span

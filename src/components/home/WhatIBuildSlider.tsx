@@ -89,7 +89,6 @@ export default function WhatIBuildSlider() {
     <section
       id="services"
       className="services-stack-section"
-      style={{ background: "#0D0B09" }}
     >
       <div className="text-center mb-12 px-6">
         <p

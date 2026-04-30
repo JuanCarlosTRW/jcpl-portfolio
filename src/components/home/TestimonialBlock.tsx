@@ -31,7 +31,7 @@ export default function TestimonialBlock() {
       />
 
       {/* See Results link */}
-      <div className="text-center pb-16" style={{ background: "#0D0B09" }}>
+      <div className="text-center pb-16">
         <a
           href="#outcomes"
           style={{

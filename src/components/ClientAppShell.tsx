@@ -27,7 +27,6 @@ function SkipToContent() {
 export default function ClientAppShell({ children }: { children: ReactNode }) {
   return (
     <LocaleProvider>
-      <div className="ambient-gradient-back" aria-hidden="true" />
       <SkipToContent />
       <ScrollProgressBar />
       <SectionLabelAnimator />
@@ -41,7 +40,6 @@ export default function ClientAppShell({ children }: { children: ReactNode }) {
         <BackToTop />
         <SpeedPopup />
       </SmoothScrollProvider>
-      <div className="ambient-gradient-front" aria-hidden="true" />
     </LocaleProvider>
   );
 }
