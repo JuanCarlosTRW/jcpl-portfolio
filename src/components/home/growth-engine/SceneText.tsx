@@ -3,83 +3,57 @@
 import { motion, useTransform, type MotionValue } from "motion/react";
 import type { Scene } from "./types";
 import { ACCENT_HEX } from "./types";
+import { getSceneOpacity, getSceneLocalProgress } from "./sceneOpacity";
+import { SCENE_FADE, TOTAL_SCENES } from "./sceneData";
 
 interface Props {
   scene: Scene;
   progress: MotionValue<number>;
 }
 
-const FADE = 0.05;
-
 export default function SceneText({ scene, progress }: Props) {
-  const { start, end } = scene;
-  const mid = (start + end) / 2;
+  const { index } = scene;
 
-  const opacity = useTransform(
-    progress,
-    [start - FADE, start, end, end + FADE],
-    [0, 1, 1, 0]
+  const opacity = useTransform(progress, (p) =>
+    getSceneOpacity(p, index, TOTAL_SCENES, SCENE_FADE)
   );
 
-  const y = useTransform(
-    progress,
-    [start - FADE, start, end, end + FADE],
-    [40, 0, 0, -40]
+  // Local progress within the scene's segment, 0 → 1.
+  // Drives a small y motion: incoming from below, exits up.
+  const localT = useTransform(progress, (p) =>
+    getSceneLocalProgress(p, index, TOTAL_SCENES)
   );
+  const y = useTransform(localT, (t) => 24 - 48 * t);
 
-  const blurPx = useTransform(
-    progress,
-    [start - FADE, start, end, end + FADE],
-    [12, 0, 0, 12]
-  );
-  const filter = useTransform(blurPx, (v) => `blur(${v}px)`);
+  // Blur is driven by opacity itself: blurred when invisible, sharp when visible.
+  const filter = useTransform(opacity, (o) => `blur(${(1 - o) * 8}px)`);
 
-  const scale = useTransform(progress, [start, mid, end], [0.96, 1, 1.04]);
+  // Hide entirely when effectively invisible — keeps inactive headlines out
+  // of the accessibility tree and prevents any sub-pixel ghost paints.
+  const visibility = useTransform(opacity, (o) => (o < 0.01 ? "hidden" : "visible"));
 
-  const accentBg =
-    scene.accent === "cyan"
-      ? `${ACCENT_HEX.cyan}22`
-      : scene.accent === "duo"
-      ? `${ACCENT_HEX.gold}22`
-      : `${ACCENT_HEX.gold}22`;
-
-  const accentBorder =
-    scene.accent === "cyan"
-      ? `${ACCENT_HEX.cyan}55`
-      : `${ACCENT_HEX.gold}55`;
-
-  const accentText =
-    scene.accent === "cyan" ? ACCENT_HEX.cyan : ACCENT_HEX.gold;
-
+  // Only the final scene is interactive (CTA). Others are pointer-events: none
+  // even when faintly visible during a transition.
   const isFinal = scene.cta != null;
+  const pointerEvents = useTransform(opacity, (o) =>
+    isFinal && o > 0.5 ? "auto" : "none"
+  );
 
   return (
     <motion.div
-      className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center px-6 sm:px-10"
+      aria-hidden={isFinal ? undefined : true}
+      className="absolute inset-0 z-40 flex items-center justify-center px-6 sm:px-10"
       style={{
         opacity,
         y,
-        scale,
         filter,
+        visibility,
+        pointerEvents,
         willChange: "opacity, transform, filter",
+        contain: "layout paint",
       }}
     >
       <div className="mx-auto w-full max-w-[1100px] text-center">
-        <div
-          className="mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
-          style={{
-            backgroundColor: accentBg,
-            borderColor: accentBorder,
-            color: accentText,
-          }}
-        >
-          <span
-            className="inline-block h-1.5 w-1.5 rounded-full"
-            style={{ backgroundColor: accentText, boxShadow: `0 0 10px ${accentText}` }}
-          />
-          Stage {String(scene.index + 1).padStart(2, "0")} / 07
-        </div>
-
         <h2
           className="text-[clamp(36px,7vw,96px)] font-[800] leading-[0.98] tracking-[-0.025em] text-white"
           style={{ textShadow: `0 0 60px rgba(0,0,0,0.6)` }}
@@ -102,7 +76,7 @@ export default function SceneText({ scene, progress }: Props) {
         {isFinal && scene.cta && (
           <a
             href={scene.cta.href}
-            className="pointer-events-auto mt-10 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-semibold transition-transform hover:scale-[1.03]"
+            className="mt-10 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-semibold transition-transform hover:scale-[1.03]"
             style={{
               backgroundColor: ACCENT_HEX.gold,
               color: "#0A0E1A",

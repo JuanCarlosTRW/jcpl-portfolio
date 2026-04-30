@@ -40,11 +40,6 @@ function SectionRow({ local, s }: SectionRowProps) {
 
 export default function WebsiteWireframe({ scene, progress }: Props) {
   const local = useTransform(progress, [scene.start, scene.end], [0, 1]);
-  const opacity = useTransform(
-    progress,
-    [scene.start - 0.05, scene.start, scene.end, scene.end + 0.05],
-    [0, 1, 1, 0]
-  );
   const chromeOp = useTransform(local, [0, 0.1], [0, 1]);
   const ctaBgOp = useTransform(local, [0.15, 0.3], [0, 1]);
   const ctaTextOp = useTransform(local, [0.18, 0.35], [0, 1]);
@@ -59,7 +54,6 @@ export default function WebsiteWireframe({ scene, progress }: Props) {
       preserveAspectRatio="xMidYMid meet"
       className="absolute inset-0 z-30 h-full w-full"
       aria-hidden="true"
-      style={{ opacity }}
     >
       <defs>
         <linearGradient id="ww-section" x1="0" y1="0" x2="0" y2="1">

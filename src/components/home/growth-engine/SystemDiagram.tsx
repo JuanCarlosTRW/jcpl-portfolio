@@ -101,11 +101,6 @@ function SystemEdge({ local, ax, ay, bx, by, i }: EdgeProps) {
 
 export default function SystemDiagram({ scene, progress }: Props) {
   const local = useTransform(progress, [scene.start, scene.end], [0, 1]);
-  const opacity = useTransform(
-    progress,
-    [scene.start - 0.05, scene.start, scene.end, scene.end + 0.05],
-    [0, 1, 1, 0]
-  );
 
   const haloOp = useTransform(local, [0.3, 1], [0, 0.5]);
   const ringOp = useTransform(local, [0.5, 1], [0, 0.4]);
@@ -116,7 +111,6 @@ export default function SystemDiagram({ scene, progress }: Props) {
       preserveAspectRatio="xMidYMid slice"
       className="absolute inset-0 z-30 h-full w-full"
       aria-hidden="true"
-      style={{ opacity }}
     >
       <defs>
         <radialGradient id="sys-halo" cx="50%" cy="50%" r="50%">

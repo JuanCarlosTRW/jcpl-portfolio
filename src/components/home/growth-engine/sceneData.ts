@@ -1,12 +1,13 @@
 import type { Scene } from "./types";
 
-const STEP = 1 / 7;
-const OVERLAP = 0.06;
+export const TOTAL_SCENES = 7;
+
+const STEP = 1 / TOTAL_SCENES;
 
 function range(i: number) {
   return {
-    start: Math.max(0, i * STEP - OVERLAP),
-    end: Math.min(1, (i + 1) * STEP + OVERLAP),
+    start: i * STEP,
+    end: (i + 1) * STEP,
   };
 }
 
@@ -78,3 +79,4 @@ export const SCENES: Scene[] = [
 ];
 
 export const SCROLL_DURATION_VH = 7;
+export const SCENE_FADE = 0.035;

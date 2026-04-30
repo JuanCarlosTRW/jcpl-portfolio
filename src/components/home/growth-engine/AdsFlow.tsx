@@ -64,11 +64,6 @@ function ConversionTrail({ local, q, i }: TrailProps) {
 
 export default function AdsFlow({ scene, progress }: Props) {
   const local = useTransform(progress, [scene.start, scene.end], [0, 1]);
-  const opacity = useTransform(
-    progress,
-    [scene.start - 0.05, scene.start, scene.end, scene.end + 0.05],
-    [0, 1, 1, 0]
-  );
   const targetOp = useTransform(local, [0.4, 1], [0, 1]);
   const targetGlow = useTransform(local, [0.4, 1], [0, 0.7]);
   const targetGlowFaint = useTransform(local, [0.4, 1], [0, 0.45]);
@@ -80,7 +75,6 @@ export default function AdsFlow({ scene, progress }: Props) {
       preserveAspectRatio="xMidYMid slice"
       className="absolute inset-0 z-30 h-full w-full"
       aria-hidden="true"
-      style={{ opacity }}
     >
       <defs>
         <radialGradient id="af-target" cx="50%" cy="50%" r="50%">

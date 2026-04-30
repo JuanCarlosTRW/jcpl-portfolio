@@ -81,11 +81,6 @@ function Channel({ local, c, i }: ChannelProps) {
 
 export default function AutomationPipeline({ scene, progress }: Props) {
   const local = useTransform(progress, [scene.start, scene.end], [0, 1]);
-  const opacity = useTransform(
-    progress,
-    [scene.start - 0.05, scene.start, scene.end, scene.end + 0.05],
-    [0, 1, 1, 0]
-  );
   const trackDash = useTransform(local, [0, 0.4], [120, 0]);
   const aiHaloOp = useTransform(local, [0.3, 1], [0, 0.7]);
   const aiCoreOp = useTransform(local, [0.3, 1], [0, 1]);
@@ -97,7 +92,6 @@ export default function AutomationPipeline({ scene, progress }: Props) {
       preserveAspectRatio="xMidYMid slice"
       className="absolute inset-0 z-30 h-full w-full"
       aria-hidden="true"
-      style={{ opacity }}
     >
       <defs>
         <radialGradient id="ap-ai" cx="50%" cy="50%" r="50%">
