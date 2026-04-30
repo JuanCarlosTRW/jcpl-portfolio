@@ -13,7 +13,7 @@ const MarketingShowcase = dynamic(() => import("@/components/home/MarketingShowc
 const ProofStrip = dynamic(() => import("@/components/home/ProofStrip"));
 const ProblemGrid = dynamic(() => import("@/components/home/ProblemGrid"));
 const WhatIBuildSlider = dynamic(() => import("@/components/home/WhatIBuildSlider"));
-const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
+const CaseStudyMarqueeSection = dynamic(() => import("@/components/home/CaseStudyMarqueeSection"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const StickyMobileCTA = dynamic(() => import("@/components/home/StickyMobileCTA"));
@@ -55,8 +55,8 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* 5. Testimonials (id="testimonials") */}
-      <TestimonialBlock />
+      {/* 5. Case Study Proof Marquee (id="testimonials") */}
+      <CaseStudyMarqueeSection />
 
       <SectionDivider />
 
