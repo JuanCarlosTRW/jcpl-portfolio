@@ -120,17 +120,51 @@ export default function Footer() {
           </div>
         </div>
 
-        <div
-          className="mt-8 pt-6 border-t text-center"
-          style={{ borderColor: "#2A2318" }}
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="footer-wordmark"
+        style={{
+          width: "100%",
+          overflow: "hidden",
+          padding: "0 16px 24px",
+          marginTop: 24,
+          lineHeight: 0.82,
+          textAlign: "center",
+          userSelect: "none",
+        }}
+      >
+        <span
+          className="footer-wordmark-text"
+          style={{
+            display: "block",
+            fontFamily: "var(--font-cormorant), Georgia, serif",
+            fontWeight: 400,
+            fontSize: "clamp(64px, 18.5vw, 320px)",
+            letterSpacing: "-0.02em",
+            color: "#F5F0E8",
+            background: "linear-gradient(180deg, #F5F0E8 0%, #D4A853 100%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            whiteSpace: "nowrap",
+          }}
         >
-          <p className="text-[12px] mb-2" style={{ color: "#756D63" }}>
-            {fe.operatedFrom}
-          </p>
-          <p className="text-[13px]" style={{ color: "#756D63" }}>
-            © {new Date().getFullYear()} Client Growth. {footer.rights}.
-          </p>
-        </div>
+          Client Growth
+        </span>
+      </div>
+
+      <div
+        className="border-t text-center"
+        style={{ borderColor: "#2A2318", padding: "20px max(24px, 5vw)" }}
+      >
+        <p className="text-[12px] mb-2" style={{ color: "#756D63" }}>
+          {fe.operatedFrom}
+        </p>
+        <p className="text-[13px]" style={{ color: "#756D63" }}>
+          © {new Date().getFullYear()} Client Growth. {footer.rights}.
+        </p>
       </div>
     </footer>
   );
