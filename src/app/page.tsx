@@ -11,11 +11,9 @@ export const metadata: Metadata = {
 /* Dynamic imports — everything below the fold */
 const MarketingShowcase = dynamic(() => import("@/components/home/MarketingShowcase"));
 const ProofStrip = dynamic(() => import("@/components/home/ProofStrip"));
-const FeaturedCaseStudy = dynamic(() => import("@/components/home/FeaturedCaseStudy"));
 const ProblemGrid = dynamic(() => import("@/components/home/ProblemGrid"));
 const WhatIBuildSlider = dynamic(() => import("@/components/home/WhatIBuildSlider"));
 const TestimonialBlock = dynamic(() => import("@/components/home/TestimonialBlock"));
-const PricingStatement = dynamic(() => import("@/components/home/PricingStatement"));
 const DiagnosticForm = dynamic(() => import("@/components/home/DiagnosticForm"));
 const FAQ = dynamic(() => import("@/components/sections/FAQ"));
 const StickyMobileCTA = dynamic(() => import("@/components/home/StickyMobileCTA"));
@@ -47,32 +45,22 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* 3. Proven Outcomes (id="outcomes") */}
-      <FeaturedCaseStudy />
-
-      <SectionDivider />
-
-      {/* 4. The Problem (id="reality") */}
+      {/* 3. The Problem (id="reality") */}
       <ProblemGrid />
 
       <SectionDivider />
 
-      {/* 5. What I Build (id="services") */}
+      {/* 4. What I Build (id="services") */}
       <WhatIBuildSlider />
 
       <SectionDivider />
 
-      {/* 9. Testimonials (id="testimonials") */}
+      {/* 5. Testimonials (id="testimonials") */}
       <TestimonialBlock />
 
       <SectionDivider />
 
-      {/* 10. Pricing (id="pricing") */}
-      <PricingStatement />
-
-      <SectionDivider />
-
-      {/* 11. The Diagnostic + Form (id="book-call") */}
+      {/* 6. The Diagnostic + Form (id="book-call") */}
       <DiagnosticForm />
 
       <SectionDivider />

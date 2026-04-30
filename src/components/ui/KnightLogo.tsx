@@ -89,52 +89,47 @@ export default function KnightLogo({ size = 36, spinInterval = 8000 }: KnightLog
     const fillLight = new THREE.DirectionalLight(0xffd580, 2.5);
     fillLight.position.set(0, 1, 6);
     const sparkle = new THREE.PointLight(0xffe090, 5.0, 8);
+    sparkle.position.set(0, 1.5, 1);
     scene.add(ambient, keyLight, rimLight, fillLight, sparkle);
 
+    // First static render so the knight appears immediately.
+    renderer.render(scene, camera);
+
+    // Idle until the next spin window, then run RAF only for the spin
+    // duration. This keeps GPU work to ~1.4s every 8s instead of every
+    // frame, which is a measurable scroll-perf win on the homepage.
     let rafId = 0;
-    let lastSpinAt = performance.now();
-    let spinning = false;
-    let spinStart = 0;
-    let spinFrom = 0;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let baseRotY = 0;
-    let t = 0;
 
-    const tick = (now: number) => {
-      t += 0.012;
-
-      if (!reducedMotion) {
-        if (!spinning && now - lastSpinAt >= spinInterval) {
-          spinning = true;
-          spinStart = now;
-          spinFrom = baseRotY;
-          lastSpinAt = now;
-        }
-        if (spinning) {
-          const progress = Math.min((now - spinStart) / SPIN_DURATION_MS, 1);
-          baseRotY = spinFrom + easeInOutQuad(progress) * Math.PI * 2;
-          if (progress >= 1) {
-            baseRotY = spinFrom + Math.PI * 2;
-            spinning = false;
-          }
-        }
+    const runSpin = () => {
+      if (reducedMotion) return;
+      const spinStart = performance.now();
+      const spinFrom = baseRotY;
+      const step = (now: number) => {
+        const progress = Math.min((now - spinStart) / SPIN_DURATION_MS, 1);
+        baseRotY = spinFrom + easeInOutQuad(progress) * Math.PI * 2;
         knight.rotation.y = baseRotY;
-        knight.rotation.x = Math.sin(t * 0.4) * 0.03;
-        sparkle.position.set(
-          Math.sin(t * 0.7) * 2.5,
-          1.5 + Math.sin(t * 0.4) * 0.8,
-          Math.cos(t * 0.7) * 2.5 + 1
-        );
-      }
-
-      renderer.render(scene, camera);
-      rafId = requestAnimationFrame(tick);
+        renderer.render(scene, camera);
+        if (progress < 1) {
+          rafId = requestAnimationFrame(step);
+        } else {
+          baseRotY = spinFrom + Math.PI * 2;
+          knight.rotation.y = baseRotY;
+          renderer.render(scene, camera);
+          timeoutId = setTimeout(runSpin, spinInterval);
+        }
+      };
+      rafId = requestAnimationFrame(step);
     };
 
-    renderer.render(scene, camera);
-    rafId = requestAnimationFrame(tick);
+    if (!reducedMotion) {
+      timeoutId = setTimeout(runSpin, spinInterval);
+    }
 
     return () => {
-      cancelAnimationFrame(rafId);
+      if (rafId) cancelAnimationFrame(rafId);
+      if (timeoutId) clearTimeout(timeoutId);
       geometry.dispose();
       material.dispose();
       renderer.dispose();
